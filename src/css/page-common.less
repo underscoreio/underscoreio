@@ -1,0 +1,42 @@
+#content {
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    margin: (@line-height-computed / 2) auto;
+  }
+}
+
+h1 {
+  margin-top: 0;
+  color: @underscore-accent3; font-size: 3em;
+}
+
+.band {
+  padding: (1.5 * @line-height-computed) 0;
+
+  > .container {
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.footnotes {
+  border-top: 1px solid @hr-border;
+  border-bottom: 1px solid @hr-border;
+  margin: @line-height-computed 0;
+  padding: @line-height-computed 0 @line-height-computed/2;
+  font-size: @font-size-base * 0.8;
+}
+
+.course-outline {
+  ul ul {
+    margin-bottom: @line-height-computed;
+  }
+}

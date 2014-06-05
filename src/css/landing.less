@@ -1,0 +1,37 @@
+html.landing {
+  .navbar {
+    background: transparent;
+  }
+
+  .hero {
+    background: @underscore-base2;
+    background-size: cover;
+    color: @underscore-text2;
+
+    .lead {
+      text-align: center;
+    }
+  }
+
+  .promo {
+    padding: (1.5 * @line-height-computed) 0;
+    background: @underscore-base3;
+    color: @underscore-text3;
+
+    h2 {
+      text-align: center;
+      margin-bottom: @line-height-computed;
+    }
+
+    .row {
+      .description {
+        padding: @line-height-computed;
+        background: #333;
+
+        > :first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
