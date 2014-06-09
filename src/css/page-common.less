@@ -18,13 +18,15 @@ h1 {
 .band {
   padding: (1.5 * @line-height-computed) 0;
 
-  > .container {
-    > h1:first-child,
-    > h2:first-child,
-    > h3:first-child {
-      margin-top: 0;
-    }
-  }
+  // No top margin on headings in bands:
+  > .container > h1:first-child { margin-top: 0; }
+  > .container > h2:first-child { margin-top: 0; }
+  > .container > h3:first-child { margin-top: 0; }
+
+  // No top margin on headings in columns in bands:
+  > .container > .row:first-child > div > h1:first-child { margin-top: 0; }
+  > .container > .row:first-child > div > h2:first-child { margin-top: 0; }
+  > .container > .row:first-child > div > h3:first-child { margin-top: 0; }
 }
 
 .footnotes {

@@ -15,6 +15,25 @@ html.landing {
       margin: 0;
       padding: 0;
     }
+
+    .services-link {
+      display: block;
+
+      color: @underscore-text2;
+
+      .icon {
+        border: 1px solid transparent;
+      }
+
+      &:hover {
+        color: darken(@underscore-text2, 20%);
+        text-decoration: none;
+
+        .icon {
+          border: 1px solid darken(@underscore-text2, 20%);
+        }
+      }
+    }
   }
 
   .promo.band {

@@ -39,38 +39,46 @@ pageClass   : landing
 
   <div class="services band">
     <div class="container">
-      <!-- h2>Underscore offers</h2 -->
       <div class="row">
         <div class="col-xs-6 col-sm-3">
-          <p class="icon icon-content"></p>
+          <a href="#courses" class="services-link">
+            <p class="icon"></p>
 
-          <p class="text-center">
-            Online books and videos
-          </p>
+            <p class="text-center">
+              Online books and videos
+            </p>
+          </a>
         </div>
 
         <div class="col-xs-6 col-sm-3">
-          <p class="icon icon-mentoring"></p>
+          <a href="#mentoring" class="services-link">
+            <p class="icon"></p>
 
-          <p class="text-center">
-            One-on-one and team mentoring
-          </p>
+            <p class="text-center">
+              Mentoring for teams<br>
+              and individuals
+            </p>
+          </a>
         </div>
 
         <div class="col-xs-6 col-sm-3">
-          <p class="icon icon-training"></p>
+          <a href="#training" class="services-link">
+            <p class="icon"></p>
 
-          <p class="text-center">
-            Face-to-face training
-          </p>
+            <p class="text-center">
+              Face-to-face training
+            </p>
+          </a>
         </div>
 
         <div class="col-xs-6 col-sm-3">
-          <p class="icon icon-consultancy"></p>
+          <a href="#consulting" class="services-link">
+            <p class="icon"></p>
 
-          <p class="text-center">
-            Consultancy and support
-          </p>
+            <p class="text-center">
+              Consultancy and support
+            </p>
+          </a>
         </div>
       </div>
     </div>
@@ -83,9 +91,16 @@ pageClass   : landing
 
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 description">
-        <h3>Macros for the Rest of Us</h3>
+        <h3>Promo course title</h3>
 
-        <p>A gentle introduction to the world of Scala Macros, including simple hands-on samples to get you started with Scala's newest feature.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</p>
+
+        <p>
+          <a class="btn btn-primary" href="/courses/lorem-ipsum.html">Download now</a>
+        </p>
       </div>
     </div>
   </div>
@@ -93,19 +108,23 @@ pageClass   : landing
 
 <div id="mentoring" class="mentoring band">
   <div class="container">
-    <h2>Mentoring</h2>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 description">
+        <h2>Mentoring</h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-    <p>
-      <a class="btn btn-primary" href="/bookings.html?course=mentoring">Book mentoring</a>
-      <a class="btn btn-link"    href="/contact.html?subject=Mentoring">Find out more</a>
-    </p>
+        <p>
+          <a class="btn btn-primary" href="/bookings.html?course=mentoring">Book mentoring</a>
+          <a class="btn btn-link"    href="/contact.html?subject=Mentoring">Find out more</a>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -113,15 +132,7 @@ pageClass   : landing
   <div class="container">
     <h2>Our courses</h2>
 
-    <div class="row">
-      <div class="col-sm-6">
-        <p>We offer face-to-face training in all of the courses below. We are also releasing many of our courses as downloadable books for self-directed learning.</p>
-      </div>
-
-      <div class="col-sm-6">
-        <p>Many of our shorter courses are mix-and-match. For example, our <em>essentials</em> workshops last between half a day and a day, and can easily be taken in groups of two or four.</p>
-      </div>
-    </div>
+    <p>We offer face-to-face training in all of the courses below. We are also releasing many of our courses as downloadable books for self-directed learning. Many of our shorter courses are mix-and-match. For example, our Essentials workshops last between half a day and a day, and can easily be taken in groups of two or four.</p>
 
     <div class="row">
       <div class="col-sm-6">
@@ -136,7 +147,7 @@ pageClass   : landing
 
         <p>Learn how to develop idiomatic, maintainable Scala code. Blend object oriented and functional programming to perform elegant, declarative data manipulation. Master powerful concepts such as implicits to produce expressige domain specific languages.</p>
 
-        <p><a class="btn btn-info" href="/courses/core-scala.html">Downloads and bookings</a></p>
+        <p><a class="btn btn-primary" href="/courses/core-scala.html">Downloads and bookings</a></p>
       </div>
 
       <div class="col-sm-6">
@@ -151,7 +162,45 @@ pageClass   : landing
 
         <p>Learn how play structures web sites using routes, controllers, and actions. Quickly create HTML5 web pages using templates, forms, and Javascript and CSS. Create lightning fast asynchronous APIs using futures and JSON libraries. Use web sockets and chunked encoding to communicate with clients in real time.</p>
 
-        <p><a class="btn btn-info" href="/courses/core-scala.html">Downloads and bookings</a></p>
+        <p><a class="btn btn-primary" href="/courses/core-scala.html">Downloads and bookings</a></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Essential Lift</h3>
+
+        <p>
+          <strong>Level:</strong> Beginner to intermediate<br>
+          <strong>Length:</strong> 1 day
+        </p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p><a class="btn btn-primary" href="/courses/essential-lift.html">Downloads and bookings</a></p>
+      </div>
+
+      <div class="col-sm-6">
+        <h3>Essential Slick</h3>
+
+        <p>
+          <strong>Level:</strong> Beginner to intermediate<br>
+          <strong>Length:</strong> 1 day
+        </p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <p><a class="btn btn-primary" href="/courses/essential-play.html">Downloads and bookings</a></p>
       </div>
     </div>
 
@@ -159,6 +208,11 @@ pageClass   : landing
       <div class="col-sm-6">
         <h3>Essential Scalaz</h3>
 
+        <p>
+          <strong>Level:</strong> Intermediate<br>
+          <strong>Length:</strong> 1 day
+        </p>
+
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -166,11 +220,16 @@ pageClass   : landing
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <p><a class="btn btn-info" href="/courses/essential-scalaz.html">Downloads and bookings</a></p>
+        <p><a class="btn btn-primary" href="/courses/essential-scalaz.html">Downloads and bookings</a></p>
       </div>
 
       <div class="col-sm-6">
-        <h3>Essential Shapeless</h3>
+        <h3>Essential Lorem</h3>
+
+        <p>
+          <strong>Level:</strong> Intermediate to advanced<br>
+          <strong>Length:</strong> 1 day
+        </p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -179,13 +238,18 @@ pageClass   : landing
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <p><a class="btn btn-info" href="/courses/essential-shapeless.html">Downloads and bookings</a></p>
+        <p><a class="btn btn-primary" href="/courses/lorem-ipsum.html">Downloads and bookings</a></p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <h3>Advanced Lorem</h3>
+        <h3>Advanced Ipsum</h3>
+
+        <p>
+          <strong>Level:</strong> Intermediate<br>
+          <strong>Length:</strong> 1 day
+        </p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -194,11 +258,16 @@ pageClass   : landing
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <p><a class="btn btn-info" href="/courses/lorem-ipsum.html">Downloads and bookings</a></p>
+        <p><a class="btn btn-primary" href="/courses/lorem-ipsum.html">Downloads and bookings</a></p>
       </div>
 
       <div class="col-sm-6">
-        <h3>Advanced Ipsum</h3>
+        <h3>Advanced Dolor</h3>
+
+        <p>
+          <strong>Level:</strong> Intermediate<br>
+          <strong>Length:</strong> 1 day
+        </p>
 
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -207,7 +276,7 @@ pageClass   : landing
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <p><a class="btn btn-info" href="/courses/lorem-ipsum.html">Downloads and bookings</a></p>
+        <p><a class="btn btn-primary" href="/courses/lorem-ipsum.html">Downloads and bookings</a></p>
       </div>
     </div>
   </div>
