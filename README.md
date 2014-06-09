@@ -28,8 +28,6 @@
  - DJG - Core Scala course page
  - DJG - Core Play course page
  - Think of other courses and add pages
- - DJG - Book training page
-    - Booking form as per mockups
  - Newsletter signup page
     - Signup form as per mockups
 
@@ -49,3 +47,8 @@
     - Overview
     - Objectives
     - Outline
+
+# DONE
+
+ - Book training page
+    - Booking form as per mockups

@@ -4,16 +4,20 @@ html.landing {
   }
 
   .hero {
-    background: @underscore-base2;
+    background-color: @underscore-base2;
+    background-image: url(/images/hero-bg.jpg);
     background-size: cover;
+    background-position: center center;
     color: @underscore-text2;
 
     .lead {
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
   }
 
-  .promo {
+  .promo.band {
     padding: (1.5 * @line-height-computed) 0;
     background: @underscore-base3;
     color: @underscore-text3;
@@ -33,5 +37,14 @@ html.landing {
         }
       }
     }
+  }
+
+  .mentoring.band {
+    background-color: @underscore-base2;
+  }
+
+  .consulting.band {
+    background-color: @underscore-base3;
+    color: @underscore-text3;
   }
 }
