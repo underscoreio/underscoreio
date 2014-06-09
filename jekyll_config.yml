@@ -96,7 +96,7 @@ toc:
 
 url         : http://underscore.io
 
-source      : src
+source      : src/html
 posts       : _posts
 layouts     : _layouts
 includes    : _includes

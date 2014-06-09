@@ -21,18 +21,15 @@ module.exports = (grunt) ->
           ]
           yuicompress: true
         files:
-          "underscoreio/css/screen.css": "src/css/screen.less"
-          "underscoreio/css/print.css" : "src/css/print.less"
+          "underscoreio/css/screen.css" : "src/css/screen.less"
+          "underscoreio/css/print.css"  : "src/css/print.less"
 
     uglify:
       site:
         files:
-          "underscoreio/js/site.js": [
-            "bower_components/jquery/jquery.js"
-            "bower_components/bootstrap/js/collapse.js"
-            "bower_components/bootstrap/js/scrollspy.js"
-            "bower_components/bootstrap/js/button.js"
-            "bower_components/bootstrap/js/affix.js"
+          "underscoreio/js/site.js" : [
+            "bower_components/jquery/dist/jquery.js"
+            "bower_components/underscore/underscore.js"
             "bower_components/respond/respond.src.js"
             "src/js/site.js"
           ]
