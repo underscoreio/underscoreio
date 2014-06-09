@@ -25,10 +25,10 @@
           - Paras
     - Consultancy and support
        - Paragraph about Underscore Consulting and link to site
- - Core Scala course page
- - Core Play course page
+ - DJG - Core Scala course page
+ - DJG - Core Play course page
  - Think of other courses and add pages
- - Book training page
+ - DJG - Book training page
     - Booking form as per mockups
  - Newsletter signup page
     - Signup form as per mockups
