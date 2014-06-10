@@ -4,34 +4,49 @@ html.landing {
   }
 
   .hero {
-    background: @underscore-base2;
+    background-color: @underscore-base2;
+    background-image: url(/images/hero-bg.jpg);
     background-size: cover;
+    background-position: center center;
     color: @underscore-text2;
 
     .lead {
       text-align: center;
-    }
-  }
-
-  .promo {
-    padding: (1.5 * @line-height-computed) 0;
-    background: @underscore-base3;
-    color: @underscore-text3;
-
-    h2 {
-      text-align: center;
-      margin-bottom: @line-height-computed;
+      margin: 0;
+      padding: 0;
     }
 
-    .row {
-      .description {
-        padding: @line-height-computed;
-        background: #333;
+    .services-link {
+      display: block;
 
-        > :first-child {
-          margin-top: 0;
+      color: @underscore-text2;
+
+      .icon {
+        border: 1px solid transparent;
+      }
+
+      &:hover {
+        color: darken(@underscore-text2, 20%);
+        text-decoration: none;
+
+        .icon {
+          border: 1px solid darken(@underscore-text2, 20%);
         }
       }
     }
+  }
+
+  .promo.band {
+    background: @underscore-base3;
+    color: @underscore-text3;
+  }
+
+  .mentoring.band {
+    background-color: @underscore-base2;
+  }
+
+  .consulting.band {
+    background-color: @underscore-base3;
+    color: @underscore-text3;
   }
 }

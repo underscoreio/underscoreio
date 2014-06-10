@@ -30,6 +30,11 @@ module.exports = (grunt) ->
           "underscoreio/js/site.js" : [
             "bower_components/jquery/dist/jquery.js"
             "bower_components/underscore/underscore.js"
+            "bower_components/bootstrap/js/collapse.js"
+            "bower_components/bootstrap/js/scrollspy.js"
+            "bower_components/bootstrap/js/button.js"
+            "bower_components/bootstrap/js/affix.js"
+            "bower_components/masonry/dist/masonry.pkgd.js"
             "bower_components/respond/respond.src.js"
             "src/js/site.js"
           ]
