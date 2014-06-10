@@ -3,13 +3,12 @@ layout    : page
 pageClass : course
 ---
 
-<div class="pull-right" style="width: 160px; margin-left: 20px">
-  <div class="icon icon-scala"></div>
-</div>
-
 # Core Scala
 
 ## Course Overview
+
+**Level:** Beginner<br>
+**Length:** 2 days
 
 Our 2/3 day Core Scala course is aimed at experienced developers who are encountering Scala for the first time and want to understand how their knowledge of object-oriented and functional programming idioms carries over to and is deepened in this exciting new language. It covers Scala from basic syntax and language constructs, through its distinctive object-oriented characteristics and on to functional programming styles and pattern matching as applied to Scala's extensive collections framework. It also covers Scala's many facilities which support the creation of fluent interfaces and rich internal domain specific languages. The course has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
 

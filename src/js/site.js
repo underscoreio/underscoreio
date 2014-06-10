@@ -47,18 +47,8 @@ $('#bookings-form').each(function() {
   });
 });
 
-$("html.landing").each(function() {
-  var numColumns = 2;
-
-  $(window).on("resize", function() {
-    numColumns = $(window).width() > 480 ? 2 : 1;
-  });
-
-  console.log("start " + numColumns);
-
-  $("#courses .row").masonry({
-    itemSelector: '.col-sm-6',
-    columnWidth: ".col-sm-6",
-    transitionDuration: 0
-  });
+$(".masonry-sm-6").masonry({
+  itemSelector       : '.col-sm-6',
+  columnWidth        : '.col-sm-6',
+  transitionDuration : 0
 });
