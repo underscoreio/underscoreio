@@ -9,11 +9,14 @@ pageClass   : landing
 ?>
 {% endraw %}
 
-<h1>Book face-to-face training</h1>
+<h1>Enquire about face-to-face training</h1>
 
 <p>
-  Fill out the form below to book on-site face-to-face training with your developement team. Our training coordinator will get back to you as soon as possible. Alternatively you can contact us by email (<a href="mailto:hello@underscore.io">hello@underscore.io</a>) or phone (<a href="tel:+44203095 5332">+44 (0)20 3095 5332</a>).
-  </p>
+  Use the form below to enquire about on-site face-to-face training for your development team, or contact us by email (<a href="mailto:hello@underscore.io">hello@underscore.io</a>) or phone (<a href="tel:+44203095 5332">+44 (0)20 3095 5332</a>).
+</p>
+
+<p>
+You can choose from our standard course offerings, or we can create a curriculum customised to your team's unique training needs. We believe learning should never stop, so all of our on-site training is supported with free ongoing access to our online material.
 </p>
 
 <form id="bookings-form" method="post">
@@ -74,9 +77,18 @@ pageClass   : landing
           </label>
         </div>
       </div>
-    </div>
+
+      <div class="col-sm-12">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="course-other">
+            <input type="text" name="course-other-text" placeholder="Other (please specify)">
+          </label>
+        </div>
+      </div>
   </div>
 
+<!--
   <div class="form-group">
     <label>Roughly when would you like the training?</label>
 
@@ -95,9 +107,9 @@ pageClass   : landing
       &gt; 3 months
     </div>
   </div>
-
+-->
   <div class="form-group">
-    <label>How many people would you like to train?</label>
+    <label>How many people are on your team?</label>
 
     <div class="radio">
       <input type="radio" name="people" value="1-5">
@@ -116,7 +128,7 @@ pageClass   : landing
   </div>
 
   <div class="form-group">
-    <label>Where would you like the training to take place?</label>
+    <label>Where are you located?</label>
 
     <input type="text" class="form-control" name="location" placeholder="London, UK">
 
@@ -127,7 +139,7 @@ pageClass   : landing
   </div>
 
   <div class="form-group">
-    <label>Is there anything else we may need to know concerning the booking?</label>
+    <label>Is there anything else we should know about your training needs?</label>
 
     <textarea class="form-control" name="notes" rows="5"></textarea>
   </div>
