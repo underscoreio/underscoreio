@@ -31,6 +31,36 @@
  - Newsletter signup page
     - Signup form as per mockups
 
+ - Bookings form
+    - Language on booking form
+       - Emphasise choice, "meeting you unique requirements"
+       - Indicative pricing
+       - Less implied "you are buying now"
+       - More "contacting us to prescribe best combination of courses"
+    - Face-to-face training
+       - ...
+    - Online training
+       - Newsletter sign-up form
+       - ...
+    - Explain on-site and non-on-site training
+    - Rename "Core" to "Essential"
+    - ...
+ - Mentoring
+    - Answering emails
+    - Weekly reviews
+    - Pull requests
+    - Code quality reports
+    - Direct ot Ness ??
+
+ - Code review with one or two people around a machine.
+    - Management tends to want confidence:
+       - Go back to management to report positively on developers.
+    - ... ??
+
+ - Testing workshop
+
+ - Enia / Technical University of Lisbon
+
 # COURSE PAGE CHECKLIST
 
  - Page for each course
