@@ -6,6 +6,12 @@ pageClass   : landing
 {% raw %}
 <?php
 
+/*
+>
+<h1>This page contains PHP code.<br>It will not render correctly via Jekyll.</h1>
+<h2>Deploy the site to a staging environment to preview this page.</h2>
+*/
+
 // CONFIGURATION --------------------------------
 
 $courseOptions = Array(
@@ -14,6 +20,7 @@ $courseOptions = Array(
   "course-essential-scalaz"    => "Essential Scalaz",
   "course-essential-shapeless" => "Essential Shapeless",
   "course-essential-macros"    => "Essential Macros",
+  "course-mentoring"           => "Mentoring",
   "course-other"               => "Other (please specify)"
 );
 
@@ -101,15 +108,11 @@ endif;
 ?>
 {% endraw %}
 
-<h1>Enquire about face-to-face training</h1>
+<h1>Training enquiries</h1>
 
-<p>
-  Use the form below to enquire about on-site face-to-face training for your development team, or contact us by email (<a href="mailto:hello@underscore.io">hello@underscore.io</a>) or phone (<a href="tel:+44203095 5332">+44 (0)20 3095 5332</a>).
-</p>
+<p>Our wide variety of courses can be combined to suit any organisation's training needs. Use the form below or <a href="/contact.html">contact our team directly</a> to see how we can meet your requirements.</p>
 
-<p>
-You can choose from our standard course offerings, or we can create a curriculum customised to your team's unique training needs. We believe learning should never stop, so all of our on-site training is supported with free ongoing access to our online material.
-</p>
+<p>You can choose from our standard course offerings or request a curriculum customised to your team's unique training needs. We believe learning should never stop, so all of our on-site training is supported with free ongoing access to our online material.</p>
 
 <form id="bookings-form" method="post">
   <div class="form-group">

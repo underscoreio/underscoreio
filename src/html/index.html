@@ -25,7 +25,7 @@ pageClass   : landing
       <div class="row">
         <div class="col-sm-3 col-sm-offset-3">
           <p>
-            <a class="btn btn-info btn-block" href="/bookings.html">Book training</a>
+            <a class="btn btn-info btn-block" href="/enquiries.html">Book training</a>
           </p>
         </div>
         <div class="col-sm-3">
@@ -41,8 +41,8 @@ pageClass   : landing
     <div class="container">
       <div class="row">
         <div class="col-xs-6 col-sm-3">
-          <a href="#courses" class="services-link">
-            <p class="icon icon-content"></p>
+          <a href="#online" class="services-link">
+            <p class="icon icon-center icon-service-online"></p>
 
             <p class="text-center">
               Online books and videos
@@ -52,7 +52,7 @@ pageClass   : landing
 
         <div class="col-xs-6 col-sm-3">
           <a href="#mentoring" class="services-link">
-            <p class="icon icon-mentoring"></p>
+            <p class="icon icon-center icon-service-mentoring"></p>
 
             <p class="text-center">
               Mentoring for teams<br>
@@ -62,8 +62,8 @@ pageClass   : landing
         </div>
 
         <div class="col-xs-6 col-sm-3">
-          <a href="#courses" class="services-link">
-            <p class="icon icon-training"></p>
+          <a href="#training" class="services-link">
+            <p class="icon icon-center icon-service-training"></p>
 
             <p class="text-center">
               Face-to-face training
@@ -73,10 +73,11 @@ pageClass   : landing
 
         <div class="col-xs-6 col-sm-3">
           <a href="#consulting" class="services-link">
-            <p class="icon icon-consulting"></p>
+            <p class="icon icon-center icon-service-consulting"></p>
 
             <p class="text-center">
-              Consultancy and support
+              Consulting and<br>
+              enterprise support
             </p>
           </a>
         </div>
@@ -85,238 +86,144 @@ pageClass   : landing
   </div>
 </div>
 
-<div class="promo band">
+<div id="promo" class="band">
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
-        <h2>Free download: Lorem ipsum</h2>
+        <div class="icon icon-left icon-macro"></div>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.</p>
+        <h2>Free download: Essential macros</h2>
+
+        <p>Download a complete set of free annotated code examples demonstrating
+        how to get started with macros in Scala 2.11. Check out the accompanying talk,
+        <em>Macros for the rest of us</em>, at ScalaDays 2014.</p>
 
         <p>
-          <a class="btn btn-primary" href="/courses/lorem-ipsum.html">Download now</a>
+          <a class="btn btn-primary" href="/courses/essential-macros.html">Download now</a>
         </p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="clients band">
-  <div class="container">
-   <div class="row">
-     <div class="col-xs-6 col-sm-3">
-       <p class="text-center">BBC</p>
-     </div>
-     <div class="col-xs-6 col-sm-3">
-       <p class="text-center">Pure360</p>
-     </div>
-     <div class="col-xs-6 col-sm-3">
-       <p class="text-center">Companies House</p>
-     </div>
-     <div class="col-xs-6 col-sm-3">
-       <p class="text-center">Mind Candy</p>
-     </div>
-   </div>
-  </div>
-</div>
-
-<div id="mentoring" class="mentoring band">
+<div id="training" class="band">
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
+        <div class="icon icon-left icon-training"></div>
+
+        <h2>Face-to-face training</h2>
+
+        <p>We offer a wide variety of training courses and workshops, covering everything
+        from Scala fundamentals to distributed computing and advanced functional
+        programming. Browse our <a href="/courses">course directory</a> to see that we have
+        to offer.</p>
+
+        <p>Our courses are designed to work together in packages. By combining the correct
+        elements, we can create the perfect custom syllabus for your development team.
+        Fill out an <a href="/enquiries.html">enquiry form</a> to see what we can offer you.</p>
+
+        <p>We believe that learning should never stop. All of our face-to-face training
+        courses come with free ongoing access to our online training material.
+
+        <p>
+          <a class="btn btn-primary" href="/courses">Course directory</a>
+          <a class="btn btn-primary" href="/enquiries.html">Training enquiries</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="online" class="band">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="icon icon-left icon-online"></div>
+
+        <h2>Online books and videos</h2>
+
+        <p>
+          We are converting our face-to-face <a href="/courses">training courses</a> such as
+          <a href="/courses/essential-scala.html">Essential Scala</a> and
+          <a href="/courses/essential-java8.html">Essential Java 8</a> to video and e-book
+          formats. See the individual pages for each course to find out what's available now.
+        </p>
+
+        <p>Get in touch to tell us what courses you would like to see next, and subscribe
+        to our newsletter to hear when new content becomes available:</p>
+
+        <h3>TODO: Newsletter form(implement as an include)</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="mentoring" class="band">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="icon icon-left icon-mentoring"></div>
+
         <h2>Mentoring</h2>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Our mentoring services provide the perfect support to compliment online training.
+        Our Scala experts provide developers with one-on-one support from our experts via,
+        online hangouts, emails, and code reviews.</p>
+
+        <p>Once we are integrated with your team, we are in the perfect position to help manage
+        code quality. We can advise on the best way to architect, develop, and test your code
+        to produce the highest quality product.</p>
 
         <p>
-          <a class="btn btn-primary" href="/bookings.html?course=mentoring">Book mentoring</a>
-          <a class="btn btn-link"    href="/contact.html?subject=Mentoring">Find out more</a>
+          <a class="btn btn-primary" href="/enquiries.html?course=mentoring">Enquire about mentoring</a>
         </p>
       </div>
     </div>
   </div>
 </div>
 
-<div id="courses" class="courses band">
+<div id="consulting" class="band">
   <div class="container">
-    <h2>Our courses</h2>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="icon icon-left icon-consulting"></div>
 
-    <p>Click on a course below to book it, browse the available content, or find out more.</p>
+        <h2>Consulting and enterprise support</h2>
 
-    <div class="alert alert-warning">
-      All of our training courses are available for booking. However, not all of our courses are currently available online. Click on an individual course for more information. We will be releasing more content over the Summer.
-    </div>
+        <p>This web site is a product of <a href="http://underscoreconsulting.com">Underscore
+        Consulting</a>, a specialist consultancy dedicated to supporting companies using Scala and
+        functional programming.</p>
 
-    <div class="row masonry-sm-6">
-      <div class="col-sm-6">
-        <h3>Core Scala</h3>
-
-        <p>
-          <strong>Level:</strong> Beginner<br>
-          <strong>Length:</strong> 2 to 3 days
-        </p>
-
-        <p>An introductory course aimed at experienced developers who are encountering Scala for the first time. This course assumes no previous Scala or Java knowledge.</p>
-
-        <p>Learn how to develop idiomatic, maintainable Scala code. Blend object oriented and functional programming to perform elegant, declarative data manipulation. Master powerful concepts such as implicits to produce expressige domain specific languages.</p>
-
-        <p><a class="btn btn-primary" href="/courses/core-scala.html">Downloads and bookings</a></p>
-      </div>
-
-      <div class="col-sm-6">
-        <h3>Core Java 8</h3>
+        <p>Our customer portfolio includes large and medium enterprises in the financial, media,
+        marketing, and computing sectors. Visit us to find out more about our range of professional
+        services.</p>
 
         <p>
-          <strong>Level:</strong> Intermediate Java<br>
-          <strong>Length:</strong> 1 to 2 days
+          <a class="btn btn-primary" href="http://underscoreconsulting.com">Visit Underscore Consulting</a>
         </p>
-
-        <p>Java 8 brings many new and powerful features to the table, the most significant of which are <em>lambda expressions</em> and the new <em>streams API</em> for collections.</p>
-
-        <p>In Core Java 8 we will show you how to master these new functional programming features. Process huge quantities of data with exceptional speed using the new Java 8 streams. Write secure type-safe code with correct use of the new <tt>Optional</tt> type. Use closures in combination with classic functional programming patterns to increase developer productivity and write shorter and more maintainable code.</p>
-
-        <p><a class="btn btn-primary" href="/courses/core-java8.html">Downloads and bookings</a></p>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="row masonry-sm-6">
-      <div class="col-sm-6">
-        <h3>Essential Scalaz</h3>
-
-        <p>
-          <strong>Level:</strong> Intermediate<br>
-          <strong>Length:</strong> 1 to 2 days
-        </p>
-
-        <p>Our 1-2 day Essential Scalaz course is for experienced Scala developers who want to take the next step in engineering robust and scalable systems. The course focuses on four key abstractions in the Scalaz library: Functor, Monoid, Applicative, and Monad, and through a series of mini-projects shows how these abstractions apply across a broad range of practical problems.</p>
-
-        <p><a class="btn btn-primary" href="/courses/essential-scalaz.html">Downloads and bookings</a></p>
-      </div>
-
-      <div class="col-sm-6">
-        <h3>Essential Lift</h3>
-
-        <p>
-          <strong>Level:</strong> Beginner to intermediate<br>
-          <strong>Length:</strong> 1 day
-        </p>
-
-        <p>From the author ot the Lift Cookbook comes a captivating new course in the pioneering Lift web framework.</p>
-
-        <p>Listen with rapt attention as Richard Dallaway takes you on a voyage of discovery through the world of Lift. Learn to build applications using Lift's no-nonsense view-first approach. Rapidly build a fully validated data layer using Lift Record and your choice SQL or no-SQL databases. Integrate seamlessly with client code using Javascript, AJAX, and Comet technologies. With Lift, the sky's the limit!</p>
-
-        <p><a class="btn btn-primary" href="/courses/essential-lift.html">Downloads and bookings</a></p>
-      </div>
-
-      <div class="col-sm-6">
-        <h3>Essential Play Web Services</h3>
-
-        <p>
-          <strong>Level:</strong> Beginner to intermediate<br>
-          <strong>Length:</strong> 1 day
-        </p>
-
-        <p><em>Play</em> is a powerful, lightweight web framework that focuses on scalability and developer productivity.</p>
-
-        <p>This course concentrates on using Play to create scalabale RESTful web services. Write fast, non-blocking asynchronous code using futures and promises. Efficiently process and validate JSON and XML data. Integrate with third party web services using Play's <tt>WS</tt> client API. Implement your own streaming services using using websockets and Akka actors. Build your whole API using clean, testable development practices.</p>
-
-        <p><a class="btn btn-primary" href="/courses/essential-play.html">Downloads and bookings</a></p>
-      </div>
-
-      <div class="col-sm-6">
-        <h3>Essential Play Web Sites</h3>
-
-        <p>
-          <strong>Level:</strong> Beginner to intermediate<br>
-          <strong>Length:</strong> 1 day
-        </p>
-
-        <p><em>Play</em> is a powerful, lightweight web framework that focuses on scalability and developer productivity.</p>
-
-        <p>This course concentrates on using Play to create web sites using HTML, Javascript, and CSS. Use Play's Twirl templating language to populate web pages with dynamic content. Build HTML5 content using your choice of Javascript, Coffeescript, Less, and/or CSS. Integrate client and server with AJAX and JSON. Write functional tests using Fluentlenium.</p>
-
-        <p><a class="btn btn-primary" href="/courses/essential-play.html">Downloads and bookings</a></p>
-      </div>
-
-      <div class="col-sm-6">
-        <h3>Essential Distributed Systems</h3>
-
-        <p>
-          <strong>Level:</strong> Intermediate Java or Scala<br>
-          <strong>Length:</strong> 2 days
-        </p>
-
-        <p>Distributed systems introduce new challenges in building reliable, scalable software. This course teaches the core theoretical principles for constructing distributed systems and invites particpants to build their own systems using Scala or Java and a set of elemental tools. We will cover three approaches -- message queues, distributed caches, and eventual consistency -- and learn the benefits and drawbacks of each. Finally, in a review session, we will bring together all of the principles covered so far to build a non-trivial distributed system in its entirety.</p>
-
-        <p><a class="btn btn-primary" href="/courses/essential-distributed-systems.html">Downloads and bookings</a></p>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="row masonry-sm-6">
-      <div class="col-sm-6">
-        <h3>Advanced Ipsum</h3>
-
-        <p>
-          <strong>Level:</strong> Intermediate<br>
-          <strong>Length:</strong> 1 day
-        </p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p><a class="btn btn-primary" href="/courses/lorem-ipsum.html">Downloads and bookings</a></p>
-      </div>
-
-      <div class="col-sm-6">
-        <h3>Advanced Dolor</h3>
-
-        <p>
-          <strong>Level:</strong> Intermediate<br>
-          <strong>Length:</strong> 1 day
-        </p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p><a class="btn btn-primary" href="/courses/lorem-ipsum.html">Downloads and bookings</a></p>
       </div>
     </div>
   </div>
 </div>
 
-<div id="consulting" class="consulting band">
+<div id="clients" class="band">
   <div class="container">
-    <h2>Consulting and support</h2>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2>Our customers</h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>We provide training for large and medium enterprises in finance, media, marketing, government, and computing. Here are a few of our customers:</p>
+      </div>
+    </div>
 
-    <p>
-      <a class="btn btn-primary" href="http://underscoreconsulting.com">Visit Underscore Consulting</a>
-    </p>
+    <div class="icon icon-center icon-customers">
+      <ul class="sr-only">
+        <li>BBC</li>
+        <li>Mind Candy</li>
+        <li>Pure 360</li>
+        <li>Companies House</li>
+      </ul>
+    </div>
   </div>
 </div>

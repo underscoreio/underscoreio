@@ -61,12 +61,12 @@ module.exports = (grunt) ->
       jekyll:
         cmd: "bundle exec jekyll build --trace --config jekyll_config.yml"
       deploy:
-        cmd: 'echo "Deployment not implemented. Search for this text in gruntfile.coffee and replace it with your own deployment command."'
+        cmd: 'rsync --progress -a --delete -e "ssh -q" underscoreio/ admin@underscore.io:beta.underscore.io/public/htdocs/'
 
     bower:
       install: {}
 
-    watch:
+    watchImpl:
       options:
         livereload: true
       css:
@@ -85,9 +85,17 @@ module.exports = (grunt) ->
           "uglify"
           "exec:jekyll"
         ]
+      images:
+        files: [
+          "src/images/**/*"
+        ]
+        tasks: [
+          "copy"
+          "exec:jekyll"
+        ]
       html:
         files: [
-          "src/**/*"
+          "src/html/**/*"
           "jekyll_plugins/**/*"
           "jekyll_config.yml"
         ]
@@ -102,6 +110,8 @@ module.exports = (grunt) ->
           port: 4000
           base: 'underscoreio'
 
+  grunt.renameTask "watch", "watchImpl"
+
   grunt.registerTask "build", [
     "less"
     "uglify"
@@ -112,7 +122,7 @@ module.exports = (grunt) ->
   grunt.registerTask "serve", [
     "build"
     "connect:server"
-    "watch"
+    "watchImpl"
   ]
 
   grunt.registerTask "deploy", [
@@ -120,6 +130,10 @@ module.exports = (grunt) ->
     "exec:deploy"
   ]
 
-  grunt.registerTask "default", [
+  grunt.registerTask "watch", [
     "serve"
+  ]
+
+  grunt.registerTask "default", [
+    "build"
   ]

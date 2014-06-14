@@ -4,49 +4,57 @@ html.landing {
   }
 
   .hero {
-    background-color: @underscore-base2;
-    background-image: url(/images/hero-bg.jpg);
+    background-color: @underscore-base1;
     background-size: cover;
     background-position: center center;
-    color: @underscore-text2;
+    color: @underscore-text1;
 
     .lead {
       text-align: center;
       margin: 0;
       padding: 0;
+      color: darken(#b3b3aa, 30%);
     }
 
     .services-link {
       display: block;
 
-      color: @underscore-text2;
-
-      .icon {
-        border: 1px solid transparent;
-      }
+      color: darken(#b3b3aa, 30%);
 
       &:hover {
-        color: darken(@underscore-text2, 20%);
+        color: darken(#83837d, 30%);
         text-decoration: none;
-
-        .icon {
-          border: 1px solid darken(@underscore-text2, 20%);
-        }
       }
     }
   }
 
-  .promo.band {
+  #promo.band {
     background: @underscore-base3;
     color: @underscore-text3;
   }
 
-  .mentoring.band {
-    background-color: @underscore-base2;
+  #clients.band {
+    background-color: @underscore-base1;
+    color: @underscore-text1;
   }
 
-  .consulting.band {
-    background-color: @underscore-base3;
-    color: @underscore-text3;
+  #online.band {
+    background-color: @underscore-base1;
+    color: @underscore-text1;
+  }
+
+  #mentoring.band {
+    background-color: @underscore-base1;
+    color: @underscore-text1;
+  }
+
+  #training.band {
+    background-color: @underscore-base1;
+    color: @underscore-text1;
+  }
+
+  #consulting.band {
+    background-color: @underscore-base1;
+    color: @underscore-text1;
   }
 }

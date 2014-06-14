@@ -1,15 +1,74 @@
+.icon-sizes(@iconsize: 200px) {
+  @spritewidth  : @iconsize * 4;
+  @spriteheight : @iconsize * 6;
+
+  width           : @iconsize;
+  height          : @iconsize;
+  background-size : @spritewidth @spriteheight;
+
+  &.icon-scala                    { background-position: -0*@iconsize -0*@iconsize; }
+  &.icon-play                     { background-position: -1*@iconsize -0*@iconsize; }
+  &.icon-distributed              { background-position: -2*@iconsize -0*@iconsize; }
+
+  &.icon-macro                    { background-position: -0*@iconsize -1*@iconsize; }
+  &.icon-download                 { background-position: -1*@iconsize -1*@iconsize; }
+  &.icon-scalaz                   { background-position: -2*@iconsize -1*@iconsize; }
+
+  &.icon-online                   { background-position: -2*@iconsize -2*@iconsize; }
+  &.icon-mentoring                { background-position: -1*@iconsize -2*@iconsize; }
+  &.icon-training                 { background-position: -0*@iconsize -2*@iconsize; }
+  &.icon-consulting               { background-position: -3*@iconsize -2*@iconsize; }
+
+  &.icon-service-online           { background-position: -2*@iconsize -3*@iconsize; }
+  &.icon-service-mentoring        { background-position: -1*@iconsize -3*@iconsize; }
+  &.icon-service-training         { background-position: -0*@iconsize -3*@iconsize; }
+  &.icon-service-consulting       { background-position: -3*@iconsize -3*@iconsize; }
+
+  &.icon-service-online:hover     { background-position: -2*@iconsize -4*@iconsize; }
+  &.icon-service-mentoring:hover  { background-position: -1*@iconsize -4*@iconsize; }
+  &.icon-service-training:hover   { background-position: -0*@iconsize -4*@iconsize; }
+  &.icon-service-consulting:hover { background-position: -3*@iconsize -4*@iconsize; }
+
+  &.icon-customers {
+    width: @iconsize * 4;
+    background-position: -0*@iconsize -5*@iconsize;
+  }
+}
+
 .icon {
   display: block;
-  padding-bottom: 100%;
-  background-image: url(http://placehold.it/400x400);
-  background-position: center center;
-  background-size: cover;
+  margin: 0 auto;
+  background-image: url(/images/icons.png);
   border-radius: @border-radius-large;
+}
 
-  &.icon-scala      { background-image: url(/images/icons/scala.png);      }
-  &.icon-play       { background-image: url(/images/icons/play.png);       }
-  &.icon-content    { background-image: url(/images/icons/content.png);    }
-  &.icon-mentoring  { background-image: url(/images/icons/mentoring.png);  }
-  &.icon-training   { background-image: url(/images/icons/training.png);   }
-  &.icon-consulting { background-image: url(/images/icons/consulting.png); }
+.icon-center {
+  .icon-sizes(200px);
+}
+
+.icon-center.icon-wide {
+  width: 400px;
+}
+
+.icon-left {
+  position : absolute;
+  top      : ( 0.85 * @line-height-computed);
+  left     : (-1.8  * @line-height-computed);
+  .icon-sizes(1.8 * @line-height-computed);
+}
+
+@media (max-width: @screen-xs-max) {
+  .icon-left {
+    display: none;
+  }
+}
+
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+  .icon-center {
+    .icon-sizes(180px);
+  }
+
+  .icon-center.icon-wide {
+    width: 360px;
+  }
 }
