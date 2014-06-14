@@ -37,12 +37,20 @@ module.exports = (grunt) ->
 
     copy:
       bootstrap:
-        files: [{
-          expand: true
-          cwd: "bower_components/bootstrap/img/"
-          src: ["**"]
-          dest: "underscoreio/images/"
-        }]
+        files: [
+          {
+            expand: true
+            cwd: "bower_components/bootstrap/img/"
+            src: ["**"]
+            dest: "underscoreio/images/"
+          }
+          {
+            expand: true
+            cwd: "bower_components/bootstrap/fonts/"
+            src: ["**"]
+            dest: "underscoreio/fonts/"
+          }
+        ]
       images:
         files: [{
           expand: true

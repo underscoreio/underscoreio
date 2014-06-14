@@ -3,20 +3,20 @@ layout    : page
 pageClass : course
 ---
 
-# Core Scala
+# Essential Scala
 
 ## Course Overview
 
 **Level:** Beginner<br>
 **Length:** 2 days
 
-Our 2/3 day Core Scala course is aimed at experienced developers who are encountering Scala for the first time and want to understand how their knowledge of object-oriented and functional programming idioms carries over to and is deepened in this exciting new language. It covers Scala from basic syntax and language constructs, through its distinctive object-oriented characteristics and on to functional programming styles and pattern matching as applied to Scala's extensive collections framework. It also covers Scala's many facilities which support the creation of fluent interfaces and rich internal domain specific languages. The course has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
+Our 2/3 day Essential Scala course is aimed at experienced developers who are encountering Scala for the first time and want to understand how their knowledge of object-oriented and functional programming idioms carries over to and is deepened in this exciting new language. It covers Scala from basic syntax and language constructs, through its distinctive object-oriented characteristics and on to functional programming styles and pattern matching as applied to Scala's extensive collections framework. It also covers Scala's many facilities which support the creation of fluent interfaces and rich internal domain specific languages. The course has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
 
 If you are an experienced developer taking your first steps in Scala and want to get up to speed quickly with this exciting new language then this is the course for you.
 
 This core Scala course is offered both publicly and privately at your site. When delivered privately you have complete course programming flexibility allowing you and your team to tailor course content to your needs and to fit its delivery around your normal schedule — for example, scheduling two day courses as four half days over four weeks might be suitable. Please contact us to tell us what you need and for pricing and bookings.
 
-## Course Objectives
+## Learning Outcomes
 
 Take away a working knowledge of object-oriented and functional-programming in Scala.
 Learn the common patterns needed to get the most out of Scala's extensive collections framework.

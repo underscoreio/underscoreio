@@ -17,7 +17,7 @@ Scalaz provides a library of abstractions taken from the field of abstact algebr
 
 To benefit from this course you should have about a years experience with Scala, or equivalent experience with a functional language such as Haskell, O'Caml, or Scheme.
 
-## Course Objectives
+## Learning Outcomes
 
 Understand how to express abstractions using type classes
 

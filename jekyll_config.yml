@@ -104,7 +104,7 @@ includes    : _includes
 destination : underscoreio
 plugins     : jekyll_plugins
 
-keep_files  : [ 'css', 'js', 'images' ]
+keep_files  : [ 'css', 'js', 'images', 'fonts' ]
 
 permalink   : /:categories/:year/:month/:day/:title
 

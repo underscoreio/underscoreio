@@ -25,7 +25,7 @@
           - Paras
     - Consultancy and support
        - Paragraph about Underscore Consulting and link to site
- - DJG - Core Scala course page
+ - DJG - Essential Scala course page
  - DJG - Core Play course page
  - Think of other courses and add pages
  - Newsletter signup page

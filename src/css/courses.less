@@ -1,0 +1,40 @@
+.course {
+  .course-heading {
+    margin: 0.5*@line-height-computed -5px 0;
+    padding: 5px;
+    border-radius: @border-radius-large;
+
+    &:hover {
+      cursor: pointer;
+      background: #e8e8e4;
+    }
+
+    .icon {
+      top: 0.55*@line-height-computed;
+    }
+
+    h2 {
+      margin: 0;
+
+      .glyphicon {
+        position: relative;
+        top: @line-height-computed/4;
+        right: @line-height-computed/4;
+        font-size: .75em;
+        color: #ccccc7;
+      }
+    }
+  }
+
+  .course-content {
+    display: none;
+    margin: 0.5*@line-height-computed 0 1.5*@line-height-computed;
+  }
+}
+
+@media (max-width: @screen-xs-max) {
+  .course .course-heading .icon-left {
+    position: relative;
+    top: 0;
+  }
+}
