@@ -16,6 +16,10 @@ The workshops is designed to maximise theoretical and practical learning, by ﬁ
 
 The workshops are suited to both Java and Scala programmers and workshop have run very well with a mix of Java and Scala programmers.
 
+<p>
+  <a class="btn btn-primary" href="/enquiries.html?course=essential-distributed-systems">Booking enquiries</a>
+</p>
+
 ## Learning Outcomes
 
 Delegates to the workshops will gain a wide understanding of the various distributed tools at their disposal when designing and building distributed systems. They will understand the strengths and weaknesses of each tool in various contexts.

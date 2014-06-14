@@ -6,18 +6,24 @@ pageClass : course
 # Essential Lift
 
 <div class="row">
-  <div class="col-sm-8">
+<div class="col-sm-8">
+
 ## Overview
 
-This 1 day course is aimed at Scala developers who want to understand how to build applications with the Lift web framework.  Lift is different from other frameworks, and this course can give you a significant time saving in getting up to speed with Lift.
+**Level:** Intermediate<br>
+**Length:** 1 day
+
+Taught by Richard Dallaway, author of the _Lift Cookbook_, this 1 day course is aimed at Scala developers who want to understand how to build applications with the Lift web framework. Lift is different from other web frameworks, and with the help of this course you can save significant time getting up to speed.
+
+<p>
+  <a class="btn btn-primary" href="/enquiries.html?course=essential-lift">Booking enquiries</a>
+</p>
 
 ## Learning Outcomes
 
- - Understand how Lift applications are structured.
-
- - Learn how to work productively when build Lift applications.
-
- - Explore features of Lift via workshop exercises.
+ - Understand how Lift applications are structured
+ - Learn how to work productively when building Lift applications
+ - Explore features of Lift via workshop exercises
 
 ## Course Outline
 
@@ -45,13 +51,15 @@ This 1 day course is aimed at Scala developers who want to understand how to bui
  - Deployment considerations
    - Packaging and configuration
    - Stateful and stateless applications
-</div>
 
-<div class="sol-sm-4">
+</div>
+<div class="col-sm-4">
+
 ## Course Material
 
-The text for this course is the course organizer's _Lift Cookbook_, available from O'Reilly, and provided as part of the course:
+The text for this course is the trainer's _Lift Cookbook_, available from O'Reilly and provided as part of the course:
 
-<iframe frameborder="0" scrolling="no" height="500px" src="http://cdn.oreillystatic.com/widgets/author/253.html"></iframe>
-  </div>
+<iframe frameborder="0" scrolling="no" width="200" height="500" src="http://cdn.oreillystatic.com/widgets/author/253.html"></iframe>
+
+</div>
 </div>

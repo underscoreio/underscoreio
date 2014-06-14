@@ -69,20 +69,3 @@ $('#contact-form').each(function() {
 
   $("[name=name]").focus();
 });
-
-$('.course').each(function() {
-  var parent = $(this);
-  var heading = parent.find(".course-heading");
-  var content = parent.find(".course-content");
-  var chevron = $('<span class="glyphicon glyphicon-chevron-right pull-right"></span>').prependTo(heading.find("h2"));
-
-  heading.on("click", function() {
-    content.slideToggle(250, function() {
-      if(content.is(":visible")) {
-        chevron.removeClass("glyphicon-chevron-right").addClass("glyphicon-chevron-left");
-      } else {
-        chevron.removeClass("glyphicon-chevron-left").addClass("glyphicon-chevron-right");
-      }
-    });
-  });
-});

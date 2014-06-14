@@ -16,6 +16,10 @@ If you are an experienced developer taking your first steps in Scala and want to
 
 This core Scala course is offered both publicly and privately at your site. When delivered privately you have complete course programming flexibility allowing you and your team to tailor course content to your needs and to fit its delivery around your normal schedule — for example, scheduling two day courses as four half days over four weeks might be suitable. Please contact us to tell us what you need and for pricing and bookings.
 
+<p>
+  <a class="btn btn-primary" href="/enquiries.html?course=essential-scala">Booking enquiries</a>
+</p>
+
 ## Learning Outcomes
 
 Take away a working knowledge of object-oriented and functional-programming in Scala.
