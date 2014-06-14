@@ -15,13 +15,12 @@ pageClass   : landing
 // CONFIGURATION --------------------------------
 
 $courseOptions = Array(
-  "course-core-scala"          => "Core Scala",
+  "course-essential-scala"          => "Core Scala",
   "course-core-play"           => "Core Play",
   "course-essential-scalaz"    => "Essential Scalaz",
   "course-essential-shapeless" => "Essential Shapeless",
   "course-essential-macros"    => "Essential Macros",
-  "course-mentoring"           => "Mentoring",
-  "course-other"               => "Other (please specify)"
+  "course-other"               => "Other / custom (please specify)"
 );
 
 $peopleOptions = Array(
@@ -30,7 +29,7 @@ $peopleOptions = Array(
   "gt-10-people" => "> 10 people"
 );
 
-$bookingEmail = 'Underscore Bookings <bookings@underscoreconsulting.com>';
+$bookingEmail = 'Underscore Booking Enquiries <bookings@underscoreconsulting.com>';
 
 // ----------------------------------------------
 
@@ -114,7 +113,7 @@ endif;
 
 <p>You can choose from our standard course offerings or request a curriculum customised to your team's unique training needs. We believe learning should never stop, so all of our on-site training is supported with free ongoing access to our online material.</p>
 
-<form id="bookings-form" method="post">
+<form id="enquiries-form" method="post">
   <div class="form-group">
     <label>Your name</label>
     <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
@@ -137,7 +136,7 @@ endif;
 <?php foreach($courseOptions as $courseId => $courseLabel): ?>
     <div class="checkbox">
       <label>
-        <input type="checkbox" name="course-<?= $courseId ?>">
+        <input type="checkbox" name="<?= $courseId ?>">
         <?= $courseLabel ?>
       </label>
     </div>
@@ -177,5 +176,5 @@ endif;
     <textarea class="form-control" name="notes" rows="5"></textarea>
   </div>
 
-  <button type="submit" class="btn btn-success">Submit Booking</button>
+  <button type="submit" class="btn btn-success">Send Enquiry</button>
 </form>

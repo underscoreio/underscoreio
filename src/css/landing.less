@@ -1,22 +1,30 @@
 html.landing {
-  .navbar {
-    background: transparent;
-  }
-
-  .hero {
+  #hero.band {
+    padding: 0;
     background-color: @underscore-base1;
     background-size: cover;
     background-position: center center;
     color: @underscore-text1;
 
-    .lead {
+    h1 {
+      text-align: center;
+      font-size: 4em;
+    }
+
+    .tagline {
       text-align: center;
       margin: 0;
       padding: 0;
       color: darken(#b3b3aa, 30%);
+      font-size: 1.5em;
+      font-weight: 200;
     }
+  }
 
-    .services-link {
+  #services.band {
+    padding-top: @line-height-computed;
+
+    a {
       display: block;
 
       color: darken(#b3b3aa, 30%);

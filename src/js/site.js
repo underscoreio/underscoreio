@@ -37,7 +37,16 @@ function queryValues(name) {
     value();
 }
 
-$('#bookings-form').each(function() {
+$("#services a").on("click", function(evt) {
+  var link = $(this);
+  var target = $(link.attr("href"));
+
+  $('html, body').animate({ scrollTop: target.offset().top }, 250);
+
+  evt.preventDefault();
+});
+
+$('#enquiries-form').each(function() {
   var form = $(this);
 
   _.each(queryValues("course"), function(item) {
@@ -45,10 +54,18 @@ $('#bookings-form').each(function() {
       find('input[name=course-' + item + ']').
       attr("checked", "checked");
   });
+
+  $("[name=name]").focus();
 });
 
-$(".masonry-sm-6").masonry({
-  itemSelector       : '.col-sm-6',
-  columnWidth        : '.col-sm-6',
-  transitionDuration : 0
+$('#contact-form').each(function() {
+  var form = $(this);
+
+  _.each(queryValues("subject"), function(subject) {
+    form.
+      find('input[name=subject]').
+      attr("value", subject);
+  });
+
+  $("[name=name]").focus();
 });

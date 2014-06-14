@@ -46,3 +46,10 @@ h1 {
 footer {
   margin: 3em 0;
 }
+
+@media (max-width: @grid-float-breakpoint-max) {
+  .navbar-nav {
+    margin: 0 0 2 * @line-height-computed;
+    text-align: right;
+  }
+}

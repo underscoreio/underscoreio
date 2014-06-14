@@ -1,0 +1,108 @@
+---
+layout      : page
+pageClass   : landing
+---
+
+{% raw %}
+<?php
+
+/*
+>
+<h1>This page contains PHP code.<br>It will not render correctly via Jekyll.</h1>
+<h2>Deploy the site to a staging environment to preview this page.</h2>
+*/
+
+// CONFIGURATION --------------------------------
+
+$contactEmail = 'Underscore <bookings@underscoreconsulting.com>';
+
+// ----------------------------------------------
+
+function requestString($key, $default) {
+  if(isset($_POST[$key]) && strlen(trim($_POST[$key])) > 0) {
+    return trim($_POST[$key]);
+  } else {
+    return $default;
+  }
+}
+
+function requestLookup($key, $options, $default) {
+  if(isset($_POST[$key]) && isset($options[$_POST[$key]])) {
+    return $options[$_POST[$key]];
+  } else {
+    return $default;
+  }
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'):
+  $name     = requestString('name',   'Not specified');
+  $email    = requestString('email',  null);
+  $phone    = requestString('phone', 'Not specified');
+  $subject  = requestString('subject', 'No subject');
+  $message  = requestString('message', 'None specified');
+
+  $emailTo      = $contactEmail;
+  $emailSubject = "Contact on underscore.io: $subject";
+  $emailDate    = gmdate(DATE_RFC822);
+
+  $emailBody    = <<<ENDEMAIL
+Name: $name
+Email: $email
+Phone: $phone
+
+$message
+ENDEMAIL;
+
+  $emailLength  = strlen($emailBody);
+  $emailExtras  = "From: $name <$email>\r\nDate: $emailDate\r\nContent-Length: $emailLength";
+
+  if(!$email):
+    echo '<div class="alert alert-danger">Please specify a valid email address.</div>';
+  elseif(mail($emailTo, $emailSubject, $emailBody, $emailExtras)):
+    echo '<div class="alert alert-success">Thank you for your message. We will be in touch shortly.</div>';
+  else:
+    echo '<div class="alert alert-danger">There was an error submitting your message. Please get in touch by phone or email.</div>';
+  endif;
+endif;
+
+// ----------------------------------------------
+
+?>
+{% endraw %}
+
+<h1>Contact</h1>
+
+<p>Our wide variety of courses can be combined to suit any organisation's training needs. Use the form below or <a href="/contact.html">contact our team directly</a> to see how we can meet your requirements.</p>
+
+<p>You can choose from our standard course offerings or request a curriculum customised to your team's unique training needs. We believe learning should never stop, so all of our on-site training is supported with free ongoing access to our online material.</p>
+
+<form id="contact-form" method="post">
+  <div class="form-group">
+    <label>Your name</label>
+    <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
+  </div>
+
+  <div class="form-group">
+    <label>Your email address</label>
+    <input type="email" class="form-control" name="email" placeholder="leonardo@davinci.com">
+  </div>
+
+  <div class="form-group">
+    <label>Your phone number (optional)</label>
+    <input type="phone" class="form-control" name="phone" placeholder="+44 123 456 7890">
+  </div>
+
+  <div class="form-group">
+    <label>Subject line</label>
+
+    <input type="text" class="form-control" name="subject">
+  </div>
+
+  <div class="form-group">
+    <label>Your message</label>
+
+    <textarea class="form-control" name="message" rows="10"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">Send Message</button>
+</form>
