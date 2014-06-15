@@ -56,6 +56,13 @@ $('#enquiries-form').each(function() {
   });
 
   $("[name=name]").focus();
+
+  form.find("button[type=submit]").on('click', function(evt) {
+    evt.preventDefault();
+    window.ga('send', 'event', 'booking', 'submit', { hitCallback: function () {
+      form.submit();
+    }});
+  });
 });
 
 $('#contact-form').each(function() {
@@ -68,4 +75,20 @@ $('#contact-form').each(function() {
   });
 
   $("[name=name]").focus();
+
+  form.find("button[type=submit]").on('click', function(evt) {
+    evt.preventDefault();
+    window.ga('send', 'event', 'contact', 'submit', { hitCallback: function () {
+      form.submit();
+    }});
+  });
+});
+
+$("a[href*=underscoreconsulting]").on("click", function(evt) {
+  evt.preventDefault();
+
+  var url = $(this).attr("href");
+  window.ga('send', 'event', 'outbound', 'click', url, { hitCallback: function () {
+    document.location = url;
+  }});
 });

@@ -17,11 +17,8 @@ This one day course is aimed at Scala developers who want to learn the power of 
 ## Learning Outcomes
 
  - Be able to incorporate macros into your Scala 2.10 or 2.11 project
-
  - Use quasiquotes to create and inspect abstract syntax trees
-
  - Use generic macros to replace boilerplate code for custom data types
-
  - Implement the type class pattern using generic and implicit macros
 
 ## Course Outline
