@@ -7,11 +7,12 @@ pageClass : course
 
 ## Overview
 
-This 1 day course is aimed at Scala developers who want to learn the power of Scala Macros. We learn the basics of the macro API before going in-depth to implement several complete libraries, including: a data validation DSL, boilerplate-free user-driven sorting and filtering, and boilerplate-free type-class-based data serialization.
+**Level:** Intermediate<br>
+**Length:** 1 day
 
-<p>
-  <a class="btn btn-primary" href="/enquiries.html?course=essential-macros">Booking enquiries</a>
-</p>
+This one day course is aimed at Scala developers who want to learn the power of Scala Macros. We learn the basics of the macro API before going in-depth to implement several complete libraries, including: a data validation DSL, boilerplate-free user-driven sorting and filtering, and boilerplate-free type-class-based data serialization.
+
+<a class="btn btn-primary" href="/enquiries.html?course=essential-macros">Booking enquiries</a>
 
 ## Learning Outcomes
 

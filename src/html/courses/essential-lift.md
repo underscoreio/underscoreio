@@ -13,11 +13,9 @@ pageClass : course
 **Level:** Intermediate<br>
 **Length:** 1 day
 
-Taught by Richard Dallaway, author of the _Lift Cookbook_, this 1 day course is aimed at Scala developers who want to understand how to build applications with the Lift web framework. Lift is different from other web frameworks, and with the help of this course you can save significant time getting up to speed.
+This one-day course is aimed at Scala developers who want to understand how to build applications with the Lift web framework. Lift is different from other web frameworks, and with the help of this course you can save significant time getting up to speed.
 
-<p>
-  <a class="btn btn-primary" href="/enquiries.html?course=essential-lift">Booking enquiries</a>
-</p>
+<a class="btn btn-primary" href="/enquiries.html?course=essential-lift">Booking enquiries</a>
 
 ## Learning Outcomes
 
@@ -28,36 +26,36 @@ Taught by Richard Dallaway, author of the _Lift Cookbook_, this 1 day course is 
 ## Course Outline
 
  - Orientation
-   - The structure of a Lift application
-   - The basics up and running
+    - The structure of a Lift application
+    - The basics up and running
 
  - REST
-   - Building a REST API
-   - Working with JSON
-   - The Lift pipeline and locking down resources
+    - Building a REST API
+    - Working with JSON
+    - The Lift pipeline and locking down resources
 
  - Database access
-  - Working with Squeryl for RDBMSs _or_
-  - Rogue and MongoDB
+    - Working with Squeryl for RDBMSs _or_
+    - Rogue and MongoDB
 
  - View first approach
-   - Snippets and CSS bindings
-   - Ajax
-   - Comet Actors
+    - Snippets and CSS bindings
+    - Ajax
+    - Comet Actors
 
  - Lift 3
-   - Working with JavaScript promises
+    - Working with JavaScript promises
 
  - Deployment considerations
-   - Packaging and configuration
-   - Stateful and stateless applications
+    - Packaging and configuration
+    - Stateful and stateless applications
 
 </div>
 <div class="col-sm-4">
 
 ## Course Material
 
-The text for this course is the trainer's _Lift Cookbook_, available from O'Reilly and provided as part of the course:
+The text for this course is the trainer's book, the _Lift Cookbook_, available from O'Reilly and provided as part of the course:
 
 <iframe frameborder="0" scrolling="no" width="200" height="500" src="http://cdn.oreillystatic.com/widgets/author/253.html"></iframe>
 

@@ -10,9 +10,11 @@ pageClass : course
 **Level:** Intermediate Java or Scala<br>
 **Length:** 2 days
 
-The course is designed in four half day blocks so that it can be delivered over two full days or four half day sessions. The course covers many topics in Distributed Software Systems techniques and technologies including Message Queues, Distributed Caches and “Eventually Consistent” data systems, as prime examples.
+Distributed systems introduce new challenges in building reliable, scalable software. This course teaches the core theoretical principles for constructing distributed systems and invites particpants to build their own systems using Scala or Java and a set of elemental tools.
 
-The workshops is designed to maximise theoretical and practical learning, by ﬁrst giving background and examples and then participants are asked to build their own systems based on the most simple ( elemental ) implementations of various tools which will be provided. The ﬁnal half day session is based around a larger practical to bring together the various techniques and systems the participants have used in the other sessions.
+We cover three approaches -- message queues, distributed caches, and eventual consistency -- and learn the benefits and drawbacks of each. Finally, in a review session, we bring together all of the principles covered to build a non-trivial distributed system in its entirety.
+
+The workshops are designed to maximise theoretical and practical learning, by ﬁrst giving background and examples and then participants are asked to build their own systems based on the most simple ( elemental ) implementations of various tools which will be provided. The ﬁnal half day session is based around a larger practical to bring together the various techniques and systems the participants have used in the other sessions.
 
 The workshops are suited to both Java and Scala programmers and workshop have run very well with a mix of Java and Scala programmers.
 
@@ -22,7 +24,7 @@ The workshops are suited to both Java and Scala programmers and workshop have ru
 
 ## Learning Outcomes
 
-Delegates to the workshops will gain a wide understanding of the various distributed tools at their disposal when designing and building distributed systems. They will understand the strengths and weaknesses of each tool in various contexts.
+Delegates will gain a wide understanding of the various distributed tools at their disposal when designing and building distributed systems. They will understand the strengths and weaknesses of each tool in various contexts.
 
 By examining one or a number of underlying distributed systems patterns by example and implementation, delegate will be able to understand and apply these patterns in new contexts, leading to better overall systems design and implementations which are independent of the speciﬁc language of implementation.
 

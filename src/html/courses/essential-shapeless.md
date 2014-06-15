@@ -7,19 +7,17 @@ pageClass : course
 
 ## Course Overview
 
-**Level:** TODO: Level of Essential Shapeless<br>
-**Length:** TODO: Length of Essential Shapeless
+**Level:** Intermediate<br>
+**Length:** 1 day
 
-TODO: Course overview for Essential Shapeless
+Course content TBA.
 
-<p>
-  <a class="btn btn-primary" href="/enquiries.html?course=essential-shapeless">Booking enquiries</a>
-</p>
+<a class="btn btn-primary" href="/enquiries.html?course=essential-shapeless">Booking enquiries</a>
 
 ## Learning Outcomes
 
- - TODO: Learning outcomes for Essential Shapeless
+Course content TBA.
 
 ## Course Outline
 
- - TODO: Course outline for Essential Shapeless
+Course content TBA.

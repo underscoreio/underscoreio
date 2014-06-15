@@ -11,7 +11,7 @@ pageClass : course
 
 ## Course Overview
 
-Our 1-2 day Essential Scalaz course is for experienced Scala developers who want to take the next step in engineering robust and scalable systems. The course focuses on four key abstractions in the Scalaz library: Functor, Monoid, Applicative, and Monad, and through a series of mini-projects shows how these abstractions apply across a broad range of practical problems.
+Our one to two day Essential Scalaz course is for experienced Scala developers who want to take the next step in engineering robust and scalable systems. The course focuses on four key abstractions in the Scalaz library: Functor, Monoid, Applicative, and Monad, and through a series of mini-projects shows how these abstractions apply across a broad range of practical problems.
 
 Scalaz provides a library of abstractions taken from the field of abstact algebra. These abstractions are incredibly general -- so general that many developers have difficulty understanding how they apply to practical issues. In fact Scalaz is eminently practical, and it is the generality of the abstractions that allows them to apply to a wide range of problem domains.
 
