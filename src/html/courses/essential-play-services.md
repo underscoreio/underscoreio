@@ -18,8 +18,8 @@ This course concentrates on using Play to create scalabale RESTful web services.
 
 ## Learning Outcomes
 
- - TODO: Learning outcomes for Essential Play Web Services
-
-## Course Outline
-
- - TODO: Course outline for Essential Play Web Services
+ - Understand Play routing, controllers, and actions
+ - Use Scala's Futures and Promises to create asynchronous API endpoints
+ - Confidently process data using Play's functional JSON combinators
+ - Use the optional `WS` client to call out to third-party web services
+ - Understand how to write streaming services using websockets and Akka actors

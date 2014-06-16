@@ -18,8 +18,9 @@ This course concentrates on using Play to create web sites using HTML, Javascrip
 
 ## Learning Outcomes
 
- - TODO: Learning outcomes for Essential Play Web Sites
-
-## Course Outline
-
- - TODO: Course outline for Essential Play Web Sites
+ - Understand Play routing, controllers, and actions
+ - Confidently write HTML and text page templates using Twirl templates
+ - Deploy significant Javascript, Coffeescript, Less CSS, and CSS codebases
+   using the Play build system
+ - Use JSON AJAX to communicate between browser and server
+ - Know how to write functional web tests using Fluentlenium

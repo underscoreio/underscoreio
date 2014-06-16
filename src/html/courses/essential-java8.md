@@ -7,8 +7,8 @@ pageClass : course
 
 ## Course Overview
 
-**Level:** TODO: Level of Essential Java 8<br>
-**Length:** TODO: Length of Essential Java 8
+**Level:** Intermediate Java<br>
+**Length:** 1 day
 
 Java 8 brings many new and powerful features to the table, the most significant of which are *lambda expressions* and the new *streambased collection API*.
 
@@ -18,8 +18,10 @@ In Core Java 8 we will show you how to master these new functional programming f
 
 ## Learning Outcomes
 
- - TODO: Learning outcomes for Essential Java 8
-
-## Course Outline
-
- - TODO: Course outline for Essential Java 8
+ - Use Java 8 lambda expressions in your codebase
+ - Understand target typing and the tricks Java uses to make lambdas
+   compatible with existing Java code
+ - Use Java 8 streams to efficiently process large datasets using
+   simple declarative transformations
+ - Understand the new Optional type and how to use it to remove
+   `nulls` and `NullPointerExceptions` from your codebase
