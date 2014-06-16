@@ -37,6 +37,7 @@ This one day course is aimed at Scala developers who want to learn the power of 
     - Generic macros
     - Type tags and weak type tags
     - Inspecting and traversing types and symbols
+    - Inspecting annotations on methods and case class fields
 
  - Context
     - Implementing macros as methods
