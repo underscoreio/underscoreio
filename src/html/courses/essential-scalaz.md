@@ -1,6 +1,7 @@
 ---
+title     : Essential Scalaz
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 <div class="pull-right" style="width: 160px; margin-left: 20px">

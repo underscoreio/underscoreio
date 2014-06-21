@@ -1,6 +1,7 @@
 ---
+title     : Essential Play Web Sites
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # Essential Play Web Sites

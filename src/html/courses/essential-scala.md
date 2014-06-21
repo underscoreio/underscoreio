@@ -1,6 +1,7 @@
 ---
+title     : Essential Scala
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # Essential Scala

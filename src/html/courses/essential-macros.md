@@ -1,6 +1,7 @@
 ---
+title     : Essential Scala Macros
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # Essential Scala Macros

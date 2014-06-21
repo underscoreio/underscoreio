@@ -1,6 +1,7 @@
 ---
+title     : Essential Shapeless
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # Essential Shapeless

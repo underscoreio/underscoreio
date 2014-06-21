@@ -1,6 +1,7 @@
 ---
+title     : Essential Play Web Services
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # Essential Play Web Services

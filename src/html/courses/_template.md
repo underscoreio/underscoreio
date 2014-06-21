@@ -1,6 +1,6 @@
 ---
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # COURSENAME

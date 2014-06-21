@@ -1,6 +1,7 @@
 ---
+title     : Essential Lift
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # Essential Lift

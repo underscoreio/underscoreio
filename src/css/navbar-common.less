@@ -19,3 +19,15 @@
 .navbar.navbar-inverse > .container .navbar-brand {
   background-image: url(/images/underscoreio-white.svg);
 }
+
+.navbar-selected() {
+  font-weight: bold;
+  color: #333;
+}
+
+html.landing    #navbar-landing    { .navbar-selected(); }
+html.enquiries  #navbar-enquiries  { .navbar-selected(); }
+html.courses    #navbar-courses    { .navbar-selected(); }
+html.course     #navbar-courses    { .navbar-selected(); }
+html.newsletter #navbar-newsletter { .navbar-selected(); }
+html.contact    #navbar-contact    { .navbar-selected(); }

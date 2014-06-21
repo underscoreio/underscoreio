@@ -1,6 +1,7 @@
 ---
+title     : Essential Distributed Systems
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # Essential Distributed Systems

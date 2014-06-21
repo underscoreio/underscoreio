@@ -1,6 +1,7 @@
 ---
+title     : Essential Java 8
 layout    : page
-pageClass : course
+navbar    : courses
 ---
 
 # Essential Java 8

@@ -1,6 +1,6 @@
 .icon-sizes(@iconsize: 200px) {
   @spritewidth  : @iconsize * 4;
-  @spriteheight : @iconsize * 6;
+  @spriteheight : @iconsize * 7;
 
   width           : @iconsize;
   height          : @iconsize;
@@ -31,11 +31,10 @@
   &.icon-service-training:hover   { background-position: -0*@iconsize -4*@iconsize; }
   &.icon-service-consulting:hover { background-position: -3*@iconsize -4*@iconsize; }
 
-  &.icon-customers {
-    width: @iconsize * 4;
-    height: @iconsize * 0.5;
-    background-position: -0*@iconsize -5*@iconsize;
-  }
+  &.icon-bbc                      { background-position: -0*@iconsize -5.00*@iconsize; height: @iconsize * .75 ; }
+  &.icon-mind-candy               { background-position: -1*@iconsize -5.00*@iconsize; height: @iconsize * .75 ; }
+  &.icon-pure360                  { background-position: -2*@iconsize -5.00*@iconsize; height: @iconsize * .75 ; }
+  &.icon-companies-house          { background-position: -0*@iconsize -5.75*@iconsize; height: @iconsize * .75 ; width: @iconsize * 2; }
 }
 
 .icon {
@@ -57,6 +56,11 @@
   float: left;
   margin-right: 10px;
   .icon-sizes(1.6 * @line-height-computed);
+}
+
+.icon-inline {
+  display: inline-block;
+  .icon-sizes(160px);
 }
 
 @media (max-width: @screen-xs-max) {
