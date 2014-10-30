@@ -1,0 +1,19 @@
+<aside class="archives">
+  <h2>Archives</h2>
+
+  <ul class="list-unstyled">
+    {% for post in site.posts %}
+      {% if post.next %}
+        {% capture currGroup %}{{ post.date | date: '%Y-%m' }}{% endcapture %}
+        {% capture nextGroup %}{{ post.next.date | date: '%Y-%m' }}{% endcapture %}
+        {% if currGroup != nextGroup %}
+          <li class="heading">{{ post.date | date: '%b %Y' }}</li>
+        {% endif %}
+      {% else %}
+        <li class="heading">{{ post.date | date: '%b %Y' }}</li>
+      {% endif %}
+
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</aside>

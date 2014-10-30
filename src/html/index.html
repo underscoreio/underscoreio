@@ -1,235 +1,80 @@
 ---
-layout      : default
-navbar      : landing
+layout: default
+navbar: home
 ---
 
 {% include navbar.html %}
 
-<div id="hero" class="band">
-  <div class="container">
-    <h1>Know your Scala</h1>
+<header class="container">
+  <h1>Underscore</h1>
 
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <p class="tagline">
-          Write better software in Scala with <strong>online</strong><br>
-          <strong>mentoring</strong> and <strong>training</strong> from
-          <strong>Underscore</strong>.
-        </p>
+  <p>The specialist Scala consultancy.</p>
+</header>
+
+<section class="container">
+  <h1>Know Your Scala</h1>
+
+  <p>We provide professional services tailored to your business, whatever stage you're at.</p>
+
+  <p><a class="btn btn-primary" href="/training">Learn with us</a></p>
+</section>
+
+<section class="container">
+  <h1>Succeed With Scala</h1>
+
+  <p>We provide professional services tailored to your business, whatever stage you're at.</p>
+
+  <p><a class="btn btn-primary" href="/consulting">Work with us</a></p>
+</section>
+
+<section class="container">
+  <h1>Latest News</h1>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <p><a class="btn btn-primary" href="/blog">Read more</a></p>
+</section>
+
+<section class="container">
+  <h1>Our Customers</h1>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-6">
+      <div class="thumbnail">
+        <img src="http://placehold.it/300x200">
       </div>
     </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-sm-3 col-sm-offset-3">
-        <p><a class="btn btn-info btn-block" href="/courses/index.html">Browse courses</a></p>
-      </div>
-      <div class="col-sm-3">
-        <p><a class="btn btn-info btn-block" href="/enquiries.html">Book training</a></p>
+    <div class="col-md-4 col-sm-6">
+      <div class="thumbnail">
+        <img src="http://placehold.it/300x200">
       </div>
     </div>
-  </div>
-</div>
-
-<div id="services" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6 col-sm-3">
-        <a href="#online" class="services-link">
-          <p class="icon icon-center icon-service-online"></p>
-
-          <p class="text-center">
-            Online books and videos
-          </p>
-        </a>
+    <div class="col-md-4 col-sm-6">
+      <div class="thumbnail">
+        <img src="http://placehold.it/300x200">
       </div>
-
-      <div class="col-xs-6 col-sm-3">
-        <a href="#mentoring" class="services-link">
-          <p class="icon icon-center icon-service-mentoring"></p>
-
-          <p class="text-center">
-            Mentoring for teams<br>
-            and individuals
-          </p>
-        </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <div class="thumbnail">
+        <img src="http://placehold.it/300x200">
       </div>
-
-      <div class="col-xs-6 col-sm-3">
-        <a href="#training" class="services-link">
-          <p class="icon icon-center icon-service-training"></p>
-
-          <p class="text-center">
-            Face-to-face training
-          </p>
-        </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <div class="thumbnail">
+        <img src="http://placehold.it/300x200">
       </div>
-
-      <div class="col-xs-6 col-sm-3">
-        <a href="#consulting" class="services-link">
-          <p class="icon icon-center icon-service-consulting"></p>
-
-          <p class="text-center">
-            Consulting and<br>
-            enterprise support
-          </p>
-        </a>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <div class="thumbnail">
+        <img src="http://placehold.it/300x200">
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div id="promo" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-macro"></div>
-          Free download: Essential Macros
-        </h2>
-
-        <p>Download a complete set of free annotated code examples demonstrating
-        how to get started with macros in Scala 2.11. Check out the accompanying talk,
-        <em>Macros for the rest of us</em>, at ScalaDays 2014.</p>
-
-        <p>
-          <a class="btn btn-primary" href="https://github.com/underscoreio/essential-macros">Get the code</a>
-          <a class="btn btn-primary" href="/newsletter.html">Hear more about macros</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="training" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-training"></div>
-          Face-to-face training
-        </h2>
-
-        <p>We offer a wide variety of training courses and workshops, covering everything
-        from Scala fundamentals to distributed computing and advanced functional
-        programming. Browse our <a href="/courses">course directory</a> to see that we have
-        to offer.</p>
-
-        <p>Our courses are designed to work together in packages. By combining the correct
-        elements, we can create the perfect custom syllabus for your development team.
-        Fill out an <a href="/enquiries.html">enquiry form</a> to see what we can offer you.</p>
-
-        <p>We believe that learning should never stop. All of our face-to-face training
-        courses come with free ongoing access to our online training material.
-
-        <p>
-          <a class="btn btn-primary" href="/courses">Course directory</a>
-          <a class="btn btn-primary" href="/enquiries.html">Training enquiries</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="online" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-online"></div>
-          Online books and videos
-        </h2>
-
-        <p>
-          We are converting our face-to-face <a href="/courses">training courses</a> such as
-          <a href="/courses/essential-scala.html">Essential Scala</a> and
-          <a href="/courses/essential-java8.html">Essential Java 8</a> to video and e-book
-          formats. See the individual pages for each course to find out what's available now.
-        </p>
-
-        <p>Get in touch to tell us what courses you would like to see next, and subscribe
-        to our newsletter to hear when new content becomes available:</p>
-
-        {% include mailchimp.html %}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="mentoring" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-mentoring"></div>
-          Mentoring
-        </h2>
-
-        <p>Training is the perfect way to get your team up to speed quickly, but what do you do once
-        the course is over? Our mentoring services are the answer.</p>
-
-        <p>Mentoring is the perfect compliment online and face-to-face training. Our Scala experts
-        provide your developers with one-on-one support via face-to-face meetings, online hangouts,
-        support emails, and code reviews. We help point you in the right direction, and you get on
-        with the work at hand knowing you're using the best practices and technology choices for
-        your project.</p>
-
-        <p>Once we are integrated with your team, we are in the best position to help manage
-        code quality. We can advise on the best way to architect, develop, and test your code
-        to produce the highest quality product.</p>
-
-        <p><a class="btn btn-primary" href="/contact.html?subject=Mentoring%20enquiry">Enquire about mentoring</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="consulting" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-consulting"></div>
-          Consulting and enterprise support
-        </h2>
-
-        <p>This web site is a product of <a href="http://underscoreconsulting.com">Underscore
-        Consulting</a>, a specialist consultancy dedicated to supporting companies using Scala and
-        functional programming.</p>
-
-        <p>Our customer portfolio includes large and medium enterprises in the financial, media,
-        marketing, and computing sectors. Visit us to find out more about our range of professional
-        services.</p>
-
-        <p><a class="btn btn-primary" href="http://underscoreconsulting.com">Visit Underscore Consulting</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="clients" class="band">
-  <div class="container">
-    <h2>Our training customers</h2>
-
-    <p>We provide training for large and medium enterprises in finance, media, marketing, government, and computing. Here are a few of our customers:</p>
-
-    <div class="text-center">
-      <a href="http://bbc.co.uk" target="_blank" class="icon icon-inline icon-bbc">
-        <span class="sr-only">BBC</span>
-      </a>
-
-      <a href="http://mindcandy.com" target="_blank" class="icon icon-inline icon-mind-candy">
-        <span class="sr-only">Mind Candy</span>
-      </a>
-
-      <a href="http://pure360.com" target="_blank" class="icon icon-inline icon-pure360">
-        <span class="sr-only">Pure 360</span>
-      </a>
-
-      <a href="http://www.companieshouse.gov.uk/" target="_blank" class="icon icon-inline icon-companies-house">
-        <span class="sr-only">Companies House</span>
-      </a>
-    </div>
-  </div>
-</div>
+{% include footer.html %}

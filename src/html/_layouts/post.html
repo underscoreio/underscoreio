@@ -1,10 +1,28 @@
 ---
 layout: default
+navbar: blog
 ---
-<h1>{{ page.title }}</h1>
 
-<p class="meta">{{ page.date | date_to_string }}</p>
+{% include navbar.html %}
 
-<div class="post">
-{{ content }}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <section>
+        <h1>{{ page.title }}</h1>
+
+        <p class="meta">{{ page.date | date_to_string }}</p>
+
+        <article>
+          {{ content }}
+        </article>
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <div class="sidebar">
+        {% include blog/archives.html %}
+      </div>
+    </div>
+  </div>
 </div>

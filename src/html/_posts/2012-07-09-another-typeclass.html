@@ -1,0 +1,121 @@
+---
+layout:     post
+title:      Another Small Example of the Type Class Pattern
+author:     Channing Walton
+date:       '2012-07-09 21:00:00'
+sourceSite: Casual Miracles
+sourceUrl: http://www.casualmiracles.com/2012/07/09/another-small-…-class-pattern/
+---
+
+<p>Developers at a client recently asked about the following code:</p>
+{% highlight scala %}
+import scalaz._
+import Scalaz._
+val x: Option[Int] = whatever
+val y = ~x // Huh!?
+{% endhighlight %}
+
+<h3>What is that <strong>~x</strong> there?</h3>
+
+<p>It's a <em>unary method call</em>.</p>
+
+<p>An example of a unary method is -, as in -1. - is actually defined in scala.Numeric like this:</p>
+{% highlight scala %}
+def unary_-() = negate(lhs)
+{% endhighlight %}
+
+<p>So -1 is actually 1.unary_-. The unary_ part can be omitted when used in prefix form. Note that the only identifiers that can be used as prefix operators are +, -, !, and ~.</p>
+
+<p>So the answer to the question is: its a unary method defined … somewhere:</p>
+{% highlight scala %}
+def unary_~()
+{% endhighlight %}
+
+<h3>What does ~ do to options?</h3>
+
+<p>In <a href="http://code.google.com/p/scalaz/" title="Scalaz">Scalaz</a> its a method that returns the value contained in an Option, or a default <em>Zero</em> for the Option's type. For example, ~Some(1) returns 1, ~None (for an Option[Int]) will return 0.</p>
+
+<p>But how does our unary method find an appropriate Zero instance?</p>
+
+<p>The answer is <a href="http://www.casualmiracles.com/2012/05/03/a-small-example-of-the-typeclass-pattern-in-scala/" title="A Small Example of the Typeclass Pattern in Scala">type classes</a>. To the code …</p>
+
+{% highlight scala %}
+object Zeroes extends App {
+
+/* The type class pattern starts with a trait defining the
+ * behaviour we need. In this case, a Zero for some type T,
+ * that can provide the zero for that type.
+ */
+trait Zero[T] { def zero: T }
+
+/* The other half of the pattern is the trait's companion
+ * object which contains a set of implicit instances
+ * for the type class. Whenever an implicit instance
+ * of a Zero is required, the companion object is one of
+ * the last places searched.
+ * 
+ * In this case there is only an instance for Int but it 
+ * could contain instances for all the basic types.
+ */
+object Zero {
+  implicit object IntZero extends Zero[Int] { def zero = 0 }
+}
+ 
+/* So that's the type class, but scala's Option does not have
+ * the method we need, so lets enrich the Option type with an
+ * implicit conversion (view) to a new, anonymous type with 
+ * the method we need.
+ */
+implicit def withTheZeroes[T: Zero](option: Option[T]) = new {
+  /* Note that the T: Zero in the type parameter is called a context
+   * bound. It says that this method wants an implicit instance
+   * of Zero[T] which will be used below.
+   */
+ 
+  /* The method will use Option's getOrElse method to get the
+   * value if the option is a Some, or else return the value
+   * returned by the Zero[T] if the Option is a None.
+   */
+  def unary_~(): T = option.getOrElse( implicitly[Zero[T]].zero )
+    
+  /* The implicitly here is just a method in scala.Predef
+   * 
+   *   def implicitly[T](implicit e: T) = e    
+   *   
+   *   The comment says: 
+   *     "for summoning implicit values from the nether world"   
+   * 
+   * In other words, it's a method that requires an implicit 
+   * instance of the supplied type, in this case Zero[T] and
+   * returns it. Since withTheZeroes requires an implicit 
+   * instance of Zero[T] through the context bound discussed
+   * above, implicitly[Zero[T]] will find it.
+   */
+  }
+
+// ok lets try it out with a standard scala Option 
+val something = Some(1)
+val nada: Option[Int] = None
+  
+println(~something) // returns 1
+println(~nada) // returns 0
+  
+/* But there is more. Type classes are open to extension. 
+ * We can supply our own zero, either superseding those
+ * supplied by the Zero companion object, or add new ones. 
+ * 
+ * Here is one for a String. 
+ */
+implicit object StringZero extends Zero[String] { def zero = "" }
+val noString: Option[String] = None
+println(~noString) // returns an empty string
+}
+{% endhighlight %}
+
+<p>So there it is, a unary method enriching an Option via an implicit view which requires an implicit Zero instance for the Option's enclosed type.</p>
+
+<p>Scalaz provides all the machinery to do this so all you need to do is use it. If you need to modify the defaults then you can provide your own implicit Zero instances and import them. The implicit resolution rules will ensure that your instances will be found before the defaults if they are imported or placed in the companion object of your classes.</p>
+
+<p>If you want to learn more about this kind of thing have a look at the other blogs in this series of <a href="http://www.casualmiracles.com/category/small-examples/" title="Small Examples">Small Examples</a>.</p>
+
+<p>If you would like a course on Scala, look no further than <a href="http://underscoreconsulting.com/" title="Underscore">Underscore</a>.</p>

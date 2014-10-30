@@ -1,0 +1,19 @@
+@import url('//fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:400,300,600');
+
+@font-family-sans-serif:  Lato, sans-serif;
+@font-family-serif:       Lato, sans-serif;
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+@font-size-base:          18px;
+@font-size-h1:            floor(@font-size-base * 1.8);
+@font-size-h2:            floor(@font-size-base * 1.6);
+@font-size-h3:            floor(@font-size-base * 1.2);
+@font-size-h4:            floor(@font-size-base * 0.9);
+@font-size-h5:            floor(@font-size-base * 0.7);
+@font-size-h6:            floor(@font-size-base * 0.8);
+
+@line-height-base:        30/18; // MUST BE UNITLESS
+@line-height-computed:    floor(@font-size-base * @line-height-base); // MUST BE px
+
+// @grid-float-breakpoint:   768px;

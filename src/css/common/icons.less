@@ -1,0 +1,90 @@
+.icon-sizes(@iconsize: 200px) {
+  @spritewidth  : @iconsize * 4;
+  @spriteheight : @iconsize * 7;
+
+  width           : @iconsize;
+  height          : @iconsize;
+  background-size : @spritewidth @spriteheight;
+
+  &.icon-scala                    { background-position: -0*@iconsize -0*@iconsize; }
+  &.icon-play                     { background-position: -1*@iconsize -0*@iconsize; }
+  &.icon-distributed              { background-position: -2*@iconsize -0*@iconsize; }
+  &.icon-java                     { background-position: -3*@iconsize -0*@iconsize; }
+
+  &.icon-macro                    { background-position: -0*@iconsize -1*@iconsize; }
+  &.icon-shapeless                { background-position: -1*@iconsize -1*@iconsize; }
+  &.icon-scalaz                   { background-position: -2*@iconsize -1*@iconsize; }
+  &.icon-lift                     { background-position: -3*@iconsize -1*@iconsize; }
+
+  &.icon-online                   { background-position: -2*@iconsize -2*@iconsize; }
+  &.icon-mentoring                { background-position: -1*@iconsize -2*@iconsize; }
+  &.icon-training                 { background-position: -0*@iconsize -2*@iconsize; }
+  &.icon-consulting               { background-position: -3*@iconsize -2*@iconsize; }
+
+  &.icon-service-online           { background-position: -2*@iconsize -3*@iconsize; }
+  &.icon-service-mentoring        { background-position: -1*@iconsize -3*@iconsize; }
+  &.icon-service-training         { background-position: -0*@iconsize -3*@iconsize; }
+  &.icon-service-consulting       { background-position: -3*@iconsize -3*@iconsize; }
+
+  &.icon-service-online:hover     { background-position: -2*@iconsize -4*@iconsize; }
+  &.icon-service-mentoring:hover  { background-position: -1*@iconsize -4*@iconsize; }
+  &.icon-service-training:hover   { background-position: -0*@iconsize -4*@iconsize; }
+  &.icon-service-consulting:hover { background-position: -3*@iconsize -4*@iconsize; }
+
+  &.icon-bbc                      { background-position: -0*@iconsize -5.00*@iconsize; height: @iconsize * .75 ; }
+  &.icon-mind-candy               { background-position: -1*@iconsize -5.00*@iconsize; height: @iconsize * .75 ; }
+  &.icon-pure360                  { background-position: -2*@iconsize -5.00*@iconsize; height: @iconsize * .75 ; }
+  &.icon-companies-house          { background-position: -0*@iconsize -5.75*@iconsize; height: @iconsize * .75 ; width: @iconsize * 2; }
+}
+
+.icon {
+  display: block;
+  margin: 0 auto;
+  background-image: url(/images/icons.png);
+}
+
+.icon-center {
+  .icon-sizes(160px);
+}
+
+.icon-center.icon-wide {
+  width: 400px;
+}
+
+.icon-left {
+  position: relative;
+  float: left;
+  margin-right: 10px;
+  .icon-sizes(1.6 * @line-height-computed);
+}
+
+.icon-inline {
+  display: inline-block;
+  .icon-sizes(160px);
+}
+
+@media (max-width: @screen-xs-max) {
+  .icon-center {
+    .icon-sizes(140px);
+  }
+
+  .icon-left {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-right: 1ex;
+    .icon-sizes(1.6 * @line-height-computed);
+    float: left;
+  }
+
+  .icon-inline {
+    display: block;
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+  .icon-center.icon-wide {
+    width: 360px;
+  }
+}
