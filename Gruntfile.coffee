@@ -16,7 +16,7 @@ module.exports = (grunt) ->
       screen:
         options:
           paths: [
-            "bower_components/bootstrap/less"
+            "bower_components"
             "src/css"
           ]
           yuicompress: true
@@ -28,6 +28,7 @@ module.exports = (grunt) ->
       site:
         files:
           "underscoreio/js/site.js" : [
+            "bower_components/retina.js/src/retina.js"
             "bower_components/jquery/dist/jquery.js"
             "bower_components/underscore/underscore.js"
             "bower_components/bootstrap/js/collapse.js"
@@ -43,6 +44,21 @@ module.exports = (grunt) ->
             cwd: "bower_components/bootstrap/img/"
             src: ["**"]
             dest: "underscoreio/images/"
+          }
+          {
+            expand: true
+            cwd: "bower_components/bootstrap/fonts/"
+            src: ["**"]
+            dest: "underscoreio/fonts/"
+          }
+        ]
+      fontAwesome:
+        files: [
+          {
+            expand: true
+            cwd: "bower_components/font-awesome/fonts/"
+            src: ["**"]
+            dest: "underscoreio/fonts/"
           }
           {
             expand: true

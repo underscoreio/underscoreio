@@ -1,25 +1,22 @@
-<nav class="navbar {% if page.navbarClass %}{{ page.navbarClass }}{% else %}navbar-default{% endif %}" role="navigation">
+<nav class="navbar{% if include.inverse %} navbar-inverse{% endif %}" role="navigation">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-top">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">
-        <span class="sr-only">Underscore</span>
-      </a>
-    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="navbar-brand{% if page.navbar == 'home' %} active{% endif %}">
+        <a href="/">Underscore</a>
+      </li>
+    </ul>
 
-    <div class="collapse navbar-collapse" id="navbar-top">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a id="navbar-home"       href="/">           Home       </a></li>
-        <li><a id="navbar-training"   href="/training">   Training   </a></li>
-        <li><a id="navbar-consulting" href="/consulting"> Consulting </a></li>
-        <li><a id="navbar-blog"       href="/blog">       Blog       </a></li>
-        <li><a id="navbar-company"    href="/company">    Company    </a></li>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <!-- li class="{% if page.navbar == 'home' %}active{% endif %}"><a href="/">Home</a></li -->
+      <li class="{% if page.navbar == 'training' %}active{% endif %}"><a href="/training">Training</a></li>
+      <li class="{% if page.navbar == 'consulting' %}active{% endif %}"><a href="/consulting">Consulting</a></li>
+      <li class="{% if page.navbar == 'blog' %}active{% endif %}"><a href="/blog">Blog</a></li>
+      <li class="{% if page.navbar == 'company' %}active{% endif %}"><a href="/company">Company</a></li>
+      <li class="divider"></li>
+      <li><a href="http://twitter.com/underscoreuk"><span class="fa fa-twitter"></span><span class="sr-only">Twitter</span></a></li>
+      <li><a href="tel:+442030955332"><span class="fa fa-phone"></span><span class="sr-only">Tel</span></a></li>
+      <li><a href="mailto:hello@underscore.io"><span class="fa fa-envelope-o"></span><span class="sr-only">Email</span></a></li>
+      </li>
+    </ul>
   </div>
 </nav>

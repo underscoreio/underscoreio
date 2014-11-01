@@ -1,10 +1,87 @@
-.navbar-active {
-  color: @navbar-default-link-active-color;
-  background-color: @navbar-default-link-active-bg;
+.navbar {
+  .navbar-left  { float: left;  }
+  .navbar-right { float: right; }
+
+  .navbar-nav > li {
+    float: left;
+
+    &.divider {
+      width: 1px;
+      height: @line-height-computed;
+      margin: @navbar-padding-vertical @navbar-padding-horizontal;
+    }
+  }
 }
 
-html.home       #navbar-home       { .navbar-active(); }
-html.training   #navbar-training   { .navbar-active(); }
-html.consulting #navbar-consulting { .navbar-active(); }
-html.blog       #navbar-blog       { .navbar-active(); }
-html.company    #navbar-company    { .navbar-active(); }
+// Color schemes:
+
+.navbar-colors(
+  @color:               #777,
+  @bg:                  #fff,
+  @link-color:          #777,
+  @link-hover-color:    #333,
+  @link-hover-bg:       #f7f7f7,
+  @link-active-color:   #555,
+  @link-active-bg:      #eee,
+  @link-disabled-color: #ccc,
+  @link-disabled-bg:    transparent
+) {
+  color: @color;
+  background: @bg;
+
+  .navbar-nav > li {
+    &.divider {
+      background: @link-active-bg;
+    }
+
+    > a {
+      color: @link-color;
+      font-weight: 200;
+    }
+
+    &:hover > a {
+      color: @link-hover-color;
+      background: @link-hover-bg;
+    }
+
+    &.active > a {
+      color: @link-active-color;
+      background: @link-active-bg;
+    }
+
+    &.disabled > a {
+      color: @link-disabled-color;
+      background: @link-disabled-bg;
+    }
+  }
+}
+
+// Default color scheme:
+.navbar {
+  .navbar-colors(
+    @color:               #777,
+    @bg:                  #fff,
+    @link-color:          #777,
+    @link-hover-color:    #333,
+    @link-hover-bg:       #f7f7f7,
+    @link-active-color:   #555,
+    @link-active-bg:      #eee,
+    @link-disabled-color: #ccc,
+    @link-disabled-bg:    transparent
+  );
+}
+
+// Inverse color scheme:
+.navbar.navbar-inverse {
+  .navbar-colors(
+    @color:               #fff,
+    @bg:                  transparent,
+    @link-color:          #fff,
+    @link-hover-color:    #fff,
+    @link-hover-bg:       rgba(255, 255, 255, 0.05),
+    @link-active-color:   #fff,
+    @link-active-bg:      rgba(255, 255, 255, 0.15),
+    @link-disabled-color: rgba(255, 255, 255, 0.5),
+    @link-disabled-bg:    transparent
+  );
+}
