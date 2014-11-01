@@ -31,8 +31,8 @@ module.exports = (grunt) ->
             "bower_components/retina.js/src/retina.js"
             "bower_components/jquery/dist/jquery.js"
             "bower_components/underscore/underscore.js"
-            "bower_components/bootstrap/js/collapse.js"
             "bower_components/respond/respond.src.js"
+            "bower_components/skrollr/src/skrollr.js"
             "src/js/site.js"
           ]
 

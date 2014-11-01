@@ -3,94 +3,109 @@ layout: default
 navbar: home
 ---
 
-<div class="home-hero">
-  <div class="home-hero-left-overlay">
-    <div class="home-hero-right-overlay">
-      {% include navbar.html inverse="true" %}
+<div id="skrollr-body" class="home-viewport">
+  <div class="home-hero">
+    <div class="home-hero-left-overlay"  data-start="right: 0px" data-end="right: 640px"></div>
+    <div class="home-hero-right-overlay" data-start="left: 0px"  data-end="left: 640px"></div>
+    <div class="home-hero-arrow-overlay"></div>
 
-      <header class="home-hero-text">
-        <h1><img src="/images/home/underscore-logo-white.png" alt="Underscore"></h1>
+    {% include navbar.html inverse="true" %}
 
-        <p>The specialist Scala consultancy</p>
-      </header>
+    <header class="home-hero-text">
+      <h1><img src="/images/home/underscore-logo-white.png" alt="Underscore"></h1>
+      <h2>The Scala Specialists</h2>
+    </header>
+  </div>
 
-      <div class="home-hero-arrow"></div>
+  <section class="home-panel home-training" data-bottom="top: 500px;" data-center="top: 0px;">
+    <div class="container">
+      <h1 class="home-panel-title">
+        Know Your Scala
+      </h1>
+
+      <p>Books, videos, taught courses, and mentoring... everything you need to excel.</p>
+
+      <p class="home-panel-cta">
+        <a class="btn btn-primary" href="/training">Learn with us</a>
+      </p>
     </div>
+  </section>
+
+  <section class="home-panel home-consulting" data-bottom="top: 500px;" data-center="top: 0px;">
+    <div class="container">
+      <h1 class="home-panel-title">
+        Succeed With Scala
+      </h1>
+
+      <p>We provide professional services tailored to your business, whatever stage you're at.</p>
+
+      <p class="home-panel-cta">
+        <a class="btn btn-primary" href="/consulting">Work with us</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="home-panel home-blog" data-bottom="top: 500px;" data-center="top: 0px;">
+    <div class="container">
+      <h1 class="home-panel-title">
+        Latest News
+      </h1>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      <p class="home-panel-cta">
+        <a class="btn btn-primary" href="/blog">Read more</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="home-panel home-customers" data-bottom="top: 500px;" data-center="top: 0px;">
+    <div class="container">
+      <h1 class="home-panel-title">
+        Our Customers
+      </h1>
+
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="thumbnail">
+            <img src="http://placehold.it/300x200">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="thumbnail">
+            <img src="http://placehold.it/300x200">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="thumbnail">
+            <img src="http://placehold.it/300x200">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="thumbnail">
+            <img src="http://placehold.it/300x200">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="thumbnail">
+            <img src="http://placehold.it/300x200">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="thumbnail">
+            <img src="http://placehold.it/300x200">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="position: relative" data-bottom="top: 500px;" data-center="top: 0px;">
+    {% include footer.html %}
   </div>
 </div>
-
-<section class="home-training">
-  <div class="container">
-    <h1>Know Your Scala</h1>
-
-    <p>Books, videos, taught courses, and mentoring... everything you need to excel.</p>
-
-    <p><a class="btn btn-primary" href="/training">Learn with us</a></p>
-  </div>
-</section>
-
-<section class="home-consulting">
-  <div class="container">
-    <h1>Succeed With Scala</h1>
-
-    <p>We provide professional services tailored to your business, whatever stage you're at.</p>
-
-    <p><a class="btn btn-primary" href="/consulting">Work with us</a></p>
-  </div>
-</section>
-
-<section class="home-blog">
-  <div class="container">
-    <h1>Latest News</h1>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-    <p><a class="btn btn-primary" href="/blog">Read more</a></p>
-  </div>
-</section>
-
-<section class="home-customers">
-  <div class="container">
-    <h1>Our Customers</h1>
-
-    <div class="row">
-      <div class="col-md-4 col-sm-6">
-        <div class="thumbnail">
-          <img src="http://placehold.it/300x200">
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="thumbnail">
-          <img src="http://placehold.it/300x200">
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="thumbnail">
-          <img src="http://placehold.it/300x200">
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="thumbnail">
-          <img src="http://placehold.it/300x200">
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="thumbnail">
-          <img src="http://placehold.it/300x200">
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="thumbnail">
-          <img src="http://placehold.it/300x200">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% include footer.html %}

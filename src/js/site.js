@@ -92,3 +92,5 @@ $("a[href*=underscoreconsulting]").on("click", function(evt) {
     document.location = url;
   }});
 });
+
+skrollr.init();

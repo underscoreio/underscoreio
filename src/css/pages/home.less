@@ -1,4 +1,26 @@
+@home-hero-height: @line-height-computed * 22; // 660px
+@home-hero-padding: @line-height-computed * 8;
+@home-hero-arrow-height: 20px;
+
+@home-panel-padding: @line-height-computed * 3;
+
+// html.home, html.home body {
+//   overflow: hidden;
+// }
+
+// .home-viewport {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+// }
+
 .home-hero {
+  position: relative;
+  width: 100%;
+  height: 640px;
+
   background-color: #25aae1;
   background-image: url(/images/home/home-bg.jpg);
   background-repeat: no-repeat;
@@ -8,36 +30,69 @@
   .navbar .navbar-brand {
     display: none;
   }
+
+  .home-hero-left-overlay,
+  .home-hero-right-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+  }
+
+  .home-hero-left-overlay {
+    left: auto;
+    width: 100%;
+    z-index: 2;
+    background-image: url(/images/home/hero-left-overlay.svg);
+    background-position: left top;
+  }
+
+  .home-hero-right-overlay {
+    right: auto;
+    width: 100%;
+    z-index: 1;
+    background-image: url(/images/home/hero-right-overlay.svg);
+    background-position: right bottom;
+  }
+
+  .home-hero-arrow-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: 40px;
+    z-index: 3;
+
+    background-image: url(/images/home/hero-arrow-overlay.svg);
+    background-position: center bottom;
+    background-size: cover;
+  }
+
+  .home-hero-text {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-top: -115px;
+
+    text-align: center;
+    vertical-align: center;
+    color: #ffffff;
+
+    h1 { text-transform: lowercase; }
+    h2 { font-weight: 200; }
+  }
 }
 
-.home-hero-left-overlay {
-  background-image: url(/images/home/left-overlay.png);
-  background-repeat: no-repeat;
-  background-position: top left;
-}
-
-.home-hero-right-overlay {
-  background-image: url(/images/home/right-overlay.png);
-  background-repeat: no-repeat;
-  background-position: top right;
-}
-
-.home-hero-text {
-  padding: 200px 0;
-
+.home-panel {
+  position: relative;
   text-align: center;
-  color: #ffffff;
 
-  h1 { text-transform: lowercase; }
-}
+  padding: @home-panel-padding 0;
 
-.home-hero-arrow {
-  height: 29px;
-  background-image: url(/images/home/arrow-overlay.png);
-  background-repeat: no-repeat;
-  background-position: bottom center;
-}
-
-.home-training {
-
+  .home-panel-title,
+  .home-panel-cta {
+    margin: @line-height-computed * 1.2 0 @line-height-computed * .8;
+  }
 }
