@@ -1,29 +1,11 @@
 <section class="blog-post" data-post-url="{{ post.url }}">
-  <article>
-    <h2 class="blog-post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  <h2 class="blog-post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
 
-    <dl class="blog-post-meta">
-      <dt class="blog-post-date">Date</dt>
-      <dd class="blog-post-date">
-        <span class="day">{{ post.date | date: '%d' }}</span>
-        <span class="month">{{ post.date | date: '%b' }}</span>
-        <span class="year">{{ post.date | date: '%Y' }}</span>
-      </dd>
-      <dt class="blog-post-author">Author</dt>
-      <dd class="blog-post-author">
-        {{ post.author }}
-      </dd>
-      {% if post.sourceUrl %}
-      <dt class="blog-post-source">Source</dt>
-      <dd class="blog-post-source">
-        <a href="{{ post.sourceUrl }}">{% if post.sourceSite %}{{ post.sourceSite }}{% else %}{{ post.sourceUrl }}{% endif %}</a>
-      </dd>
-      {% endif %}
-    </dl>
+  {% include blog/meta.html post=post %}
 
-    <div class="blog-post-content">
-      {{ post.excerpt | markdownify }}
-      <p><a href="{{ post.url }}">Continue reading&hellip;</a></p>
-    </div>
+  <article class="blog-post-content">
+    {{ post.excerpt | markdownify }}
   </article>
+
+  <p><a href="{{ post.url }}">Continue reading&hellip;</a></p>
 </section>
