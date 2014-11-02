@@ -5,10 +5,43 @@
 
   tbody {
     font-size: 1.5 * @font-size-base;
+
+    tr:hover {
+      cursor: pointer;
+      background: #f7f7f7;
+    }
   }
 
   h2 {
     margin: .25em 0 0;
     color: @text-color;
   }
+}
+
+.course-logo-sizes(@logo-size) {
+  &.course-logo-scala                    { background-position: -0*@logo-size -0*@logo-size; }
+  &.course-logo-play                     { background-position: -1*@logo-size -0*@logo-size; }
+  &.course-logo-distributed              { background-position: -2*@logo-size -0*@logo-size; }
+  &.course-logo-java                     { background-position: -3*@logo-size -0*@logo-size; }
+
+  &.course-logo-macro                    { background-position: -0*@logo-size -1*@logo-size; }
+  &.course-logo-shapeless                { background-position: -1*@logo-size -1*@logo-size; }
+  &.course-logo-scalaz                   { background-position: -2*@logo-size -1*@logo-size; }
+  &.course-logo-lift                     { background-position: -3*@logo-size -1*@logo-size; }
+
+  &.course-logo-online                   { background-position: -2*@logo-size -2*@logo-size; }
+  &.course-logo-mentoring                { background-position: -1*@logo-size -2*@logo-size; }
+  &.course-logo-training                 { background-position: -0*@logo-size -2*@logo-size; }
+  &.course-logo-consulting               { background-position: -3*@logo-size -2*@logo-size; }
+}
+
+.course-logo {
+  display: block;
+  width:  @line-height-computed * 1.5;
+  height: @line-height-computed * 1.5;
+  background-image: url(/images/training/course-logos.png);
+  background-size: cover;
+  vertical-align: baseline;
+
+  .course-logo-sizes(@line-height-computed * 1.5);
 }

@@ -2,19 +2,7 @@
 @home-hero-padding: @line-height-computed * 8;
 @home-hero-arrow-height: 20px;
 
-@home-panel-padding: @line-height-computed * 3;
-
-// html.home, html.home body {
-//   overflow: hidden;
-// }
-
-// .home-viewport {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-// }
+@home-panel-padding: @line-height-computed;
 
 .home-hero {
   position: relative;
@@ -27,12 +15,18 @@
   background-position: center center;
   background-size: cover;
 
+  .navbar {
+    position: relative;
+    z-index: 4;
+  }
+
   .navbar .navbar-brand {
     display: none;
   }
 
   .home-hero-left-overlay,
-  .home-hero-right-overlay {
+  .home-hero-right-overlay,
+  .home-hero-arrow-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -41,33 +35,25 @@
     background-size: cover;
   }
 
-  .home-hero-left-overlay {
-    left: auto;
-    width: 100%;
-    z-index: 2;
-    background-image: url(/images/home/hero-left-overlay.svg);
-    background-position: left top;
-  }
-
   .home-hero-right-overlay {
-    right: auto;
-    width: 100%;
     z-index: 1;
     background-image: url(/images/home/hero-right-overlay.svg);
     background-position: right bottom;
   }
 
+  .home-hero-left-overlay {
+    z-index: 2;
+    background-image: url(/images/home/hero-left-overlay.svg);
+    background-position: left top;
+  }
+
   .home-hero-arrow-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
+    top: auto;
     bottom: -10px;
     height: 40px;
     z-index: 3;
-
     background-image: url(/images/home/hero-arrow-overlay.svg);
     background-position: center bottom;
-    background-size: cover;
   }
 
   .home-hero-text {
@@ -75,6 +61,7 @@
     top: 50%;
     width: 100%;
     margin-top: -115px;
+    z-index: 4;
 
     text-align: center;
     vertical-align: center;
@@ -87,12 +74,79 @@
 
 .home-panel {
   position: relative;
-  text-align: center;
-
   padding: @home-panel-padding 0;
+}
+
+.home-training,
+.home-consulting {
+  text-align: center;
 
   .home-panel-title,
   .home-panel-cta {
     margin: @line-height-computed * 1.2 0 @line-height-computed * .8;
+  }
+}
+
+.home-blog {
+  @section-color: #fff;
+  @section-bg: #222;
+  @section-link-color: lighten(@link-color, 15%);
+  @section-hover-bg: rgba(255, 255, 255, 0.05);
+  @paddle-label-font-size: 2*@line-height-computed;
+
+  color: @section-color;
+  background: @section-bg;
+  a { color: @section-link-color; }
+
+  .home-panel-title {
+    text-align: center;
+  }
+
+  .home-blog-posts {
+    .blog-post {
+      display: none;
+
+      code {
+        color: #fff;
+        background: #444;
+      }
+    }
+
+    .blog-post-meta {
+      dt { color: #ddd; }
+      dd { color: #bbb; }
+    }
+
+    &:hover {
+      background: @section-hover-bg;
+      cursor: pointer;
+    }
+  }
+
+  .home-blog-paddle {
+    display: block;
+    position: relative;
+
+    // background: rgba(255, 255, 255, 0.01);
+    color: #777;
+
+    &:hover {
+      background: @section-hover-bg;
+      color: #aaa;
+    }
+  }
+
+  .home-blog-paddle-label {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: @paddle-label-font-size;
+    margin-top: -0.5 * @paddle-label-font-size;
+
+    text-align: center;
+    font-size: @paddle-label-font-size;
+    line-height: @paddle-label-font-size;
   }
 }

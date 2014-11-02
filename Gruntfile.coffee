@@ -32,7 +32,7 @@ module.exports = (grunt) ->
             "bower_components/jquery/dist/jquery.js"
             "bower_components/underscore/underscore.js"
             "bower_components/respond/respond.src.js"
-            "bower_components/skrollr/src/skrollr.js"
+            "bower_components/bootstrap/js/carousel.js"
             "src/js/site.js"
           ]
 

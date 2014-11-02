@@ -93,4 +93,70 @@ $("a[href*=underscoreconsulting]").on("click", function(evt) {
   }});
 });
 
-skrollr.init();
+$(".training-directory tr").on("click", function(evt) {
+  var url = $(this).data("courseUrl");
+  if(url) window.location = url;
+});
+
+$(".training-directory tr a").on("click", function(evt) {
+  evt.stopPropagation();
+});
+
+
+$(".home-blog").each(function () {
+  var root        = $(this);
+  var prevPaddle  = root.find(".home-blog-paddle-prev");
+  var nextPaddle  = root.find(".home-blog-paddle-next");
+  var postWrapper = root.find(".home-blog-posts");
+  var posts       = postWrapper.find(".blog-post");
+  var curr        = 0;
+
+  function resizePaddles(post) {
+    postWrapper.innerHeight(post.height());
+    prevPaddle.innerHeight(post.height());
+    nextPaddle.innerHeight(post.height());
+  }
+
+  function showPost(next, callback) {
+    callback = callback || function() {};
+
+    var prev = curr;
+
+    while(next < 0) {
+      next += posts.length;
+    }
+
+    while(next >= posts.length) {
+      next -= posts.length;
+    }
+
+    curr = next;
+
+    var prevPost = $(posts.get(prev));
+    var nextPost = $(posts.get(next));
+
+    prevPost.fadeOut("fast", function() {
+      resizePaddles(nextPost);
+      nextPost.fadeIn("fast", function() {
+        callback();
+      });
+    });
+  }
+
+  function gotoPost(evt) {
+    console.log("THIS", this);
+
+    var url = $(this).data("postUrl");
+
+    console.log("URL", url);
+
+    if(url) {
+      window.location = url;
+    }
+  }
+
+  prevPaddle.on("click", function(evt) { showPost(curr - 1); });
+  nextPaddle.on("click", function(evt) { showPost(curr + 1); });
+  postWrapper.on("click", ".blog-post", gotoPost);
+  showPost(curr);
+});

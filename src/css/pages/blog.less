@@ -1,12 +1,29 @@
-// .blog-archives {
-//   list-style: none;
-//   padding: 0;
+.blog-archives {
+  list-style: none;
+  padding: 0;
 
-//   .heading {
-//     margin-top: @line-height-computed;
-//   }
+  .heading {
+    margin-top: @line-height-computed;
+  }
 
-//   .heading:first-child {
-//     margin-top: 0;
-//   }
-// }
+  .heading:first-child {
+    margin-top: 0;
+  }
+}
+
+.blog-post {
+  .blog-post-meta {
+    .clearfix();
+    margin: 0 0 @line-height-computed / 2;
+
+    dt {
+      float: left;
+      margin-right: 1ex;
+    }
+
+    dd {
+      float: left;
+      margin-right: 3ex;
+    }
+  }
+}
