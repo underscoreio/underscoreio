@@ -4,24 +4,35 @@
 
 @home-panel-padding: @line-height-computed;
 
+html.home {
+  .navbar-standard {
+    transition: top 250ms linear;
+    top: -2*@navbar-height;
+    &.active { top: 0; }
+  }
+
+  .navbar-standard-spacer {
+    display: none;
+  }
+}
+
 .home-hero {
   position: relative;
   width: 100%;
-  height: 640px;
+  height: 75vh;
+  min-height: 320px;
+  max-height: 640px;
 
-  background-color: #25aae1;
+  background-color: @underscore-blue;
   background-image: url(/images/home/home-bg.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  // background-attachment: fixed;
 
   .navbar {
     position: relative;
-    z-index: 4;
-  }
-
-  .navbar .navbar-brand {
-    display: none;
+    z-index: 5;
   }
 
   .home-hero-left-overlay,
@@ -87,6 +98,35 @@
   }
 }
 
+.home-consulting {
+  background: @underscore-green;
+  color: #fff;
+
+  .home-consulting-top-overlay {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    z-index: 3;
+    background-image: url(/images/home/consulting-top-overlay.svg);
+    background-position: center bottom;
+    background-size: cover;
+  }
+
+  .home-consulting-bottom-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 30px;
+    z-index: 3;
+    background-image: url(/images/home/consulting-bottom-overlay.svg);
+    background-position: center top;
+    background-size: cover;
+  }
+}
+
 .home-blog {
   @section-color: #fff;
   @section-bg: #222;
@@ -103,6 +143,8 @@
   }
 
   .home-blog-posts {
+    padding-top: 1px; // hack to ensure title margin doesn't extend above the box
+
     .blog-post {
       display: none;
 
@@ -148,5 +190,10 @@
     text-align: center;
     font-size: @paddle-label-font-size;
     line-height: @paddle-label-font-size;
+  }
+
+  .home-blog-mobile-pager {
+    .visible-xs();
+    margin-top: @line-height-computed;
   }
 }

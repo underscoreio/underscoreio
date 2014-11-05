@@ -1,6 +1,10 @@
+.navbar-shadow() {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
 .navbar {
-  .navbar-left  { float: left;  }
-  .navbar-right { float: right; }
+  .navbar-left   { float: left;   }
+  .navbar-right  { float: right;  }
 
   .navbar-nav > li {
     float: left;
@@ -11,21 +15,83 @@
       margin: @navbar-padding-vertical @navbar-padding-horizontal;
     }
   }
+
+  .navbar-left > li.navbar-desktop-brand {
+    position: relative;
+    left: -15px;
+    .hidden-xs();
+
+    > a {
+      height: 50px !important;
+
+      img {
+        position: relative;
+        top: -2px;
+      }
+    }
+  }
+
+  .navbar-left > li.navbar-mobile-brand {
+    .visible-xs();
+
+    .navbar-menu-icon {
+      .visible-xs();
+      float: right;
+      position: relative;
+      left: @navbar-padding-horizontal;
+      height: @line-height-computed;
+      line-height: @line-height-computed;
+      padding: 0 @navbar-padding-horizontal;
+    }
+  }
+
+  @media (max-width: @grid-float-breakpoint-max) {
+    // padding-bottom: @line-height-computed/2;
+    .navbar-left   { float: none; display: block; }
+    .navbar-right  { float: none; display: none;  }
+
+    &.navbar-expanded {
+      .navbar-left   { display: block; }
+      .navbar-right  { display: block; }
+      .navbar-shadow();
+    }
+
+    .navbar-nav > li {
+      float: none;
+      &.divider { display: none; }
+      &.social  { float: left; }
+    }
+  }
+
+  &.navbar-standard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: @zindex-navbar;
+    .navbar-shadow();
+  }
+}
+
+.navbar-standard-spacer {
+  height: @navbar-height;
 }
 
 // Color schemes:
-
 .navbar-colors(
   @color:               #777,
-  @bg:                  #fff,
+  @bg:                  rgba(255, 255, 255, 0.95),
   @link-color:          #777,
   @link-hover-color:    #333,
-  @link-hover-bg:       #f7f7f7,
+  @link-hover-bg:       rgba(248, 248, 248, 0.95),
   @link-active-color:   #555,
-  @link-active-bg:      #eee,
+  @link-active-bg:      rgba(240, 240, 240, 0.95),
   @link-disabled-color: #ccc,
   @link-disabled-bg:    transparent
 ) {
+  // transition: color 100ms linear;
+  // transition: background-color 100ms linear;
+
   color: @color;
   background: @bg;
 
@@ -35,10 +101,14 @@
     }
 
     > a {
+      // transition: color 100ms linear;
+      // transition: background-color 100ms linear;
       color: @link-color;
       font-weight: 200;
     }
+  }
 
+  .navbar-nav > li {
     &:hover > a {
       color: @link-hover-color;
       background: @link-hover-bg;
@@ -56,23 +126,18 @@
   }
 }
 
-// Default color scheme:
-.navbar {
-  .navbar-colors(
-    @color:               #777,
-    @bg:                  #fff,
-    @link-color:          #777,
-    @link-hover-color:    #333,
-    @link-hover-bg:       #f7f7f7,
-    @link-active-color:   #555,
-    @link-active-bg:      #eee,
-    @link-disabled-color: #ccc,
-    @link-disabled-bg:    transparent
-  );
-}
-
 // Inverse color scheme:
-.navbar.navbar-inverse {
+.navbar.navbar-home {
+  .navbar-desktop-brand {
+    display: none;
+  }
+
+  @media (max-width: @grid-float-breakpoint-max) {
+    .navbar-desktop-brand {
+      display: none;
+    }
+  }
+
   .navbar-colors(
     @color:               #fff,
     @bg:                  transparent,
@@ -84,4 +149,36 @@
     @link-disabled-color: rgba(255, 255, 255, 0.5),
     @link-disabled-bg:    transparent
   );
+}
+
+// Default color scheme:
+.navbar {
+  .navbar-colors(
+    @color:               #777,
+    @bg:                  rgba(255, 255, 255, 0.95),
+    @link-color:          #777,
+    @link-hover-color:    #333,
+    @link-hover-bg:       rgba(248, 248, 248, 0.95),
+    @link-active-color:   #555,
+    @link-active-bg:      rgba(240, 240, 240, 0.95),
+    @link-disabled-color: #ccc,
+    @link-disabled-bg:    transparent
+  );
+}
+
+// Expanded responsive color scheme:
+@media (max-width: @grid-float-breakpoint-max) {
+  .navbar.navbar-expanded {
+    .navbar-colors(
+      @color:               #777,
+      @bg:                  rgba(255, 255, 255, 0.95),
+      @link-color:          #777,
+      @link-hover-color:    #333,
+      @link-hover-bg:       rgba(248, 248, 248, 0.95),
+      @link-active-color:   #555,
+      @link-active-bg:      rgba(240, 240, 240, 0.95),
+      @link-disabled-color: #ccc,
+      @link-disabled-bg:    transparent
+    );
+  }
 }

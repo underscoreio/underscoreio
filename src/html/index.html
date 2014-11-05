@@ -3,12 +3,14 @@ layout: default
 navbar: home
 ---
 
+{% include navbar.html %}
+
 <div class="home-hero">
   <div class="home-hero-left-overlay"></div>
   <div class="home-hero-right-overlay"></div>
   <div class="home-hero-arrow-overlay"></div>
 
-  {% include navbar.html inverse="true" %}
+  {% include navbar.html class="navbar-home" %}
 
   <header class="home-hero-text">
     <h1><img src="/images/home/underscore-logo-white.png" alt="Underscore"></h1>
@@ -22,7 +24,17 @@ navbar: home
       Know Your Scala
     </h1>
 
-    <p>Books, videos, taught courses, and mentoring... everything you need to excel.</p>
+    <p>
+      <img src="/images/home/training.png" alt="Training">
+    </p>
+
+    <p>
+      <strong>Books</strong>,
+      <strong>videos</strong>,
+      <strong>taught courses</strong>, and
+      <strong>team mentoring</strong>...
+      everything you need to excel.
+    </p>
 
     <p class="home-panel-cta">
       <a class="btn btn-primary" href="/training">Learn with us</a>
@@ -31,12 +43,22 @@ navbar: home
 </section>
 
 <section class="home-panel home-consulting">
+  <div class="home-consulting-top-overlay"></div>
+  <div class="home-consulting-bottom-overlay"></div>
+
   <div class="container">
     <h1 class="home-panel-title">
       Succeed with Scala
     </h1>
 
-    <p>We provide professional services tailored to your business, whatever stage you're at.</p>
+    <p>
+      <img src="/images/home/consulting.png" alt="Consulting">
+    </p>
+
+    <p>
+      <strong>Professional services</strong> tailored to your business,
+      <strong>whatever stage you're at</strong>.
+    </p>
 
     <p class="home-panel-cta">
       <a class="btn btn-primary" href="/consulting">Work with us</a>
@@ -51,7 +73,7 @@ navbar: home
     </h1>
 
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-2 hidden-xs">
         <a class="home-blog-paddle home-blog-paddle-prev" href="javascript:void 0">
           <span class="home-blog-paddle-label">
             <span class="fa fa-chevron-circle-left"></span>
@@ -64,12 +86,27 @@ navbar: home
         {% include blog/excerpt.html post=post %}
         {% endfor %}
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 hidden-xs">
         <a class="home-blog-paddle home-blog-paddle-next" href="javascript:void 0">
           <span class="home-blog-paddle-label">
             <span class="fa fa-chevron-circle-right"></span>
             <span class="sr-only">Next</span>
           </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="row home-blog-mobile-pager">
+      <div class="col-xs-6 text-right">
+        <a class="home-blog-link-prev btn btn-default btn-sm" href="javascript:void 0">
+          <span class="fa fa-chevron-left"></span>
+          Prev
+        </a>
+      </div>
+      <div class="col-xs-6">
+        <a class="home-blog-link-next btn btn-default btn-sm" href="javascript:void 0">
+          Next
+          <span class="fa fa-chevron-right"></span>
         </a>
       </div>
     </div>

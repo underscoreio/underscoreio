@@ -1,22 +1,31 @@
-<nav class="navbar{% if include.inverse %} navbar-inverse{% endif %}" role="navigation">
+<nav class="navbar {% if include.class %}{{ include.class }}{% else %}navbar-standard{% endif %}" role="navigation">
   <div class="container">
     <ul class="nav navbar-nav navbar-left">
-      <li class="navbar-brand{% if page.navbar == 'home' %} active{% endif %}">
-        <a href="/">Underscore</a>
+      <li class="navbar-desktop-brand">
+        <a href="/">
+          <img src="/images/common/navbar-brand.png" alt="Underscore">
+        </a>
+      </li>
+      <li class="navbar-mobile-brand navbar-toggle">
+        <a href="javascript:void 0">
+          Underscore
+          <span class="navbar-menu-icon fa fa-align-justify"></span>
+        </a>
       </li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <!-- li class="{% if page.navbar == 'home' %}active{% endif %}"><a href="/">Home</a></li -->
+      <li class="visible-xs {% if page.navbar == 'home' %}active{% endif %}"><a href="/">Home</a></li>
       <li class="{% if page.navbar == 'training' %}active{% endif %}"><a href="/training">Training</a></li>
       <li class="{% if page.navbar == 'consulting' %}active{% endif %}"><a href="/consulting">Consulting</a></li>
       <li class="{% if page.navbar == 'blog' %}active{% endif %}"><a href="/blog">Blog</a></li>
       <li class="{% if page.navbar == 'company' %}active{% endif %}"><a href="/company">Company</a></li>
       <li class="divider"></li>
-      <li><a href="http://twitter.com/underscoreuk"><span class="fa fa-twitter"></span><span class="sr-only">Twitter</span></a></li>
-      <li><a href="tel:+442030955332"><span class="fa fa-phone"></span><span class="sr-only">Tel</span></a></li>
-      <li><a href="mailto:hello@underscore.io"><span class="fa fa-envelope"></span><span class="sr-only">Email</span></a></li>
-      </li>
+      <li class="social"><a href="http://twitter.com/underscoreuk"><span class="fa fa-twitter"></span><span class="sr-only">Twitter</span></a></li>
+      <li class="social"><a href="tel:+442030955332"><span class="fa fa-phone"></span><span class="sr-only">Tel</span></a></li>
+      <li class="social"><a href="mailto:hello@underscore.io"><span class="fa fa-envelope"></span><span class="sr-only">Email</span></a></li>
     </ul>
   </div>
 </nav>
+
+<div class="{% if include.class %}{{ include.class }}{% else %}navbar-standard{% endif %}-spacer"></div>
