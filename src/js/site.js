@@ -1,8 +1,8 @@
-// $(".navbar-toggle").click(function(evt) {
-//   evt.preventDefault();
-//   evt.stopPropagation();
-//   $(this).parents(".navbar").toggleClass("navbar-expanded");
-// });
+$(".navbar-toggle").click(function(evt) {
+  evt.preventDefault();
+  evt.stopPropagation();
+  $(this).parents(".navbar").toggleClass("navbar-expanded");
+});
 
 /*
 Currently unused:
