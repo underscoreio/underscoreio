@@ -16,48 +16,55 @@
 
     h1 { margin-top: 0em; }
   }
+}
 
-  .hero-left-overlay-white,
-  .hero-left-overlay-black,
-  .hero-right-overlay-black,
-  .hero-arrow-overlay-white {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    pointer-events: none;
-  }
+.hero-left-overlay-white,
+.hero-left-overlay-black,
+.hero-right-overlay-white,
+.hero-right-overlay-black,
+.hero-arrow-overlay-white {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  pointer-events: none;
+}
 
-  .hero-left-overlay-white {
-    z-index: 2;
-    background-image: url(/images/common/hero-left-overlay-white.svg);
-    background-position: left top;
-  }
+.hero-left-overlay-white {
+  z-index: 2;
+  background-image: url(/images/common/hero-left-overlay-white.svg);
+  background-position: left top;
+}
 
-  .hero-left-overlay-black {
-    z-index: 2;
-    background-image: url(/images/common/hero-left-overlay-black.svg);
-    background-position: left top;
-  }
+.hero-left-overlay-black {
+  z-index: 2;
+  background-image: url(/images/common/hero-left-overlay-black.svg);
+  background-position: left top;
+}
 
-  .hero-right-overlay-black {
-    z-index: 1;
-    background-image: url(/images/common/hero-right-overlay-black.svg);
-    background-position: right bottom;
-  }
+.hero-right-overlay-white {
+  z-index: 1;
+  background-image: url(/images/common/hero-right-overlay-white.svg);
+  background-position: right bottom;
+}
 
-  .hero-arrow-overlay-white {
-    top: auto;
-    bottom: -10px;
-    height: 40px;
-    z-index: 3;
-    background-image: url(/images/common/hero-arrow-overlay-white.svg);
-    background-position: center bottom;
-  }
+.hero-right-overlay-black {
+  z-index: 1;
+  background-image: url(/images/common/hero-right-overlay-black.svg);
+  background-position: right bottom;
+}
 
-  .hero-overlay-soft {
-    opacity: .4;
-  }
+.hero-arrow-overlay-white {
+  top: auto;
+  bottom: -10px;
+  height: 40px;
+  z-index: 3;
+  background-image: url(/images/common/hero-arrow-overlay-white.svg);
+  background-position: center bottom;
+}
+
+.hero-overlay-soft {
+  opacity: .4;
 }
