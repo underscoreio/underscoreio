@@ -1,15 +1,17 @@
 #global module:false
 
+path = require 'path'
+
 "use strict"
 
 module.exports = (grunt) ->
-  grunt.loadNpmTasks "grunt-bower-task"
+  grunt.loadNpmTasks "grunt-browserify"
   grunt.loadNpmTasks "grunt-contrib-connect"
   grunt.loadNpmTasks "grunt-contrib-copy"
   grunt.loadNpmTasks "grunt-contrib-less"
-  grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-exec"
+  grunt.loadNpmTasks "grunt-webfont"
 
   grunt.initConfig
     less:
@@ -24,17 +26,39 @@ module.exports = (grunt) ->
           "underscoreio/css/screen.css" : "src/css/screen.less"
           "underscoreio/css/print.css"  : "src/css/print.less"
 
-    uglify:
+    browserify:
       site:
-        files:
-          "underscoreio/js/site.js" : [
-            "bower_components/retina.js/src/retina.js"
-            "bower_components/jquery/dist/jquery.js"
-            "bower_components/underscore/underscore.js"
-            "bower_components/respond/respond.src.js"
-            "bower_components/bootstrap/js/carousel.js"
-            "src/js/site.js"
-          ]
+        src:  "src/js/site.coffee"
+        dest: "underscoreio/js/site.js"
+        cwd:  "."
+        options:
+          cwd:  "."
+          watch: false
+          transform: [ 'coffeeify' ]
+          browserifyOptions:
+            debug: true
+            extensions: [ '.coffee' ]
+            # "underscoreio/js/site.js" : [
+            #   "bower_components/retina.js/src/retina.js"
+            #   "bower_components/jquery/dist/jquery.js"
+            #   "bower_components/underscore/underscore.js"
+            #   "bower_components/respond/respond.src.js"
+            #   "bower_components/bootstrap/js/carousel.js"
+            #   "src/js/site.js"
+            # ]
+
+    webfont:
+      icons:
+        src: "src/icons/*.svg"
+        dest: "underscoreio/fonts"
+        destCss: "src/css/common/icons"
+        options:
+          font: 'uio'
+          engine: 'node'
+          htmlDemo: false
+          relativeFontPath: '/fonts/'
+          syntax: 'bootstrap'
+          rename: (filename) -> 'uio-' + path.basename(filename)
 
     copy:
       bootstrap:
@@ -83,17 +107,16 @@ module.exports = (grunt) ->
       deploy:
         cmd: 'rsync --progress -a --delete -e "ssh -q" underscoreio/ admin@preview.underscore.io:preview.underscore.io/public/htdocs/'
 
-    bower:
-      install: {}
-
     watchImpl:
       options:
         livereload: true
       css:
         files: [
+          "src/icons/**/*"
           "src/css/**/*"
         ]
         tasks: [
+          "webfont"
           "less"
           "exec:jekyll"
         ]
@@ -102,7 +125,7 @@ module.exports = (grunt) ->
           "src/js/**/*"
         ]
         tasks: [
-          "uglify"
+          "browserify"
           "exec:jekyll"
         ]
       images:
@@ -133,8 +156,9 @@ module.exports = (grunt) ->
   grunt.renameTask "watch", "watchImpl"
 
   grunt.registerTask "build", [
+    "webfont"
     "less"
-    "uglify"
+    "browserify"
     "copy"
     "exec:jekyll"
   ]

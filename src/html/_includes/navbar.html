@@ -1,4 +1,4 @@
-<nav class="navbar {% if include.class %}{{ include.class }}{% else %}navbar-standard{% endif %}" role="navigation">
+<nav class="navbar {% if include.class %}{{ include.class }}{% else %}navbar-autohide{% endif %}" role="navigation">
   <div class="container">
     <ul class="nav navbar-nav navbar-left">
       <li class="navbar-desktop-brand">
@@ -27,5 +27,3 @@
     </ul>
   </div>
 </nav>
-
-<div class="{% if include.class %}{{ include.class }}{% else %}navbar-standard{% endif %}-spacer"></div>

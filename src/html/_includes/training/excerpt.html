@@ -1,9 +1,15 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3>{{ include.course.title }}</h3>
+<div class="panel panel-course-excerpt">
+  <div class="panel-heading" style="background: {{ include.course.color }}">
+    <h4>
+      <span class="icon-uio-{{ include.course.icon }} pull-right"></span>
+      {{ include.course.title }}
+    </h4>
   </div>
 
   <div class="panel-body">
-    FOOBARBAZ
+    <dl class="course-meta">
+      <dt>Level</dt>  <dd>{{ include.course.level  }}</dd>
+      <dt>Length</dt> <dd>{{ include.course.length }}</dd>
+    </dl>
   </div>
 </div>

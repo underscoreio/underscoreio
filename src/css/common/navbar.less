@@ -62,18 +62,9 @@
       &.social  { float: left; }
     }
   }
-
-  &.navbar-standard {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: @zindex-navbar;
-    .navbar-shadow();
-  }
 }
 
-.navbar-standard-spacer {
+.navbar-autohide-spacer {
   height: @navbar-height;
 }
 
@@ -126,18 +117,15 @@
   }
 }
 
+.navbar.navbar-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 // Inverse color scheme:
-.navbar.navbar-home {
-  .navbar-desktop-brand {
-    display: none;
-  }
-
-  @media (max-width: @grid-float-breakpoint-max) {
-    .navbar-desktop-brand {
-      display: none;
-    }
-  }
-
+.navbar.navbar-inverse {
   .navbar-colors(
     @color:               #fff,
     @bg:                  transparent,
@@ -155,7 +143,7 @@
 .navbar {
   .navbar-colors(
     @color:               #777,
-    @bg:                  rgba(255, 255, 255, 0.95),
+    @bg:                  transparent,
     @link-color:          #777,
     @link-hover-color:    #333,
     @link-hover-bg:       rgba(248, 248, 248, 0.95),
@@ -181,4 +169,16 @@
       @link-disabled-bg:    transparent
     );
   }
+}
+
+.navbar.navbar-autohide {
+  position: fixed;
+  transition: top 250ms linear;
+  background: rgba(255, 255, 255, 0.95) !important;
+  top: -2*@navbar-height;
+  left: 0;
+  right: 0;
+  z-index: @zindex-navbar;
+  .navbar-shadow();
+  &.active { top: 0; }
 }

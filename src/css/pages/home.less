@@ -1,24 +1,11 @@
 @home-hero-height: @line-height-computed * 22; // 660px
 @home-hero-padding: @line-height-computed * 8;
 @home-hero-arrow-height: 20px;
+@home-logo-height: 100px;
 
 @home-panel-padding: @line-height-computed;
 
-html.home {
-  .navbar-standard {
-    transition: top 250ms linear;
-    top: -2*@navbar-height;
-    &.active { top: 0; }
-  }
-
-  .navbar-standard-spacer {
-    display: none;
-  }
-}
-
-.home-hero {
-  position: relative;
-  width: 100%;
+.hero.home-hero {
   height: 75vh;
   min-height: 320px;
   max-height: 640px;
@@ -33,63 +20,36 @@ html.home {
   .navbar {
     position: relative;
     z-index: 5;
+
+    .navbar-desktop-brand {
+      display: none;
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      .navbar-desktop-brand {
+        display: none;
+      }
+    }
   }
 
-  .home-hero-left-overlay,
-  .home-hero-right-overlay,
-  .home-hero-arrow-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-  }
-
-  .home-hero-right-overlay {
-    z-index: 1;
-    background-image: url(/images/home/hero-right-overlay.svg);
-    background-position: right bottom;
-  }
-
-  .home-hero-left-overlay {
-    z-index: 2;
-    background-image: url(/images/home/hero-left-overlay.svg);
-    background-position: left top;
-  }
-
-  .home-hero-arrow-overlay {
-    top: auto;
-    bottom: -10px;
-    height: 40px;
-    z-index: 3;
-    background-image: url(/images/home/hero-arrow-overlay.svg);
-    background-position: center bottom;
-  }
-
-  .home-hero-text {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    margin-top: -115px;
+  .hero-text {
+    height: @font-size-h1 + @line-height-computed + @home-logo-height;
     z-index: 4;
 
     text-align: center;
-    vertical-align: center;
     color: #ffffff;
 
     h1 { text-transform: lowercase; }
-    h2 { font-weight: 200; }
+    h2 {
+      font-weight: 200;
+      margin-bottom: 0;
+    }
   }
 }
 
 .home-panel {
   position: relative;
   padding: @home-panel-padding 0;
-}
-
-.home-training,
-.home-consulting {
   text-align: center;
 
   .home-panel-title,
@@ -101,30 +61,6 @@ html.home {
 .home-consulting {
   background: @underscore-green;
   color: #fff;
-
-  .home-consulting-top-overlay {
-    position: absolute;
-    top: -2px;
-    left: 0;
-    right: 0;
-    height: 30px;
-    z-index: 3;
-    background-image: url(/images/home/consulting-top-overlay.svg);
-    background-position: center bottom;
-    background-size: cover;
-  }
-
-  .home-consulting-bottom-overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -2px;
-    height: 30px;
-    z-index: 3;
-    background-image: url(/images/home/consulting-bottom-overlay.svg);
-    background-position: center top;
-    background-size: cover;
-  }
 }
 
 .home-blog {
@@ -138,15 +74,12 @@ html.home {
   background: @section-bg;
   a { color: @section-link-color; }
 
-  .home-panel-title {
-    text-align: center;
-  }
-
   .home-blog-posts {
     padding-top: 1px; // hack to ensure title margin doesn't extend above the box
 
     .blog-post {
       display: none;
+      text-align: left;
 
       code {
         color: #fff;
@@ -155,6 +88,7 @@ html.home {
     }
 
     .blog-post-meta {
+      text-align: left;
       dt { color: #ddd; }
       dd { color: #bbb; }
     }

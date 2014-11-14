@@ -5,16 +5,18 @@ navbar: home
 
 {% include navbar.html %}
 
-<div class="home-hero">
-  <div class="home-hero-left-overlay"></div>
-  <div class="home-hero-right-overlay"></div>
-  <div class="home-hero-arrow-overlay"></div>
+<div class="hero home-hero">
+  <div class="hero-left-overlay-white"></div>
+  <div class="hero-right-overlay-black"></div>
+  <div class="hero-arrow-overlay-white"></div>
 
-  {% include navbar.html class="navbar-home" %}
+  {% include navbar.html class="navbar-inverse" %}
 
-  <header class="home-hero-text">
-    <h1><img src="/images/home/underscore-logo-white.png" alt="Underscore"></h1>
-    <h2>The Scala Specialists</h2>
+  <header class="hero-text">
+    <div class="container">
+      <h1><img src="/images/home/underscore-logo-white.png" alt="Underscore"></h1>
+      <h2>The Scala Specialists</h2>
+    </div>
   </header>
 </div>
 
@@ -29,10 +31,8 @@ navbar: home
     </p>
 
     <p>
-      <strong>Books</strong>,
-      <strong>videos</strong>,
-      <strong>taught courses</strong>, and
-      <strong>team mentoring</strong>...
+      <strong>Books</strong>, <strong>videos</strong>,
+      <strong>taught courses</strong>, and <strong>team mentoring</strong>...
       everything you need to excel.
     </p>
 
@@ -43,9 +43,6 @@ navbar: home
 </section>
 
 <section class="home-panel home-consulting">
-  <div class="home-consulting-top-overlay"></div>
-  <div class="home-consulting-bottom-overlay"></div>
-
   <div class="container">
     <h1 class="home-panel-title">
       Succeed with Scala
@@ -112,6 +109,10 @@ navbar: home
     </div>
   </div>
 </section>
+
+<script>
+  uio.blogPager.init(".home-blog");
+</script>
 
 <section class="home-panel home-customers">
   <div class="container">

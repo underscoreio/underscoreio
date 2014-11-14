@@ -1,7 +1,12 @@
 title: Essential Play
 level: Intermediate
 length: 1 day
+icon: play
 color: "#00ff00"
+products:
+  gumroad:
+    title: Essential Play (Pre-Alpha)
+    url: https://gum.co/essential-play
 overview: |
   This course covers a comprehensive set of topics required to create web sites and web services in Play.
 

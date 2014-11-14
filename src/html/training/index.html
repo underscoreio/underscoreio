@@ -5,15 +5,33 @@ navbar: training
 
 {% include navbar.html %}
 
+{% include hero.html title="Training" %}
+
 <section class="container">
+  <article class="row">
+    <div class="col-sm-4">
+      <h2>Books</h2>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>Videos</h2>
+
+      <p>Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>On-Site</h2>
+
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </article>
+</section>
+
+<section class="container training-course-directory">
   <article>
-    <h1>Training</h1>
-
-    <p>We offer a wide variety of Scala training courses and workshops, covering everything from fundamentals and best practices to advanced software arhitectures. Browse our <a href="/courses">course directory</a> for more information on what we have on offer.</p>
-
-    <p>Many of our shorter courses are designed to work together in packages. We also routinely custom workshops to suit individual customers' needs. By combining the correct elements, we can create the perfect syllabus for your developers. Fill out an <a href="/enquiries.html">enquiry form</a> to see what we can offer your organisation.</p>
-
-    <p>We believe that learning should never stop. <strong>All of our face-to-face training courses come with free ongoing access to our online training material.</strong></p>
+    <h2>Course Directory</h2>
 
     <div class="row">
       <div class="col-sm-4">{% include training/excerpt.html course=site.data.courses.essential-scala %}</div>
@@ -24,13 +42,21 @@ navbar: training
       <div class="col-sm-4">{% include training/excerpt.html course=site.data.courses.essential-shapeless %}</div>
       <div class="col-sm-4">{% include training/excerpt.html course=site.data.courses.essential-distributed-systems %}</div>
       <div class="col-sm-4">{% include training/excerpt.html course=site.data.courses.essential-macros %}</div>
+      <div class="col-sm-4">
+        <div class="suggest-course">
+          <p class="text-center">
+            Something missing?
+          </p>
+
+          <p class="text-center">
+            <a class="btn btn-primary btn" href="/contact.html?subject=New%20course%20suggestion">
+              Suggest a course
+              <span class="fa fa-chevron-right"></span>
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
-
-    <p>Are we missing something from the list above? Let us know! Get in touch if you would like to see new online or face-to-face training content!</p>
-
-    <p class="text-center">
-      <a class="btn btn-primary" href="/contact.html?subject=New%20course%20suggestion">Suggest new course content</a>
-    </p>
   </article>
 </section>
 
