@@ -2,7 +2,8 @@ title: Essential Java 8
 level: Intermediate Java
 length: 1 day
 icon: java
-color: "#ff7700"
+color: "#ed783c"
+media: [ onsite ]
 overview: |
   Java 8 brings many new and powerful features to the table, the most significant of which are *lambda expressions* and the new *stream-based collection API*.
 

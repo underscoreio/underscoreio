@@ -2,7 +2,8 @@ title: Essential Play
 level: Intermediate
 length: 1 day
 icon: play
-color: "#00ff00"
+color: "#a0c556"
+media: [ book, onsite ]
 products:
   gumroad:
     title: Essential Play (Pre-Alpha)

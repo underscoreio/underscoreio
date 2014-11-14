@@ -2,7 +2,8 @@ title: Essential Lift
 level: Intermediate
 length: 1 day
 icon: lift
-color: "#0000ff"
+color: "#4872b1"
+media: [ book, onsite ]
 overview: |
   This one-day course is aimed at Scala developers who want to understand how to build applications with the Lift web framework. Lift is different from other web frameworks, and with the help of this course you can save significant time getting up to speed.
 learningOutcomes: |

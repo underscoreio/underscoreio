@@ -5,7 +5,7 @@ scrollSpy = require './scrollspy'
 navbar    = require './navbar'
 blogPager = require './blog-pager'
 
-retina.Retina.init()
+retina.Retina.init(window)
 
 $ ->
   navbar.init()

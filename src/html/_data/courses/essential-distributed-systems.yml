@@ -2,7 +2,8 @@ title: Essential Distributed Systems
 level: Intermediate Java or Scala
 length: 2 days
 icon: network
-color: "#7700ff"
+color: "#5a98cb"
+media: [ onsite ]
 overview: |
   Distributed systems introduce new challenges in building reliable, scalable software. This course teaches the core theoretical principles for constructing distributed systems and invites particpants to build their own systems using Scala or Java and a set of elemental tools.
 

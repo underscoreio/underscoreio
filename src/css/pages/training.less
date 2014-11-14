@@ -1,3 +1,9 @@
+.training-overview {
+  .course-type-promo {
+    text-align: center;
+    font-size: 4em;
+  }
+}
 
 .training-course-directory {
   h2 {
@@ -13,6 +19,49 @@
       background: @gray-light;
       color: #fff;
       h4 { margin: 0; }
+    }
+
+    .panel-body {
+      padding-top: @line-height-computed;
+      padding-bottom: @line-height-computed*0.75;
+    }
+
+    .panel-footer {
+      .clearfix();
+
+      border-top: none;
+      padding-top: 0;
+      padding-bottom: @line-height-computed*0.25;
+      background: none;
+      color: @gray-light;
+
+      .course-book {
+        position: relative;
+        float: left;
+        top: .3em;
+      }
+
+      .course-media {
+        float: right;
+        font-size: 1.2em;
+      }
+    }
+
+    .course-icon {
+      float: right;
+    }
+
+    dl.course-meta {
+      margin: 0;
+      text-align: center;
+
+      dt:before {
+        content: "";
+        display: block;
+      }
+      dt, dd {
+        display: inline;
+      }
     }
   }
 

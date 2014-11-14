@@ -1,7 +1,7 @@
 <div class="panel panel-course-excerpt">
   <div class="panel-heading" style="background: {{ include.course.color }}">
     <h4>
-      <span class="icon-uio-{{ include.course.icon }} pull-right"></span>
+      <span class="course-icon icon-uio-{{ include.course.icon }}"></span>
       {{ include.course.title }}
     </h4>
   </div>
@@ -11,5 +11,18 @@
       <dt>Level</dt>  <dd>{{ include.course.level  }}</dd>
       <dt>Length</dt> <dd>{{ include.course.length }}</dd>
     </dl>
+  </div>
+
+  <div class="panel-footer">
+    <div class="course-book">
+      Book now
+      <span class="fa fa-chevron-right"></span>
+    </div>
+
+    <div class="course-media">
+      {% if include.course.media contains "book" %}<span class="icon-uio-book"></span>{% endif %}
+      {% if include.course.media contains "video" %}<span class="icon-uio-video"></span>{% endif %}
+      {% if include.course.media contains "onsite" %}<span class="icon-uio-onsite"></span>{% endif %}
+    </div>
   </div>
 </div>
