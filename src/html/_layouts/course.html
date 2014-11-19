@@ -2,16 +2,92 @@
 layout: default
 navbar: training
 ---
-{% include navbar.html %}
 
-{% include hero.html title=page.title icon=page.icon %}
+{% include navbar.html class="navbar-fixed" %}
+
+<div class="hero course-hero" style="background: {{ page.color }}">
+  <div class="hero-left-overlay-white"></div>
+  <div class="hero-right-overlay-white"></div>
+  <div class="hero-arrow-overlay-white"></div>
+
+  {% include navbar.html class="navbar-inverse" %}
+
+  <header class="hero-text">
+    <div class="container">
+      <h1>{{ page.title }}</h1>
+
+      <div class="row course-formats">
+        <div class="col-md-6">
+          <div class="panel">
+            <div class="panel-body">
+              <h3>Self-Directed Learning</h3>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4>Book</h4>
+                  <div class="format-overview">
+                    {{ site.data.trainingFormats.selfDirected.formats.books.purchasePrompt | markdownify }}
+                  </div>
+                  <p class="format-purchase">
+                    <a class="btn btn-primary btn-block">Buy now - £xxx</a>
+                  </p>
+                </div>
+                <div class="col-sm-6">
+                  <h4>Videos + Book</h4>
+                  <div class="format-overview">
+                    {{ site.data.trainingFormats.selfDirected.formats.videos.purchasePrompt | markdownify }}
+                  </div>
+                  <p class="format-purchase">
+                    <a class="btn btn-primary btn-block">Buy now - £xxx</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 ">
+          <div class="panel">
+            <div class="panel-body">
+              <h3>Instructor-Led Courses</h3>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <h4>Public Courses</h4>
+                  <div class="format-overview">
+                    {{ site.data.trainingFormats.instructorLed.formats.public.purchasePrompt | markdownify }}
+                  </div>
+                  <p class="format-purchase">
+                    <a class="btn btn-warning btn-block">Get notified</a>
+                  </p>
+                </div>
+                <div class="col-sm-6">
+                  <h4>Private Courses</h4>
+                  <div class="format-overview">
+                    {{ site.data.trainingFormats.instructorLed.formats.private.purchasePrompt | markdownify }}
+                  </div>
+                  <p class="format-purchase">
+                    <a class="btn btn-primary btn-block">Book now - £xxx/team</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
 
 <div class="container">
+  {{ content }}
+  {% comment %}
   <div class="row">
     <div class="col-sm-8">
       {{ content }}
     </div>
     <div class="col-sm-4 course-sidebar">
+      {% comment %}
       {% if page.media.icons contains "onsite" %}
         {% include training/sidebar/booknow.html course=page %}
       {% endif %}
@@ -31,6 +107,8 @@ navbar: training
       {% if page.media.github %}
         {% include training/sidebar/github.html course=page %}
       {% endif %}
+      {% endcomment %}
     </div>
   </div>
+  {% endcomment %}
 </div>

@@ -19,14 +19,9 @@ permalink    : /blog/posts/:year/:month/:day/:title.html
 
 safe         : false
 highlighter  : pygments
-markdown     : kramdown
-markdown_ext : md
 
 collections:
   courses:
     output: true
     permalink: /training/courses/:path/
     layout: default
-
-kramdown:
-  parse_block_html: true

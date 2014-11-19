@@ -8,7 +8,7 @@ init = (sel) ->
     evt.stopPropagation()
     return
 
-  root.on "click", ".panel-course-excerpt", (evt) ->
+  root.on "click", ".course-excerpt", (evt) ->
     elem     = $(evt.currentTarget)
     courseId = $(elem).data("courseId")
     if courseId

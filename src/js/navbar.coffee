@@ -9,7 +9,7 @@ init = ->
     $(this).parents(".navbar").toggleClass("navbar-expanded")
     return
 
-  autohideNavbar = $(".navbar-autohide")
+  autohideNavbar = $(".navbar-fixed")
 
   uio.scrollSpy.register ".hero", (position) ->
     if position == "below"

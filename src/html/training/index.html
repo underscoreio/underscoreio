@@ -3,47 +3,65 @@ layout: default
 navbar: training
 ---
 
-{% include navbar.html %}
-
 {% include hero.html title="Training" %}
 
-<section class="container training-overview">
-  <article class="row">
-    <div class="col-sm-4">
-      <h2>Books</h2>
+<section class="container training-formats hidden-xs">
+  <article>
+    <h2>What we offer</h2>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    <div class="row">
+      {% for categoryPair in site.data.trainingFormats %}
+      {% assign category = categoryPair[1] %}
+      <div class="col-md-6">
+        <div class="panel panel-gray">
+          <div class="panel-body">
+            <h3 class="format-category-title">
+              {{ category.title }}
+            </h3>
 
-      <p class="course-type-promo">
-        <span class="icon-uio-book"></span>
-      </p>
+            <div class="row">
+              {% for formatPair in category.formats %}
+              {% assign format = formatPair[1] %}
+              <div class="col-md-6">
+                <h4 class="format-title">
+                  {{ format.title }}
+                </h4>
+
+                <div class="format-overview">
+                  {{ format.overview | markdownify }}
+                </div>
+
+                <div class="format-icon">
+                  <span class="icon-uio-{{ format.icon }}"></span>
+                </div>
+
+                <div class="format-features">
+                  {{ format.features | markdownify }}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
 
-    <div class="col-sm-4">
-      <h2>Videos</h2>
-
-      <p>Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-
-      <p class="course-type-promo">
-        <span class="icon-uio-video"></span>
-      </p>
-    </div>
-
-    <div class="col-sm-4">
-      <h2>On-Site</h2>
-
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-      <p class="course-type-promo">
-        <span class="icon-uio-onsite"></span>
-      </p>
-    </div>
+    <p class="text-center">
+      <button class="btn btn-link format-features-toggle">
+        Compare the benefits <span class="fa fa-chevron-down"></span>
+      </button>
+    </p>
   </article>
 </section>
 
+<script>
+  uio.trainingFormats.init(".training-formats")
+</script>
+
 <section class="container training-course-directory">
   <article>
-    <h2>Our Books, Videos, and Courses</h2>
+    <h2>Our Courses</h2>
 
     <div class="row">
       {% comment %}

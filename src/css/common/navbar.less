@@ -66,7 +66,7 @@
   }
 }
 
-.navbar-autohide-spacer {
+.navbar-fixed-spacer {
   height: @navbar-height;
 }
 
@@ -119,11 +119,32 @@
   }
 }
 
-.navbar.navbar-hero {
-  position: absolute;
-  top: 0;
+// Default color scheme:
+.navbar {
+  .navbar-colors(
+    @color:               #777,
+    @bg:                  transparent,
+    @link-color:          #777,
+    @link-hover-color:    #333,
+    @link-hover-bg:       rgba(248, 248, 248, 0.95),
+    @link-active-color:   #555,
+    @link-active-bg:      rgba(240, 240, 240, 0.95),
+    @link-disabled-color: #ccc,
+    @link-disabled-bg:    transparent
+  );
+}
+
+// Fixed (auto-hiding) navbar:
+.navbar.navbar-fixed {
+  position: fixed;
+  transition: top 250ms linear;
+  background: rgba(255, 255, 255, 0.95) !important;
+  top: -2*@navbar-height;
   left: 0;
   right: 0;
+  z-index: @zindex-navbar;
+  .navbar-shadow();
+  &.active { top: 0; }
 }
 
 // Inverse color scheme:
@@ -137,21 +158,6 @@
     @link-active-color:   #fff,
     @link-active-bg:      rgba(255, 255, 255, 0.15),
     @link-disabled-color: rgba(255, 255, 255, 0.5),
-    @link-disabled-bg:    transparent
-  );
-}
-
-// Default color scheme:
-.navbar {
-  .navbar-colors(
-    @color:               #777,
-    @bg:                  transparent,
-    @link-color:          #777,
-    @link-hover-color:    #333,
-    @link-hover-bg:       rgba(248, 248, 248, 0.95),
-    @link-active-color:   #555,
-    @link-active-bg:      rgba(240, 240, 240, 0.95),
-    @link-disabled-color: #ccc,
     @link-disabled-bg:    transparent
   );
 }
@@ -171,16 +177,4 @@
       @link-disabled-bg:    transparent
     );
   }
-}
-
-.navbar.navbar-autohide {
-  position: fixed;
-  transition: top 250ms linear;
-  background: rgba(255, 255, 255, 0.95) !important;
-  top: -2*@navbar-height;
-  left: 0;
-  right: 0;
-  z-index: @zindex-navbar;
-  .navbar-shadow();
-  &.active { top: 0; }
 }

@@ -1,8 +1,40 @@
-.training-overview {
-  .course-type-promo {
+.training-formats {
+  h2 {
+    text-align: center;
+  }
+
+  .format-category-title {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .format-title {
+    margin-top: 0;
+  }
+
+  .format-overview {
+    font-size: .9em;
+    p:last-child { margin-bottom: 0; }
+  }
+
+  .format-icon {
     text-align: center;
     font-size: 4em;
+    margin-bottom: @line-height-computed/2;
   }
+
+  .format-features ul {
+    .list-unstyled();
+    li {
+      font-size: .8em;
+      margin-bottom: @line-height-computed/2;
+    }
+  }
+}
+
+.panel.panel-gray {
+  background: @gray-lighter;
+  box-shadow: @shadow-default;
 }
 
 .training-course-directory {
@@ -11,27 +43,18 @@
     text-align: center;
   }
 
-  .panel-course-excerpt {
+  .course-excerpt {
     box-shadow: @shadow-default;
     background: @gray-lighter;
 
-    .panel-heading {
-      background: @gray-light;
-      color: #fff;
-      h4 {
-        margin: 0;
-        .course-title {
-          display: block;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
+    .course-title {
+      margin: 0;
+      .course-title-text {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-    }
-
-    .panel-body {
-      padding-top: @line-height-computed;
-      padding-bottom: @line-height-computed*0.75;
     }
 
     .panel-footer {
@@ -63,12 +86,18 @@
       margin: 0;
       text-align: center;
 
-      dt:before {
-        content: "";
-        display: block;
-      }
-      dt, dd {
+      dt {
         display: inline;
+        font-weight: 200;
+        &:before {
+          content: "";
+          display: block;
+        }
+      }
+
+      dd {
+        display: inline;
+        font-weight: 400;
       }
     }
 
@@ -85,6 +114,26 @@
   .suggest-course {
     padding: 1.5*@line-height-computed 0;
     margin-bottom: @line-height-computed;
+  }
+}
+
+.course-hero {
+  color: white;
+
+  .course-formats {
+    z-index: 4;
+    color: @text-color;
+    margin-bottom: @line-height-computed;
+
+    h3 { margin-top: 0; }
+
+    font-size: .9em;
+
+    @media (min-width: @grid-float-breakpoint) {
+      .format-overview {
+        height: 5*@line-height-computed;
+      }
+    }
   }
 }
 

@@ -1,10 +1,6 @@
 retina          = require 'retina.js/src/retina'
 $               = require 'jquery'
-scrollSpy       = require './scrollspy'
 navbar          = require './navbar'
-blogPager       = require './blog-pager'
-courseDirectory = require './course-directory'
-enquiriesForm   = require './enquiries-form'
 
 retina.Retina.init(window)
 
@@ -14,9 +10,10 @@ $ ->
 
 window.uio = module.exports = {
   $
-  scrollSpy
   navbar
-  blogPager
-  courseDirectory
-  enquiriesForm
+  scrollSpy       : require './scrollspy'
+  blogPager       : require './blog-pager'
+  trainingFormats : require './training-formats'
+  courseDirectory : require './training-course-directory'
+  enquiriesForm   : require './enquiries-form'
 }

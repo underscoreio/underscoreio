@@ -33,16 +33,25 @@
   }
 
   .hero-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: @font-size-h1 + @line-height-computed + @home-logo-height;
     z-index: 4;
 
     text-align: center;
     color: #ffffff;
 
-    h1 { text-transform: lowercase; }
+    h1 {
+      text-transform: lowercase;
+      margin: 0;
+    }
+
     h2 {
       font-weight: 200;
-      margin-bottom: 0;
+      margin: 0;
     }
   }
 }

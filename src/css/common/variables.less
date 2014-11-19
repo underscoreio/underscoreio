@@ -15,9 +15,9 @@
 @brand-warning:           #f0ad4e; // #f0ad4e;
 @brand-danger:            #d9534f; // #d9534f;
 
-@shadow-color:            #dddddd;
+@shadow-color:            rgba(0, 0, 0, .15);
 @shadow-default:          0 4px 0 @shadow-color;
-@shadow-active:           0 4px 0 darken(@shadow-color, 10%);
+@shadow-active:           0 4px 0 fadeIn(@shadow-color, 10%);
 
 @font-family-sans-serif:  Lato, sans-serif;
 @font-family-serif:       Lato, sans-serif;
@@ -41,6 +41,4 @@
 @link-color:              @underscore-blue;
 @headings-font-weight:    200;
 
-@border-radius-base:      10px;
-@border-radius-large:     12px;
-@border-radius-small:     6px;
+@panel-border-radius:     0;
