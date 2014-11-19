@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "jquery": "^1.11.1",
-    "retina.js": "^1.1.0"
+    "retina.js": "^1.1.0",
+    "underscore": "^1.7.0"
   }
 }

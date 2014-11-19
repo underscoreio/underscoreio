@@ -16,18 +16,10 @@ navbar      : enquiries
 // CONFIGURATION --------------------------------
 
 $courseOptions = Array(
-  "course-essential-scala"               => "Essential Scala",
-  "course-essential-java8"               => "Essential Java 8",
-  "course-essential-play-services"       => "Essential Play Web Services",
-  "course-essential-play-sites"          => "Essential Play Web Sites",
-  "course-essential-lift"                => "Essential Lift",
-  "course-essential-distributed-systems" => "Essential Distributed Systems",
-  "course-essential-scalaz"              => "Essential Scalaz",
-  "course-essential-shapeless"           => "Essential Shapeless",
-  "course-essential-macros"              => "Essential Scala Macros",
-
-  "course-essential-macros"    => "Essential Scala Macros",
-  "course-other"               => "Other / custom (please specify below)"
+{% endraw %}{% for course in site.courses %}{% if course.media.icons contains "onsite" %}
+  "course-{{ course.id }}" => "{{ course.title }}",
+{% endif %}{% endfor %}{% raw %}
+  "course-other" => "Other / custom (please specify below)"
 );
 
 $peopleOptions = Array(
@@ -183,5 +175,9 @@ endif;
     <textarea class="form-control" name="notes" rows="5"></textarea>
   </div>
 
-  <button type="submit" class="btn btn-success">Send Enquiry</button>
+  <button type="submit" class="btn btn-primary">Send Enquiry</button>
 </form>
+
+<script>
+  window.uio.enquiriesForm.init("#enquiries-form")
+</script>

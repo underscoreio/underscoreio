@@ -1,0 +1,36 @@
+---
+layout: default
+navbar: training
+---
+{% include navbar.html %}
+
+{% include hero.html title=page.title icon=page.icon %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      {{ content }}
+    </div>
+    <div class="col-sm-4 course-sidebar">
+      {% if page.media.icons contains "onsite" %}
+        {% include training/sidebar/booknow.html course=page %}
+      {% endif %}
+
+      {% if page.media.gumroad %}
+        {% include training/sidebar/gumroad.html course=page %}
+      {% endif %}
+
+      {% if page.media.oreilly %}
+        {% include training/sidebar/oreilly.html course=page %}
+      {% endif %}
+
+      {% if page.media.parleys %}
+        {% include training/sidebar/parleys.html course=page %}
+      {% endif %}
+
+      {% if page.media.github %}
+        {% include training/sidebar/github.html course=page %}
+      {% endif %}
+    </div>
+  </div>
+</div>

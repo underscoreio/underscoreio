@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    The <em>{{ include.course.title }}</em> Book
+  </div>
+
+  <div class="panel-body">
+    <ul class="product-points">
+      <li>Completely DRM free.</li>
+      <li>Available in ePub, Mobi, PDF, and HTML formats.</li>
+      <li>Cloneable Git repos with templates and model solutions for all exercises.</li>
+      {% if include.course.media.gumroad.lifetimeUpdates %}
+        <li>Free lifetime access to updates.</li>
+      {% endif %}
+    </ul>
+
+    <a class="btn btn-primary btn-block" href="{{ include.course.media.gumroad.url }}">
+      Buy Now
+    </a>
+
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+  </div>
+</div>

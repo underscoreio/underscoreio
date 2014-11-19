@@ -1,21 +1,25 @@
 {
-  "folders": [
-    {
-      "path": ".",
-      "folder_exclude_patterns": [
-        "dist",
-        "underscoreio",
-        "bower_components",
-        "node_modules",
-        "assets",
-        "jekyll_plugins",
-        ".git"
-      ],
-      "file_exclude_patterns": [
-        "Gemfile",
-        "Gemfile.lock",
-        ".ruby-version"
-      ]
-    }
-  ]
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"Gemfile",
+				"Gemfile.lock",
+				".ruby-version"
+			],
+			"folder_exclude_patterns":
+			[
+				"dist",
+				"underscoreio",
+				"bower_components",
+				"node_modules",
+				"assets",
+				"jekyll_plugins",
+				".git"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
 }

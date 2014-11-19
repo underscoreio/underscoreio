@@ -1,8 +1,10 @@
-<div class="panel panel-course-excerpt">
+<div class="panel panel-course-excerpt" data-course-id="{{ include.course.id }}">
   <div class="panel-heading" style="background: {{ include.course.color }}">
     <h4>
       <span class="course-icon icon-uio-{{ include.course.icon }}"></span>
-      {{ include.course.title }}
+      <span class="course-title">
+        {{ include.course.title }}
+      </span>
     </h4>
   </div>
 
@@ -14,15 +16,17 @@
   </div>
 
   <div class="panel-footer">
-    <div class="course-book">
+    {% if course.media.icons contains "onsite" %}
+    <a class="course-book" href="/enquiries.html?course={{ include.course.id }}">
       Book now
       <span class="fa fa-chevron-right"></span>
-    </div>
+    </a>
+    {% endif %}
 
     <div class="course-media">
-      {% if include.course.media contains "book" %}<span class="icon-uio-book"></span>{% endif %}
-      {% if include.course.media contains "video" %}<span class="icon-uio-video"></span>{% endif %}
-      {% if include.course.media contains "onsite" %}<span class="icon-uio-onsite"></span>{% endif %}
+      {% if include.course.media.icons contains "book" %}<span class="icon-uio-book"></span>{% endif %}
+      {% if include.course.media.icons contains "video" %}<span class="icon-uio-video"></span>{% endif %}
+      {% if include.course.media.icons contains "onsite" %}<span class="icon-uio-onsite"></span>{% endif %}
     </div>
   </div>
 </div>

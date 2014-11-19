@@ -18,7 +18,15 @@
     .panel-heading {
       background: @gray-light;
       color: #fff;
-      h4 { margin: 0; }
+      h4 {
+        margin: 0;
+        .course-title {
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
     }
 
     .panel-body {
@@ -63,10 +71,30 @@
         display: inline;
       }
     }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: @shadow-active;
+      .panel-body,
+      .panel-footer {
+        background: darken(@gray-lighter, 4%);
+      }
+    }
   }
 
   .suggest-course {
-    padding: 2*@line-height-computed 0;
+    padding: 1.5*@line-height-computed 0;
     margin-bottom: @line-height-computed;
+  }
+}
+
+.course-sidebar {
+  padding-top: @line-height-computed * 2.25;
+
+  .product-points {
+    li {
+      font-size: .9em;
+      margin-bottom: @line-height-computed/2;
+    }
   }
 }
