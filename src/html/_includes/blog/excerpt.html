@@ -1,11 +1,11 @@
-<section class="blog-post" data-post-url="{{ post.url }}">
+<article class="blog-post" data-post-url="{{ post.url }}">
   <h2 class="blog-post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
 
   {% include blog/meta.html post=post %}
 
-  <article class="blog-post-content">
+  <div class="blog-post-content">
     {{ post.excerpt | markdownify }}
-  </article>
+  </div>
 
   <p><a href="{{ post.url }}">Continue reading&hellip;</a></p>
-</section>
+</article>

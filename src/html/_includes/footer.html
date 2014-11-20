@@ -5,17 +5,17 @@
     </div>
 
     <div class="row sitemap">
-      <div class="col-xs-4">
+      <div class="col-sm-6 col-md-3">
         <h5><a href="/">Underscore</a></h5>
         <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
           <li><a href="/consulting">Our Services</a></li>
-          <li><a href="/company#contact">Contact us</a></li>
+          <li><a href="/company#partrers">Our Partners</a></li>
           <li><a href="/company#presskit">Press Kit</a></li>
-          <li><a href="/company#partrers">Partners</a></li>
         </ul>
       </div>
 
-      <div class="col-xs-4">
+      <div class="col-sm-6 col-md-3">
         <h5><a href="/traiing">Courses and Training</a></h5>
         <ul class="list-unstyled">
           <li><a href="/training/booking.html">Book a Private Course</a></li>
@@ -25,20 +25,38 @@
         </ul>
       </div>
 
-      <div class="col-xs-4">
+      <div class="col-sm-6 col-md-3">
         <h5><a href="/blog">Latest Blog Posts</a></h5>
-        <ul class="list-unstyled">
         <ul class="list-unstyled">
           {% for post in site.posts | limit:4 %}
           <li><a href="{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-3">
+        <h5><a href="/contact.html">Contact</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="tel:+442030955332">
+            <span class="fa fa-fw fa-phone"></span>
+            +44 (0)20 309 55332
+          </a></li>
+          <li><a href="mailto:hello@underscore.io">
+            <span class="fa fa-fw fa-envelope"></span>
+            hello@underscore.io
+          </a></li>
+          <li><a href="http://twitter.com/underscoreuk">
+            <span class="fa fa-fw fa-twitter"></span>
+            @underscoreuk
+          </a></li>
         </ul>
       </div>
     </div>
 
     <p class="copyright text-center">
-      Copyright 2011-{{ site.time | date:"%y" }} Underscore Consulting LLP. All rights reserved.
+      Copyright 2011-{{ site.time | date:"%y" }} Underscore Consulting LLP.
+      <br class="visible-xs">
+      All rights reserved.
     </p>
   </div>
 </footer>

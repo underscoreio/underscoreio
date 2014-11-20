@@ -5,9 +5,9 @@ navbar: blog
 
 {% include hero.html title="Blog" %}
 
-<div class="container">
+<section class="container">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
       <section class="blog-post" data-post-url="{{ page.url }}">
         <h2 class="blog-post-title">{{ page.title }}</h2>
 
@@ -20,9 +20,11 @@ navbar: blog
     </div>
 
     <div class="col-md-4">
-      <div class="sidebar">
+      <aside class="blog-sidebar">
+        {% include blog/newsletter.html %}
+
         {% include blog/archives.html %}
-      </div>
+      </aside>
     </div>
   </div>
-</div>
+</section>

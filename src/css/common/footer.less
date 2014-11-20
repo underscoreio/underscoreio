@@ -4,13 +4,14 @@ footer {
 
   background: @underscore-blue;
   color: #fff;
+  a { color: #fff; }
 
   h1,h2,h3,h4,h5,h6 {
     color: #fff
   }
 
   .footer-brand {
-    margin: 0 0 @line-height-computed;
+    margin: 0;
   }
 
   .sitemap {
@@ -23,8 +24,10 @@ footer {
     }
 
     h5 {
-      margin-top: 0;
-      a { font-weight: bold; }
+      margin-top: @line-height-computed;
+      a {
+        font-weight: bold;
+      }
     }
 
     a {

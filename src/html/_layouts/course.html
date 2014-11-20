@@ -80,10 +80,14 @@ layout: default
   </header>
 </div>
 
-<div class="container">
+<section class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      {{ content }}
+      <article>
+        {{ content }}
+      </article>
     </div>
   </div>
-</div>
+</section>
+
+{% include footer.html %}
