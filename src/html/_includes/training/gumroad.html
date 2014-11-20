@@ -17,7 +17,7 @@
   </div>
   <p class="course-product-purchase">
     {% if include.product.comingSoon %}
-      <a class="btn btn-warning btn-block" href="/contact.html?subject={{ "Let me know when the book of " | urlencode }}{{ include.course.title | urlencode }}{{ " is ready!" | urlencode }}">
+      <a class="btn btn-warning btn-block" href="/contact.html?subject={{ "Let me know when the " | urlencode }}{{ include.course.title | urlencode }}{{ " book is ready!" | urlencode }}">
         Coming soon
       </a>
     {% else %}

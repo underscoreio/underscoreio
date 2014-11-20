@@ -114,10 +114,10 @@
   }
 }
 
-.navbar-default-colors() {
+.navbar-default-colors(@bg: @navbar-default-bg) {
   .navbar-colors(
     @navbar-default-color,
-    @navbar-default-bg,
+    @bg,
     @navbar-default-hover-color,
     @navbar-default-hover-bg,
     @navbar-default-active-color,
@@ -142,7 +142,7 @@
 
 // Default color scheme:
 .navbar {
-  .navbar-default-colors();
+  .navbar-default-colors(transparent);
 }
 
 // Fixed (auto-hiding) navbar:

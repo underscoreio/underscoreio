@@ -53,17 +53,17 @@ trait Zero[T] { def zero: T }
  * for the type class. Whenever an implicit instance
  * of a Zero is required, the companion object is one of
  * the last places searched.
- * 
- * In this case there is only an instance for Int but it 
+ *
+ * In this case there is only an instance for Int but it
  * could contain instances for all the basic types.
  */
 object Zero {
   implicit object IntZero extends Zero[Int] { def zero = 0 }
 }
- 
+
 /* So that's the type class, but scala's Option does not have
  * the method we need, so lets enrich the Option type with an
- * implicit conversion (view) to a new, anonymous type with 
+ * implicit conversion (view) to a new, anonymous type with
  * the method we need.
  */
 implicit def withTheZeroes[T: Zero](option: Option[T]) = new {
@@ -71,40 +71,40 @@ implicit def withTheZeroes[T: Zero](option: Option[T]) = new {
    * bound. It says that this method wants an implicit instance
    * of Zero[T] which will be used below.
    */
- 
+
   /* The method will use Option's getOrElse method to get the
    * value if the option is a Some, or else return the value
    * returned by the Zero[T] if the Option is a None.
    */
   def unary_~(): T = option.getOrElse( implicitly[Zero[T]].zero )
-    
+
   /* The implicitly here is just a method in scala.Predef
-   * 
-   *   def implicitly[T](implicit e: T) = e    
-   *   
-   *   The comment says: 
-   *     "for summoning implicit values from the nether world"   
-   * 
-   * In other words, it's a method that requires an implicit 
+   *
+   *   def implicitly[T](implicit e: T) = e
+   *
+   *   The comment says:
+   *     "for summoning implicit values from the nether world"
+   *
+   * In other words, it's a method that requires an implicit
    * instance of the supplied type, in this case Zero[T] and
-   * returns it. Since withTheZeroes requires an implicit 
+   * returns it. Since withTheZeroes requires an implicit
    * instance of Zero[T] through the context bound discussed
    * above, implicitly[Zero[T]] will find it.
    */
   }
 
-// ok lets try it out with a standard scala Option 
+// ok lets try it out with a standard scala Option
 val something = Some(1)
 val nada: Option[Int] = None
-  
+
 println(~something) // returns 1
 println(~nada) // returns 0
-  
-/* But there is more. Type classes are open to extension. 
+
+/* But there is more. Type classes are open to extension.
  * We can supply our own zero, either superseding those
- * supplied by the Zero companion object, or add new ones. 
- * 
- * Here is one for a String. 
+ * supplied by the Zero companion object, or add new ones.
+ *
+ * Here is one for a String.
  */
 implicit object StringZero extends Zero[String] { def zero = "" }
 val noString: Option[String] = None
@@ -118,4 +118,4 @@ println(~noString) // returns an empty string
 
 <p>If you want to learn more about this kind of thing have a look at the other blogs in this series of <a href="http://www.casualmiracles.com/category/small-examples/" title="Small Examples">Small Examples</a>.</p>
 
-<p>If you would like a course on Scala, look no further than <a href="http://underscoreconsulting.com/" title="Underscore">Underscore</a>.</p>
+<p>If you would like a course on Scala, look no further than <a href="http://underscore.io" title="Underscore">Underscore</a>.</p>

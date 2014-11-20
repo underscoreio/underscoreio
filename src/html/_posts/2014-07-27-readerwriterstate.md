@@ -154,7 +154,7 @@ code.
 
 We will solve the post commits issue using a Writer that accumulates post commits - functions run when the transaction succeeds. But,
 to avoid wrapping the Reader in a Writer, and getting nested for-comprehensions as a result,
-a [monad transformer](http://underscoreconsulting.com/blog/posts/2013/12/20/scalaz-monad-transformers.html) will be used to combine the Reader with the Writer. Fortunately,
+a [monad transformer](http://underscore.io/blog/posts/2013/12/20/scalaz-monad-transformers.html) will be used to combine the Reader with the Writer. Fortunately,
 scalaz provides a ReaderWriterState monad which will suffice if we ignore the State, setting it to Unit.
 
 Errors will be handled by scalaz's answer to scala's Either, \/[Throwable, A], with the left being an exception and the right being the result.

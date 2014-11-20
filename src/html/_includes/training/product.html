@@ -3,21 +3,18 @@
   product: {
     type: string
     title: string
-    url: string
-    price: string
-    description: markdown
-    buttonLabel: optionOf(string)
+    # rest depends on type...
   }
 {% endcomment %}
 
 {% if include.product.type == "gumroad" %}
-  {% include training/gumroad.html product=include.product class=include.class %}
+  {% include training/gumroad.html course=include.course product=include.product class=include.class %}
 {% elsif include.product.type == "oreilly" %}
-  {% include training/oreilly.html product=include.product class=include.class %}
+  {% include training/oreilly.html course=include.course product=include.product class=include.class %}
 {% elsif include.product.type == "public" %}
-  {% include training/public.html product=include.product class=include.class %}
+  {% include training/public.html course=include.course product=include.product class=include.class %}
 {% elsif include.product.type == "private" %}
-  {% include training/private.html product=include.product class=include.class %}
+  {% include training/private.html course=include.course product=include.product class=include.class %}
 {% else %}
   <h4>Unknown product type!</h4>
   <pre>{{ include.product }}</pre>

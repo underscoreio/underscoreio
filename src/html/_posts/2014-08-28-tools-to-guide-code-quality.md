@@ -4,7 +4,7 @@ title:  Tools to guide code quality
 author: Jonathan Ferguson
 ---
 
-Earlier this month Noel wrote [about appropriate use of code reviews](http://underscoreconsulting.com/blog/posts/2014/08/05/code-reviews-dont-produce-quality-code.html).
+Earlier this month Noel wrote [about appropriate use of code reviews](http://underscore.io/blog/posts/2014/08/05/code-reviews-dont-produce-quality-code.html).
 
 In this post I am going to look at a couple of tools you can use to cover the mechanical aspects of code reviews.  Automated tools provide a low effort way of staying on top of the health of your code base. They can not tell you everything, but they will ensure that common issues are found without it requiring a lot of human cycles.
 

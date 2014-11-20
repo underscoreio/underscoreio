@@ -6,7 +6,7 @@ init = (elem) ->
   $(elem).each ->
     form = $(this)
 
-    _.each queryValues("subject"), (subject) ->
+    _.each queryString.values("subject"), (subject) ->
       form.find('input[name=subject]').attr("value", subject)
       return
 
@@ -21,6 +21,6 @@ init = (elem) ->
     return
   return
 
-return {
+module.exports = {
   init
 }

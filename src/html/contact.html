@@ -1,7 +1,7 @@
 ---
-title       : Contact
-layout      : page
-navbar      : contact
+title: Contact
+layout: default
+navbar: company
 ---
 
 {% raw %}
@@ -15,7 +15,7 @@ navbar      : contact
 
 // CONFIGURATION --------------------------------
 
-$contactEmail = 'Underscore General Enquiries <contact@underscoreconsulting.com>';
+$contactEmail = 'Underscore General Enquiries <hello@underscore.io>';
 
 // ----------------------------------------------
 
@@ -71,9 +71,9 @@ endif;
 ?>
 {% endraw %}
 
-<h1>Contact us</h1>
+{% include hero.html title="Contact us" %}
 
-<p>Use the form below to send us a message, or email us at <a href="mailto:hello@underscoreconsulting.com">hello@underscoreconsulting.com</a>, or phone us on <a href="tel:+442030955332">+44 (0)20 309 55332</a>:</p>
+<p>Use the form below to send us a message, or email us at <a href="mailto:hello@underscore.io">hello@underscore.io</a>, or phone us on <a href="tel:+442030955332">+44 (0)20 309 55332</a>:</p>
 
 <form id="contact-form" method="post">
   <div class="form-group">
@@ -109,3 +109,5 @@ endif;
 <script>
   window.uio.contactForm.init("#contact-form")
 </script>
+
+{% include footer.html %}
