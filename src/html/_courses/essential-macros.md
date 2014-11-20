@@ -2,25 +2,36 @@
 id: essential-macros
 title: Essential Scala Macros
 layout: course
-level: Intermediate
-length: 1 hour
+navbar: training
 icon: macro
 color: "#dd8842"
-media:
+courseDirectory:
+  level: Intermediate
+  length: 1 hour
   icons: [ video ]
-  parleys:
-    url: https://www.parleys.com/play/53a7d2c4e4b0543940d9e542/chapter0/about
-  github:
-    url: https://github.com/underscoreio/essential-macros
+  buttonLabel: "Watch for free"
+customHeader: |
+  <div class="parleys">
+    <div data-parleys-presentation="53a7d2c4e4b0543940d9e542" style="width:100%; height:400px">
+      <script type = "text/javascript" src="//parleys.com/js/parleys-share.js"></script>
+    </div>
+  </div>
 ---
+
 
 ## Overview
 
-This one day course is aimed at Scala developers who want to learn the power of Scala Macros. We learn the basics of the macro API before going in-depth to implement several complete libraries, including: a data validation DSL, boilerplate-free user-driven sorting and filtering, and boilerplate-free type-class-based data serialization.
+This talk from ScalaDays 2014 is aimed at developers who want to learn the power of Scala Macros. Dave covers the basics of the macro API from a new developer's perspective, before going in-depth to implement several complete libraries. Examples include: a data validation DSL, boilerplate-free user-driven sorting and filtering, and boilerplate-free type-class-based data serialization.
+
+<p class="text-center">
+  <a class="btn btn-primary" href="https://github.com/underscoreio/essential-macros">
+    Get the example code
+  </a>
+</p>
 
 ## Learning Outcomes
 
-- Be able to incorporate macros into your Scala 2.10 or 2.11 project
+- Incorporate macros into your Scala 2.10 or 2.11 project
 - Use quasiquotes to create and inspect abstract syntax trees
 - Use generic macros to replace boilerplate code for custom data types
 - Implement the type class pattern using generic and implicit macros

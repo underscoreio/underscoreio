@@ -3,7 +3,6 @@
   product: {
     type: "private"
     title: string
-    courseId: string
     buttonLabel: optional(string)
   }
 {% endcomment %}
@@ -11,10 +10,10 @@
 <div class="{{ include.class || "col-sm-6" }} course-product">
   <h4>{{ include.product.title }}</h4>
   <div class="course-product-description">
-    Let us come to you. Book a private course at your convenience, taught online or on-site at your offices.
+    <p>Let us come to you. Book a private course at your convenience, taught online or on-site at your offices.</p>
   </div>
   <p class="course-product-purchase">
-    <a class="btn btn-primary btn-block" href="/training/book.html?course={{ include.product.url }}">
+    <a class="btn btn-primary btn-block" href="/training/book.html?course={{ include.course.id }}">
       {% if include.product.buttonLabel %}
         {{ include.product.buttonLabel }}
       {% else %}

@@ -15,7 +15,7 @@ init = ->
     if position == "below"
       autohideNavbar.addClass("active")
     else
-      autohideNavbar.removeClass("active")
+      autohideNavbar.removeClass("active navbar-expanded")
     return
 
 module.exports = {

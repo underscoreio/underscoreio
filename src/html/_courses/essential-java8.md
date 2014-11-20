@@ -2,11 +2,12 @@
 id: essential-java8
 title: Essential Java 8
 layout: course
-level: Intermediate Java
-length: 1 day
+navbar: training
 icon: java
 color: "#ed783c"
-media:
+courseDirectory:
+  level: Intermediate Java
+  length: 1 day
   icons: [ onsite ]
 ---
 

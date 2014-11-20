@@ -2,11 +2,12 @@
 id: essential-shapeless
 title: Essential Shapeless
 layout: course
-level: Intermediate
-length: 1 day
+navbar: training
 icon: shapeless
 color: "#d62a7c"
-media:
+courseDirectory:
+  level: Intermediate
+  length: 1 day
   icons: [ onsite ]
 ---
 

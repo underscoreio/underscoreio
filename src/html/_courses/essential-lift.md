@@ -2,11 +2,12 @@
 id: essential-lift
 title: Essential Lift
 layout: course
-level: Intermediate
-length: 1 day
+navbar: training
 icon: lift
 color: "#4872b1"
-media:
+courseDirectory:
+  level: Intermediate
+  length: 1 day
   icons: [ book, onsite ]
 products:
   selfDirected:
@@ -18,7 +19,6 @@ products:
     private:
       type: private
       title: "Private Courses"
-      courseId: "essential-lift"
       buttonLabel: "Book now - £2000/team"
 ---
 

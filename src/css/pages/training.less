@@ -14,6 +14,7 @@
 
   .training-format-overview {
     font-size: .9em;
+    min-height: 4*@line-height-computed;
     p:last-child { margin-bottom: 0; }
   }
 
@@ -107,7 +108,8 @@
   }
 
   .suggest-course {
-    padding: 1.5*@line-height-computed 0;
+    padding-top:    1*@line-height-computed + 2*@padding-base-vertical;
+    padding-bottom: 1*@line-height-computed + 2*@padding-base-vertical;
     margin-bottom: @line-height-computed;
   }
 }
@@ -124,16 +126,19 @@
 
     font-size: .9em;
 
-    @media (min-width: @grid-float-breakpoint) {
-      .course-product-description {
-        height: 5*@line-height-computed;
-      }
+    .course-product-description {
+      @media (min-width: @screen-sm) { min-height: 3*@line-height-computed; }
+      @media (min-width: @screen-md) { min-height: 5*@line-height-computed; }
     }
+  }
 
-    iframe.oreilly {
-      display: block;
-      width: 100% !important;
-      height: 5*@line-height-computed + 2*@padding-base-vertical + 4px;
-    }
+  iframe.oreilly {
+    display: block;
+    width: 100% !important;
+    height: 5*@line-height-computed + 2*@padding-base-vertical + 4px;
+  }
+
+  div.parleys {
+    margin-bottom: @line-height-computed;
   }
 }

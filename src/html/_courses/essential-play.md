@@ -2,11 +2,12 @@
 id: essential-play
 title: Essential Play
 layout: course
-level: Intermediate
-length: 1 day
+navbar: training
 icon: play
 color: "#a0c556"
-media:
+courseDirectory:
+  level: Intermediate
+  length: 1 day
   icons: [ book, onsite ]
 products:
   selfDirected:
@@ -24,16 +25,16 @@ products:
       buttonLabel: "Buy now - <strike>£200</strike> £160"
       description: |
         Get your whole team up to speed with a <em>10 developer license</em> for 20% off individual pricing.
+      comingSoon: true
   instructorLed:
     public:
       type: public
       title: "Public Courses"
-      courseId: "essential-play"
       buttonLabel: "Register your interest"
+      comingSoon: true
     private:
       type: private
       title: "Private Courses"
-      courseId: "essential-play"
       buttonLabel: "Book now - £2000/team"
 ---
 

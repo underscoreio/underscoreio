@@ -1,6 +1,5 @@
 ---
 layout: default
-navbar: training
 ---
 
 {% include navbar.html class="navbar-fixed" %}
@@ -16,7 +15,9 @@ navbar: training
     <div class="container">
       <h1>{{ page.title }}</h1>
 
-      {% if page.products.size != 0 %}
+      {% if page.customHeader %}
+        {{ page.customHeader | markdownify }}
+      {% elsif page.products.size > 0 %}
         {% if page.products.size == 1 %}
           {% assign categoryClass = "col-md-8 col-md-offset-2" %}
         {% else %}
@@ -28,18 +29,20 @@ navbar: training
             <div class="{{ categoryClass }}">
               <div class="panel">
                 <div class="panel-body">
-                  <!-- h3>Self-Directed Learning</h3 -->
+                  {% comment %}
+                  <h3>Self-Directed Learning</h3>
+                  {% endcomment %}
 
                   {% if page.products.selfDirected.size == 1 %}
-                    {% assign productClass = "col-md-12" %}
+                    {% assign productClass = "col-sm-12" %}
                   {% else %}
-                    {% assign productClass = "col-md-6" %}
+                    {% assign productClass = "col-sm-6" %}
                   {% endif %}
 
                   <div class="row">
                     {% for productPair in page.products.selfDirected %}
                       {% assign product = productPair[1] %}
-                      {% include training/product.html product=product class=productClass %}
+                      {% include training/product.html course=page product=product class=productClass %}
                     {% endfor %}
                   </div>
                 </div>
@@ -51,18 +54,20 @@ navbar: training
             <div class="{{ categoryClass }}">
               <div class="panel">
                 <div class="panel-body">
-                  <!-- h3>Self-Directed Learning</h3 -->
+                  {% comment %}
+                  <h3>Self-Directed Learning</h3>
+                  {% endcomment %}
 
                   {% if page.products.instructorLed.size == 1 %}
-                    {% assign productClass = "col-md-12" %}
+                    {% assign productClass = "col-sm-12" %}
                   {% else %}
-                    {% assign productClass = "col-md-6" %}
+                    {% assign productClass = "col-sm-6" %}
                   {% endif %}
 
                   <div class="row">
                     {% for productPair in page.products.instructorLed %}
                       {% assign product = productPair[1] %}
-                      {% include training/product.html product=product class=productClass %}
+                      {% include training/product.html course=page product=product class=productClass %}
                     {% endfor %}
                   </div>
                 </div>
@@ -76,12 +81,9 @@ navbar: training
 </div>
 
 <div class="container">
-  {{ content }}
-  {% comment %}
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       {{ content }}
     </div>
   </div>
-  {% endcomment %}
 </div>

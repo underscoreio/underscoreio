@@ -10,23 +10,25 @@
 
   <div class="panel-body">
     <dl class="course-meta">
-      <dt>Level</dt>  <dd>{{ include.course.level  }}</dd>
-      <dt>Length</dt> <dd>{{ include.course.length }}</dd>
+      <dt>Level</dt>  <dd>{{ include.course.courseDirectory.level  }}</dd>
+      <dt>Length</dt> <dd>{{ include.course.courseDirectory.length }}</dd>
     </dl>
   </div>
 
   <div class="panel-footer">
-    {% if course.media.icons contains "onsite" %}
-    <a class="course-book" href="/enquiries.html?course={{ include.course.id }}">
-      Book now
+    <a class="course-book" href="/training/courses/{{ include.course.id }}.html">
+      {% if include.course.courseDirectory.buttonLabel %}
+        {{ include.course.courseDirectory.buttonLabel }}
+      {% else %}
+        Learn more
+      {% endif %}
       <span class="fa fa-chevron-right"></span>
     </a>
-    {% endif %}
 
     <div class="course-media">
-      {% if include.course.media.icons contains "book" %}<span class="icon-uio-book"></span>{% endif %}
-      {% if include.course.media.icons contains "video" %}<span class="icon-uio-video"></span>{% endif %}
-      {% if include.course.media.icons contains "onsite" %}<span class="icon-uio-onsite"></span>{% endif %}
+      {% if include.course.courseDirectory.icons contains "book" %}<span class="icon-uio-book"></span>{% endif %}
+      {% if include.course.courseDirectory.icons contains "video" %}<span class="icon-uio-video"></span>{% endif %}
+      {% if include.course.courseDirectory.icons contains "onsite" %}<span class="icon-uio-onsite"></span>{% endif %}
     </div>
   </div>
 </div>

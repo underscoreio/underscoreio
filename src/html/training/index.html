@@ -15,9 +15,11 @@ navbar: training
       <div class="col-sm-6">
         <div class="panel panel-gray">
           <div class="panel-body">
+            {% comment %}
             <h3 class="training-format-category-title">
               {{ category.title }}
             </h3>
+            {% endcomment %}
 
             <div class="row">
               {% for formatPair in category.formats %}

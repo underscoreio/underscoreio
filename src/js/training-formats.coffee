@@ -4,8 +4,8 @@ _ = require "underscore"
 init = (sel) ->
   root = $(sel)
 
-  toggle = root.find(".format-features-toggle")
-  list   = root.find(".format-features")
+  toggle = root.find(".training-format-features-toggle")
+  list   = root.find(".training-format-features")
 
   list.hide()
 

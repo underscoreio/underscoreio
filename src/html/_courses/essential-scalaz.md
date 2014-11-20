@@ -2,11 +2,12 @@
 id: essential-scalaz
 title: Essential Scalaz
 layout: course
-level: Intermediate
-length: 1 day
+navbar: training
 icon: scalaz
 color: "#d62a7c"
-media:
+courseDirectory:
+  level: Intermediate
+  length: 1 day
   icons: [ book, onsite ]
 ---
 

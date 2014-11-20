@@ -2,11 +2,12 @@
 id: essential-scala
 title: Essential Scala
 layout: course
-level: Beginner
-length: 2 days
+navbar: training
 icon: scala
 color: "#e8515b"
-media:
+courseDirectory:
+  level: Beginner
+  length: 2 days
   icons: [ book, onsite ]
 ---
 

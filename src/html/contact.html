@@ -36,8 +36,8 @@ function requestLookup($key, $options, $default) {
 }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'):
-  $name     = requestString('name',   'Not specified');
-  $email    = requestString('email',  null);
+  $name     = requestString('name', 'Not specified');
+  $email    = requestString('email', null);
   $phone    = requestString('phone', 'Not specified');
   $subject  = requestString('subject', 'No subject');
   $message  = requestString('message', 'None specified');
@@ -105,3 +105,7 @@ endif;
 
   <button type="submit" class="btn btn-success">Send Message</button>
 </form>
+
+<script>
+  window.uio.contactForm.init("#contact-form")
+</script>
