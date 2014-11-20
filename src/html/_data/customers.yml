@@ -1,0 +1,34 @@
+- name: Adalysis
+  logo: "/images/customers/adalysis.jpg"
+- name: BBC
+  logo: "/images/customers/bbc.jpg"
+- name: Companies House
+  logo: "/images/customers/ch.jpg"
+- name: Government Digital Service
+  logo: "/images/customers/gds.jpg"
+- name: Gottex Brokers
+  logo: "/images/customers/gottex.jpg"
+- name: Habla Computing
+  logo: "/images/customers/habla.jpg"
+- name: Identive
+  logo: "/images/customers/identive.jpg"
+- name: JHC Systems
+  logo: "/images/customers/jhc.jpg"
+- name: Maana
+  logo: "/images/customers/maana.jpg"
+- name: Mind Candy
+  logo: "/images/customers/mind-candy.jpg"
+- name: Ness
+  logo: "/images/customers/ness.jpg"
+- name: Pure 360
+  logo: "/images/customers/pure360.jpg"
+- name: Qatarlyst
+  logo: "/images/customers/qatarlyst.jpg"
+- name: Queen Mary University of London
+  logo: "/images/customers/qmul.jpg"
+- name: Royal Pharmaceutical Society
+  logo: "/images/customers/rps.jpg"
+- name: Sage Pay
+  logo: "/images/customers/sage-pay.jpg"
+- name: Tigertap
+  logo: "/images/customers/tigertap.jpg"

@@ -9,13 +9,19 @@ init = ->
     $(this).parents(".navbar").toggleClass("navbar-expanded")
     return
 
-  autohideNavbar = $(".navbar-fixed")
+  $("html").click (evt) ->
+    if $(evt.target).parents(".navbar").length == 0
+      $(".navbar").removeClass("navbar-expanded")
+      return
+    return
+
+  fixedNavbar = $(".navbar-fixed")
 
   uio.scrollSpy.register ".hero", (position) ->
     if position == "below"
-      autohideNavbar.addClass("active")
+      fixedNavbar.addClass("active")
     else
-      autohideNavbar.removeClass("active navbar-expanded")
+      fixedNavbar.removeClass("active navbar-expanded")
     return
 
 module.exports = {

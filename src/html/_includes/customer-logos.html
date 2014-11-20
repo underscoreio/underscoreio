@@ -1,0 +1,10 @@
+<div class="row customer-logos">
+  {% for customer in site.data.customers %}
+  <div class="col-xs-6 col-sm-4 col-md-3">
+    <div class="thumbnail">
+      <img src="{{ customer.logo }}"
+           alt="{{ customer.name }}">
+    </div>
+  </div>
+  {% endfor %}
+</div>
