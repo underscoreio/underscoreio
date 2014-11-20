@@ -9,7 +9,9 @@ sourceUrl:  http://www.casualmiracles.com/2012/06/16/a-small-example-of-phantom-
 
 <p>Here is an example of so-called phantom types and covariance in Scala to improve type safety and correctness. The example is a simplified version from a real project.</p>
 
-<p>I present the example as source code so you can copy into an editor and play with it. References for further reading are given at the bottom.</p>
+<p>I present the example as source code so you can copy into an editor and play with it. References for further reading are given at the bottom of the post.</p>
+
+---
 
 {% highlight scala %}
 object Phantoms {

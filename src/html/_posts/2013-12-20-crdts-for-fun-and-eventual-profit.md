@@ -6,6 +6,8 @@ author: Noel Welsh
 
 At [Velocity](http://velocityconf.com/velocityeu2013/public/schedule/detail/31058) I gave a talk on conflict-free replicated datatypes, or CRDTs for short. It wasn't the best received talk I have ever given; it was my first time at Velocity and I misjudged the audience. However I have had a chance to redeem myself at [Scala eXchange](http://skillsmatter.com/event/scala/scala-exchange-2013), where I gave what I think is a much better (and funnier) talk. Slides are [here](http://noelwelsh.com/assets/downloads/scala-exchange-2013-crdt.pdf) or you can watch [the video](http://skillsmatter.com/podcast/home/how-do-we-reconcile-eventually-consistent-data), If you want the Velocity edition, the slides are [here](http://noelwelsh.com/assets/downloads/velocity-2013-crdt.pdf). The talks are mostly the same in terms of content, but there are differences in organisation and layout.
 
+---
+
 At this point you might be wondering why you should invest your time learning about CRDTs, so let me give here the motivation.
 
 CRDTs are a way of handling replicated or distributed data. What is distributed data? It just means data that is copied to many machines. As soon as we have such a distributed system we have to think about what happens when our data changes. We can decide that all machines will be aware of all changes.  That is, we can maintain *consistency*. This is nice because it means we never deal with out-of-date data, but it requires every change to be sent to every machine before it is considered complete. If a machine (or the network) goes down we must refuse updates because we can't ensure everyone has seen every update, and thus we can't maintain consistency .

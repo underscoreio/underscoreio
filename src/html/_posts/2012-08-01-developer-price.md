@@ -13,8 +13,9 @@ When we introduce Scala into a organisation, at some point we find someone who m
 
 We’ve tackled this a number of times and would like to share the results of our fact finding and experience.
 
-In this posts, we'll look at the misconception of Scala developers being expensive.
+In this post we'll look at the misconception of Scala developers being expensive.
 
+---
 
 ## Java and Scala rates are about the same
 
@@ -37,11 +38,11 @@ The conclusion we make is that it's a huge stretch to call a two per cent differ
 
 ## The data on productivity
 
-Scala was not just built with productivity in mind, it was [the central drive](http://blog.typesafe.com/why-scala). There are plenty of experience reports showing that gains are being delivered. 
+Scala was not just built with productivity in mind, it was [the central drive](http://blog.typesafe.com/why-scala). There are plenty of experience reports showing that gains are being delivered.
 
 When [The Guardian moved to Scala](http://skillsmatter.com/podcast/scala/how-we-mostly-moved-from-java-to-scala) from Java the management reported projects not being materially effected during the transition, and then being more productive after about three months. The developer experience is of writing less code, producing higher quality code, and delivering faster by focussing on the problem not boilerplate.
 
-In terms of research evidence there is less to drawn on. A [summary by Phil Bagwell](http://www.scala-lang.org/node/3069) of recent findings, points to eye tracking experiments that show developers are faster to see what's going on in Scala code compared to Java due to the more concise syntax. 
+In terms of research evidence there is less to drawn on. A [summary by Phil Bagwell](http://www.scala-lang.org/node/3069) of recent findings, points to eye tracking experiments that show developers are faster to see what's going on in Scala code compared to Java due to the more concise syntax.
 
 Having said that, it's not going to fit well for everyone or every team. Obviously. But for the right team, the gains are there to be taken.
 

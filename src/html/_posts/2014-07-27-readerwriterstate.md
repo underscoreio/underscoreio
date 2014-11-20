@@ -9,9 +9,9 @@ This is an example of using the Reader and Writer monads to solve a problem whic
 
 Before getting to the problem, what are the Reader and Writer monads?
 
-A Reader, sometimes called the environment monad, treats functions as values in a context (see [LYAH](http://learnyouahaskell.com/for-a-few-monads-more)).
-Loosely speaking, it allows you to build a computation that is a function
-of some context (configuration, session, database connection, etc.), rather than passing the context as an argument to the function.
+---
+
+A Reader, sometimes called the environment monad, treats functions as values in a context (see [LYAH](http://learnyouahaskell.com/for-a-few-monads-more)). Loosely speaking, it allows you to build a computation that is a function of some context (configuration, session, database connection, etc.), rather than passing the context as an argument to the function.
 
 A Writer is a monad that attaches a log or some other accumulated data to a value.
 

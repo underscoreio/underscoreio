@@ -9,6 +9,8 @@ sourceUrl:  http://untyped.com/untyping/1/2/3/4/5
 
 I spent last week in the lovely city of Edinburgh attending [COLT](http://www.ttic.edu/colt2012/) and [ICML](http://icml.cc/2012/). I'm still digesting a lot of what I saw, but I thought it might be interesting to give a quick list of my highlights.
 
+---
+
 ## Modern Banditry
 
 Bandit and reinforcement learning algorithms are of major interest, given my work on [Myna](http://mynaweb.com/), and both conferences featured interesting papers on these problems. Of particular note, [Hierarchical Exploration for Accelerating Contextual Bandits](http://icml.cc/2012/papers/933.pdf) is an algorithm I could see us putting into practice very soon. This solves the problem of training a (linear) classifier under bandit feedback by initially restricting the parameters to a lower-dimensional subspace, and then relaxing this restriction as more data arrives. This reduces the amount of time spent exploring, and hence the regret, so long as a good subspace can be identified.

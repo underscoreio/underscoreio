@@ -9,6 +9,8 @@ The big news in Scala at the moment is the announcement of the [Typelevel fork o
 
 We're delighted. There'll be more emphasis on typed functional programming styles, which brings benefit to projects.
 
+---
+
 Some have expressed concern this will fragment the Scala community. Both Typelevel and Typesafe have made clear their intentions to avoid fragmentation.
 
 Typelevel have expressed their commitment to keeping their changes merge compatible with the Typesafe compiler, to retain binary compatibility, and to focus on conservative extensions to Scala that fix known issues. The net result is that libraries built with either compiler should interoperate seemlessly.

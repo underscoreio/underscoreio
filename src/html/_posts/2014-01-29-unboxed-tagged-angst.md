@@ -6,6 +6,8 @@ author: Noel Welsh
 
 Type class based serialization is now standard in Scala JSON libaries such as [Play JSON](http://www.playframework.com/documentation/2.2.x/ScalaJsonCombinators). All our web applications these days are designed as JSON APIs, with the UI being just an API client. We usually find we want a few different serialization formats. Here are two examples that came up recently: logged-in users can see more information than anonymous users; and, as we're using Mongo, we want a serialization format for the database that includes more information than other clients can see. Thus we need to control which type class is used for serialization at each point.
 
+---
+
 Manually importing the correct type class into scope is one approach to controlling type class visibility. This is a fantastic way to introduce bugs, as nothing in the type system will fail if we import the wrong type class.
 
 As better approach, and the one we've been using, is to tag the data and the type classes. I think some code helps at this point.

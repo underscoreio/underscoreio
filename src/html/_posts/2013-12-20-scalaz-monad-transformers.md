@@ -6,6 +6,8 @@ author: Noel Welsh
 
 Monad transformers allow us to stack monads. Say we have a monad, like `Option`, and we want to wrap it in another monad, like `\/`, in a convenient way (where convenient is to be defined shortly). Monad transformers let us do this. Scalaz comes with lots of monad transformers. Let's see how to use them and the benefits they supply.
 
+---
+
 ## Example
 
 Let's motivate monad transformers with the above example. We have an operation that may or may not generate a value. Something like getting a value from a database. Thus we model it as an `Option`. This operation may also encounter various other errors. To keep things simple we'll encode the errors as `String`s. So we basically have three different types of result:

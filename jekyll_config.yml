@@ -1,24 +1,27 @@
 # Jekyll Configuration
 # --------------------
 
-name         : Underscore
-description  : 'Underscore: The Scala Consultancy'
-url          : http://underscore.io
+name              : Underscore
+description       : "Underscore: The Scala Consultancy"
+url               : "http://underscore.io"
 
-source       : src/html
-posts        : _posts
-layouts      : _layouts
-includes     : _includes
+source            : src/html
+posts             : _posts
+layouts           : _layouts
+includes          : _includes
 
-destination  : underscoreio
-plugins      : jekyll_plugins
+destination       : underscoreio
+plugins           : jekyll_plugins
 
-keep_files   : [ 'css', 'js', 'images', 'fonts' ]
+keep_files        : [ 'css', 'js', 'images', 'fonts' ]
 
-permalink    : /blog/posts/:year/:month/:day/:title.html
+permalink         : /blog/posts/:year/:month/:day/:title.html
+paginate          : 10
+paginate_path     : "blog/page:num/"
+excerpt_separator : "---"
 
-safe         : false
-highlighter  : pygments
+safe              : false
+highlighter       : pygments
 
 collections:
   courses:

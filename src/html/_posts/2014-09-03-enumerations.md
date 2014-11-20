@@ -9,6 +9,8 @@ Should you use Scala's built in `scala.Enumeration` class, or roll your own seal
 
 If you want to skip the detail, just know to use `scala.Enumeration` if you need to limit the number of classes; otherwise prefer case objects or classes.
 
+---
+
 The rest of this post describes:
 
 * the problem with Enumeration;

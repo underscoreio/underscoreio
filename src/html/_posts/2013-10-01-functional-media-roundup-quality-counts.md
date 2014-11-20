@@ -5,7 +5,9 @@ author:     Dave Gurnell
 date:       '2013-10-01 09:00:00'
 ---
 
-This week saw our second [Functional Media](/blog/posts/2013/07/09/media-panel.html) event, [Quality Counts](http://www.meetup.com/Functional-Media/events/137916712/). We had some great speakers (plus myself) and a lively panel discussion afterwards:
+This week saw our second [Functional Media](/blog/posts/2013/07/09/media-panel.html) event, [Quality Counts](http://www.meetup.com/Functional-Media/events/137916712/). We had some great speakers (plus myself) and a lively panel discussion afterwards.
+
+---
 
  - Malcolm Sparks ([@malcolmsparks](https://twitter.com/malcolmsparks)) of [JUXT](https://juxt.pro/)
    gave a talk on maintaining quality from a Clojure perspective;

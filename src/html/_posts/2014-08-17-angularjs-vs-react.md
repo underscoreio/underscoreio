@@ -10,6 +10,7 @@ I'll get into why in a moment, but first some background so you can understand h
 
 With that out of the way, on to my comparison.
 
+---
 
 ## Simplicity
 

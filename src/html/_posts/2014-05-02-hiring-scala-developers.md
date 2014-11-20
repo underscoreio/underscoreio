@@ -8,6 +8,8 @@ Hiring good developers is hard, and hiring good Scala developers is even harder.
 
 I don't believe there is one hiring process that works for all cases. I see two main cases: finding junior developers to fill out a Scala team, or finding a senior developer / team lead to provide oversight for a team adopting Scala. Let's address each in turn.
 
+---
+
 ## Finding Junior Developers
 
 Your chances of hiring someone with significant Scala experience are slim in the current market. Most companies realise this, and don't require Scala experience of their candidates. However, most still look for Java experience. This is, I believe, a mistake.

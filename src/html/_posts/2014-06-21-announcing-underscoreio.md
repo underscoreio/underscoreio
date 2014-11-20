@@ -6,6 +6,8 @@ author: Dave Gurnell
 
 We are thrilled to announce the launch of [underscore.io](http://underscore.io), our new web site for Scala training and mentoring. We are launching our new [mentoring programme](http://underscore.io#mentoring) <em>today</em> to provide ongoing support for teams after receiving training, and over the coming months we will be publishing [online versions](http://underscore.io#online) of our most popular face-to-face courses.
 
+---
+
 ### Mentoring
 
 Training is the perfect way to get your team up to speed quickly, but what do you do once the course is over? Our mentoring services are the answer.

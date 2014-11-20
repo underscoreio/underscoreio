@@ -1,7 +1,7 @@
 ---
-title       : Book a Private Course
-layout      : page
-navbar      : training
+title: Book a Private Course
+layout: default
+navbar: training
 ---
 
 {% raw %}
@@ -32,7 +32,7 @@ $peopleOptions = Array(
   "gt-10-people" => "> 10 people"
 );
 
-$bookingEmail = 'Underscore Booking Enquiries <bookings@underscoreconsulting.com>';
+$bookingEmail = 'Underscore Booking Enquiries <bookings@underscore.io>';
 
 // ----------------------------------------------
 
@@ -95,13 +95,14 @@ ENDEMAIL;
 
   $emailLength  = strlen($emailBody);
   $emailExtras  = "From: $name <$email>\r\nDate: $emailDate\r\nContent-Length: $emailLength";
+  $formError    = null;
 
   if(!$email):
-    echo '<div class="alert alert-danger">Please specify a valid email address.</div>';
+    $formError = '<div class="alert alert-danger">Please specify a valid email address.</div>';
   elseif(mail($emailTo, $emailSubject, $emailBody, $emailExtras)):
-    echo '<div class="alert alert-success">Thank you for your enquiry. Our training coordinator will be in touch shortly.</div>';
+    $formError = '<div class="alert alert-success">Thank you for your enquiry. Our training coordinator will be in touch shortly.</div>';
   else:
-    echo '<div class="alert alert-danger">There was an error submitting your booking enquiry. Please get in touch by phone or email.</div>';
+    $formError = '<div class="alert alert-danger">There was an error submitting your booking enquiry. Please get in touch by phone or email.</div>';
   endif;
 endif;
 
@@ -110,85 +111,98 @@ endif;
 ?>
 {% endraw %}
 
-<h1>Book a Private Course</h1>
+{% include hero.html title="Book a Private Course" %}
 
-<p>
-  Our courses can be combined to suit your training needs.
-  Get in touch using the form below to build the perfect syllabus for your team.
-</p>
-
-<p>
-  You can choose from our standard course offerings or request a custom curriculum.
-  We believe learning should never stop, so all of our private training courses are
-  supported with free ongoing access to our online material.
-</p>
-
-<form id="booking-form" method="post">
-  <div class="form-group">
-    <label>Your name</label>
-    <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
-  </div>
-
-  <div class="form-group">
-    <label>Your email address</label>
-    <input type="email" class="form-control" name="email" placeholder="leonardo@davinci.com">
-  </div>
-
-  <div class="form-group">
-    <label>Your phone number (optional)</label>
-    <input type="phone" class="form-control" name="phone" placeholder="+44 123 456 7890">
-  </div>
-
-  <div class="form-group">
-    <label>Which course(s) are you interested in?</label>
-
-{% raw %}
-<?php foreach($courseOptions as $courseId => $courseLabel): ?>
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" name="<?= $courseId ?>">
-        <?= $courseLabel ?>
-      </label>
-    </div>
-<?php endforeach; ?>
-{% endraw %}
-  </div>
-
-  <div class="form-group">
-    <label>How many people are on your team?</label>
-
-{% raw %}
-<?php foreach($peopleOptions as $peopleId => $peopleLabel): ?>
-    <div class="radio">
-      <label>
-        <input type="radio" name="people" value="<?= $peopleId ?>">
-        <?= $peopleLabel ?>
-      </label>
-    </div>
-<?php endforeach; ?>
-{% endraw %}
-  </div>
-
-  <div class="form-group">
-    <label>Where are you located?</label>
-
-    <input type="text" class="form-control" name="location" placeholder="London, UK">
-
-    <p class="help-block">
-      We have trainers in multiple countries and deliver
-      on-site training internationally.
+<section class="container">
+  <article>
+    <p>
+      Our courses can be combined to suit your training needs.
+      Get in touch using the form below to build the perfect syllabus for your team.
     </p>
-  </div>
 
-  <div class="form-group">
-    <label>Is there anything else we should know about your training needs?</label>
+    <p>
+      You can choose from our standard course offerings or request a custom curriculum.
+      We believe learning should never stop, so all of our private training courses are
+      supported with free ongoing access to our online material.
+    </p>
 
-    <textarea class="form-control" name="notes" rows="5"></textarea>
-  </div>
+    <form id="booking-form" method="post">
 
-  <button type="submit" class="btn btn-primary">Send Enquiry</button>
-</form>
+      {% raw %}
+      <?php if($formError): ?>
+        <?= $formError ?>
+      <?php endif; ?>
+      {% endraw %}
+
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
+      </div>
+
+      <div class="form-group">
+        <label>Your email address</label>
+        <input type="email" class="form-control" name="email" placeholder="leonardo@davinci.com">
+      </div>
+
+      <div class="form-group">
+        <label>Your phone number (optional)</label>
+        <input type="phone" class="form-control" name="phone" placeholder="+44 123 456 7890">
+      </div>
+
+      <div class="form-group">
+        <label>Which course(s) are you interested in?</label>
+
+    {% raw %}
+    <?php foreach($courseOptions as $courseId => $courseLabel): ?>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="<?= $courseId ?>">
+            <?= $courseLabel ?>
+          </label>
+        </div>
+    <?php endforeach; ?>
+    {% endraw %}
+      </div>
+
+      <div class="form-group">
+        <label>How many people are on your team?</label>
+
+    {% raw %}
+    <?php foreach($peopleOptions as $peopleId => $peopleLabel): ?>
+        <div class="radio">
+          <label>
+            <input type="radio" name="people" value="<?= $peopleId ?>">
+            <?= $peopleLabel ?>
+          </label>
+        </div>
+    <?php endforeach; ?>
+    {% endraw %}
+      </div>
+
+      <div class="form-group">
+        <label>Where are you located?</label>
+
+        <input type="text" class="form-control" name="location" placeholder="London, UK">
+
+        <p class="help-block">
+          We have trainers in multiple countries and deliver
+          on-site training internationally.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label>Is there anything else we should know about your training needs?</label>
+
+        <textarea class="form-control" name="notes" rows="5"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Send Enquiry</button>
+    </form>
+  </article>
+</section>
 
 <script>
   window.uio.bookingForm.init("#booking-form")
 </script>
+
+{% include footer.html %}

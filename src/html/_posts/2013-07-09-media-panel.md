@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Functional Programming in Media and Publishing 
+title:      Functional Programming in Media and Publishing
 author:     Richard Dallaway
 date:       '2013-07-09 09:00:00'
 
@@ -16,7 +16,6 @@ To understand why this is, and what the benefits and challenges are, [join us fo
 
 See you there.
 
----
-
-_The Functional Media Meetup is sponsored by Underscore. It is aimed at developers and managers in the publishing and media industry, who are interested in the application of functional programming._
-
+<p class="text-muted">
+  The Functional Media Meetup is sponsored by Underscore. It is aimed at developers and managers in the publishing and media industry, who are interested in the application of functional programming.
+</p>

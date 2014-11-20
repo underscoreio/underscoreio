@@ -10,6 +10,8 @@ date:       '2013-07-03 09:00:00'
 
 We've been using the CloudBees Platform as a Service (PaaS) for few years now.  Not exclusively, but when it's the right choice, it does a great job of clearing the way so we can focus on the application, and not on the hardware, hosting, bandwidth, build, deployment and operating system details.
 
+---
+
 If you're not familiar with the concept, I can summarise it as providing a hosting platform where you pay for what you use, and can scale up or down the size or number of servers ("cells" in CloudBees terminology). On top of that there's a very nice [continuous deployment](http://www.cloudbees.com/platform/continuous-cloud-delivery.cb) and [zero downtime updates](http://wiki.cloudbees.com/bin/view/RUN/Zero+downtime+app+updates) model. What that means is, when a feature is complete, we can deliver it without a song and dance, or writing custom deployment scripts. That's all someone else's problem (CloudBees, specifically) so we can focus on what we do.
 
 It's not all unicorns and rainbows: there are implications to cloud integration, and techniques to make the most of the environment. However, CloudBees use standard tools in our industry, which gives us confidence from not being locked in to a proprietary range of technologies.

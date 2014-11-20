@@ -5,22 +5,26 @@ navbar: blog
 
 {% include hero.html title="Blog" %}
 
-<div class="container">
+<section class="container">
   <div class="row">
     <div class="col-md-8">
       <div id="posts">
-        {% for post in site.posts limit:5 %}
+        {% for post in paginator.posts %}
         {% include blog/excerpt.html post=post %}
         {% endfor %}
       </div>
+
+      {% include blog/pagination.html %}
     </div>
 
     <div class="col-md-4">
-      <div class="sidebar">
+      <aside class="sidebar">
+        {% include blog/newsletter.html %}
+
         {% include blog/archives.html %}
-      </div>
+      </aside>
     </div>
   </div>
-</div>
+</section>
 
 {% include footer.html %}
