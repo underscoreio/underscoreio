@@ -1,0 +1,25 @@
+{% comment %}
+  class: string
+  product: {
+    type: "private"
+    title: string
+    courseId: string
+    buttonLabel: optional(string)
+  }
+{% endcomment %}
+
+<div class="{{ include.class || "col-sm-6" }} course-product">
+  <h4>{{ include.product.title }}</h4>
+  <div class="course-product-description">
+    Let us come to you. Book a private course at your convenience, taught online or on-site at your offices.
+  </div>
+  <p class="course-product-purchase">
+    <a class="btn btn-primary btn-block" href="/training/book.html?course={{ include.product.url }}">
+      {% if include.product.buttonLabel %}
+        {{ include.product.buttonLabel }}
+      {% else %}
+        Book now
+      {% endif %}
+    </a>
+  </p>
+</div>

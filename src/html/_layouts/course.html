@@ -16,65 +16,61 @@ navbar: training
     <div class="container">
       <h1>{{ page.title }}</h1>
 
-      <div class="row course-formats">
-        <div class="col-md-6">
-          <div class="panel">
-            <div class="panel-body">
-              <h3>Self-Directed Learning</h3>
+      {% if page.products.size != 0 %}
+        {% if page.products.size == 1 %}
+          {% assign categoryClass = "col-md-8 col-md-offset-2" %}
+        {% else %}
+          {% assign categoryClass = "col-md-6" %}
+        {% endif %}
 
-              <div class="row">
-                <div class="col-sm-6">
-                  <h4>Book</h4>
-                  <div class="format-overview">
-                    {{ site.data.trainingFormats.selfDirected.formats.books.purchasePrompt | markdownify }}
+        <div class="row course-products">
+          {% if page.products.selfDirected %}
+            <div class="{{ categoryClass }}">
+              <div class="panel">
+                <div class="panel-body">
+                  <!-- h3>Self-Directed Learning</h3 -->
+
+                  {% if page.products.selfDirected.size == 1 %}
+                    {% assign productClass = "col-md-12" %}
+                  {% else %}
+                    {% assign productClass = "col-md-6" %}
+                  {% endif %}
+
+                  <div class="row">
+                    {% for productPair in page.products.selfDirected %}
+                      {% assign product = productPair[1] %}
+                      {% include training/product.html product=product class=productClass %}
+                    {% endfor %}
                   </div>
-                  <p class="format-purchase">
-                    <a class="btn btn-primary btn-block">Buy now - £xxx</a>
-                  </p>
-                </div>
-                <div class="col-sm-6">
-                  <h4>Videos + Book</h4>
-                  <div class="format-overview">
-                    {{ site.data.trainingFormats.selfDirected.formats.videos.purchasePrompt | markdownify }}
-                  </div>
-                  <p class="format-purchase">
-                    <a class="btn btn-primary btn-block">Buy now - £xxx</a>
-                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          {% endif %}
 
-        <div class="col-md-6 ">
-          <div class="panel">
-            <div class="panel-body">
-              <h3>Instructor-Led Courses</h3>
+          {% if page.products.instructorLed %}
+            <div class="{{ categoryClass }}">
+              <div class="panel">
+                <div class="panel-body">
+                  <!-- h3>Self-Directed Learning</h3 -->
 
-              <div class="row">
-                <div class="col-sm-6">
-                  <h4>Public Courses</h4>
-                  <div class="format-overview">
-                    {{ site.data.trainingFormats.instructorLed.formats.public.purchasePrompt | markdownify }}
+                  {% if page.products.instructorLed.size == 1 %}
+                    {% assign productClass = "col-md-12" %}
+                  {% else %}
+                    {% assign productClass = "col-md-6" %}
+                  {% endif %}
+
+                  <div class="row">
+                    {% for productPair in page.products.instructorLed %}
+                      {% assign product = productPair[1] %}
+                      {% include training/product.html product=product class=productClass %}
+                    {% endfor %}
                   </div>
-                  <p class="format-purchase">
-                    <a class="btn btn-warning btn-block">Get notified</a>
-                  </p>
-                </div>
-                <div class="col-sm-6">
-                  <h4>Private Courses</h4>
-                  <div class="format-overview">
-                    {{ site.data.trainingFormats.instructorLed.formats.private.purchasePrompt | markdownify }}
-                  </div>
-                  <p class="format-purchase">
-                    <a class="btn btn-primary btn-block">Book now - £xxx/team</a>
-                  </p>
                 </div>
               </div>
             </div>
-          </div>
+          {% endif %}
         </div>
-      </div>
+      {% endif %}
     </div>
   </header>
 </div>
@@ -83,31 +79,8 @@ navbar: training
   {{ content }}
   {% comment %}
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-8 col-sm-offset-2">
       {{ content }}
-    </div>
-    <div class="col-sm-4 course-sidebar">
-      {% comment %}
-      {% if page.media.icons contains "onsite" %}
-        {% include training/sidebar/booknow.html course=page %}
-      {% endif %}
-
-      {% if page.media.gumroad %}
-        {% include training/sidebar/gumroad.html course=page %}
-      {% endif %}
-
-      {% if page.media.oreilly %}
-        {% include training/sidebar/oreilly.html course=page %}
-      {% endif %}
-
-      {% if page.media.parleys %}
-        {% include training/sidebar/parleys.html course=page %}
-      {% endif %}
-
-      {% if page.media.github %}
-        {% include training/sidebar/github.html course=page %}
-      {% endif %}
-      {% endcomment %}
     </div>
   </div>
   {% endcomment %}

@@ -8,8 +8,18 @@ icon: lift
 color: "#4872b1"
 media:
   icons: [ book, onsite ]
-  oreilly:
-    url: http://cdn.oreillystatic.com/widgets/author/253.html
+products:
+  selfDirected:
+    single:
+      type: oreilly
+      title: Get the Book
+      url: http://www.oreilly.com/authors/widgets/620.html
+  instructorLed:
+    private:
+      type: private
+      title: "Private Courses"
+      courseId: "essential-lift"
+      buttonLabel: "Book now - £2000/team"
 ---
 
 ## Overview

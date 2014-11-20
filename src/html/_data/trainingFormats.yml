@@ -13,9 +13,12 @@ selfDirected:
         - Pricing for individuals and teams
         - &nbsp;
         - &nbsp;
-      purchasePrompt: |
+      singlePurchasePrompt: |
         Download the course textbook, complete with exercises and
         solutions, in HTML, PDF, and ebook formats.
+      teamPurchasePrompt: |
+        Get your whole team up to speed with a discount book license
+        for copies of the book.
     videos:
       title: Videos
       icon: video

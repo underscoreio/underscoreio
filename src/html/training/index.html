@@ -12,30 +12,30 @@ navbar: training
     <div class="row">
       {% for categoryPair in site.data.trainingFormats %}
       {% assign category = categoryPair[1] %}
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <div class="panel panel-gray">
           <div class="panel-body">
-            <h3 class="format-category-title">
+            <h3 class="training-format-category-title">
               {{ category.title }}
             </h3>
 
             <div class="row">
               {% for formatPair in category.formats %}
               {% assign format = formatPair[1] %}
-              <div class="col-md-6">
-                <h4 class="format-title">
+              <div class="col-sm-6">
+                <h4 class="training-format-title">
                   {{ format.title }}
                 </h4>
 
-                <div class="format-overview">
+                <div class="training-format-overview">
                   {{ format.overview | markdownify }}
                 </div>
 
-                <div class="format-icon">
+                <div class="training-format-icon">
                   <span class="icon-uio-{{ format.icon }}"></span>
                 </div>
 
-                <div class="format-features">
+                <div class="training-format-features">
                   {{ format.features | markdownify }}
                 </div>
               </div>
@@ -48,7 +48,7 @@ navbar: training
     </div>
 
     <p class="text-center">
-      <button class="btn btn-link format-features-toggle">
+      <button class="btn btn-link training-format-features-toggle">
         Compare the benefits <span class="fa fa-chevron-down"></span>
       </button>
     </p>

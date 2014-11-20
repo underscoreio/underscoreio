@@ -8,9 +8,33 @@ icon: play
 color: "#a0c556"
 media:
   icons: [ book, onsite ]
-  gumroad:
-    url: https://gum.co/essential-play
-    lifetimeUpdates: true
+products:
+  selfDirected:
+    single:
+      type: gumroad
+      title: Get the Book
+      url: "https://gum.co/essential-play"
+      buttonLabel: "Buy now - £20"
+      description: |
+        Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ebook formats.
+    team:
+      type: gumroad
+      title: "20% Team Discount"
+      url: "https://gum.co/essential-play"
+      buttonLabel: "Buy now - <strike>£200</strike> £160"
+      description: |
+        Get your whole team up to speed with a <em>10 developer license</em> for 20% off individual pricing.
+  instructorLed:
+    public:
+      type: public
+      title: "Public Courses"
+      courseId: "essential-play"
+      buttonLabel: "Register your interest"
+    private:
+      type: private
+      title: "Private Courses"
+      courseId: "essential-play"
+      buttonLabel: "Book now - £2000/team"
 ---
 
 ## Overview
