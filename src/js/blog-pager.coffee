@@ -12,7 +12,6 @@ init = (element) ->
     curr        = 0
 
     resizePaddles = (post) ->
-      postWrapper.innerHeight(post.height())
       prevPaddle.innerHeight(post.height())
       nextPaddle.innerHeight(post.height())
       return
