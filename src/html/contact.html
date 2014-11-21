@@ -73,38 +73,46 @@ endif;
 
 {% include hero.html title="Contact us" %}
 
-<p>Use the form below to send us a message, or email us at <a href="mailto:hello@underscore.io">hello@underscore.io</a>, or phone us on <a href="tel:+442030955332">+44 (0)20 309 55332</a>:</p>
+<section class="container">
+  <article>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p>Use the form below to send us a message, or email us at <a href="mailto:hello@underscore.io">hello@underscore.io</a>, or phone us on <a href="tel:+442030955332">+44 (0)20 309 55332</a>:</p>
 
-<form id="contact-form" method="post">
-  <div class="form-group">
-    <label>Your name</label>
-    <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
-  </div>
+        <form id="contact-form" method="post">
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
+          </div>
 
-  <div class="form-group">
-    <label>Your email address</label>
-    <input type="email" class="form-control" name="email" placeholder="leonardo@davinci.com">
-  </div>
+          <div class="form-group">
+            <label>Your email address</label>
+            <input type="email" class="form-control" name="email" placeholder="leonardo@davinci.com">
+          </div>
 
-  <div class="form-group">
-    <label>Your phone number (optional)</label>
-    <input type="phone" class="form-control" name="phone" placeholder="+44 123 456 7890">
-  </div>
+          <div class="form-group">
+            <label>Your phone number (optional)</label>
+            <input type="phone" class="form-control" name="phone" placeholder="+44 123 456 7890">
+          </div>
 
-  <div class="form-group">
-    <label>Subject line</label>
+          <div class="form-group">
+            <label>Subject line</label>
 
-    <input type="text" class="form-control" name="subject">
-  </div>
+            <input type="text" class="form-control" name="subject">
+          </div>
 
-  <div class="form-group">
-    <label>Your message</label>
+          <div class="form-group">
+            <label>Your message</label>
 
-    <textarea class="form-control" name="message" rows="10"></textarea>
-  </div>
+            <textarea class="form-control" name="message" rows="10"></textarea>
+          </div>
 
-  <button type="submit" class="btn btn-success">Send Message</button>
-</form>
+          <button type="submit" class="btn btn-success">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </article>
+</section>
 
 <script>
   window.uio.contactForm.init("#contact-form")

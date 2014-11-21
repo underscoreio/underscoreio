@@ -1,34 +1,51 @@
 - name: Adalysis
   logo: "/images/customers/adalysis.jpg"
+  promo: false
 - name: BBC
   logo: "/images/customers/bbc.jpg"
+  promo: true
 - name: Companies House
   logo: "/images/customers/ch.jpg"
+  promo: false
 - name: Government Digital Service
   logo: "/images/customers/gds.jpg"
+  promo: true
 - name: Gottex Brokers
   logo: "/images/customers/gottex.jpg"
+  promo: true
 - name: Habla Computing
   logo: "/images/customers/habla.jpg"
+  promo: false
 - name: Identive
   logo: "/images/customers/identive.jpg"
+  promo: false
 - name: JHC Systems
   logo: "/images/customers/jhc.jpg"
+  promo: true
 - name: Maana
   logo: "/images/customers/maana.jpg"
+  promo: false
 - name: Mind Candy
   logo: "/images/customers/mind-candy.jpg"
+  promo: true
 - name: Ness
   logo: "/images/customers/ness.jpg"
+  promo: false
 - name: Pure 360
   logo: "/images/customers/pure360.jpg"
+  promo: false
 - name: Qatarlyst
   logo: "/images/customers/qatarlyst.jpg"
+  promo: false
 - name: Queen Mary University of London
   logo: "/images/customers/qmul.jpg"
+  promo: false
 - name: Royal Pharmaceutical Society
   logo: "/images/customers/rps.jpg"
+  promo: true
 - name: Sage Pay
   logo: "/images/customers/sage-pay.jpg"
+  promo: false
 - name: Tigertap
   logo: "/images/customers/tigertap.jpg"
+  promo: false

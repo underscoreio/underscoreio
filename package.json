@@ -9,7 +9,9 @@
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-exec": "^0.4.6",
-    "grunt-webfont": "^0.4.8"
+    "grunt-webfont": "^0.4.8",
+    "minifyify": "^4.4.0",
+    "uglifyify": "^2.6.0"
   },
   "dependencies": {
     "jquery": "^1.11.1",

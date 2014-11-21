@@ -1,10 +1,40 @@
-<div class="row customer-logos">
-  {% for customer in site.data.customers %}
-  <div class="col-xs-6 col-sm-4 col-md-3">
-    <div class="thumbnail">
-      <img src="{{ customer.logo }}"
-           alt="{{ customer.name }}">
+{% assign promoCustomers = site.data.customers | where:'promo',true  %}
+{% assign otherCustomers = site.data.customers | where:'promo',false %}
+
+<div class="row">
+  <div class="
+    col-lg-8  col-lg-offset-2
+    col-md-10 col-md-offset-1
+    col-sm-12 col-sm-offset-0
+    col-xs-10 col-xs-offset-1
+  ">
+    <div class="row customer-logos promo-customer-logos">
+      {% for customer in promoCustomers %}
+      <div class="col-xs-6 col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <img src="{{ customer.logo }}"
+               alt="{{ customer.name }}">
+        </div>
+      </div>
+      {% endfor %}
     </div>
+    {% comment %}
+    <p>
+      <a href="javascript:void 0">
+        See more customers
+        <span class="fa fa-chevron-down"></span>
+      </a>
+    </p>
+    <div class="row customer-logos other-customer-logos">
+      {% for customer in otherCustomers %}
+      <div class="col-xs-6 col-sm-4 col-md-4">
+        <div class="thumbnail">
+          <img src="{{ customer.logo }}"
+               alt="{{ customer.name }}">
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endcomment %}
   </div>
-  {% endfor %}
 </div>

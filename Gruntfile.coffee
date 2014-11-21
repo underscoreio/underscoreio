@@ -5,6 +5,8 @@ path = require 'path'
 "use strict"
 
 module.exports = (grunt) ->
+  minify = grunt.option('minify') ? false
+
   grunt.loadNpmTasks "grunt-browserify"
   grunt.loadNpmTasks "grunt-contrib-connect"
   grunt.loadNpmTasks "grunt-contrib-copy"
@@ -21,7 +23,8 @@ module.exports = (grunt) ->
             "bower_components"
             "src/css"
           ]
-          yuicompress: true
+          compress: minify
+          yuicompress: minify
         files:
           "underscoreio/css/screen.css" : "src/css/screen.less"
           "underscoreio/css/print.css"  : "src/css/print.less"
@@ -32,20 +35,14 @@ module.exports = (grunt) ->
         dest: "underscoreio/js/site.js"
         cwd:  "."
         options:
-          cwd:  "."
           watch: false
-          transform: [ 'coffeeify' ]
+          transform: if minify
+            [ 'coffeeify', [ 'uglifyify', { global: true } ] ]
+          else
+            [ 'coffeeify' ]
           browserifyOptions:
-            debug: true
+            debug: false
             extensions: [ '.coffee' ]
-            # "underscoreio/js/site.js" : [
-            #   "bower_components/retina.js/src/retina.js"
-            #   "bower_components/jquery/dist/jquery.js"
-            #   "bower_components/underscore/underscore.js"
-            #   "bower_components/respond/respond.src.js"
-            #   "bower_components/bootstrap/js/carousel.js"
-            #   "src/js/site.js"
-            # ]
 
     webfont:
       icons:
