@@ -1,0 +1,21 @@
+{% assign promoCustomers = site.data.customers | where:'promo',true  %}
+{% assign otherCustomers = site.data.customers | where:'promo',false %}
+
+<div class="row">
+  <div class="
+    col-lg-8  col-lg-offset-2
+    col-md-10 col-md-offset-1
+    col-sm-12 col-sm-offset-0
+    col-xs-10 col-xs-offset-1
+  ">
+    <div class="row customer-logos promo-customer-logos">
+      {% for customer in promoCustomers %}
+      <div class="col-xs-6 col-sm-4 col-md-4">
+        <a class="thumbnail" href="{{ customer.url }}">
+          <img src="{{ customer.logo }}" alt="{{ customer.name }}">
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

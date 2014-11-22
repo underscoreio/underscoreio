@@ -1,235 +1,131 @@
 ---
-layout      : default
-navbar      : landing
+layout: default
+navbar: home
 ---
 
-{% include navbar.html %}
+{% include navbar.html class="navbar-fixed" %}
 
-<div id="hero" class="band">
-  <div class="container">
-    <h1>Know your Scala</h1>
+<div class="hero home-hero">
+  <div class="hero-left-overlay-white"></div>
+  <div class="hero-right-overlay-black"></div>
+  <div class="hero-arrow-overlay-white"></div>
 
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <p class="tagline">
-          Write better software in Scala with <strong>online</strong><br>
-          <strong>mentoring</strong> and <strong>training</strong> from
-          <strong>Underscore</strong>.
-        </p>
-      </div>
+  {% include navbar.html class="navbar-inverse" %}
+
+  <header class="hero-text">
+    <div class="container">
+      <h1><img src="/images/common/brand.svg" alt="Underscore" width="300px"></h1>
+      <h2>The Scala Specialists</h2>
     </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-sm-3 col-sm-offset-3">
-        <p><a class="btn btn-info btn-block" href="/courses/index.html">Browse courses</a></p>
-      </div>
-      <div class="col-sm-3">
-        <p><a class="btn btn-info btn-block" href="/enquiries.html">Book training</a></p>
-      </div>
-    </div>
-  </div>
+  </header>
 </div>
 
-<div id="services" class="band">
+<section class="home-panel home-training">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-6 col-sm-3">
-        <a href="#online" class="services-link">
-          <p class="icon icon-center icon-service-online"></p>
+    <h1 class="home-panel-title">
+      Know Your Scala
+    </h1>
 
-          <p class="text-center">
-            Online books and videos
-          </p>
+    <p>
+      <img src="/images/home/training.png" alt="Training">
+    </p>
+
+    <p>
+      <strong>Books</strong>, <strong>videos</strong>,
+      <strong>taught courses</strong>, and <strong>team mentoring</strong>...
+      everything you need to excel.
+    </p>
+
+    <p class="home-panel-cta">
+      <a class="btn btn-primary" href="/training">Learn with us</a>
+    </p>
+  </div>
+</section>
+
+<section class="home-panel home-consulting">
+  <div class="container">
+    <h1 class="home-panel-title">
+      Succeed with Scala
+    </h1>
+
+    <p>
+      <img src="/images/home/consulting.png" alt="Consulting">
+    </p>
+
+    <p>
+      <strong>Professional services</strong> tailored to your business,
+      <strong>whatever stage you're at</strong>.
+    </p>
+
+    <p class="home-panel-cta">
+      <a class="btn btn-primary" href="/consulting">Work with us</a>
+    </p>
+  </div>
+</section>
+
+<section class="home-panel home-blog">
+  <div class="container">
+    <h1 class="home-panel-title">
+      Latest from the Blog
+    </h1>
+
+    <div class="row">
+      <div class="col-sm-2 hidden-xs">
+        <a class="home-blog-paddle home-blog-paddle-prev" href="javascript:void 0">
+          <span class="home-blog-paddle-label">
+            <span class="icon-uio-chevron-left"></span>
+            <span class="sr-only">Prev</span>
+         </span>
         </a>
       </div>
-
-      <div class="col-xs-6 col-sm-3">
-        <a href="#mentoring" class="services-link">
-          <p class="icon icon-center icon-service-mentoring"></p>
-
-          <p class="text-center">
-            Mentoring for teams<br>
-            and individuals
-          </p>
+      <div class="col-sm-8 home-blog-posts">
+        {% for post in site.posts limit:5 %}
+        {% include blog/excerpt.html post=post %}
+        {% endfor %}
+      </div>
+      <div class="col-sm-2 hidden-xs">
+        <a class="home-blog-paddle home-blog-paddle-next" href="javascript:void 0">
+          <span class="home-blog-paddle-label">
+            <span class="icon-uio-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </span>
         </a>
       </div>
+    </div>
 
-      <div class="col-xs-6 col-sm-3">
-        <a href="#training" class="services-link">
-          <p class="icon icon-center icon-service-training"></p>
-
-          <p class="text-center">
-            Face-to-face training
-          </p>
+    <div class="row home-blog-mobile-pager">
+      <div class="col-xs-6 text-right">
+        <a class="home-blog-link-prev btn btn-primary btn-sm" href="javascript:void 0">
+          <span class="icon-uio-chevron-left"></span>
+          Prev
         </a>
       </div>
-
-      <div class="col-xs-6 col-sm-3">
-        <a href="#consulting" class="services-link">
-          <p class="icon icon-center icon-service-consulting"></p>
-
-          <p class="text-center">
-            Consulting and<br>
-            enterprise support
-          </p>
+      <div class="col-xs-6 text-left">
+        <a class="home-blog-link-next btn btn-primary btn-sm" href="javascript:void 0">
+          Next
+          <span class="icon-uio-chevron-right"></span>
         </a>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div id="promo" class="band">
+<script>
+  uio.blogPager.init(".home-blog");
+</script>
+
+<section class="home-panel home-customers">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-macro"></div>
-          Free download: Essential Macros
-        </h2>
+    <h1 class="home-panel-title">
+      Our Customers
+    </h1>
 
-        <p>Download a complete set of free annotated code examples demonstrating
-        how to get started with macros in Scala 2.11. Check out the accompanying talk,
-        <em>Macros for the rest of us</em>, at ScalaDays 2014.</p>
+    <p class="text-center">
+      Some of our happy customers:
+    </p>
 
-        <p>
-          <a class="btn btn-primary" href="https://github.com/underscoreio/essential-macros">Get the code</a>
-          <a class="btn btn-primary" href="/newsletter.html">Hear more about macros</a>
-        </p>
-      </div>
-    </div>
+    {% include customer-logos.html %}
   </div>
-</div>
+</section>
 
-<div id="training" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-training"></div>
-          Face-to-face training
-        </h2>
-
-        <p>We offer a wide variety of training courses and workshops, covering everything
-        from Scala fundamentals to distributed computing and advanced functional
-        programming. Browse our <a href="/courses">course directory</a> to see that we have
-        to offer.</p>
-
-        <p>Our courses are designed to work together in packages. By combining the correct
-        elements, we can create the perfect custom syllabus for your development team.
-        Fill out an <a href="/enquiries.html">enquiry form</a> to see what we can offer you.</p>
-
-        <p>We believe that learning should never stop. All of our face-to-face training
-        courses come with free ongoing access to our online training material.
-
-        <p>
-          <a class="btn btn-primary" href="/courses">Course directory</a>
-          <a class="btn btn-primary" href="/enquiries.html">Training enquiries</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="online" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-online"></div>
-          Online books and videos
-        </h2>
-
-        <p>
-          We are converting our face-to-face <a href="/courses">training courses</a> such as
-          <a href="/courses/essential-scala.html">Essential Scala</a> and
-          <a href="/courses/essential-java8.html">Essential Java 8</a> to video and e-book
-          formats. See the individual pages for each course to find out what's available now.
-        </p>
-
-        <p>Get in touch to tell us what courses you would like to see next, and subscribe
-        to our newsletter to hear when new content becomes available:</p>
-
-        {% include mailchimp.html %}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="mentoring" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-mentoring"></div>
-          Mentoring
-        </h2>
-
-        <p>Training is the perfect way to get your team up to speed quickly, but what do you do once
-        the course is over? Our mentoring services are the answer.</p>
-
-        <p>Mentoring is the perfect compliment online and face-to-face training. Our Scala experts
-        provide your developers with one-on-one support via face-to-face meetings, online hangouts,
-        support emails, and code reviews. We help point you in the right direction, and you get on
-        with the work at hand knowing you're using the best practices and technology choices for
-        your project.</p>
-
-        <p>Once we are integrated with your team, we are in the best position to help manage
-        code quality. We can advise on the best way to architect, develop, and test your code
-        to produce the highest quality product.</p>
-
-        <p><a class="btn btn-primary" href="/contact.html?subject=Mentoring%20enquiry">Enquire about mentoring</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="consulting" class="band">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>
-          <div class="icon icon-left icon-consulting"></div>
-          Consulting and enterprise support
-        </h2>
-
-        <p>This web site is a product of <a href="http://underscoreconsulting.com">Underscore
-        Consulting</a>, a specialist consultancy dedicated to supporting companies using Scala and
-        functional programming.</p>
-
-        <p>Our customer portfolio includes large and medium enterprises in the financial, media,
-        marketing, and computing sectors. Visit us to find out more about our range of professional
-        services.</p>
-
-        <p><a class="btn btn-primary" href="http://underscoreconsulting.com">Visit Underscore Consulting</a></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="clients" class="band">
-  <div class="container">
-    <h2>Our training customers</h2>
-
-    <p>We provide training for large and medium enterprises in finance, media, marketing, government, and computing. Here are a few of our customers:</p>
-
-    <div class="text-center">
-      <a href="http://bbc.co.uk" target="_blank" class="icon icon-inline icon-bbc">
-        <span class="sr-only">BBC</span>
-      </a>
-
-      <a href="http://mindcandy.com" target="_blank" class="icon icon-inline icon-mind-candy">
-        <span class="sr-only">Mind Candy</span>
-      </a>
-
-      <a href="http://pure360.com" target="_blank" class="icon icon-inline icon-pure360">
-        <span class="sr-only">Pure 360</span>
-      </a>
-
-      <a href="http://www.companieshouse.gov.uk/" target="_blank" class="icon icon-inline icon-companies-house">
-        <span class="sr-only">Companies House</span>
-      </a>
-    </div>
-  </div>
-</div>
+{% include footer.html %}

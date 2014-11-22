@@ -1,56 +1,63 @@
 #global module:false
 
+path = require 'path'
+
 "use strict"
 
 module.exports = (grunt) ->
-  grunt.loadNpmTasks "grunt-bower-task"
+  minify = grunt.option('minify') ? false
+
+  grunt.loadNpmTasks "grunt-browserify"
   grunt.loadNpmTasks "grunt-contrib-connect"
   grunt.loadNpmTasks "grunt-contrib-copy"
   grunt.loadNpmTasks "grunt-contrib-less"
-  grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-exec"
+  grunt.loadNpmTasks "grunt-webfont"
 
   grunt.initConfig
     less:
       screen:
         options:
           paths: [
-            "bower_components/bootstrap/less"
+            "node_modules"
             "src/css"
           ]
-          yuicompress: true
+          compress: minify
+          yuicompress: minify
         files:
           "underscoreio/css/screen.css" : "src/css/screen.less"
           "underscoreio/css/print.css"  : "src/css/print.less"
 
-    uglify:
+    browserify:
       site:
-        files:
-          "underscoreio/js/site.js" : [
-            "bower_components/jquery/dist/jquery.js"
-            "bower_components/underscore/underscore.js"
-            "bower_components/bootstrap/js/collapse.js"
-            "bower_components/respond/respond.src.js"
-            "src/js/site.js"
-          ]
+        src:  "src/js/site.coffee"
+        dest: "underscoreio/js/site.js"
+        cwd:  "."
+        options:
+          watch: false
+          transform: if minify
+            [ 'coffeeify', [ 'uglifyify', { global: true } ] ]
+          else
+            [ 'coffeeify' ]
+          browserifyOptions:
+            debug: false
+            extensions: [ '.coffee' ]
+
+    webfont:
+      icons:
+        src: "src/icons/*.svg"
+        dest: "underscoreio/fonts"
+        destCss: "src/css/common/icons"
+        options:
+          font: 'uio'
+          engine: 'node'
+          htmlDemo: false
+          relativeFontPath: '/fonts/'
+          syntax: 'bootstrap'
+          rename: (filename) -> 'uio-' + path.basename(filename)
 
     copy:
-      bootstrap:
-        files: [
-          {
-            expand: true
-            cwd: "bower_components/bootstrap/img/"
-            src: ["**"]
-            dest: "underscoreio/images/"
-          }
-          {
-            expand: true
-            cwd: "bower_components/bootstrap/fonts/"
-            src: ["**"]
-            dest: "underscoreio/fonts/"
-          }
-        ]
       images:
         files: [{
           expand: true
@@ -65,19 +72,18 @@ module.exports = (grunt) ->
       jekyll:
         cmd: "bundle exec jekyll build --trace --config jekyll_config.yml"
       deploy:
-        cmd: 'rsync --progress -a --delete -e "ssh -q" underscoreio/ admin@underscore.io:underscore.io/public/htdocs/'
-
-    bower:
-      install: {}
+        cmd: 'rsync --progress -a --delete -e "ssh -q" underscoreio/ admin@preview.underscore.io:preview.underscore.io/public/htdocs/'
 
     watchImpl:
       options:
         livereload: true
       css:
         files: [
+          "src/icons/**/*"
           "src/css/**/*"
         ]
         tasks: [
+          "webfont"
           "less"
           "exec:jekyll"
         ]
@@ -86,7 +92,7 @@ module.exports = (grunt) ->
           "src/js/**/*"
         ]
         tasks: [
-          "uglify"
+          "browserify"
           "exec:jekyll"
         ]
       images:
@@ -117,8 +123,9 @@ module.exports = (grunt) ->
   grunt.renameTask "watch", "watchImpl"
 
   grunt.registerTask "build", [
+    "webfont"
     "less"
-    "uglify"
+    "browserify"
     "copy"
     "exec:jekyll"
   ]

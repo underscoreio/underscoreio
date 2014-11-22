@@ -1,0 +1,42 @@
+.blog-pagination {
+  margin: @line-height-computed 0;
+  text-align: center;
+}
+
+.blog-sidebar-mailchimp {
+  label, input, button {
+    font-size: .9em;
+  }
+}
+
+.blog-sidebar-archives {
+  list-style: none;
+  padding: 0;
+
+  li {
+    // font-size: @font-size-base * .9;
+    font-weight: 200;
+  }
+
+  .heading {
+    font-size: @font-size-base;
+    margin-top: @line-height-computed;
+    font-weight: 400;
+  }
+
+  .heading:first-child {
+    margin-top: 0;
+  }
+}
+
+.blog-post {
+  .blog-post-meta {
+    .clearfix();
+    margin: 0 0 @line-height-computed / 2;
+
+    dt, dd {
+      float: left;
+      margin-right: 1ex;
+    }
+  }
+}

@@ -1,0 +1,159 @@
+---
+layout: default
+navbar: training
+---
+
+{% include hero.html title="Training" %}
+
+<section class="container training-formats hidden-xs">
+  <article>
+    <h2>What We Offer</h2>
+
+    <div class="row">
+      {% for categoryPair in site.data.trainingFormats %}
+      {% assign category = categoryPair[1] %}
+      <div class="col-sm-6">
+        <div class="panel panel-gray">
+          <div class="panel-body">
+            {% comment %}
+            <h3 class="training-format-category-title">
+              {{ category.title }}
+            </h3>
+            {% endcomment %}
+
+            <div class="row">
+              {% for formatPair in category.formats %}
+              {% assign format = formatPair[1] %}
+              <div class="col-sm-6">
+                <h4 class="training-format-title">
+                  {{ format.title }}
+                </h4>
+
+                <div class="training-format-overview">
+                  {{ format.overview | markdownify }}
+                </div>
+
+                <div class="training-format-icon">
+                  <span class="icon-uio-{{ format.icon }}"></span>
+                </div>
+
+                <div class="training-format-features">
+                  {{ format.features | markdownify }}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p class="text-center">
+      <button class="btn btn-link training-format-features-toggle">
+        Compare the benefits <span class="icon-uio-chevron-down"></span>
+      </button>
+    </p>
+  </article>
+</section>
+
+<script>
+  uio.trainingFormats.init(".training-formats")
+</script>
+
+<section class="container training-course-directory">
+  <article>
+    <h2>Our Courses</h2>
+
+    <div class="row">
+      {% comment %}
+        TODO: This is messy but it works:
+      {% endcomment %}
+
+      {% for course in site.courses %}
+        {% if course.id == 'essential-scala' %}
+          <div class="col-sm-6 col-md-4">
+            {% include training/excerpt.html course=course %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for course in site.courses %}
+        {% if course.id == 'essential-java8' %}
+          <div class="col-sm-6 col-md-4">
+            {% include training/excerpt.html course=course %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for course in site.courses %}
+        {% if course.id == 'essential-play' %}
+          <div class="col-sm-6 col-md-4">
+            {% include training/excerpt.html course=course %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for course in site.courses %}
+        {% if course.id == 'essential-lift' %}
+          <div class="col-sm-6 col-md-4">
+            {% include training/excerpt.html course=course %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for course in site.courses %}
+        {% if course.id == 'essential-scalaz' %}
+          <div class="col-sm-6 col-md-4">
+            {% include training/excerpt.html course=course %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for course in site.courses %}
+        {% if course.id == 'essential-shapeless' %}
+          <div class="col-sm-6 col-md-4">
+            {% include training/excerpt.html course=course %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for course in site.courses %}
+        {% if course.id == 'essential-distributed-systems' %}
+          <div class="col-sm-6 col-md-4">
+            {% include training/excerpt.html course=course %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      {% for course in site.courses %}
+        {% if course.id == 'essential-macros' %}
+          <div class="col-sm-6 col-md-4">
+            {% include training/excerpt.html course=course %}
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      <div class="col-sm-12 col-md-4">
+        <div class="suggest-course">
+          <p class="text-center">
+            Something missing?
+          </p>
+
+          <p class="text-center">
+            <a class="btn btn-primary btn" href="/contact.html?subject={{ "New course suggestion" | urlencode }}">
+              Suggest a course
+              <span class="icon-uio-chevron-right"></span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<script>
+  uio.courseDirectory.init(".training-course-directory")
+</script>
+
+{% include footer.html %}

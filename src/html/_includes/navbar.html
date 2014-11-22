@@ -1,25 +1,29 @@
-<nav class="navbar {% if page.navbarClass %}{{ page.navbarClass }}{% else %}navbar-default{% endif %}" role="navigation">
+<nav class="navbar {% if include.class %}{{ include.class }}{% else %}navbar-standard{% endif %}" role="navigation">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-top">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">
-        <span class="sr-only">underscore.io</span>
-      </a>
-    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li class="navbar-desktop-brand">
+        <a href="/">
+          <span class="icon-uio-underscore"></span>
+        </a>
+      </li>
+      <li class="navbar-mobile-brand navbar-toggle">
+        <a href="javascript:void 0">
+          Underscore
+          <span class="navbar-menu-icon icon-uio-menu"></span>
+        </a>
+      </li>
+    </ul>
 
-    <div class="collapse navbar-collapse" id="navbar-top">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a id="navbar-landing"    href="/">                Home       </a></li>
-        <li><a id="navbar-courses"    href="/courses">         Courses    </a></li>
-        <li><a id="navbar-enquiries"  href="/enquiries.html">  Enquiries  </a></li>
-        <li><a id="navbar-newsletter" href="/newsletter.html"> Newsletter </a></li>
-        <li><a id="navbar-contact"    href="/contact.html">    Contact    </a></li>
-      </ul>
-    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="visible-xs {% if page.navbar == 'home' %}active{% endif %}"><a href="/">Home</a></li>
+      <li class="{% if page.navbar == 'training' %}active{% endif %}"><a href="/training">Training</a></li>
+      <li class="{% if page.navbar == 'consulting' %}active{% endif %}"><a href="/consulting">Consulting</a></li>
+      <li class="{% if page.navbar == 'blog' %}active{% endif %}"><a href="/blog">Blog</a></li>
+      <li class="{% if page.navbar == 'company' %}active{% endif %}"><a href="/company">Company</a></li>
+      <li class="divider"></li>
+      <li class="social"><a href="http://twitter.com/underscoreuk"><span class="icon-uio-twitter"></span><span class="sr-only">Twitter</span></a></li>
+      <li class="social"><a href="tel:+442030955332"><span class="icon-uio-phone"></span><span class="sr-only">Tel</span></a></li>
+      <li class="social"><a href="/contact.html"><span class="icon-uio-envelope"></span><span class="sr-only">Email</span></a></li>
+    </ul>
   </div>
 </nav>
