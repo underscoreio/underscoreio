@@ -20,7 +20,7 @@ module.exports = (grunt) ->
       screen:
         options:
           paths: [
-            "bower_components"
+            "node_modules"
             "src/css"
           ]
           compress: minify
@@ -58,36 +58,6 @@ module.exports = (grunt) ->
           rename: (filename) -> 'uio-' + path.basename(filename)
 
     copy:
-      bootstrap:
-        files: [
-          {
-            expand: true
-            cwd: "bower_components/bootstrap/img/"
-            src: ["**"]
-            dest: "underscoreio/images/"
-          }
-          {
-            expand: true
-            cwd: "bower_components/bootstrap/fonts/"
-            src: ["**"]
-            dest: "underscoreio/fonts/"
-          }
-        ]
-      fontAwesome:
-        files: [
-          {
-            expand: true
-            cwd: "bower_components/font-awesome/fonts/"
-            src: ["**"]
-            dest: "underscoreio/fonts/"
-          }
-          {
-            expand: true
-            cwd: "bower_components/bootstrap/fonts/"
-            src: ["**"]
-            dest: "underscoreio/fonts/"
-          }
-        ]
       images:
         files: [{
           expand: true

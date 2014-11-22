@@ -5,17 +5,17 @@
 
 @font-face {
     font-family:"uio";
-    src:url("/fonts/uio-6e435129a5d5ef0857cdd5c77e8576f9.eot");
+    src:url("/fonts/uio-2b92a891d0ac0f6c1d156031ccb4d511.eot");
     font-weight:normal;
     font-style:normal;
 }
 @font-face {
 	font-family:"uio";
-	src:url("/fonts/uio-6e435129a5d5ef0857cdd5c77e8576f9.eot");
-	src:url("/fonts/uio-6e435129a5d5ef0857cdd5c77e8576f9.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/uio-6e435129a5d5ef0857cdd5c77e8576f9.woff") format("woff"),
-		url("/fonts/uio-6e435129a5d5ef0857cdd5c77e8576f9.ttf") format("truetype"),
-		url("/fonts/uio-6e435129a5d5ef0857cdd5c77e8576f9.svg?#uio") format("svg");
+	src:url("/fonts/uio-2b92a891d0ac0f6c1d156031ccb4d511.eot");
+	src:url("/fonts/uio-2b92a891d0ac0f6c1d156031ccb4d511.eot?#iefix") format("embedded-opentype"),
+		url("/fonts/uio-2b92a891d0ac0f6c1d156031ccb4d511.woff") format("woff"),
+		url("/fonts/uio-2b92a891d0ac0f6c1d156031ccb4d511.ttf") format("truetype"),
+		url("/fonts/uio-2b92a891d0ac0f6c1d156031ccb4d511.svg?#uio") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -49,79 +49,127 @@
 
 
 
-.icon-uio-city:before {
+.icon-uio-chevron-down:before {
 	content:"\f102";
 }
 
 
 
-.icon-uio-java:before {
+.icon-uio-chevron-left:before {
 	content:"\f103";
 }
 
 
 
-.icon-uio-lift:before {
+.icon-uio-chevron-right:before {
 	content:"\f104";
 }
 
 
 
-.icon-uio-macro:before {
+.icon-uio-chevron-up:before {
 	content:"\f105";
 }
 
 
 
-.icon-uio-mortar:before {
+.icon-uio-city:before {
 	content:"\f106";
 }
 
 
 
-.icon-uio-network:before {
+.icon-uio-envelope:before {
 	content:"\f107";
 }
 
 
 
-.icon-uio-onsite:before {
+.icon-uio-java:before {
 	content:"\f108";
 }
 
 
 
-.icon-uio-play:before {
+.icon-uio-lift:before {
 	content:"\f109";
 }
 
 
 
-.icon-uio-scala:before {
+.icon-uio-macro:before {
 	content:"\f10a";
 }
 
 
 
-.icon-uio-scalaz:before {
+.icon-uio-menu:before {
 	content:"\f10b";
 }
 
 
 
-.icon-uio-shapeless:before {
+.icon-uio-mortar:before {
 	content:"\f10c";
 }
 
 
 
-.icon-uio-underscore:before {
+.icon-uio-network:before {
 	content:"\f10d";
 }
 
 
 
-.icon-uio-video:before {
+.icon-uio-onsite:before {
 	content:"\f10e";
+}
+
+
+
+.icon-uio-phone:before {
+	content:"\f10f";
+}
+
+
+
+.icon-uio-play:before {
+	content:"\f110";
+}
+
+
+
+.icon-uio-scala:before {
+	content:"\f111";
+}
+
+
+
+.icon-uio-scalaz:before {
+	content:"\f112";
+}
+
+
+
+.icon-uio-shapeless:before {
+	content:"\f113";
+}
+
+
+
+.icon-uio-twitter:before {
+	content:"\f114";
+}
+
+
+
+.icon-uio-underscore:before {
+	content:"\f115";
+}
+
+
+
+.icon-uio-video:before {
+	content:"\f116";
 }
 

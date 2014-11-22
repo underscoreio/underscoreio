@@ -6,13 +6,13 @@ init = (sel) ->
 
   toggle = root.find(".training-format-features-toggle")
   list   = root.find(".training-format-features")
-  icon   = toggle.find(".fa")
+  icon   = toggle.find(".icon-uio-chevron-down")
 
   list.hide()
 
   toggle.on "click", (evt) ->
     list.slideToggle("fast")
-    icon.toggleClass("fa-chevron-down fa-chevron-up")
+    icon.toggleClass("icon-uio-chevron-down icon-uio-chevron-up")
     return
   return
 

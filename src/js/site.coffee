@@ -1,4 +1,5 @@
 retina          = require 'retina.js/src/retina'
+svg4everybody   = require 'svg4everybody'
 $               = require 'jquery'
 navbar          = require './navbar'
 

@@ -1,12 +1,12 @@
 <div class="blog-pagination">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path }}" class="btn btn-primary">
-      <span class="fa fa-chevron-left"></span>
+      <span class="icon-uio-chevron-left"></span>
       Newer posts
     </a>
   {% else %}
     <button class="btn btn-primary" disabled="disabled">
-      <span class="fa fa-chevron-left"></span>
+      <span class="icon-uio-chevron-left"></span>
       Newer posts
     </button>
   {% endif %}
@@ -14,12 +14,12 @@
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path }}" class="btn btn-primary">
       Older posts
-      <span class="fa fa-chevron-right"></span>
+      <span class="icon-uio-chevron-right"></span>
     </a>
   {% else %}
     <button class="btn btn-primary" disabled="disabled">
       Older posts
-      <span class="fa fa-chevron-right"></span>
+      <span class="icon-uio-chevron-right"></span>
     </button>
   {% endif %}
 </div>
