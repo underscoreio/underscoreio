@@ -1,51 +1,84 @@
-- name: Adalysis
-  logo: "/images/customers/adalysis.jpg"
+- name:  Adalysis
+  logo:  "/images/customers/adalysis.jpg"
+  url:   "http://adalysis.com"
   promo: false
-- name: BBC
-  logo: "/images/customers/bbc.jpg"
+
+- name:  BBC
+  logo:  "/images/customers/bbc.jpg"
+  url:   "http://bbc.co.uk"
   promo: true
-- name: Companies House
-  logo: "/images/customers/ch.jpg"
+
+- name:  Companies House
+  logo:  "/images/customers/ch.jpg"
+  url:   "http://companieshouse.gov.uk"
   promo: false
-- name: Government Digital Service
-  logo: "/images/customers/gds.jpg"
+
+- name:  Government Digital Service
+  logo:  "/images/customers/gds.jpg"
+  url:   "http://gov.uk"
   promo: true
-- name: Gottex Brokers
-  logo: "/images/customers/gottex.jpg"
+
+- name:  Gottex Brokers
+  logo:  "/images/customers/gottex.jpg"
+  url:   "http://www.gottexbrokers.com"
   promo: true
-- name: Habla Computing
-  logo: "/images/customers/habla.jpg"
+
+- name:  Habla Computing
+  logo:  "/images/customers/habla.jpg"
+  url:   "http://speechlang.org"
   promo: false
-- name: Identive
-  logo: "/images/customers/identive.jpg"
+
+- name:  Identive
+  logo:  "/images/customers/identive.jpg"
+  url:   "http://identive-infrastructure.com"
   promo: false
-- name: JHC Systems
-  logo: "/images/customers/jhc.jpg"
+
+- name:  JHC Systems
+  logo:  "/images/customers/jhc.jpg"
+  url:   "http://www.jhc.co.uk"
   promo: true
-- name: Maana
-  logo: "/images/customers/maana.jpg"
+
+- name:  Maana
+  logo:  "/images/customers/maana.jpg"
+  url:   "http://maana.io"
   promo: false
-- name: Mind Candy
-  logo: "/images/customers/mind-candy.jpg"
+
+- name:  Mind Candy
+  logo:  "/images/customers/mind-candy.jpg"
+  url:   "http://mindcandy.com"
   promo: true
-- name: Ness
-  logo: "/images/customers/ness.jpg"
+
+- name:  Ness
+  logo:  "/images/customers/ness.jpg"
+  url:   "http://www.ness.com"
   promo: false
-- name: Pure 360
-  logo: "/images/customers/pure360.jpg"
+
+- name:  Pure 360
+  logo:  "/images/customers/pure360.jpg"
+  url:   "http://pure360.com"
   promo: false
-- name: Qatarlyst
-  logo: "/images/customers/qatarlyst.jpg"
+
+- name:  Qatarlyst
+  logo:  "/images/customers/qatarlyst.jpg"
+  url:   "http://www.qatarlyst.com"
   promo: false
-- name: Queen Mary University of London
-  logo: "/images/customers/qmul.jpg"
+
+- name:  Queen Mary University of London
+  logo:  "/images/customers/qmul.jpg"
+  url:   "http://qmul.ac.uk"
   promo: false
-- name: Royal Pharmaceutical Society
-  logo: "/images/customers/rps.jpg"
+
+- name:  Royal Pharmaceutical Society
+  logo:  "/images/customers/rps.jpg"
+  url:   "http://www.rpharms.com"
   promo: true
-- name: Sage Pay
-  logo: "/images/customers/sage-pay.jpg"
+
+- name:  Sage Pay
+  logo:  "/images/customers/sage-pay.jpg"
+  url:   "http://www.sagepay.co.uk"
   promo: false
-- name: Tigertap
-  logo: "/images/customers/tigertap.jpg"
+
+- name:  Tigertap
+  logo:  "/images/customers/tigertap.jpg"
+  url:   "http://tigertap.com"
   promo: false

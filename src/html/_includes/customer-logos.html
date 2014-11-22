@@ -11,30 +11,11 @@
     <div class="row customer-logos promo-customer-logos">
       {% for customer in promoCustomers %}
       <div class="col-xs-6 col-sm-4 col-md-4">
-        <div class="thumbnail">
-          <img src="{{ customer.logo }}"
-               alt="{{ customer.name }}">
-        </div>
+        <a class="thumbnail" href="{{ customer.url }}">
+          <img src="{{ customer.logo }}" alt="{{ customer.name }}">
+        </a>
       </div>
       {% endfor %}
     </div>
-    {% comment %}
-    <p>
-      <a href="javascript:void 0">
-        See more customers
-        <span class="fa fa-chevron-down"></span>
-      </a>
-    </p>
-    <div class="row customer-logos other-customer-logos">
-      {% for customer in otherCustomers %}
-      <div class="col-xs-6 col-sm-4 col-md-4">
-        <div class="thumbnail">
-          <img src="{{ customer.logo }}"
-               alt="{{ customer.name }}">
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    {% endcomment %}
   </div>
 </div>
