@@ -1,7 +1,7 @@
 @home-hero-height: @line-height-computed * 22; // 660px
 @home-hero-padding: @line-height-computed * 8;
 @home-hero-arrow-height: 20px;
-@home-logo-height: 100px;
+@home-logo-height: 132px;
 
 @home-panel-padding: @line-height-computed;
 
@@ -37,8 +37,10 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    height: @font-size-h1 + @line-height-computed + @home-logo-height;
+    bottom: @home-hero-arrow-height;
+    height: @home-logo-height +
+      0.5 * @line-height-computed +
+      1.5 * @line-height-computed;
     z-index: 4;
 
     text-align: center;
@@ -47,11 +49,15 @@
     h1 {
       text-transform: lowercase;
       margin: 0;
+      img {
+        height: @home-logo-height;
+      }
     }
 
     h2 {
       font-weight: 200;
-      margin: .5*@line-height-computed 0 0;
+      margin: 0.5 * @line-height-computed 0 0;
+      line-height: 1.5 * @line-height-computed;
     }
   }
 }
