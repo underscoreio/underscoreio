@@ -4,6 +4,7 @@ selfDirected:
     books:
       title: Books
       icon: book
+      image: /images/training/book.svg
       overview: |
         Just want the content? Download our course texts with free updates for life.
       features: |
@@ -22,6 +23,7 @@ selfDirected:
     videos:
       title: Videos
       icon: video
+      image: /images/training/video.svg
       overview: |
         Prefer a visual format? Try our step-by-step videos. Access to the book included.
       features: |
@@ -40,6 +42,7 @@ instructorLed:
     public:
       title: Public courses
       icon: onsite
+      image: /images/training/public.svg
       overview: |
         After an interactive experience? Join an online courses with one of our expert instructors.
       features: |
@@ -55,6 +58,7 @@ instructorLed:
     private:
       title: Private courses
       icon: onsite
+      image: /images/training/private.svg
       overview: |
         The complete training experience: onsite and online courses at your convenience.
       features: |
