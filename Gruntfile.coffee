@@ -28,12 +28,14 @@ module.exports = (grunt) ->
         files:
           "underscoreio/css/screen.css" : "src/css/screen.less"
           "underscoreio/css/print.css"  : "src/css/print.less"
+          "underscoreio/css/ie8.css"    : "src/css/ie8.less"
+          "underscoreio/css/ie9.css"    : "src/css/ie9.less"
 
     browserify:
       site:
-        src:  "src/js/site.coffee"
-        dest: "underscoreio/js/site.js"
-        cwd:  "."
+        files:
+          "underscoreio/js/site.js" : "src/js/site.coffee"
+          "underscoreio/js/ie8.js"  : "src/js/ie8.coffee"
         options:
           watch: false
           transform: if minify

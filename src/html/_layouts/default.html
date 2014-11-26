@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" media="screen" href="{{ relative }}css/screen.css">
     <link rel="stylesheet" media="print" href="{{ relative }}css/print.css">
+    <!--[if lte IE 8]><link rel="stylesheet" href="{{ relative }}css/ie8.css"><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="{{ relative }}css/ie9.css"><![endif]-->
 
     <link rel="shortcut icon" href="/images/favicon-64.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -18,6 +20,7 @@
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
     <script src="{{ relative }}js/site.js"></script>
+    <!--[if lte IE 8]><script src="{{ relative }}js/ie8.js"></script><![endif]-->
   </head>
   <body>
     {{ content }}

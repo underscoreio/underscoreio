@@ -70,7 +70,7 @@ navbar: home
     </h1>
 
     <div class="row">
-      <div class="col-sm-2 hidden-xs">
+      <div class="col-sm-2 hidden-xs ie8-hide">
         <a class="home-blog-paddle home-blog-paddle-prev" href="javascript:void 0">
           <span class="home-blog-paddle-label">
             <span class="icon-uio-chevron-left"></span>
@@ -83,7 +83,7 @@ navbar: home
         {% include blog/excerpt.html post=post %}
         {% endfor %}
       </div>
-      <div class="col-sm-2 hidden-xs">
+      <div class="col-sm-2 hidden-xs ie8-hide">
         <a class="home-blog-paddle home-blog-paddle-next" href="javascript:void 0">
           <span class="home-blog-paddle-label">
             <span class="icon-uio-chevron-right"></span>
@@ -93,7 +93,7 @@ navbar: home
       </div>
     </div>
 
-    <div class="row home-blog-mobile-pager">
+    <div class="row home-blog-mobile-pager ie8-block">
       <div class="col-xs-6 text-right">
         <a class="home-blog-link-prev btn btn-primary btn-sm" href="javascript:void 0">
           <span class="icon-uio-chevron-left"></span>
