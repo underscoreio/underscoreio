@@ -12,7 +12,7 @@
       {% for customer in promoCustomers %}
       <div class="col-xs-6 col-sm-4 col-md-4">
         <a class="thumbnail" href="{{ customer.url }}">
-          <img src="{{ customer.logo }}" alt="{{ customer.name }}">
+          <img src="{{ customer.logo }}" alt="{{ customer.name }}"{% if customer.retina %}{% else %} data-no-retina{% endif %}>
         </a>
       </div>
       {% endfor %}

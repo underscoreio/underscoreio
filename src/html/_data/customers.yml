@@ -1,84 +1,101 @@
-- name:  Adalysis
-  logo:  "/images/customers/adalysis.jpg"
-  url:   "http://adalysis.com"
-  promo: false
+- name:   Adalysis
+  logo:   "/images/customers/adalysis.jpg"
+  url:    "http://adalysis.com"
+  retina: false
+  promo:  false
 
-- name:  BBC
-  logo:  "/images/customers/bbc.jpg"
-  url:   "http://bbc.co.uk"
-  promo: true
+- name:   BBC
+  logo:   "/images/customers/bbc.jpg"
+  url:    "http://bbc.co.uk"
+  retina: true
+  promo:  true
 
-- name:  Companies House
-  logo:  "/images/customers/ch.jpg"
-  url:   "http://companieshouse.gov.uk"
-  promo: false
+- name:   Companies House
+  logo:   "/images/customers/ch.jpg"
+  url:    "http://companieshouse.gov.uk"
+  retina: true
+  promo:  false
 
-- name:  Government Digital Service
-  logo:  "/images/customers/gds.jpg"
-  url:   "http://gov.uk"
-  promo: true
+- name:   Government Digital Service
+  logo:   "/images/customers/gds.jpg"
+  url:    "http://gov.uk"
+  retina: true
+  promo:  true
 
-- name:  Gottex Brokers
-  logo:  "/images/customers/gottex.jpg"
-  url:   "http://www.gottexbrokers.com"
-  promo: true
+- name:   Gottex Brokers
+  logo:   "/images/customers/gottex.jpg"
+  url:    "http://www.gottexbrokers.com"
+  retina: false
+  promo:  true
 
-- name:  Habla Computing
-  logo:  "/images/customers/habla.jpg"
-  url:   "http://speechlang.org"
-  promo: false
+- name:   Habla Computing
+  logo:   "/images/customers/habla.jpg"
+  url:    "http://speechlang.org"
+  retina: true
+  promo:  false
 
-- name:  Identive
-  logo:  "/images/customers/identive.jpg"
-  url:   "http://identive-infrastructure.com"
-  promo: false
+- name:   Identive
+  logo:   "/images/customers/identive.jpg"
+  url:    "http://identive-infrastructure.com"
+  retina: false
+  promo:  false
 
-- name:  JHC Systems
-  logo:  "/images/customers/jhc.jpg"
-  url:   "http://www.jhc.co.uk"
-  promo: true
+- name:   JHC Systems
+  logo:   "/images/customers/jhc.jpg"
+  url:    "http://www.jhc.co.uk"
+  retina: true
+  promo:  true
 
-- name:  Maana
-  logo:  "/images/customers/maana.jpg"
-  url:   "http://maana.io"
-  promo: false
+- name:   Maana
+  logo:   "/images/customers/maana.jpg"
+  url:    "http://maana.io"
+  retina: true
+  promo:  false
 
-- name:  Mind Candy
-  logo:  "/images/customers/mind-candy.jpg"
-  url:   "http://mindcandy.com"
-  promo: true
+- name:   Mind Candy
+  logo:   "/images/customers/mind-candy.jpg"
+  url:    "http://mindcandy.com"
+  retina: true
+  promo:  true
 
-- name:  Ness
-  logo:  "/images/customers/ness.jpg"
-  url:   "http://www.ness.com"
-  promo: false
+- name:   Ness
+  logo:   "/images/customers/ness.jpg"
+  url:    "http://www.ness.com"
+  retina: true
+  promo:  false
 
-- name:  Pure 360
-  logo:  "/images/customers/pure360.jpg"
-  url:   "http://pure360.com"
-  promo: false
+- name:   Pure 360
+  logo:   "/images/customers/pure360.jpg"
+  url:    "http://pure360.com"
+  retina: true
+  promo:  false
 
-- name:  Qatarlyst
-  logo:  "/images/customers/qatarlyst.jpg"
-  url:   "http://www.qatarlyst.com"
-  promo: false
+- name:   Qatarlyst
+  logo:   "/images/customers/qatarlyst.jpg"
+  url:    "http://www.qatarlyst.com"
+  retina: false
+  promo:  false
 
-- name:  Queen Mary University of London
-  logo:  "/images/customers/qmul.jpg"
-  url:   "http://qmul.ac.uk"
-  promo: false
+- name:   Queen Mary University of London
+  logo:   "/images/customers/qmul.jpg"
+  url:    "http://qmul.ac.uk"
+  retina: true
+  promo:  false
 
-- name:  Royal Pharmaceutical Society
-  logo:  "/images/customers/rps.jpg"
-  url:   "http://www.rpharms.com"
-  promo: true
+- name:   Royal Pharmaceutical Society
+  logo:   "/images/customers/rps.jpg"
+  url:    "http://www.rpharms.com"
+  retina: true
+  promo:  true
 
-- name:  Sage Pay
-  logo:  "/images/customers/sage-pay.jpg"
-  url:   "http://www.sagepay.co.uk"
-  promo: false
+- name:   Sage Pay
+  logo:   "/images/customers/sage-pay.jpg"
+  url:    "http://www.sagepay.co.uk"
+  retina: true
+  promo:  false
 
-- name:  Tigertap
-  logo:  "/images/customers/tigertap.jpg"
-  url:   "http://tigertap.com"
-  promo: false
+- name:   Tigertap
+  logo:   "/images/customers/tigertap.jpg"
+  url:    "http://tigertap.com"
+  retina: false
+  promo:  false
