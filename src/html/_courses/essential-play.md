@@ -15,14 +15,14 @@ products:
       type: gumroad
       title: Get the Book
       url: "https://gum.co/essential-play"
-      buttonLabel: "Buy now - £20"
+      buttonLabel: "Buy now - $40"
       description: |
-        Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ebook formats.
+        Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
     team:
       type: gumroad
       title: "20% Team Discount"
       url: "https://gum.co/essential-play"
-      buttonLabel: "Buy now - <strike>£200</strike> £160"
+      buttonLabel: "Buy now - <strike>$400</strike> $320"
       description: |
         Get your whole team up to speed with a <em>10 developer license</em> for 20% off individual pricing.
       comingSoon: true

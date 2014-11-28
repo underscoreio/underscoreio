@@ -9,6 +9,33 @@ courseDirectory:
   level: Beginner
   length: 2 days
   icons: [ book, onsite ]
+products:
+  selfDirected:
+    single:
+      type: gumroad
+      title: Get the Book
+      url: "https://gum.co/essential-scala"
+      buttonLabel: "Buy now - $50"
+      description: |
+        Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
+    team:
+      type: gumroad
+      title: "20% Team Discount"
+      url: "https://gum.co/essential-play"
+      buttonLabel: "Buy now - <strike>$500</strike> $400"
+      description: |
+        Get your whole team up to speed with a <em>10 developer license</em> for 20% off individual pricing.
+      comingSoon: true
+  instructorLed:
+    public:
+      type: public
+      title: "Public Courses"
+      buttonLabel: "Register your interest"
+      comingSoon: true
+    private:
+      type: private
+      title: "Private Courses"
+      buttonLabel: "Book now - £4000/team"
 ---
 
 ## Overview
