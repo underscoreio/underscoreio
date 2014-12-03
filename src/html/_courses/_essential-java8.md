@@ -8,7 +8,7 @@ color: "#ed783c"
 courseDirectory:
   level: Intermediate Java
   length: 1 day
-  icons: [ onsite ]
+  icons: [ private ]
 ---
 
 ## Overview

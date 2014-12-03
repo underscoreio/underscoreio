@@ -149,3 +149,29 @@
 .course-content {
   min-height: 480px;
 }
+
+.course-sidebar {
+  padding-top: @line-height-computed;
+
+  dl.course-meta {
+    .clearfix();
+
+    dt {
+      display: block;
+      float: left;
+      clear: left;
+      width: 8ex;
+      font-weight: 200;
+      &:before {
+        content: "";
+        display: block;
+      }
+    }
+
+    dd {
+      display: block;
+      float: left;
+      font-weight: 400;
+    }
+  }
+}

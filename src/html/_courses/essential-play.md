@@ -8,7 +8,7 @@ color: "#a0c556"
 courseDirectory:
   level: Intermediate
   length: 1 day
-  icons: [ book, onsite ]
+  icons: [ book, public, private ]
 products:
   selfDirected:
     single:
@@ -35,7 +35,7 @@ products:
     private:
       type: private
       title: "Private Courses"
-      buttonLabel: "Book now - £2000/team"
+      buttonLabel: "Book now - $3000"
 ---
 
 ## Overview
@@ -45,6 +45,10 @@ This course covers a comprehensive set of topics required to create web sites an
 Use Play's *Twirl* templating language to populate web pages with dynamic content. Build HTML5 content using your choice of Javascript, Coffeescript, Less, and/or CSS. Integrate client and server with AJAX and JSON. Write functional tests using Fluentlenium.
 
 Write fast, non-blocking asynchronous code using futures and promises. Efficiently process and validate JSON data. Integrate with third party web services using Play’s WS client API. Build your APIs using clean, testable development practices.
+
+## Prerequisites
+
+To benefit from this course you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
 
 ## Learning Outcomes
 

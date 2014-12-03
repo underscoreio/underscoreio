@@ -8,7 +8,7 @@ color: "#4872b1"
 courseDirectory:
   level: Intermediate
   length: 1 day
-  icons: [ book, onsite ]
+  icons: [ book, private ]
 products:
   selfDirected:
     single:
@@ -19,12 +19,16 @@ products:
     private:
       type: private
       title: "Private Courses"
-      buttonLabel: "Book now - £2000/team"
+      buttonLabel: "Book now - $3000"
 ---
 
 ## Overview
 
 This one-day course is aimed at Scala developers who want to understand how to build applications with the Lift web framework. Lift is different from other web frameworks, and with the help of this course you can save significant time getting up to speed.
+
+## Prerequisites
+
+To benefit from this course you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
 
 ## Learning Outcomes
 

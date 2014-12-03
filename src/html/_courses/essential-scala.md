@@ -8,7 +8,7 @@ color: "#e8515b"
 courseDirectory:
   level: Beginner
   length: 2 days
-  icons: [ book, onsite ]
+  icons: [ book, public, private ]
 products:
   selfDirected:
     single:
@@ -21,7 +21,7 @@ products:
     team:
       type: gumroad
       title: "20% Team Discount"
-      url: "https://gum.co/essential-play"
+      url: "https://gum.co/essential-scala"
       buttonLabel: "Buy now - <strike>$500</strike> $400"
       description: |
         Get your whole team up to speed with a <em>10 developer license</em> for 20% off individual pricing.
@@ -35,7 +35,7 @@ products:
     private:
       type: private
       title: "Private Courses"
-      buttonLabel: "Book now - £4000"
+      buttonLabel: "Book now - $6000"
 ---
 
 ## Overview
@@ -45,10 +45,6 @@ Essential Scala is a two day course aimed at experienced developers who are enco
 The course teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy focus on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
 
 If you are an experienced developer taking your first steps in Scala and want to get up to speed quickly then this is the course for you.
-
-{% include training/public-private.md %}
-
-{% include training/online-onsite.md %}
 
 ## Prerequisites
 

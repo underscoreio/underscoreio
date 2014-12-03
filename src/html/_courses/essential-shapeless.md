@@ -8,7 +8,7 @@ color: "#d62a7c"
 courseDirectory:
   level: Intermediate
   length: 1 day
-  icons: [ onsite ]
+  icons: [ private ]
 ---
 
 ## Overview

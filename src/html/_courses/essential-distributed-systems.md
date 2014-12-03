@@ -7,7 +7,7 @@ color: "#5a98cb"
 courseDirectory:
   level: Intermediate Java or Scala
   length: 2 days
-  icons: [ onsite ]
+  icons: [ private ]
 ---
 
 ## Overview
@@ -19,6 +19,10 @@ We cover three approaches -- message queues, distributed caches, and eventual co
 The workshops are designed to maximise theoretical and practical learning, by ﬁrst giving background and examples and then participants are asked to build their own systems based on the most simple ( elemental ) implementations of various tools which will be provided. The ﬁnal half day session is based around a larger practical to bring together the various techniques and systems the participants have used in the other sessions.
 
 The workshops are suited to both Java and Scala programmers and workshop have run very well with a mix of Java and Scala programmers.
+
+## Prerequisites
+
+This course is aimed at experienced Scala and Java developers. You choose the language to use during the course.
 
 ## Learning Outcomes
 
