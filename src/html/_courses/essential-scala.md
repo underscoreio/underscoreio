@@ -35,38 +35,28 @@ products:
     private:
       type: private
       title: "Private Courses"
-      buttonLabel: "Book now - £4000/team"
+      buttonLabel: "Book now - £4000"
 ---
 
 ## Overview
 
-Essential Scala is a two day course aimed at experienced developers who are encountering Scala for the first time and want to put their existing skills to use mastering its combination of object-oriented and functional programming idioms.
+Essential Scala is a two day course aimed at experienced developers who are encountering Scala for the first time. Put your existing skills to use mastering Scala's combination of object-oriented and functional programming.
 
-The course covers Scala from basic syntax to advanced problem solving techniques. Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
+The course teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy focus on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
 
 If you are an experienced developer taking your first steps in Scala and want to get up to speed quickly then this is the course for you.
 
+{% include training/public-private.md %}
+
+{% include training/online-onsite.md %}
+
 ## Prerequisites
 
-To benefit from this course you should have    - years experience with an object-oriented (eg. Java, C#) or functional (eg. Haskell, Scheme) programming language and a good general understanding of object-oriented or functional programming language concepts.
-
-## Public and Private Courses
-
-We routinely run public Essential Scala courses online. They are open to all and can be booked on an individual basis. Get in touch to find out when the next course is scheduled.
-
-We also run private courses for corporate customers. Private courses are booked exclusively for your team, so you have complete control over the syllabus and schedule. Simply let us know your requirements and we will customise our material appropriately.
-
-## Online and On-Site Courses
-
-We run taught courses in online and on-site formats.
-
-Online courses are run over several sessions using video conferencing software. We run through each component of the course interatively with your team, give them time to the complete coursework, and go through it with them in a code review format. A complete course may be delivered over one or two weeks with as little impact as a couple of hours a day.
-
-Onsite courses are taught intensively at your offices. Our trainers run through the content and coursework interactively with your team, completing everything in one sitting.
+To benefit from this course you should have one to two years' experience with an object-oriented (e.g. Java, C#) or functional (e.g. Haskell, Lisp) programming language and a good general understanding of object-oriented or functional programming language concepts.
 
 ## Learning Outcomes
 
-Take away a working knowledge of object-oriented and functional-programming in Scala. Learn the common patterns needed to get the most out of Scala's extensive collections framework.
+Take away a working knowledge of object-oriented and functional programming in Scala. Learn the common patterns needed to get the most out of Scala's extensive collections framework.
 
 Gain a comprehensive understanding of Scala's sophisticated pattern matching facilities and the programming styles they support.
 
