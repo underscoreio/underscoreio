@@ -8,6 +8,12 @@ courseDirectory:
   level: Intermediate Java or Scala
   length: 2 days
   icons: [ private ]
+products:
+  instructorLed:
+    private:
+      type: private
+      title: "Private Courses"
+      buttonLabel: "Book now"
 ---
 
 ## Overview

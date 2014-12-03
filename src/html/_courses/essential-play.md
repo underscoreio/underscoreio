@@ -21,11 +21,11 @@ products:
     team:
       type: gumroad
       title: "20% Team Discount"
-      url: "https://gum.co/essential-play"
+      url: "https://gum.co/essential-play-team"
       buttonLabel: "Buy now - <strike>$400</strike> $320"
       description: |
-        Get your whole team up to speed with a <em>10 developer license</em> for 20% off individual pricing.
-      comingSoon: true
+        Get your whole team up to speed with <em>10 licenses</em>
+        for Essential Play at a 20% discount.
   instructorLed:
     public:
       type: public

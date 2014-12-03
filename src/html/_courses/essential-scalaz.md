@@ -25,7 +25,8 @@ products:
       url: "https://gum.co/essential-scalaz"
       buttonLabel: "Buy now - <strike>$500</strike> $400"
       description: |
-        Get your whole team up to speed with a <em>10 developer license</em> for 20% off individual pricing.
+        Get your whole team up to speed with <em>10 licenses</em>
+        for Essential Scalaz at a 20% discount.
       comingSoon: true
   instructorLed:
     public:

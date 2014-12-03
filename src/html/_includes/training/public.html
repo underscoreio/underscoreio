@@ -13,7 +13,7 @@
     <p>Book a private course at your convenience. We teach courses online or onsite at your offices.</p>
   </div>
   <p class="course-product-purchase">
-    <a class="btn btn-warning btn-block" href="/contact.html?subject=When%20is%20the%20next%20public%20{{ include.product.url | urlencode }}%20course?">
+    <a class="btn btn-warning btn-block" href="/contact.html?subject=When%20is%20the%20next%20public%20{{ include.course.title | urlencode }}%20course?">
       {% if include.product.buttonLabel %}
         {{ include.product.buttonLabel }}
       {% else %}
