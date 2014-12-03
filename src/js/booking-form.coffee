@@ -11,6 +11,10 @@ init = (elem) ->
         find("input[name=course-#{item}]").
         attr("checked", "checked")
 
+    _.each queryString.values("custom"), (item) ->
+      if item.toLowerCase() == "yes"
+        $(".hero h1").text("Book a Custom Course")
+
     form.find("[name=name]").focus()
 
     form.find("button[type=submit]").on 'click', (evt) ->
