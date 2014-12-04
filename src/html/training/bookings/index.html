@@ -97,14 +97,14 @@ ENDEMAIL;
 
   $emailLength  = strlen($emailBody);
   $emailExtras  = "From: $name <$email>\r\nDate: $emailDate\r\nContent-Length: $emailLength";
-  $formError    = null;
+  $formAlert    = null;
 
   if(!$email):
-    $formError = '<div class="alert alert-danger">Please specify a valid email address.</div>';
+    $formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
   elseif(mail($emailTo, $emailSubject, $emailBody, $emailExtras)):
-    $formError = '<div class="alert alert-success">Thank you for your enquiry. Our training coordinator will be in touch shortly.</div>';
+    $formAlert = '<div class="alert alert-success">Thank you for your enquiry. Our training coordinator will be in touch shortly.</div>';
   else:
-    $formError = '<div class="alert alert-danger">There was an error submitting your booking enquiry. Please get in touch by phone or email.</div>';
+    $formAlert = '<div class="alert alert-danger">There was an error submitting your booking enquiry. Please get in touch by phone or email.</div>';
   endif;
 endif;
 
@@ -133,8 +133,8 @@ endif;
         <form id="booking-form" method="post">
 
           {% raw %}
-          <?php if($formError): ?>
-            <?= $formError ?>
+          <?php if($formAlert): ?>
+            <?= $formAlert ?>
           <?php endif; ?>
           {% endraw %}
 

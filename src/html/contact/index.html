@@ -56,13 +56,14 @@ ENDEMAIL;
 
   $emailLength  = strlen($emailBody);
   $emailExtras  = "From: $name <$email>\r\nDate: $emailDate\r\nContent-Length: $emailLength";
+  $$formAlert    = null;
 
   if(!$email):
-    echo '<div class="alert alert-danger">Please specify a valid email address.</div>';
+    $$formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
   elseif(mail($emailTo, $emailSubject, $emailBody, $emailExtras)):
-    echo '<div class="alert alert-success">Thank you for your message. We will be in touch shortly.</div>';
+    $$formAlert = '<div class="alert alert-success">Thank you for your message. We will be in touch shortly.</div>';
   else:
-    echo '<div class="alert alert-danger">There was an error submitting your message. Please get in touch by phone or email.</div>';
+    $$formAlert = '<div class="alert alert-danger">There was an error submitting your message. Please get in touch by phone or email.</div>';
   endif;
 endif;
 
@@ -77,6 +78,12 @@ endif;
   <article>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2">
+        {% raw %}
+        <?php if($$formAlert): ?>
+          <?= $$formAlert ?>
+        <?php endif; ?>
+        {% endraw %}
+
         <p>Use the form below to send us a message, or email us at <a href="mailto:hello@underscore.io">hello@underscore.io</a>, or phone us on <a href="tel:+442030955332">+44 (0)20 309 55332</a>:</p>
 
         <form id="contact-form" method="post">
