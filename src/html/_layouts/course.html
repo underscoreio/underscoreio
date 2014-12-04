@@ -80,16 +80,14 @@ layout: default
   </header>
 </div>
 
-{% assign hasSidebar = !!page.products.instructorLed %}
-
 <section class="container">
   <div class="row">
-    <div class="col-sm-8{% if hasSidebar %}{% else %} col-sm-offset-2{% endif %}">
+    <div class="col-sm-8{% if page.coursePage.showSidebar %}{% else %} col-sm-offset-2{% endif %}">
       <article class="course-content">
         {{ content }}
       </article>
     </div>
-    {% if hasSidebar %}
+    {% if page.coursePage.showSidebar %}
     <div class="col-sm-4">
       <aside class="course-sidebar">
         {% if page.products.instructorLed %}

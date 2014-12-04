@@ -9,6 +9,8 @@ courseDirectory:
   level: Intermediate
   length: 1 day
   icons: [ book, private ]
+coursePage:
+  showSidebar: true
 products:
   selfDirected:
     single:

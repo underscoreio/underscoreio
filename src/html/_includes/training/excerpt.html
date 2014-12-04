@@ -26,10 +26,10 @@
     </a>
 
     <div class="course-media">
-      {% if include.course.courseDirectory.icons contains "book" %}<span class="icon-uio-book"></span>{% endif %}
-      {% if include.course.courseDirectory.icons contains "video" %}<span class="icon-uio-video"></span>{% endif %}
-      {% if include.course.courseDirectory.icons contains "public" %}<span class="icon-uio-public"></span>{% endif %}
-      {% if include.course.courseDirectory.icons contains "private" %}<span class="icon-uio-private"></span>{% endif %}
+      {% if include.course.courseDirectory.icons contains "book" %}<span class="icon-uio-book" title="Available as a book"></span>{% endif %}
+      {% if include.course.courseDirectory.icons contains "video" %}<span class="icon-uio-video" title="Available as videos or screencasts"></span>{% endif %}
+      {% if include.course.courseDirectory.icons contains "public" %}<span class="icon-uio-public" title="Available as a publicly booked training course"></span>{% endif %}
+      {% if include.course.courseDirectory.icons contains "private" %}<span class="icon-uio-private" title="Available as a privately booked training course"></span>{% endif %}
     </div>
   </div>
 </div>

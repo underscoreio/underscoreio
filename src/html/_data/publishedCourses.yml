@@ -1,9 +1,9 @@
 # "Published" courses in the order we list them on the training and booking pages:
 - 'essential-scala'
 - 'essential-scalaz'
+- 'essential-shapeless'
 - 'essential-play'
 - 'essential-lift'
 - 'essential-distributed-systems'
 - 'essential-macros'
 # - 'essential-java8'
-# - 'essential-shapeless'

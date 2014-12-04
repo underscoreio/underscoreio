@@ -9,6 +9,8 @@ courseDirectory:
   level: Intermediate
   length: 1 day
   icons: [ book, public, private ]
+coursePage:
+  showSidebar: true
 products:
   selfDirected:
     single:
@@ -22,7 +24,7 @@ products:
     team:
       type: gumroad
       title: "20% Team Discount"
-      url: "https://gum.co/essential-scalaz"
+      url: "https://gum.co/essential-scalaz-team"
       buttonLabel: "Buy now - <strike>$500</strike> $400"
       description: |
         Get your whole team up to speed with <em>10 licenses</em>
@@ -30,10 +32,12 @@ products:
       comingSoon: true
   instructorLed:
     public:
-      type: public
+      type: eventbrite
       title: "Public Courses"
-      buttonLabel: "Register your interest"
-      comingSoon: true
+      url: "https://www.eventbrite.com/e/advanced-scala-scalaz-tickets-13536468943"
+      buttonLabel: "Sign up - £499"
+      description: |
+        The next workshop will take place on Thursday 11th October 2014 at Wallacespace St Pancras.
     private:
       type: private
       title: "Private Courses"

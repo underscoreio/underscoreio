@@ -5,9 +5,55 @@ navbar: training
 
 {% include hero.html title="Training" %}
 
-<section class="container training-formats hidden-xs ie8-hide">
+<section class="container training-course-directory">
   <article>
-    <h2>What We Offer</h2>
+    <h2>Books, Videos, and Training Courses</h2>
+
+    <div class="row">
+      {% for courseId in site.data.publishedCourses %}
+        {% for course in site.courses %}
+          {% if course.id == courseId %}
+            <div class="col-sm-6 col-md-4">
+              {% include training/excerpt.html course=course %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+
+      {% assign lastRowWidth = site.data.publishedCourses.size | modulo:3 | times:4 %}
+
+      <div class="
+        col-sm-12
+        {% if lastRowWidth == 0 %}col-md-12{% else %}col-md-4{% endif %}
+      ">
+        <div class="suggest-course">
+          <p class="text-center">
+            Looking for bespoke training?
+          </p>
+
+          <p class="text-center">
+            <a class="btn btn-primary btn" href="/training/booking.html?course=custom">
+              Book a custom course
+              <span class="icon-uio-chevron-right"></span>
+            </a>
+          </p>
+
+          <p class="text-center">
+            Tailored courses to fit your team.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<script>
+  uio.courseDirectory.init(".training-course-directory")
+</script>
+
+<section class="container training-formats">
+  <article>
+    <h2>About Our Training Products</h2>
 
     <div class="row">
       {% for categoryPair in site.data.trainingFormats %}
@@ -59,47 +105,6 @@ navbar: training
 
 <script>
   uio.trainingFormats.init(".training-formats")
-</script>
-
-<section class="container training-course-directory">
-  <article>
-    <h2>Our Courses</h2>
-
-    <div class="row">
-      {% for courseId in site.data.publishedCourses %}
-        {% for course in site.courses %}
-          {% if course.id == courseId %}
-            <div class="col-sm-6 col-md-4">
-              {% include training/excerpt.html course=course %}
-            </div>
-          {% endif %}
-        {% endfor %}
-      {% endfor %}
-
-      <div class="col-sm-12 col-md-12">
-        <div class="suggest-course">
-          <p class="text-center">
-            Looking for bespoke training?
-          </p>
-
-          <p class="text-center">
-            <a class="btn btn-primary btn" href="/training/booking.html?course=custom">
-              Book a custom course
-              <span class="icon-uio-chevron-right"></span>
-            </a>
-          </p>
-
-          <p class="text-center">
-            Tailored courses to fit your team.
-          </p>
-        </div>
-      </div>
-    </div>
-  </article>
-</section>
-
-<script>
-  uio.courseDirectory.init(".training-course-directory")
 </script>
 
 {% include footer.html %}

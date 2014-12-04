@@ -9,6 +9,8 @@ courseDirectory:
   level: Beginner
   length: 2 days
   icons: [ book, public, private ]
+coursePage:
+  showSidebar: true
 products:
   selfDirected:
     single:

@@ -8,6 +8,8 @@ courseDirectory:
   level: Intermediate Java or Scala
   length: 2 days
   icons: [ private ]
+coursePage:
+  showSidebar: true
 products:
   instructorLed:
     private:

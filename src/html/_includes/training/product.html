@@ -11,6 +11,8 @@
   {% include training/gumroad.html course=include.course product=include.product class=include.class %}
 {% elsif include.product.type == "oreilly" %}
   {% include training/oreilly.html course=include.course product=include.product class=include.class %}
+{% elsif include.product.type == "eventbrite" %}
+  {% include training/eventbrite.html course=include.course product=include.product class=include.class %}
 {% elsif include.product.type == "public" %}
   {% include training/public.html course=include.course product=include.product class=include.class %}
 {% elsif include.product.type == "private" %}

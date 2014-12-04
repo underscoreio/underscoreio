@@ -10,6 +10,8 @@ courseDirectory:
   length: 1 hour
   icons: [ video ]
   buttonLabel: "Watch for free"
+coursePage:
+  showSidebar: false
 customHeader: |
   <div class="parleys">
     <div data-parleys-presentation="53a7d2c4e4b0543940d9e542" style="width:100%; height:400px">
