@@ -9,7 +9,16 @@
 
   <header class="hero-text">
     <div class="container">
-      <h1>{{ include.title }}</h1>
+      {% if include.backLink %}
+        <h1>
+          <a class="back-link" href="{{ include.backLink }}">
+            {{ include.title }}
+            <span class="back-icon"></span>
+          </a>
+        </h1>
+      {% else %}
+        <h1>{{ include.title }}</h1>
+      {% endif %}
     </div>
   </header>
 </div>

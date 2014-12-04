@@ -3,7 +3,11 @@ layout: default
 navbar: blog
 ---
 
+{% if paginator.previous_page %}
+{% include hero.html title="Blog" backLink="/blog" %}
+{% else %}
 {% include hero.html title="Blog" %}
+{% endif %}
 
 <section class="container">
   <div class="row">

@@ -39,11 +39,11 @@ products:
       description: |
         <p>This one-day shapeless workshop is taught by Underscore partner and shapeless author Miles Sabin.</p>
 
-        <p>The next workshop will take place on <em>Thursday 10th October 2014</em> (the day after Scala Exchange) at the Guardian's offices in <em>King's Cross</em>.</p>
+        <p>The next workshop will take place on <em>Thursday 10th December 2014</em> (the day after Scala Exchange) at the Guardian's offices in <em>King's Cross</em>.</p>
 ---
 
 ## Overview
 
-Shapeless is a type class and dependent type based generic programming library for Scala. It had its origins in several talks by Underscore partner Miles Sabin, given over the course of 2011, on implementing scrap your boilerplate and higher rank polymorphism in Scala.
+<em>shapeless</em> is a type class and dependent type based generic programming library for Scala. It had its origins in several talks by Underscore partner Miles Sabin, given over the course of 2011, on implementing scrap your boilerplate and higher rank polymorphism in Scala.
 
 Since then it has evolved from being a resolutely experimental project into library which, while still testing the limits of what's possible in Scala, is being used widely in production systems wherever there are arities to be abstracted over and boilerplate to be scrapped.

@@ -27,7 +27,7 @@
   .heading {
     font-size: @font-size-base;
     margin-top: @line-height-computed;
-    font-weight: 400;
+    font-weight: 200;
   }
 
   .heading:first-child {
@@ -44,5 +44,36 @@
       float: left;
       margin-right: 1ex;
     }
+  }
+}
+
+
+.blog-share {
+  margin-bottom: @line-height-computed;
+
+  .twitter-share-button {
+    position: relative;
+    // top: 5px;
+    width: 66px !important;
+    margin-right: 0px; // included in the width
+  }
+
+  .IN-widget {
+    position: relative;
+    // top: 5px;
+    width: 66px !important;
+    margin-right: 8px;
+  }
+
+  .google-plus {
+    display: inline-block;
+    position: relative;
+    // top: 6px;
+    margin-right: 10px;
+  }
+
+  .fb-share-button {
+    position: relative;
+    top: -8px;
   }
 }

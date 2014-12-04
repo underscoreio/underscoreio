@@ -5,3 +5,19 @@ body {
 code,tt,pre {
   font-size: @font-size-base * .8;
 }
+
+a.back-link {
+  .back-icon {
+    display: none;
+    font-size: 80%;
+  }
+
+  &:hover .back-icon {
+    display: inline;
+  }
+
+  .back-icon:after {
+    content: '↩';
+    opacity: .6;
+  }
+}

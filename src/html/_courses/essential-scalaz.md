@@ -37,7 +37,7 @@ products:
       url: "https://www.eventbrite.com/e/advanced-scala-scalaz-tickets-13536468943"
       buttonLabel: "Sign up - £499"
       description: |
-        The next workshop will take place on Thursday 11th October 2014 at Wallacespace St Pancras.
+        The next workshop will take place on Thursday 11th December 2014 at Wallacespace St Pancras.
     private:
       type: private
       title: "Private Courses"

@@ -16,7 +16,7 @@ Mentoring is the perfect compliment online and face-to-face training. Our expert
 
 Once we are integrated with your team, we are in the best position to help manage code quality. We can advise on the best way to architect, develop, and test your code to produce the highest quality product.
 
-<p><a class="btn btn-sm btn-primary" href="/contact.html?subject=Mentoring%20enquiry">Enquire about mentoring</a></p>
+<p><a class="btn btn-sm btn-primary" href="/contact?subject=Mentoring%20enquiry">Enquire about mentoring</a></p>
 
 ### Online Training
 
@@ -25,4 +25,4 @@ While face-to-face training is the best way to provide lots of benefit to your t
 Our online courses are a great way of providing the same content in a format that can be consumed gradually over a longer period. Over the Summer we will be launching online versions of our most popular courses in video and book form.
 
 <a class="btn btn-sm btn-primary" href="http://underscore.io/courses/">Browse our courses</a>
-<a class="btn btn-sm btn-primary" href="http://underscore.io/contact.html?subject=Course%20suggestion">Suggest new courses</a>
+<a class="btn btn-sm btn-primary" href="http://underscore.io/contact?subject=Course%20suggestion">Suggest new courses</a>

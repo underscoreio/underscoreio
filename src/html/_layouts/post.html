@@ -3,7 +3,7 @@ layout: default
 navbar: blog
 ---
 
-{% include hero.html title="Blog" %}
+{% include hero.html title="Blog" backLink="/blog" %}
 
 <section class="container">
   <div class="row">
@@ -11,11 +11,15 @@ navbar: blog
       <section class="blog-post" data-post-url="{{ page.url }}">
         <h2 class="blog-post-title">{{ page.title }}</h2>
 
+        {% include blog/share.html post=page %}
+
         {% include blog/meta.html post=page %}
 
         <article class="blog-post-content">
           {{ content }}
         </article>
+
+        {% include blog/comments.html post=page %}
       </section>
     </div>
 
@@ -28,3 +32,5 @@ navbar: blog
     </div>
   </div>
 </section>
+
+{% include footer.html %}
