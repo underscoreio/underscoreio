@@ -8,7 +8,7 @@ Earlier this month Noel wrote [about appropriate use of code reviews](http://und
 
 In this post I am going to look at a couple of tools you can use to cover the mechanical aspects of code reviews.  Automated tools provide a low effort way of staying on top of the health of your code base. They can not tell you everything, but they will ensure that common issues are found without it requiring a lot of human cycles.
 
----
+<!-- break -->
 
 Linters highlight lint in a code base. Lint is redundant or poorly structured code that is likely to lead to bugs. [FindBugs](findbugs.sourceforge.net/) is a popular example from the Java world.
 

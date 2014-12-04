@@ -11,7 +11,7 @@ As Harold S. Dodge said many years ago, 'You cannot inspect quality into a produ
 
 Code reviews are a great tool for polishing good code into great code, but they aren't going to turn bad code to good.
 
----
+<!-- break -->
 
 At one point in my life I studied [control systems](http://en.wikipedia.org/wiki/Control_system). I have forgotten most of the maths but the general model has stuck with me and I find it a useful lens through which to view software development. Though the formal models of control theory don't capture all that is important about software development, I still find a lot of insight in looking at a system in terms of its control signals and feedback loops.
 

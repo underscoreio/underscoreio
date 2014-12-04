@@ -9,7 +9,7 @@ Functional Finance is a new event in London that Underscore are sponsoring.
 
 The combination of functional programming and finance makes a lot of sense.  The industries have the need for the best of concurrency, the expressiveness of DSLs, and the  productivity gains. Functional gives you this.
 
----
+<!-- break -->
 
 (By the way, if you'd like to see an example, take a look at our own Lance Walton's [presentation from CodeMesh](http://www.infoq.com/presentations/scala-against-culture). He describes how a small team built a trading platform in 6 weeks in Scala.)
 

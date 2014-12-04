@@ -15,7 +15,7 @@ We’ve tackled this a number of times and would like to share the results of ou
 
 In this post we'll look at the misconception of Scala developers being expensive.
 
----
+<!-- break -->
 
 ## Java and Scala rates are about the same
 

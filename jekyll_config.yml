@@ -18,7 +18,7 @@ keep_files            : [ 'css', 'js', 'images', 'fonts' ]
 permalink             : /blog/posts/:year/:month/:day/:title.html
 paginate              : 5
 paginate_path         : "blog/page:num/"
-excerpt_separator     : "---"
+excerpt_separator     : "<!-- break -->"
 
 safe                  : false
 highlighter           : pygments

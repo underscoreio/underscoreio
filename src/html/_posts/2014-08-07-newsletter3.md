@@ -8,7 +8,7 @@ categories: [ newsletter ]
 
 Last time we talked we were looking forward to [Scala Days](http://www.scaladays.org/). Scala Days has been and gone now, and a rum time was had by all. If you couldn't make it [my writeup is online](http://underscoreconsulting.com/blog/posts/2014/06/24/scala-days-2014-the-lowdown.html) and all the talks are [on Parleys](https://parleys.com/channel/53a7d269e4b0543940d9e535/presentations?sort=date&state=public). Here's [Dave's excellent talk on macros](https://parleys.com/play/53a7d2c4e4b0543940d9e542/chapter0/about) and [Miles and Jon's humourous look back on Scala's history](https://parleys.com/play/53a7d2cce4b0543940d9e558/chapter0/about).
 
----
+<!-- break -->
 
 ## Scala Exchange
 

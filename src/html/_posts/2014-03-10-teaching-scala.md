@@ -6,7 +6,7 @@ author:     Noel Welsh
 
 At the beginning of this year I started rewriting our Scala training material. Like many introductory programming courses ours was structured around language features. This is the most straightforward way to write a tutorial but, particularly in a language like Scala, this structure doesn't work well at all. It's easy to overwhelm the student with details, like the specifics of operator precedence and associativity, that have almost no practical significance for day-to-day programming. All this noise makes it very difficult for the student to pick out the important concepts about how to structure programs written in Scala.
 
----
+<!-- break -->
 
 I knew I wanted to rebuild the course around fundamental concepts and use these concepts to motivate the discussion of language features. It's not obvious to me how to write this style of course, but luckily I don't need to reinvent the wheel. Very intelligent people have spent a long time tackling the problem of teaching programming and have documented their experiences in the academic literature. [How to Design Programs](http://htdp.org) is one of the best works I know, which is supported by over 15 years experience teaching across numerous levels, and I modelled our new course after it. The new course has four main themes:
 

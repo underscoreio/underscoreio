@@ -11,7 +11,7 @@ sourceUrl:  http://www.casualmiracles.com/2012/06/16/a-small-example-of-phantom-
 
 <p>I present the example as source code so you can copy into an editor and play with it. References for further reading are given at the bottom of the post.</p>
 
----
+<!-- break -->
 
 {% highlight scala %}
 object Phantoms {

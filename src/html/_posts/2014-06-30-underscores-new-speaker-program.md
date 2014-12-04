@@ -11,7 +11,7 @@ There tend to be a lot of the same faces at Scala conferences. They are a great 
 
 However, we also want to add new voices to the mix. We want to encourage people we haven’t heard from before, and particularly people who have never attended or spoken at a Scala conference to come to Scala Exchange. Hence we are announcing a set of support services for people who haven't attended or spoken at a Scala conference before.
 
----
+<!-- break -->
 
 ## For New Speakers
 

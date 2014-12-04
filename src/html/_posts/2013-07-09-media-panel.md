@@ -3,7 +3,6 @@ layout:     post
 title:      Functional Programming in Media and Publishing
 author:     Richard Dallaway
 date:       '2013-07-09 09:00:00'
-
 ---
 
 If you look around the UK, you'll notice that functional programming has been adopted by quite a few media companies.

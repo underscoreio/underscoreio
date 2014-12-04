@@ -13,7 +13,7 @@ At ScalaDays 2014, [Originate](http://www.originate.com/) ran a [competition](ht
 - I thought I could implement a basic solution quite quickly; and
 - there were clear avenues to expand the solution if I found time.
 
----
+<!-- break -->
 
 A bit of background. A [stack-oriented language](http://en.wikipedia.org/wiki/Stack-oriented_programming_language), as I understand them, operates by passing parameters on a stack. If you want to add two numbers you push them onto the stack, and them push on the `add` operation -- which in turn pops off the two numbers, adds them, and pushes the result back onto the stack. It's a very simple model, which has made it popular for some embedded systems, though I have my doubts about how it scales with program size.
 

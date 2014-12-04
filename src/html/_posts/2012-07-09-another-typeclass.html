@@ -7,6 +7,10 @@ sourceSite: Casual Miracles
 sourceUrl: http://www.casualmiracles.com/2012/07/09/another-small-…-class-pattern/
 ---
 
+<p>I recently came across another elegant use of the type class pattern, so I thought I'd share it with here.</p>
+
+<!-- break -->
+
 <p>Developers at a client recently asked about the following code:</p>
 
 {% highlight scala %}
@@ -17,8 +21,6 @@ val y = ~x // Huh!?
 {% endhighlight %}
 
 <h3>What is that <strong>~x</strong> there?</h3>
-
----
 
 <p>It's a <em>unary method call</em>.</p>
 

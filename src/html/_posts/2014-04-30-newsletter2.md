@@ -8,7 +8,7 @@ categories: [ newsletter ]
 
 It's been a busy month for Underscore. We've seen a lot of different clients but one constant is that everyone has difficulty hiring. Scala is hot right now and demand outstrips supply. So how do you find Scala developers? I've put some together some thoughts on [how to hire more effectively](http://underscoreconsulting.com/blog/posts/2014/05/02/hiring-scala-developers.html). Have some war stories or tips about hiring? Add them as comments to the post.
 
----
+<!-- break -->
 
 ## Functional Media
 

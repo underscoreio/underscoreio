@@ -8,7 +8,7 @@ I have given [a](//noelwelsh.com/streaming-algorithms/2012/11/22/streaming-algor
 
 Go ahead and [pre-register](https://docs.google.com/forms/d/1ajnHie3QHy13AvOU8ivYVcjG9ERHdq_09QrIFc8BziQ/viewform) now or read on for more on the course.
 
----
+<!-- break -->
 
 ## Why?
 

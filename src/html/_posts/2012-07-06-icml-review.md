@@ -9,7 +9,7 @@ sourceUrl:  http://untyped.com/untyping/1/2/3/4/5
 
 I spent last week in the lovely city of Edinburgh attending [COLT](http://www.ttic.edu/colt2012/) and [ICML](http://icml.cc/2012/). I'm still digesting a lot of what I saw, but I thought it might be interesting to give a quick list of my highlights.
 
----
+<!-- break -->
 
 ## Modern Banditry
 

@@ -9,7 +9,7 @@ The big news in Scala at the moment is the announcement of the [Typelevel fork o
 
 We're delighted. There'll be more emphasis on typed functional programming styles, which brings benefit to projects.
 
----
+<!-- break -->
 
 Some have expressed concern this will fragment the Scala community. Both Typelevel and Typesafe have made clear their intentions to avoid fragmentation.
 

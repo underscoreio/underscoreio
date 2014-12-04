@@ -8,7 +8,7 @@ categories: [ newsletter ]
 
 So, what's in the newsletter? To begin with there is a summary of recent blogs posts and events from us, as well as details of upcoming events.  I thought it would also be interesting to talk about some work in progress that isn't at the state where we'd blog about it. So the second half of the newsletter has some discussion of the scalaz-stream project and Akka cluster. I hope you enjoy reading this! Do let me know what you like and what you don't like. Replying to this email will go directly to me.
 
----
+<!-- break -->
 
 ## On The Blog
 
