@@ -2,7 +2,7 @@
 layout: post
 title: Essential Essential Scala at Hack the Tower
 author: Dave Gurnell
-date: '2014-10-20 12:00:00'
+date: '2014-10-20 09:00:00'
 ---
 
 I ran an updated version of our *Essential Essential Scala* workshop (E<sup>2</sup>S) at [Hack the Tower]. Thanks to [Andy Hicks] of the [London Scala User Group] for hooking me up, and to [John Stevenson] and the [Hack the Tower] team for hosting me.

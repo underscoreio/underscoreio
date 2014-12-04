@@ -14,17 +14,12 @@ a.link-anchor {
 }
 
 a.back-link {
-  .back-icon {
-    display: none;
-    font-size: 80%;
+  .icon-uio-back {
+    visibility: hidden;
+    opacity: .8;
   }
 
-  &:hover .back-icon {
-    display: inline;
-  }
-
-  .back-icon:after {
-    content: '↩';
-    opacity: .6;
+  &:hover .icon-uio-back {
+    visibility: visible;
   }
 }
