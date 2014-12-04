@@ -30,7 +30,7 @@ It’s an understandable starting point, as there are [9 million Java developers
 
 Looking the data from [Indeed.com](http://indeed.com) we see that this year, and further back, Java and Scala rates have oscillated above and below each other. The difference, given by Indeed.com is that the "average Scala Developer salaries for job postings nationwide are 2% higher than average Java Developer salaries for job postings nationwide."
 
-![Scala and Java rate comparison from Indeed.com](/static/images/posts/2012-08-01-rate-trends.png "Scala and Java rate comparison from Indeed.com")
+![Scala and Java rate comparison from Indeed.com](/images/blog/2012-08-01-rate-trends.png)
 
 Those are the market figures.  We can also add that from the developer circles we move in we know some Java developers will take a reduced rate to use Scala; some now require a higher rate to consider a Java contract over a Scala one.
 
