@@ -13,7 +13,7 @@ Redirect permanent /courses/essential-lift.html                http://underscore
 Redirect permanent /courses/essential-play-services.html       http://underscore.io/training/courses/essential-play
 Redirect permanent /courses                                    http://underscore.io/training
 Redirect permanent /enquiries.html                             http://underscore.io/training/bookings
-Redirect permanent /newsletter.html                            http://underscore.io/blog/newsletter
+Redirect permanent /newsletter.html                            http://underscore.io/blog/newsletters
 Redirect permanent /contact.html                               http://underscore.io/contact
 
 # Redirects from preview versions of underscore.io version 2:
