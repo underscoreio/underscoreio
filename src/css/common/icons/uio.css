@@ -5,17 +5,17 @@
 
 @font-face {
     font-family:"uio";
-    src:url("/fonts/uio-462598d6e8a23e65bc09297d84456981.eot");
+    src:url("/fonts/uio-478cd65fe573ca557ca1e075bf2ac142.eot");
     font-weight:normal;
     font-style:normal;
 }
 @font-face {
 	font-family:"uio";
-	src:url("/fonts/uio-462598d6e8a23e65bc09297d84456981.eot");
-	src:url("/fonts/uio-462598d6e8a23e65bc09297d84456981.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/uio-462598d6e8a23e65bc09297d84456981.woff") format("woff"),
-		url("/fonts/uio-462598d6e8a23e65bc09297d84456981.ttf") format("truetype"),
-		url("/fonts/uio-462598d6e8a23e65bc09297d84456981.svg?#uio") format("svg");
+	src:url("/fonts/uio-478cd65fe573ca557ca1e075bf2ac142.eot");
+	src:url("/fonts/uio-478cd65fe573ca557ca1e075bf2ac142.eot?#iefix") format("embedded-opentype"),
+		url("/fonts/uio-478cd65fe573ca557ca1e075bf2ac142.woff") format("woff"),
+		url("/fonts/uio-478cd65fe573ca557ca1e075bf2ac142.ttf") format("truetype"),
+		url("/fonts/uio-478cd65fe573ca557ca1e075bf2ac142.svg?#uio") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }

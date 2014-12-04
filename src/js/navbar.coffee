@@ -17,8 +17,8 @@ init = ->
 
   fixedNavbar = $(".navbar-fixed")
 
-  uio.scrollSpy.register ".hero", (position) ->
-    if position == "below"
+  uio.scrollSpy.register ".hero", (position, direction) ->
+    if position == "below" # and direction == "up"
       fixedNavbar.addClass("active")
     else
       fixedNavbar.removeClass("active navbar-expanded")

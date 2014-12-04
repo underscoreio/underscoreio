@@ -64,8 +64,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
 
   $courses  = Array();
   foreach($courseOptions as $courseId => $courseName) {
-    if(isset($_POST["course-$courseId"])) {
-      $courses[] = $courseName;
+    if(isset($_POST[$courseId])) {
+      $courses []= $courseName;
     }
   }
   $allCourses = count($courses) > 0 ? implode("\n - ", $courses) : 'None specified';

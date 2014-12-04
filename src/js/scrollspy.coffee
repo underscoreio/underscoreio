@@ -4,6 +4,8 @@ watching = []
 
 oldPosition = -10000
 newPosition = -10000
+oldDirection = "up"
+newDirection = "up"
 
 register = (selector, callback) ->
   elem = $(selector)
@@ -26,13 +28,16 @@ register = (selector, callback) ->
 
 $(window).on "scroll", ->
   oldPosition = newPosition
+  oldDirection = newDirection
+
   newPosition = $(window).scrollTop()
+  newDirection = if newPosition > oldPosition then "down" else "up"
 
   for { selector, test, callback } in watching
     oldRel = test(oldPosition)
     newRel = test(newPosition)
-    unless newRel == oldRel
-      callback(newRel)
+    unless newRel == oldRel and newDirection == oldDirection
+      callback(newRel, newDirection)
 
 module.exports = {
   register
