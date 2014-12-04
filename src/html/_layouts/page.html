@@ -1,8 +1,11 @@
 ---
 layout: default
 ---
-{% include navbar.html %}
+
+{% include hero.html title=page.title %}
 
 <div class="container">
   {{ content }}
 </div>
+
+{% include footer.html %}

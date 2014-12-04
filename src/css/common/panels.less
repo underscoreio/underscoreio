@@ -1,0 +1,15 @@
+.panel {
+  box-shadow: @shadow-default;
+  &.panel-noshadow {
+    box-shadow: none;
+  }
+}
+
+.panel.panel-gray {
+  background: @gray-lighter;
+
+  > .panel-heading {
+    background: @gray-light;
+    color: #fff;
+  }
+}

@@ -1,0 +1,73 @@
+selfDirected:
+  title: Self-Directed Learning
+  formats:
+    books:
+      title: Books
+      icon: book
+      image: /images/training/book.png
+      overview: |
+        Just want the content? Download our course texts with free updates for life.
+      features: |
+        - HTML, PDF, and eBook formats
+        - Complete exercises and solutions
+        - Free life-long updates
+        - Pricing for individuals and teams
+        - &nbsp;
+        - &nbsp;
+      singlePurchasePrompt: |
+        Download the course textbook, complete with exercises and
+        solutions, in HTML, PDF, and ebook formats.
+      teamPurchasePrompt: |
+        Get your whole team up to speed with a discount book license
+        for copies of the book.
+    videos:
+      title: Videos
+      icon: video
+      image: /images/training/video.png
+      overview: |
+        Prefer a visual format? Try our step-by-step videos. Access to the book included.
+      features: |
+        - View on desktop or mobile
+        - Includes access to the books
+        - Free life-long updates
+        - Pricing for individuals and teams
+        - &nbsp;
+        - &nbsp;
+      purchasePrompt: |
+        Access the course videos on desktop and mobile, together with
+        free access to the textbook and all its perks.
+instructorLed:
+  title: Instrutor-Led Courses
+  formats:
+    public:
+      title: Public courses
+      icon: onsite
+      image: /images/training/public.png
+      overview: |
+        After an interactive experience? Join an online courses with one of our expert instructors.
+      features: |
+        - Scheduled for access in the EU and US
+        - Delivered online over several weeks
+        - Get one-to-one feedback
+        - Free updates to books and videos
+        - Pricing for individuals
+        - &nbsp;
+      purchasePrompt: |
+        Enrol in our next public course and get immediate access to our
+        self-directed learning content.
+    private:
+      title: Private courses
+      icon: onsite
+      image: /images/training/private.png
+      overview: |
+        The complete training experience: onsite and online courses at your convenience.
+      features: |
+        - Taught by Underscore experts
+        - Delivered onsite or online
+        - Scheduled for your convenience
+        - Get one-to-one feedback
+        - Free updates to books and videos
+        - Pricing for teams
+      purchasePrompt: |
+        Book a private course, taught online or onsite at your offices,
+        and get immediate access to our self-directed learning content.

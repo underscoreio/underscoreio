@@ -8,7 +8,6 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
-/bower_components
 /dist
 /core-scala
 /core-scala.zip

@@ -1,0 +1,37 @@
+---
+layout: default
+navbar: blog
+---
+
+{% include hero.html title="Blog" backlink="/blog" %}
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Underscore Newsletters</h2>
+
+      <p>
+        Browse past <em>Underscore Newsletters</em> below.
+        Sign up on the right to receive emails like these straight to your inbox.
+        Note that we only send out free and promotional content in the email
+        version of the newsletter - you won't find in the posts below.
+      </p>
+
+      <div id="posts">
+        {% for post in site.categories.newsletter %}
+        {% include blog/excerpt.html post=post %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <aside class="blog-sidebar">
+        {% include blog/newsletter.html %}
+
+        {% include blog/archives.html %}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}

@@ -1,0 +1,23 @@
+{% comment %}
+  class: string
+  product: {
+    type: string
+    title: string
+    # rest depends on type...
+  }
+{% endcomment %}
+
+{% if include.product.type == "gumroad" %}
+  {% include training/gumroad.html course=include.course product=include.product class=include.class %}
+{% elsif include.product.type == "oreilly" %}
+  {% include training/oreilly.html course=include.course product=include.product class=include.class %}
+{% elsif include.product.type == "eventbrite" %}
+  {% include training/eventbrite.html course=include.course product=include.product class=include.class %}
+{% elsif include.product.type == "public" %}
+  {% include training/public.html course=include.course product=include.product class=include.class %}
+{% elsif include.product.type == "private" %}
+  {% include training/private.html course=include.course product=include.product class=include.class %}
+{% else %}
+  <h4>Unknown product type!</h4>
+  <pre>{{ include.product }}</pre>
+{% endif %}

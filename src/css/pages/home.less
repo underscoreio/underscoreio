@@ -1,0 +1,153 @@
+@home-hero-height: @line-height-computed * 22; // 660px
+@home-hero-padding: @line-height-computed * 8;
+@home-hero-arrow-height: 20px;
+@home-logo-height: 132px;
+
+@home-panel-padding: @line-height-computed;
+
+.hero.home-hero {
+  height: 75vh;
+  min-height: 320px;
+  max-height: 640px;
+
+  background-color: @underscore-blue;
+  // background-image: url(/images/home/home-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  // background-attachment: fixed;
+
+  .navbar {
+    position: relative;
+    z-index: 5;
+
+    .navbar-desktop-brand {
+      display: none;
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      .navbar-desktop-brand {
+        display: none;
+      }
+    }
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: @home-hero-arrow-height;
+    height: @home-logo-height +
+      0.5 * @line-height-computed +
+      1.5 * @line-height-computed;
+    z-index: 4;
+
+    text-align: center;
+    color: #ffffff;
+
+    h1 {
+      text-transform: lowercase;
+      margin: 0;
+      img {
+        height: @home-logo-height;
+      }
+    }
+
+    h2 {
+      font-weight: 200;
+      margin: 0.5 * @line-height-computed 0 0;
+      line-height: 1.5 * @line-height-computed;
+    }
+  }
+}
+
+.home-panel {
+  position: relative;
+  padding: @home-panel-padding 0;
+  text-align: center;
+
+  .home-panel-title,
+  .home-panel-cta {
+    margin: @line-height-computed * 1.2 0 @line-height-computed * .8;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.home-consulting {
+  background: @underscore-green;
+  color: #fff;
+}
+
+.home-blog {
+  @section-color: #fff;
+  @section-bg: #222;
+  @section-link-color: lighten(@link-color, 15%);
+  @section-hover-bg: rgba(255, 255, 255, 0.05);
+  @paddle-label-font-size: 2*@line-height-computed;
+
+  color: @section-color;
+  background: @section-bg;
+  a { color: @section-link-color; }
+
+  .home-blog-posts {
+    padding-top: 1px; // hack to ensure title margin doesn't extend above the box
+
+    .blog-post {
+      display: none;
+      text-align: left;
+
+      code {
+        color: #fff;
+        background: #444;
+      }
+    }
+
+    .blog-post-meta {
+      text-align: left;
+      dt { color: #ddd; }
+      dd { color: #bbb; }
+    }
+
+    &:hover {
+      background: @section-hover-bg;
+      cursor: pointer;
+    }
+  }
+
+  .home-blog-paddle {
+    display: block;
+    position: relative;
+
+    // background: rgba(255, 255, 255, 0.01);
+    color: #777;
+
+    &:hover {
+      background: @section-hover-bg;
+      color: #aaa;
+    }
+  }
+
+  .home-blog-paddle-label {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: @paddle-label-font-size;
+    margin-top: -0.5 * @paddle-label-font-size;
+
+    text-align: center;
+    font-size: @paddle-label-font-size;
+    line-height: @paddle-label-font-size;
+  }
+
+  .home-blog-mobile-pager {
+    .visible-xs();
+    margin-top: @line-height-computed;
+    a { color: #fff; }
+  }
+}

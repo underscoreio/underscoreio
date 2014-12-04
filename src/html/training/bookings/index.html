@@ -1,0 +1,214 @@
+---
+title: Book a Private Course
+layout: default
+navbar: training
+---
+
+{% raw %}
+<?php
+
+/*
+>
+<h1>This page contains PHP code.<br>It will not render correctly via Jekyll.</h1>
+<h2>Deploy the site to a staging environment to preview this page.</h2>
+*/
+
+// CONFIGURATION --------------------------------
+
+$courseOptions = Array(
+{% endraw %}
+{% for courseId in site.data.publishedCourses %}
+  {% for course in site.courses %}
+    {% if course.id == courseId && course.products.instructorLed.private %}
+      "course-{{ course.id }}" => "{{ course.title }}",
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% raw %}
+  "course-custom" => "Custom (please specify below)"
+);
+
+$peopleOptions = Array(
+  "1-5-people"   => "1 to 5 people",
+  "6-10-people"  => "6 to 10 people",
+  "gt-10-people" => "More than 10 people"
+);
+
+$bookingEmail = 'Underscore Booking Enquiries <bookings@underscore.io>';
+
+// ----------------------------------------------
+
+function requestString($key, $default) {
+  if(isset($_POST[$key]) && strlen(trim($_POST[$key])) > 0) {
+    return trim($_POST[$key]);
+  } else {
+    return $default;
+  }
+}
+
+function requestLookup($key, $options, $default) {
+  if(isset($_POST[$key]) && isset($options[$_POST[$key]])) {
+    return $options[$_POST[$key]];
+  } else {
+    return $default;
+  }
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'):
+  $name     = requestString('name',   'Not specified');
+  $email    = requestString('email',  null);
+  $phone    = requestString('phone', 'Not specified');
+  $location = requestString('location', 'Not specified');
+  $notes    = requestString('notes', 'None specified');
+  $people   = requestLookup('people', $peopleOptions, 'Not specified');
+
+  $courses  = Array();
+  foreach($courseOptions as $courseId => $courseName) {
+    if(isset($_POST[$courseId])) {
+      $courses []= $courseName;
+    }
+  }
+  $allCourses = count($courses) > 0 ? implode("\n - ", $courses) : 'None specified';
+
+  $emailTo      = $bookingEmail;
+  $emailSubject = "Booking request on underscore.io";
+  $emailDate    = gmdate(DATE_RFC822);
+
+  $emailBody    = <<<ENDEMAIL
+A booking request was submitted on underscore.io:
+
+Name: $name
+Email: $email
+Phone: $phone
+
+Courses:
+ - $allCourses
+
+People: $people
+Location: $location
+
+Additional notes:
+$notes
+
+--
+Underscore Bookings Robot
+http://underscore.io
+ENDEMAIL;
+
+  $emailLength  = strlen($emailBody);
+  $emailExtras  = "From: $name <$email>\r\nDate: $emailDate\r\nContent-Length: $emailLength";
+  $formAlert    = null;
+
+  if(!$email):
+    $formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
+  elseif(mail($emailTo, $emailSubject, $emailBody, $emailExtras)):
+    $formAlert = '<div class="alert alert-success">Thank you for your enquiry. Our training coordinator will be in touch shortly.</div>';
+  else:
+    $formAlert = '<div class="alert alert-danger">There was an error submitting your booking enquiry. Please get in touch by phone or email.</div>';
+  endif;
+endif;
+
+// ----------------------------------------------
+
+?>
+{% endraw %}
+
+{% include hero.html title="Book a Course" %}
+
+<section class="container">
+  <article>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p>
+          Our courses can be combined and customised to suit your training needs.
+          Let us know your requirements using the form below and we will
+          work with you to build the perfect syllabus.
+        </p>
+
+        <p>
+          We believe learning should never stop, so all of our private training courses
+          are supported with free ongoing access to our online material.
+        </p>
+
+        <form id="booking-form" method="post">
+
+          {% raw %}
+          <?php if($formAlert): ?>
+            <?= $formAlert ?>
+          <?php endif; ?>
+          {% endraw %}
+
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
+          </div>
+
+          <div class="form-group">
+            <label>Your email address</label>
+            <input type="email" class="form-control" name="email" placeholder="leonardo@davinci.com">
+          </div>
+
+          <div class="form-group">
+            <label>Your phone number (optional)</label>
+            <input type="phone" class="form-control" name="phone" placeholder="+44 123 456 7890">
+          </div>
+
+          <div class="form-group">
+            <label>Which course(s) are you interested in?</label>
+
+        {% raw %}
+        <?php foreach($courseOptions as $courseId => $courseLabel): ?>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="<?= $courseId ?>">
+                <?= $courseLabel ?>
+              </label>
+            </div>
+        <?php endforeach; ?>
+        {% endraw %}
+          </div>
+
+          <div class="form-group">
+            <label>How many people are on your team?</label>
+
+        {% raw %}
+        <?php foreach($peopleOptions as $peopleId => $peopleLabel): ?>
+            <div class="radio">
+              <label>
+                <input type="radio" name="people" value="<?= $peopleId ?>">
+                <?= $peopleLabel ?>
+              </label>
+            </div>
+        <?php endforeach; ?>
+        {% endraw %}
+          </div>
+
+          <div class="form-group">
+            <label>Where are you located?</label>
+
+            <input type="text" class="form-control" name="location" placeholder="London, UK">
+
+            <p class="help-block">
+              We have trainers in multiple countries and deliver
+              on-site training internationally.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Let us know your custom training or syllabus requirements</label>
+
+            <textarea class="form-control" name="notes" rows="5"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </article>
+</section>
+
+<script>
+  window.uio.bookingForm.init("#booking-form")
+</script>
+
+{% include footer.html %}

@@ -1,0 +1,35 @@
+{% comment %}
+  class: string
+  product: {
+    type: "gumroad"
+    title: string
+    url: string
+    description: string
+    buttonLabel: optional(string)
+    comingSoon: boolean
+  }
+{% endcomment %}
+
+<div class="{{ include.class || "col-sm-6" }} course-product">
+  <h4>{{ include.product.title }}</h4>
+  <div class="course-product-description">
+    {{ include.product.description | markdownify }}
+  </div>
+  <p class="course-product-purchase">
+    {% if include.product.comingSoon %}
+      <a class="btn btn-warning btn-block" href="/contact?subject={{ "Let me know when the " | urlencode }}{{ include.course.title | urlencode }}{{ " book is ready!" | urlencode }}">
+        Coming soon
+      </a>
+    {% else %}
+      <a class="btn btn-primary btn-block" href="{{ include.product.url }}">
+        {% if include.product.buttonLabel %}
+          {{ include.product.buttonLabel }}
+        {% else %}
+          Buy now
+        {% endif %}
+      </a>
+    {% endif %}
+  </p>
+</div>
+
+<script src="https://gumroad.com/js/gumroad.js"></script>

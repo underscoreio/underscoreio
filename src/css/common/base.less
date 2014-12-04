@@ -1,0 +1,30 @@
+body {
+  font-weight: 300;
+}
+
+code,tt,pre {
+  font-size: @font-size-base * .8;
+}
+
+a.link-anchor {
+  display: block;
+  position: relative;
+  visibiliy: hidden;
+  top: -1.5*@line-height-computed;
+}
+
+a.back-link {
+  .back-icon {
+    display: none;
+    font-size: 80%;
+  }
+
+  &:hover .back-icon {
+    display: inline;
+  }
+
+  .back-icon:after {
+    content: '↩';
+    opacity: .6;
+  }
+}
