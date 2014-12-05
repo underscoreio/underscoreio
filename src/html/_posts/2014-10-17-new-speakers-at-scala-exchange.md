@@ -12,6 +12,8 @@ All up we had 17 applications from people who wanted shepherding for a talk prop
 
 There isn't enough data to make strong statements about differences in acceptance rates between new and experienced speakers. The data does suggest the rates are in the same region, and we're very happy with this result.
 
+<!-- break -->
+
 ## How We Did It
 
 Going into the shepherding process we weren't sure how we'd run it, but after we'd talked to a few applicants a pattern quickly became apparent. People often had an idea for a talk (sometimes we brainstormed a few ideas) but to refine it into a talk proposal we asked them to answer:
