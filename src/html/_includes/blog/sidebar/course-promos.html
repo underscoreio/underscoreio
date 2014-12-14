@@ -1,0 +1,15 @@
+<div class="blog-sidebar-course-promos">
+  <h4>Books from Underscore</h4>
+
+  {% for course in site.courses %}
+    {% if course.id == 'essential-scala' %}
+      {% include blog/sidebar/course-promo.html course=course %}
+    {% endif %}
+  {% endfor %}
+
+  {% for course in site.courses %}
+    {% if course.id == 'essential-play' %}
+      {% include blog/sidebar/course-promo.html course=course %}
+    {% endif %}
+  {% endfor %}
+</div>
