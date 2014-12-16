@@ -10,7 +10,9 @@ The [Scala Exchange program](https://skillsmatter.com/conferences/1948-scala-exc
 
 All up we had 17 applications from people who wanted shepherding for a talk proposal. Of these 14 submitted a talk proposal, giving new speakers *approximately 20% of all proposals*. Of these 14 proposals, 9 have currently been selected to present (with a few more in a waitling list). This is a *64% success rate for new speakers* in being selected, compared to 70% for other speakers, with new speakers making up *18.75% of all speaking slots*.
 
-There isn't enough data to make strong statements about differences in acceptance rates between new and experienced speakers. The data does suggest the rates are in the same region, and we're very happy with this result.
+There isn't enough data to make strong statements about differences in acceptance rates between new and experienced speakers. The data does suggest the rates are in the same region, and we're very happy with this result. Read on to find out how we did it.
+
+<!-- break -->
 
 <!-- break -->
 
