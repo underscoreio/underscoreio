@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Essential Scala and Play Books Available as Early Access
+title: Essential Scala and Play Books Available for Early Access
 author: Dave Gurnell
 date: '2014-12-16 15:30:00'
 categories: []
