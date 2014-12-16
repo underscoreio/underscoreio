@@ -2,11 +2,11 @@
 layout: post
 title: Essential Scala and Play Books Available as Early Access
 author: Dave Gurnell
-date: '2014-12-14 13:15:00'
+date: '2014-12-16 15:30:00'
 categories: []
 ---
 
-The first Underscore books, [Essential Scala] and [Essential Play], are available for early access from our [training page]! Here's a little about each book, what it contains, and what you get as an early access customer.
+The first Underscore books, [Essential Scala] and [Essential Play], are available for early access from our [Training page]! Here's a little about each book, what it contains, and what you get as an early access customer.
 
 <!-- break -->
 
@@ -35,7 +35,7 @@ The six "topics covered" are the core concepts we believe every Scala developer 
 
 [Essential Play] is a short, focused introduction to building web sites and services in Play. Coming in at roughly 100 pages, the aim of the book is to provide insight into the motivation and structure of the most important APIs, without getting bogged down in extraneous detail. Here's the same back-of-the-book text:
 
-> Essential Play is a fast paced, no-nonsense introduction to the Play Web Framework for Scala. This concise introduction explains the concepts you need to know, and shows > you how to use them.
+> Essential Play is a fast paced, no-nonsense introduction to the Play Web Framework for Scala. This concise introduction explains the concepts you need to know, and shows you how to use them.
 >
 > This is the text book used on the course of the same name, which gets development teams up and productive with the latest Play 2.x series. It is aimed at the beginner-to-intermediate Scala developers, and assumes no prior knowledge of Play.
 >
@@ -53,11 +53,11 @@ The six "topics covered" are the core concepts we believe every Scala developer 
 
 ## Early Access Realities and Perks
 
-Before you run off to click *buy*, you should be aware that both of these books are early access, which basically means they're unfinished. The exercises and final chapters in Essential Scala need tweaking and editing, and Essential Play needs some material on SBT, better integration between the exercises and the chapter text, and a summary chapter.
+Before you run off to click buy, you should be aware that both of these books are early access. This means you can get started now, but there will be updates. For Essential Scala, the final chapters will be edited; for Essential Play, there will be additional material on SBT, improved exercises, and summary material.
 
-The good news is that, as an early access customer, you get free updates to the books for their complete lifetime. We're committed to keeping our training material up-to-date, and that means giving you access to all the latest information for free. There's really no disadvantage to jumping in early, but we want to be absolutely clear about what you're going to receive.
+The good news is that as an early access customer you get free updates to the books for their complete lifetime. We're committed to keeping our training material up-to-date, and that means giving you access to all the latest information for free. There's really no disadvantage to jumping in early but we want to be absolutely clear about what you're going to receive.
 
 [Essential Scala]: http://underscore.io/training/courses/essential-scala
 [Essential Play]: http://underscore.io/training/courses/essential-play
-[training page]: http://underscore.io/training
+[Training page]: http://underscore.io/training
 [Noel's talk from Scala Exchange 2014]: https://skillsmatter.com/skillscasts/5844-essential-scala-six-core-concepts-for-learning-scala
