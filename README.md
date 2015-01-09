@@ -1,3 +1,17 @@
+# Running the site
+
+    $ grunt serve
+
+If that doesn't work for you, make sure you've done the one-time set up from this directory:
+
+    $ npm install
+    $ bundle install
+
+# Deploying the site
+
+	$ grunt deploy
+
+
 # TODO
 
  - Landing page - Reimplement navbar (change options listed)
