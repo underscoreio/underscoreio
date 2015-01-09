@@ -6,11 +6,14 @@ date: '2015-01-05 10:10:00'
 categories: []
 ---
 
-<script async="async" class="speakerdeck-embed" data-id="7bd44f305d1b0132feae261f207a90b3" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
 I normally give talks about something technical: "Look! A thing we did!". But this talk, from Scala eXchange, was different. It's really about Scala team experiences we've had over the last couple of years.
 
+<!-- break -->
+
 The sort of experiences are when get asked to review Scala projects and report back on how they look. Maintainable? Making use of the features of Scala? And yes, we see problems, but rather just list them out I wanted to show the way these reviews pan out.
+
+<script async="async" class="speakerdeck-embed" data-id="7bd44f305d1b0132feae261f207a90b3" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
 
 So I gave three examples with the aim of getting the audience to discuss what's good or bad about the code. It worked reasonably well. The part I enjoyed the most was talking about an example from my own code: review makes you hyper-critical of your own work.
 
