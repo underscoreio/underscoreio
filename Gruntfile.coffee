@@ -71,7 +71,9 @@ module.exports = (grunt) ->
     exec:
       install:
         cmd: "bundle install"
-      jekyll:
+      jekyllLocal:
+        cmd: "bundle exec jekyll build --drafts --trace --config jekyll_config.yml"
+      jekyllLive:
         cmd: "bundle exec jekyll build --trace --config jekyll_config.yml"
       deploy:
         cmd: 'rsync --progress -a --delete -e "ssh -q" underscoreio/ admin@underscore.io:underscore.io/public/htdocs/'
@@ -87,7 +89,7 @@ module.exports = (grunt) ->
         tasks: [
           "webfont"
           "less"
-          "exec:jekyll"
+          "exec:jekyllLocal"
         ]
       js:
         files: [
@@ -95,7 +97,7 @@ module.exports = (grunt) ->
         ]
         tasks: [
           "browserify"
-          "exec:jekyll"
+          "exec:jekyllLocal"
         ]
       images:
         files: [
@@ -103,7 +105,7 @@ module.exports = (grunt) ->
         ]
         tasks: [
           "copy"
-          "exec:jekyll"
+          "exec:jekyllLocal"
         ]
       html:
         files: [
@@ -113,7 +115,7 @@ module.exports = (grunt) ->
         ]
         tasks: [
           "copy"
-          "exec:jekyll"
+          "exec:jekyllLocal"
         ]
 
     connect:
@@ -124,12 +126,16 @@ module.exports = (grunt) ->
 
   grunt.renameTask "watch", "watchImpl"
 
-  grunt.registerTask "build", [
+  grunt.registerTask "build:base", [
     "webfont"
     "less"
     "browserify"
     "copy"
-    "exec:jekyll"
+  ]
+
+  grunt.registerTask "build", [
+    "build:base"
+    "exec:jekyllLocal"
   ]
 
   grunt.registerTask "serve", [
@@ -139,7 +145,8 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask "deploy", [
-    "build"
+    "build:base"
+    "exec:jekyllLive"
     "exec:deploy"
   ]
 
