@@ -14,6 +14,8 @@ There isn't enough data to make strong statements about differences in acceptanc
 
 <!-- break -->
 
+<!-- break -->
+
 ## How We Did It
 
 Going into the shepherding process we weren't sure how we'd run it, but after we'd talked to a few applicants a pattern quickly became apparent. People often had an idea for a talk (sometimes we brainstormed a few ideas) but to refine it into a talk proposal we asked them to answer:
