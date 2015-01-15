@@ -76,7 +76,7 @@ module.exports = (grunt) ->
       jekyllLive:
         cmd: "bundle exec jekyll build --trace --config jekyll_config.yml"
       deploy:
-        cmd: 'rsync --progress -a --delete -e "ssh -q" underscoreio/ admin@underscore.io:underscore.io/public/htdocs/'
+        cmd: 'rsync --progress -a --delete --exclude files -e "ssh -q" underscoreio/ admin@underscore.io:underscore.io/public/htdocs/'
 
     watchImpl:
       options:
