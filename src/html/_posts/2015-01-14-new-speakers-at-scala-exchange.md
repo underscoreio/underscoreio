@@ -14,7 +14,7 @@ Now that [Scala Exchange](https://skillsmatter.com/conferences/1948-scala-exchan
 
 > Scala eXchange for me was all about great talks, interleaved with ad-hoc discussions with amazingly smart and talented people; I believe I learned a lot more than I taught, which is always the hallmark of a great conference!
 
-Tomer talked about the design of a validation library DSL. My colleague Dave Gurnell also presented on the same topic, and it is interesting to [compare his design](https://skillsmatter.com/skillscasts/5837-functional-data-validation) with [Tomer's](https://skillsmatter.com/skillscasts/5947-a-field-guide-to-dsl-design). Tomer's slides are [here](http://www.slideshare.net/holograph/a-field-guide-to-dsl-design-in-scala).
+Tomer talked about the design of internal DSLs in Scala, using a validation library as an example. My colleague Dave Gurnell also presented on the same topic, and it is interesting to [compare his design](https://skillsmatter.com/skillscasts/5837-functional-data-validation) with [Tomer's](https://skillsmatter.com/skillscasts/5947-a-field-guide-to-dsl-design). Tomer's slides are [here](http://www.slideshare.net/holograph/a-field-guide-to-dsl-design-in-scala).
 
 
 ### Andrew Harmel-Law
