@@ -2,7 +2,7 @@
 layout: post
 title: Roundup of the New Speakers at Scala Exchange
 author: Noel Welsh
-date: '2015-01-05'
+date: '2015-01-14'
 hashtags : scalax
 ---
 
@@ -21,13 +21,13 @@ Tomer talked about the design of a validation library DSL. My colleague Dave Gur
 
 ### Andrew Harmel-Law
 
-Tomer is a very experienced Scala developed, while our next speaker, Andrew Harmel-Law,  represents the other end of spectrum. His [talk](https://skillsmatter.com/skillscasts/5835-bootstrapping-a-scala-mindset) described his experiences learning Scala as a Java veteran. He did a great conveying the struggle to rewire his mental model of programming from an imperative to a functional model. I asked Andrew for his thoughts on the conference and diversity programme and he replied:
+Tomer is a very experienced Scala developed, while our next speaker, Andrew Harmel-Law,  represents the other end of spectrum. His [talk](https://skillsmatter.com/skillscasts/5835-bootstrapping-a-scala-mindset) described his experiences learning Scala as a Java veteran. He did a great job conveying the struggle to rewire his mental model of programming from an imperative to a functional model. I asked Andrew for his thoughts on the conference and diversity programme and he replied:
 
 > What struck me most was the number and range of attendees - diverse in background, expertise, industry and more.  It made for an exciting conference to both attend and talk at.  I'll definitely submit a session next year.
 >
 > [The] shepherding was excellent, giving me the confidence to talk in front of a diverse crowd, knowing I was presenting a coherent and structured session. 
 
-Andrew's slides are [here](http://www.slideshare.net/al94781/bootstrapping-a-scala-mindset-scala-exchange-2014).
+Andrew's slides are [here](http://www.slideshare.net/al94781/bootstrapping-a-scala-mindset-scala-exchange-2014). Andrew will happily supply a PPT version of the slides with full speaker notes, please ping him on [Twitter](https://twitter.com/al94781).
 
 
 ### David Brooks
