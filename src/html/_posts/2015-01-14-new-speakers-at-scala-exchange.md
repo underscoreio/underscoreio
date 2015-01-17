@@ -19,7 +19,7 @@ Tomer talked about the design of internal DSLs in Scala, using a validation libr
 
 ### Andrew Harmel-Law
 
-Tomer is a very experienced Scala developed, while our next speaker, Andrew Harmel-Law,  represents the other end of spectrum. His [talk](https://skillsmatter.com/skillscasts/5835-bootstrapping-a-scala-mindset) described his experiences learning Scala as a Java veteran. He did a great job conveying the struggle to rewire his mental model of programming from an imperative to a functional model. I asked Andrew for his thoughts on the conference and diversity programme and he replied:
+Tomer is a very experienced Scala developer, while our next speaker, Andrew Harmel-Law,  represents the other end of the spectrum. His [talk](https://skillsmatter.com/skillscasts/5835-bootstrapping-a-scala-mindset) described his experiences learning Scala as a Java veteran. He did a great job conveying the struggle to rewire his mental model of programming from an imperative to a functional model. I asked Andrew for his thoughts on the conference and diversity programme and he replied:
 
 > What struck me most was the number and range of attendees - diverse in background, expertise, industry and more.  It made for an exciting conference to both attend and talk at.  I'll definitely submit a session next year.
 >
@@ -47,7 +47,7 @@ Rebecca Grenier described [her experiences using Slick](https://skillsmatter.com
 
 ### Pere Villega
 
-> I think it is just fair to say that without Richard and Dave help probably I would have not spoken at the conference, or my talk would have bombed. All the advice was great, and I'm sure Becky will agree in that it made the difference when preparing for the event :)
+> I think it is just fair to say that without Richard and Dave's help probably I would have not spoken at the conference, or my talk would have bombed. All the advice was great, and I'm sure Becky will agree in that it made the difference when preparing for the event :)
 
 Kafka and other distributed systems goodness at Gumtree was the subject of Pere Villega's [talk](https://skillsmatter.com/skillscasts/5845-the-process-using-kafka-to-drive-microservices-architecture). I didn't get to see Pere's talk, but as a big fan of [Kafka](http://kafka.apache.org/) I've put it on my list of ones to catch up on. Pere's slides are [here](https://github.com/pvillega/talk_scalaX2014).
 
