@@ -30,7 +30,7 @@ We've supplied two functions:
 
 - one from a `String` request parameter ID to an optional `ProductInfo` class (that I've made up for this example); and
 
-- one going the other way from a `ProuctInfo` class into the value to use when generating a URL.
+- one going the other way from a `ProductInfo` class into the value to use when generating a URL.
 
 So that would 404 for products that don't exist. To do something else we use the new `MatchWithoutCurrentValue`:
 
