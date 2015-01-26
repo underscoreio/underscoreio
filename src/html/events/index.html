@@ -1,0 +1,27 @@
+---
+layout: default
+title: Events
+navbar: events
+---
+
+{% include hero.html title="Events" %}
+
+<section class="container">
+  {% for event in site.events %}
+  <div class="row event">
+    <div class="col-md-3">
+      <div class="date">{{ event.date | date_to_string }}</div>
+      <div class="location"><strong>Where:</strong> {{ event.location }}</div>
+      <div class="cost"><strong>Cost:</strong> {{ event.cost }}</div> 
+    </div>
+
+    <div class="col-md-9">
+      <div class="title">{{ event.title }}</div>
+      <p>{{ event.summary }}<br>
+         <a href="{{ event.url }}">More information</a></p>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+{% include footer.html %}
