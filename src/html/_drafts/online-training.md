@@ -4,42 +4,45 @@ title: Rethinking Online Training
 ---
 
 If you are providing training in 2015 you have to be thinking about online delivery.
-We had some unsatisfactory experiments with teaching [Essential Scala](http://underscore.io/training/courses/essential-scala/) online last year,
+We had some unsatisfactory experiments teaching [Essential Scala](http://underscore.io/training/courses/essential-scala/) online last year,
 where we essentially delivered our onsite training over Google Hangouts.
-Online is a different medium to face-to-face communication,
-so over the Christmas break we decided to rethink our online courses to take advantage of the opportunities it offers.
+Online is a different medium,
+and what works well face-to-face does not necessarily translate online.
+Over Christmas we rethought the structure of our online courses to take advantage of the opportunities it offers,
+and we are very excited by the new course structure we have developed.
 
 <!-- break -->
 
 ### Goals
 
 Our first step was to revisit the goals of Essential Scala.
-Our goal is for people to leave understanding the main patterns of functional programming
-and to be able to apply them in their own work.
+Our aim is for people to understand the main patterns of functional programming
+and be able to apply them to their own work.
 That's why Essential Scala is built around core patterns of algebraic data types, structural recursion,
 and so on.
 
 Essential Scala evolved from a two-day onsite training course,
 and the constraints of onsite training has had a profound effect on its structure.
 Two days is not very much time.
-For example, it's about one third of the contact hours in a University semester.
-Teaching two days back-to-back further limits the time available, as by the final aftenoon everyone is tired and has difficulty with new concepts.
+For example, it's about one third of the contact hours for a course over a University semester.
+Teaching two days back-to-back further limits the time available.
+By the final afternoon everyone is tired and has difficulty with new concepts.
 The result is that Essential Scala has relatively small exercises,
-and little chance for reflection on different approaches to solving problems. 
+and little time for reflection.
 
 This is not optimal.
 We know learning takes time.
 We know people need to work with larger programs.
-We know they need to make mistakes and explore dead-ends
-to really internalise the patterns we are teaching.
+We know they need to make mistakes and explore dead-ends.
 We also know that it just isn't viable to do this in the context of onsite training
 -- the time and hence cost is too high.
 But when we sat down and thought about it, we realised we *could* do this online.
 
 ### Studio Style Learning
 
-There is a lot of dead time when we teach onsite.
-We have regular breaks, and we have time when everyone is working on an exercise and doesn't need assistance.
+Teaching onsite naturally involves a lot of dead time.
+We have regular breaks.
+We have time when everyone is working on an exercise and doesn't need assistance.
 We realised we don't have to be around for this if we teach online,
 and if we are not around we don't have to charge for it.
 This means we can expand the scope of our exercises without also increasing the cost.
@@ -47,11 +50,11 @@ This was our first insight.
 
 The second insight came when we started thinking about how to structure online courses.
 We are big believers in reading the literature.
-People far more intelligent than us spent a long time on the problem of teaching programming.
+People far more intelligent than us have spent a long time on the problem of teaching programming.
 Essential Scala draws its structure from [How to Design Programs](http://htdp.org/), whose authors have received multiple awards for teaching.
 When we did research on course structure we discovered the idea of [studio style teaching](http://slice.cs.uiuc.edu/pubs/Studio-SIGCSE2006.pdf).
 In a studio style course students work on a project over a number of weeks.
-Critically, they regularly discuss their code and incorporate feedback into their ongoing development.
+Critically, they regularly discuss their code and incorporate feedback into its ongoing development.
 The ideas and goals of studio style teaching resonated strongly with us
 and we realised that we could deliver this online.
 
@@ -70,11 +73,12 @@ and recreating the library is going to make a great case study.
 
 ### Course Open Now
 
-If the idea of studio style learning excites you, we have opened up our first courses which you can find on our [events calendar](/events).
+We are very excited by this new style of teaching.
+Essential Scala is ready to go,
+and our first online courses are listed on our [events calendar](/events).
 **For our very first course we are running a huge discount**,
 with a preference given to diversity candidates.
-If you are interested in our other courses, don't worry.
-Once Essential Scala is sorted out we will be adding studio learning components to our other online courses.
+Once we have experience with studio style learning via Essential Scala we will be adding studio learning components to our other online courses.
 Expect announcements on those soon.
 
 
