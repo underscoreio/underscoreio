@@ -16,8 +16,8 @@ Here we layout the motivation and structure of this new style of teaching.
 ### Goals
 
 Our first step was to revisit the goals of Essential Scala.
-Our goal is for people to leave understanding the main patterns of functional programming
-and to be able to apply them in their own work.
+Our aim is for people to understand the main patterns of functional programming
+and be able to apply them to their own work.
 That's why Essential Scala is built around core patterns of algebraic data types, structural recursion,
 and so on.
 
@@ -47,7 +47,7 @@ Essential Scala draws its structure from [How to Design Programs](http://htdp.or
 whose authors have received multiple awards for teaching.
 When we did research on course structure we discovered the idea of [studio style teaching](http://slice.cs.uiuc.edu/pubs/Studio-SIGCSE2006.pdf).
 In a studio style course students work on a project over a number of weeks.
-Critically, they regularly discuss their code and incorporate feedback into their ongoing development.
+Critically, they regularly discuss their code and incorporate feedback into its ongoing development.
 The ideas and goals of studio style teaching resonated strongly with us
 and we realised that we could deliver this online.
 
@@ -72,11 +72,12 @@ and recreating the library is going to make a great case study.
 
 ### Course Open Now
 
-If the idea of studio style learning excites you, we have opened up our first courses which you can find on our [events calendar](/events).
+We are very excited by this new style of teaching.
+Essential Scala is ready to go,
+and our first online courses are listed on our [events calendar](/events).
 **For our very first course we are running a huge discount**,
 with a preference given to diversity candidates.
-If you are interested in our other courses, don't worry.
-Once Essential Scala is sorted out we will be adding studio learning components to our other online courses.
+Once we have experience with studio style learning via Essential Scala we will be adding studio learning components to our other online courses.
 Expect announcements on those soon.
 
 
