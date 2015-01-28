@@ -56,13 +56,20 @@ and we realised that we could deliver this online.
   <div class="caption"><a href="https://www.flickr.com/photos/geishaboy500/1391045289/in/photolist-37Vtit-2b7abD-8dbJJa-9PGJCA-boM6Tg-6uW7sj-bKzvHR-nR7UCt-71chKo-718CjH-bDFDjU-718M7r-718Gnv-71cyn9-71cFYU-718M9D-71cvzW-71cvxj-718LZT-71cyiA-718KWR-71cAL7-5aeNME-5rathi-6a4z7H-71cHM3-ccQyCh-71cG4s-71cAFA-5reNRf-69daNY-71ciCN-71cwZf-71cmbQ-71cnpG-718gMa-71cjPS-718Nrn-71cPhC-71cu1E-71cEJf-71cDEs-718pYz-718t3D-xWdvq-5reNT9-37VtdF-bsb83A-bF61SK-71coGq">London Artists Studio by THOR</a> CC Licensed.</div>
 </div>
 
-With these two insights everything came together.
-We have a book that says everything we want to say about introductory Scala programming.
-(It should do, because we wrote the book.)
-We can ask students to read through the book and attempt the exercises ...
-[Describe course structure here. Meet weekly. Go over problems. Do project work. Chat for support during the week.]
+Our new online courses will run over four weeks.
+Each week students will read through a chapter or two of Essential Scala,
+and attempt the exercises therein.
+This introduces new concepts
+and solidifies their understanding.
+We will also ask them to work on a larger project,
+adding new pieces every week using the concepts they have learned.
 
-When we got into the details
+In our weekly online meetings,
+we will go over any issues with the week's work,
+but our main goal is to spend time critically discussing their project code.
+It is this discussion that solidifies learning.
+
+Once we had this structure
 we quickly assembled a list of project ideas.
 The first is [Doodle](https://github.com/underscoreio/doodle),
 a compositional graphics library.
@@ -72,13 +79,13 @@ and recreating the library is going to make a great case study.
 
 ### Course Open Now
 
-We are very excited by this new style of teaching.
+We are very excited by this new style of course.
 Essential Scala is ready to go,
-and our first online courses are listed on our [events calendar](/events).
+and our first intakes are listed on our [events calendar](/events).
 **For our very first course we are running a huge discount**,
 with a preference given to diversity candidates.
 Once we have experience with studio style learning via Essential Scala we will be adding studio learning components to our other online courses.
-Expect announcements on those soon.
+Expect announcements on in the coming months.
 
 
 
