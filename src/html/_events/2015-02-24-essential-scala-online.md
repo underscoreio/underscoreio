@@ -11,8 +11,8 @@ summary: Our studio style course for developers new to Scala.
 ### What
 
 Essential Scala is our introductory course on Scala.
-Essential Scala focuses on the core patterns of idiomatic Scala: algebraic data types, structural recursion, sequencing computation, and type classes.
-Our goal is to teach you how to write simple, maintainable code in an idiomatic functional style.
+Our goal is to teach you to write simple, maintainable, and idiomatic Scala code.
+To this end, Essential Scala focuses on core patterns of algebraic data types, structural recursion, sequencing computation, and type classes.
 For more information please see [the course listing](/training/courses/essential-scala).
 
 ### How
@@ -25,25 +25,56 @@ and be able to discus your code as well as the code of another student when we m
 Please read [our blog post](/blog/rethinking-online-training) for more information on studio style learning.
 
 The online version of Essential Scala consists of five sessions run over four weeks.
-Each session lasts one to two hours.
-You should attend all online sessions.
+We will meet online on Google Hangouts.
+Each session will last about two hours.
 For support between sessions we also have a [Gitter channel]().
+We expect work outside of meeting to take approximately 4 hours per week.
 
-The book version of Essential Scala is included in the course,
+The course materials include the book Essential Scala,
 along with supplementary material related to the project.
 You will receive free updates to Essential Scala for its lifetime,
 and ongoing access to the Gitter channel.
+
+### Who
+
+This course will be taught by Noel Welsh and Dave Gurnell.
+
+### When
+
+Starts on 24 Feb 2015, with weekly meetings on:
+
+- 3 March 2015
+- 10 March 2015
+- 17 March 2015 (Noel will be at Scala Days this day)
+- 24 March 2015
+
+Meetings will be held at 8pm UTC.
+
+### What You Need
+
+You **must** have:
+
+- a computer with Scala and Google Hangouts installed; and
+- an Internet connection.
+
+You **should** have:
+
+- some prior programming experience; and
+- familiarity with git and Github.
 
 ### How Much
 
 The standard cost for Essential Scala is $1499 / £999.
 For [diversity candidates]() we offer training at the reduced rate of $749 / £499.
 For this, the very first time we have run Essential Scala online in a studio style,
-we are expecting so speed bumps are so are offering all places at the reduced diversity rate. 
+we are expecting some difficulties and so are offering all places at reduced rates:
+$749 / £499 for standard attendees and $375 / £249 for diversity attendees.
 
-### What You Need
+### Apply Now
 
-You need a computer able to run Scala and Google Hangouts.
-A fast Internet connection will be useful.
-You should have some experience programming beforehand.
-The language does not matter.
+- Standard attendees: [purchase a ticket]().
+- Diversity attendees: [apply here]().
+
+### More Questions?
+
+[Contact us](/contact)
