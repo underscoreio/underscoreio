@@ -1,7 +1,7 @@
 ---
 layout: event
 title: Shapeless Workshop
-date: 2015-03-19 12:00
+date: 2015-03-20 12:00
 location: San Francisco
 duration: 8 hrs
 cost: Free
@@ -12,7 +12,8 @@ summary: Miles Sabin leads a workshop into the design and use of the Shapeless l
 
 ### What
 
-This workshop will go into the design and implementation of [Shapeless](https://github.com/milessabin/shapeless). Shapeless is both the most functional generic programming library for Scala, and the most generic programming based functional library for Scala.
+This workshop will go into the design and implementation of [Shapeless](https://github.com/milessabin/shapeless).
+Shapeless is both the most functional generic programming library for Scala, and the most generic functional programming library for Scala.
 
 ### Who
 
@@ -20,7 +21,7 @@ The workshop will be led my Underscore partner and Shapeless developer Miles Sab
 
 ### Where and When
 
-The workshop will be held on 19 March 2015 at [Nitro's San Francisco office](https://www.gonitro.com/about/contact):
+The workshop will be held on 20 March 2015 at [Nitro's San Francisco office](https://www.gonitro.com/about/contact):
 
 [225 Bush Street,
  Suite 700,
