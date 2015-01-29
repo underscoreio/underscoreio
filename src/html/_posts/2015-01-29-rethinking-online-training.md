@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Rethinking Online Training
+author: Noel Welsh
 ---
 
-Since the beginning on the year we have been rebuilding the online version of [Essential Scala](http://underscore.io/training/courses/essential-scala/)
+Since the beginning on the year we have been rebuilding the online version of [Essential Scala](training/courses/essential-scala/)
 around studio style learning.
 We delivered Essential Scala online last year,
 but found the result unsatisfactory.
