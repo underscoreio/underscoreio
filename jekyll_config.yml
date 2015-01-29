@@ -28,3 +28,6 @@ collections:
     output: true
     permalink: /training/courses/:path/
     layout: default
+  events:
+    output: true
+    layout: event
