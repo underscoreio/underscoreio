@@ -1,13 +1,15 @@
 ---
-layout: page
-title: Essential Scala 
+layout: event
+title: Essential Scala
 type: course
+course: essential-scala
 location: Online
 date: 2015-02-24 12:00:00
-duration: 4 weeks 
+duration: 4 weeks
 cost: $749
-summary: Our studio style course for developers new to Scala.
+summary: Our studio-style online course for developers who are new to Scala.
 ---
+
 ### What
 
 Essential Scala is our introductory course on Scala.
@@ -27,7 +29,8 @@ Please read [our blog post](/blog/rethinking-online-training) for more informati
 The online version of Essential Scala consists of five sessions run over four weeks.
 We will meet online on Google Hangouts.
 Each session will last about two hours.
-For support between sessions we also have a [Gitter channel]().
+For support between sessions we also have
+a [Gitter channel](https://gitter.im/underscoreio/scala).
 We expect work outside of meeting to take approximately 4 hours per week.
 
 The course materials include the book Essential Scala,
@@ -66,6 +69,7 @@ You **should** have:
 
 The standard cost for Essential Scala is $1499 / £999.
 For [diversity candidates]() we offer training at the reduced rate of $749 / £499.
+
 For this, the very first time we have run Essential Scala online in a studio style,
 we are expecting some difficulties and so are offering all places at reduced rates:
 $749 / £499 for standard attendees and $375 / £249 for diversity attendees.

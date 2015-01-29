@@ -15,6 +15,7 @@ window.uio = module.exports = {
   scrollSpy       : require './scrollspy'
   blogPager       : require './blog-pager'
   trainingFormats : require './training-formats'
+  eventListing    : require './event-listing'
   courseDirectory : require './training-course-directory'
   bookingForm     : require './booking-form'
   contactForm     : require './contact-form'

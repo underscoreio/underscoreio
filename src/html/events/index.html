@@ -6,10 +6,23 @@ navbar: events
 
 {% include hero.html title="Events" %}
 
-<section class="container">
-  {% for event in site.events %}
-    {% include events/event.html event=event %}
-  {% endfor %}
+<section class="container event-listing">
+  <article>
+    <h2>Future Events</h2>
+
+    {% for event in site.events %}
+      {% capture nowTime %}{{'now' | date:'%s'}}{% endcapture %}
+      {% capture eventTime %}{{ event.date | date:'%s'}}{% endcapture %}
+
+      {% if eventTime > nowTime %}
+      {% include events/excerpt.html event=event %}
+      {% endif %}
+    {% endfor %}
+  </article>
 </section>
+
+<script>
+  uio.eventListing.init(".event-listing")
+</script>
 
 {% include footer.html %}

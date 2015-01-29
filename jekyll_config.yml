@@ -30,3 +30,4 @@ collections:
     layout: default
   events:
     output: true
+    layout: event

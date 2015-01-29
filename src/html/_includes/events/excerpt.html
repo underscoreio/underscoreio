@@ -1,0 +1,84 @@
+{% comment %}
+  event: {
+    date: date
+    location: string
+    cost: string
+    title: string
+    summary: string
+    icon: or(string, null)
+    color: or(string, null)
+    course: or(string, null)
+  }
+{% endcomment %}
+
+{% comment %}
+-- CALCULATE THE ICON AND COLOR -----------------
+{% endcomment %}
+
+{% if include.event.color %}
+  {% assign excerptColor = include.event.color %}
+{% elsif include.event.course %}
+  {% for course in site.courses %}
+    {% if course.id == include.event.course %}
+      {% assign excerptColor = course.color %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if include.event.icon %}
+  {% assign excerptIcon = include.event.icon %}
+{% elsif include.event.course %}
+  {% for course in site.courses %}
+    {% if course.id == include.event.course %}
+      {% assign excerptIcon = course.icon %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+
+<div class="event-excerpt panel panel-gray" data-event-url="{{ event.url }}">
+  <div class="panel-heading"{% if excerptColor %} style="background: {{ excerptColor }}"{% endif %}>
+    <h3>
+      <span class="event-icon icon-uio-{{ excerptIcon }}"></span>
+      <span class="event-date">
+        <span class="day">{{ include.event.date | date: '%d' }}</span>
+        <span class="month">{{ include.event.date | date: '%b' }}</span>
+      </span>
+      <span class="event-title">{{ event.title }}</span>
+    </h3>
+  </div>
+
+  <div class="panel-body">
+    <dl class="event-meta">
+      <dt>Time</dt>
+      <dd class="event-time">
+        <span class="hour">{{ include.event.date | date: '%H' }}</span>:<!--
+        --><span class="minute">{{ include.event.date | date: '%M' }}</span>
+      </dd>
+
+      {% if include.event.location %}
+      <dt>Location</dt>
+      <dd class="event-location">{{ include.event.location }}</dd>
+      {% endif %}
+
+      {% if include.event.duration %}
+      <dt>Length</dt>
+      <dd class="event-duration">{{ include.event.duration }}</dd>
+      {% endif %}
+
+      {% if include.event.cost %}
+      <dt>Cost</dt>
+      <dd class="event-cost">{{ include.event.cost }}</dd>
+      {% endif %}
+    </dl>
+
+    <p class="event-summary">
+      {{ event.summary }}
+    </p>
+
+    <a class="event-link" href="{{ event.url }}">
+      More information
+      <span class="icon-uio-chevron-right"></span>
+    </a>
+  </div>
+</div>

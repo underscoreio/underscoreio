@@ -1,10 +1,11 @@
 ---
-layout: page
+layout: event
 title: Shapeless Workshop
 date: 2015-03-19 12:00
 location: San Francisco
 duration: 8 hrs
 cost: Free
+course: essential-shapeless
 summary: Miles Sabin leads a workshop into the design and use of the Shapeless library.
 ---
 
@@ -20,9 +21,9 @@ The workshop will be led my Underscore partner and Shapeless developer Miles Sab
 
 The workshop will be held on 19 March 2015 at [Nitro's San Francisco office](https://www.gonitro.com/about/contact):
 
-[225 Bush Street,  
- Suite 700,  
- San Francisco,  
+[225 Bush Street,
+ Suite 700,
+ San Francisco,
  CA 94104](https://www.google.com/maps/preview#!q=225+Bush+Street%2C+Suite+%23700+San+Francisco%2C+CA+94104&data=!4m15!2m14!1m13!1s0x80858089e1c87065%3A0xdaa20a6b35a74f41!3m8!1m3!1d4060!2d-122.4011715!3d37.7908343!3m2!1i1920!2i989!4f13.1!4m2!3d37.7908964!4d-122.4014997)
 
 The workshop will run from 9am to 5pm.
