@@ -26,7 +26,7 @@ A central part of studio style learning is to critically reflect on code.
 This means we work on a sizable project for the majority of the course.
 Each week you are expected to have completed a stage of the project,
 and be able to discus your code as well as the code of another student when we meet online.
-Please read [our blog post](/blog/rethinking-online-training) for more information on studio style learning.
+Please read [our blog post]({% post_url 2015-01-29-rethinking-online-training %}) for more information on studio style learning.
 
 The online version of Essential Scala consists of five sessions run over four weeks.
 We will meet online on Google Hangouts.
@@ -71,7 +71,7 @@ You **should** have:
 ### How Much
 
 The standard cost for Essential Scala is $1499 / £999.
-For [diversity candidates]() we offer training at the reduced rate of $749 / £499.
+For [diversity candidates]({% post_url 2015-01-29-diversity-in-training %}) we offer training at the reduced rate of $749 / £499.
 
 As this is the very first time we are running Essential Scala online in a studio style,
 **we are offering all places at reduced rates:**
@@ -82,7 +82,7 @@ As this is the very first time we are running Essential Scala online in a studio
 ### Apply Now
 
 - Standard attendees: [purchase a ticket]().
-- Diversity attendees: [apply here]().
+- Diversity attendees: [apply here](https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform).
 
 ### More Questions?
 
