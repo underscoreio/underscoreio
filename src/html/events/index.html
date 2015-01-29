@@ -8,7 +8,9 @@ navbar: events
 
 <section class="container event-listing">
   <article>
+    {% comment %}
     <h2>Future Events</h2>
+    {% endcomment %}
 
     {% for event in site.events %}
       {% capture nowTime %}{{'now' | date:'%s'}}{% endcapture %}

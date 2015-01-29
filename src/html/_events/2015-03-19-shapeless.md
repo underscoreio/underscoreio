@@ -6,6 +6,7 @@ location: San Francisco
 duration: 8 hrs
 cost: Free
 course: essential-shapeless
+navbar: events
 summary: Miles Sabin leads a workshop into the design and use of the Shapeless library.
 ---
 

@@ -7,6 +7,7 @@ location: Online
 date: 2015-02-24 20:00:00
 duration: 4 weeks
 cost: $749
+navbar: events
 summary: Our studio-style online course for developers who are new to Scala.
 ---
 
@@ -14,7 +15,8 @@ summary: Our studio-style online course for developers who are new to Scala.
 
 Essential Scala is our introductory course on Scala.
 Our goal is to teach you to write simple, maintainable, and idiomatic Scala code.
-To this end, Essential Scala focuses on core patterns of algebraic data types, structural recursion, sequencing computation, and type classes.
+To this end, Essential Scala focuses on core patterns of algebraic data types,
+structural recursion, sequencing computation, and type classes.
 For more information please see [the course listing](/training/courses/essential-scala).
 
 ### How
