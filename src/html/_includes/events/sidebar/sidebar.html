@@ -7,19 +7,17 @@
         <dt>Name</dt>
         <dd class="event-title">{{ include.event.title }}</dd>
 
-        <dt>Starts</dt>
-        <dd class="event-date">
-          <span class="day">{{ include.event.date | date: '%d' }}</span>
-          <span class="month">{{ include.event.date | date: '%b' }}</span>
-          <span class="year">{{ include.event.date | date: '%Y' }}</span> at
-          <span class="hour">{{ include.event.date | date: '%H' }}</span>:<!--
-          --><span class="minute">{{ include.event.date | date: '%M' }}</span>
-        </dd>
-
         {% if include.event.location %}
         <dt>Location</dt>
         <dd class="event-location">{{ include.event.location }}</dd>
         {% endif %}
+
+        <dt>Starts</dt>
+        <dd class="event-date">
+          {{ include.event.date | date: '%d %b %Y' }} at
+          {{ include.event.date | date: '%H:%M' }}
+          UTC</span>
+        </dd>
 
         {% if include.event.duration %}
         <dt>Length</dt>

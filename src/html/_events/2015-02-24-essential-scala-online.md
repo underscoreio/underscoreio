@@ -1,10 +1,10 @@
 ---
 layout: event
-title: Essential Scala
+title: Essential Scala Online
 type: course
 course: essential-scala
 location: Online
-date: 2015-02-24 12:00:00
+date: 2015-02-24 20:00:00
 duration: 4 weeks
 cost: $749
 summary: Our studio-style online course for developers who are new to Scala.
@@ -46,12 +46,13 @@ This course will be taught by Noel Welsh and Dave Gurnell.
 
 Starts on 24 Feb 2015, with weekly meetings on:
 
+- 24 Feb 2015
 - 3 March 2015
 - 10 March 2015
 - 17 March 2015 (Noel will be at Scala Days this day)
 - 24 March 2015
 
-Meetings will be held at 8pm UTC.
+Meetings will be held at {{ page.date | date:'%H:%M' }} UTC.
 
 ### What You Need
 
@@ -70,9 +71,11 @@ You **should** have:
 The standard cost for Essential Scala is $1499 / £999.
 For [diversity candidates]() we offer training at the reduced rate of $749 / £499.
 
-For this, the very first time we have run Essential Scala online in a studio style,
-we are expecting some difficulties and so are offering all places at reduced rates:
-$749 / £499 for standard attendees and $375 / £249 for diversity attendees.
+As this is the very first time we are running Essential Scala online in a studio style,
+**we are offering all places at reduced rates:**
+
+ - **$749 / £499** for standard attendees
+ - **$375 / £249** for diversity attendees.
 
 ### Apply Now
 

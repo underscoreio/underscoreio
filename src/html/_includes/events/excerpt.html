@@ -41,8 +41,7 @@
     <h3>
       <span class="event-icon icon-uio-{{ excerptIcon }}"></span>
       <span class="event-date">
-        <span class="day">{{ include.event.date | date: '%d' }}</span>
-        <span class="month">{{ include.event.date | date: '%b' }}</span>
+        {{ include.event.date | date: '%d %b' }}
       </span>
       <span class="event-title">{{ event.title }}</span>
     </h3>
@@ -50,16 +49,15 @@
 
   <div class="panel-body">
     <dl class="event-meta">
-      <dt>Time</dt>
-      <dd class="event-time">
-        <span class="hour">{{ include.event.date | date: '%H' }}</span>:<!--
-        --><span class="minute">{{ include.event.date | date: '%M' }}</span>
-      </dd>
-
       {% if include.event.location %}
       <dt>Location</dt>
       <dd class="event-location">{{ include.event.location }}</dd>
       {% endif %}
+
+      <dt>Time</dt>
+      <dd class="event-time">
+        {{ include.event.date | date: '%H:%M' }} UTC
+      </dd>
 
       {% if include.event.duration %}
       <dt>Length</dt>
