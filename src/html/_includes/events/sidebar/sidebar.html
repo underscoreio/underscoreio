@@ -1,5 +1,39 @@
-EVENT SIDEBAR
+<aside class="event-sidebar">
+  <div class="event-details panel panel-gray">
+    <div class="panel-body">
+      <h4>Event Details</h4>
 
-<pre>
-{{ include.event }}
-</pre>
+      <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd class="event-title">{{ include.event.title }}</dd>
+
+        {% if include.event.location %}
+        <dt>Location</dt>
+        <dd class="event-location">{{ include.event.location }}</dd>
+        {% endif %}
+
+        <dt>Starts</dt>
+        <dd class="event-date">
+          {{ include.event.date | date: '%d %b %Y' }} at
+          {{ include.event.date | date: '%H:%M' }}
+          UTC</span>
+        </dd>
+
+        {% if include.event.duration %}
+        <dt>Length</dt>
+        <dd class="event-duration">{{ include.event.duration }}</dd>
+        {% endif %}
+
+        {% if include.event.cost %}
+        <dt>Cost</dt>
+        <dd class="event-cost">{{ include.event.cost }}</dd>
+        {% endif %}
+
+        {% if include.event.summary %}
+        <dt>Summary</dt>
+        <dd class="event-summary">{{ include.event.summary }}</dd>
+        {% endif %}
+      </dl>
+    </div>
+  </div>
+</aside>
