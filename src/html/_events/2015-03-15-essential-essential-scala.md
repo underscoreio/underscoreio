@@ -20,8 +20,9 @@ through an exploration of computer graphics.
 
 Two different types of people should attend:
 
-- those who have little or no Scala experience
-  who want to learn the basics of Scala and functional programming; and
+- those who have little or no Scala experience,
+  but some experience with another language,
+  and who want to learn the basics of Scala and functional programming; and
 - experienced Scala developers who want to assist with teaching.
 
 ### Who
