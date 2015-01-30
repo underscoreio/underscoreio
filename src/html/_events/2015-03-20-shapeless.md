@@ -47,4 +47,4 @@ It's completely free!
 
 ### Apply Now
 
-Due to the popularity of these workshops, we are allocating tickets randomly. To enter into the lottery please [fill out this form](). The deadline for entering the lottery is 10 March 2015.
+Due to the popularity of these workshops, we are allocating tickets randomly. To enter into the lottery please [fill out this form](https://docs.google.com/forms/d/1uUk2fzz7s_DQ1qanlPHzRA8qE62KSnCBUNxPYunDILc/viewform?usp=send_form). The deadline for entering the lottery is 10 March 2015.
