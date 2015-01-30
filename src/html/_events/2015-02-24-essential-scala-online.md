@@ -71,18 +71,18 @@ You **should** have:
 
 ### How Much
 
-The standard cost for Essential Scala is $1499 / £999.
-For [diversity candidates]({% post_url 2015-01-29-diversity-in-training %}) we offer training at the reduced rate of $749 / £499.
+The standard cost for Essential Scala is $1499.
+For [diversity candidates]({% post_url 2015-01-29-diversity-in-training %}) we offer training at the reduced rate of $749.
 
 As this is the very first time we are running Essential Scala online in a studio style,
 **we are offering all places at reduced rates:**
 
- - **$749 / £499** for standard attendees
- - **$375 / £249** for diversity attendees.
+ - **$749** for standard attendees
+ - **$375** for diversity attendees.
 
 ### Apply Now
 
-- Standard attendees: [purchase a ticket]().
+- Standard attendees: [purchase a ticket](https://www.eventbrite.com/e/essential-scala-online-feb-2015-tickets-15568671315).
 - Diversity attendees: [apply here](https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform).
 
 ### More Questions?
