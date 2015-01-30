@@ -202,7 +202,126 @@ val chords = Cmaj ~ Fmaj ~ Gmaj ~ Fmaj ~ Cmaj
 It's one thing to be able to write music as code.
 It's another thing to be able to play it back.
 
+*Compose* plays music back using [ScalaCollider](scalacollider),
+[Hanns Holger Rutz'](hanns-rutz) client to [SuperCollider](supercollider).
 
+Our `Scores` can involve arbitrary numbers of simultaneous notes.
+However, any audio hardware we care to use will only have a maximum polyphony.
+ScalaCollider allows us to create a pool of monophonic synthesizers
+(that can only play one note at a time).
+We need to convert our `Scores` into a playable representation
+that sends specific notes to specific synths at specific times.
+
+Compose's playable representation is a flat sequence of `Command` objects
+of the following types:
+
+~~~ scala
+sealed trait Command
+final case class NoteOn(channel: Int, pitch: Int) extends Command
+final case class NoteOff(channel: Int) extends Command
+final case class Wait(millis: Long) extends Command
+~~~
+
+We create the sequence of `Commands` from a `Score`
+using simple structural recursion:
+
+ -  `NoteScore` and `RestScore` are our base cases --
+    they compile to short, obvious sequences of commands;
+
+ -  compiling a `SeqScore` involves compiling its children
+    and appending the results;
+
+ -  compiling a `ParScore` involves compiling its children
+    and *merging* the results (see below).
+
+~~~ scala
+def compile(score: Score): Vector[Command] = score match {
+  case NoteScore(note, dur) =>
+    Vector(
+      NoteOn(0, frequency(note)),
+      Wait(tempo.millis(dur)),
+      NoteOff(0)
+    )
+
+  case RestScore(dur) =>
+    Vector(Wait(tempo.millis(dur)))
+
+  case SeqScore(a, b) =>
+    compile(a) ++ compile(b)
+
+  case ParScore(a, b) =>
+    merve(compile(a), compile(b))
+}
+~~~
+
+Merging two parallel sequences of commands is a little tricky.
+First we renumber the channels so there are no conflicts.
+Then we iterate through the sequences, merging `Wait` commands
+and scheduling `NoteOn` and `NoteOff` commands
+immediately after one another.
+Finally we renumber the resulting command sequence again
+to normalize the channel numbers back:
+
+~~~ scala
+def merge(a: Vector[Command], b: Vector[Command]): Vector[Command] = {
+  @tailrec def loop(
+      a: Vector[Command],
+      b: Vector[Command],
+      accum: Vector[Command] = Vector.empty): Seq[Command] =
+    a match {
+      case (ah: NoteOn) +: at => loop(at, b, accum :+ ah)
+      case (ah: NoteOff) +: at => loop(at, b, accum :+ ah)
+      case (ah: Wait) +: at =>
+        b match {
+          case (bh: NoteOn) +: bt => loop(a, bt, accum :+ bh)
+          case (bh: NoteOff) +: bt => loop(a, bt, accum :+ bh)
+          case (bh: Wait) +: bt =>
+            if(ah > bh) {
+              loop((ah - bh) +: at, bt, accum :+ bh)
+            } else {
+              loop(at, (bh - ah) +: bt, accum :+ ah)
+            }
+          case Seq() => accum ++ a
+        }
+      case Seq() => accum ++ b
+    }
+
+  val aRenumbered = renumberChannels(a, 0)
+  val bRenumbered = renumberChannels(b, maxChannel(a) + 1)
+
+  val mergedCommands = loop(aRenumbered, bRenumbered)
+
+  renumberChannels(mergedCommands)
+}
+
+def renumberChannels(
+    cmds: Vector[Command],
+    base: Int = 0): Vector[Command] = {
+  val origChans: Vector[Int] =
+    cmds.collect {
+      case NoteOn(channel, _) => channel
+      case NoteOff(channel)   => channel
+    }.distinct.sorted
+
+  val renumber: Int => Int =
+    origChans.zipWithIndex.map {
+      case (a, b) => (a, b + base)
+    }.toMap
+
+  cmds map {
+    case NoteOn(channel, freq) => NoteOn(renumber(channel), freq)
+    case NoteOff(channel)      => NoteOff(renumber(channel))
+    case Wait(duration)        => Wait(duration)
+  }
+}
+
+def minChannel(cmds: Vector[Command]): Int =
+  cmds.collect {
+    case NoteOn(channel, _) => channel
+    case NoteOff(channel)   => channel
+  }.min
+
+~~~
 
 ---
 
@@ -213,4 +332,9 @@ So there you have it. *Compose*, the fun functional library for compositional mu
 Coming to a Scala studio near you.
 
 <sup>1</sup> Emacs developers likely have a major mode for this already.
+
 <sup>2</sup> [musicXML](http://www.musicxml.com) is an interchange format supported by several major score editors.
+
+[scalacollider]: http://www.sciss.de/scalaCollider/
+[hanns-rutz]: http://sciss.de/
+[supercollider]: http://audiosynth.com/
