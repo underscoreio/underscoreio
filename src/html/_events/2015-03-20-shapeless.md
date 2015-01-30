@@ -4,7 +4,7 @@ title: Shapeless Workshop
 date: 2015-03-20 09:00 
 timezone: PST
 location: San Francisco
-duration: 8 hrs
+duration: 8 hours
 cost: Free
 course: essential-shapeless
 navbar: events
@@ -48,4 +48,6 @@ It's completely free!
 
 ### Apply Now
 
-Due to the popularity of these workshops, we are allocating tickets randomly. To enter into the lottery please [fill out this form](https://docs.google.com/forms/d/1uUk2fzz7s_DQ1qanlPHzRA8qE62KSnCBUNxPYunDILc/viewform?usp=send_form). The deadline for entering the lottery is 10 March 2015.
+Due to the popularity of these workshops we are allocating tickets randomly. To enter into the lottery please [fill out this form](https://docs.google.com/forms/d/1uUk2fzz7s_DQ1qanlPHzRA8qE62KSnCBUNxPYunDILc/viewform?usp=send_form). The deadline for entering the lottery is 10 March 2015.
+
+As usual we are reserving some tickets for [diversity candidates]({% post_url 2015-01-29-diversity-in-training %}). Diversity attendees [apply here](https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform).
