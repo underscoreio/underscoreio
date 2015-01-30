@@ -14,12 +14,12 @@ Now that [Scala Exchange](https://skillsmatter.com/conferences/1948-scala-exchan
 
 > Scala eXchange for me was all about great talks, interleaved with ad-hoc discussions with amazingly smart and talented people; I believe I learned a lot more than I taught, which is always the hallmark of a great conference!
 
-Tomer talked about the design of a validation library DSL. My colleague Dave Gurnell also presented on the same topic, and it is interesting to [compare his design](https://skillsmatter.com/skillscasts/5837-functional-data-validation) with [Tomer's](https://skillsmatter.com/skillscasts/5947-a-field-guide-to-dsl-design). Tomer's slides are [here](http://www.slideshare.net/holograph/a-field-guide-to-dsl-design-in-scala).
+Tomer talked about the design of internal DSLs in Scala, using a validation library as an example. My colleague Dave Gurnell also presented on the same topic, and it is interesting to [compare his design](https://skillsmatter.com/skillscasts/5837-functional-data-validation) with [Tomer's](https://skillsmatter.com/skillscasts/5947-a-field-guide-to-dsl-design). Tomer's slides are [here](http://www.slideshare.net/holograph/a-field-guide-to-dsl-design-in-scala).
 
 
 ### Andrew Harmel-Law
 
-Tomer is a very experienced Scala developed, while our next speaker, Andrew Harmel-Law,  represents the other end of spectrum. His [talk](https://skillsmatter.com/skillscasts/5835-bootstrapping-a-scala-mindset) described his experiences learning Scala as a Java veteran. He did a great job conveying the struggle to rewire his mental model of programming from an imperative to a functional model. I asked Andrew for his thoughts on the conference and diversity programme and he replied:
+Tomer is a very experienced Scala developer, while our next speaker, Andrew Harmel-Law,  represents the other end of the spectrum. His [talk](https://skillsmatter.com/skillscasts/5835-bootstrapping-a-scala-mindset) described his experiences learning Scala as a Java veteran. He did a great job conveying the struggle to rewire his mental model of programming from an imperative to a functional model. I asked Andrew for his thoughts on the conference and diversity programme and he replied:
 
 > What struck me most was the number and range of attendees - diverse in background, expertise, industry and more.  It made for an exciting conference to both attend and talk at.  I'll definitely submit a session next year.
 >
@@ -29,6 +29,8 @@ Andrew's slides are [here](http://www.slideshare.net/al94781/bootstrapping-a-sca
 
 
 ### David Brooks
+
+> I must say that the diversity programme really has lived up to its billing, and one of the things I enjoyed most about Scala eXchange was the diversity of people and content.  It highlights that Scala is in serious production use in many types of organisation. 
 
 David Brooks [talked](https://skillsmatter.com/skillscasts/5838-shopping-around-with-crdts-at-whisk) about the application of CRDTs to cross-device synchronisation at [Whisk](http://whisk.co.uk). I'm a big fan of CRDTs, having [talked about them before](http://underscore.io/blog/posts/2013/12/20/crdts-for-fun-and-eventual-profit.html), so I was very interested to see what he had to say. His talk didn't disappoint as he adopted quite a different implementation strategy to mine.
 
@@ -47,7 +49,7 @@ Rebecca Grenier described [her experiences using Slick](https://skillsmatter.com
 
 ### Pere Villega
 
-> I think it is just fair to say that without Richard and Dave help probably I would have not spoken at the conference, or my talk would have bombed. All the advice was great, and I'm sure Becky will agree in that it made the difference when preparing for the event :)
+> I think it is just fair to say that without Richard and Dave's help probably I would have not spoken at the conference, or my talk would have bombed. All the advice was great, and I'm sure Becky will agree in that it made the difference when preparing for the event :)
 
 Kafka and other distributed systems goodness at Gumtree was the subject of Pere Villega's [talk](https://skillsmatter.com/skillscasts/5845-the-process-using-kafka-to-drive-microservices-architecture). I didn't get to see Pere's talk, but as a big fan of [Kafka](http://kafka.apache.org/) I've put it on my list of ones to catch up on. Pere's slides are [here](https://github.com/pvillega/talk_scalaX2014).
 

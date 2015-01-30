@@ -17,7 +17,7 @@ Hack the Tower provided an excellent background and audience for the event. The 
 
 The material went down well with the crowd, who had a diverse background of Java, Python, PHP, and other languages. We got through almost everything inside of five hours but skipped some of the last section (on generics) to keep to time. I got some nice feedback at the end, too -- here's an example (thanks Ruth -- cheque's in the post):
 
-<blockquote class="twitter-tweet" lang="en"><p>Great <a href="https://twitter.com/londonscala">@londonscala</a> meetup at <a href="https://twitter.com/hashtag/salesforce?src=hash">#salesforce</a> today with generous all-day hands-on <a href="https://twitter.com/hashtag/Scala?src=hash">#Scala</a> training from guru <a href="https://twitter.com/davegurnell">@davegurnell</a> of <a href="https://twitter.com/UnderscoreUK">@underscoreuk</a>!</p>&mdash; Ruth Stryker (@ruthstryker) <a href="https://twitter.com/ruthstryker/status/523533373118357506">October 18, 2014</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" lang="en"><p>Great <a href="https://twitter.com/londonscala">@londonscala</a> meetup at <a href="https://twitter.com/hashtag/salesforce?src=hash">#salesforce</a> today with generous all-day hands-on <a href="https://twitter.com/hashtag/Scala?src=hash">#Scala</a> training from guru <a href="https://twitter.com/davegurnell">@davegurnell</a> of <a href="https://twitter.com/underscoreio">@underscoreio</a>!</p>&mdash; Ruth Stryker (@ruthstryker) <a href="https://twitter.com/ruthstryker/status/523533373118357506">October 18, 2014</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Thanks to [Andy Hicks] and [John Stevenson] for hosting me at Hack the Tower. We plan on re-using E<sup>2</sup>S to promote Scala for free at any conferences and meetups we can. [Contact us on Twitter] if you'd like us to come and talk about Scala in your area!
 
@@ -29,4 +29,4 @@ Thanks to [Andy Hicks] and [John Stevenson] for hosting me at Hack the Tower. We
 [Essential Scala]:         http://underscore.io/training/courses/essential-scala
 [slides]:                  https://github.com/underscoreio/eescala
 [exercises]:               https://github.com/underscoreio/eescala-code
-[Contact us on Twitter]:   https://twitter.com/underscoreuk
+[Contact us on Twitter]:   https://twitter.com/underscoreio
