@@ -5,6 +5,7 @@ type: course
 course: essential-scala
 location: Online
 date: 2015-02-24 20:00:00
+timezone: UTC
 duration: 4 weeks
 cost: $749
 navbar: events

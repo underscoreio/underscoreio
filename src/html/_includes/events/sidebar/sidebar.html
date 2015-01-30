@@ -16,7 +16,9 @@
         <dd class="event-date">
           {{ include.event.date | date: '%d %b %Y' }} at
           {{ include.event.date | date: '%H:%M' }}
-          UTC</span>
+          {% if include.event.timezone %}
+            {{ include.event.timezone }}
+          {% endif %}
         </dd>
 
         {% if include.event.duration %}

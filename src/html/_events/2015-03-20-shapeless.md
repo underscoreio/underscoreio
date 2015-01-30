@@ -1,7 +1,8 @@
 ---
 layout: event
 title: Shapeless Workshop
-date: 2015-03-20 12:00
+date: 2015-03-20 09:00 
+timezone: PST
 location: San Francisco
 duration: 8 hrs
 cost: Free
