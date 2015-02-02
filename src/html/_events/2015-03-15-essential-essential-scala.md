@@ -25,6 +25,39 @@ Two different types of people should attend:
   and who want to learn the basics of Scala and functional programming; and
 - experienced Scala developers who want to assist with teaching.
 
+We are currently working on the course material,
+and it will be released under a Creative Commons licence before the event.
+We will be using the [Doodle](https://github.com/underscoreio/doodle) library
+as the starting point for our exploration.
+
+#### For Students
+
+We will learn about composition and combinator libraries,
+two of the big ideas in functional programming.
+We will also learn the basic evaluation model for Scala,
+and how to use a good chunk of Scala's features.
+
+With this course we're aiming for fun,
+so we're going to have lots of time for exploration.
+We will have a number of projects of varying levels of complexity,
+and you can work your way through the projects at your own pace
+-- or explore your own interests.
+
+#### For Teaching Assistants
+
+We are expecting a wide range of experience levels at this event.
+To allow people to get the most from the day
+we will divide the students into small groups of roughly the same level.
+We are hoping to have enough teaching assistants that we can assign one per group.
+Your job is to work closely with your group,
+clearing roadblocks such as syntax errors or a faulty mental model,
+so they can get as much out of the day as possible.
+
+The material will all be quite basic from a Scala and functional programming perspective.
+If you have experience with Scala you should be able to turn up on the day without prior preparation.
+If you do want to do some preparation,
+until we get the course material online the best source is [Doodle's code](https://github.com/underscoreio/doodle).
+
 ### Who
 
 This course will be taught by Noel Welsh
