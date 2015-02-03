@@ -67,9 +67,9 @@ with the assistance of members of the Scala community.
 
 The course will run from 9AM to 5PM on {{ page.date | date:'%a, %b %d, %Y' }}.
 
-It will be hosted by [PagerDuty](http://www.pagerduty.com/contacts/):
+It will be hosted by [PagerDuty](http://www.pagerduty.com/) who are also generously sponsoring pizza and drinks:
 
-[501 Second St., #100  
+[501 Second St., #216  
 San Francisco, CA 94107](https://www.google.com/maps/preview?q=501+Second+St.,+%23100+San+Francisco,+CA+94107).
 
 ### What You Need
