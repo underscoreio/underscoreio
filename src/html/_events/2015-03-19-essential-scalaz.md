@@ -49,7 +49,7 @@ As usual, for [diversity candidates]({% post_url 2015-01-29-diversity-in-trainin
 
 ### Apply Now
 
-- Standard attendees: [purchase a ticket](http://www.eventbrite.com/e/advanced-scala-scalaz-tickets-15509600633).
+- Standard attendees: [purchase a ticket](http://www.eventbrite.com/e/advanced-scala-scalaz-tickets-15509600633?aff=underscoreio).
 - Diversity attendees: [apply here](https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform).
 
 ### More Questions?
