@@ -9,7 +9,7 @@ timezone: BST
 duration: 8 hours
 cost: £400/500
 navbar: events
-summary: The introduction to Scalaz that you've been waiting for.
+summary: The tools you need to build large scale systems in Scala.
 ---
 
 ### What
