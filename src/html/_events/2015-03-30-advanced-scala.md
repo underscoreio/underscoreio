@@ -2,7 +2,7 @@
 layout: event
 title: Advanced Scala
 type: course
-course: advanced-scala
+course: essential-scalaz
 location: Edinburgh
 date: 2015-03-30 09:00:00
 timezone: BST
@@ -33,9 +33,9 @@ This course will be taught by Noel Welsh.
 
 The course will run from 9AM to 5PM on {{ page.date | date:'%a, %b %d, %Y' }} at [NCR Edinburgh](http://ncredinburgh.com/):
 
-[10 Kittle Yards  
-Causewayside  
-Edinburgh  
+[10 Kittle Yards
+Causewayside
+Edinburgh
 EH9 1PJ](https://www.google.co.uk/maps/place/Edinburgh,+City+of+Edinburgh+EH9+1PJ/@55.9355304,-3.1806197,17z/data=!3m1!4b1!4m2!3m1!1s0x4887c77eec54a2b7:0x4e240616aef2facb).
 
 ### What You Need
