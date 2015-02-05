@@ -9,7 +9,7 @@ timezone: PST
 duration: 8 hours
 cost: Free
 navbar: events
-summary: A free and fun introduction to Scala. Places available for students and teaching assistants.
+summary: A free and fun taste of Scala. Places available for students and teaching assistants.
 ---
 
 ### What

@@ -9,7 +9,7 @@ timezone: PST
 duration: 8 hours
 cost: $600/$750
 navbar: events
-summary: The introduction to Scalaz that you've been waiting for.
+summary: Take your Scala skills to the next level. The tools you need to large scale Scala systems.
 ---
 
 ### What

@@ -9,7 +9,7 @@ timezone: GMT
 duration: 8 hours
 cost: Free
 navbar: events
-summary: A free and fun introduction to Scala.
+summary: A free and fun taste of Scala.
 ---
 
 ### What

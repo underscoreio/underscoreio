@@ -9,7 +9,7 @@ timezone: UTC
 duration: 4 weeks
 cost: $749
 navbar: events
-summary: Our studio-style online course for professional developers learning Scala.
+summary: Our studio-style online course for professional developers who want a thorough introduction to Scala.
 ---
 
 ### What
