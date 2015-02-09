@@ -14,8 +14,8 @@ In this edition I want to focus on two big changes we're making to our training 
 
 Our first change aims increase diversity in our public training courses.
 We started taking diversity seriously last year
-with [our program]({% post_url 2014-06-30-underscores-new-speaker-program %}) for Scala Exchange.
-This year we're [making our training courses half price]({% post_url 2015-01-29-diversity-in-training %}) for diversity candidates.
+with [our program](http://underscore.io/blog/2014/06/30/underscores-new-speaker-program) for Scala Exchange.
+This year we're [making our training courses half price](http://underscore.io/blog/posts/2015/01/29/diversity-in-training) for diversity candidates.
 Simple!
 
 The second affects the structure of our courses.
@@ -58,9 +58,9 @@ and diversity candidates are 75% off.
 Miles and I will be representing Underscore in San Francisco.
 We have organised a few events while we are there:
 
-- a [free one day introduction to Scala](/events/2015-03-15-essential-essential-scala.html);
-- a [one day course on Scalaz](/events/2015-03-19-essential-scalaz.html) taught in collaboration with Underscore Associate [Adam Rosien](http://rosien.net/); and
-- a [free one day workshop on Shapeless](/events/2015-03-20-shapeless.html).
+- a [free one day introduction to Scala](http://underscore.io/events/2015-03-15-essential-essential-scala.html);
+- a [one day course on Scalaz](http://underscore.io/events/2015-03-19-essential-scalaz.html) taught in collaboration with Underscore Associate [Adam Rosien](http://rosien.net/); and
+- a [free one day workshop on Shapeless](http://underscore.io/events/2015-03-20-shapeless.html).
 
 For the introduction to Scala we are looking for experienced Scala developers to act as teaching assistants, in addition to those with little or no Scala experience who want to learn more.
 
@@ -68,11 +68,11 @@ For the introduction to Scala we are looking for experienced Scala developers to
 
 There have been some good posts on the blog since the last newsletter. Highlights include:
 
-- Richard's writeup of [his talk at Scala Exchange](http://localhost:4000/blog/posts/2015/01/05/codereview.html) on our experiences delivering code reviews.
+- Richard's writeup of [his talk at Scala Exchange](http://underscore.io/blog/posts/2015/01/05/codereview.html) on our experiences delivering code reviews.
 
 - highlights of the talks by the new speakers at Scala Exchange whom we sponsored in [this post](http://underscore.io/blog/posts/2015/01/14/new-speakers-at-scala-exchange.html).
 
-- a [rundown of the new features in Lift 2.6](http://localhost:4000/blog/posts/2015/01/16/lift-26-release.html), also by Richard.
+- a [rundown of the new features in Lift 2.6](http://underscore.io/blog/posts/2015/01/16/lift-26-release.html), also by Richard.
 
 Till next time.
 
