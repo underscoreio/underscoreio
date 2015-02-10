@@ -14,7 +14,7 @@ In this edition I want to focus on two big changes we're making to our training 
 
 Our first change aims increase diversity in our public training courses.
 We started taking diversity seriously last year
-with [our program](http://underscore.io/blog/2014/06/30/underscores-new-speaker-program) for Scala Exchange.
+with [our program](http://underscore.io/blog/posts/2014/06/30/underscores-new-speaker-program) for Scala Exchange.
 This year we're [making our training courses half price](http://underscore.io/blog/posts/2015/01/29/diversity-in-training) for diversity candidates.
 Simple!
 
