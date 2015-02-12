@@ -10,6 +10,8 @@ In a simple script it might be acceptable to just crash if an error occurs.
 The techniques we are showing here are for high reliability programs,
 where we want to ensure we handle a selected set of errors.
 
+ <!-- break -->
+
 The examples below all have an idiomatic Java way of handling invalid input
 --- throwing exceptions.
 The issue with treating invalid input in this manner is they break type-safety.
@@ -21,35 +23,36 @@ That is, there isn't a valid return value for all input values.[^1]
 This issue mean we can not reason about the methods,
 which increases our cognitive load.
 
- <!-- break -->
-
 {% highlight scala %}
-  //List with a minimum length
-  final case class FavouriteNumbers(l: List[Int]) {
-   require(l.nonEmpty)
-  }
+// Java Style - avoid this
+// List with a minimum length
+final case class FavouriteNumbers(l: List[Int]) {
+ require(l.nonEmpty)
+}
 
-  // Integer only valid with in a given range
-  sealed trait Angle { val degrees: Int }
-  final case class Perpendicular(degrees:Int) extends Angle {
-    require(degrees == 90)
-  }
-  final case class Straight(degrees:Int) extends Angle {
-    require(degrees == 180)
-  }
-  final case class Acute(degrees: Int) extends Angle {
-    if (degrees > 0 || degrees < 90)
-    throw new IllegalArgumentException(
-      s"degrees needs to be between 0 and 90, $degrees is invalid.")
-  }
+// Integer only valid with in a given range
+sealed trait Angle { val degrees: Int }
+final case class Perpendicular(degrees:Int) extends Angle {
+  require(degrees == 90)
+}
 
-  final case class Obtuse(degrees: Int) extends Angle {
-    assert(degrees > 90 || degrees < 180)
-  }
+final case class Straight(degrees:Int) extends Angle {
+  require(degrees == 180)
+}
 
-  final case class Reflex(degrees: Int) extends Angle {
-    assume(degrees > 180 || degrees < 360,
-      s"degrees must be between 180 & 360 degrees")
+final case class Acute(degrees: Int) extends Angle {
+  if (degrees > 0 || degrees < 90)
+  throw new IllegalArgumentException(
+    s"degrees needs to be between 0 and 90, $degrees is invalid.")
+}
+
+final case class Obtuse(degrees: Int) extends Angle {
+  assert(degrees > 90 || degrees < 180)
+}
+
+final case class Reflex(degrees: Int) extends Angle {
+  assume(degrees > 180 || degrees < 360,
+    s"degrees must be between 180 & 360 degrees")
 
 {% endhighlight %}
 
@@ -65,7 +68,7 @@ rather than the runtime will inform us if we attempt to instantiate an object wi
 
 First the requirement for `FavouriteNumbers` is the input is a list that must contain at least one element.
 [Scalaz](https://github.com/scalaz/scalaz) has just the thing we need --- `NonEmptyList[T]`.
-As its name suggests it's a list is guaranteed to be non-empty.
+As its name suggests it's a list that is guaranteed to be non-empty.
 We can rewrite `FavouriteNumbers` as:
 
 {% highlight scala %}
@@ -129,25 +132,20 @@ object FavouriteNumbers {
 {% endhighlight %}
 
 Scalaz also offers the sugar of `.right` and `.left`, which is nice.
-In the examples above we are using a `String` as the error type, normally we would use a richer type.
+In the examples above we are using a `String` as the error type; normally we would use a richer type.
 
-### Conclusions
+### Handling failure
 
-We are now able to reason about the methods based on the type signatures.
-They are no longer partially defined functions --- we now have a valid return value for all input values.
-We are encoding the error into the type signature,
-which forces the caller to think about and handle the failure case.
-This allows the compiler to help us.
-We now need to explicitly tell it how we want to handle failure.
+We now need to explicitly tell the compiler how we want to handle failure.
 There are two typical ways to do this.
 First, we can transform a result to a common type using `fold`:
 
 {% highlight scala %}
-  val a:Either[String,Angle] = ???
-  val failure:Function[String,Int] = _.length()
-  val success:Function[Angle,Int] = _.degrees
+val a:Either[String,Angle] = ???
+val failure:Function[String,Int] = _.length()
+val success:Function[Angle,Int] = _.degrees
 
-  val result:Int = a.fold( failure, success)
+val result:Int = a.fold( failure, success)
 {% endhighlight %}
 
 
@@ -157,6 +155,15 @@ Second, we can fail fast.
 {% highlight scala %}
   val result:Either[String,Int] = a.map(success)
 {% endhighlight %}
+
+
+### Conclusions
+
+We are now able to reason about our methods based on the type signatures.
+They are no longer partially defined functions --- we now have a valid return value for all input values.
+We are encoding the error into the type signature,
+which forces the caller to think about and handle the failure case.
+This allows the compiler to help us.
 
 [^1]: It should be noted a partially defined function and a partial applied function are two quite different things. There is an excellent explaination on [Stack Overflow](http://stackoverflow.com/questions/8650549/using-partial-functions-in-scala-how-does-it-work).
 
