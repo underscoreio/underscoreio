@@ -18,7 +18,6 @@ uaMatch = (ua) ->
 
 # -> { browser: string, version: string }
 get = ->
-  console.log('Getting')
   # Don't clobber any existing jQuery.browser in case it's different
   if $.browser?
     $.browser
@@ -40,7 +39,6 @@ get = ->
 
 isIE10 = ->
   ua = get()
-  console.log(JSON.stringify(ua))
   ua.msie && /^10/.test(ua.version)
 
 module.exports = {
