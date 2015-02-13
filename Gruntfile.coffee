@@ -30,6 +30,7 @@ module.exports = (grunt) ->
           "underscoreio/css/print.css"  : "src/css/print.less"
           "underscoreio/css/ie8.css"    : "src/css/ie8.less"
           "underscoreio/css/ie9.css"    : "src/css/ie9.less"
+          "underscoreio/css/ie10.css"   : "src/css/ie10.less"
 
     browserify:
       site:
