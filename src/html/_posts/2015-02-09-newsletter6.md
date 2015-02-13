@@ -5,8 +5,6 @@ author: Noel Welsh
 categories: [ newsletter ]
 ---
 
-Hi,
-
 Noel here with the first Underscore newsletter of 2015.
 In this edition I want to focus on two big changes we're making to our training courses.
 
