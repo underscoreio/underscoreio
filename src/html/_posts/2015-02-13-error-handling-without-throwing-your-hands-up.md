@@ -12,12 +12,12 @@ where we want to ensure we handle a selected set of errors.
 
  <!-- break -->
 
-The examples below all have an idiomatic Java way of handling invalid input
+We have some example code below using an idiomatic Java way of handling invalid input
 --- throwing exceptions.
-The issue with treating invalid input in this manner is they break type-safety.
-Given the type signature `List[Int] => FavouriteNumbers`,
+The issue with treating invalid input in this manner is it breaks type-safety.
+Given the type signature `List[Int] => FavouriteNumbers`
 there is no way of telling that it may throw an exception.
-Another way of saying this is they are partially defined on their inputs.
+Another way of saying this is the methods are partially defined on their inputs.
 That is, there isn't a valid return value for all input values.[^1]
 
 This issue mean we can not reason about the methods,
@@ -58,35 +58,34 @@ final case class Reflex(degrees: Int) extends Angle {
 
 
 The solution is to encode the [invariants](http://en.wikipedia.org/wiki/Invariant_(computer_science)) into the type system.
-This means we move the validation of input into the types themselves.
-So we can only create valid instances,
-rather than throwing exceptions on invalid input.
-This means the compiler,
-rather than the runtime will inform us if we attempt to instantiate an object with bad data.
+This means we move the validation of input into the types themselves,
+meaning we can only create valid instances.
+As a result, the compiler,
+rather than the runtime,
+will inform us if we attempt to instantiate an object with bad data.
 
 ### How can we achieve this?
 
-First the requirement for `FavouriteNumbers` is the input is a list that must contain at least one element.
+The requirement for `FavouriteNumbers` is the input is a list that must contain at least one element.
 [Scalaz](https://github.com/scalaz/scalaz) has just the thing we need --- `NonEmptyList[T]`.
 As its name suggests it's a list that is guaranteed to be non-empty.
 We can rewrite `FavouriteNumbers` as:
 
 {% highlight scala %}
 final case class FavouriteNumbers(l: NonEmptyList[Int])
-
 {% endhighlight %}
 
 
-Second, creating an `Angle` can either succeed (with an `Angle`) or fail (with an error message).
+Creating an `Angle` can either succeed (with an `Angle`) or fail (with an error message).
 Scala provides what we need in the type [`Either`](http://www.scala-lang.org/api/current/#scala.util.Either).
 The value of `Either` must be an instance of `Left` or `Right`.
-By convetion `Left` is used for failure and `Right` for success.
-In our case a `String` or an `Angle`, giving: `Either[String,Angle]`.
+By convention `Left` is used for failure and `Right` for success.
+In our case a we fail with a `String` or succeed with an `Angle`, giving: `Either[String,Angle]`.
 
 Rather than attempting to encode this for each of the classes implementing the trait,
 we can make their constructors private and use a method on the companion object to enforce the requirements at instantiation.
-Finally, there only ever needs to be a single instance of both `Perpendicular` and `Straight`.
-So let's make them case objects.
+Finally, there only ever needs to be a single instance of both `Perpendicular` and `Straight`
+so let's make them case objects.
 
 {% highlight scala %}
 sealed trait Angle { val degrees: Int }
@@ -116,8 +115,8 @@ object Angle {
 {% endhighlight %}
 
 
-We can use this same technique to improve our `FavouriteNumbers` example.
-This time using Scalaz' implementation of `Either`, called disjunction.
+We could use this same technique to improve our `FavouriteNumbers` example, instead of using the `NonEmptyList` type for the input.
+This time using Scalaz's implementation of `Either`, called disjunction.
 We can read the type of the [disjunction](http://scalaz.github.io/scalaz/scalaz-2.10-7.0.3/doc/index.html#scalaz.$bslash$div) just as we read `Either`'s.
 `String \/ Angle` is the same as `Either[String,Angle]`
 
@@ -142,8 +141,8 @@ First, we can transform a result to a common type using `fold`:
 
 {% highlight scala %}
 val a:Either[String,Angle] = ???
-val failure:Function[String,Int] = _.length()
-val success:Function[Angle,Int] = _.degrees
+val failure:String => Int = _.length()
+val success:Angle => Int = _.degrees
 
 val result:Int = a.fold( failure, success)
 {% endhighlight %}
