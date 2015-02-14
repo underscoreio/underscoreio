@@ -36,6 +36,15 @@
         <dd class="event-summary">{{ include.event.summary }}</dd>
         {% endif %}
       </dl>
+
+      {% for linkItem in include.event.bookingLinks %}
+        <p>
+          <a class="btn btn-block {{ linkItem.class | default:"btn-info" }}"
+              href="{{ linkItem.url }}">
+            {{ linkItem.text }}
+          </a>
+        </p>
+      {% endfor %}
     </div>
   </div>
 </aside>

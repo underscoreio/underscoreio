@@ -10,6 +10,14 @@ duration: 8 hours
 cost: £400/500
 navbar: events
 summary: Take your Scala skills to the next level. The tools you need to build large scale systems in Scala.
+bookingLinks:
+  - text:  Book now - <strike>£500</strike> £400<br>
+           <small>(early bird discount ends Mar 30th)</small>
+    url:   https://www.eventbrite.com/e/advanced-scala-edinburgh-tickets-15649276407
+  - text:  Diversity applications - £250<br>
+           <small>(limited places available)</small>
+    url:   https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform
+    class: "btn-warning"
 ---
 
 ### What
@@ -33,9 +41,9 @@ This course will be taught by Noel Welsh.
 
 The course will run from 9AM to 5PM on {{ page.date | date:'%a, %b %d, %Y' }} at [NCR Edinburgh](http://ncredinburgh.com/):
 
-[10 Kittle Yards  
-Causewayside  
-Edinburgh  
+[10 Kittle Yards
+Causewayside
+Edinburgh
 EH9 1PJ](https://www.google.co.uk/maps/place/Edinburgh,+City+of+Edinburgh+EH9+1PJ/@55.9355304,-3.1806197,17z/data=!3m1!4b1!4m2!3m1!1s0x4887c77eec54a2b7:0x4e240616aef2facb).
 
 ### What You Need

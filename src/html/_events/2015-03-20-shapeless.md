@@ -1,7 +1,7 @@
 ---
 layout: event
 title: Shapeless Workshop
-date: 2015-03-20 09:00 
+date: 2015-03-20 09:00
 timezone: PST
 location: San Francisco
 duration: 8 hours
@@ -9,6 +9,14 @@ cost: Free
 course: essential-shapeless
 navbar: events
 summary: Miles Sabin leads a workshop into the design and use of the Shapeless library.
+bookingLinks:
+  - text:  Book now - FREE<br>
+           <small>(limited places available)</small>
+    url:   https://docs.google.com/forms/d/1uUk2fzz7s_DQ1qanlPHzRA8qE62KSnCBUNxPYunDILc/viewform?usp=send_form
+  - text:  Diversity applications - FREE<br>
+           <small>(limited places available)</small>
+    url:   https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform
+    class: "btn-warning"
 ---
 
 ### What

@@ -10,6 +10,14 @@ duration: 8 hours
 cost: $600/$750
 navbar: events
 summary: Take your Scala skills to the next level. The tools you need to large scale Scala systems.
+bookingLinks:
+  - text:  Book now - <strike>$750</strike> $600<br>
+           <small>(early bird discount ends Feb 28th)</small>
+    url:   http://www.eventbrite.com/e/advanced-scala-scalaz-tickets-15509600633?aff=underscoreio
+  - text:  Diversity applications - $375<br>
+           <small>(limited places available)</small>
+    url:   https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform
+    class: "btn-warning"
 ---
 
 ### What

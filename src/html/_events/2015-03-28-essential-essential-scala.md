@@ -10,6 +10,10 @@ duration: 8 hours
 cost: Free
 navbar: events
 summary: A free and fun taste of Scala.
+bookingLinks:
+  - text:  Book via NCR Edinburgh - FREE<br>
+           <small>(limited places available)</small>
+    url:   http://ncredinburgh.com/blog/posts/essential-essential-scala
 ---
 
 ### What

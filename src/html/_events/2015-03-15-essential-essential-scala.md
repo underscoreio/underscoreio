@@ -10,6 +10,13 @@ duration: 8 hours
 cost: Free
 navbar: events
 summary: A free and fun taste of Scala. Places available for students and teaching assistants.
+bookingLinks:
+  - text:  Book as a student - FREE<br>
+           <small>(limited places available)</small>
+    url:   https://docs.google.com/forms/d/1uFxSI44wsnKqorKyCm40a8E3CTZuvt-OeSBmbaQggm4/viewform
+  - text:  Become a teaching assistant
+    url:   https://docs.google.com/forms/d/1uFxSI44wsnKqorKyCm40a8E3CTZuvt-OeSBmbaQggm4/viewform
+    class: "btn-warning"
 ---
 
 ### What

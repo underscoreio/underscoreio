@@ -10,6 +10,20 @@ duration: 4 weeks
 cost: $749
 navbar: events
 summary: Our studio-style online course for professional developers who want a thorough introduction to Scala.
+bookingLinks:
+  - text:  Book now - <strike>$1499</strike> $749<br>
+           <small>(EU businesses)</small>
+    url:   http://underscore.io/training/bookings/?course=essential-scala
+  - text:  Book now - <strike>$1499</strike> $749<br>
+           <small>(EU individuals)</small>
+    url:   https://www.eventbrite.com/e/essential-scala-online-feb-2015-tickets-15568671315
+  - text:  Book now - <strike>$1499</strike> $749<br>
+           <small>(all non-EU customers)</small>
+    url:   https://www.eventbrite.com/e/essential-scala-online-feb-2015-tickets-15568671315
+  - text:  Diversity applications - <strike>$749</strike> $375<br>
+           <small>(limited places available)</small>
+    url:   https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform
+    class: "btn-warning"
 ---
 
 ### What
@@ -89,7 +103,7 @@ Due to UK tax rules, we have a slightly complicated process for applying:
   - based in the UK; or
   - based in the EU and purchasing a ticket as an *individual*,
   [get your ticket here](https://www.eventbrite.com/e/essential-scala-online-feb-2015-tickets-15568671315).
-- Businesses outside the UK but inside the EU should contact us directly so we can issue an invoice with the correct tax information.
+- Businesses outside the UK but inside the EU should [contact us directly](http://underscore.io/training/bookings/?course=essential-scala) so we can issue an invoice with the correct tax information.
 - Diversity attendees should [apply here](https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform) to enter the lottery for places.
 
 ### More Questions?
