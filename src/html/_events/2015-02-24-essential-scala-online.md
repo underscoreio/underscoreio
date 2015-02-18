@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Essential Scala Online
+title: Essential Scala Online (Registration Closed)
 type: course
 course: essential-scala
 location: Online
@@ -10,7 +10,10 @@ duration: 4 weeks
 cost: $749
 navbar: events
 summary: Our studio-style online course for professional developers who want a thorough introduction to Scala.
-bookingLinks:
+bookingLinks: []
+---
+
+{% comment %}
   - text:  Book now - <strike>$1499</strike> $749<br>
            <small>(EU businesses)</small>
     url:   http://underscore.io/training/bookings/?course=essential-scala
@@ -24,7 +27,7 @@ bookingLinks:
            <small>(limited places available)</small>
     url:   https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform
     class: "btn-warning"
----
+{% endcomment %}
 
 ### What
 
@@ -96,6 +99,9 @@ As this is the very first time we are running Essential Scala online in a studio
 
 ### Apply Now
 
+Registration for the course is now closed. Subscribe to [The Underscore Newsletter](/blog/newsletters) to be notified of the next Essential Scala Online.
+
+{% comment %}
 Due to UK tax rules, we have a slightly complicated process for applying:
 
 - If you are a standard attendee and
@@ -105,6 +111,7 @@ Due to UK tax rules, we have a slightly complicated process for applying:
   [get your ticket here](https://www.eventbrite.com/e/essential-scala-online-feb-2015-tickets-15568671315).
 - Businesses outside the UK but inside the EU should [contact us directly](http://underscore.io/training/bookings/?course=essential-scala) so we can issue an invoice with the correct tax information.
 - Diversity attendees should [apply here](https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform) to enter the lottery for places.
+{% endcomment %}
 
 ### More Questions?
 
