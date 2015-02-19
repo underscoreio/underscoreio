@@ -34,10 +34,10 @@ products:
     public:
       type: eventbrite
       title: "Public Courses"
-      url: "https://www.eventbrite.com/e/advanced-scala-scalaz-tickets-13536468943"
-      buttonLabel: "Sign up - £499"
+      url: "http://underscore.io/events/"
+      buttonLabel: "View upcoming events"
       description: |
-        The next workshop will take place on Thursday 11th December 2014 at Wallacespace St Pancras.
+        Courses are currently scheduled for San Francisco and Edinburgh in March.
     private:
       type: private
       title: "Private Courses"

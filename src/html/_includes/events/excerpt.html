@@ -38,24 +38,31 @@
 <div class="event-excerpt panel panel-gray" data-event-url="{{ event.url }}">
   <div class="panel-heading"{% if excerptColor %} style="background: {{ excerptColor }}"{% endif %}>
     <h3>
-      <span class="event-icon icon-uio-{{ excerptIcon }}"></span>
-      <span class="event-date">
-        {{ include.event.date | date: '%d %b' }}
+      <span class="pull-left">
+        <span class="event-date">
+          {{ include.event.date | date: '%d %b' }}
+        </span>
+        <span class="event-title">{{ event.title }}</span>
       </span>
-      <span class="event-title">{{ event.title }}</span>
+      {% if include.event.location %}
+      <span class="pull-right">
+        <span class="event-location">
+        {{ include.event.location }}
+        </span>
+        <span class="event-icon icon-uio-{{ excerptIcon }}"></span>
+        {% endif %}
+      </span>
     </h3>
   </div>
 
   <div class="panel-body">
     <dl class="event-meta">
-      {% if include.event.location %}
-      <dt>Location</dt>
-      <dd class="event-location">{{ include.event.location }}</dd>
-      {% endif %}
-
       <dt>Time</dt>
       <dd class="event-time">
-        {{ include.event.date | date: '%H:%M' }} UTC
+        {{ include.event.date | date: '%H:%M' }}
+        {% if include.event.timezone %}
+          {{ include.event.timezone }}
+        {% endif %}
       </dd>
 
       {% if include.event.duration %}

@@ -16,7 +16,9 @@
         <dd class="event-date">
           {{ include.event.date | date: '%d %b %Y' }} at
           {{ include.event.date | date: '%H:%M' }}
-          UTC</span>
+          {% if include.event.timezone %}
+            {{ include.event.timezone }}
+          {% endif %}
         </dd>
 
         {% if include.event.duration %}
@@ -34,6 +36,15 @@
         <dd class="event-summary">{{ include.event.summary }}</dd>
         {% endif %}
       </dl>
+
+      {% for linkItem in include.event.bookingLinks %}
+        <p>
+          <a class="btn btn-block {{ linkItem.class | default:"btn-info" }}"
+              href="{{ linkItem.url }}">
+            {{ linkItem.text }}
+          </a>
+        </p>
+      {% endfor %}
     </div>
   </div>
 </aside>

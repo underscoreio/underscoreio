@@ -32,7 +32,7 @@ products:
     public:
       type: public
       title: "Public Courses"
-      buttonLabel: "Register your interest"
+      buttonLabel: "View upcoming events"
       comingSoon: true
     private:
       type: private
