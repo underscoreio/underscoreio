@@ -7,7 +7,7 @@ date: '2015-02-20'
 
 Noel [recently wrote about][studio-scala] [Doodle][doodle],
 the compositional drawing library we are featuring
-in our new studio-format [Essential Scala][essential-scala].
+in our new studio-format [Essential Scala][essential-scala] course.
 Today I want to introduce you to another library called *Compose*
 ([code on Github][compose]).
 This new library, which will be featured in future courses,
@@ -18,7 +18,7 @@ applies the same functional programming principles to music.
 Doodle and Compose are both designed in a classicly functional manner.
 The user builds a representation of the desired output
 using a set of primitive objects and combinators.
-The library then compiles/interprets the representation
+The library then compiles or interprets the representation
 to produce the final result.
 This design, separating composition and interpretation,
 offers a number of advantages,
@@ -45,7 +45,7 @@ and can be worked into many business logic applications:
 ## Representing Music as Code
 
 Doodle is based on simple geometric primitives
-such as Squares, circles, and triangles.
+such as squares, circles, and triangles.
 Its composition operations are spatial functions such as
 `beside`, `above`, and `below`.
 Let's look at the language Compose uses to represent music
@@ -105,9 +105,9 @@ and save this for a future addition to the library.
 
 Now we have our primitive building blocks,
 let's think about how we can combine them to create musical scores.
-We can combine notes in in *sequence* (played one after the other) and
+We can combine notes in a *sequence* (played one after the other) and
 *parallel* (played at the same time).
-Compose uses the `+` operator for sequentual composition and
+Compose uses the `+` operator for sequential composition and
 the `|` operator for parallel composition:
 
 ~~~ scala
@@ -147,8 +147,6 @@ case class ParScore(a: Score, b: Score) extends Score
 
 Ignoring dynamics and volume,
 we can represent any composition using `Scores`.
-Dynamics can easily be added by adding a field on `NoteScore`
-and updating the composition DSL accordingly.
 
 ## Playback
 
@@ -220,7 +218,7 @@ val freebird: Score =
 `tab""` expressions are compile-time checked and evaluate to
 `Score` expressions written in the DSL discussed above.
 See the [unit tests][tab-unit-tests] for a complete worked example
-and absolute proof that functional programming in Scala rocks!
+and canonical proof that functional programming in Scala rocks!
 
 [studio-scala]: 2015-01-26-rethinking-online-training.html
 [essential-scala]: /training/courses/essential-scala
