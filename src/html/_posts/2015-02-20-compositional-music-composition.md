@@ -73,7 +73,7 @@ Durations are measured in *beats*.
 There are typically four beats a bar but many notes are much shorter than that.
 Compose provides representations for whole, half, quarter, eighth, sixteenth,
 and thirty-second beats, and combinators to produce
-["dotted" variants](https://en.wikipedia.org/wiki/Dotted_note).
+["dotted" variants][dotted-notes].
 
 <div class="captioned">
   <img src="/images/blog/2015-02-01-compositional-music-composition-pitches.jpg">
@@ -154,7 +154,7 @@ and updating the composition DSL accordingly.
 
 To play songs back, we have to think of them as
 programs to be compiled and interpreted.
-You can review the code Compose uses for this on [Github](compose).
+You can review the code Compose uses for this on [Github][compose].
 The essential idea is to compile the score into a
 sequence of `Commands` that can be interpreted directly:
 
@@ -165,8 +165,8 @@ case class NoteOff(channel: Int) extends Command
 case class Wait(millis: Long) extends Command
 ~~~
 
-The player, which uses the [ScalaCollider](scalacollider) library
-to communicate with [SuperCollider](supercollider),
+The player, which uses the [ScalaCollider][scalacollider] library
+to communicate with [SuperCollider][supercollider],
 allocates a fixed number of *channels* to play back sounds.
 If we have 4 channels it means we can play 4 samples at the same time.
 The `NoteOn` and `NoteOff` commands affect a specified channel
@@ -230,3 +230,4 @@ and absolute proof that functional programming in Scala rocks!
 [hanns-rutz]: http://sciss.de/
 [supercollider]: http://audiosynth.com/
 [tab-unit-tests]: https://github.com/underscoreio/compose/blob/master/src/test/scala/compose/tab/TablatureSyntaxSpec.scala
+[dotted-notes]: https://en.wikipedia.org/wiki/Dotted_note
