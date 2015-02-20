@@ -117,7 +117,7 @@ import Note._
 C4.e | E4.e | G4.e
 
 // A C major scale:
-C4.e ~ D4.e ~ E4.e ~ F4.e ~ G4.e ~ A4.e ~ B4.e
+C4.e + D4.e + E4.e + F4.e + G4.e + A4.e + B4.e
 ~~~
 
 And, of course, sequential and parallel forms compose nicely.
@@ -127,7 +127,7 @@ Here's a simple chord progression:
 val Cmaj   = C3.q | E3.q | G3.q
 val Fmaj   = C3.q | F3.q | A3.q
 val Gmaj   = D3.q | G3.q | B3.q
-val chords = Cmaj ~ Fmaj ~ Gmaj ~ Fmaj ~ Cmaj
+val chords = Cmaj + Fmaj + Gmaj + Fmaj + Cmaj
 ~~~
 
 Behind the scenes Compose builds up a representation of the
