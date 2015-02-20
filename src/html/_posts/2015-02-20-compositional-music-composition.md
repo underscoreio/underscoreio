@@ -99,7 +99,7 @@ Note that we are omitting another important component of music -- *dynamics*.
 Without changes in volume, our musical compositions will sound
 artificial and computer generated.
 However, we've opted to keep things simple for now
-and save this for a future addition to Compose.
+and save this for a future addition to the library.
 
 ## Composition
 
