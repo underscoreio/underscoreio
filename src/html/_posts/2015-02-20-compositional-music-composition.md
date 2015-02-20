@@ -5,34 +5,38 @@ author: Dave Gurnell
 date: '2015-02-20'
 ---
 
-Noel [recently wrote about](studio-scala) [Doodle](doodle),
+Noel [recently wrote about][studio-scala] [Doodle][doodle],
 the compositional drawing library we are featuring
-in our new studio-format Essential Scala course.
-Today I want to introduce you to another library
-that we will be introducing in future courses.
-Called [Compose](compose), the new library
-applies the same functional programming principles
-to music composition.
+in our new studio-format [Essential Scala][essential-scala].
+Today I want to introduce you to another library called *Compose*
+([code on Github][compose]).
+This new library, which will be featured in future courses,
+applies the same functional programming principles to music.
 
 <!-- break -->
 
-Doodle and Compose are both examples of classical functional programming.
-The user builds a representation of the desired output using a set of
-primitive objects and combinator functions.
+Doodle and Compose are both designed in a classicly functional manner.
+The user builds a representation of the desired output
+using a set of primitive objects and combinators.
 The library then compiles/interprets the representation
 to produce the final result.
-
-This separation of representation and interpretation
-offers a number of advantages:
+This design, separating composition and interpretation,
+offers a number of advantages,
+and can be worked into many business logic applications:
 
  - User code is simple and declarative,
-   describing only the expected output,
-   and doesn't get bogged down implementation-specific details.
+   describing only the expected output
+   and ignoring implementation-specific details.
 
- - The representation, if defined correctly,
-   allows the user to easily change aspects of the output,
-   such as relocating an image to a different part of the screen
-   or playing the composition back at a different tempo.
+ - The intermediate representation, if defined correctly,
+   allows the user to easily change aspects of the output:
+   relocating an image to a different part of the screen,
+   or playing a song back at a different tempo.
+
+ - We can provide different interpreters for different situations
+   without changing any user code.
+   For example, Doodle has an interpreter for Swing/Java2D
+   and an interpreter for HTML5/Canvas.
 
  - Finally, it is possible to clone and re-use
    parts of images and songs within other images and songs.
@@ -52,13 +56,18 @@ and how it allows us to build complex songs from simple parts.
 The primitives in a musical score are *notes* and *rests*.
 Notes have a *pitch* and *duration* and rests simply have a *duration*:
 
-![<a href="https://www.flickr.com/photos/jonnyentropy/8237873224">
-  Photograph by Tris Linnell, CC-BY-NC-SA.
-</a>](/images/blog/2015-02-01-compositional-music-composition.jpg)
+<div class="captioned">
+  <img src="/images/blog/2015-02-01-compositional-music-composition.jpg">
+  <div class="caption">
+    <a href="https://www.flickr.com/photos/jonnyentropy/8237873224">
+      Photograph by Tris Linnell, CC-BY-NC-SA.
+    </a>
+  </div>
+</div>
 
 Piano keys are a convenient represenation of pitch:
-`C4` is middle C, `D4` the next white note, `Cs4` the C sharp between the two,
-and so on.
+`C4` is middle C, `D4` the next white note,
+`Cs4` the C sharp between the two, and so on.
 
 Durations are measured in *beats*.
 There are typically four beats a bar but many notes are much shorter than that.
@@ -66,7 +75,14 @@ Compose provides representations for whole, half, quarter, eighth, sixteenth,
 and thirty-second beats, and combinators to produce
 ["dotted" variants](https://en.wikipedia.org/wiki/Dotted_note).
 
-![Pitches on a piano keyboard](/images/blog/2015-02-01-compositional-music-composition-pitches.jpg)
+<div class="captioned">
+  <img src="/images/blog/2015-02-01-compositional-music-composition-pitches.jpg">
+  <div class="caption">
+    <a href="https://www.flickr.com/photos/124497826@N08/14121388525">
+      Photograph from the Leeds Piano Competition, CC-BY.
+    </a>
+  </div>
+</div>
 
 The end result is a DSL for producing notes with any cross section of
 pitch and duration:
@@ -85,7 +101,7 @@ artificial and computer generated.
 However, we've opted to keep things simple for now
 and save this for a future addition to Compose.
 
-## Composition: Scores
+## Composition
 
 Now we have our primitive building blocks,
 let's think about how we can combine them to create musical scores.
@@ -113,6 +129,26 @@ val Fmaj   = C3.q | F3.q | A3.q
 val Gmaj   = D3.q | G3.q | B3.q
 val chords = Cmaj ~ Fmaj ~ Gmaj ~ Fmaj ~ Cmaj
 ~~~
+
+Behind the scenes Compose builds up a representation of the
+music using `Score` objects. There are `Score` wrappers
+for notes, rests, sequences, and parallel combinations:
+
+~~~ scala
+sealed trait Score {
+  def +(that: Score) = SeqScore(this, that)
+  def |(that: Score) = ParScore(this, that)
+}
+case class NoteScore(note: Note, duration: Duration) extends Score
+case class RestScore(duration: Duration) extends Score
+case class SeqScore(a: Score, b: Score) extends Score
+case class ParScore(a: Score, b: Score) extends Score
+~~~
+
+Ignoring dynamics and volume,
+we can represent any composition using `Scores`.
+Dynamics can easily be added by adding a field on `NoteScore`
+and updating the composition DSL accordingly.
 
 ## Playback
 
@@ -148,42 +184,49 @@ depending on user preferences.
 
 *Compose* demonstrates how classical
 functional programming principles can be applied to music.
-We model a problem domain using *primitive* notes and rests
-and parallel and sequential *combinator* operations,
-and *compile and interpret* the resulting scores
-using structural recursion.
+We model a problem domain using *primitives* such as notes and rests,
+and *combine* them using parallel and sequential operators.
+Finally, we *interpret* the resulting score to produce a useful output.
 
-This design allows library users to concentrate on the
-notes, intervals, and temporal relationships in their songs,
-without being concerned with implementation details such
+Functional library design allows library users to concentrate on the
+components and relationships in their compositions
+without concerning themselves with implementation details such
 as then number of channels available for playback.
-Songs can be trivially composed and manipulated to create new songs
+Songs can be combined and transformed to create new songs
 with different patterns or in different keys.
-The only limitation is the user's understanding of musical theory
-to know which notes sound good together.
 
-You might validly argue that, while the DSL used in Compose is
-expressive enough to represent many songs,
-it isn't as readable as regular sheet music.
-I'll leave you with a little idea I have for a future addition --
-the guitar tablature string interpolator macro:
+You might validly argue that,
+while the DSL used in Compose is expressive enough to store music,
+it isn't particuarly readable as regular sheet music.
+One final feature of a functional library design is the ability
+to create new DSLs on top of the existing representations and interpreters.
+Here, for example, is the quintissential example of a DSL---a
+string interpolator macro for parsing guitar tablature:
 
 ~~~ scala
-val freebird = tab"""
-|-------------------------------|----------------------------|
-|-3------------3---3---3-3------|-5--x-----------------------|
-|-4------------3-x-3-x-3-3--x-x-|-5--x-----------------------|
-|-5--x-------x-3-x-3-x-3-3--x-x-|-5--x-----5----5----5----5--|
-|-5--x---0-2-x-1-x-1-x-1-1--x-x-|-3----5h7----7----7----7----|
-|-3--x-3-----x------------------|----------------------------|
-"""
+import compose.tab._
+
+val freebird: Score =
+  tab"""
+  |-------------------------------|----------------------------|
+  |-3------------3---3---3-3------|-5--x-----------------------|
+  |-4------------3-x-3-x-3-3--x-x-|-5--x-----------------------|
+  |-5--x-------x-3-x-3-x-3-3--x-x-|-5--x-----5----5----5----5--|
+  |-5--x---0-2-x-1-x-1-x-1-1--x-x-|-3----5h7----7----7----7----|
+  |-3--x-3-----x------------------|----------------------------|
+  """
 ~~~
 
-Pull requests would be most welcome :)
+`tab""` expressions are compile-time checked and evaluate to
+`Score` expressions written in the DSL discussed above.
+See the [unit tests][tab-unit-tests] for a complete worked example
+and absolute proof that functional programming in Scala rocks!
 
-[studio-training]: 2015-01-26-rethinking-online-training.html
+[studio-scala]: 2015-01-26-rethinking-online-training.html
+[essential-scala]: /training/courses/essential-scala
 [doodle]: https://github.com/underscoreio/doodle
 [compose]: https://github.com/underscoreio/compose
 [scalacollider]: http://www.sciss.de/scalaCollider/
 [hanns-rutz]: http://sciss.de/
 [supercollider]: http://audiosynth.com/
+[tab-unit-tests]: https://github.com/underscoreio/compose/blob/master/src/test/scala/compose/tab/TablatureSyntaxSpec.scala
