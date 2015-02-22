@@ -6,7 +6,7 @@ author: Channing Walton
 
 ### Overview
 
-[LiftWeb](http://liftweb.net) makes building dynamic, comet and ajax websites extremely easy. [RxScala](http://reactivex.io/rxscala/) is a Scala adapter for RxJava, "a library for composing asynchronous and event-based programs using observable sequences for the Java VM". This blog describes how we combined Lift and RxScala for event-based UI components using observable sequences.
+[LiftWeb](http://liftweb.net) makes building dynamic, comet and ajax websites extremely easy. [RxScala](http://reactivex.io/rxscala/) is a Scala adapter for RxJava, "a library for composing asynchronous and event-based programs using observable sequences for the Java VM". This blog describes how we combined Lift and RxScala for event-based UI components using observable sequences. Have a look at [RxLift](https://github.com/channingwalton/rxlift) for a working example.
 
 (If you would like an introduction to Rx please refer to [ReactiveX](http://reactivex.io), and to [Exploring Lift](http://exploring.liftweb.net/master/index.html) to learn about LiftWeb).
 
@@ -27,7 +27,7 @@ The RxComponent wraps a function that accepts an Observable[T] and returns an Rx
 
 The RxElement.values is the output stream of values, the jscmd is the stream of JsCmds to send to the browser to make whatever changes are required in response to the input stream, and the ui is the html to bind into templates as usual in Lift.
 
-The JsCmds emitted by RxElement.jscmd needs to be sent to the browser. Lift's CometActor will do this for us, all thats needed is for the JsCmds emitted by the Observable[JsCmd] to be sent to the actor that forwards it to the client:
+To send the JsCmds emitted by RxElement.jscmd to the browser, each JsCmd needs to be sent to a comet actor that forwards it to the client:
 
 {% highlight scala %}
   // in a CometActor
@@ -38,6 +38,9 @@ The JsCmds emitted by RxElement.jscmd needs to be sent to the browser. Lift's Co
     case cmd: JsCmd ⇒ partialUpdate(cmd)
   }
 {% endhighlight %}
+
+
+[RxLift](https://github.com/channingwalton/rxlift) wraps all the mechanics of pushing updates to the client and managing Subscriptions to Observables.
 
 ### A Label
 
