@@ -12,7 +12,7 @@ navbar: events
 summary: Take your Scala skills to the next level. The tools you need to build large scale systems in Scala.
 bookingLinks:
   - text:  Book now - <strike>£500</strike> £400<br>
-           <small>(early bird discount ends Mar 30th)</small>
+           <small>(early bird discount ends Mar 2nd)</small>
     url:   https://www.eventbrite.com/e/advanced-scala-edinburgh-tickets-15649276407
   - text:  Diversity applications - £250<br>
            <small>(limited places available)</small>
