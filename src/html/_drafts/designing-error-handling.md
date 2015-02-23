@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Designing Error Handling
+title: Designing Fail-Fast Error Handling
 author: Noel Welsh
 ---
 
@@ -39,7 +39,7 @@ We can immediately discard using exceptions. Exceptions are unchecked in Scala, 
 
 This leaves us with monads. The term may not be familiar to all Scala programmers, but most will be familiar with `Option` and `flatMap`. This is essentially the behaviour we are looking for. `Option` gives us fail-fast behaviour when we use `flatMap` to sequence computations[^type-inference].
 
-[^type-inference]: I use `Option.empty` to construct an instance of `None` with the type I want. If I instead used a plan `None` (which is a sub-type of `Option[Nothing]`) type inference in this case infers `Option[String]`. This is due to the overloading of `+` to mean string concatentation as well as numeric addition.
+[^type-inference]: I use `Option.empty[A]` to construct an instance of `None` with the type I want. If I instead used a plan `None` (which is a sub-type of `Option[Nothing]`) type inference in this case infers `Option[String]`. This is due to the overloading of `+` for string concatentation as well as numeric addition.
 
 ~~~ scala
 scala> Option(1) flatMap { x =>
@@ -76,7 +76,7 @@ We can also drop `Try` from consideration. `Try` always stores a `Throwable` to 
 
 `Either` allows us to store any type we want as the error case. Thus we could meet our goals with `Either`, but in practice I prefer not to use it. The reason being it is cumbersome to use. Whenever you `flatMap` on an `Either` you have to decide which of the left and right cases is considered that success case (the so-called left and right projections). This is tedious and, since the right case is always considered the succesful case, only serves to introduce bugs[^bugs].
 
-[^bugs]: Admittedly this is no a common source of bugs. However, as a leftie I sometimes get my right and left mixed up and it is conceivable this *is* the kind of mistake I could make.
+[^bugs]: Admittedly this is no a common source of bugs. However, I sometimes get my right and left mixed up (I'm left-handed) and this *is* the kind of mistake I could make.
 
 My preferred choice is Scalaz's `\/` type, which is *right-biased*. This means it always considers the right hand to be the successful case for `flatMap` and `map`. It's much more convenient to use than `Either` and can be used as a drop-in replacement for it.
 
@@ -113,9 +113,9 @@ We have the basic structure in place -- use `\/` for fail fast behaviour along w
 It is very useful to know the location (file name and line number) of an error. Exceptions provide this through the stack trace, but if we roll our own error types we must add the location ourselves. We can use macros to extract location information, but it is probably simpler to created a sealed subtype of `Exception` as the root of our algebraic data types, and use `fillInStackTrace` to capture location information. Wrap this up behind a convenience constructor and we'll always have location information for debugging.
 
 
-## Union types.
+## Union types
 
-Finally, we see that we often repeat error types as we move between layers. For example, both the database and service layers have `NotFound` errors that mean essentially the same thing. Inheritance restricts us to tree shaped subtyping relationships. We can't "reach into" the `DatabaseError` type to pull out just the `NotFound` case for inclusion in `ServiceError`.
+Finally, we see that we often repeat error types as we move between layers. For example, both the database and service layers [in the example](https://gist.github.com/noelwelsh/9cacc8683bf3231b9219) have `NotFound` errors that mean essentially the same thing. Inheritance restricts us to tree shaped subtyping relationships. We can't "reach into" the `DatabaseError` type to pull out just the `NotFound` case for inclusion in `ServiceError`.
 
 If we used a logical extension of `Either` (or `\/`) that we can piece together types in an ad-hoc way. For example, we could use `\/[NotFound, BadPassword]` to represent our errors, and if we wanted to extend to more cases we could use `\/[NotFound, \/[BadPassword, NotFound]]` and so on, forming a list structure. The [shapeless](https://github.com/milessabin/shapeless) `Coproduct` provides a generalisation of this idea.
 
