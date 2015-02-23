@@ -12,11 +12,13 @@ author: Channing Walton
 
 ### The Basic Ideas
 
-There are two fundamental sides to the RxLift model: mapping an Observable stream of values to JavaScript pushed via Lift's Comet support to the client to update elements on the client; and a stream of values from AJAX updates from the client in the form of an Observable.
+There are several fundamental ideas in the RxLift model: 
 
-We will use Lift's existing mechanism for binding the HTML for these reactive components into templates which is well understood and very simple.
+* an Observable stream of values is mapped to JavaScript, which is pushed via Lift's Comet support to the client, to update elements on the client
+* AJAX updates from the client are mapped into an Observable stream of values
+* Lift's existing mechanism for binding the HTML for these reactive components into templates is still used
 
-The above leads to this model:
+The core model:
 {% highlight scala %}
 case class RxComponent[I, O](consume: Observable[I] ⇒ RxElement[O])
 
@@ -29,53 +31,48 @@ The RxElement.values is the output stream of values, the jscmd is the stream of 
 
 To send the JsCmds emitted by RxElement.jscmd to the browser, each JsCmd needs to be sent to a comet actor that forwards it to the client:
 
-{% highlight scala %}
-  // in a CometActor
-  
-  element.jscmd.map(cmd => this ! cmd)
-  
-  def lowPriority : PartialFunction[Any, Unit] = {
-    case cmd: JsCmd ⇒ partialUpdate(cmd)
-  }
-{% endhighlight %}
-
-
-[RxLift](https://github.com/channingwalton/rxlift) wraps all the mechanics of pushing updates to the client and managing Subscriptions to Observables.
+RxLift's [RxCometActor](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/RxCometActor.scala) wraps up the mechanics of sending Javascript to the client and managing subscription to the observables where necessary.
 
 ### A Label
 
 The simplest example to start with is a text label since it maps an Observable[String] to a stream of values pushed to the browser.
 
-The label for an Observable[String] can be built rather simply:
-
 {% highlight scala %}
-val id = UUID.randomUUID().toString
+class LabelExample extends RxCometActor {
 
-val js: Observable[JsCmd] = in.map(v ⇒ JsCmds.SetHtml(id, Text(v)))
+  // generate a string containing the time every second
+  val ticker: Observable[String] = 
+    Observable.interval(Duration(1, TimeUnit.SECONDS)).map(_ ⇒ new Date().toString)
 
-RxElement(Observable.empty, js, <span id={id}></span>, id)
-{% endhighlight %}
+  // construct a label with the ticker
+  val timeLabel: RxElement[String] = Components.label.consume(ticker)
 
-The UI is simply a span with an id. The interesting part is the Observable[JsCmd] which maps the input stream of Strings into a JsCmd that sets the content of the span to the stream value. Finally, the RxElement does not emit any values hence its value is an Observable.empty.
+  // send JsCmds emitted by the label to the actor to send to the UI
+  publish(timeLabel)
 
-Wrapping the above up as an RxComponent gives:
-{% highlight scala %}
-def label: RxComponent[String, String] = RxComponent { (in: Observable[String]) ⇒
-  val id = UUID.randomUUID().toString
-  val js: Observable[JsCmd] = in.map(v ⇒ JsCmds.SetHtml(id, Text(v)))
-
-  RxElement(Observable.empty, js, <span id={id}></span>, id)
+  // initial render uses the label's ui
+  def render = bind("time" -> timeLabel.ui)
 }
 {% endhighlight %}
 
 ### An Input Element
 
-Driven by Observable[String], outputs Observable[String] and Observable[JsCmd]
+The label above doesn't emit anything so here is an example of a input element, whose values are emitted as an Obserable[String]
 
+{% highlight scala %}
+class InputExample extends RxCometActor {
+
+  // construct an input element with an empty input Observable
+  val in: RxElement[String] = Components.text().consume(Observable.empty)
+
+  def render = bind("in" -> in.ui)
+}
+{% endhighlight %}
+
+All thats needed to get values from the input field is to subscribe to in.values, an Observable[String].
 
 ### Composite Elements
 
-Lenses and Endos
 
 ### Conclusions
 
