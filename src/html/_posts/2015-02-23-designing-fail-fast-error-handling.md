@@ -4,7 +4,7 @@ title: Designing Fail-Fast Error Handling
 author: Noel Welsh
 ---
 
-In this post I want to explore the design space for error handling techniques in Scala. We previously [posted]({ post_url 2015-02-13-error-handling-without-throwing-your-hands-up }) about some basic techniques for error handling in Scala. That post generated quite a bit of discussion. Here I want to expand the concepts Jonathon introduced by showing how we can systematically design a mechanism for error handling, introduce some moderately advanced techniques, and discuss some of the tradeoffs.
+In this post I want to explore the design space for error handling techniques in Scala. We previously [posted]({% post_url 2015-02-13-error-handling-without-throwing-your-hands-up %}) about some basic techniques for error handling in Scala. That post generated quite a bit of discussion. Here I want to expand the concepts Jonathon introduced by showing how we can systematically design a mechanism for error handling, introduce some moderately advanced techniques, and discuss some of the tradeoffs.
 
 <!-- break -->
 
@@ -163,6 +163,6 @@ We can go one step further with [unboxed union types](http://www.chuusai.com/201
 
 ## Conclusions
 
-We have seen how to construct an error handling framework that meets our two goals of failing fast and handling all the errors we intend to handle. As always, use techniques appropriate for the situation. For example, many people commented on `Try` in our [previous post]({ post_url 2015-02-13-error-handling-without-throwing-your-hands-up }). `Try` won't help us ensure we handle all the errors we want to handle, our second design in this post. For this reason I don't like using it. However, if you can accept losing the guarantees on error handling it imposes then it is worth considering. If you are writing a one off script maybe you don't need error handling at all.
+We have seen how to construct an error handling framework that meets our two goals of failing fast and handling all the errors we intend to handle. As always, use techniques appropriate for the situation. For example, many people commented on `Try` in our [previous post]({% post_url 2015-02-13-error-handling-without-throwing-your-hands-up %}). `Try` won't help us ensure we handle all the errors we want to handle, our second design in this post. For this reason I don't like using it. However, if you can accept losing the guarantees on error handling it imposes then it is worth considering. If you are writing a one off script maybe you don't need error handling at all.
 
 We've also seen systematic application of Scala features. Whenever we have a structure that is *this* or *that* we should recognise it is a sum type and reach for a `sealed trait`. Whenever we find ourselves sequencing computation there is probably a monad involved. Understanding these patterns is the foundation for successful programming in Scala. If you are interested learning more they are explained in more depth in our books and courses, particularly [Essential Scalaz](http://underscore.io/training/courses/essential-scalaz/)
