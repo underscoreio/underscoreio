@@ -4,13 +4,13 @@ title: Designing Fail-Fast Error Handling
 author: Noel Welsh
 ---
 
-In this post I want to explore the design space for error handling techniques in Scala. We previously [posted]({ post_url 2015-02-13-error-handling-without-throwing-your-hands-up }) about some basic techniques for error handling in Scala. That post generated quite a bit of discussions. Here I want to expand on that post by showing how we can systematically design a mechanism for error handling, introduce some moderately advanced techniques, and discuss some of the tradeoffs.
+In this post I want to explore the design space for error handling techniques in Scala. We previously [posted]({ post_url 2015-02-13-error-handling-without-throwing-your-hands-up }) about some basic techniques for error handling in Scala. That post generated quite a bit of discussion. Here I want to expand the concepts Jonathon introduced by showing how we can systematically design a mechanism for error handling, introduce some moderately advanced techniques, and discuss some of the tradeoffs.
 
 <!-- break -->
 
 ## Goals
 
-Before we can design our system we must lay out the goals we hope to accomplish. There are two gaols we are aiming for.
+Before we can design our system we must lay out the goals we hope to accomplish. There are two goals we are aiming for.
 
 Our first goal is to **stop as soon as we encounter an error**, or in other words, fail-fast. Sometimes we want to accumulate all errors -- for example when validating user input -- but this is a different problem and leads to a different solution.
 
@@ -70,15 +70,54 @@ res1: Option[Int] = None
 
 There are a lot of data structures that implement variations of this idea. We might also use `Either` or `Try` from the standard library, or Scalaz's disjuction, written `\/`.
 
-We want some information on errors for debugging. This means we can immediately drop `Option` from consideration as it doesn't allow us to record any information on the error's cause.
+We want some information on errors for debugging. This means we can immediately drop `Option` from consideration, as when we encounter an error the result is simply `None`. We know that an error *has* happened, but we don't know *what* error it is.
 
-We can also drop `Try` from consideration. `Try` always stores a `Throwable` to represent errors. What is a `Throwable`? It can be just about anything. In particular, it's not a sealed trait so the compiler is not going to tell us if we forget to handle a case. Therefore we can't meet goal two if we use `Try`.
+We can also drop `Try` from consideration. `Try` always stores a `Throwable` to represent errors. What is a `Throwable`? It can be just about anything. In particular, it's not a sealed trait so the compiler can't help us to ensure we handle all the cases we intend to handle. Therefore we can't meet goal two if we use `Try`.
 
-`Either` allows us to store any type we want as the error case. Thus we could meet our goals with `Either`, but in practice I prefer not to use it. The reason being it is cumbersome to use. Whenever you `flatMap` on an `Either` you have to decide which of the left and right cases is considered that success case (the so-called left and right projections). This is tedious and, since the right case is always considered the succesful case, only serves to introduce bugs[^bugs].
+`Either` allows us to store any type we want as the error case. Thus we could meet our goals with `Either`, but in practice I prefer not to use it. The reason being it is cumbersome to use. Whenever you `flatMap` on an `Either` you have to decide which of the left and right cases is considered that success case (the so-called left and right projections). This is tedious and, since the right case is always considered the succesful case, only serves to introduce bugs[^bugs]. Here's an example of use, showing the continual need to specify the projection.
 
-[^bugs]: Admittedly this is no a common source of bugs. However, I sometimes get my right and left mixed up (I'm left-handed) and this *is* the kind of mistake I could make.
+[^bugs]: Admittedly this is not a common source of bugs. However, I sometimes get my right and left mixed up (I'm left-handed) and this *is* the kind of mistake I could make.
 
-My preferred choice is Scalaz's `\/` type, which is *right-biased*. This means it always considers the right hand to be the successful case for `flatMap` and `map`. It's much more convenient to use than `Either` and can be used as a drop-in replacement for it.
+~~~ scala
+// Given a method that returns `Either`:
+def readInt: Either[String, Int] =
+  try {
+    Right(readLine.toInt)
+  } catch {
+    case exn: NumberFormatException =>
+      Left("Please enter a number")
+  }
+
+// We can call right-biased flatMap...
+readInt.right.flatMap { number =>
+}
+
+/// ...or left-biased flatMap:
+readInt.left.flatMap { errorMessage =>
+  // flatMap is left-biased here
+}
+
+// This makes for-comprehensions cumbersome:
+for {
+  x <- readInt.right
+  y <- readInt.right
+  z <- readInt.right
+} yield (x + y + z)
+~~~
+
+My preferred choice is Scalaz's `\/` type, which is *right-biased*. This means it always considers the right hand to be the successful case for `flatMap` and `map`. It's much more convenient to use than `Either` and can be used as a mostly drop-in replacement for it. Herea's an example of use.
+
+~~~ scala
+import scalaz.\/
+
+def readInt: \/[String, Int] = // String error or Int success
+  try {
+    \/.right(readLine.toInt) // Creates a right-hand (success) value
+  } catch {
+    case exn: NumberFormatException =>
+      \/.left("Please enter a number") // Creates a left-hand (failure) value
+  }
+~~~
 
 
 ## Representing Errors
@@ -124,6 +163,6 @@ We can go one step further with [unboxed union types](http://www.chuusai.com/201
 
 ## Conclusions
 
-We have seen how to construct an error handling framework that meets our two goals of failing fast and handling all the errors we intend to handle. As always, use techniques appropriate for the situation. For example, many people like `Try`. If you can accept losing the guarantees on error handling it imposes, use that. If you are writing a one off script maybe you don't need error handling at all.
+We have seen how to construct an error handling framework that meets our two goals of failing fast and handling all the errors we intend to handle. As always, use techniques appropriate for the situation. For example, many people commented on `Try` in our [previous post]({ post_url 2015-02-13-error-handling-without-throwing-your-hands-up }). `Try` won't help us ensure we handle all the errors we want to handle, our second design in this post. For this reason I don't like using it. However, if you can accept losing the guarantees on error handling it imposes then it is worth considering. If you are writing a one off script maybe you don't need error handling at all.
 
 We've also seen systematic application of Scala features. Whenever we have a structure that is *this* or *that* we should recognise it is a sum type and reach for a `sealed trait`. Whenever we find ourselves sequencing computation there is probably a monad involved. Understanding these patterns is the foundation for successful programming in Scala. If you are interested learning more they are explained in more depth in our books and courses, particularly [Essential Scalaz](http://underscore.io/training/courses/essential-scalaz/)
