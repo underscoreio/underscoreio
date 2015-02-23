@@ -6,6 +6,8 @@ author: Noel Welsh
 
 In this post I want to explore the design space for error handling techniques in Scala. We previously [posted]({ post_url 2015-02-13-error-handling-without-throwing-your-hands-up }) about some basic techniques for error handling in Scala. That post generated quite a bit of discussions. Here I want to expand on that post by showing how we can systematically design a mechanism for error handling, introduce some moderately advanced techniques, and discuss some of the tradeoffs.
 
+<!-- break -->
+
 ## Goals
 
 Before we can design our system we must lay out the goals we hope to accomplish. There are two gaols we are aiming for.
@@ -29,7 +31,7 @@ There are two elements to our design:
 - how we represent the information we store about an error.
 
 
-## Exceptions and Monads
+## Failing Fast
 
 Our two tools for fail-fast behaviour are throwing exceptions and sequencing computations using monads.
 
@@ -66,24 +68,22 @@ for {
 res1: Option[Int] = None
 ~~~
 
-There are a lot of data structures that implement variations of this idea. We might use `Either` or `Try` from the standard library, or Scalaz's disjuction, written `\/`.
+There are a lot of data structures that implement variations of this idea. We might also use `Either` or `Try` from the standard library, or Scalaz's disjuction, written `\/`.
 
+We want some information on errors for debugging. This means we can immediately drop `Option` from consideration as it doesn't allow us to record any information on the error's cause.
 
+We can also drop `Try` from consideration. `Try` always stores a `Throwable` to represent errors. What is a `Throwable`? It can be just about anything. In particular, it's not a sealed trait so the compiler is not going to tell us if we forget to handle a case. Therefore we can't meet goal two if we use `Try`.
 
-We've seen we can use a monad like `Option`, `Try`, or `\/` to implement fail-fast behaviour. Now we turn to how we actually represent the errors we encounter.
-
-We want some information on errors for debugging. This means we can immediately drop `Option` from consideration as it doesn't allow us to record any information on the reason the error occurred.
-
-We can also drop `Try` from consideration. `Try` always stores a `Throwable` to represent errors. What is a `Throwable`? It's not a sealed trait so the compiler is not going to tell us if we forget to handle a case. Therefore we can't meet goal two if we use `Try`.
-
-`Either` allows us to store any type we want as the error case. Thus we could meet our goals with `Either`, but in practice I prefer not to use it. The reason being it is cumbersome to use. Whenever you `flatMap` on an `Either` you have to decide which of the left and right cases is considered that success case (the so-called left and right projections). This is tedious and, since the right case is always considered the succesful case, adds no value but serves as a way to introduce bugs[^bugs].
+`Either` allows us to store any type we want as the error case. Thus we could meet our goals with `Either`, but in practice I prefer not to use it. The reason being it is cumbersome to use. Whenever you `flatMap` on an `Either` you have to decide which of the left and right cases is considered that success case (the so-called left and right projections). This is tedious and, since the right case is always considered the succesful case, only serves to introduce bugs[^bugs].
 
 [^bugs]: Admittedly this is no a common source of bugs. However, as a leftie I sometimes get my right and left mixed up and it is conceivable this *is* the kind of mistake I could make.
 
-My preferred choice is Scalaz's `\/` type, which is *right-biased*. This means it always considers the right hand to be the successful case for `flatMap` and `map`. It's much more convenient to use than `Either`.
+My preferred choice is Scalaz's `\/` type, which is *right-biased*. This means it always considers the right hand to be the successful case for `flatMap` and `map`. It's much more convenient to use than `Either` and can be used as a drop-in replacement for it.
 
 
 ## Representing Errors
+
+Having decided to use the disjunction monad for fail-fast error handling, let's turn to how we represent errors. 
 
 Errors form a logical disjunction. For example, database access could fail because the record is not found *or* no connection could be made *or* we are not authenticated, and so on. As soon as we see this structure we should turn to an algebraic data type (a sum type in particular), which we implement in Scala with code like
 
@@ -95,7 +95,8 @@ final case class CouldNotAuthenticate(...) extends DatabaseError
 ...
 ~~~
 
-When we process a `DatabaseError` we will typically use a `match` expression, and because we have used a `sealed` trait the compiler will tell us if we have forgotten to add a case. This meets our second goal, of handling every error we intend to handle.
+When we process a `DatabaseError` we will typically use a `match` expression, and because we have used a `sealed` trait the compiler will tell us if we have forgotten a case. This meets our second goal, of handling every error we intend to handle.
+
 
 I strongly recommend defining a separate error type for each logical subsystem. Defining a system wide error hierarchy quickly becomes unwieldy, and you often want to expose different information at different layers of the system. For example, it is useful to include authentication information if a login fails but making this information available in our HTTP service could lead to leaking confidential information if we make a programming error.
 
@@ -109,14 +110,14 @@ We have the basic structure in place -- use `\/` for fail fast behaviour along w
 
 ## Locating Error Messages
 
-It is very useful to know the location (file name and line number) of an error. Exceptions provide this through the stack trace, but if we roll our own error types we must add the location ourselves. We can use macros to extract location information, but it is probably simpler to created a sealed subtype of `Exception` as the root of our algebraic data types, and use `fillInStackTrace` to capture location information.
+It is very useful to know the location (file name and line number) of an error. Exceptions provide this through the stack trace, but if we roll our own error types we must add the location ourselves. We can use macros to extract location information, but it is probably simpler to created a sealed subtype of `Exception` as the root of our algebraic data types, and use `fillInStackTrace` to capture location information. Wrap this up behind a convenience constructor and we'll always have location information for debugging.
 
 
 ## Union types.
 
 Finally, we see that we often repeat error types as we move between layers. For example, both the database and service layers have `NotFound` errors that mean essentially the same thing. Inheritance restricts us to tree shaped subtyping relationships. We can't "reach into" the `DatabaseError` type to pull out just the `NotFound` case for inclusion in `ServiceError`.
 
-If we used a logical extension of `Either` (or `\/`) that we can piece together types in an ad-hoc way. For example, we could use `\/[NotFound, BadPassword]` to represent our errors, and if we wanted to extend to more cases we could use `\/[NotFound, \/[BadPassword, NotFound]]` and so on, forming a list structure. The [shapeless](https://github.com/milessabin/shapeless) `Coproduct` provides this structure.
+If we used a logical extension of `Either` (or `\/`) that we can piece together types in an ad-hoc way. For example, we could use `\/[NotFound, BadPassword]` to represent our errors, and if we wanted to extend to more cases we could use `\/[NotFound, \/[BadPassword, NotFound]]` and so on, forming a list structure. The [shapeless](https://github.com/milessabin/shapeless) `Coproduct` provides a generalisation of this idea.
 
 We can go one step further with [unboxed union types](http://www.chuusai.com/2011/06/09/scala-union-types-curry-howard/) to achieve the same effect with less runtime cost. This might be a step too far for most teams, but do note that union types are [slated for inclusion in a future version of Scala](http://www.scala-lang.org/news/roadmap-next).
 
@@ -125,4 +126,4 @@ We can go one step further with [unboxed union types](http://www.chuusai.com/201
 
 We have seen how to construct an error handling framework that meets our two goals of failing fast and handling all the errors we intend to handle. As always, use techniques appropriate for the situation. For example, many people like `Try`. If you can accept losing the guarantees on error handling it imposes, use that. If you are writing a one off script maybe you don't need error handling at all.
 
-We've also seen systematic application of Scala features. Whenever we have a structure that is *this* or *that* we should recognise it is a sum type and reach for a `sealed trait`. Whenever we find ourselves sequencing computation there is probably a monad involved. Understanding these patterns is the foundation for successful programming in Scala. If you are interested learning more they are explained in more depth in our books [Essential Scala](http://underscore.io/training/courses/essential-scala/) and [Essential Scalaz](http://underscore.io/training/courses/essential-scalaz/)
+We've also seen systematic application of Scala features. Whenever we have a structure that is *this* or *that* we should recognise it is a sum type and reach for a `sealed trait`. Whenever we find ourselves sequencing computation there is probably a monad involved. Understanding these patterns is the foundation for successful programming in Scala. If you are interested learning more they are explained in more depth in our books and courses, particularly [Essential Scalaz](http://underscore.io/training/courses/essential-scalaz/)
