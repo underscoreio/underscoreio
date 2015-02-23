@@ -18,11 +18,10 @@ applies the same functional programming principles to music.
 Doodle and Compose are both designed in a classicly functional manner.
 The user builds a representation of the desired output
 using a set of primitive objects and combinators.
-The library then compiles or interprets the representation
+The library then interprets the representation
 to produce the final result.
-This design, separating composition and interpretation,
-offers a number of advantages,
-and can be worked into many business logic applications:
+Although we have used this idea of combinator libraries for
+media applications, the same ideas apply to business applications.
 
  - User code is simple and declarative,
    describing only the expected output
@@ -72,7 +71,7 @@ Piano keys are a convenient represenation of pitch:
 Durations are measured in *beats*.
 There are typically four beats a bar but many notes are much shorter than that.
 Compose provides representations for whole, half, quarter, eighth, sixteenth,
-and thirty-second beats, and combinators to produce
+and 32<sup>nd</sup> beats, and combinators to produce
 ["dotted" variants][dotted-notes].
 
 <div class="captioned">
@@ -96,8 +95,7 @@ D5.w.dotted // D5,  dotted whole beat duration
 ~~~
 
 Note that we are omitting another important component of music -- *dynamics*.
-Without changes in volume, our musical compositions will sound
-artificial and computer generated.
+Without changes in volume, our musical compositions will sound artificial.
 However, we've opted to keep things simple for now
 and save this for a future addition to the library.
 
@@ -108,7 +106,7 @@ let's think about how we can combine them to create musical scores.
 We can combine notes in a *sequence* (played one after the other) and
 *parallel* (played at the same time).
 Compose uses the `+` operator for sequential composition and
-the `|` operator for parallel composition:
+the `|` operator for parallel composition[^monoid]:
 
 ~~~ scala
 import Note._
@@ -147,6 +145,10 @@ case class ParScore(a: Score, b: Score) extends Score
 
 Ignoring dynamics and volume,
 we can represent any composition using `Scores`.
+
+[^monoid]: `+` and `|` are actually examples of
+[monoids][monoid] on `Score`. In each case
+the corresponding `zero` is an empty `Score`.
 
 ## Playback
 
@@ -196,29 +198,10 @@ with different patterns or in different keys.
 You might validly argue that,
 while the DSL used in Compose is expressive enough to store music,
 it isn't particuarly readable as regular sheet music.
-One final feature of a functional library design is the ability
-to create new DSLs on top of the existing representations and interpreters.
-Here, for example, is the quintissential example of a DSL---a
-string interpolator macro for parsing guitar tablature:
-
-~~~ scala
-import compose.tab._
-
-val freebird: Score =
-  tab"""
-  |-------------------------------|----------------------------|
-  |-3------------3---3---3-3------|-5--x-----------------------|
-  |-4------------3-x-3-x-3-3--x-x-|-5--x-----------------------|
-  |-5--x-------x-3-x-3-x-3-3--x-x-|-5--x-----5----5----5----5--|
-  |-5--x---0-2-x-1-x-1-x-1-1--x-x-|-3----5h7----7----7----7----|
-  |-3--x-3-----x------------------|----------------------------|
-  """
-~~~
-
-`tab""` expressions are compile-time checked and evaluate to
-`Score` expressions written in the DSL discussed above.
-See the [unit tests][tab-unit-tests] for a complete worked example
-and canonical proof that functional programming in Scala rocks!
+One final feature of a functional library design
+is the ability to create new DSLs
+on top of the existing representations and interpreters.
+More on this in a future post!
 
 [studio-scala]: 2015-01-26-rethinking-online-training.html
 [essential-scala]: /training/courses/essential-scala
@@ -229,3 +212,4 @@ and canonical proof that functional programming in Scala rocks!
 [supercollider]: http://audiosynth.com/
 [tab-unit-tests]: https://github.com/underscoreio/compose/blob/master/src/test/scala/compose/tab/TablatureSyntaxSpec.scala
 [dotted-notes]: https://en.wikipedia.org/wiki/Dotted_note
+[monoid]: http://eed3si9n.com/learning-scalaz/Monoid.html
