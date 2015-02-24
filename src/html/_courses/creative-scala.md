@@ -26,10 +26,6 @@ products:
       title: "Public Courses"
       buttonLabel: "View upcoming events"
       comingSoon: true
-    private:
-      type: private
-      title: "Private Courses"
-      buttonLabel: "Book now - $1000"
 ---
 
 ## Overview
@@ -89,7 +85,6 @@ for further advancement.
  - Collections
     - Creating Lists
     - Transforming Lists Using *map*
-
     - Take Home Points
 
  - Summary
@@ -97,3 +92,5 @@ for further advancement.
  - Appendix: Syntax Quick Reference
 
  - Appendix: Solutions to Exercises
+
+[essential-scala]: /training/courses/essential-scala
