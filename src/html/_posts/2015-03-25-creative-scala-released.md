@@ -7,7 +7,7 @@ author: Dave Gurnell
 We are excited to announce the release of a new
 book and training course---[Creative Scala][creative-scala].
 Creative Scala is an introduction to Scala designed for people with no previous experience of Scala or functional programming.
-The name comes from the course content, which is based around the [functional drawing library][doodle] we've been working on for the [online version of Essential Scala][essential-scala-online]. 
+The name comes from the course content, which is based around the [functional drawing library][doodle] we've been working on for the [online version of Essential Scala][essential-scala-online].
 
 The best part? *Creative Scala is 100% free!*
 
@@ -36,9 +36,9 @@ We already have two free events scheduled teaching this material, one in [San Fr
 [doodle]: https://github.com/underscoreio/doodle
 [essential-scala-online]: /blog/posts/2015/01/29/rethinking-online-training.html
 [essential-scala]: /training/courses/essential-scala
-[error-handling]: /blog/2015/02/23/designing-fail-fast-error-handling.html 
+[error-handling]: /blog/2015/02/23/designing-fail-fast-error-handling.html
 [eescala-sf]: /events/2015-03-15-essential-essential-scala.html
 [eescala-ed]: /events/2015-03-28-essential-essential-scala.html
-[essential-scalaz-sf]: /events/2015-03-19-essential-scalaz.html 
-[shapeless-sf]: /events/2015-03-20-shapeless.html 
+[essential-scalaz-sf]: /events/2015-03-19-essential-scalaz.html
+[shapeless-sf]: /events/2015-03-20-shapeless.html
 [essential-scalaz-ed]: /events/2015-03-30-advanced-scala.html
