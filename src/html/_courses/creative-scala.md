@@ -92,3 +92,5 @@ for further advancement.
  - Appendix: Syntax Quick Reference
 
  - Appendix: Solutions to Exercises
+
+[essential-scala]: /training/courses/essential-scala
