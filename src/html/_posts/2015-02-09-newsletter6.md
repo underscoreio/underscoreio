@@ -56,7 +56,7 @@ and diversity candidates are 75% off.
 Miles and I will be representing Underscore in San Francisco.
 We have organised a few events while we are there:
 
-- a [free one day introduction to Scala](http://underscore.io/events/2015-03-15-essential-essential-scala.html);
+- a [free one day introduction to Scala](http://underscore.io/events/2015-03-15-creative-scala.html);
 - a [one day course on Scalaz](http://underscore.io/events/2015-03-19-essential-scalaz.html) taught in collaboration with Underscore Associate [Adam Rosien](http://rosien.net/); and
 - a [free one day workshop on Shapeless](http://underscore.io/events/2015-03-20-shapeless.html).
 
