@@ -27,7 +27,7 @@ download your free copy to learn Scala by drawing pictures
 like the Sierpinski triangles above.
 Alternatively, get in touch via our [contact form][contact-form]
 if you would like us to run a free public workshop at a local community event.
-We already have two free events scheduled teaching this material, one in [San Francisco][eescala-sf], and one in [Edinburgh][eescala-ed].
+We already have two free events scheduled teaching this material, one in [San Francisco][eescala-sf] (as part of sequence of events that includes [training on Scalaz][essential-scalaz-sf] and [Shapeless][shapeless-sf]), and one in [Edinburgh][eescala-ed] (which is followed by [advanced Scala training][essential-scalaz-ed]).
 
 
 
@@ -39,3 +39,6 @@ We already have two free events scheduled teaching this material, one in [San Fr
 [error-handling]: /blog/2015/02/23/designing-fail-fast-error-handling.html 
 [eescala-sf]: /events/2015-03-15-essential-essential-scala.html
 [eescala-ed]: /events/2015-03-28-essential-essential-scala.html
+[essential-scalaz-sf]: /events/2015-03-19-essential-scalaz.html 
+[shapeless-sf]: /events/2015-03-20-shapeless.html 
+[essential-scalaz-ed]: /events/2015-03-30-advanced-scala.html
