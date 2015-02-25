@@ -117,6 +117,14 @@ def readInt: \/[String, Int] = // String error or Int success
     case exn: NumberFormatException =>
       \/.left("Please enter a number") // Creates a left-hand (failure) value
   }
+
+// \/ is a monad, so it has a flatMap method and we can use it in for
+// comprehensions
+for {
+  x <- readInt
+  y <- readInt
+  z <- readInt
+} yield (x + y + z)
 ~~~
 
 
