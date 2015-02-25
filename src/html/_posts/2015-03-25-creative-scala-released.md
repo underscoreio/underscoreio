@@ -20,7 +20,7 @@ As we've taught more training courses, both free and paid, we've seen the need f
 The exercises in Creative Scala are based on
 a functional graphics library called [Doodle][doodle].
 Doodle is primarily designed to make programming fun and creative,
-while being based on universal concepts that that apply to any well-designed software written in a functional style. Concretely this means composition and minimising state, with a side serving of structural recursion.
+while being based on universal concepts that that apply to all well-designed software written in a functional style. Concretely this means composition and minimising state, with a side serving of structural recursion.
 
 Head over to the [course page][creative-scala] right now and
 download your free copy to learn Scala by drawing pictures
