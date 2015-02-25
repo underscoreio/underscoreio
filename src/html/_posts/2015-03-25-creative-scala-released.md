@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Creative Scala: A New Way to Learn Scala"
+title:  "Creative Scala: A New Introduction to Scala"
 author: Dave Gurnell
 ---
 
 We are excited to announce the release of a new
 book and training course---[Creative Scala][creative-scala].
-Creative Scala is a fast-paced introduction to Scala designed for people with no previous experience of Scala or functional programming.
+Creative Scala is an introduction to Scala designed for people with no previous experience of Scala or functional programming.
 The name comes from the course content, which is based around the [functional drawing library][doodle] we've been working on for the [online version of Essential Scala][essential-scala-online]. 
 
 The best part? *Creative Scala is 100% free!*
@@ -15,7 +15,7 @@ The best part? *Creative Scala is 100% free!*
 
 ![Images Created Using Doodle](/images/blog/2015-03-25-sierpinski-triangles.png)
 
-As we've taught more training courses, both free and paid, we've seen the need for material that is more basic than [Essential Scala][essential-scala]. In our free courses we often have students with very little programming experience. The programming patterns in Essential Scala are tough going for them, as they don't have the background to appreciate the problems we're solving. In our paid courses we find a lot of time is spent on syntax and other Scala basics that stop us quickly getting into more useful material. Creative Scala is designed to appeal to both groups by covering the very basics of functional programming and Scala is a fun way. We assume some familiarity with another programming language but little or no experience with Scala or other functional languages.
+As we've taught more training courses, both free and paid, we've seen the need for material that is more basic than [Essential Scala][essential-scala]. In our free courses we often have students with very little programming experience. The programming patterns in Essential Scala are tough going for them, as they don't have the background to appreciate the problems we're solving. In our paid courses we find a lot of time is spent on syntax and other Scala basics that take away from more useful material. Creative Scala is designed to appeal to both groups by covering the very basics of functional programming and Scala is a fun way. We assume some familiarity with another programming language but little or no experience with Scala or other functional languages.
 
 The exercises in Creative Scala are based on
 a functional graphics library called [Doodle][doodle].
