@@ -84,7 +84,9 @@ All thats needed to get values from the input field is to subscribe to in.values
 
 So far we can build UIs for simple streams of values. How can we build a reusable UI component for an Observable of some richer structure?
 
-The solution we opted for was to use scalaz Lenses. The input Observable is mapped to Observables for each field with a set of lenses. But the complication is what to do with the results emitted by each field's component. The set of Observable values need to be combined in some way to effect a change on the original value. The solution to this is to map each field's values to an Endo, which is just a function of T => T, and merge those Observable streams whose values can be applied to the original, richer structure.
+The solution we opted for was to use scalaz Lenses. The input Observable is mapped to Observables for each field with a set of lenses. But the complication is what to do with the results emitted by each field's component. The set of Observable values need to be combined in some way to effect a change on the original value.
+
+The solution is to map each field's Observable[T] to an Observable[Endo[T]]. (An Endo wraps a function of T => T). The set of Observable[Endo[T]] for each field can be merged and applied to the original datatype.
 
 The resulting component's type is RxComponent[T, Endo[T]].
 
