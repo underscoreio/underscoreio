@@ -30,9 +30,9 @@ case class RxElement[T](values: Observable[T], jscmd: Observable[JsCmd], ui: Nod
 
 {% endhighlight %}
 
-The RxComponent wraps a function that accepts an Observable[T] and returns an RxElement[O]. It will become clear why this is necessary later but for now think of it as a factory for building an RxElement given an Observable.
+RxComponent wraps a function that accepts an Observable[T] and returns an RxElement[O]. It will become clear why this is necessary later but for now think of it as a function for building an RxElement given an Observable.
 
-The RxElement.values is the output stream of values, the jscmd is the stream of JsCmds to send to the browser to make whatever changes are required in response to the input stream, and the ui is the html to bind into templates as usual in Lift.
+RxElement.values is the output stream of values, the jscmd is the stream of Lift JsCmds containing JavaScript to send to the browser to make whatever changes are required in response to the input stream, and the ui is the html to bind into templates as usual in Lift.
 
 To send the JsCmds emitted by RxElement.jscmd to the browser, each JsCmd needs to be sent to a comet actor that forwards it to the client:
 
@@ -60,15 +60,19 @@ class LabelExample extends RxCometActor {
 }
 {% endhighlight %}
 
+Thats it! The two lines of interest are the construction of the timeLabel and the call to publish, the rest is vanilla RxScala or Lift.
+
 ### An Input Element
 
-The label above doesn't emit anything so here is an example of a input element, whose values are emitted as an Obserable[String]
+The label above doesn't emit anything so here is an example of an input element, whose values are emitted as an Obserable[String]
 
 {% highlight scala %}
 class InputExample extends RxCometActor {
 
   // construct an input element with an empty input Observable
   val in: RxElement[String] = Components.text().consume(Observable.empty)
+
+  // in.values is an Observable[String] which you can do whatever you need to with
 
   def render = bind("in" -> in.ui)
 }
@@ -78,6 +82,11 @@ All thats needed to get values from the input field is to subscribe to in.values
 
 ### Composite Elements
 
+So far we can build UIs for simple streams of values. How can we build a reusable UI component for an Observable of some richer structure?
+
+The solution we opted for was to use scalaz Lenses. The input Observable is mapped with a set of lenses so that each field can be build out of simple components (input fields etc.). But the complication is what to do with the result. The set of Observable values need to be combined in some way to effect a change on the original type. The solution to this is to map each field's values to an Endo, which is just a function of T => T, and merge those Observable streams whose values can be applied to the original, richer structure.
+
+I think this is one of those cases where code speaks louder than explanations.
 
 ### Conclusions
 
