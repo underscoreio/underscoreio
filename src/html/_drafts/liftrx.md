@@ -149,5 +149,5 @@ class Composites extends RxCometActor {
 
 ### Conclusions
 
-
-See [RxLift](https://github.com/channingwalton/rxlift)
+Building reactive UI components based on RxScala and Lift has proven to be extremely easy. [RxLift](https://github.com/channingwalton/rxlift) is an example
+project of some of the basic ideas which have been used to build a fairly sophisticated UI in a large financial institution in London.
