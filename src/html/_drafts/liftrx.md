@@ -86,55 +86,66 @@ So far we can build UIs for simple streams of values. How can we build a reusabl
 
 The solution we opted for was to use scalaz Lenses. The input Observable is mapped to Observables for each field with a set of lenses. But the complication is what to do with the results emitted by each field's component. The set of Observable values need to be combined in some way to effect a change on the original value.
 
-The solution is to map each field's Observable[T] to an Observable[Endo[T]]. (An Endo wraps a function of T => T). The set of Observable[Endo[T]] for each field can be merged and applied to the original datatype.
+The solution is to map each field's Observable[T] to an Observable[Endo[T]]. (An Endo wraps a function of T ⇒ T). The set of Observable[Endo[T]] for each field can be merged and applied to the original datatype.
 
 The resulting component's type is RxComponent[T, Endo[T]].
 
 I think this is one of those cases where code speaks louder than explanations.
 
+First, a model and an RxComponent that renders it.
+
 {% highlight scala %}
 case class Person(firstName: String, lastName: String)
 
-object Person {
-  val fnLens = Lens.lensu[Person, String]((p, fn) ⇒ p.copy(firstName = fn), (_: Person).firstName)
-  val lnLens = Lens.lensu[Person, String]((p, ln) ⇒ p.copy(lastName = ln), (_: Person).lastName)
-}
+object PersonComponent {
 
-class Composites extends RxCometActor {
+  def apply(): RxComponent[Person, Endo[Person]] = {
+    val fnLens = Lens.lensu[Person, String](
+                 (p, fn) ⇒ p.copy(firstName = fn), (_: Person).firstName)
+    val lnLens = Lens.lensu[Person, String](
+                 (p, ln) ⇒ p.copy(lastName = ln), (_: Person).lastName)
 
-  import Person._
+    val fn: RxComponent[Person, Endo[Person]] =
+      focus(text(), fnLens).mapUI(ui ⇒ <span>First Name&nbsp;</span> ++ ui)
 
-  // a source for the person - could be a stream from a backend store
-  val person: Subject[Person] = BehaviorSubject[Person](Person("", ""))
+    val ln: RxComponent[Person, Endo[Person]] =
+      focus(text(), lnLens).mapUI(ui ⇒ <span>Last Name&nbsp;</span> ++ ui)
 
-  // create each field using Component.focus
-  val fn = focus(text(), fnLens).consume(person)
-  val ln = focus(text(), lnLens).consume(person)
-
-  // output is the interesting thing here
-  val updates: Observable[Endo[Person]] = fn.values.merge(ln.values)
-
-  // for demo purposes we will apply this stream to the original person observable and send it back to the UI
-  // In a real system you might get the person from a database, modify it with the Endo and save it.
-  val newPerson = person.distinctUntilChanged.combineLatest(updates).map {
-    case (old, update) ⇒
-      val updated = update(old)
-      person.onNext(updated)
-      updated
+    fn + ln
   }
-
-  // lets subscribe to the newPerson and print it
-  handleSubscription(newPerson.map(println(_)))
-
-  def render =
-    <div>
-     First name: {fn.ui}
-     Last name: {ln.ui}
-    </div>
 }
 {% endhighlight %}
 
-The interesting code here is the focus method, which brings us back to why RxComponent is needed. An RxElement is the result of applying an Observable so its not possible to modify its input. By working with RxComponents, Observables can be processed before being finally applied to UI components.
+The interesting code here is the focus method from RxLift's [Components.scala](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/Components.scala). It applies a lens to an Observable to produce an Observable suitable for the given RxComponent. This in turn brings us back to why RxComponent is needed. An RxElement is the result of applying an Observable to an RxComponent, so its not possible to modify its input after construction. By working with RxComponents, Observables can be worked with before being finally applied to UI components.
+
+Here is a UI that uses the component.
+
+{% highlight scala %}
+class Composites extends RxCometActor {
+
+  import PersonComponent._
+
+  // In practice this will be a filtered stream
+  val person: Subject[Person] = BehaviorSubject[Person](Person("", ""))
+
+  // construct our UI component from the stream
+  val pc = PersonComponent().consume(person)
+
+  // for demo purposes we will apply this stream to the original person
+  // observable and send it back to the UI
+  // In a real system you might get the person from a database, modify
+  // it with the Endo and save it.
+  val newPerson = person.distinctUntilChanged.combineLatest(pc.values).map {
+    case (old, update) ⇒ update(old)
+  }.distinctUntilChanged.map(person.onNext(_))
+
+  // manage the subscription to the newPerson stream
+  handleSubscription(newPerson)
+
+  def render = pc.ui
+}
+{% endhighlight %}
+
 
 ### Conclusions
 
