@@ -6,7 +6,9 @@ author: Channing Walton
 
 ### Overview
 
-[LiftWeb](http://liftweb.net) makes building dynamic, comet and ajax websites extremely easy. [RxScala](http://reactivex.io/rxscala/) is a Scala adapter for RxJava, "a library for composing asynchronous and event-based programs using observable sequences for the Java VM". This blog describes how we combined Lift and RxScala for event-based UI components using observable sequences.
+[LiftWeb](http://liftweb.net) makes building dynamic websites extremely easy whilst hiding away a lot of the plumbing. [RxScala](http://reactivex.io/rxscala/) is a Scala adapter for [RxJava](https://github.com/ReactiveX/RxJava), "a library for composing asynchronous and event-based programs using observable sequences for the Java VM".
+
+This blog describes how we combined Lift and RxScala for event-based UI components consuming and producing observable sequences. [RxLift](https://github.com/channingwalton/rxlift) is an example project demonstrating these ideas.
 
  <!-- break -->
 
@@ -14,13 +16,13 @@ author: Channing Walton
 
 ### The Basic Ideas
 
-There are several fundamental ideas in the RxLift model: 
+There are several fundamental ideas in this model: 
 
-* an Observable stream of values is mapped to JavaScript, which is pushed via Lift's Comet support to the client, to update elements on the client
+* an Observable stream of values is mapped to Lift's JavaScript abstraction, JsCmd, and pushed via Lift's Comet support to the client which updates elements on the client
 * AJAX updates from the client are mapped into an Observable stream of values
-* Lift's existing mechanism for binding the HTML for these reactive components into templates is still used
+* Lift's existing library is used to build these components, binding them for into templates and perform comet and ajax communication with the client.
 
-The core model:
+The are two fundamental data types used:
 
 {% highlight scala %}
 
@@ -32,9 +34,9 @@ case class RxElement[T](values: Observable[T], jscmd: Observable[JsCmd], ui: Nod
 
 RxComponent wraps a function that accepts an Observable[T] and returns an RxElement[O]. It will become clear why this is necessary later but for now think of it as a function for building an RxElement given an Observable.
 
-RxElement.values is the output stream of values, the jscmd is the stream of Lift JsCmds containing JavaScript to send to the browser to make whatever changes are required in response to the input stream, and the ui is the html to bind into templates as usual in Lift.
+_RxElement.values_ is the output stream of values, the _jscmd_ is the stream of Lift JsCmds containing JavaScript to send to the browser to make whatever changes are required in response to the input stream, and _ui_ is the html to bind into templates as usual in Lift.
 
-To send the JsCmds emitted by RxElement.jscmd to the browser, each JsCmd needs to be sent to a comet actor that forwards it to the client:
+To send the JsCmds emitted by _RxElement.jscmd_ to the browser, each JsCmd needs to be sent to a comet actor that forwards it to the client:
 
 RxLift's [RxCometActor](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/RxCometActor.scala) wraps up the mechanics of sending Javascript to the client and managing subscription to the observables where necessary.
 
@@ -60,11 +62,11 @@ class LabelExample extends RxCometActor {
 }
 {% endhighlight %}
 
-Thats it! The two lines of interest are the construction of the timeLabel and the call to publish, the rest is vanilla RxScala or Lift.
+Thats it! The two lines of interest are the construction of _timeLabel_ and the call to _publish_, the rest is vanilla RxScala or Lift.
 
 ### An Input Element
 
-The label above doesn't emit anything so here is an example of an input element, whose values are emitted as an Obserable[String]
+The label above doesn't emit anything so here is an example of an input element, whose values are emitted as an Observable[String].
 
 {% highlight scala %}
 class InputExample extends RxCometActor {
@@ -78,21 +80,21 @@ class InputExample extends RxCometActor {
 }
 {% endhighlight %}
 
-All thats needed to get values from the input field is to subscribe to in.values, an Observable[String].
+To get values from the input field, subscribe to _in.values_ which is an Observable[String].
 
 ### Composite Elements
 
 So far we can build UIs for simple streams of values. How can we build a reusable UI component for an Observable of some richer structure?
 
-The solution we opted for was to use scalaz Lenses. The input Observable is mapped to Observables for each field with a set of lenses. But the complication is what to do with the results emitted by each field's component. The set of Observable values need to be combined in some way to effect a change on the original value.
+The solution we opted for was to use scalaz [Lens](http://eed3si9n.com/learning-scalaz/Lens.html). The input Observable is mapped to Observables for each field with a set of lenses. But the complication is how to apply values emitted by each field's component to the original data. The set of Observable values need to be combined in some way to effect a change on the original value.
 
-The solution is to map each field's Observable[T] to an Observable[Endo[T]]. (An Endo wraps a function of T ⇒ T). The set of Observable[Endo[T]] for each field can be merged and applied to the original datatype.
+The solution is to map each field's Observable to an Observable[[Endo](https://oss.sonatype.org/service/local/repositories/releases/archive/org/scalaz/scalaz_2.11/7.1.1/scalaz_2.11-7.1.1-javadoc.jar/!/index.html#scalaz.Endo)[T]], where T is the type of the composite datatype. (An [Endo](https://oss.sonatype.org/service/local/repositories/releases/archive/org/scalaz/scalaz_2.11/7.1.1/scalaz_2.11-7.1.1-javadoc.jar/!/index.html#scalaz.Endo) wraps a function of T ⇒ T). The set of Observable[Endo[T]] for each field can be merged and applied to the original datatype.
 
 The resulting component's type is RxComponent[T, Endo[T]].
 
 I think this is one of those cases where code speaks louder than explanations.
 
-First, a model and an RxComponent that renders it.
+Here is a model and an RxComponent that renders it.
 
 {% highlight scala %}
 case class Person(firstName: String, lastName: String)
@@ -101,22 +103,26 @@ object PersonComponent {
 
   def apply(): RxComponent[Person, Endo[Person]] = {
     val fnLens = Lens.lensu[Person, String](
-                 (p, fn) ⇒ p.copy(firstName = fn), (_: Person).firstName)
+                   (p, fn) ⇒ p.copy(firstName = fn),
+                   (_: Person).firstName)
     val lnLens = Lens.lensu[Person, String](
-                 (p, ln) ⇒ p.copy(lastName = ln), (_: Person).lastName)
+                   (p, ln) ⇒ p.copy(lastName = ln),
+                   (_: Person).lastName)
 
     val fn: RxComponent[Person, Endo[Person]] =
-      focus(text(), fnLens).mapUI(ui ⇒ <span>First Name&nbsp;</span> ++ ui)
+              focus(text(), fnLens).mapUI(
+	            ui ⇒ <span>First Name&nbsp;</span> ++ ui)
 
     val ln: RxComponent[Person, Endo[Person]] =
-      focus(text(), lnLens).mapUI(ui ⇒ <span>Last Name&nbsp;</span> ++ ui)
+              focus(text(), lnLens).mapUI(
+	            ui ⇒ <span>Last Name&nbsp;</span> ++ ui)
 
     fn + ln
   }
 }
 {% endhighlight %}
 
-The interesting code here is the focus method from RxLift's [Components.scala](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/Components.scala). It applies a lens to an Observable to produce an Observable suitable for the given RxComponent. This in turn brings us back to why RxComponent is needed. An RxElement is the result of applying an Observable to an RxComponent, so its not possible to modify its input after construction. By working with RxComponents, Observables can be worked with before being finally applied to UI components.
+The interesting code here is the focus method from RxLift's [Components.scala](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/Components.scala). It applies a Lens[T, F] to an RxComponent[F, F] producing an RxComponent[T, Endo[T]]. This brings us back to why RxComponent is needed. An RxElement is the result of applying an Observable to an RxComponent, so its not possible to modify its input after construction. By working with RxComponents, Observables can be worked with before being finally applied to UI components.
 
 Here is a UI that uses the component.
 
@@ -126,15 +132,15 @@ class Composites extends RxCometActor {
   import PersonComponent._
 
   // In practice this will be a filtered stream
-  val person: Subject[Person] = BehaviorSubject[Person](Person("", ""))
+  val person = BehaviorSubject[Person](Person("", ""))
 
   // construct our UI component from the stream
   val pc = PersonComponent().consume(person)
 
-  // for demo purposes we will apply this stream to the original person
-  // observable and send it back to the UI
-  // In a real system you might get the person from a database, modify
-  // it with the Endo and save it.
+  // for demo purposes we will apply this stream to the original
+  // person observable and send it back to the UI
+  // In a real system you might get the person from a database,
+  // modify it with the Endo and save it.
   val newPerson = person.distinctUntilChanged.combineLatest(pc.values).map {
     case (old, update) ⇒ update(old)
   }.distinctUntilChanged.map(person.onNext(_))
@@ -150,4 +156,4 @@ class Composites extends RxCometActor {
 ### Conclusions
 
 Building reactive UI components based on RxScala and Lift has proven to be extremely easy. [RxLift](https://github.com/channingwalton/rxlift) is an example
-project of some of the basic ideas which have been used to build a fairly sophisticated UI in a large financial institution in London.
+project illustrating the basic ideas which have been used to build a fairly sophisticated UI in a large financial institution in London.
