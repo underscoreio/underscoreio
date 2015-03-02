@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  RxLift: Reactive Web Components with LiftWeb and RxScala
+title:  "RxLift: Reactive Web Components with LiftWeb and RxScala"
 author: Channing Walton
 ---
 
@@ -8,25 +8,29 @@ author: Channing Walton
 
 [LiftWeb](http://liftweb.net) makes building dynamic websites extremely easy whilst hiding away a lot of the plumbing. [RxScala](http://reactivex.io/rxscala/) is a Scala adapter for [RxJava](https://github.com/ReactiveX/RxJava), "a library for composing asynchronous and event-based programs using observable sequences for the Java VM".
 
-The original motivation for combining Rx and Lift was simply as an experiment - could we treat UI components as source and sinks of Observable streams of values. However, it proved to be quite successful, particularly when your backend system is using Rx. We ended up successfully using these ideas in a large financial institution in London for a greefield project.
-
 This blog describes how we combined Lift and RxScala for event-based UI components consuming and producing observable sequences.
-
-[RxLift](https://github.com/channingwalton/rxlift) is an example project demonstrating these ideas.
 
  <!-- break -->
 
-(If you would like an introduction to Rx please refer to [ReactiveX](http://reactivex.io), and to [Simply Lift](http://simply.liftweb.net/) to learn about LiftWeb).
+The original motivation for combining Rx and Lift was simply as an experiment - could we treat UI components as sources and sinks of Observable streams of values.
+
+The idea proved to be quite successful, particularly when the backend system is built with Rx so there is no impedence mismatch. We ended up using these ideas in a large financial institution in London for a greefield project.
+
+To try all the examples in this blog, clone [RxLift](https://github.com/channingwalton/rxlift), and assuming you have [SBT](http://www.scala-sbt.org) installed, type the following on the command line at the root of the project: sbt ~container:start
+
+Finally, point your browser at [http://127.0.0.1:8080](http://127.0.0.1:8080) to try out the examples.
 
 ### The Basic Ideas
 
-There are several fundamental ideas in this model: 
+There are several fundamental ideas illustrated in the following figure:
 
-* an Observable stream of values is mapped to Lift's JavaScript abstraction, JsCmd, and pushed via Lift's Comet support to the client which updates elements on the client
+<img src="/images/blog/rxlift.jpg">
+
+* SHtml is Lift's library for building UI components which RxElement is built on
+* an Observable stream of values, Obs[T], is mapped to Lift's JavaScript abstraction, JsCmd, and pushed via Lift's Comet support to the client which updates elements on the client, using Lift's JavaScript library
 * AJAX updates from the client are mapped into an Observable stream of values
-* Lift's existing library is used to build these components, binding them for into templates and perform comet and ajax communication with the client.
 
-The are two fundamental data types used:
+The are two fundamental data types:
 
 {% highlight scala %}
 
@@ -42,7 +46,30 @@ _RxElement.values_ is the output stream of values, the _jscmd_ is the stream of 
 
 To send the JsCmds emitted by _RxElement.jscmd_ to the browser, each JsCmd needs to be sent to a comet actor that forwards it to the client.
 
-RxLift's [RxCometActor](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/RxCometActor.scala) wraps up the mechanics of sending JavaScript to the client and managing subscription to the observables where necessary.
+RxLift's [RxCometActor](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/RxCometActor.scala) wraps up the mechanics of sending JavaScript to the client and managing subscription to the observables where necessary. Here is the code which should help your understanding of what it to follow.
+
+{% highlight scala %}
+trait RxCometActor extends CometActor {
+
+  // subscriptions that must be unsubscribed to when the actor dies
+  val subscriptions: ListBuffer[Subscription] =
+    ListBuffer.empty[Subscription]
+
+  // publish each RxElement's jscmd by sending values from the stream
+  // to this actor for sending to the client
+  def publish(components: RxElement[_]*): Unit =
+  components.foreach(o ⇒
+    handleSubscription(o.jscmd.map(partialUpdate(_))))
+
+  // convenient method to subscribe to an Observable and manage the subscription 
+  def handleSubscription[T](obs: Observable[T]): Unit =
+    subscriptions += obs.subscribe()
+
+  // unsubscribe to all subscriptions
+  override def localShutdown() =
+    subscriptions.foreach(_.unsubscribe())
+}
+{% endhighlight %}
 
 ### A Label
 
@@ -66,7 +93,7 @@ class LabelExample extends RxCometActor {
 }
 {% endhighlight %}
 
-Thats it! The two lines of interest are the construction of _timeLabel_ and the call to _publish_, the rest is vanilla RxScala or Lift. _Components_ is a collection of reusbale UI components I've supplied, and publish is a method available via _RxComentActor_. We'll look at these later in this post.
+Thats it! The two lines of interest are the construction of _timeLabel_ and the call to _publish_, the rest is vanilla RxScala or Lift. _Components_ is a collection of reuseable UI components I've supplied, and publish is a method available via _RxComentActor_.
 
 ### An Input Element
 
@@ -86,14 +113,11 @@ class InputExample extends RxCometActor {
 
 To get values from the input field, subscribe to _in.values_ which is an Observable[String].
 
-To try this, get the RxLift project from GitHub, and, assuming you have SBT installed, type the following on the command line: sbt ~container:start
-Point your browser at (http://127.0.0.1:8080)[http://127.0.0.1:8080] to try out the examples.
-
 ### Composite Elements
 
 So far we can build UIs for simple streams of values. How can we build a reusable UI component for an Observable of some richer structure?
 
-The solution we opted for was to use scalaz [Lens](http://eed3si9n.com/learning-scalaz/Lens.html). The input Observable is mapped to Observables for each field with a set of lenses. But the complication is how to apply values emitted by each field's component to the original data. The set of Observable values need to be combined in some way to effect a change on the original value.
+The solution we opted for was to use Scalaz [Lens](http://eed3si9n.com/learning-scalaz/Lens.html). The input Observable is mapped to Observables for each field with a set of lenses. But the complication is how to apply values emitted by each field's component to the original data. The set of Observable values need to be combined in some way to effect a change on the original value.
 
 The solution is to map each field's Observable to an Observable[[Endo](https://oss.sonatype.org/service/local/repositories/releases/archive/org/scalaz/scalaz_2.11/7.1.1/scalaz_2.11-7.1.1-javadoc.jar/!/index.html#scalaz.Endo)[T]], where T is the type of the composite datatype. (An Endo wraps a function of T ⇒ T). The set of Observable[Endo[T]] for each field can be merged and applied to the original datatype.
 
@@ -116,6 +140,8 @@ object PersonComponent {
                    (p, ln) ⇒ p.copy(lastName = ln),
                    (_: Person).lastName)
 
+    // focus a text component with the fnLens and
+    // prefix the textfield with a label
     val fn: RxComponent[Person, Endo[Person]] =
               focus(text(), fnLens).mapUI(
 	            ui ⇒ <span>First Name&nbsp;</span> ++ ui)
@@ -166,5 +192,5 @@ class Composites extends RxCometActor {
 
 ### Conclusions
 
-Building reactive UI components based on RxScala and Lift has proven to be extremely easy. [RxLift](https://github.com/channingwalton/rxlift) is an example
+Building reactive UI components based on RxScala and Lift has proven to be fairly straightforward. [RxLift](https://github.com/channingwalton/rxlift) is an example
 project illustrating the basic ideas which have been used to build a fairly sophisticated UI in a large financial institution in London.
