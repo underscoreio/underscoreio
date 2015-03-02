@@ -8,7 +8,7 @@ author: Channing Walton
 
 [LiftWeb](http://liftweb.net) makes building dynamic websites extremely easy whilst hiding away a lot of the plumbing. [RxScala](http://reactivex.io/rxscala/) is a Scala adapter for [RxJava](https://github.com/ReactiveX/RxJava), "a library for composing asynchronous and event-based programs using observable sequences for the Java VM".
 
-*TODO - Motivation*
+The original motivation for combining Rx and Lift was simply as an experiment - could we treat UI components as source and sinks of Observable streams of values. However, it proved to be quite successful, particularly when your backend system is using Rx. We ended up successfully using these ideas in a large financial institution in London for a greefield project.
 
 This blog describes how we combined Lift and RxScala for event-based UI components consuming and producing observable sequences.
 
@@ -130,6 +130,10 @@ object PersonComponent {
 {% endhighlight %}
 
 The interesting code here is the focus method from RxLift's [Components.scala](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/Components.scala). It applies a Lens[T, F] to an RxComponent[F, F] producing an RxComponent[T, Endo[T]]. This brings us back to why RxComponent is needed. An RxElement is the result of applying an Observable to an RxComponent, so it is not possible to modify its input after construction. By working with RxComponents, Observables can be worked with before being finally applied to UI components.
+
+The last line, fn + ln, combines each field into a RxComponent[Person, Endo[Person]]. It does so by merging the Observable streams of fn and ln, and joining the UI NodeSeqs.
+
+By merging the Observable[Endo[T]] value streams, a change in any field will result in an Endo[T] to be emitted. Multiple updates to a datatype by different users will be safe, since changes are applied on a field by field basis. Hence, one user's update will not overwrite another's, unless they edit the same field simultaneously of course.
 
 Here is a UI that uses the component.
 
