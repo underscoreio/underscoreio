@@ -6,7 +6,7 @@ author: Channing Walton
 
 ### Overview
 
-[LiftWeb](http://liftweb.net) makes building dynamic websites extremely easy whilst hiding away a lot of the plumbing. [RxScala](http://reactivex.io/rxscala/) is a Scala adapter for [RxJava](https://github.com/ReactiveX/RxJava), "a library for composing asynchronous and event-based programs using observable sequences for the Java VM".
+[LiftWeb](http://liftweb.net) makes building dynamic websites extremely easy whilst hiding away a lot of the plumbing. [RxScala](http://reactivex.io/rxscala/) is a Scala adaptor for [RxJava](https://github.com/ReactiveX/RxJava), "a library for composing asynchronous and event-based programs using observable sequences for the Java VM".
 
 This blog describes how we combined Lift and RxScala for event-based UI components consuming and producing observable sequences.
 
@@ -14,7 +14,7 @@ This blog describes how we combined Lift and RxScala for event-based UI componen
 
 The original motivation for combining Rx and Lift was simply as an experiment - could we treat UI components as sources and sinks of Observable streams of values.
 
-The idea proved to be quite successful, particularly when the backend system is built with Rx so there is no impedence mismatch. We ended up using these ideas in a large financial institution in London for a greefield project.
+The idea proved to be quite successful, particularly when the backend system is built with Rx so there is no impedance mismatch. We ended up using these ideas in a large financial institution in London for a greenfield project.
 
 To try all the examples in this blog, clone [RxLift](https://github.com/channingwalton/rxlift), and assuming you have [SBT](http://www.scala-sbt.org) installed, type the following on the command line at the root of the project: sbt ~container:start
 
@@ -93,7 +93,7 @@ class LabelExample extends RxCometActor {
 }
 {% endhighlight %}
 
-Thats it! The two lines of interest are the construction of _timeLabel_ and the call to _publish_, the rest is vanilla RxScala or Lift. _Components_ is a collection of reuseable UI components I've supplied, and publish is a method available via _RxComentActor_.
+That's it! The two lines of interest are the construction of _timeLabel_ and the call to _publish_, the rest is vanilla RxScala or Lift. _Components_ is a collection of reusable UI components I've supplied, and publish is a method available via _RxComentActor_.
 
 ### An Input Element
 
@@ -159,7 +159,7 @@ The interesting code here is the focus method from RxLift's [Components.scala](h
 
 The last line, fn + ln, combines each field into a RxComponent[Person, Endo[Person]]. It does so by merging the Observable streams of fn and ln, and joining the UI NodeSeqs.
 
-By merging the Observable[Endo[T]] value streams, a change in any field will result in an Endo[T] to be emitted. Multiple updates to a datatype by different users will be safe, since changes are applied on a field by field basis. Hence, one user's update will not overwrite another's, unless they edit the same field simultaneously of course.
+By merging the Observable[Endo[T]] value streams, a change in any field will result in an Endo[T] to be emitted. Multiple updates to a datatype by different users will be safe, since changes are applied on a field by field basis. Hence, one user's update will not overwrite anothers, unless they edit the same field simultaneously of course.
 
 Here is a UI that uses the component.
 
