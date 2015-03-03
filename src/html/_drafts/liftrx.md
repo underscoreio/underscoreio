@@ -14,10 +14,14 @@ This blog describes how we combined Lift and RxScala for event-based UI componen
 
 The original motivation for combining Rx and Lift was simply as an experiment - could we treat UI components as sources and sinks of Observable streams of values.
 
-The idea proved to be quite successful, particularly when the backend system is built with Rx so there is no impedance mismatch. We ended up using these ideas in a large financial institution in London for a greenfield project.
+The idea proved to be quite successful, particularly when the backend system is built with Rx so there is no impedance mismatch. We ended up using these ideas for a greenfield project in a large financial institution in London.
 
-To try all the examples in this blog, clone [RxLift](https://github.com/channingwalton/rxlift), and assuming you have [SBT](http://www.scala-sbt.org) installed, type the following on the command line at the root of the project: sbt ~container:start
+To try all the examples in this blog, clone [RxLift](https://github.com/channingwalton/rxlift), and assuming you have [SBT](http://www.scala-sbt.org) installed, type the following on the command line at the root of the project:
 
+{% highlight bash %}
+  sbt ~container:start
+{% endhighlight %}
+  
 Finally, point your browser at [http://127.0.0.1:8080](http://127.0.0.1:8080) to try out the examples.
 
 ### The Basic Ideas
@@ -26,7 +30,7 @@ There are several fundamental ideas illustrated in the following figure:
 
 <img src="/images/blog/rxlift.jpg">
 
-* SHtml is Lift's library for building UI components which RxElement is built on
+* SHtml is Lift's library for building UI components on which RxElement is built
 * an Observable stream of values, Obs[T], is mapped to Lift's JavaScript abstraction, JsCmd, and pushed via Lift's Comet support to the client which updates elements on the client, using Lift's JavaScript library
 * AJAX updates from the client are mapped into an Observable stream of values
 
@@ -46,7 +50,7 @@ _RxElement.values_ is the output stream of values, the _jscmd_ is the stream of 
 
 To send the JsCmds emitted by _RxElement.jscmd_ to the browser, each JsCmd needs to be sent to a comet actor that forwards it to the client.
 
-RxLift's [RxCometActor](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/RxCometActor.scala) wraps up the mechanics of sending JavaScript to the client and managing subscription to the observables where necessary. Here is the code which should help your understanding of what it to follow.
+RxLift's [RxCometActor](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/RxCometActor.scala) wraps up the mechanics of sending JavaScript to the client and managing subscription to the observables where necessary. Here is the code which should help your understanding of what is to follow.
 
 {% highlight scala %}
 trait RxCometActor extends CometActor {
@@ -119,7 +123,7 @@ So far we can build UIs for simple streams of values. How can we build a reusabl
 
 The solution we opted for was to use Scalaz [Lens](http://eed3si9n.com/learning-scalaz/Lens.html). The input Observable is mapped to Observables for each field with a set of lenses. But the complication is how to apply values emitted by each field's component to the original data. The set of Observable values need to be combined in some way to effect a change on the original value.
 
-The solution is to map each field's Observable to an Observable[[Endo](https://oss.sonatype.org/service/local/repositories/releases/archive/org/scalaz/scalaz_2.11/7.1.1/scalaz_2.11-7.1.1-javadoc.jar/!/index.html#scalaz.Endo)[T]], where T is the type of the composite datatype. (An Endo wraps a function of T ⇒ T). The set of Observable[Endo[T]] for each field can be merged and applied to the original datatype.
+We addressed this by mapping each field's Observable to an Observable[[Endo](https://oss.sonatype.org/service/local/repositories/releases/archive/org/scalaz/scalaz_2.11/7.1.1/scalaz_2.11-7.1.1-javadoc.jar/!/index.html#scalaz.Endo)[T]], where T is the type of the composite datatype. (An Endo wraps a function of T ⇒ T). The set of Observable[Endo[T]] for each field can be merged and applied to the original datatype.
 
 The resulting component's type is RxComponent[T, Endo[T]].
 
@@ -155,11 +159,13 @@ object PersonComponent {
 }
 {% endhighlight %}
 
-The interesting code here is the focus method from RxLift's [Components.scala](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/Components.scala). It applies a Lens[T, F] to an RxComponent[F, F] producing an RxComponent[T, Endo[T]]. This brings us back to why RxComponent is needed. An RxElement is the result of applying an Observable to an RxComponent, so it is not possible to modify its input after construction. By working with RxComponents, Observables can be worked with before being finally applied to UI components.
+The interesting code here is the focus method from RxLift's [Components.scala](https://github.com/channingwalton/rxlift/blob/master/core/src/main/scala/com/casualmiracles/rxlift/Components.scala). It applies a Lens[T, F] to an RxComponent[F, F] producing an RxComponent[T, Endo[T]], which brings us back to why RxComponent is needed.
 
-The last line, fn + ln, combines each field into a RxComponent[Person, Endo[Person]]. It does so by merging the Observable streams of fn and ln, and joining the UI NodeSeqs.
+An RxElement is the result of applying an Observable to an RxComponent, so it is not possible to modify its input after construction. RxComponents allow us to map and transform Observables before their RxElement is produced.
 
-By merging the Observable[Endo[T]] value streams, a change in any field will result in an Endo[T] to be emitted. Multiple updates to a datatype by different users will be safe, since changes are applied on a field by field basis. Hence, one user's update will not overwrite anothers, unless they edit the same field simultaneously of course.
+The last line, fn + ln, combines each field into a RxComponent[Person, Endo[Person]] by merging the Observable streams of fn and ln, and joining the UI NodeSeqs.
+
+Consequently, a change in any field will result in an Endo[T] being emitted and so multiple updates to a datatype by different users will be safe. One user's update will not overwrite anothers unless the same field is modified simultaneously by two or more users.
 
 Here is a UI that uses the component.
 
@@ -189,6 +195,7 @@ class Composites extends RxCometActor {
 }
 {% endhighlight %}
 
+(The [BehaviourSubject](http://reactivex.io/RxJava/javadoc/rx/subjects/BehaviorSubject.html) is a subject that emits the most recent item it has observed and all subsequent observed items to each subscribed Observer.)
 
 ### Conclusions
 
