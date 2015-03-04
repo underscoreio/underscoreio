@@ -40,7 +40,10 @@ This course will be taught by Adam Rosien and Noel Welsh.
 
 The course will run from 9AM to 5PM on {{ page.date | date:'%a, %b %d, %Y' }}.
 
-Location is to be decided.
+It will be hosted by [StumbleUpon](https://www.stumbleupon.com/):
+
+[301 Brannan Street,
+San Francisco, CA 94107](https://www.google.com/maps/place/StumbleUpon,+Inc./@37.781446,-122.392154,15z/data=!4m2!3m1!1s0x0:0x17a7202fca5a2cdd?sa=X&ei=SMz0VL-nJtHZatqGgLgJ&ved=0CHQQ_BIwDA).
 
 ### What You Need
 
