@@ -1,8 +1,8 @@
 ---
 layout: event
-title: Essential Scalaz
+title: <strike>Essential Scalaz</strike> Advanced Scala with Scalaz
 type: course
-course: essential-scalaz
+course: advanced-scala-scalaz
 location: San Francisco
 date: 2015-03-19 09:00:00
 timezone: PST
@@ -22,15 +22,15 @@ bookingLinks:
 
 ### What
 
-Essential Scalaz is what you need to know to use Scalaz successfully.
+Advanced Scala with Scalaz is what you need to know to use Scalaz successfully.
 We will spend the morning of this one day course "building the toolbox",
 learning about core abstractions of monoids, monads, and applicative functors.
 In the afternoon we will undertake a case study
 applying our new knowledge to a practical example.
 
-The course materials include the book Essential Scalaz,
+The course materials include the book Advanced Scala with Scalaz,
 along with supplementary material related free monads.
-You will receive free updates to Essential Scalaz for its lifetime.
+You will receive free updates to Advanced Scala for its lifetime.
 
 ### Who
 

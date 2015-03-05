@@ -1,8 +1,8 @@
 ---
 layout: event
-title: Advanced Scala
+title: Advanced Scala with Scalaz
 type: course
-course: essential-scalaz
+course: advanced-scala-scalaz
 location: Edinburgh
 date: 2015-03-30 09:00:00
 timezone: BST
@@ -29,9 +29,9 @@ learning about core abstractions of monoids, monads, and applicative functors.
 In the afternoon we will undertake a case study
 applying our new knowledge to a practical example.
 
-The course materials include the book Essential Scalaz,
+The course materials include the book Advanced Scala with Scalaz,
 along with supplementary material related to free monads.
-You will receive free updates to Essential Scalaz for its lifetime.
+You will receive free updates to Advanced Scala with Scalaz for its lifetime.
 
 ### Who
 
