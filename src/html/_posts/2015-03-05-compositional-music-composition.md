@@ -5,9 +5,9 @@ author: Dave Gurnell
 date: '2015-03-05'
 ---
 
-Noel [recently wrote about][studio-scala] [Doodle][doodle],
+Noel [recently wrote][studio-scala] about [Doodle][doodle],
 the compositional drawing library featured in
-[Creative Scala][creative-scala] and our new studio-format Essential Scala.
+[Creative Scala][creative-scala] and our new studio-format [Essential Scala][essential-scala].
 Today I want to introduce you to another library called [Compose][compose].
 This new library, which will be featured in future courses,
 applies the same functional programming principles to music.
@@ -58,7 +58,7 @@ The primitives in a musical score are *notes* and *rests*.
 Notes have a *pitch* and *duration* and rests simply have a *duration*:
 
 <div class="captioned">
-  <img src="/images/blog/2015-02-01-compositional-music-composition.jpg">
+  <img src="/images/blog/2015-03-05-compositional-music-composition.jpg">
   <div class="caption">
     <a href="https://www.flickr.com/photos/jonnyentropy/8237873224">
       Photograph by Tris Linnell, CC-BY-NC-SA.
@@ -77,7 +77,7 @@ and 32<sup>nd</sup> beats, and combinators to produce
 ["dotted" variants][dotted-notes].
 
 <div class="captioned">
-  <img src="/images/blog/2015-02-01-compositional-music-composition-pitches.jpg">
+  <img src="/images/blog/2015-03-05-compositional-music-composition-pitches.jpg">
   <div class="caption">
     <a href="https://www.flickr.com/photos/124497826@N08/14121388525">
       Photograph from the Leeds Piano Competition, CC-BY.
@@ -207,7 +207,7 @@ More on this in a future post!
 
 [async]: http://asyncjs.com/
 [async-talk]: http://asyncjs.com/creative-functional-programming/
-[studio-scala]: 2015-01-26-rethinking-online-training.html
+[studio-scala]: /blog/posts/2015/01/29/rethinking-online-training.html
 [creative-scala]: /training/courses/creative-scala
 [essential-scala]: /training/courses/essential-scala
 [doodle]: https://github.com/underscoreio/doodle
