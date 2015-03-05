@@ -20,7 +20,6 @@ products:
       buttonLabel: "Buy now - $50"
       description: |
         Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
-      comingSoon: true
     team:
       type: gumroad
       title: "Get both Books"
@@ -28,7 +27,6 @@ products:
       buttonLabel: "Buy now - $89"
       description: |
         Download the course textbook, along with advanced material on building interpreters. Both texts come in HTML, PDF, and ePub formats.
-      comingSoon: true
   instructorLed:
     public:
       type: eventbrite
