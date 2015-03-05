@@ -12,7 +12,7 @@ In our code reviews we often see ad-hoc approaches to error handling that rely t
 
 <!-- break -->
 
-[This first post][error-handling-1] in the series shows how the type system can be used to prevent errors in the first place, and to ensure remaining errors are dealt with.
+[The first post][error-handling-1] in the series shows how the type system can be used to prevent errors in the first place, and to ensure remaining errors are dealt with.
 
 [The followup post][error-handling-2] goes deep into handling errors, showing how to systematically build robust code that is guaranteed to deal with errors (a teaser: don't use exceptions or `Try`).
 
