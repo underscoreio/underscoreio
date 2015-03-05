@@ -6,14 +6,16 @@ date: '2015-03-05'
 ---
 
 Noel [recently wrote about][studio-scala] [Doodle][doodle],
-the compositional drawing library we are featuring
-in our new studio-format [Essential Scala][essential-scala] course.
-Today I want to introduce you to another library called *Compose*
-([code on Github][compose]).
+the compositional drawing library featured in
+[Creative Scala][creative-scala] and our new studio-format Essential Scala.
+Today I want to introduce you to another library called [Compose][compose].
 This new library, which will be featured in future courses,
 applies the same functional programming principles to music.
 
 <!-- break -->
+
+I'll be [speaking][async-talk] about Doodle and Compose at
+[Async][async] in Brighton on March 19th. All welcome---come and say hi!
 
 Doodle and Compose are both designed in a classicly functional manner.
 The user builds a representation of the desired output
@@ -203,7 +205,10 @@ is the ability to create new DSLs
 on top of the existing representations and interpreters.
 More on this in a future post!
 
+[async]: http://asyncjs.com/
+[async-talk]: http://asyncjs.com/creative-functional-programming/
 [studio-scala]: 2015-01-26-rethinking-online-training.html
+[creative-scala]: /training/courses/creative-scala
 [essential-scala]: /training/courses/essential-scala
 [doodle]: https://github.com/underscoreio/doodle
 [compose]: https://github.com/underscoreio/compose
