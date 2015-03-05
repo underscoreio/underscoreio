@@ -2,7 +2,7 @@
 layout: post
 title: Compositional Music Composition
 author: Dave Gurnell
-date: '2015-02-20'
+date: '2015-03-05'
 ---
 
 Noel [recently wrote about][studio-scala] [Doodle][doodle],
