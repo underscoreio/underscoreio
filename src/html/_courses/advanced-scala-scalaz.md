@@ -3,7 +3,7 @@ id: advanced-scala-scalaz
 title: Advanced Scala with Scalaz
 layout: course
 navbar: training
-icon: scalaz
+icon: scala
 color: "#d62a7c"
 courseDirectory:
   level: Intermediate
