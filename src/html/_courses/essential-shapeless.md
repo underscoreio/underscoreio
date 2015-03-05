@@ -12,24 +12,6 @@ courseDirectory:
 coursePage:
   showSidebar: false
 products:
-  # selfDirected:
-  #   single:
-  #     type: gumroad
-  #     title: Get the Book
-  #     url: "https://gum.co/essential-shapeless"
-  #     buttonLabel: "Buy now - $50"
-  #     description: |
-  #       Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
-  #    comingSoon: true
-  #  team:
-  #    type: gumroad
-  #    title: "20% Team Discount"
-  #    url: "https://gum.co/essential-shapeless-team"
-  #    buttonLabel: "Buy now - <strike>$500</strike> $400"
-  #    description: |
-  #      Get your whole team up to speed with <em>10 licenses</em>
-  #      for Essential Scalaz at a 20% discount.
-  #    comingSoon: true
   instructorLed:
     public:
       type: eventbrite
