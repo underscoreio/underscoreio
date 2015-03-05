@@ -4,39 +4,70 @@ title: "Newsletter 7: Error Handling and Two New Books"
 author: Noel Welsh
 categories: [ newsletter ]
 ---
+Hi,
 
-Every program needs an error handling strategy.
+Let's talk about when things go wrong. It, inevitably, happens and every program needs an error handling strategy. The right strategy depends on the context -- a throwaway script might not even need to handle errors -- but the tasks for which Scala is typically used demand a robust approach.
 
-Most people using Scala are writing mission critical applications, and want robust error handling. In our code reviews we too often see ad-hoc error handling.
-
-Last month on the blog we ran a mini-series on error handling.
+In our code reviews we often see ad-hoc approaches to error handling, which rely too much on people remembering to do the correct thing. Last month we ran a mini-series on this topic on the blog, presenting some intermediate-level techniques that you can apply to make your code more robust.
 
 <!-- break -->
 
-Jonathon's post shows two strategies: using the type system to avoid the possibility of errors in the first place, and then using the type system to catch errors that can't be avoided. My post goes deep into handling errors, showing how to systematically build robust error handling code (a teaser: don't use `Try`)
+[This first post][error-handling-1] in the series shows how the type system can be used to prevent errors in the first place, and to ensure errors that remain are dealt with.
 
-Union types http://japgolly.blogspot.co.uk/2015/02/zero-overhead-recursive-adt-coproducts.html
+[The followup post][error-handling-2] goes deep into handling errors, showing how to systematically build robust code that raises and deals with errors (a teaser: don't use exceptions or `Try`).
+
+At the end of the second article we talk a little about union types. When that article was written we didn't know a really satisfactory way to represent them in Scala. The very next day [this blog post][union-types] was published, presenting a straight-forward approach to representing union types in Scala.
+
+Give these techniques a try and let us know how they pan out in your code base. 
+
 
 ## Pre-release of Advanced Scala with Scalaz 
 
-## Edinburgh Events
+This type of design knowledge is what we're trying to capture in our latest book, Advanced Scala with Scalaz (formerly known as Essential Scalaz), which we've literally just released as an [early access version][advanced-scala].
 
-## Scala Days SF
+The main goal of the book is to teach system architecture and design using the techniques of modern functional programming. This means designing systems as small composable units, expressing constraints and interactions via the type system, and using composition to guide the construction of large systems in a way that maintains the original architectural vision.
 
-[Scala Days SF](http://event.scaladays.org/scaladays-sanfran-2015) is the next big event in the Scala calendar.
-Miles and I will be representing Underscore in San Francisco.
-We have organised a few events while we are there:
+The book also serves as an introduction to Scalaz. We use abstractions from Scalaz, and we explain the structure of Scalaz so you can use it without fear in your own code base. The broad ideas are not specific to Scalaz, but Scalaz provides an excellent implementation that is beneficial to learn in its own right.
 
-- a [free one day introduction to Scala](http://underscore.io/events/2015-03-15-creative-scala.html);
-- a [one day course on Scalaz](http://underscore.io/events/2015-03-19-essential-scalaz.html) taught in collaboration with Underscore Associate [Adam Rosien](http://rosien.net/); and
-- a [free one day workshop on Shapeless](http://underscore.io/events/2015-03-20-shapeless.html).
+Advanced Scala is also available bundled with Essential Interpreters, a short book we're writing on building interpreters, which is [considered by many][don-stewart-so] in the functional programming community to be *the* primal FP pattern. Essential Interpreters will cover the basics all the way up to free monads -- used to great effect in [Facebook's Haxl][haxl], [Twitter's Stich][stitch], and more.
 
-For the introduction to Scala we are looking for experienced Scala developers to act as teaching assistants, in addition to those with little or no Scala experience who want to learn more.
 
 ## Creative Scala
 
+Last week we released another book called [Creative Scala][creative-scala]. It's designed for people with no previous Scala or functional programming experience who want a short and fun introduction to Scala. The exercises are all built around computer graphics using [Doodle][doodle].
 
-Till next time.
+Creative Scala is free and [open source][creative-scala-github], and already over 1'600 people have downloaded it.
+
+
+## Edinburgh Events
+
+Later this month I'll be in Edinburgh teaching two Scala courses:
+
+- a free [Creative Scala][creative-scala-ed]; and
+- a paid [Advanced Scala][advanced-scala-ed].
+
+
+## Scala Days SF
+
+There are still a few places left in our [one day Advanced Scala course](http://underscore.io/events/2015-03-19-essential-scalaz.html) in San Francisco.
+
+We could also really use a few more experienced Scala developers to act as teaching assistants in the [Creative Scala][creative-scala-sf] course we're running before Scala Days. We have some seventy-odd students who want to attend, and a few more teaching assistants would make all the difference in giving them a great experience trying out Scala for the first time. If you, or any of your friends, are based in San Francisco please consider helping out.
+
+Now, if you'll excuse me, I have a book chapter to finish. Till next time.
 
 Regards,
 Noel
+
+[error-handling-1]: http://underscore.io/blog/posts/2015/02/13/error-handling-without-throwing-your-hands-up.html
+[error-handling-2]: http://underscore.io/blog/posts/2015/02/23/designing-fail-fast-error-handling.html
+[union-types]: http://japgolly.blogspot.co.uk/2015/02/zero-overhead-recursive-adt-coproducts.html
+[creative-scala-ed]: http://underscore.io/events/2015-03-28-creative-scala.html
+[advanced-scala-ed]: http://underscore.io/events/2015-03-30-advanced-scala.html
+[creative-scala]: http://underscore.io/training/courses/creative-scala/ 
+[doodle]: https://github.com/underscoreio/doodle
+[creative-scala-github]: https://github.com/underscoreio/creative-scala 
+[advanced-scala]: http://underscore.io/training/courses/advanced-scala-scalaz/
+[creative-scala-sf]: http://underscore.io/events/2015-03-15-creative-scala.html 
+[don-stewart-so]: http://stackoverflow.com/a/27860072
+[haxl]: https://github.com/facebook/Haxl
+[stitch]: https://www.youtube.com/watch?v=bmIxIslimVY
