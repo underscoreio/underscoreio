@@ -1,11 +1,20 @@
 retina          = require 'retina.js/src/retina'
 svg4everybody   = require 'svg4everybody'
 $               = require 'jquery'
+ua              = require './ua'
 navbar          = require './navbar'
 
 retina.Retina.init(window)
 
+appendIE10Stylesheet = ->
+  # HACK: Detect IE 10:
+  if ua.isIE10()
+    $("<link>").attr({ rel: "stylesheet", href: "/css/ie10.css" }).appendTo("head")
+  return
+
+
 $ ->
+  appendIE10Stylesheet()
   navbar.init()
   return
 

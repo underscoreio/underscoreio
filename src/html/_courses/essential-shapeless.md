@@ -12,34 +12,16 @@ courseDirectory:
 coursePage:
   showSidebar: false
 products:
-  # selfDirected:
-  #   single:
-  #     type: gumroad
-  #     title: Get the Book
-  #     url: "https://gum.co/essential-shapeless"
-  #     buttonLabel: "Buy now - $50"
-  #     description: |
-  #       Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
-  #    comingSoon: true
-  #  team:
-  #    type: gumroad
-  #    title: "20% Team Discount"
-  #    url: "https://gum.co/essential-shapeless-team"
-  #    buttonLabel: "Buy now - <strike>$500</strike> $400"
-  #    description: |
-  #      Get your whole team up to speed with <em>10 licenses</em>
-  #      for Essential Scalaz at a 20% discount.
-  #    comingSoon: true
   instructorLed:
     public:
       type: eventbrite
       title: "Public Courses"
-      url: "https://www.eventbrite.com/e/advanced-scala-shapeless-tickets-13535612381"
+      url: "/events/2015-03-20-shapeless.html"
       buttonLabel: "Sign up - Free"
       description: |
         <p>This one-day shapeless workshop is taught by Underscore partner and shapeless author Miles Sabin.</p>
 
-        <p>The next workshop will take place on <em>Thursday 10th December 2014</em> (the day after Scala Exchange) at the Guardian's offices in <em>King's Cross</em>.</p>
+        <p>The next workshop will take place on <em>Friday, 20th March 2015</em> (two days after Scala Days) at the offices of Nitro in <em>San Francisco</em>.</p>
 ---
 
 ## Overview

@@ -11,6 +11,7 @@
   h3 {
     margin: 0;
     font-size: 1.1 * @font-size-base;
+    .clearfix();
   }
 
   .event-date {
@@ -19,9 +20,8 @@
     margin-right: @padding-base-horizontal;
   }
 
-  .event-icon {
-    float: right;
-  }
+  .event-icon { margin-left: @padding-base-horizontal; }
+  .event-location { margin-left: @padding-base-horizontal; }
 
   .event-meta {
     .clearfix();
@@ -47,7 +47,7 @@
 }
 
 .event-sidebar {
-  dl { margin-bottom: 0; }
+  dl { margin-bottom: 0.5*@line-height-computed; }
   dt { width: 80px; }
   dd { @media (min-width: 768px) { margin-left: 100px; } }
 }

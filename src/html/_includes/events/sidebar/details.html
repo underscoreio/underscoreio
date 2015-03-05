@@ -5,7 +5,7 @@
 
       <dl class="dl-horizontal">
         <dt>Name</dt>
-        <dd class="event-title">{{ include.event.title }}</dd>
+        <dd class="event-title">{{ include.event.title | strip_tag:'strike' }}</dd>
 
         {% if include.event.location %}
         <dt>Location</dt>
@@ -36,6 +36,15 @@
         <dd class="event-summary">{{ include.event.summary }}</dd>
         {% endif %}
       </dl>
+
+      {% for linkItem in include.event.bookingLinks %}
+        <p>
+          <a class="btn btn-block {{ linkItem.class | default:"btn-info" }}"
+              href="{{ linkItem.url }}">
+            {{ linkItem.text }}
+          </a>
+        </p>
+      {% endfor %}
     </div>
   </div>
 </aside>
