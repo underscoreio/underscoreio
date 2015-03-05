@@ -8,6 +8,12 @@
   {% endfor %}
 
   {% for course in site.courses %}
+    {% if course.id == 'advanced-scala-scalaz' %}
+      {% include blog/sidebar/course-promo.html course=course %}
+    {% endif %}
+  {% endfor %}
+
+  {% for course in site.courses %}
     {% if course.id == 'essential-play' %}
       {% include blog/sidebar/course-promo.html course=course %}
     {% endif %}
