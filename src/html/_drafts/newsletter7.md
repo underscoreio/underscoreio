@@ -8,17 +8,17 @@ Hi,
 
 Let's talk about when things go wrong. It, inevitably, happens and every program needs an error handling strategy. The right strategy depends on the context -- a throwaway script might not even need to handle errors -- but the tasks for which Scala is typically used demand a robust approach.
 
-In our code reviews we often see ad-hoc approaches to error handling, which rely too much on people remembering to do the correct thing. Last month we ran a mini-series on this topic on the blog, presenting some intermediate-level techniques that you can apply to make your code more robust.
+In our code reviews we often see ad-hoc approaches to error handling that rely too much on people remembering to do the right thing. Last month we ran a mini-series on this topic on the blog, presenting some intermediate-level techniques that you can apply to make your code more robust.
 
 <!-- break -->
 
-[This first post][error-handling-1] in the series shows how the type system can be used to prevent errors in the first place, and to ensure errors that remain are dealt with.
+[This first post][error-handling-1] in the series shows how the type system can be used to prevent errors in the first place, and to ensure remaining errors are dealt with.
 
-[The followup post][error-handling-2] goes deep into handling errors, showing how to systematically build robust code that raises and deals with errors (a teaser: don't use exceptions or `Try`).
+[The followup post][error-handling-2] goes deep into handling errors, showing how to systematically build robust code that is guaranteed to deal with errors (a teaser: don't use exceptions or `Try`).
 
 At the end of the second article we talk a little about union types. When that article was written we didn't know a really satisfactory way to represent them in Scala. The very next day [this blog post][union-types] was published, presenting a straight-forward approach to representing union types in Scala.
 
-Give these techniques a try and let us know how they pan out in your code base. 
+These approaches have worked very well for us. Give them a try and let us know how they pan out in your code base. 
 
 
 ## Pre-release of Advanced Scala with Scalaz 
@@ -31,10 +31,11 @@ The book also serves as an introduction to Scalaz. We use abstractions from Scal
 
 Advanced Scala is also available bundled with Essential Interpreters, a short book we're writing on building interpreters, which is [considered by many][don-stewart-so] in the functional programming community to be *the* primal FP pattern. Essential Interpreters will cover the basics all the way up to free monads -- used to great effect in [Facebook's Haxl][haxl], [Twitter's Stich][stitch], and more.
 
+The [book page](http://underscore.io/training/courses/advanced-scala-scalaz/) has more information on the books, including the tables of contents.
 
 ## Creative Scala
 
-Last week we released another book called [Creative Scala][creative-scala]. It's designed for people with no previous Scala or functional programming experience who want a short and fun introduction to Scala. The exercises are all built around computer graphics using [Doodle][doodle].
+Last week we released a short book called [Creative Scala][creative-scala]. It's designed for people with no previous Scala or functional programming experience who want a short and fun introduction to Scala. The exercises are all built around computer graphics using [Doodle][doodle]. 
 
 Creative Scala is free and [open source][creative-scala-github], and already over 1'600 people have downloaded it.
 
@@ -51,7 +52,7 @@ Later this month I'll be in Edinburgh teaching two Scala courses:
 
 There are still a few places left in our [one day Advanced Scala course](http://underscore.io/events/2015-03-19-essential-scalaz.html) in San Francisco.
 
-We could also really use a few more experienced Scala developers to act as teaching assistants in the [Creative Scala][creative-scala-sf] course we're running before Scala Days. We have some seventy-odd students who want to attend, and a few more teaching assistants would make all the difference in giving them a great experience trying out Scala for the first time. If you, or any of your friends, are based in San Francisco please consider helping out.
+We could also really use some more experienced Scala developers to act as teaching assistants in the [Creative Scala course][creative-scala-sf] we're running before Scala Days. We have some seventy-odd students who want to attend, and a few more teaching assistants would make all the difference in giving them a great experience trying out Scala for the first time. If you, or any of your friends, are based in San Francisco please consider helping out. See [the course page][creative-scala-sf] for more.
 
 Now, if you'll excuse me, I have a book chapter to finish. Till next time.
 
