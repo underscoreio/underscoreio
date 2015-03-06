@@ -148,9 +148,7 @@ case class ParScore(a: Score, b: Score) extends Score
 Ignoring dynamics and volume,
 we can represent any composition using `Scores`.
 
-[^monoid]: `+` and `|` are actually examples of
-[monoids][monoid] on `Score`. In each case
-the corresponding `zero` is an empty `Score`.
+[^monoid]: `+` and `|` are actually examples of [monoids][monoid] on `Score`. In each case the corresponding `zero` is an empty `Score`.
 
 ## Playback
 
