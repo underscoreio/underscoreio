@@ -11,12 +11,8 @@ cost: Free
 navbar: events
 summary: A free and fun taste of Scala. Places available for students and teaching assistants.
 bookingLinks:
-  - text:  Book as a student - FREE<br>
-           <small>(limited places available)</small>
-    url:   https://docs.google.com/forms/d/1uFxSI44wsnKqorKyCm40a8E3CTZuvt-OeSBmbaQggm4/viewform
-  - text:  Become a teaching assistant
-    url:   https://docs.google.com/forms/d/1uFxSI44wsnKqorKyCm40a8E3CTZuvt-OeSBmbaQggm4/viewform
-    class: "btn-warning"
+  - text:  Sorry, registration has closed
+    url:   
 ---
 
 ### What
@@ -98,12 +94,7 @@ It's completely free!
 
 ### Apply Now
 
-If you'd like to attend as either a student or teaching assistant
-[please fill out this form](https://docs.google.com/forms/d/1uFxSI44wsnKqorKyCm40a8E3CTZuvt-OeSBmbaQggm4/viewform)
-
-In the interests of fairness we are running a lottery for places. We will choose attendees randomly from all submissions on 10 Mar 2015.
-
-Please help us spread the word by tweeting about this event.
+Sorry, registration has closed.
 
 ### More Questions?
 
