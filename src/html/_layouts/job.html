@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+{% include hero.html title=page.title backLink="/jobs" %}
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {{ content }}
+    </div>
+
+    <div class="col-md-4">
+      <aside class="job-sidebar">
+        {% include jobs/sidebar/details.html job=page %}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}

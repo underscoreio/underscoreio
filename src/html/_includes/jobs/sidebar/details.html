@@ -1,0 +1,38 @@
+<aside class="job-sidebar">
+  <div class="job-details panel panel-gray">
+    <div class="panel-body">
+      <h4>Job Details</h4>
+
+      <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd class="job-title">{{ include.job.title | strip_tag:'strike' }}</dd>
+
+        {% if include.job.remote %}
+        <dt>Remote</dt>
+        <dd class="job-remote">ok<dd>
+        {% endif %}
+
+        {% if include.job.location %}
+        <dt>Location</dt>
+        <dd class="job-location">{{ include.job.location }}</dd>
+        {% endif %}
+
+        {% if include.job.summary %}
+        <dt>Summary</dt>
+        <dd class="job-summary">{{ include.job.summary }}</dd>
+        {% endif %}
+      </dl>
+
+      {% if include.job.email %}
+      {% if include.job.instructions %}
+      <p class="job-instructions">{{ include.job.instructions }}</p>
+      {% endif %}
+      <p>
+        <a class="btn btn-block btn-info" href="mailto:{{include.job.email}}">
+          Apply to {{include.job.email}}
+        </a>
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</aside>

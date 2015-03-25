@@ -1,0 +1,29 @@
+---
+layout: default
+title: Jobs
+navbar: jobs
+---
+
+{% include hero.html title="Jobs" %}
+
+<section class="container job-listing">
+  <p>As a service to the Scala community we list here companies that are actively
+  recruiting for Scala positions.</p>
+  
+  <article>
+    {% for job in site.jobs %}
+      {% include jobs/excerpt.html job=job %}
+    {% endfor %}
+
+    <center>
+      <h3>Want to list a job here?</h3>
+      <p><a href="/contact">Get in touch</a></p>
+    </center>
+  </article>
+</section>
+
+<script>
+  uio.jobListing.init(".job-listing")
+</script>
+
+{% include footer.html %}
