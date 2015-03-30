@@ -5,7 +5,7 @@ type: course
 course: creative-scala
 location: Edinburgh
 date: 2015-03-28 09:00:00
-timezone: GMT
+timezone: UTC
 duration: 8 hours
 cost: Free
 navbar: events

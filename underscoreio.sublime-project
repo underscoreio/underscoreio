@@ -14,7 +14,7 @@
 				"underscoreio",
 				"node_modules",
 				"assets",
-				"jekyll_plugins",
+        "jekyll_plugins",
 				".git"
 			],
 			"follow_symlinks": true,
