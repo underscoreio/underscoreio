@@ -77,14 +77,12 @@ endif;
 <section class="container">
   <article>
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
+      <div class="col-sm-8">
         {% raw %}
         <?php if($$formAlert): ?>
           <?= $$formAlert ?>
         <?php endif; ?>
         {% endraw %}
-
-        <p>Use the form below to send us a message, or email us at <a href="mailto:hello@underscore.io">hello@underscore.io</a>, or phone us on <a href="tel:+442030955332">+44 (0)20 309 55332</a>:</p>
 
         <form id="contact-form" method="post">
           <div class="form-group">
@@ -116,6 +114,26 @@ endif;
 
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
+      </div>
+
+      <div class="col-sm-4">
+        <p style="margin-bottom: 2px">
+          <strong>Or phone or email us...</strong>
+        </p>
+
+        <p>
+          <a href="tel:+442030955332" class="btn btn-block btn-primary">
+            <span class="icon-uio-phone"></span>
+            +44 (0)20 309 55332
+          </a>
+        </p>
+
+        <p>
+          <a href="mailto:hello@underscore.io" class="btn btn-block btn-primary">
+            <span class="icon-uio-envelope"></span>
+            hello@underscore.io
+          </a>
+        </p>
       </div>
     </div>
   </article>
