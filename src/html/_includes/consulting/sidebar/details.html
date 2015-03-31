@@ -1,0 +1,7 @@
+{% if include.product.sidebars.details %}
+<div class="consulting-product-details panel panel-gray">
+  <div class="panel-body">
+    {{ include.product.sidebars.details | markdownify }}
+  </div>
+</div>
+{% endif %}
