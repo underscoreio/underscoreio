@@ -6,7 +6,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    The Adopting Scala process costs $15,000 plus travel.
+    The Adopting Scala process costs $18,000 plus travel.
 
     <a href="/contact?subject=Adopting%20Scala" class="btn btn-block btn-primary">
       Enquire Now

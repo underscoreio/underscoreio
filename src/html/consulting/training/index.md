@@ -22,19 +22,11 @@ sidebars:
 
 ## Learn Scala The Right Way
 
-Scala's unique blend of functional and object oriented programming concepts
-requires a unique teaching style. We are one of the few companies that focuses
-on showing your developers *how to think* as well as how to write code.
+Scala's unique blend of functional and object oriented programming concepts requires a unique teaching style. We are one of the few companies that focuses on showing your developers *how to think* as well as how to write code.
 
-Our [extensive library](/training) of training material covers everything
-from first steps with Scala to idiomatic library use
-and advanced functional programming patterns and abstractions.
-We can mix-and-match material to tailor content to suit your requirements.
+Our [extensive library](/training) of training material covers everything from first steps with Scala to idiomatic library use and advanced functional programming patterns and abstractions. We can mix-and-match material to tailor content to suit your requirements.
 
-Software development is an ever-chaning world.
-We're constantly updating our ebooks and training exercises to reflect this,
-and all of our courses come with free lifetime access to relevant training material
-for all attendees.
+Software development is an ever-chaning world. We're constantly updating our ebooks and training exercises to reflect this, and all of our courses come with free lifetime access to relevant training material for all attendees.
 
 ## What You Can Expect
 
@@ -44,6 +36,4 @@ for all attendees.
 
 ## Training and Mentoring: Perfect Partners
 
-The best way to bed in your new skills is ongoing pair programming
-with an experienced developer. Why not follow your course with
-[one-to-one mentoring](../mentoring) for your team?
+The best way to bed in your new skills is ongoing pair programming with an experienced developer. Why not follow your course with [one-to-one mentoring](../mentoring) for your team?

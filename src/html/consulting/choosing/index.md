@@ -14,7 +14,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    An Initial Consultation costs $1,000 plus travel.
+    An Initial Consultation costs $900 plus travel.
 
     <a href="/contact?subject=Choosing%20Scala" class="btn btn-block btn-primary">
       Enquire Now
