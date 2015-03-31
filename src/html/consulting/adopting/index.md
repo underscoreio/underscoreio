@@ -6,7 +6,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    The Adopting Scala process costs $18,000 plus travel.
+    Adopting Scala costs $18,000 plus travel.
 
     <a href="/contact?subject=Adopting%20Scala" class="btn btn-block btn-primary">
       Enquire Now
@@ -16,11 +16,9 @@ sidebars:
 
 ## Scala In Just The Right Places
 
-"Adopting Scala" provides the path to rolling out Scala technologies for your project.
+Our *Adopting Scala* service provides the path to rolling out Scala technologies for your project.
 
-As an independent consultancy, Underscore offer experience across the Scala ecosystem.
-This includes core and functional programming libraries, web frameworks,
-database access and analysis products, messaging, deployment, and build systems.
+As an independent consultancy, Underscore offer experience across the Scala ecosystem. This includes core and functional programming libraries, web frameworks, database access and analysis products, messaging, deployment, and build systems.
 
 We help you identify the right aspects of Scala to fit your goals and team.
 
@@ -34,6 +32,4 @@ This service is for CTOs, team leads, and business stakeholders.
 - We present the architecture so it can be challenged to ensure it meets the business needs.
 - The resulting architecture is documented.
 
-A full architecture process is iterative,
-but this service is provided as a time-boxed series of activities.
-The process takes four weeks.
+A full architecture process is iterative but this service is provided as a time-boxed series of activities. The process takes four weeks.

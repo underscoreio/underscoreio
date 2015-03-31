@@ -6,9 +6,9 @@ sidebars:
   details: |
     ### What Is this?
 
-    - A tailored training course for up to 10 developers.
-    - Training material created by our expert Scala trainers.
-    - Free lifetime updates to training material for all attendees.
+    - Training for up to 10 developers
+    - A tailored syllabus built by our Scala experts
+    - Free lifetime updates to training material for all attendees
   cta: |
     ### How To Start
 

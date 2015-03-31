@@ -8,10 +8,10 @@ sidebars:
 
     Pair Programming involves two developers working together on a task, giving:
 
-    - Knowledge transfer
-    - Higher quality design
-    - Less defects
-    - Increased team engagement
+    - knowledge transfer;
+    - higher quality design;
+    - fewer defects;
+    - increased team engagement.
   cta: |
     ### How To Start
 
@@ -25,20 +25,19 @@ sidebars:
 
 ## Faster Progress For Your Team
 
-With any new technology your team will pick up idioms, best practices, and tricks as they go. **Mentoring speeds up this process**, by having experienced developers regularly pair with your team.
+With any new technology your team will pick up idioms, best practices, and tricks as they go. Mentoring speeds up this process by regularly pairing experienced developers with your team.
 
-Mentoring will help your team address the problems they face using the best of Scala, including functional programming concepts.
+Mentoring helps your team address the problems they face using the best of Scala, including functional programming concepts.
 
-By **pairing with an experienced developer**, your team will also gain insights into the wide range of libraries and frameworks used in the Scala ecosystem.
+By pairing with an experienced developer, your team will also gain insights into the wide range of libraries and frameworks used in the Scala ecosystem.
 
 As further support, we provide each developer we mentor with access to the complete catalogue of Underscore training material.
 
 ## What You Can Expect
 
-Pairing needs to occur frequently to make a lasting difference.
-Mentoring is per-pair, pair is for one hour every working day for a month.
+Pairing needs to occur frequently to make a lasting difference. Our Mentoring provides one hour of contact time every day for a month to keep up the pace.
 
 1. Daily pairing sessions involving an Underscore consultant and one or two members of your team.
-2. This is remote, via video and audio Google Hangouts or Screen Hero.
-3. The session is driven by the needs and questions of your team member.
-4. Each week we report back to you relevant findings and suggestions.
+2. Remote pairing via video and audio Google Hangouts or Screen Hero.
+3. Sessions driven by the needs and questions of your team members.
+4. Weekly reports containing findings and suggestions.
