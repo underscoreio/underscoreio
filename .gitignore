@@ -13,6 +13,7 @@ Thumbs.db
 /core-scala.zip
 /node_modules
 /underscoreio
+/src/php/vendor
 
 *.sublime-workspace
 

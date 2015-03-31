@@ -68,8 +68,18 @@ module.exports = (grunt) ->
           src: ["**"]
           dest: "underscoreio/images/"
         }]
+      php:
+        files: [{
+          expand: true
+          cwd: "src/php"
+          src: ["**"]
+          dest: "underscoreio/"
+        }]
 
     exec:
+      composer:
+        cmd: "php composer.phar install"
+        cwd: "src/php"
       install:
         cmd: "bundle install"
       jekyllLocal:
@@ -105,7 +115,7 @@ module.exports = (grunt) ->
           "src/images/**/*"
         ]
         tasks: [
-          "copy"
+          "copy:images"
           "exec:jekyllLocal"
         ]
       html:
@@ -115,7 +125,7 @@ module.exports = (grunt) ->
           "jekyll_config.yml"
         ]
         tasks: [
-          "copy"
+          "copy:images"
           "exec:jekyllLocal"
         ]
 
@@ -131,6 +141,7 @@ module.exports = (grunt) ->
     "webfont"
     "less"
     "browserify"
+    "exec:composer"
     "copy"
   ]
 
