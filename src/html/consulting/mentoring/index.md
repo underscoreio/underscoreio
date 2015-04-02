@@ -8,10 +8,10 @@ sidebars:
 
     Pair Programming involves two developers working together on a task, giving:
 
-    - knowledge transfer;
-    - higher quality design;
-    - fewer defects;
-    - increased team engagement.
+    - Knowledge transfer
+    - Higher quality design
+    - Fewer defects
+    - Increased team engagement
   cta: |
     ### How To Start
 

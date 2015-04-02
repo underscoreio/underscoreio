@@ -8,10 +8,10 @@ sidebars:
 
     An independent inspection of Scala source code focusing on:
 
-    - quality;
-    - maintainability;
-    - improvements;
-    - idiomatic Scala usage.
+    - Quality
+    - Maintainability
+    - Improvements
+    - Idiomatic Scala usage
   cta: |
     ### How To Start
 
