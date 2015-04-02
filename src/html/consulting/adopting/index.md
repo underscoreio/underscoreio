@@ -20,7 +20,7 @@ Our *Adopting Scala* service provides the path to rolling out Scala technologies
 
 As an independent consultancy, Underscore offer experience across the Scala ecosystem. This includes core and functional programming libraries, web frameworks, database access and analysis products, messaging, deployment, and build systems.
 
-We help you identify the right aspects of Scala to fit your goals and team.
+We help you **identify the right aspects of Scala to fit your goals** and team.
 
 ## What You Can Expect
 
