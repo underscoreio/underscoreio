@@ -15,6 +15,12 @@ navbar: training
 
 // CONFIGURATION --------------------------------
 
+require '../../vendor/autoload.php';
+use Mailgun\Mailgun;
+
+$mgClient = new Mailgun('key-9a305971d33fb98f1a492bdbd0af0074');
+$mgDomain = 'mailgun.underscore.io';
+
 $courseOptions = Array(
 {% endraw %}
 {% for courseId in site.data.publishedCourses %}
@@ -35,6 +41,7 @@ $peopleOptions = Array(
 );
 
 $bookingEmail = 'Underscore Booking Enquiries <bookings@underscore.io>';
+$noreplyEmail = 'Underscore Booking Form <noreply@underscore.io>';
 
 // ----------------------------------------------
 
@@ -95,13 +102,19 @@ Underscore Bookings Robot
 http://underscore.io
 ENDEMAIL;
 
-  $emailLength  = strlen($emailBody);
-  $emailExtras  = "From: $name <$email>\r\nDate: $emailDate\r\nContent-Length: $emailLength";
-  $formAlert    = null;
+  $emailFrom = $email ? "$name <$email>" : $noreplyEmail;
+  $formAlert = null;
+
+  $emailParams = array(
+    'to'      => $emailTo,
+    'from'    => $emailFrom,
+    'subject' => $emailSubject,
+    'text'    => $emailBody
+  );
 
   if(!$email):
     $formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
-  elseif(mail($emailTo, $emailSubject, $emailBody, $emailExtras)):
+  elseif($mgClient->sendMessage($mgDomain, $emailParams)):
     $formAlert = '<div class="alert alert-success">Thank you for your enquiry. Our training coordinator will be in touch shortly.</div>';
   else:
     $formAlert = '<div class="alert alert-danger">There was an error submitting your booking enquiry. Please get in touch by phone or email.</div>';

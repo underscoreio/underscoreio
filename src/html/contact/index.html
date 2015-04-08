@@ -15,7 +15,14 @@ navbar: company
 
 // CONFIGURATION --------------------------------
 
+require '../vendor/autoload.php';
+use Mailgun\Mailgun;
+
+$mgClient = new Mailgun('key-9a305971d33fb98f1a492bdbd0af0074');
+$mgDomain = 'mailgun.underscore.io';
+
 $contactEmail = 'Underscore General Enquiries <hello@underscore.io>';
+$noreplyEmail = 'Underscore Contact Form <noreply@underscore.io>';
 
 // ----------------------------------------------
 
@@ -54,16 +61,22 @@ Phone: $phone
 $message
 ENDEMAIL;
 
-  $emailLength  = strlen($emailBody);
-  $emailExtras  = "From: $name <$email>\r\nDate: $emailDate\r\nContent-Length: $emailLength";
-  $$formAlert    = null;
+  $emailFrom = $email ? "$name <$email>" : $noreplyEmail;
+  $formAlert = null;
+
+  $emailParams = array(
+    'to'      => $emailTo,
+    'from'    => $emailFrom,
+    'subject' => $emailSubject,
+    'text'    => $emailBody
+  );
 
   if(!$email):
-    $$formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
-  elseif(mail($emailTo, $emailSubject, $emailBody, $emailExtras)):
-    $$formAlert = '<div class="alert alert-success">Thank you for your message. We will be in touch shortly.</div>';
+    $formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
+  elseif($mgClient->sendMessage($mgDomain, $emailParams)):
+    $formAlert = '<div class="alert alert-success">Thank you for your message. We will be in touch shortly.</div>';
   else:
-    $$formAlert = '<div class="alert alert-danger">There was an error submitting your message. Please get in touch by phone or email.</div>';
+    $formAlert = '<div class="alert alert-danger">There was an error submitting your message. Please get in touch by phone or email.</div>';
   endif;
 endif;
 
@@ -79,8 +92,8 @@ endif;
     <div class="row">
       <div class="col-sm-8">
         {% raw %}
-        <?php if($$formAlert): ?>
-          <?= $$formAlert ?>
+        <?php if($formAlert): ?>
+          <?= $formAlert ?>
         <?php endif; ?>
         {% endraw %}
 
