@@ -111,7 +111,43 @@ High fives all around -- we've derived the free monoid from first principles.
 
 ## The Free Monad
 
-We are now ready to tackle the free monad. We can take the same approach starting with the monad operations `point` and `flatMap`, but our task will be easier if we reformulate monads in terms of `point`, `map`, and `join`.
+We are now ready to tackle the free monad. We can take the same approach starting with the monad operations `point` and `flatMap`, but our task will be easier if we reformulate monads in terms of `point`, `map`, and `join`. Under this formulation a monad for a type `F[A]` has:
+
+- an operation `point` with type `A => F[A]`;
+- an operation `map` with type `(F[A], A => B) => F[B]`; and
+- an operation `join` with type `F[F[A]] => F[A]`
+
+From this list of operations we can start to create an abstract syntax tree like
+
+~~~ scala
+sealed trait Free[F[_], A]
+final case class Point[F[_], A](a: A) extends Free[F, A]
+final case class Map[F[_], A, B](fa: Free[F, A], f: A => B) extends Free[F, B]
+final case class Join[F[_], A](f: F[Free[F, A]]) extends Free[F, A]
+~~~
+
+This is very close to the abstract syntax tree we saw in the introduction, if we rename `Point` to `Return` and `Join` to `Suspend`, but we still have the extra `Map` case.
+
+~~~ scala
+sealed trait Free[F[_], A]
+final case class Return[F[_], A](a: A) extends Free[F, A]
+final case class Suspend[F[_], A](s: F[Free[F, A]]) extends Free[F, A]
+final case class Map[F[_], A, B](fa: Free[F, A], f: A => B) extends Free[F, B]
+~~~
+
+We can get rid of the `Map` case with some algebra. Firstly, we know we can write `map` in terms of `flatMap`.
+
+~~~ scala
+def map[B](f: A => B): Free[F, B] =
+  flatMap(a => Return(f(a)))
+~~~
+
+We can also write `flatMap` in terms of `join`.
+
+~~~ scala
+def flatMap[B](f: A => Free[F, B]): Free[F, B] =
+  join(this.map(f))
+~~~
 
 [dual-numbers]: http://en.wikipedia.org/wiki/Dual_number
 [js-iso]: http://isomorphic.net/
