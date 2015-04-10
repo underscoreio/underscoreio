@@ -12,15 +12,15 @@ final case class Return[F[_], A](a: A) extends Free[F, A]
 final case class Suspend[F[_], A](s: F[Free[F, A]]) extends Free[F, A]
 ~~~
 
-but it certainly wasn't obvious to me *why* this is correct. Reading the literature quickly devolves into "doughzoids in the category of pretzelmorphisms" land but there is actually a very simple explanation that doesn't involve abstract alphabet-soup. 
+It certainly wasn't obvious to me *why* this is the correct definition. Reading the literature quickly devolves into "doughzoids in the category of pretzelmorphisms" land but there is actually a simple explanation that doesn't involve abstract alphabet-soup. 
 
 <!-- break -->
 
 ## Preliminaries
 
-The goal of the free monad is to represent a monad with the minimal possible structure. Concretely this means separating the structure of the computation from the process that gives it meaning.
+The free monad represents a monad with the minimal possible structure. The free monad separates the structure of monadic computation from the process that gives it meaning. Concretely this means given any type (that is also a functor)[^coyoneda] we can construct a monad by wrapping it in the free monad. 
 
-Let me give a simple example that doesn't involve any monads. Consider the expression
+Let me give a simple example of this separation of structure and meaning that doesn't involve any monads. Consider the expression
 
 ~~~ scala
 1 + 2 + 3
@@ -34,9 +34,11 @@ We could separate structure and meaning by representing the structure of the com
 Add(1, Add(2, 3))
 ~~~
 
-Now we can write a simple interpreter to give meaning to this structure. Having separated the *abstract syntax tree* from the interpreter we can choose different interpretations for a given tree, such as computing with [dual numbers][dual-numbers] to automatically compute derivatives, or running the code on a GPU.
+Now we can write a simple interpreter to give meaning to this structure. Having separated the *abstract syntax tree* from the interpreter we can choose different interpretations for a given tree, such as computing with [dual numbers][dual-numbers] to automatically compute derivatives, or running the code on a GPU for performance.
 
-The free monad is just an abstract syntax tree representation of a monad. This means we should be able to derive the free monad from the operations required to define a monad. Before we dive into the free monad, I want to return to our example of addition and derive the free monoid.
+The free monad is just an abstract syntax tree representation of a monad. It has the advantage that we can define custom interpreters for the computations represented in the free monad, and with some further tricks compose monads and interpreters[^a-la-carte].
+
+We should be able to derive the free monad from the operations required to define a monad, as it is just an abstract syntax tree representation of those operations. Before we dive into the free monad, however, I want to return to our example of addition and derive the free monoid. This serves as a useful warmup before we tackle the free monad.
 
 
 ## The Free Monoid
@@ -48,6 +50,8 @@ Our goal with implementing the free monoid is to represent computations like
 ~~~
 
 in a generic way without giving them any particular meaning.
+
+The free monoid will wrap an arbitrary type and must itself be a monoid.
 
 A monoid for some type `A` is defined by:
 
@@ -67,7 +71,24 @@ final case object Zero extends FreeMonoid[Nothing]
 final case class Append[A](l: A, r: A) extends FreeMonoid[A]
 ~~~
 
-but this doesn't work -- we can't write, for instance, `Append(Zero, Zero)` because the types don't line up. We can use the monoid laws to make the final step. Let's do some algebraic manipulation on `1 + 2 + 3` to normalize it into something we can implement.
+but this doesn't work -- we can't write, for instance, `Append(Zero, Zero)` because the types don't line up. We can use the monoid laws to make the final step.
+
+We can use a structure like
+
+~~~ scala
+sealed trait FreeMonoid[+A]
+final case object Zero extends FreeMonoid[Nothing]
+final case class Value[A](a: A) extends FreeMonoid[A]
+final case class Append[A](l: FreeMonoid[A], r: FreeMonoid[A]) extends FreeMonoid[A]
+~~~
+
+Now we can represent `1 + 2 + 3` as
+
+~~~ scala
+Append(Value(1), Append(Value(2), Value(3)))
+~~~
+
+We can do better than this. With a bit of algebraic manipulation, justified by the monoid laws, we can normalize any monoid expression into a simple form. Let's illustrate this via algebraic manipulation on `1 + 2 + 3`.
 
 The identity law means we can insert the addition of zero in any part of the computation without changing the result, and likewise we can remove any zeros (unless the entire expression consists of just zero). We're going to decree that any normalized expression must have a single zero at the end of the expression like so: 
 
@@ -81,7 +102,7 @@ The associativity law means we can place brackets wherever we want. We're going 
 (1 + (2 + (3 + 0)))
 ~~~
 
-With these changes -- which by the monoid laws make no difference to the meaning of the expression -- we can easily construct an abstract syntax tree.
+With these changes -- which by the monoid laws make no difference to the meaning of the expression -- we can construct the following abstract syntax tree.
 
 ~~~ scala
 sealed trait FreeMonoid[+A]
@@ -107,54 +128,129 @@ or
 List(1, 2, 3)
 ~~~
 
+The monoid operations on `List` are:
+
+- `append` is `++`, list concatentation;
+- `zero` is `Nil`, the empty list; and
+- we can "lift" any type into the free monoid using `List.apply`
+
 High fives all around -- we've derived the free monoid from first principles.
 
 ## The Free Monad
 
-We are now ready to tackle the free monad. We can take the same approach starting with the monad operations `point` and `flatMap`, but our task will be easier if we reformulate monads in terms of `point`, `map`, and `join`. Under this formulation a monad for a type `F[A]` has:
+We are now ready to tackle the free monad. We can take the same approach starting with the monad operations `point` and `flatMap`, but our task will be easier if we reformulate monads in terms of `point`, `map`, and `join`. Under this formulation a monad for a type `F[_]` has:
 
 - an operation `point` with type `A => F[A]`;
-- an operation `map` with type `(F[A], A => B) => F[B]`; and
-- an operation `join` with type `F[F[A]] => F[A]`
+- an operation `join` with type `F[F[A]] => F[A]`; and
+- an operation `map` with type `(F[A], A => B) => F[B]`.
 
-From this list of operations we can start to create an abstract syntax tree like
+From this list of operations we can start to create an abstract syntax tree. We start with the definition of `Free`.
 
 ~~~ scala
 sealed trait Free[F[_], A]
-final case class Point[F[_], A](a: A) extends Free[F, A]
-final case class Map[F[_], A, B](fa: Free[F, A], f: A => B) extends Free[F, B]
-final case class Join[F[_], A](f: F[Free[F, A]]) extends Free[F, A]
 ~~~
 
-This is very close to the abstract syntax tree we saw in the introduction, if we rename `Point` to `Return` and `Join` to `Suspend`, but we still have the extra `Map` case.
+We can directly convert `point` into a case `Return` (following the names I introduced in the introduction).
+
+~~~ scala
+final case class Return[F[_], A](a: A) extends Free[F, A]
+~~~
+
+We are going to convert `join` into a case `Suspend`. We might think it should store a value of type `F[F[A]]` but if we did this we wouldn't be able to store, say, a `Return` inside the outer `F`. The solution is to replace `F[F[A]]` with `F[Free[F, A]]` which allows us to route the recursion via the free monad.
+
+~~~ scala
+final case class Suspend[F[_], A](f: F[Free[F, A]]) extends Free[F, A]
+~~~
+
+Finally we have `map`. This suggests a case like[^go-sub]
+
+~~~ scala
+final case class Map[F[_], A, B](fa: Free[F, A], f: A => B) extends Free[F, B]
+~~~
+
+This looks a little problematic. We have three type parameters while `Free` only has two. In fact we can do away with this case! The reason being we inherit `map` from monad being a functor. It doesn't represent anything particularly monadic about a computation and crucially it doesn't represent an effectful computation. We can drop `Map` so long as we make sure we can implement the `map` operation in our free monad.
+
+Our final free monad data type looks like
 
 ~~~ scala
 sealed trait Free[F[_], A]
 final case class Return[F[_], A](a: A) extends Free[F, A]
 final case class Suspend[F[_], A](s: F[Free[F, A]]) extends Free[F, A]
-final case class Map[F[_], A, B](fa: Free[F, A], f: A => B) extends Free[F, B]
 ~~~
 
-We can get rid of the `Map` case with some algebra. Firstly, we know we can write `map` in terms of `flatMap`.
+This is what we saw in the introduction. But does it really work? To show it does, let's implement the monad operations on this data type. We'll use the more familiar `flatMap` and `point` formulation, which is better suited to Scala, than the `point`, `join`, and `map` formulation above.
+
+We can knock out `point` easily enough.
 
 ~~~ scala
-def map[B](f: A => B): Free[F, B] =
+object Free {
+  def point[F[_]](a: A): Free[F, A] = Return[F, A](a)
+}
+~~~
+
+Things get a bit trickier with `flatMap`, however. Since we know `Free` in an algebraic data type we can easily get the structural recursion skeleton.
+
+~~~ scala
+sealed trait Free[F[_], A] {
+  def flatMap[B](f: A => Free[F, B]): Free[F, B] =
+    this match {
+      case Return(a)  => ???
+      case Suspend(s) => ???
+    }
+}
+~~~
+
+The case for `Return` just requires us to follow the types.
+
+~~~ scala
+sealed trait Free[F[_], A] {
+  def flatMap[B](f: A => Free[F, B]): Free[F, B] =
+    this match {
+      case Return(a)  => f(a)
+      case Suspend(s) => ???
+    }
+}
+~~~
+
+The case for `Suspend` is a bit trickier. The value `s` has type `F[Free[F, A]]`. The only operation we (currently) have available is `f`, which accepts an `A`. We could `flatMap` `f` over the `Free[F, A]` wrapped in `F`, but we haven't yet required any operations on `F`. If we require `F` is a monad we can then `map` over it. Concretely, we can use this code snippet:
+
+~~~ scala
+s map (free => free flatMap f) 
+~~~
+
+A bit of algebra shows the result has type `F[Free[F, B]]`, and we can wrap that in a `Suspend` to get a result of type `Free[F, B]`. Our final implementation is thus
+
+~~~ scala
+sealed trait Free[F[_], A] {
+  def flatMap[B](f: A => Free[F, B])(implicit functor: Functor[F]): Free[F, B] =
+    this match {
+      case Return(a)  => f(a)
+      case Suspend(s) => Suspend(f map (_ flatMap f))
+    }
+}
+~~~
+
+We can write `map` in terms of `flatMap`
+
+~~~ scala
+def map[B](f: A => B)(implicit functor: Functor[F]): Free[F, B] =
   flatMap(a => Return(f(a)))
 ~~~
 
-We can also write `flatMap` in terms of `join`.
+It's left as an exercise to the reader to prove the monad laws hold.
 
-~~~ scala
-def flatMap[B](f: A => Free[F, B]): Free[F, B] =
-  join(this.map(f))
-~~~
+## Conclusions
+
+In this blog post I've tried to explain how the free monad comes to be without invoking category theory. Hopefully this sheds a bit more light on the construction, and shows it's a natural consequence of the monad operations.
+
+There is a lot more to the free monad than just constructing it -- using it is rather important too. I've linked to a few more ideas in the footnotes, but I have another blog post the describes why the free monad is interesting. Finally, our book [Essential Interpreters][advanced-scala] has complete coverage of the free monad (at least it will, when we've written it!)
 
 [dual-numbers]: http://en.wikipedia.org/wiki/Dual_number
 [js-iso]: http://isomorphic.net/
+[advanced-scala]: /training/courses/advanced-scala-scalaz/
 
 [^defn]: There are other ways of defining the free monad, but this is the most common in my reading.
 [^oops]: This data structure can't actually be implemented. The right-hand element of `Add` is an `Add` in one case and an `Int` in another. We'll see how to actually implement this in the next section.
-
-
-
-
+[^coyoneda]: The free monad requires that we wrap it around a functor. There is another trick, called the Coyoneda, that allows us to turn any type into a functor. This allows us to wrap any type with the free monad (by first constructing a Coyoneda functor for it). In this discussion we're not going to cover the Coyoneda so for our purposes the free monad can only be wrapped around a functor.
+[^a-la-carte]: This extension is described in [Data Types a la Carte](http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf) and eventually will be described in [Essential Interpreters](http://underscore.io/training/courses/advanced-scala-scalaz/).
+[^go-sub]: If you look at the [Scalaz implementation](https://github.com/scalaz/scalaz/blob/series/7.2.x/core/src/main/scala/scalaz/Free.scala) of free monads you see a case very much like this called `GoSub`. This actually represents `flatMap` (read the types) but it isn't strictly necessary if we're not also implementing trampolining at Scalaz's implementation does.
