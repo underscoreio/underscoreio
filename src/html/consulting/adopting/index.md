@@ -6,7 +6,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    Adopting Scala costs $18,000 plus travel.
+    Adopting Scala costs $5,000 (plus travel if required).
 
     <a href="/contact?subject=Adopting%20Scala" class="btn btn-block btn-primary">
       Enquire Now
@@ -14,22 +14,28 @@ sidebars:
     </a>
 ---
 
-## Scala In Just The Right Places
+## Your Project Roadmap
 
-Our *Adopting Scala* service provides the path to rolling out Scala technologies for your project.
+Adopting Scala runs as a **roadmapping session**.
+We work together, looking at your goals, to identify where and how Scala can best fit.
 
-As an independent consultancy, Underscore offer experience across the Scala ecosystem. This includes core and functional programming libraries, web frameworks, database access and analysis products, messaging, deployment, and build systems.
+As an independent consultancy, Underscore offer experience across the Scala ecosystem,
+from architecture to build systems.
 
-We help you identify the right aspects of Scala to fit your goals and team.
+We help you select the rights parts of Scala, and map out adoption for your goals and team.
 
 ## What You Can Expect
 
 This service is for CTOs, team leads, and business stakeholders.
 
-- We meet to understand your needs and concerns.
-- Working with you, we outline an architecture and technologies.
-- Where necessary, we identify areas requiring proof of concept exploration.
-- We present the architecture so it can be challenged to ensure it meets the business needs.
-- The resulting architecture is documented.
+It runs in one day, and focuses on:
 
-A full architecture process is iterative but this service is provided as a time-boxed series of activities. The process takes four weeks.
+- The aims of your project.
+- The risks, and mitigations.
+- High-level user stories and interactions.
+- Appropriate Scala solutions.
+
+The deliverable from the roadmapping session is an **Adoption Plan**.
+This summarizes the major points of the session,
+together with additional insights,
+and a roadmap for delivery.
