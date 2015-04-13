@@ -25,11 +25,11 @@ sidebars:
 
 ## Faster Progress For Your Team
 
-With any new technology your team will pick up idioms, best practices, and tricks as they go. Mentoring speeds up this process by regularly pairing experienced developers with your team.
+With any new technology your team will pick up idioms, best practices, and tricks as they go. **Mentoring speeds up this process** by regularly pairing experienced developers with your team.
 
 Mentoring helps your team address the problems they face using the best of Scala, including functional programming concepts.
 
-By pairing with an experienced developer, your team will also gain insights into the wide range of libraries and frameworks used in the Scala ecosystem.
+By **pairing with an experienced developer**, your team will also gain insights into the wide range of libraries and frameworks used in the Scala ecosystem.
 
 As further support, we provide each developer we mentor with access to the complete catalogue of Underscore training material.
 

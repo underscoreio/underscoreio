@@ -24,9 +24,9 @@ sidebars:
 
 ## A Straight Path To Success
 
-Careful evaluation of new technology is a vital part of any new project. If you are considering adopting Scala, we are happy to provide the benefit of our experience working with other customers who have trodden a similar path.
+Evaluating new technology is a critical first step in any project. If you are considering adopting Scala, we can provide the benefit of our experience working with other customers who have done the same.
 
-Our *First Steps* service is a single afternoon spent on-site with your team. One of our expert consultants will discuss the benefits of choosing Scala and the logistics of your forthcoming technology switch, and will help on-board key stakeholders within your organisation.
+Our *First Steps* service is a **single afternoon spent on-site** with your team. We will discuss the benefits and risks of your forthcoming technology switch, and help bring key stakeholders on board.
 
 ## What You Can Expect
 

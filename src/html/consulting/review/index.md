@@ -25,11 +25,11 @@ sidebars:
 
 ## Review Early. Review Often.
 
-Review & Improve gives you assurance your team is on the right path and highlights any areas of potential concern. It comprises a comprehensive code review leading to a *Review Report*, and ongoing support to address any issues found.
+Review & Improve gives you assurance your team is on the right path and highlights any areas of potential concern. It comprises a comprehensive code review leading to a **Review Report**, and ongoing support to address any issues found.
 
 Start reviewing early to avoid accumulating bad practices and technical debt. Our Review Report highlights our findings and provides recommendations.
 
-Review is only the start of a good quality process. Our Review & Improve service recognizes this by including *hands-on assistance* in the form of pull request reviews, pair programming, on-line Q&A, and deep-dives into specific topics.
+Review is only the start of a good quality process. Our Review & Improve service recognizes this by including **hands-on assistance** in the form of pull request reviews, pair programming, on-line Q&A, and deep-dives into specific topics.
 
 ## What You Can Expect
 

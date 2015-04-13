@@ -16,11 +16,9 @@ sidebars:
 
 ## Scala In Just The Right Places
 
-Our *Adopting Scala* service provides the path to rolling out Scala technologies for your project.
+Our *Adopting Scala* service helps you **lay the path to rolling out Scala**.
 
-As an independent consultancy, Underscore offer experience across the Scala ecosystem. This includes core and functional programming libraries, web frameworks, database access and analysis products, messaging, deployment, and build systems.
-
-We help you identify the right aspects of Scala to fit your goals and team.
+As an independent consultancy, we offer **experience across the whole Scala ecosystem**. This includes core and functional programming libraries, web frameworks, database access and analysis products, messaging, deployment, and build systems. We'll help you identify the right way to use Scala to fit your goals and team.
 
 ## What You Can Expect
 
