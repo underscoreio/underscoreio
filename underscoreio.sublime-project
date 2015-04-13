@@ -15,7 +15,8 @@
 				"node_modules",
 				"assets",
         "jekyll_plugins",
-				".git"
+				".git",
+        "src/php"
 			],
 			"follow_symlinks": true,
 			"path": "."
