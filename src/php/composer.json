@@ -1,5 +1,6 @@
 {
     "require": {
-        "mailgun/mailgun-php": "1.7.2"
+        "mailgun/mailgun-php": "1.7.2",
+        "google/recaptcha": "1.1"
     }
 }
