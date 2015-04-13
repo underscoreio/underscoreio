@@ -12,7 +12,7 @@ final case class Return[F[_], A](a: A) extends Free[F, A]
 final case class Suspend[F[_], A](s: F[Free[F, A]]) extends Free[F, A]
 ~~~
 
-We can use the free monad without understanding it's implementation, but to *really* understand it we need to know why it is defined this way.
+We can use the free monad without understanding its implementation, but to *really* understand it we need to know why it is defined this way.
 
 It certainly wasn't obvious to me why this is the correct definition, and reading the literature quickly devolved into "doughnoids in the category of pretzelmorphisms" land. Here I want to present an explanation aimed at programmers that doesn't involve abstract alphabet-soup. 
  
@@ -20,7 +20,7 @@ It certainly wasn't obvious to me why this is the correct definition, and readin
 
 ## Preliminaries
 
-The free monad represents the minimal possible structure to implement a monad and nothing else. This is achieved by separating the structure of monadic computations from the process that gives it meaning. The free monad gives us the means to construct a monad from any type (that is also a functor)[^coyoneda] by wrapping it in the free monad. 
+The free monad represents the minimal possible structure to implement a monad and nothing else. This is achieved by separating the structure of monadic computations from the process that gives them meaning. The free monad gives us the means to construct a monad from any type (that is also a functor)[^coyoneda] by wrapping it in the free monad. 
 
 Let me give a simple example of this separation of structure and meaning that doesn't involve any monads. Consider the expression
 
