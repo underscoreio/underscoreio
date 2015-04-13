@@ -12,13 +12,15 @@ final case class Return[F[_], A](a: A) extends Free[F, A]
 final case class Suspend[F[_], A](s: F[Free[F, A]]) extends Free[F, A]
 ~~~
 
-It certainly wasn't obvious to me *why* this is the correct definition. Reading the literature quickly devolves into "doughzoids in the category of pretzelmorphisms" land but there is actually a simple explanation that doesn't involve abstract alphabet-soup. 
+We can use the free monad without understanding it's implementation, but to *really* understand it we need to know why it is defined this way.
 
+It certainly wasn't obvious to me why this is the correct definition, and reading the literature quickly devolved into "doughnoids in the category of pretzelmorphisms" land. Here I want to present an explanation aimed at programmers that doesn't involve abstract alphabet-soup. 
+ 
 <!-- break -->
 
 ## Preliminaries
 
-The free monad represents a monad with the minimal possible structure. The free monad separates the structure of monadic computation from the process that gives it meaning. Concretely this means given any type (that is also a functor)[^coyoneda] we can construct a monad by wrapping it in the free monad. 
+The free monad represents the minimal possible structure to implement a monad and nothing else. This is achieved by separating the structure of monadic computations from the process that gives it meaning. The free monad gives us the means to construct a monad from any type (that is also a functor)[^coyoneda] by wrapping it in the free monad. 
 
 Let me give a simple example of this separation of structure and meaning that doesn't involve any monads. Consider the expression
 
@@ -38,7 +40,7 @@ Now we can write a simple interpreter to give meaning to this structure. Having 
 
 The free monad is just an abstract syntax tree representation of a monad. It has the advantage that we can define custom interpreters for the computations represented in the free monad, and with some further tricks compose monads and interpreters[^a-la-carte].
 
-We should be able to derive the free monad from the operations required to define a monad, as it is just an abstract syntax tree representation of those operations. Before we dive into the free monad, however, I want to return to our example of addition and derive the free monoid. This serves as a useful warmup before we tackle the free monad.
+We should be able to derive the free monad from the operations required to define a monad, as it is just a representation of those operations as a data structure. Before we dive into the free monad, however, I want to return to our example of addition and derive the free monoid. This serves as a useful warmup before we tackle the free monad.
 
 
 ## The Free Monoid
@@ -71,7 +73,7 @@ final case object Zero extends FreeMonoid[Nothing]
 final case class Append[A](l: A, r: A) extends FreeMonoid[A]
 ~~~
 
-but this doesn't work -- we can't write, for instance, `Append(Zero, Zero)` because the types don't line up. We can use the monoid laws to make the final step.
+but this doesn't work -- we can't write, for instance, `Append(Zero, Zero)` because the types don't line up. 
 
 We can use a structure like
 
@@ -88,7 +90,7 @@ Now we can represent `1 + 2 + 3` as
 Append(Value(1), Append(Value(2), Value(3)))
 ~~~
 
-We can do better than this. With a bit of algebraic manipulation, justified by the monoid laws, we can normalize any monoid expression into a simple form. Let's illustrate this via algebraic manipulation on `1 + 2 + 3`.
+This is not the simplest representation we can use. With a bit of algebraic manipulation, justified by the monoid laws, we can normalize any monoid expression into a form that allows for a simpler representation. Let's illustrate this via algebraic manipulation on `1 + 2 + 3`.
 
 The identity law means we can insert the addition of zero in any part of the computation without changing the result, and likewise we can remove any zeros (unless the entire expression consists of just zero). We're going to decree that any normalized expression must have a single zero at the end of the expression like so: 
 
@@ -96,7 +98,7 @@ The identity law means we can insert the addition of zero in any part of the com
 1 + 2 + 3 + 0
 ~~~
 
-The associativity law means we can place brackets wherever we want. We're going to decide to bracket expressions so traversing the expression from left to right goes from outermost to innermost, like so:
+The associativity law means we can place brackets wherever we want. We're going to decide to bracket expressions so traversing the expression from left to right goes from outermost to innermost bracket, like so:
 
 ~~~ scala
 (1 + (2 + (3 + 0)))
@@ -128,7 +130,7 @@ or
 List(1, 2, 3)
 ~~~
 
-The monoid operations on `List` are:
+Our final step is to make sure that `List` itself a monoid. It is. The monoid operations on `List` are:
 
 - `append` is `++`, list concatentation;
 - `zero` is `Nil`, the empty list; and
@@ -156,7 +158,12 @@ We can directly convert `point` into a case `Return` (following the names I intr
 final case class Return[F[_], A](a: A) extends Free[F, A]
 ~~~
 
-We are going to convert `join` into a case `Suspend`. We might think it should store a value of type `F[F[A]]` but if we did this we wouldn't be able to store, say, a `Return` inside the outer `F`. The solution is to replace `F[F[A]]` with `F[Free[F, A]]` which allows us to route the recursion via the free monad.
+We are going to convert `join` into a case `Suspend`. What is the type of the value we store inside `Suspend`? We might think it should store a value of type `F[F[A]]` but if we did this we wouldn't be able to store, say, a `Return` inside the outer `F`. We can break it down like this:
+
+- The inner `F[A]` will be represented by an instance of the free monad, and thus has type `Free[F, A]`.
+- The outer `F[_]` will be wrapped in the `Suspend` we're creating.
+
+Therefore the value we should store has type `F[Free[F, A]]` giving us
 
 ~~~ scala
 final case class Suspend[F[_], A](f: F[Free[F, A]]) extends Free[F, A]
@@ -168,7 +175,7 @@ Finally we have `map`. This suggests a case like[^go-sub]
 final case class Map[F[_], A, B](fa: Free[F, A], f: A => B) extends Free[F, B]
 ~~~
 
-This looks a little problematic. We have three type parameters while `Free` only has two. In fact we can do away with this case! The reason being we inherit `map` from monad being a functor. It doesn't represent anything particularly monadic about a computation and crucially it doesn't represent an effectful computation. We can drop `Map` so long as we make sure we can implement the `map` operation in our free monad.
+This looks a little problematic. We have three type parameters while `Free` only has two. In fact we can do away with this case! We inherit `map` from monad being a functor. A `map` represents a pure, not an effectful, computation. We don't need to represent `Map` in the free monad abstract syntax tree so long as we can implement the `map` operation in our free monad.
 
 Our final free monad data type looks like
 
@@ -212,7 +219,7 @@ sealed trait Free[F[_], A] {
 }
 ~~~
 
-The case for `Suspend` is a bit trickier. The value `s` has type `F[Free[F, A]]`. The only operation we (currently) have available is `f`, which accepts an `A`. We could `flatMap` `f` over the `Free[F, A]` wrapped in `F`, but we haven't yet required any operations on `F`. If we require `F` is a monad we can then `map` over it. Concretely, we can use this code snippet:
+The case for `Suspend` is a bit trickier. The value `s` has type `F[Free[F, A]]`. The only operation we (currently) have available is `f`, which accepts an `A`. We could `flatMap` `f` over the `Free[F, A]` wrapped in `F`, but we haven't yet required any operations on `F`. If we require `F` is a functor we can then `map` over it. Concretely, we can use this code snippet:
 
 ~~~ scala
 s map (free => free flatMap f) 
