@@ -17,6 +17,7 @@ navbar: training
 
 require '../../vendor/autoload.php';
 use Mailgun\Mailgun;
+use ReCaptcha\ReCaptcha;
 
 $mgClient = new Mailgun('key-9a305971d33fb98f1a492bdbd0af0074');
 $mgDomain = 'mailgun.underscore.io';
@@ -42,6 +43,9 @@ $peopleOptions = Array(
 
 $bookingEmail = 'Underscore Booking Enquiries <bookings@underscore.io>';
 $noreplyEmail = 'Underscore Booking Form <noreply@underscore.io>';
+
+$recaptchaSecret  = '6LdmOwUTAAAAAO3rkPNBnKrWHyFpkvns4FS8fVru';
+$recaptchaSitekey = '6LdmOwUTAAAAAGSnMTvx3vitgktjYullXXaW1JZs';
 
 // ----------------------------------------------
 
@@ -112,7 +116,15 @@ ENDEMAIL;
     'text'    => $emailBody
   );
 
-  if(!$email):
+  $recaptcha     = new ReCaptcha($recaptchaSecret);
+  $recaptchaCode = requestString('g-recaptcha-response', null);
+  $recaptchaIp   = $_SERVER['REMOTE_ADDR'];
+  $recaptchaResp = $recaptcha->verify($recaptchaCode, $recaptchaIp);
+  $recaptchaOk   = $recaptchaResp->isSuccess();
+
+  if(!$recaptchaOk):
+    $formAlert = '<div class="alert alert-danger">Please confirm that you are a human.</div>';
+  elseif(!$email):
     $formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
   elseif($mgClient->sendMessage($mgDomain, $emailParams)):
     $formAlert = '<div class="alert alert-success">Thank you for your enquiry. Our training coordinator will be in touch shortly.</div>';
@@ -211,6 +223,13 @@ endif;
             <label>Let us know your custom training or syllabus requirements</label>
 
             <textarea class="form-control" name="notes" rows="5"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Just checking...</label>
+
+            <div class="g-recaptcha" data-sitekey="<?= $recaptchaSitekey ?>"></div>
+            <script src='https://www.google.com/recaptcha/api.js'></script>
           </div>
 
           <button type="submit" class="btn btn-primary">Send Enquiry</button>

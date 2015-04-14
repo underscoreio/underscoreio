@@ -17,6 +17,7 @@ navbar: company
 
 require '../vendor/autoload.php';
 use Mailgun\Mailgun;
+use ReCaptcha\ReCaptcha;
 
 $mgClient = new Mailgun('key-9a305971d33fb98f1a492bdbd0af0074');
 $mgDomain = 'mailgun.underscore.io';
@@ -24,19 +25,14 @@ $mgDomain = 'mailgun.underscore.io';
 $contactEmail = 'Underscore General Enquiries <hello@underscore.io>';
 $noreplyEmail = 'Underscore Contact Form <noreply@underscore.io>';
 
+$recaptchaSecret  = '6LdmOwUTAAAAAO3rkPNBnKrWHyFpkvns4FS8fVru';
+$recaptchaSitekey = '6LdmOwUTAAAAAGSnMTvx3vitgktjYullXXaW1JZs';
+
 // ----------------------------------------------
 
 function requestString($key, $default) {
   if(isset($_POST[$key]) && strlen(trim($_POST[$key])) > 0) {
     return trim($_POST[$key]);
-  } else {
-    return $default;
-  }
-}
-
-function requestLookup($key, $options, $default) {
-  if(isset($_POST[$key]) && isset($options[$_POST[$key]])) {
-    return $options[$_POST[$key]];
   } else {
     return $default;
   }
@@ -71,7 +67,15 @@ ENDEMAIL;
     'text'    => $emailBody
   );
 
-  if(!$email):
+  $recaptcha     = new ReCaptcha($recaptchaSecret);
+  $recaptchaCode = requestString('g-recaptcha-response', null);
+  $recaptchaIp   = $_SERVER['REMOTE_ADDR'];
+  $recaptchaResp = $recaptcha->verify($recaptchaCode, $recaptchaIp);
+  $recaptchaOk   = $recaptchaResp->isSuccess();
+
+  if(!$recaptchaOk):
+    $formAlert = '<div class="alert alert-danger">Please confirm that you are a human.</div>';
+  elseif(!$email):
     $formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
   elseif($mgClient->sendMessage($mgDomain, $emailParams)):
     $formAlert = '<div class="alert alert-success">Thank you for your message. We will be in touch shortly.</div>';
@@ -123,6 +127,13 @@ endif;
             <label>Your message</label>
 
             <textarea class="form-control" name="message" rows="10"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Just checking...</label>
+
+            <div class="g-recaptcha" data-sitekey="<?= $recaptchaSitekey ?>"></div>
+            <script src='https://www.google.com/recaptcha/api.js'></script>
           </div>
 
           <button type="submit" class="btn btn-primary">Send Message</button>
