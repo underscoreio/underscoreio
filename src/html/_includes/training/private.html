@@ -15,7 +15,7 @@
   <p class="course-product-purchase">
     <a class="btn btn-primary btn-block" href="/training/bookings?course={{ include.course.id }}">
       {% if include.product.buttonLabel %}
-        {{ include.product.buttonLabel }}
+        {{ include.product.buttonLabel | liquify }}
       {% else %}
         Book now
       {% endif %}

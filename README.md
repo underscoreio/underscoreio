@@ -11,6 +11,12 @@ If that doesn't work for you, make sure you've done the one-time set up from thi
     $ npm install
     $ bundle install
 
+If you don't have `bundle`, run
+
+    $ gem install bundler
+
+You'll also need command-line PHP 5 to run `composer` to install PHP dependencies (such as the Mailgun client).
+
 # Deploying the site
 
     $ grunt deploy

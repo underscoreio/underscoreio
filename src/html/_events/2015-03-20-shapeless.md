@@ -10,13 +10,8 @@ course: essential-shapeless
 navbar: events
 summary: Miles Sabin leads a workshop into the design and use of the Shapeless library.
 bookingLinks:
-  - text:  Book now - FREE<br>
-           <small>(limited places available)</small>
-    url:   https://docs.google.com/forms/d/1uUk2fzz7s_DQ1qanlPHzRA8qE62KSnCBUNxPYunDILc/viewform?usp=send_form
-  - text:  Diversity applications - FREE<br>
-           <small>(limited places available)</small>
-    url:   https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform
-    class: "btn-warning"
+  - text:  Sorry, registration has closed
+    url:
 ---
 
 ### What
@@ -56,6 +51,4 @@ It's completely free!
 
 ### Apply Now
 
-Due to the popularity of these workshops we are allocating tickets randomly. To enter into the lottery please [fill out this form](https://docs.google.com/forms/d/1uUk2fzz7s_DQ1qanlPHzRA8qE62KSnCBUNxPYunDILc/viewform?usp=send_form). The deadline for entering the lottery is 10 March 2015.
-
-As usual we are reserving some tickets for [diversity candidates]({% post_url 2015-01-29-diversity-in-training %}). Diversity attendees [apply here](https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform).
+Sorry, registration has closed.

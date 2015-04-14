@@ -3,6 +3,7 @@ svg4everybody   = require 'svg4everybody'
 $               = require 'jquery'
 ua              = require './ua'
 navbar          = require './navbar'
+currencies      = require './currencies'
 
 retina.Retina.init(window)
 
@@ -16,11 +17,13 @@ appendIE10Stylesheet = ->
 $ ->
   appendIE10Stylesheet()
   navbar.init()
+  currencies.init()
   return
 
 window.uio = module.exports = {
   $
   navbar
+  currencies
   scrollSpy       : require './scrollspy'
   blogPager       : require './blog-pager'
   trainingFormats : require './training-formats'

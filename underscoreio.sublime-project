@@ -14,8 +14,9 @@
 				"underscoreio",
 				"node_modules",
 				"assets",
-				"jekyll_plugins",
-				".git"
+        "jekyll_plugins",
+				".git",
+        "src/php"
 			],
 			"follow_symlinks": true,
 			"path": "."
