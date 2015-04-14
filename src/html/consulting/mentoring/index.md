@@ -8,10 +8,10 @@ sidebars:
 
     Pair Programming involves two developers working together on a task, giving:
 
-    - knowledge transfer;
-    - higher quality design;
-    - fewer defects;
-    - increased team engagement.
+    - Knowledge transfer
+    - Higher quality design
+    - Fewer defects
+    - Increased team engagement
   cta: |
     ### How To Start
 
@@ -31,7 +31,7 @@ Mentoring helps your team address the problems they face using the best of Scala
 
 By **pairing with an experienced developer**, your team will also gain insights into the wide range of libraries and frameworks used in the Scala ecosystem.
 
-As further support, we provide each developer we mentor with access to the complete catalogue of Underscore training material.
+As further support, we provide each developer we mentor with access to the complete catalogue of **Underscore training material**.
 
 ## What You Can Expect
 

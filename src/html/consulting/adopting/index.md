@@ -18,7 +18,7 @@ sidebars:
 
 Adopting Scala runs as a **roadmapping session**. We work together, looking at your goals, to identify where and how Scala can best fit.
 
-As an independent consultancy, we offer **experience across the entire Scala ecosystem**. We help you select the rights parts of Scala and map out adoption for your goals and team.
+As an independent consultancy, we offer **experience across the entire Scala ecosystem**. We help you **select the right aspects of Scala to fit your goals** and team.
 
 ## What You Can Expect
 
