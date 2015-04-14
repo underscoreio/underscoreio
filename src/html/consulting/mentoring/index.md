@@ -15,7 +15,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    Mentoring is $7,000 per month.
+    Mentoring costs {% currencies $7,500 £5,000 €7,000 %} per month.
 
     <a href="/contact?subject=Mentoring" class="btn btn-block btn-primary">
       Enquire Now

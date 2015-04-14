@@ -14,7 +14,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    A First Steps visit costs $900 plus travel.
+    A First Steps visit costs {% currencies $900 £600 €900 %} plus travel.
 
     <a href="/contact?subject=Choosing%20Scala" class="btn btn-block btn-primary">
       Enquire Now
