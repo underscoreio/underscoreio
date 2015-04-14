@@ -4,7 +4,7 @@ title:  Training
 navbar: consulting
 sidebars:
   details: |
-    ### What Is this?
+    ### What Is This?
 
     - Training for up to 10 developers
     - A tailored syllabus built by our Scala experts

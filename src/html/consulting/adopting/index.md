@@ -31,7 +31,4 @@ It runs in one day, and focuses on:
 - High-level user stories and interactions.
 - Appropriate Scala solutions.
 
-The deliverable from the roadmapping session is an **Adoption Plan**.
-This summarizes the major points of the session,
-together with additional insights,
-and a roadmap for delivery.
+The deliverable from the roadmapping session is an **Adoption Plan**. This summarizes the major points of the session, together with additional insights, and a roadmap for delivery.

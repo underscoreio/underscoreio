@@ -4,7 +4,7 @@ title:  First Steps
 navbar: consulting
 sidebars:
   details: |
-    ### What Is this?
+    ### What Is This?
 
     A low-cost single visit to help on-board key stakeholders at your organisation.
 
