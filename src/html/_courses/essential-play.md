@@ -37,7 +37,7 @@ products:
     private:
       type: private
       title: "Private Courses"
-      buttonLabel: "Book now - $3000"
+      buttonLabel: "Book now - {% currencies $3,000 £2,000 €2,250 %}"
 ---
 
 ## Overview

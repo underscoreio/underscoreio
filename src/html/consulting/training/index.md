@@ -12,7 +12,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    Training costs $3,000 per day plus travel for up to 10 developers.
+    Training costs {% currencies $3,000 £2,000 €2,800 %} per day plus travel for up to 10 developers.
 
     <a href="/contact?subject=Training" class="btn btn-block btn-primary">
       Enquire Now
