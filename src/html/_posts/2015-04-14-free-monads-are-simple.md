@@ -53,7 +53,7 @@ We have talked about monads and interpreters. I said the free monad is just the 
 - an AST to express monadic operations;
 - an API to write interpreters that give meaning to this AST.
 
-What does the AST look like? It simply represents the monad operations without giving meaning to them. The usual representation of the free monad represents the monadic operations in terms of `point` along with `join`, instead of the more familiar `flatMap`, but the point is still the same. An example encoding is
+What does the AST look like? It simply represents the monad operations without giving meaning to them. The usual representation of the free monad represents the monadic operations in terms of `point` along with `join`, instead of the more familiar `flatMap`, but the idea is still the same. An example encoding is
 
 ~~~ scala
 sealed trait Free[F[_], A]
@@ -63,76 +63,116 @@ final case class Join[F[_], A](s: F[Free[F, A]]) extends Free[F, A]
 
 Now what does a free monad interpreter look like? It's just a function from `F[_]`, the representation inside the free monad, to `G[_]`, some monad in which we really run the computation (the `Id` monad is a popular choice). This type of function has a special name, a [natural transformation][natural-transformation]
 
-Here's a simple example.
+Here's a simple example of service orchestration.
 
-First we define an algebraic data type to represent the actions we're going to store in our monad.
+We start with some imports and other basic definitions. The `Requestable` type is described below.
 
 ~~~ scala
-import scalaz.{Free, ~>, Id, Functor}
+import scalaz.{Free, ~>, Id, Coyoneda}
+import scalaz.std.list._
+import scalaz.syntax.traverse._
 
-sealed trait Log[A]
-final case class Debug[A](msg: String, value: A) extends Log[A]
-final case class Warn[A](msg: String, value: A) extends Log[A]
-final case class Error[A](msg: String, value: A) extends Log[A]
+object Orchestration {
+
+  type UserId = Int
+  type UserName = String
+  type UserPhoto = String
+
+  type Requestable[A] = Coyoneda[Request, A]
+
+  final case class Tweet(userId: UserId, msg: String)
+  final case class User(id: UserId, name: UserName, photo: UserPhoto)
 ~~~
 
-For technical reasons we need to have a `Functor` instance.
+Next we need to define the data we're going to store in the free monad. This is the `Request` type, which represents a request to fetch some data (but doesn't actually fetch any data). The `Service` type represents different services we may contact.
 
 ~~~ scala
-object Log {
-  implicit val logFunctor: Functor[Log] = new Functor[Log] {
-    def map[A, B](fa: Log[A])(f: A => B): Log[B] =
-      fa match {
-        case Debug(msg, value) => Debug(msg, f(value))
-        case Warn(msg, value) => Warn(msg, f(value))
-        case Error(msg, value) => Error(msg, f(value))
+  // Services represent web services we can call to fetch data
+  sealed trait Service[A]
+  final case class GetTweets(userId: UserId) extends Service[List[Tweet]]
+  final case class GetUserName(userId: UserId) extends Service[UserName] 
+  final case class GetUserPhoto(userId: UserId) extends Service[UserPhoto]
+
+  // A request represents a request for data
+  sealed trait Request[A]
+  final case class Pure[A](a: A) extends Request[A]
+  final case class Fetch[A](service: Service[A]) extends Request[A]
+~~~
+
+For technical reasons we need to have a `Functor` instance to put inside the free monad. Scalaz provides a convenience called the `Coyoneda` that automatically constructs one for us. We define some constructors to hide this.
+
+~~~ scala
+  object Request {
+    def pure[A](a: A): Free[Requestable, A] =
+      Free.liftFC(Pure(a) : Request[A])
+
+    def fetch[A](service: Service[A]): Free[Requestable, A] =
+      Free.liftFC(Fetch(service) : Request[A])
+  }
+~~~
+
+Now we define an interpreter for `Request`. This interpreter just prints to the console. You can imagine more elaborate interpreters with caching and actual web service requests.
+
+~~~ scala
+  object ToyInterpreter extends (Request ~> Id.Id) {
+    import Id._
+
+    def apply[A](in: Request[A]): Id[A] =
+      in match {
+        case Pure(a) => a
+        case Fetch(service) =>
+          service match {
+            case GetTweets(userId) =>
+              println(s"Getting tweets for user $userId")
+              List(Tweet(1, "Hi"), Tweet(2, "Hi"), Tweet(1, "Bye"))
+
+            case GetUserName(userId) =>
+              println(s"Getting user name for user $userId")
+              userId match {
+                case 1 => "Agnes"
+                case 2 => "Brian"
+                case _ => "Anonymous"
+              }
+
+            case GetUserPhoto(userId) =>
+              println(s"Getting user photo for user $userId")
+              userId match {
+                case 1 => ":-)"
+                case 2 => ":-D"
+                case _ => ":-|"
+              }
+          }
       }
   }
-
-  // Smart constructors
-  def debug[A](msg: String, value: A): Log[A] = Debug(msg, value)
-  def warn[A](msg: String, value: A): Log[A] = Warn(msg, value)
-  def error[A](msg: String, value: A): Log[A] = Error(msg, value)
-}
-~~~
-
-Now we define an interpreter for `Log`. This interpreter just prints to the console. You can imagine more elaborate interpreters that, say, output logs to Kafka or other infrastructure. The interpreter is just simple structural recursion on `Log`.
-
-~~~ scala
-object Println extends (Log ~> Id.Id) {
-  import Id._
-  import scalaz.syntax.monad._
-
-  def apply[A](in: Log[A]): Id[A] =
-    in match {
-      case Debug(msg, value) =>
-        println(s"DEBUG: $msg")
-        value.point[Id]
-
-      case Warn(msg, value) =>
-        println(s"WARN: $msg")
-        value.point[Id]
-
-      case Error(msg, value) =>
-        println(s"ERROR: $msg")
-        value.point[Id]
-    }
-}
 ~~~
 
 Finally here's an example of definition and use.
 
 ~~~ scala
-object Example {
-  val free =
-    for {
-      x <- Free.liftF(Log.debug("Step 1", 1))
-      y <- Free.liftF(Log.warn("Step 2", 2))
-      z <- Free.liftF(Log.error("Step 3", 3))
-    } yield x + y + z
+  object Example {
+    import Request._
 
-  val result =
-    free.foldMap(Println)
+    val theId: UserId = 1
+
+    def getUser(id: UserId): Free[Requestable, User] =
+      for {
+        name  <- fetch(GetUserName(id))
+        photo <- fetch(GetUserPhoto(id))
+      } yield User(id, name, photo)
+
+    val free: Free[Requestable, List[(String, User)]] =
+      for {
+        tweets <- fetch(GetTweets(theId))
+        result <- (tweets map { tweet: Tweet =>
+          for {
+            user <- getUser(tweet.userId)
+          } yield (tweet.msg -> user)
+        }).sequenceU 
+      } yield result
+
+    def run: List[(String, User)] =
+      Free.runFC(free)(ToyInterpreter)
+  }
 }
 ~~~
 
