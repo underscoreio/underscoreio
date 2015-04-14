@@ -99,7 +99,7 @@ Next we need to define the data we're going to store in the free monad. This is 
   final case class Fetch[A](service: Service[A]) extends Request[A]
 ~~~
 
-For technical reasons we need to have a `Functor` instance to put inside the free monad. Scalaz provides a convenience called the `Coyoneda` that automatically constructs one for us. We define some constructors to hide this.
+For technical reasons we need to have a `Functor` instance to put inside the free monad. Scalaz provides a convenience called the `Coyoneda` that automatically constructs one for us. The `Requestable` type represents this. We define some constructors to hide the application of the `Coyoneda`.
 
 ~~~ scala
   object Request {
@@ -111,7 +111,7 @@ For technical reasons we need to have a `Functor` instance to put inside the fre
   }
 ~~~
 
-Now we define an interpreter for `Request`. This interpreter just prints to the console. You can imagine more elaborate interpreters with caching and actual web service requests.
+Now we define an interpreter for `Request`. This interpreter just prints to the console. It's a simple example such as you might use in testing. You can imagine a more elaborate interpreter that make parallel calls to web services and caches the results.
 
 ~~~ scala
   object ToyInterpreter extends (Request ~> Id.Id) {
@@ -180,9 +180,9 @@ Finally here's an example of definition and use.
 
 That's the basics of the free monad: it's something we can wrap around an arbitrary type constructor (a `F[_]`) to construct a monad. It allows us to separate the structure of the computation from its interpreter, thereby allowing different interpretation depending on context.
 
-There are a lot of conveniences for using the free monad. We can use something called the Coyoneda theorem to automatically convert a type constructor into a functor that the free monad requires. We can compose different types wrapped in the free monad, and different interpreters, using coproducts. This is all useful stuff but not essential for understanding the core idea.
+There are a lot of conveniences for using the free monad. The example showed the use of the `Coyoneda` to automatically convert a type constructor into a functor that the free monad requires. We can compose different types wrapped in the free monad, and different interpreters, using coproducts. This is all useful stuff but not essential for understanding the core idea.
 
-The core idea, separating the structure and interpretation of computer programs, is incredibly powerful (wizardly, even). Haxl and Stitch are just two prominent examples of this. 
+The core idea, separating the structure and interpretation of computer programs, is incredibly powerful (wizardly, even). Haxl and Stitch are just two prominent examples of this. In some sense *all* of functional programming is writing interpreters, a view echoed by many [experienced][don-stewart] [FPer][runar]
 
 If you are interested in learning more about these ideas, we are writing a book [Essential Interpreters][advanced-scala-scalaz] that covers the basics of interpreters up to the free monad.
 
@@ -200,3 +200,5 @@ If you are interested in learning more about these ideas, we are writing a book 
 [stitch]: https://www.youtube.com/watch?v=VVpmMfT8aYw
 [continuation]: http://en.wikipedia.org/wiki/Continuation
 [continuation-monad]: http://blog.sigfpe.com/2008/12/mother-of-all-monads.html
+[don-stewart]: http://stackoverflow.com/a/27860072
+[runar]: https://thenewcircle.com/s/post/1730/the_interpreter_pattern_revisited_runar_bjarnason_video
