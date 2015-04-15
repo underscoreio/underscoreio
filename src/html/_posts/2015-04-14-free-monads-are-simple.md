@@ -78,7 +78,7 @@ object Orchestration {
   type UserName = String
   type UserPhoto = String
 
-  type Requestable[A] = Coyoneda[Request, A]
+  type Requestable[A] = Coyoneda[Request, A] // this is described below
 
   final case class Tweet(userId: UserId, msg: String)
   final case class User(id: UserId, name: UserName, photo: UserPhoto)
