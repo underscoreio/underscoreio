@@ -4,7 +4,7 @@ title: Free Monads Are Simple
 author: Noel Welsh
 ---
 
-I recently gave [a talk][slides] on free monads at the [Advanced Scala meetup][advanced-scala] in London. Despite the name of the group, I think that free monads are eminently simple as well as being extremely useful. Let me explain. 
+I recently gave [a talk][slides] on free monads at the [Advanced Scala meetup][advanced-scala] in London. Despite the name of the group, I think that free monads are eminently simple as well as being extremely useful. Let me explain.
 
 <!-- break -->
 
@@ -25,9 +25,9 @@ Remember I said the free monad brings together monads and interpreters. Let's st
 Now recall that a monad is defined by two operations[^laws], `point` and `flatMap`, with signatures
 
 - `point[M[_], A](a: A): M[A]`; and
-- `flatMap[M[_], A, B](fa: F[A])(f: A => F[B]): F[B]`.
+- `flatMap[M[_], A, B](fa: M[A])(f: A => M[B]): M[B]`.
 
-`Point` is not very interesting --- it just wraps a monad around a value. `FlatMap` is, however, the distinguishing feature of a monad and it tells us something very important: *monads are fundamentally about control flow*. The signature of `flatMap` says you combine a `F[A]` and a function `A => F[B]` to create a `F[B]`. The only way to do this is to get the `A` out of the `F[A]` and apply it to the `A => F[B]` function. There is a clear ordering of operations here, and repeated applications of `flatMap` creates a sequence of operations that must execute from left to right. So we see that monads explicitly encode control flow[^continuation-monad].
+`Point` is not very interesting --- it just wraps a monad around a value. `FlatMap` is, however, the distinguishing feature of a monad and it tells us something very important: *monads are fundamentally about control flow*. The signature of `flatMap` says you combine a `M[A]` and a function `A => M[B]` to create a `M[B]`. The only way to do this is to get the `A` out of the `M[A]` and apply it to the `A => M[B]` function. There is a clear ordering of operations here, and repeated applications of `flatMap` creates a sequence of operations that must execute from left to right. So we see that monads explicitly encode control flow[^continuation-monad].
 
 We usually use monads to glue together pure functions with special purpose control-flow, such as fail fast error handling (using `\/` or `Either`) or asynchronous computation (using `Future`). The free monad allows us to abstractly specify control flow between pure functions, and separately define an implementation.
 
@@ -90,7 +90,7 @@ Next we need to define the data we're going to store in the free monad. This is 
   // Services represent web services we can call to fetch data
   sealed trait Service[A]
   final case class GetTweets(userId: UserId) extends Service[List[Tweet]]
-  final case class GetUserName(userId: UserId) extends Service[UserName] 
+  final case class GetUserName(userId: UserId) extends Service[UserName]
   final case class GetUserPhoto(userId: UserId) extends Service[UserPhoto]
 
   // A request represents a request for data
@@ -167,7 +167,7 @@ Finally here's an example of definition and use.
           for {
             user <- getUser(tweet.userId)
           } yield (tweet.msg -> user)
-        }).sequenceU 
+        }).sequenceU
       } yield result
 
     def run: List[(String, User)] =
