@@ -16,7 +16,7 @@
       <span class="pull-right">
         {% if include.job.remote %}
         <span class="job-remote">
-          Remote ok
+          Remote OK
         </span>
         {% endif %}
         {% if include.job.location %}
@@ -33,7 +33,7 @@
     </dl>
 
     <p class="job-summary">
-      {{ job.summary }}
+      {{ job.content | excerpt }}
     </p>
 
     <a class="job-link" href="{{ job.url }}">
