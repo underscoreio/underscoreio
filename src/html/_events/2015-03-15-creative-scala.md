@@ -12,7 +12,7 @@ navbar: events
 summary: A free and fun taste of Scala. Places available for students and teaching assistants.
 bookingLinks:
   - text:  Sorry, registration has closed
-    url:   
+    url:
 ---
 
 ### What

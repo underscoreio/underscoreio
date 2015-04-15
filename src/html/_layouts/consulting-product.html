@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+{% include hero.html title=page.title backLink="/consulting" %}
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {{ content }}
+    </div>
+
+    <div class="col-md-4">
+      <aside class="event-sidebar">
+        {% include consulting/sidebar/details.html product=page %}
+        {% include consulting/sidebar/cta.html     product=page %}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}

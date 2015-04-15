@@ -1,0 +1,77 @@
+.currencies {
+  display: inline-block;
+  position: relative;
+  padding: 0 8px;
+  background: rgba(0, 0, 0, .05);
+  // .btn-shadow(@gray-lighter);
+  border-radius: @border-radius-base;
+  cursor: pointer;
+}
+
+.btn .currencies {
+  background: rgba(255, 255, 255, .2);
+}
+
+// Non-JS version:
+.currencies-nojs {
+  .currency:after {
+    content: " / ";
+  }
+
+  .currency:last-child:after {
+    content: "";
+  }
+}
+
+// JS version:
+.currencies-dropdown {
+  button {
+    padding: 0 5px;
+    font-weight: inherit;
+  }
+
+  .caret {
+    margin-left: .5ex;
+  }
+
+  .dropdown-menu .currency {
+    padding: 0 @padding-base-horizontal;
+    font-size: .9em;
+    font-weight: 200;
+  }
+}
+
+.currencies-popover {
+  width: 20em;
+  font-size: .9em;
+  color: @text-color;
+  text-align: center;
+  cursor: default;
+
+  &.in {
+    display: block !important;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    display: inline;
+    &:after { content: ", "; }
+    &:last-child:after { content: ""; }
+  }
+}
+
+body.selected-currency-gbp .currency-select-gbp {
+  font-weight: 400 !important;
+}
+
+body.selected-currency-usd .currency-select-usd {
+  font-weight: 400 !important;
+}
+
+body.selected-currency-eur .currency-select-eur {
+  font-weight: 400 !important;
+}

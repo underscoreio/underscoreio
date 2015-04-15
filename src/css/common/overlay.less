@@ -1,0 +1,52 @@
+.overlay-gem-left-white,
+.overlay-gem-left-black,
+.overlay-gem-right-white,
+.overlay-gem-right-black,
+.overlay-arrow-white,
+.overlay-arrow-white-inverse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.overlay-gem-left-white {
+  background-image: url(/images/common/overlay-gem-left-white.svg);
+  background-position: left top;
+}
+
+.overlay-gem-left-black {
+  background-image: url(/images/common/overlay-gem-left-black.svg);
+  background-position: left top;
+}
+
+.overlay-gem-right-white {
+  background-image: url(/images/common/overlay-gem-right-white.svg);
+  background-position: right bottom;
+}
+
+.overlay-gem-right-black {
+  background-image: url(/images/common/overlay-gem-right-black.svg);
+  background-position: right bottom;
+}
+
+.overlay-arrow-white {
+  top: -5px;
+  bottom: auto;
+  height: 25px;
+  z-index: 2;
+  background-image: url(/images/common/overlay-arrow-white.svg);
+  background-position: center bottom;
+}
+
+.overlay-arrow-white-inverse {
+  top: auto;
+  height: 30px;
+  z-index: 2;
+  background-image: url(/images/common/overlay-arrow-white-inverse.svg);
+  background-position: center bottom;
+}

@@ -13,7 +13,7 @@ includes              : _includes
 destination           : underscoreio
 plugins               : jekyll_plugins
 
-keep_files            : [ 'css', 'js', 'images', 'fonts' ]
+keep_files            : [ 'css', 'js', 'images', 'fonts', 'vendor' ]
 
 permalink             : /blog/posts/:year/:month/:day/:title.html
 paginate              : 5

@@ -13,12 +13,10 @@ navbar: events
     {% endcomment %}
 
     {% for event in site.events %}
-      {% capture nowTime %}{{'now' | date:'%s'}}{% endcapture %}
-      {% capture eventTime %}{{ event.date | date:'%s'}}{% endcapture %}
+      {% capture nowTime %}{{'now' | with_tz:page.timezone | date:'%s'}}{% endcapture %}
+      {% capture eventTime %}{{ event.date | with_tz:page.timezone | date:'%s'}}{% endcapture %}
 
-      {% if eventTime > nowTime %}
       {% include events/excerpt.html event=event %}
-      {% endif %}
     {% endfor %}
 
     <center>

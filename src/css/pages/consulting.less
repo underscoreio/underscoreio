@@ -19,7 +19,8 @@
 
 .consulting-testimonial {
   position: relative;
-  padding: @line-height-computed*2 0;
+  padding-top: @line-height-computed*2;
+  padding-bottom: @line-height-computed*2 + 30px; // leave extra space for the overlay
   background: @underscore-green;
   color: #fff;
   text-align: center;
@@ -35,5 +36,17 @@
 
   .attribution {
     opacity: .95;
+  }
+}
+
+ol.horizontal li {
+  float:left;
+  width: 10em;
+}
+
+.panel.consulting-products,
+.panel.consulting-product-details {
+  h2,h3 {
+    margin-top: @line-height-computed * .667; // line up sidebar text with page text
   }
 }

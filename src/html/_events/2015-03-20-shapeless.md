@@ -11,7 +11,7 @@ navbar: events
 summary: Miles Sabin leads a workshop into the design and use of the Shapeless library.
 bookingLinks:
   - text:  Sorry, registration has closed
-    url:   
+    url:
 ---
 
 ### What
