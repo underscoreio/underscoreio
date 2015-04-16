@@ -1,0 +1,32 @@
+<center>
+  <h3>{{ include.title | default:"Can't find what you're looking for?" }}</h3>
+  <div class="row">
+    <p class="
+      col-xs-6 col-xs-offset-3
+      col-sm-4 col-sm-offset-2
+      col-md-3 col-md-offset-3
+    ">
+      {% if include.pastLink %}
+      <a class="btn btn-primary btn-block" href="/events/past">
+        Browse past events
+        <span class="icon-uio-chevron-right"></span>
+      </a>
+      {% else %}
+      <a class="btn btn-primary btn-block" href="/events">
+        Browse future events
+        <span class="icon-uio-chevron-right"></span>
+      </a>
+      {% endif %}
+    </p>
+    <p class="
+      col-xs-6 col-xs-offset-3
+      col-sm-4 col-sm-offset-0
+      col-md-3 col-md-offset-0
+    ">
+      <a class="btn btn-primary btn-block" href="/contact">
+        Get in touch
+        <span class="icon-uio-chevron-right"></span>
+      </a>
+    </p>
+  </div>
+</center>
