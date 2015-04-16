@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: jobs
 title: Jobs
 navbar: jobs
 ---
@@ -21,7 +21,3 @@ Conditions:
 - We are giving preference to roles suitable for junior developers, as that's where we see the biggest need in the community.
 - The other usual legal T&amp;Cs are on the submission form.
 
-<a href="https://docs.google.com/forms/d/1zw5sKHCRllYDkGasUBZWRTJnB-PI43NzvExCfwYIoas/viewform" class="btn btn-primary">
-  Submit a Listing
-  <span class="icon-uio-chevron-right"></span>
-</a>
