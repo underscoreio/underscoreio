@@ -18,11 +18,14 @@ summary: |
   We'll spend the day having fun with pictures,
   and be finished in time for registration at 4pm!
 bookingLinks:
-  - text:  Book as a student - FREE<br>
-           <small>(limited places available)</small>
-    url:   #
+  - text:  Sign up as a student - FREE<br>
+           <small>(places awarded by lottery)</small>
+    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
+  - text:  Diversity applicants - FREE<br>
+           <small>(places awarded by lottery)</small>
+    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
   - text:  Become a teaching assistant
-    url:   #
+    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
     class: "btn-warning"
 ---
 

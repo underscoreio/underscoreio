@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Shapeless Workshop
+title: Advanced Scala: shapeless
 date: 2015-06-12 09:00 CEST
 timezone: CEST
 location: Amsterdam
@@ -9,30 +9,30 @@ cost: Free
 course: essential-shapeless
 navbar: events
 summary: |
-  Miles Sabin leads a workshop into the design and use of the Shapeless library.
+  Miles Sabin leads a workshop into the design and use of *shapeless*.
 
   This workshop takes place on the Friday following
   [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015).
 bookingLinks:
-  - text:  Book now - FREE<br>
+  - text:  Sign up now - FREE<br>
            <small>(places awarded by lottery)</small>
-    url:   #
+    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
   - text:  Diversity applications - FREE<br>
-           <small>(limited places available)</small>
-    url:   #
+           <small>(places awarded by lottery)</small>
+    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
     class: "btn-warning"
 ---
 
 ### What
 
 This workshop will dive into the design and implementation of
-[Shapeless](https://github.com/milessabin/shapeless).
-Shapeless is both the most functional generic programming library for Scala,
+[shapeless](https://github.com/milessabin/shapeless).
+shapeless is both the most functional generic programming library for Scala,
 and the most generic functional programming library for Scala.
 
 ### Who
 
-The workshop will be led b Shapeless author, Underscore partner, and Scala luminary, Miles Sabin.
+The workshop will be led by shapeless author, Underscore partner, and Scala luminary, Miles Sabin.
 
 ### Where and When
 

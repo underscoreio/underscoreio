@@ -8,7 +8,7 @@ duration: 8 hours
 cost: Free
 course: essential-shapeless
 navbar: events
-summary: Miles Sabin leads a workshop into the design and use of the Shapeless library.
+summary: Miles Sabin leads a workshop into the design and use of *shapeless*.
 bookingLinks:
   - text:  Sorry, registration has closed
     url:
@@ -16,12 +16,12 @@ bookingLinks:
 
 ### What
 
-This workshop will go into the design and implementation of [Shapeless](https://github.com/milessabin/shapeless).
-Shapeless is both the most functional generic programming library for Scala, and the most generic functional programming library for Scala.
+This workshop will go into the design and implementation of [shapeless](https://github.com/milessabin/shapeless).
+shapeless is both the most functional generic programming library for Scala, and the most generic functional programming library for Scala.
 
 ### Who
 
-The workshop will be led my Underscore partner and Shapeless developer Miles Sabin.
+The workshop will be led my Underscore partner and shapeless developer Miles Sabin.
 
 ### Where and When
 
