@@ -2,22 +2,39 @@
 layout: default
 ---
 
-{% include hero.html title=page.title backLink="/jobs" %}
+{% include hero.html title=page.title %}
 
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
     {{ content }}
+  </div>
+</div>
 
-   <p>
-    <a href="https://docs.google.com/forms/d/1zw5sKHCRllYDkGasUBZWRTJnB-PI43NzvExCfwYIoas/viewform" class="btn btn-primary">
-      Submit a Listing
-      <span class="icon-uio-chevron-right"></span>
-    </a>
-    </p>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-2">
+    <center>
+      <h3>Want to advertise here?</h3>
+      <p>
+        <a href="https://docs.google.com/forms/d/1zw5sKHCRllYDkGasUBZWRTJnB-PI43NzvExCfwYIoas/viewform" class="btn btn-primary">
+          Submit a Listing
+          <span class="icon-uio-chevron-right"></span>
+        </a>
+      </p>
+      <p>We'll handle the rest.</p>
+    </center>
+  </div>
 
-    <p>
-      Join <a href="/blog/newsletters">our newsletter</a> to receive job announcements.
-    </p>
+  <div class="col-sm-4">
+    <center>
+      <h3>Looking for a Scala job?</h3>
+      <p>
+        <a href="/blog/newsletters" class="btn btn-primary">
+          Join our newsletter
+          <span class="icon-uio-chevron-right"></span>
+        </a>
+      </p>
+      <p>You receive new jobs in your email.</p>
+  </center>
   </div>
 </div>
 
