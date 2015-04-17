@@ -50,8 +50,8 @@
         {{ include.event.location }}
         </span>
         <span class="event-icon icon-uio-{{ excerptIcon }}"></span>
-        {% endif %}
       </span>
+      {% endif %}
     </h3>
   </div>
 
@@ -59,9 +59,11 @@
     <dl class="event-meta">
       <dt>Time</dt>
       <dd class="event-time">
-        {{ include.event.date | date: '%H:%M' }}
         {% if include.event.timezone %}
+          {{ include.event.date | date: '%H:%M' }}
           {{ include.event.timezone }}
+        {% else %}
+          {{ include.event.date | date: '%H:%M %Z' }}
         {% endif %}
       </dd>
 
@@ -77,7 +79,7 @@
     </dl>
 
     <p class="event-summary">
-      {{ event.summary }}
+      {{ event.summary | markdownify }}
     </p>
 
     <a class="event-link" href="{{ event.url }}">

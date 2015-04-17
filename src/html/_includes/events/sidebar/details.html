@@ -15,9 +15,11 @@
         <dt>Starts</dt>
         <dd class="event-date">
           {{ include.event.date | date: '%d %b %Y' }} at
-          {{ include.event.date | date: '%H:%M' }}
           {% if include.event.timezone %}
+            {{ include.event.date | date: '%H:%M' }}
             {{ include.event.timezone }}
+          {% else %}
+            {{ include.event.date | date: '%H:%M %Z' }}
           {% endif %}
         </dd>
 
@@ -33,7 +35,7 @@
 
         {% if include.event.summary %}
         <dt>Summary</dt>
-        <dd class="event-summary">{{ include.event.summary }}</dd>
+        <dd class="event-summary">{{ include.event.summary | markdownify }}</dd>
         {% endif %}
       </dl>
 

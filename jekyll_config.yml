@@ -31,3 +31,6 @@ collections:
   events:
     output: true
     layout: event
+  jobs:
+    output: true
+    layout: job

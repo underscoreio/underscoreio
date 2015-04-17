@@ -8,21 +8,17 @@ navbar: events
 
 <section class="container event-listing">
   <article>
-    {% comment %}
-    <h2>Future Events</h2>
-    {% endcomment %}
+    {% assign futureEvents = site.events | where_future:'date' %}
 
-    {% for event in site.events %}
-      {% capture nowTime %}{{'now' | with_tz:page.timezone | date:'%s'}}{% endcapture %}
-      {% capture eventTime %}{{ event.date | with_tz:page.timezone | date:'%s'}}{% endcapture %}
+    {% if futureEvents.size > 0 %}
+      {% for event in futureEvents %}
+        {% include events/excerpt.html event=event %}
+      {% endfor %}
 
-      {% include events/excerpt.html event=event %}
-    {% endfor %}
-
-    <center>
-      <h3>Can't find what you're looking for?</h3>
-      <p><a href="/contact">Get in touch</a></p>
-    </center>
+      {% include events/empty.html pastLink=true %}
+    {% else %}
+      {% include events/empty.html pastLink=true title="Sorry, we have no events currently announced!" %}
+    {% endif %}
   </article>
 </section>
 
