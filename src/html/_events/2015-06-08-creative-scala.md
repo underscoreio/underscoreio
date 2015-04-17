@@ -15,8 +15,7 @@ summary: |
 
   This workshop takes place on the Monday prior to
   [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015).
-  We'll spend the day having fun with pictures,
-  and be finished in time for registration at 4pm!
+  We'll spend the day drawing and be finished in time for registration at 4pm!
 bookingLinks:
   - text:  Sign up as a student - FREE<br>
            <small>(places awarded by lottery)</small>

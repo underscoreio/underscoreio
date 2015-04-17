@@ -4,7 +4,7 @@ title: Advanced Scala with Scalaz
 type: course
 course: advanced-scala-scalaz
 location: Amsterdam
-date: 2015-06-11 09:00:00 CEST
+date: 2015-06-12 09:00:00 CEST
 timezone: CEST
 duration: 8 hours
 cost: <strike>£500</strike> £400

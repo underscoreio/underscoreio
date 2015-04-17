@@ -1,7 +1,7 @@
 ---
 layout: event
-title: Advanced Scala: shapeless
-date: 2015-06-12 09:00 CEST
+title: "Advanced Scala: shapeless"
+date: 2015-06-11 09:00 CEST
 timezone: CEST
 location: Amsterdam
 duration: 8 hours
