@@ -6,7 +6,7 @@ course: creative-scala
 location: Amsterdam
 date: 2015-06-08 09:00:00 CEST
 timezone: CEST
-duration: 8 hours
+duration: 6 hours
 cost: Free
 navbar: events
 summary: |

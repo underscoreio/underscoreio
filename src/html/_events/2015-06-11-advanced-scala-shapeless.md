@@ -11,7 +11,7 @@ navbar: events
 summary: |
   Miles Sabin leads a workshop into the design and use of *shapeless*.
 
-  This workshop takes place on the Friday following
+  This workshop takes place on the Thursday following
   [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015).
 bookingLinks:
   - text:  Sign up now - FREE<br>
