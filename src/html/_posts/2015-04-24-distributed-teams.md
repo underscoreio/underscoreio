@@ -44,7 +44,7 @@ Although these are services we offer,
 you do not need to go outside your own company to get the benefits.
 Look around, and see who in your teams can fill these kinds of roles._
 
-Peer coaches are pretty much the ideal way to achieve this adoption of a way of writing code.
+Peer coaches are pretty much the ideal way to level-up the team.
 What's a peer coach in this context?
 They'll be a regular team member, perhaps a little more advanced than the average,
 but who are able and willing to share ideas and tricks.
