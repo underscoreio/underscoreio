@@ -29,7 +29,7 @@ The last two are with the customer.  I'm going to look at the first two.
 ## Culture
 
 If you're following along with her talk,
-Eckstein's slide 20 describes aspects of a common development culture. It includes:
+Eckstein's slide 20 (scan to 43:20 in the video) describes aspects of a common development culture. It includes:
 
 * ensuring everyone has the required skills;
 * using mentors and peer coaches; and
@@ -61,7 +61,7 @@ Pair programming is a great way to share experience through a team.
 The tooling we have available means that there are no technical obstacles to remote pairing with a distributed team.
 Personally, I enjoy it.
 
-But what's the _purpose_ of pairing in this context? The two key points for me are:
+But what's the _purpose_ of pairing in this context? The two key points for me, noted at 6:50 in the video, are:
 
 * continuous code review; and
 * sharing the development culture.
