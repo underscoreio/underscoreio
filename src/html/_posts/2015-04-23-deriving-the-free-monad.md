@@ -232,7 +232,7 @@ sealed trait Free[F[_], A] {
   def flatMap[B](f: A => Free[F, B])(implicit functor: Functor[F]): Free[F, B] =
     this match {
       case Return(a)  => f(a)
-      case Suspend(s) => Suspend(f map (_ flatMap f))
+      case Suspend(s) => Suspend(s map (_ flatMap f))
     }
 }
 ~~~
@@ -260,4 +260,4 @@ There is a lot more to the free monad than just constructing it -- using it is r
 [^oops]: This data structure can't actually be implemented. The right-hand element of `Add` is an `Add` in one case and an `Int` in another. We'll see how to actually implement this in the next section.
 [^coyoneda]: The free monad requires that we wrap it around a functor. There is another trick, called the Coyoneda, that allows us to turn any type into a functor. This allows us to wrap any type with the free monad (by first constructing a Coyoneda functor for it). In this discussion we're not going to cover the Coyoneda so for our purposes the free monad can only be wrapped around a functor.
 [^a-la-carte]: This extension is described in [Data Types a la Carte](http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf) and eventually will be described in [Essential Interpreters](http://underscore.io/training/courses/advanced-scala-scalaz/).
-[^go-sub]: If you look at the [Scalaz implementation](https://github.com/scalaz/scalaz/blob/series/7.2.x/core/src/main/scala/scalaz/Free.scala) of free monads you see a case very much like this called `GoSub`. This actually represents `flatMap` (read the types) but it isn't strictly necessary if we're not also implementing trampolining at Scalaz's implementation does.
+[^go-sub]: If you look at the [Scalaz implementation](https://github.com/scalaz/scalaz/blob/series/7.2.x/core/src/main/scala/scalaz/Free.scala) of free monads you see a case very much like this called `GoSub`. This actually represents `flatMap` (read the types) but it isn't strictly necessary if we're not also implementing trampolining as Scalaz's implementation does.
