@@ -23,7 +23,7 @@ Here are four problems new Scala teams have to deal with:
 * solving the customer's problem.
 
 You can view these all as issues of communication.
-The first two are about communication in the development teams.
+The first two are about communication within the development team.
 The last two are with the customer.  I'm going to look at the first two.
 
 ## Culture
