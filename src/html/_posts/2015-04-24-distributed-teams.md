@@ -12,6 +12,7 @@ and ways to tackle them.
 [infoq]: http://www.infoq.com/presentations/agile-practices-distributed-teams
 [book]: http://www.jeckstein.com/distributed-teams/
 [remote]: http://stackoverflow.com/research/developer-survey-2015#work-remote-by-job
+[syndrome]: http://en.wikipedia.org/wiki/Impostor_syndrome
 
 <!-- break -->
 
@@ -53,7 +54,20 @@ The help from mentoring---either in person, via pairing, or code review---is a r
 
 > "Mentors benefit protégés not only by their experience and advice but also by their encouragement to adopt and adapt project culture, especially if changes in attitude are required, as, for example, with test-driven development requests."
 
-I would add to that: especially if adopting a new language and libraries, or adopting a functional way of tackling problems.
+I would add: "especially if adopting a functional style of thinking". Here's a concrete example of that. I've been on mentoring session where the developer was struggling to make progress with _the mechanics_ of writing Scala. What they needed to do was think about the types involved, and the functions required to go between them. The code then gets a lot easier to write. This switch in thinking doesn't always come naturally, but is relatively easy to show and practice.
+
+# Talk More
+
+To implement support and mentoring in a distributed team,
+we've found it useful to have a dedicated channel in Slack (IRC, Flowdock....) set aside for questions and code discussions.
+It's a safe place for asking questions, no matter how dumb or otherwise.
+
+Sometimes this works out as someone asking a question, and getting an answer. Other times it will escalate into a discussion, screen sharing session, Google Hangout, or pair coding spike to explore an area.
+
+But do watch out for quiet members of the team. We've seen those who don't ask questions or get involved in discussions.
+They may think they have nothing to contribute, not understand the culture you're creating,
+feel out of their depth, or think they are [an imposter][syndrome].   Make time for the quiet ones: work with them, make sure they making progress, and not fading away.
+
 
 ## Pairing
 
@@ -79,7 +93,8 @@ finding the best team members regardless of location, or having [happy developer
 If there are problems, such as low team velocity or low quality from review, there are options to try. The practices to consider include:
 
 * encourage the team to share ideas and talk about the challenges they face;
-* offer the team the support they need, such as time to explore or time to take training;
+* use screen sharing and a dedicated chat channel;
+* offer the team the support they need, such as time to explore or take training;
 * establish peer coaches practices;
 * use pair programming; and
 * introduce mentoring.
