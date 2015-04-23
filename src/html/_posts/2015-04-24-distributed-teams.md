@@ -35,7 +35,7 @@ Eckstein's slide 20 (scan to 43:20 in the video) describes aspects of a common d
 * using mentors and peer coaches; and
 * learning from each other.
 
-From a Scala perspective, the point here is gain the minimum skills, and then spread the adoption of idiomatic Scala and functional programming ideas.
+From a Scala perspective, the point here is gain the basic skills, and then spread the adoption of idiomatic Scala and functional programming ideas.
 If you're building a new team from developers with Java experience---not uncommon in our experience---this has added importance: you're at risk of not making the best use of the language.
 
 _Disclosure:
