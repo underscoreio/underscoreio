@@ -48,18 +48,18 @@ Look around, and see who in your teams can fill these kinds of roles._
 Peer coaches are pretty much the ideal way to level-up the team.
 What's a peer coach in this context?
 They'll be a regular team member, perhaps a little more advanced than the average,
-but who are able and willing to share ideas and tricks.
+who is able and willing to share ideas and tricks.
 
-The help from mentoring---either in person, via pairing, or code review---is a role that need more experience. As Eckstein says in [her book on the subject][book]:
+The help from mentoring---either in person, via pairing, or code review---is a role that needs more experience. As Eckstein says in [her book on the subject][book]:
 
 > "Mentors benefit protégés not only by their experience and advice but also by their encouragement to adopt and adapt project culture, especially if changes in attitude are required, as, for example, with test-driven development requests."
 
-I would add: "especially if adopting a functional style of thinking". Here's a concrete example of that. I've been on mentoring session where the developer was struggling to make progress with _the mechanics_ of writing Scala. What they needed to do was think about the types involved, and the functions required to go between them. The code then gets a lot easier to write. This switch in thinking doesn't always come naturally, but is relatively easy to show and practice.
+I would add: "especially if adopting a functional style of thinking". Here's a concrete example of that. I've been on a mentoring session where the developer was struggling to make progress with _the mechanics_ of writing Scala. What they needed to do was think about the types involved, and the functions required to go between them. The code then became a lot easier to write. This switch in thinking doesn't always come naturally, but is relatively easy to show and practice.
 
-# Talk More
+## Talk More
 
 To implement support and mentoring in a distributed team,
-we've found it useful to have a dedicated channel in Slack (IRC, Flowdock....) set aside for questions and code discussions.
+we've found it useful to have a dedicated channel in Slack (IRC, Flowdock, ...) set aside for questions and code discussions.
 It's a safe place for asking questions, no matter how dumb or otherwise.
 
 Sometimes this works out as someone asking a question, and getting an answer. Other times it will escalate into a discussion, screen sharing session, Google Hangout, or pair coding spike to explore an area.
@@ -69,7 +69,7 @@ They may think they have nothing to contribute, not understand the culture you'r
 feel out of their depth, or think they are [an imposter][syndrome].   Make time for the quiet ones: work with them, make sure they making progress, and not fading away.
 
 
-## Pairing
+## Pairing
 
 Pair programming is a great way to share experience through a team.
 The tooling we have available means that there are no technical obstacles to remote pairing with a distributed team.
@@ -88,7 +88,7 @@ and talk about why it might be one way or another.
 ## Conclusion
 
 Distributed teams are amazing: follow-the-sun-coding,
-finding the best team members regardless of location, or having [happy developers][remote]... the benefits are clear.
+finding the best team members regardless of location, or having [happy developers][remote]---the benefits are clear.
 
 If there are problems, such as low team velocity or low quality from review, there are options to try. The practices to consider include:
 
