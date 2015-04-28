@@ -40,7 +40,7 @@ is equivalent to
 6
 ~~~
 
-Our goal is to implement `println` in such a way that it's return value is something that does allow for substitution. I've already hinted we need a monad. But how exactly should this monad be implemented? The solution comes back to the idea we talked about when [introducing the free monad][free-monad-interpreter]: separate the representation and the interpreter.
+Our goal is to implement `println` in such a way that its return value is something that does allow for substitution. I've already hinted we need a monad. But how exactly should this monad be implemented? The solution comes back to the idea we talked about when [introducing the free monad][free-monad-interpreter]: separate the representation and the interpreter.
 
 What we're going to do is make `println` return an action that, when we run it, really does the printing. An implementation like this will do:
 
@@ -130,7 +130,7 @@ We can't maintain substitution after we run our IO actions. The way Haskell hand
 
 The idea of representing actions as data is very general. I've explored this point in depth in the [prior post][free-monad-interpreter] introducing the free monad. We've seen another example here. We're also seeing the same implementation pattern come up again. So as a general point, if you find yourself implementing some monad variant and you don't want to use the free monad, you probably need an algebraic data type like the one we just saw.
 
-In some sense the representation of monads in terms of `map` and `join` (described [previously][free-monad-interpreter]) is more primitive than the one in terms of `flatMap`. We can view `map` with a function of type `A => IO[B]` as building up a sequence of actions to perform and `join` as then running those actions. This is exactly how we implemented `IO`, though it is `flatMap` that builds up the actions and `run` that runs them.[]
+In some sense the representation of monads in terms of `map` and `join` (described [previously][free-monad-interpreter]) is more primitive than the one in terms of `flatMap`. With this representation we build nested structured like `IO[IO[IO[C]]]` through repeated application of `map`, and we then reduce these back to just, say, `IO[C]` using `join`. We can view `map` as sequencing actions to perform, and `join` as performing them. 
 
 Finally, we can derive a useful lesson about monad composition in the free monad. If you know about monad transformers, you'll know they are one approach to composing monads. It's fairly common to define a "monad stack" that is used consistently throughout an application. For example, an application I'm currently writing uses
 
@@ -138,7 +138,7 @@ Finally, we can derive a useful lesson about monad composition in the free monad
 type Result[Error, Success] = EitherT[Task, Error, Success]
 ~~~
 
-The free monad offers another approach to monad composition, via the [a la carte][a-la-carte] technique. The question then becomes, if we use the free monad should we raise all our monads into it, in the same way we do with monad transformers? So far I have not done this. The free monad also delays computation, which we've seen is necessary to make IO pure. My approach has been to put IO actions into the free monad but leave other monads (e.g. `Option` and `\/`) out of it. This means occasionally seeing nested `for` comprehensions but I find it simpler and more performant to work this way. One caveat: I haven't written a great deal of code using the free monad so my opinion might change.
+The free monad offers another approach to monad composition, via the [a la carte][a-la-carte] technique. The question then becomes, if we use the free monad should we raise all our monads into it, in the same way we do with monad transformers? So far I have not done this. My approach has been to put IO actions into the free monad but leave other monads (e.g. `Option` and `\/`) out of it. This means occasionally seeing nested `for` comprehensions but I find it simpler and more performant to work this way. One caveat: I haven't written a great deal of code using the free monad so my opinion might change.
 
 [free-monad-interpreter]: {% post_url 2015-04-14-free-monads-are-simple %}
 [free-monad-deriving]: {% post_url 2015-04-23-deriving-the-free-monad %}
