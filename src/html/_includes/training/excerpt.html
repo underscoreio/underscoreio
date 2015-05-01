@@ -11,7 +11,11 @@
   <div class="panel-body">
     <dl class="course-meta">
       <dt>Level</dt>  <dd>{{ include.course.courseDirectory.level  }}</dd>
-      <dt>Length</dt> <dd>{{ include.course.courseDirectory.length }}</dd>
+      {% if include.course.courseDirectory.length %}
+        <dt>Length</dt> <dd>{{ include.course.courseDirectory.length }}</dd>
+      {% else %}
+        <dt>&nbsp;</dt> <dd>&nbsp;</dd>
+      {% endif %}
     </dl>
   </div>
 
