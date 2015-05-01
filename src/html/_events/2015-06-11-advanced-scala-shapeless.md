@@ -37,8 +37,9 @@ The workshop will be led by shapeless author, Underscore partner, and Scala lumi
 ### Where and When
 
 The course will run from 9AM to 5PM on {{ page.date | date:'%a, %b %d, %Y' }}.
-The venue, a central location in Amsterdam near to the Scala Days conference venue,
-is to be announced.
+TomTom are kindly donating space for the workshop at their offices:
+
+> Oosterdoksstraat 114, 1011 DK Amsterdam
 
 ### What You Need
 
