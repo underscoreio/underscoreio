@@ -19,7 +19,10 @@ products:
       url: "https://gum.co/essential-slick"
       buttonLabel: "Buy now - $40"
       description: |
-        Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
+        Download the text complete with exercises and solutions, in HTML, PDF, and ePub formats.
+
+        Introductory offer: use code slick2 at checkout to apply a 50% discount.
+
     team:
       type: gumroad
       title: "20% Team Discount"
@@ -29,12 +32,21 @@ products:
         Get your whole team up to speed with <em>10 licenses</em>
         for Essential Slick at a 20% discount.
 
+        Introductory offer: use code slick2 at checkout to apply a 50% discount.
+
 ---
 
 ## Overview
 
 Essential Slick is a guide to building a database application using the Slick library.
 It is aimed at Scala developers who need to become productive with Slick quickly.
+
+## Early Access
+
+This book is an Early Access edition, and covers Slick 2.1.
+
+As a early access customer you will receive a free copy of the final text when it is released, plus free
+life􏰀me updates therea􏰂er.
 
 ## Prerequisites
 
