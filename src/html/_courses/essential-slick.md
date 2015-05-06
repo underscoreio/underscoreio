@@ -45,8 +45,7 @@ It is aimed at Scala developers who need to become productive with Slick quickly
 
 This book is an Early Access edition, and covers Slick 2.1.
 
-As a early access customer you will receive a free copy of the final text when it is released, plus free
-life􏰀me updates therea􏰂er.
+As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter.
 
 ## Prerequisites
 
