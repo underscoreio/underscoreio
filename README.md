@@ -23,7 +23,7 @@ You'll also need command-line PHP 5 to run `composer` to install PHP dependencie
 
 # Static files
 
-If you want to upload anything for a customer, put it in _/srv/underscore.io/public/htdocs/files_, which is mapped to _http://underscore.io/files_.
+If you want to upload anything for a customer, put it in _/srv/underscore.io/public/htdocs/files/_, which is mapped to _http://underscore.io/files_.
 
 # TODO
 
