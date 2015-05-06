@@ -7,8 +7,8 @@ icon: scala
 color: "#F58B40"
 courseDirectory:
   level: Intermediate
-  #length: 1 day
-  icons: [ book ]
+  length: 1 day
+  icons: [ book, public, private ]
 coursePage:
   showSidebar: true
 products:
@@ -20,9 +20,6 @@ products:
       buttonLabel: "Buy now - $40"
       description: |
         Download the text complete with exercises and solutions, in HTML, PDF, and ePub formats.
-
-        Introductory offer: use code slick2 at checkout to apply a 50% discount.
-
     team:
       type: gumroad
       title: "20% Team Discount"
@@ -31,15 +28,25 @@ products:
       description: |
         Get your whole team up to speed with <em>10 licenses</em>
         for Essential Slick at a 20% discount.
-
-        Introductory offer: use code slick2 at checkout to apply a 50% discount.
+  instructorLed:
+    public:
+      type: public
+      title: "Public Courses"
+      buttonLabel: "View upcoming events"
+      comingSoon: true
+    private:
+      type: private
+      title: "Private Courses"
+      buttonLabel: "Book now - {% currencies $3,000 £2,000 €2,250 %}"
+banner: |
+  <strong>Early bird promotion:</strong>
+  Use the code <strong>slick2</strong> on checkout for a 50% discount off the book!
 
 ---
 
 ## Overview
 
-Essential Slick is a guide to building a database application using the Slick library.
-It is aimed at Scala developers who need to become productive with Slick quickly.
+Essential Slick is a guide to building a database application using the Slick library. It is aimed at Scala developers who need to become productive with Slick quickly.
 
 ## Early Access
 

@@ -85,6 +85,14 @@ layout: default
   </header>
 </div>
 
+{% if page.banner %}
+<div class="container course-banner">
+  <div class="alert alert-danger text-center">
+    {{ page.banner | markdownify | liquidify }}
+  </div>
+</div>
+{% endif %}
+
 <section class="container">
   <div class="row">
     <div class="col-sm-8{% if page.coursePage.showSidebar %}{% else %} col-sm-offset-2{% endif %}">
