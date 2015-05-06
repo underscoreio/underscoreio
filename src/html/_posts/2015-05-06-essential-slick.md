@@ -25,7 +25,7 @@ We can't cover all of Slick in 100 pages, but we've captured what we think is es
 
 * Getting away from database-level types and up into meaningful application types as soon as possible.
 
-* Working with joins and grouping -- probably the chapter I'll have open the most often.
+* Working with joins and grouping -- probably the chapter I'll have open the most.
 
 * Making use of a feature of Slick called Plain SQL, which is essential when you find Slick producing odd queries.
 
