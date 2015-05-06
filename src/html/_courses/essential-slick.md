@@ -38,39 +38,78 @@ It is aimed at Scala developers who need to become productive with Slick quickly
 
 ## Prerequisites
 
-To benefit from this course you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
+To benefit from this material you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
 
 ## Learning Outcomes
 
 - Practical knowledge of working with Slick applications
 - Understanding the core concepts required to work with Slick
 - Knowing how to use Slicks features for selecting and modifying data
-- How to model schemas
-- Making use of the Scala types ystem with Slick
+- Modelling schemas in Slick
+- Making use of the Scala type system with Slick
 - Working with lower-level Plain SQL for fine control over queries
 
-## Table of Contents
+## Abbreviated Table of Contents
 
-- Thing
-  - Thing
-  - Thing
+1. Basics
+   - Orientation
+   - Running the Examples and Exercises
+   - Example: A Sequel Odyssey
+   - Take Home Points
+   - Exercise: Bring Your Own Data
 
-- Thing
-  - Thing
-  - Thing
+2. Selecting Data
+   - Select All The Rows!
+   - Filtering Results: The filter Method
+   - The Query and TableQuery Types
+   - Transforming Results: The map Method
+   - Query Invokers
+   - Column Expressions
+   - Controlling Queries: Sort, Take, and Drop
+   - Take Home Points
+   - Exercises
 
-- Thing
-  - Thing
-  - Thing
+3. Creating and Modifying Data
+   - Inserting Data
+   - Updating Rows
+   - Deleting Rows
+   - Transactions
+   - Logging Queries and Results
+   - Take Home Points
+   - Exercises
 
-- Thing
-  - Thing
-  - Thing
+4. Data Modelling
+    - Application Structure
+    - Representations for Rows
+    - Table and Column Representation
+    - Custom Column Mappings
+    - Value Classes
+    - Sum Types
+    - Take Home Points
 
-- Thing
-  - Thing
-  - Thing
+5. Joins and Aggregates
+    - Implicit Joins
+    - Explicit Joins
+    - Zip Joins
+    - Joins Summary
+    - Seen Any Scary Queries?
+    - Aggregation
+    - Take Home Points
+    - Exercises
 
-- Thing
-  - Thing
-  - Thing
+6. Plain SQL
+    - Selects
+    - Updates
+    - Take Home Points
+    - Exercises
+
+Appendix A: Using Different Database Products
+
+Appendix B: Solutions to Exercises
+
+
+## Sample Chapters
+
+Chapters 1 and 2 are available as a [free PDF preview download](/files/essential-slick-preview.pdf).
+
+
