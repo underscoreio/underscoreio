@@ -11,7 +11,7 @@ remote: Possible
 email: MATcareers@mclaren.com
 admin: annie.norman@mclaren.com
 instructions: |
-  Please email with the subject "Scala Software Engineer - via Underscore".
+  Email a CV and cover letter. Click "Apply Now" below to get started.
 
 ---
 
