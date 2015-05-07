@@ -4,7 +4,7 @@ title: Essential Scala Macros
 layout: course
 navbar: training
 icon: macro
-color: "#dd8842"
+color: "#F58B40"
 courseDirectory:
   level: Intermediate
   length: 1 hour

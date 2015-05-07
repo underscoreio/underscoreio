@@ -3,7 +3,7 @@ id: essential-distributed-systems
 title: Essential Distributed Systems
 layout: course
 icon: network
-color: "#5a98cb"
+color: "#21a9e1"
 courseDirectory:
   level: Intermediate Java or Scala
   length: 2 days
