@@ -8,7 +8,7 @@ summary: |
   We are looking for people with technical interest and experience in back-end development.
 location: Woking, UK
 remote: Possible
-email: MATcareers@mclaren.com?subject=Scala%20Software%20Engineer%20-%20Via%20Underscore.io
+email: MATcareers@mclaren.com
 admin: annie.norman@mclaren.com
 instructions: |
   Please email with the subject "Scala Software Engineer - via Underscore".

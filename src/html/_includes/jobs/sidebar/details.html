@@ -39,7 +39,7 @@
       <div class="job-instructions">{{ include.job.instructions | markdownify }}</div>
       {% endif %}
       <p>
-        <a class="btn btn-block btn-info" href="mailto:{{ include.job.email }}">
+        <a class="btn btn-block btn-info" href="mailto:{{ include.job.email }}?subject={{ include.job.title | urlify }}{{ " (via Underscore) " | urlify }}">
           Apply Now
         </a>
       </p>
