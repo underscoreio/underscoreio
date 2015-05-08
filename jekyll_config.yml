@@ -34,3 +34,4 @@ collections:
   jobs:
     output: true
     layout: job
+    permalink: /jobs/:path/
