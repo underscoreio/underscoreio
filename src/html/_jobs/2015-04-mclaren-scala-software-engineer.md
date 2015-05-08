@@ -1,8 +1,7 @@
 ---
 layout: job
-title:  Scala Software Engineer
+title: Scala Software Engineer
 company: McLaren Applied Technologies
-permalink: /jobs/2015-04-mclaren-software-engineer.html
 level: Intermediate
 summary: |
   McLaren Applied Technologies is looking for full-stack software engineers.
