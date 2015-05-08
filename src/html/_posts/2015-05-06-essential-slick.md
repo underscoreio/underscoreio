@@ -34,6 +34,6 @@ You'll find a preview of the first two chapters on the [Essential Slick] book pa
 
 ## Slick 2.1
 
-Slick 3.0 was just released, but this text is for Slick 2.10. Our plan is to move the text out of Early Access and then on to Slick 3.0 --- providing the text is useful to developers!  Let us know what you make of it via our [Gitter Channel], or [email].
+Slick 3.0 was just released, but this text is for Slick 2.1. Our plan is to move the text out of Early Access and then on to Slick 3.0 --- providing the text is useful to developers!  Let us know what you make of it via our [Gitter Channel], or [email].
 
 
