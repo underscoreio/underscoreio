@@ -4,15 +4,11 @@ title: The Underscore Job Board
 navbar: jobs
 ---
 
-<article>
+<article class="job-listing">
     {% for job in site.jobs %}
       {% include jobs/excerpt.html job=job %}
     {% endfor %}
 </article>
-
-<script>
-  uio.jobListing.init(".job-listing")
-</script>
 
 <p class="text-center">
   Recruiting is a problem for entire community. We're doing something about it.
@@ -36,3 +32,7 @@ Conditions:
 - We are giving preference to roles suitable for junior developers, as that's where we see the biggest need in the community.
 - The other usual legal T&amp;Cs are on the submission form.
 {% endcomment %}
+
+<script>
+  uio.jobListing.init(".job-listing")
+</script>
