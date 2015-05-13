@@ -85,8 +85,9 @@ with the assistance of members of the Scala community.
 ### Where and When
 
 The course will run from 9AM to 3.30PM on {{ page.date | date:'%a, %b %d, %Y' }}.
-The venue, a central location in Amsterdam near to the Scala Days conference venue,
-is to be announced.
+Treatwell are kindly donating space for the workshop at their offices:
+
+> Nieuwezijds Voorburgwal 120-126, 1012 SH Amsterdam
 
 ### What You Need
 
