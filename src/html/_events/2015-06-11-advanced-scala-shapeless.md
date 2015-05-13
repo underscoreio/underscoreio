@@ -21,6 +21,10 @@ bookingLinks:
            <small>(places awarded by lottery)</small>
     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
     class: "btn-warning"
+banner: |
+  <strong>Applications close at 5pm on Friday 15th May (UK Time)!</strong><br>
+  Unfortunately, due to high demand, this workshop is now over-subscribed.
+  We will allocate places randomly until we reach capacity and contact all applicants on Monday 18th May.
 ---
 
 ### What

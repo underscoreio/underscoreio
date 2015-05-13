@@ -4,6 +4,14 @@ layout: default
 
 {% include hero.html title=page.title backLink="/events" %}
 
+{% if page.banner %}
+<div class="container course-banner">
+  <div class="alert alert-danger text-center">
+    {{ page.banner | markdownify | liquidify }}
+  </div>
+</div>
+{% endif %}
+
 <section class="container">
   <div class="row">
     <div class="col-md-8">
