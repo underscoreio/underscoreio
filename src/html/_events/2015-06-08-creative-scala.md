@@ -27,8 +27,8 @@ bookingLinks:
     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
     class: "btn-warning"
 banner: |
-  <strong>Applications close at 5pm on Friday 15th May (UK Time)!</strong><br>
-  We will allocate places randomly until we reach capacity and contact all applicants on Monday 18th May.
+  <strong>Applications close at 11pm on Sunday 18th May (UK Time)!</strong><br>
+  We will allocate places randomly until we reach capacity and contact all applicants on/before Tuesday 19th May.
 ---
 
 ### What
