@@ -30,7 +30,7 @@ For a while I've wanted to move back into the data world after focusing on gener
 
 [strata-london-2015]: http://strataconf.com/big-data-conference-uk-2015
 [whats-there-to-know]: http://noelwelsh.com/assets/downloads/
-[strata-london-2012]: {% post_url 2012-10-01-strata-slides %}
+[strata-london-2012]: http://noelwelsh.com/data/2012/10/01/strata-slides/
 [spark]: https://spark.apache.org/
 [julia-angwin]: http://juliaangwin.com/
 [accenture]: http://strataconf.com/big-data-conference-uk-2015/public/schedule/detail/39967
