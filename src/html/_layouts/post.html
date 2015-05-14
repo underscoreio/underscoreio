@@ -20,9 +20,15 @@ navbar: blog
         </article>
 
         <hr>
-        If you like what you're reading you should <a href="/blog/newsletters">subscribe to our newsletter</a>. It's made from 100% recycled electrons and guaranteed spam free.
+
+        {% if site.jobs %}
+          {% include blog/jobcta.html %}
+        {% else %}
+          If you like what you're reading you should <a href="/blog/newsletters">subscribe to our newsletter</a>. It's made from 100% recycled electrons and guaranteed spam free.
+        {% endif %}
+
         <hr>
-        
+
         {% include blog/comments.html post=page %}
       </section>
     </div>
