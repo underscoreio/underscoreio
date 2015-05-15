@@ -33,14 +33,19 @@
         {% endif %}
       </dl>
 
-      {% if include.job.email %}
       {% if include.job.instructions %}
       <strong>How to Apply</strong>
       <div class="job-instructions">{{ include.job.instructions | markdownify }}</div>
-      {% endif %}
       <p>
-        <a class="btn btn-block btn-info" href="mailto:{{ include.job.email }}?subject={{ include.job.title | urlify }}{{ " (via Underscore) " | urlify }}">
-          Apply Now
+        <a class="btn btn-block btn-info"
+           {% if include.job.email %}
+           href="mailto:{{ include.job.email }}?subject={{ include.job.title | urlify }}{{ " (via Underscore) " | urlify }}"
+           {% endif %}
+           {% if include.job.application_url %}
+           href="{{ include.job.application_url }}"
+           {% endif %}
+           >
+          Apply Now 
         </a>
       </p>
       {% endif %}
