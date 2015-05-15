@@ -56,7 +56,11 @@ object Transformer {
         t.map(tToString.transform(_)).mkString(",")
     }
 }
+{% endhighlight %}
 
+Now to use the type class.
+
+{% highlight scala %}
 // This is something that makes use of the typeclass
 trait Transform {
   // The implicit Transformer, transformer, supplies an
@@ -65,7 +69,9 @@ trait Transform {
         implicit transformer: Transformer[T, R]): R =
     transformer.transform(t)
 }
+{% endhighlight %}
 
+{% highlight scala %}
 // These examples will drop back to the default implementations
 // in the Transformer's companion object
 object ExampleWithDefaults extends App with Transform {
