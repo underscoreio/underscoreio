@@ -7,7 +7,7 @@ summary: |
   McLaren Applied Technologies is looking for full-stack software engineers.
   We are looking for people with technical interest and experience in back-end development.
 location: Woking, UK
-remote: Possible
+remote: No
 email: MATcareers@mclaren.com
 admin: annie.norman@mclaren.com
 instructions: |
