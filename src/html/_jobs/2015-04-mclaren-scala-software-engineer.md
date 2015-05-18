@@ -42,6 +42,8 @@ McLaren Applied Technologies is looking for full-stack software engineers to joi
 - Maintain an up-to-date knowledge of the tools and frameworks used in web-development and their respective advantages and disadvantages; and
 - Positively influence the technical direction of the team.
 
+This is a full-time permanent role on-site in Woking, UK.
+There is flexibility for permanent staff to work from home on occasions.
 
 ### Skills and Requirements
 
