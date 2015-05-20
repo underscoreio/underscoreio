@@ -17,7 +17,7 @@ summary: |
   This workshop takes place on the Monday prior to Scala Days.
   We'll spend the day drawing and be finished in time for registration at 4pm!
 bookingLinks:
-  - text:  Sorry, registration has closed
+  - text:  Sorry! Registration has closed.
     url:
 # bookingLinks:
 #   - text:  Sign up as a student - FREE<br>
@@ -30,7 +30,7 @@ bookingLinks:
 #     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
 #     class: "btn-warning"
 banner: |
-  <strong>Sorry!</strong> Registration for this workshop is now closed.
+  <strong>Sorry!</strong> Registration for this workshop has now closed.
 # banner: |
 #   <strong>Applications close at 11pm on Sunday 18th May (UK Time)!</strong><br>
 #   We will allocate places randomly until we reach capacity and

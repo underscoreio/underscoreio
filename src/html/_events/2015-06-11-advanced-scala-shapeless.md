@@ -14,7 +14,7 @@ summary: |
   This workshop takes place on the Thursday following
   [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015).
 bookingLinks:
-  - text:  Sorry, registration has closed
+  - text:  Sorry! Registration has closed.
     url:
 #   - text:  Sign up now - FREE<br>
 #            <small>(places awarded by lottery)</small>
@@ -29,7 +29,7 @@ bookingLinks:
 #   We will allocate places randomly until we reach capacity and
 #   contact all applicants on/before Tuesday 19th May.
 banner: |
-  <strong>Sorry!</strong> Registration for this workshop is now closed.
+  <strong>Sorry!</strong> Registration for this workshop has now closed.
 ---
 
 ### What
