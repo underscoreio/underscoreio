@@ -10,25 +10,31 @@ duration: 6 hours
 cost: Free
 navbar: events
 summary: |
-  Dave Gurnell, Noel Welsh, and friends invite you to
-  warm up for with a fun, graphical, first look at Scala.
+  Dave Gurnell, Noel Welsh, and friends invite you to warm up for
+  [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015)
+  with a fun, graphical, first look at Scala.
 
-  This workshop takes place on the Monday prior to
-  [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015).
+  This workshop takes place on the Monday prior to Scala Days.
   We'll spend the day drawing and be finished in time for registration at 4pm!
 bookingLinks:
-  - text:  Sign up as a student - FREE<br>
-           <small>(places awarded by lottery)</small>
-    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
-  - text:  Diversity applicants - FREE<br>
-           <small>(places awarded by lottery)</small>
-    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
-  - text:  Become a teaching assistant
-    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
-    class: "btn-warning"
+  - text:  Sorry, registration has closed
+    url:
+# bookingLinks:
+#   - text:  Sign up as a student - FREE<br>
+#            <small>(places awarded by lottery)</small>
+#     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
+#   - text:  Diversity applicants - FREE<br>
+#            <small>(places awarded by lottery)</small>
+#     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
+#   - text:  Become a teaching assistant
+#     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
+#     class: "btn-warning"
 banner: |
-  <strong>Applications close at 11pm on Sunday 18th May (UK Time)!</strong><br>
-  We will allocate places randomly until we reach capacity and contact all applicants on/before Tuesday 19th May.
+  <strong>Sorry!</strong> Registration for this workshop is now closed.
+# banner: |
+#   <strong>Applications close at 11pm on Sunday 18th May (UK Time)!</strong><br>
+#   We will allocate places randomly until we reach capacity and
+#   contact all applicants on/before Tuesday 19th May.
 ---
 
 ### What
@@ -106,6 +112,7 @@ If you run into difficulties installing software we will assist you at the event
 
 It's completely free!
 
+{% comment %}
 ### Apply Now
 
 Due to the popularity of these workshops we are allocating tickets randomly.
@@ -120,6 +127,7 @@ Please help us spread the word by tweeting about this event:
 
 <a href="https://twitter.com/intent/tweet?button_hashtag=creative-scala&text=Warm%20up%20for%20%23scaladays%20with%20a%20fun%2C%20free%20introduction%20to%20Scala!" class="twitter-hashtag-button" data-size="large" data-url="http://underscore.io/events/2015-06-08-creative-scala.html">Tweet #creative-scala</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+{% endcomment %}
 
 # Questions About The Event?
 

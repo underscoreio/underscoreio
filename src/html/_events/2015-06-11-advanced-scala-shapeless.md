@@ -14,17 +14,22 @@ summary: |
   This workshop takes place on the Thursday following
   [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015).
 bookingLinks:
-  - text:  Sign up now - FREE<br>
-           <small>(places awarded by lottery)</small>
-    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
-  - text:  Diversity applications - FREE<br>
-           <small>(places awarded by lottery)</small>
-    url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
-    class: "btn-warning"
+  - text:  Sorry, registration has closed
+    url:
+#   - text:  Sign up now - FREE<br>
+#            <small>(places awarded by lottery)</small>
+#     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
+#   - text:  Diversity applications - FREE<br>
+#            <small>(places awarded by lottery)</small>
+#     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
+#     class: "btn-warning"
+# banner: |
+#   <strong>Applications close at 11pm on Sunday 17th May (UK Time)!</strong><br>
+#   Unfortunately, due to high demand, this workshop is now over-subscribed.
+#   We will allocate places randomly until we reach capacity and
+#   contact all applicants on/before Tuesday 19th May.
 banner: |
-  <strong>Applications close at 11pm on Sunday 17th May (UK Time)!</strong><br>
-  Unfortunately, due to high demand, this workshop is now over-subscribed.
-  We will allocate places randomly until we reach capacity and contact all applicants on/before Tuesday 19th May.
+  <strong>Sorry!</strong> Registration for this workshop is now closed.
 ---
 
 ### What
@@ -60,6 +65,7 @@ You **should**:
 
 It's completely free!
 
+{% comment %}
 ### Apply Now
 
 Due to the popularity of these workshops we are allocating tickets randomly.
@@ -69,6 +75,7 @@ The deadline for entering the lottery is 12 May 2015.
 As usual we are reserving some tickets for
 [diversity candidates]({% post_url 2015-01-29-diversity-in-training %}).
 Diversity attendees should apply using the dedicated button on the right.
+{% endcomment %}
 
 # Questions About The Event?
 
