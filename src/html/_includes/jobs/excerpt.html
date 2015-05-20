@@ -2,16 +2,17 @@
   job: {
     location: string
     title: string
+    junior: boolean
     summary: string
     remote: (string or null)
   }
 {% endcomment %}
 
 <div class="job-excerpt panel panel-gray" data-job-url="{{ job.url }}">
-  <div class="panel-heading" style="background: #30abdf">
+  <div class="panel-heading {% if job.junior %}junior{% endif %}">
     <h3>
       <span class="pull-left">
-        <span class="job-title">{{ job.title }}</span>
+        <span class="job-title">{{ job.title }} {% if job.junior %}(Accepts Juniors){% endif %}</span>
       </span>
       <span class="pull-right">
         {% if include.job.remote %}

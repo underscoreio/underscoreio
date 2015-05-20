@@ -7,14 +7,19 @@
         <dt>Name</dt>
         <dd class="job-title">{{ include.job.title }}</dd>
 
+        {% if include.job.level %}
+        <dt>Level</dt>
+        <dd class="job-level">{{ include.job.level }}</dd>
+        {% endif %}
+        
         {% if include.job.commitment %}
         <dt>Commitment</dt>
-        <dd class="job-commitment">{{ include.job.commitment }}<dd>
+        <dd class="job-commitment">{{ include.job.commitment }}</dd>
         {% endif %}
 
         {% if include.job.salary %}
         <dt>Salary</dt>
-        <dd class="job-salary">{{ include.job.salary }}<dd>
+        <dd class="job-salary">{{ include.job.salary }}</dd>
         {% endif %}
 
         {% if include.job.location %}
