@@ -1,6 +1,6 @@
 ---
 layout: job
-title: Guardian Content API Server-Side Engineer
+title: Content API Server-Side Engineer
 company: The Guardian
 level: Junior, Intermediate, Senior
 junior: true
@@ -22,6 +22,7 @@ We’re a small team, we make decisions collectively and we focus on building ro
 Our main focus is the [Open Platform](http://open-platform.theguardian.com/), a public service for accessing all the content the Guardian creates. It is the point of scaling between the few people that create content for the Guardian and the many people that consume that content, be it on desktops, tablets or mobile devices. We are also building a number of other services to support different types of content such as quizzes, crosswords and polls.
 
 Things we care about:
+
 - Informed decision-making
 - High Availability
 - Scalable Design
@@ -34,7 +35,9 @@ The boring but still useful bits
 ---------------------------------------
 
 The majority of our code is written in Scala and built on AWS and Elasticsearch, We also have some JavaScript applications and one Clojure application.
+
 You will have strong server-side skills. You should also have an interest in:
+
 - Scala -- Play and Spray
 - Elasticsearch, Logstash and Kibana
 - AWS (EC2, SQS, SNS, S3, Kinesis)

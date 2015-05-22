@@ -12,7 +12,7 @@
   <div class="panel-heading {% if job.junior %}junior{% endif %}">
     <h3>
       <span class="pull-left">
-        <span class="job-title">{{ job.title }} {% if job.junior %}(Accepts Juniors){% endif %}</span>
+        <span class="job-title">{{ job.title }} at {{ job.company }} {% if job.junior %}(Accepts Juniors){% endif %}</span>
       </span>
       <span class="pull-right">
         {% if include.job.remote %}

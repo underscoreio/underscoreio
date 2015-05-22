@@ -21,6 +21,7 @@ We're a small team, we make decisions collectively and we are keen on building r
 ‘We are working on a wide range of products. Currently we are creating a new Avatar service and are about to start building various APIs for personalisation, including user history, user preferences and content recommendations.
 
 Things we care about:
+
 - Informed decision-making
 - Understanding our user's needs
 - High Availability
@@ -35,6 +36,7 @@ The boring but still useful bits
 Our existing applications are written in Scala, Python or Javascript and are built on top of Amazon Web Services. All of our new services are built using Scala and AWS so these skills are particularly useful.
 
 You should be an excellent server-side developer with an interest in:
+
 - Scala -- Play and Scalatra
 - AWS  -- EC2, SQS, SNS, S3
 - Python -- Django, Flask
