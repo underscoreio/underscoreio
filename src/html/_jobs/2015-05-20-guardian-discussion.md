@@ -14,18 +14,18 @@ instructions: |
 
 <!-- break -->
 
-The Discussion team is looking for excellent and passionate server-side engineers to join us and work on a whole host of services we are building to support commenting, user preferences, content recommendation and other personalisation services.	"The Discussion team is looking for excellent and passionate server-side engineers to join us and work on a whole host of services we are building to support commenting, user preferences, content recommendation and other personalisation services.
+The Guardian's Discussion team is looking for excellent and passionate server-side engineers to join us and work on a whole host of services we are building to support commenting, user preferences, content recommendation and other personalisation services.	"The Discussion team is looking for excellent and passionate server-side engineers to join us and work on a whole host of services we are building to support commenting, user preferences, content recommendation and other personalisation services.
 
 We're a small team, we make decisions collectively and we are keen on building robust, scalable APIs to enable new features for our clients (the Guardian website, Guardian mobile apps and so on). We also want to share and promote best-practice here across the department, and build tools and libraries to help with this. Our [ELK-stack](https://github.com/guardian/elk-stack/) is just one example of this.
 
 ‘We are working on a wide range of products. Currently we are creating a new Avatar service and are about to start building various APIs for personalisation, including user history, user preferences and content recommendations.
 
 Things we care about:
-* Informed decision-making
-* Understanding our user's needs
-* High Availability
-* Scalable Design
-* Quality Code
+- Informed decision-making
+- Understanding our user's needs
+- High Availability
+- Scalable Design
+- Quality Code
 
 So if you're interested in building the next generation of APIs at the Guardian  get in touch.
 
@@ -35,12 +35,12 @@ The boring but still useful bits
 Our existing applications are written in Scala, Python or Javascript and are built on top of Amazon Web Services. All of our new services are built using Scala and AWS so these skills are particularly useful.
 
 You should be an excellent server-side developer with an interest in:
-* Scala - Play and Scalatra
-* AWS  - EC2, SQS, SNS, S3
-* Python - Django, Flask
-* JavaScript - Angular
-* Postgres and DynamoDB
-* building scalable, reliable services and related tooling
+- Scala -- Play and Scalatra
+- AWS  -- EC2, SQS, SNS, S3
+- Python -- Django, Flask
+- JavaScript -- Angular
+- Postgres and DynamoDB
+- building scalable, reliable services and related tooling
 
 Above all we value problem-solving skills.
 
