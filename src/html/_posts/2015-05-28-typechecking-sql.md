@@ -10,9 +10,12 @@ This post will look at how Slick and doobie approach this problem.
 
 [Essential Slick]: http://underscore.io/training/courses/essential-slick/
 [book of doobie]: http://tpolecat.github.io/doobie-0.2.1/00-index.html
-[dcheck]: http://tpolecat.github.io/doobie-0.2.1/06-Checking.html
-[dtest]: http://tpolecat.github.io/doobie-0.2.1/11-Unit-Testing.html
 [pins]: https://www.artima.com/pins1ed/combining-scala-and-java.html#i-855208314-1
+[dtest]: http://tpolecat.github.io/doobie-0.2.1/11-Unit-Testing.html
+[Github project]: https://github.com/d6y/typechecking-sql
+[doobie]: https://github.com/tpolecat/doobie
+[Slick]: http://slick.typesafe.com/
+[free]: /blog/posts/2015/04/14/free-monads-are-simple.html
 
 <!-- break -->
 
@@ -21,6 +24,8 @@ To keep things simple, we're just going to look at one SQL statement:
 ~~~ scala
 select "content" from "message"
 ~~~
+
+The type we want from executing this query will be some kind of `Seq[String]`.  
 
 The table for the query is:
 
@@ -31,26 +36,24 @@ create table "message" (
 );
 ~~~
 
-The type we want from executing this query will be some kind of `Seq[String]`.  
-Given the SQL is, in effect, a arbitrary hunk of text, we'd like to know:
+Given that the SQL is, in effect, an arbitrary hunk of text, we'd like to know:
 
 1. Is the SQL valid?
 2. Do the types in the SELECT match the types we expect?
 
 And we want to know it sooner rather than later.
 
-Slick is... TODO
-doobie is... TODO.
+Both Slick and doobie have an approach to this problem.  
 
-The approaches to this problem taken by Slick and doobie differ in that:
+[Slick] is, I suspect, reasonably well known as the database library in Typesafe's stack. In version 3.0 it added support for type-checked queries.  Perhaps less well known is [doobie], which provides a "principled way to construct programs (and higher-level libraries) that use JDBC." We think of it as the database layer in a type-level stack.  
 
-[TODO SUMMARY]
-
-Let's look at each in detail.
+Let's look in turn, and how they let us discover problems with our SQL.
 
 ## Slick
 
-Slick supports arbitrary SQL via _Plain SQL_ queries. These interpolators, `sql` and `sqlu`, wrap a SQL statement, do the right thing to substitute in values safely, and convert values into Scala types. We've described this in Chapter 6 of [Essential Slick].
+Slick supports arbitrary SQL via _Plain SQL_ queries. Plain SQL is just one of the ways Slick allows you to access a database. But it's the style we're focussing on in this post.
+
+The support is via interpolators: `sql` and `sqlu`, which wrap a SQL statement, do the right thing to substitute in values safely, and convert values into Scala types. We've described this in Chapter 6 of [Essential Slick].
 
 What's new in Slick 3 is type-checked SQL, available via the `tsql` interpolator:
 
@@ -68,7 +71,7 @@ What's interesting with our `program` is:
 
 To explore this, we can play with the query to see what happens if we screw up.
 
-First, if we change the query to also select the ID column:
+First, if we change the query to also select the ID column...
 
 ~~~scala
 val program: DBIO[Seq[String]] =
@@ -151,7 +154,7 @@ tsql = {
 
 A consequence of supplying a `@StaticDatabaseConfig` is that you can define a one databases configuration for your application and a different one for the compiler to use.  That is, perhaps you are running an application, or test suite, against an in-memory database, but validating the queries at compile time against a production-like integration database.
 
-It's also worth nothing that `tsq` works with inserts and updates too:
+It's also worth noting that `tsq` works with inserts and updates too:
 
 ~~~ scala
 val greeting = "Hello"
@@ -166,9 +169,110 @@ In other words, at compile time, the database is not mutated.
 
 ## doobie
 
-Both doobie and Slick 3 use similar patterns for executing a query -- in fact, doobie was the first database technology I saw doing this. The excellent [book of doobie] is the place to go to learn about the project.
+Both doobie and Slick 3 use similar patterns for executing a query -- in fact, doobie was the first database technology I saw doing this. It's our friend the free monad and interpreter that Noel has been describing in [recent posts][free].
 
+We're just looking at the query checking part of doobie here. The excellent [book of doobie] is the place to go to learn more about the whole project.
+
+The select query we've been using in the post looks like this in doobie:
+
+~~~ scala
+val query: Query0[String] =
+  sql""" select "content" from "message" """.query
+~~~
+
+I've given the type declaration for clarity, although you might write `.query[String]` instead (which reads better to my eyes).
+
+In terms of checking this query, doobie gives us a `check` method:
+
+~~~ scala
+val xa = DriverManagerTransactor[Task](
+ "org.postgresql.Driver", "jdbc:postgresql:chat", richard, ""
+)
+
+import xa.yolo._
+query.check.run
+~~~
+
+This outputs:
+
+~~~
+select "content" from "message"
+
+✓ SQL Compiles and Typechecks
+✕ C01 content VARCHAR (varchar) NULL  →  String
+ - Reading a NULL value into String will result in a runtime failure. Fix this by
+  making the schema type NOT NULL or by changing the Scala type to Option[String]
+~~~
+
+This is telling me I forgot to add a `NOT NULL` constraint on my PostgreSQL schema.  Fixing that problem (`alter table "message" alter column "content" set not null`) gives a clean bill of health:
+
+~~~
+select "content" from "message"
+
+✓ SQL Compiles and Typechecks
+✓ C01 content VARCHAR (varchar) NOT NULL  →  String
+~~~
+
+Now `check` is a run-time check, which is a bit too late to be learning about possible problems. What doobie provides is a way to execute checks as tests.  This is set out in [chapter 11 of the _book of doobie_][dtest], but here's a quick example:
+
+
+~~~ scala
+import doobie.contrib.specs2.analysisspec.AnalysisSpec
+import org.specs2.mutable.Specification
+
+object Queries {
+  val allMessages =
+    sql""" select "content" from "message" """.query[String]
+}
+
+object AnalysisTestSpec extends Specification with AnalysisSpec {
+  val transactor = DriverManagerTransactor[Task](
+    "org.postgresql.Driver", "jdbc:postgresql:chat", "richard", ""
+  )
+  check(Queries.allMessages)
+}
+~~~
+
+Here we're using doobie's add on for specs2 to perform analysis of a query. Note that I've changed the query to be a value in an object. Pulling queries out into some kind of module is going to be good practice if you're using this style of query checking.
+
+Notice, as with Slick, we're providing database connection information that could be different from the database we're developing against. You can probably tests against multiple databases, if that was useful.
+
+We can run our test suite as we usually would:
+
+~~~
+> test
+[info] Compiling 1 Scala source to target/scala-2.11/test-classes...
+[info] AnalysisTestSpec
+[info]
+[info] Query0[String] defined at query-specs.scala:9
+[info]   select "content" from "message"
+[info] + SQL Compiles and Typechecks
+[info] + C01 content VARCHAR (varchar) NOT NULL  →  String
+[info]
+[info] Total for specification AnalysisTestSpec
+[info] Finished in 25 ms
+[info] 2 examples, 0 failure, 0 error
+~~~
+
+As you might imagine, "+ SQL Compiles and Typechecks" fails if you have a typo in the SQL, incorrect column names, or the types don't align. Here's one example where I've said I expect a `String` from a query, but selected the `id` column:
+
+~~~
+[info] Query0[String] defined at query-specs.scala:9
+[info]   select "id" from "message"
+[info] + SQL Compiles and Typechecks
+[info] x C01 id INTEGER (serial) NOT NULL  →  String
+[error]    x INTEGER (serial) is ostensibly coercible to String according to the JDBC
+[error]      specification but is not a recommended target type. Fix this by changing the
+[error]      schema type to CHAR or VARCHAR; or the Scala type to Int or JdbcType. (query-specs.scala:9)
+~~~
+
+The test fails, which is what we want.
 
 ## Conclusions
 
-TODO
+I find it easier to think about queries in terms of SQL, than alternative formulations. However, I've tended to avoid using straight SQL in a project because it's so easy to introduce an error when changing code.  But here we have two projects offering great opportunities to remove that risk.
+
+Both doobie and Slick are using the same mechanisms (prepared statements and JDBC meta data). The routes taken at the moment are different, focusing on analysis and test-time checking (doobie) and compile-time checking (Slick).
+
+I you want to try out the code in this post, I've created a [Github project] for you.
+
