@@ -1,14 +1,15 @@
 ---
 layout: post
-title: Typechecking SQL in Doobie and Slick
+title: Typechecking SQL in Slick and doobie
 author: Richard Dallaway
 ---
 
 Querying a database is sometimes best done with hand-written SQL.
 Of course the trick is to find a way to avoid syntax errors and type errors at run time.
-This post will look at how Doobie and Slick approach this problem.
+This post will look at how Slick and doobie approach this problem.
 
 [Essential Slick]: http://underscore.io/training/courses/essential-slick/
+[book of doobie]: http://tpolecat.github.io/doobie-0.2.1/00-index.html
 [dcheck]: http://tpolecat.github.io/doobie-0.2.1/06-Checking.html
 [dtest]: http://tpolecat.github.io/doobie-0.2.1/11-Unit-Testing.html
 [pins]: https://www.artima.com/pins1ed/combining-scala-and-java.html#i-855208314-1
@@ -39,9 +40,9 @@ Given the SQL is, in effect, a arbitrary hunk of text, we'd like to know:
 And we want to know it sooner rather than later.
 
 Slick is... TODO
-Doobie is... TODO.
+doobie is... TODO.
 
-The approaches to this problem taken by Slick and Doobie differ in that:
+The approaches to this problem taken by Slick and doobie differ in that:
 
 [TODO SUMMARY]
 
@@ -58,7 +59,9 @@ val program: DBIO[Seq[String]] =
   tsql"""select "content" from "message""""
 ~~~
 
-What's interesting here is:
+Note that this is constructing a query, not running it. To run it, we hand the query to an interpreter, and it gives an asynchronous result back.
+
+What's interesting with our `program` is:
 
 - the syntax is checked at compile time; and
 - the types of the columns are discovered at compile time.
@@ -161,9 +164,10 @@ At compile time, Slick uses a facility in JDBC to compile the query and retrieve
 In other words, at compile time, the database is not mutated.
 
 
-## Doobie
+## doobie
 
-[TODO]
+Both doobie and Slick 3 use similar patterns for executing a query -- in fact, doobie was the first database technology I saw doing this. The excellent [book of doobie] is the place to go to learn about the project.
+
 
 ## Conclusions
 
