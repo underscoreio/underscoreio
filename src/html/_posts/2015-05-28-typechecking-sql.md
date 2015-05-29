@@ -5,8 +5,8 @@ author: Richard Dallaway
 ---
 
 Querying a database is sometimes best done with hand-written SQL.
-Of course the trick is to find a way to avoid syntax errors and type errors at run time.
-This post will look at how Slick and doobie approach this problem.
+Of course the trick is to find a way to avoid syntax and type errors at run time.
+This post will look at how [Slick] and [doobie] approach this problem.
 
 [Essential Slick]: http://underscore.io/training/courses/essential-slick/
 [book of doobie]: http://tpolecat.github.io/doobie-0.2.1/00-index.html
@@ -45,7 +45,7 @@ And we want to know it sooner rather than later.
 
 Both Slick and doobie have an approach to this problem.  
 
-[Slick] is, I suspect, reasonably well known as the database library in Typesafe's stack. In version 3.0 it added support for type-checked queries.  Perhaps less well known is [doobie], which provides a "principled way to construct programs (and higher-level libraries) that use JDBC." We think of it as the database layer in a type-level stack.  
+[Slick] is, I suspect, reasonably well known as the database library in Typesafe's stack. In version 3.0 it added support for type-checked queries.  Perhaps less well known is [doobie], which provides a "principled way to construct programs (and higher-level libraries) that use JDBC." We think of it as the database layer in a Typelevel stack.  
 
 Let's look in turn, and how they let us discover problems with our SQL.
 
@@ -270,9 +270,9 @@ The test fails, which is what we want.
 
 ## Conclusions
 
-I find it easier to think about queries in terms of SQL, than alternative formulations. However, I've tended to avoid using straight SQL in a project because it's so easy to introduce an error when changing code.  But here we have two projects offering great opportunities to remove that risk.
+I find it easier to think about queries in terms of SQL than alternative formulations. However, I've tended to avoid using straight SQL in a project because it's so easy to introduce an error when changing code.  But here we have two projects offering great opportunities to remove that risk.
 
 Both doobie and Slick are using the same mechanisms (prepared statements and JDBC meta data). The routes taken at the moment are different, focusing on analysis and test-time checking (doobie) and compile-time checking (Slick).
 
-I you want to try out the code in this post, I've created a [Github project] for you.
+If you want to try out the code in this post, I've created a [Github project] for you.
 
