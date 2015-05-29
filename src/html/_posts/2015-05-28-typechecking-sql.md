@@ -21,7 +21,7 @@ This post will look at how Slick and doobie approach this problem.
 
 To keep things simple, we're just going to look at one SQL statement:
 
-~~~ scala
+~~~ sql
 select "content" from "message"
 ~~~
 
@@ -39,7 +39,7 @@ create table "message" (
 Given that the SQL is, in effect, an arbitrary hunk of text, we'd like to know:
 
 1. Is the SQL valid?
-2. Do the types in the SELECT match the types we expect?
+2. Do the types in the SELECT (and therefore, the table) match the types we expect?
 
 And we want to know it sooner rather than later.
 
@@ -51,7 +51,7 @@ Let's look in turn, and how they let us discover problems with our SQL.
 
 ## Slick
 
-Slick supports arbitrary SQL via _Plain SQL_ queries. Plain SQL is just one of the ways Slick allows you to access a database. But it's the style we're focussing on in this post.
+Slick supports arbitrary SQL via _Plain SQL_ queries. Plain SQL is just one of the ways Slick allows you to access a database. But it's the style we're focusing on in this post.
 
 The support is via interpolators: `sql` and `sqlu`, which wrap a SQL statement, do the right thing to substitute in values safely, and convert values into Scala types. We've described this in Chapter 6 of [Essential Slick].
 
@@ -150,11 +150,11 @@ tsql = {
 }
 ~~~
 
-(Note the `$` in the class name is not a typo. The class name is being passed to Java's `Class.forName`, but of course Java doesn't have a singleton as such. The Slick configuration does the right thing to the name for Java when it sees `$`. These shenanigans are described in [Chapter 29 of _Programming in Scala_][pins].)
+(Note the `$` in the class name is not a typo. The class name is being passed to Java's `Class.forName`, but of course Java doesn't have a singleton as such. The Slick configuration does the right thing to load `$MODULE` when it sees `$`. These shenanigans are described in [Chapter 29 of _Programming in Scala_][pins].)
 
-A consequence of supplying a `@StaticDatabaseConfig` is that you can define a one databases configuration for your application and a different one for the compiler to use.  That is, perhaps you are running an application, or test suite, against an in-memory database, but validating the queries at compile time against a production-like integration database.
+A consequence of supplying a `@StaticDatabaseConfig` is that you can define one databases configuration for your application and a different one for the compiler to use.  That is, perhaps you are running an application, or test suite, against an in-memory database, but validating the queries at compile time against a production-like integration database.
 
-It's also worth noting that `tsq` works with inserts and updates too:
+It's also worth noting that `tsql` works with inserts and updates too:
 
 ~~~ scala
 val greeting = "Hello"
@@ -169,7 +169,7 @@ In other words, at compile time, the database is not mutated.
 
 ## doobie
 
-Both doobie and Slick 3 use similar patterns for executing a query -- in fact, doobie was the first database technology I saw doing this. It's our friend the free monad and interpreter that Noel has been describing in [recent posts][free].
+Both doobie and Slick 3 use similar patterns for executing a query -- in fact, doobie was the first database technology I saw doing this. Queries are represented using our friend the free monad and interpreter that Noel has been describing in [recent posts][free].
 
 We're just looking at the query checking part of doobie here. The excellent [book of doobie] is the place to go to learn more about the whole project.
 
@@ -235,7 +235,7 @@ object AnalysisTestSpec extends Specification with AnalysisSpec {
 
 Here we're using doobie's add on for specs2 to perform analysis of a query. Note that I've changed the query to be a value in an object. Pulling queries out into some kind of module is going to be good practice if you're using this style of query checking.
 
-Notice, as with Slick, we're providing database connection information that could be different from the database we're developing against. You can probably tests against multiple databases, if that was useful.
+Notice, as with Slick, we're providing database connection information that could be different from the database we're developing against. You can probably test against multiple databases, if that's useful to you.
 
 We can run our test suite as we usually would:
 
