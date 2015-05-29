@@ -146,16 +146,19 @@ tsql = {
 
 (Note the `$` in the class name is not a typo. The class name is being passed to Java's `Class.forName`, but of course Java doesn't have a singleton as such. The Slick configuration does the right thing to the name for Java when it sees `$`. These shenanigans are described in [Chapter 29 of _Programming in Scala_][pins].)
 
-A nice feature of this is that your application and your compile-time tests can be working against different databases.  That is, perhaps you are running an application, or test suite, against an in-memory database, but validating the queries at compile time against a production-like integration database.
+A consequence of supplying a `@StaticDatabaseConfig` is that you can define a one databases configuration for your application and a different one for the compiler to use.  That is, perhaps you are running an application, or test suite, against an in-memory database, but validating the queries at compile time against a production-like integration database.
 
+It's also worth nothing that `tsq` works with inserts and updates too:
 
-[ TO DO: this works for Inserts too, but why doesn't it mutate the db? Some kind of read-only mode or rollback setting
-
+~~~ scala
 val greeting = "Hello"
-val prog2: DBIO[Seq[Int]] =
+val program: DBIO[Seq[Int]] =
   tsql"""insert into "message" ("content") values ($greeting)"""
+~~~
 
-]
+At run time, when we execute the query, a new row will be inserted.
+At compile time, Slick uses a facility in JDBC to compile the query and retrieve the meta data without having to run the query.
+In other words, at compile time, the database is not mutated.
 
 
 ## Doobie
