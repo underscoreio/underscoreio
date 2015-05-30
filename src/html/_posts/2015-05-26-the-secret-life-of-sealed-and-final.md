@@ -101,7 +101,7 @@ It would fail on the following input: SubtypeTwo(_)
 
 (It's a good idea to turn warnings into errors with the `-Xfatal-warnings` compiler flag.)
 
-Now on to the point that a lot of Scala programmers are hazy on: `sealed` is *not* transitive. Meaning that although `Base` above is `sealed`, this does not mean that `SubtypeOne` and `SubtypeTwo` are sealed and hence we do not get exhaustiveness checking when we match on a value with type `SubtypeOne` or `SubtypeTwo`. For example we get no warning that we're missing the `Some` case here, instead getting a `MatchError` exception at runtime.
+Now on to the point that a lot of Scala programmers are hazy on: `sealed` is *not* transitive. Meaning that although `Base` above is `sealed`, this does not mean that `SubtypeOne` and `SubtypeTwo` are sealed and hence we do not get exhaustiveness checking when we match on a value with type `SubtypeOne` or `SubtypeTwo`. For example we get no warning that we're missing the `None` case here, instead getting a `MatchError` exception at runtime.
 
 ~~~ scala
 scala> SubtypeTwo(Some("oops")) match {
@@ -117,17 +117,32 @@ Let's be clear on what's going on here:
 - therefore the compiler cannot guarantee it knows everything about `SubtypeTwo` (there could be subtypes defined in another file); and
 - thus we do not get exhaustiveness checking.
 
-You might argue that the compiler should give us exhaustiveness checking in this case, but doing so would give inconsistent behaviour in general -- we would sometimes get the checking and sometimes not depending on how exactly we defined our types and matches. It's much better to have predictable semantics than to build a more complicated system that leads to surprises (and runtime crashes!) down the line.
+You might argue that the compiler should give us a warning about the `None` case here, since `Option` is `sealed`, but doing so would give unpredictable behaviour in general -- we would sometimes get the checking and sometimes not depending on how exactly we defined our types and matches. It's much better to have predictable semantics than to build a more complicated system that leads to surprises (and unexpected runtime crashes!)
 
-The solution here is to tell the compiler that the subtypes will not be extended outside this file. We do this by declaring `SubtypeOne` and `SubtypeTwo` as `sealed`. Since we won't be extending them, `final` is a better choice. It is more descriptive and opens up more optimisation possibilities.
+Note that we can get exhaustive checking in the example above if we declare the type as `Base`. Exhaustiveness checking is controlled entirely by the type of the expression being matched.
 
 ~~~ scala
-sealed trait Base
-final case class SubtypeOne(a: Int) extends Base
-final case class SubtypeTwo(b: Option[String]) extends Base
+scala> (SubtypeTwo(Some("oops")) : Base) match {
+     |   case SubtypeTwo(None) => "Yeah!"
+     | }
+<console>:11: warning: match may not be exhaustive.
+It would fail on the following inputs: SubtypeOne(_), SubtypeTwo(Some(_))
+              (SubtypeTwo(Some("oops")) : Base) match {
+                                        ^
 ~~~
 
-[double-colon]: http://www.scala-lang.org/api/2.11.6/#scala.collection.immutable.$colon$colon
-[list]: http://www.scala-lang.org/api/2.11.6/#scala.collection.immutable.List
+This is generally not a problem as we usually want to use the base sealed type in our code. We don't, for example, declare methods that return just `Some` or `None`.
+
+## Final Words
+
+The `final` modifier has similar semantics to `sealed`. A sealed trait can only be extended in the defining file, while a final class cannot be extended anywhere. In what seems to me an odd quirk, final classes do *not* get exhaustiveness checking.
+
+Despite this I make leaves in algebraic data types `final`, as in the `List` example above, and as in the standard library (see [Some][some] for example). It is more descriptive and opens up more optimisation possibilities than `sealed`.
+
+If you look at the standard library you'll see sealed abstract classes are often used where I've used sealed traits in the examples here. I believe sealed abstract classes lead to a slightly faster implementation and easier Java interoperation. In my own practice I like to minimise the number of concepts I use, and as traits are generally more useful than abstract classes I prefer them. 
+
+[double-colon]: http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.$colon$colon
+[list]: http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List
+[some]: http://www.scala-lang.org/api/current/index.html#scala.Some
 
 [^full-pattern]: In addition to illustrating sum and product types, this example also contains covariance. I decided it was better to use a more realistic example in this blog post, rather than an abstract definition showing just sum and product types.
