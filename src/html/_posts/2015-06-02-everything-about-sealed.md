@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Secret Life of Sealed 
+title: Everything You Ever Wanted to Know About Sealed Traits in Scala
 author: Noel Welsh
 ---
 
