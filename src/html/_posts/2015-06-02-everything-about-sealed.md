@@ -81,13 +81,15 @@ A `sealed` trait can only be extended within the file in which it defined. This 
 
 A small example illustrates this.
 
+First we declare a sealed trait and some subtypes.
+
 ~~~ scala
 sealed trait Base
-case class SubtypeOne(a: Int) extends Base
-case class SubtypeTwo(b: Option[String]) extends Base
+final case class SubtypeOne(a: Int) extends Base
+final case class SubtypeTwo(b: Option[String]) extends Base
 ~~~
 
-Notice I *didn't* declare the subtypes to be `final` like I did in `List` above. I'll get back to this. First an example of exhaustiveness checking. I declare an instance with type `Base` and we get a warning on an incomplete pattern matching as we expect.
+Now we can see that the compiler provides exhaustiveness checking. I declare an instance with type `Base` and we get a warning on an incomplete pattern match as we expect.
 
 ~~~ scala
 scala> (SubtypeOne(1) : Base) match {
@@ -131,13 +133,11 @@ It would fail on the following inputs: SubtypeOne(_), SubtypeTwo(Some(_))
                                         ^
 ~~~
 
-This is generally not a problem as we usually want to use the base sealed type in our code. We don't, for example, declare methods that return just `Some` or `None`.
-
 ## Final Words
 
 The `final` modifier has similar semantics to `sealed`. A sealed trait can only be extended in the defining file, while a final class cannot be extended anywhere. In what seems to me an odd quirk, final classes do *not* get exhaustiveness checking.
 
-Despite this I make leaves in algebraic data types `final`, as in the `List` example above, and as in the standard library (see [Some][some] for example). It is more descriptive and opens up more optimisation possibilities than `sealed`.
+Despite this I make case classes in algebraic data types `final`, as in the examples above, and as in the standard library (see [Some][some] for example). There are few reasons for this. Firstly, I find it more it is more descriptive. It also opens up more optimisation possibilities than `sealed` (though I don't know if these opportunities are taken advantage of). Finally, when declaring types we almost always use the base type (e.g. `Option`) instead of a subtype (e.g. `None`) so the lack of exhaustiveness checking is very rarely an issue.
 
 If you look at the standard library you'll see sealed abstract classes are often used where I've used sealed traits in the examples here. I believe sealed abstract classes lead to a slightly faster implementation and easier Java interoperation. In my own practice I like to minimise the number of concepts I use, and as traits are generally more useful than abstract classes I prefer them. 
 
