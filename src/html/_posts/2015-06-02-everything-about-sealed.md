@@ -141,8 +141,11 @@ Despite this I make case classes in algebraic data types `final`, as in the exam
 
 If you look at the standard library you'll see sealed abstract classes are often used where I've used sealed traits in the examples here. I believe sealed abstract classes lead to a slightly faster implementation and easier Java interoperation. In my own practice I like to minimise the number of concepts I use, and as traits are generally more useful than abstract classes I prefer them.
 
+*Update* If you made it this far you should check out the [followup] post.
+
 [double-colon]: http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.$colon$colon
 [list]: http://www.scala-lang.org/api/current/index.html#scala.collection.immutable.List
 [some]: http://www.scala-lang.org/api/current/index.html#scala.Some
+[followup]: {% post_url 2015-06-04-more-on-sealed %}
 
 [^full-pattern]: In addition to illustrating sum and product types, this example also contains covariance. I decided it was better to use a more realistic example in this blog post, rather than an abstract definition showing just sum and product types.
