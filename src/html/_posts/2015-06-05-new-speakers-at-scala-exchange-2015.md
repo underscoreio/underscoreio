@@ -9,7 +9,7 @@ The Call for Papers for [Scala Exchange 2015][scalax] went out today. Once again
 
 The only requirement for benefitting from these services is that you are a first-time speaker or attendee at a Scala conference. To apply, simply check the *I would like additional feedback on my submission* box on the [Call for Papers][cfp], or [get in touch][contact] directly to discuss your talk ideas!
 
----
+<!-- break -->
 
  - **Shepherding for Talk Proposals**
 
