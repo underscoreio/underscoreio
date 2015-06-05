@@ -5,9 +5,9 @@ author   : Dave Gurnell
 hashtags : scalax
 ---
 
-The Call for Papers for Scala Exchange 2015 went out today. Once again, Underscore are proud to be assisting with the organisation of the conference, and once again we will be providing assistance to new speakers and attendees.
+The Call for Papers for [Scala Exchange 2015][scalax] went out today. Once again, Underscore are proud to be assisting with the organisation of the conference, and once again we will be providing assistance to new speakers and attendees.
 
-The only requirement for benefitting from these services is that you are a first-time speaker or attendee at a Scala conference. Read on to see how we can help:
+The only requirement for benefitting from these services is that you are a first-time speaker or attendee at a Scala conference. To apply, simply check the *I would like additional feedback on my submission* box on the [Call for Papers][cfp], or [get in touch][contact] directly to discuss your talk ideas!
 
 ---
 
@@ -34,3 +34,7 @@ The only requirement for benefitting from these services is that you are a first
  - **Bursaries for New Speakers and Attendees**
 
    We have a limited number of travel and accomodation bursaries for new speakers and attendees who particularly need them. We can't guarantee to be able to fund everyone. If we can't, the bursaries will be awarded first to new speakers whose abstracts were selected by the conference committee, and then to attendees.
+
+[scalax]: http://scala.exchange
+[cfp]: https://docs.google.com/forms/d/1inNbh0rr--eNZeU36ZL9naoHVgleD3wPE7sEXD1UxJY/viewform
+[contact]: http://underscore.io/contact/?subject=Scala%20Exchange%20-%20Idea%20for%20Talk%20Submission
