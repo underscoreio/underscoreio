@@ -11,7 +11,7 @@ navbar: jobs
 </article>
 
 <p class="text-center">
-  Recruiting is a problem for entire community. We're doing something about it.
+  Recruiting is a problem for the entire community. We're doing something about it.
 </p>
 
 {% comment %}
