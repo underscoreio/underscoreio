@@ -42,7 +42,7 @@ val colors = List(Red, Green, Blue)
 colors: List[Color] = List(Red, Green, Blue)
 ~~~
 
-Thanks to Julian Truffaut and Channing Walton for pointing this out to me.
+Thanks to Julien Truffaut and Channing Walton for pointing this out to me.
 
 ## Why You Want to Use Final
 
