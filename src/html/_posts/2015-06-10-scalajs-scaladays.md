@@ -18,7 +18,7 @@ At Scala Days 2015 in Amsterdam I talked about Scala.js, and in particular focus
 
 If you're looking for more background information on CRDTs, [Noel posted on this a while back][noel].
 
-The algorithm I ran through (failry quickly) I've described [before].  The theory and analysis of the WOOT algorithm I presented is from: Oster _et al._ (2005) [Real time group editors without Operational transformation (PDF)][paper], report paper 5580, INRIA.
+The algorithm I ran through (fairly quickly) I've described [before].  The theory and analysis of the WOOT algorithm I presented is from: Oster _et al._ (2005) [Real time group editors without Operational transformation (PDF)][paper], report paper 5580, INRIA.
 
 ## Talk
 
