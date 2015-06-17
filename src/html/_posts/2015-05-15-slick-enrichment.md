@@ -40,7 +40,7 @@ That's straight-forward, and causes no problems.  What's annoying is when you wa
 - `Some(false)`, explicitly flagged as not important.
 - `Some(true)`, flagged as important.
 
-You might think we could search for records where `important =!= false`, but that's not the way SQL works. In SQL we have to for records where `important IS NULL` or `important = false`:
+You might think we could search for records where `important =!= false`, but that's not the way SQL works. In SQL we have to query for records where `important IS NULL` or `important = false`:
 
 ~~~ scala
 val query = messages.filter(m => m.important.isEmpty || m.important === false)
