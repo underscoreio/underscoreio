@@ -6,7 +6,9 @@ author: Noel Welsh
 
 [The Internet knows cats][cat-neuron], but you might not have heard of the [Cats][cats] library for Scala. Cats is the spiritual successor to Scalaz: a library of absolutely essential utilities you really want to be using in your Scala code. Compared to Scalaz, Cats is more modular and it is using some newer tools to make its code base easier to work with.
 
-Cats is still a closer to being a kitten than the king of the alley, but it has definitely reached the stage where it is usable. In this article I'll provide a basic introduction to get you started with Cats.
+Cats is still closer to being a kitten than the king of the alley, but it has definitely reached the stage where it is usable. In this article I'll provide a basic introduction to get you started with Cats.
+
+<!-- break -->
 
 ## Getting Cats
 
