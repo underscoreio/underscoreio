@@ -36,7 +36,7 @@ published on our [blog](http://underscore.io/blog), our [Github account](https:/
 and circulated over email or social media, are for educational and demonstration purposes only,
 and come with the following conditions:
 
-## Terms and Conditions for Posting Comments on Blog Posts {#comments}
+## Community Guidelines Commenting on Blog Posts {#comments}
 
  - **Stay on topic** - This helps keep the thread focused on the discussion at hand. If you would like to discuss another topic, look for a relevant article or an &quot;open thread&quot;.
  - **Be respectful of other commenters** - Meeting differences of opinion with civil discussion encourages multiple perspectives and a positive commenting environment.
