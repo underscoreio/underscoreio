@@ -1,5 +1,9 @@
 AddHandler application/x-httpd-php .html
 
+# Redirects from Dave giving out the wrong URL all the time:
+
+Redirect permanent /blog/newsletter/                                   http://underscore.io/blog/newsletters/
+
 # Redirects from Essential Essential Scala to Creative Scala:
 
 Redirect permanent /events/2015-03-15-essential-essential-scala.html   http://underscore.io/events/2015-03-15-creative-scala.html
