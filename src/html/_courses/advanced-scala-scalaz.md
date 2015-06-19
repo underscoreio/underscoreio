@@ -29,12 +29,11 @@ products:
         Download the course textbook, along with advanced material on building interpreters. Both texts come in HTML, PDF, and ePub formats.
   instructorLed:
     public:
-      type: eventbrite
+      type: public
       title: "Public Courses"
       url: "http://underscore.io/events/"
       buttonLabel: "View upcoming events"
-      description: |
-        Courses are currently scheduled for San Francisco and Edinburgh in March.
+      comingSoon: true
     private:
       type: private
       title: "Private Courses"
