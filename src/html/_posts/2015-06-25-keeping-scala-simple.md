@@ -24,7 +24,7 @@ expands to
 Set.empty.apply()
 ~~~
 
-due to a slightly surprising interaction between methods with no arguments and the shorthand for `apply`. (This syntax is actually deprecated and the compiler will issue a warning if you use it.)
+which evaluates to `false`. This surprise is due to interaction between methods with no arguments and the shorthand for `apply`. (This syntax is actually deprecated and the compiler will issue a warning if you use it.)
 
 Right-associative operators (e.g. `1 +: Seq(2, 3)`) are a good example that I don't think pay their way in terms terms of complexity. They add some conceptual overhead for what is a very infrequently used feature. Overall, though, I don't find Scala's syntax difficult to teach so I don't have any serious complaints here.
 
