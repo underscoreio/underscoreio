@@ -14,14 +14,10 @@ coursePage:
 products:
   instructorLed:
     public:
-      type: eventbrite
+      type: public
       title: "Public Courses"
-      url: "/events/2015-03-20-shapeless.html"
-      buttonLabel: "Sign up - Free"
-      description: |
-        <p>This one-day shapeless workshop is taught by Underscore partner and shapeless author Miles Sabin.</p>
-
-        <p>The next workshop will take place on <em>Friday, 20th March 2015</em> (two days after Scala Days) at the offices of Nitro in <em>San Francisco</em>.</p>
+      buttonLabel: "View upcoming events"
+      comingSoon: true
 ---
 
 ## Overview
