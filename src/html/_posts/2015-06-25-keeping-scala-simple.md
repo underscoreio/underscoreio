@@ -69,7 +69,7 @@ def sum(xs: Seq[Int]): Int = {
 }
 ~~~
 
-does not strictly main substitution (the use of a mutable variable breaks substitution within `sum`) but nonetheless maintains local reasoning as `total` is not visible outside `sum`.
+does not strictly maintain substitution (the use of a mutable variable breaks substitution within `sum`) but nonetheless maintains local reasoning as `total` is not visible outside `sum`.
 
 *Simple code maintains local reasoning wherever feasible.*
 
