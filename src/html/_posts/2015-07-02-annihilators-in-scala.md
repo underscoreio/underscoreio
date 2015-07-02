@@ -51,13 +51,17 @@ sealed trait Interval[A] {
     this match {
       case Empty() => Empty()
       case Nonempty(s1, e1) =>
-      that match {
-        case Empty() => Empty()
-        case Nonempty(s2, e2) =>
-          val start = order.max(s1, s2)
-          val end = order.min(e1, e2)
-          Nonempty(start, end)
-      }
+        that match {
+          case Empty() => Empty()
+          case Nonempty(s2, e2) =>
+            if((e2 < s1) || (e1 < s2))
+              Empty
+            else {
+              val start = order.max(s1, s2)
+              val end = order.min(e1, e2)
+              Nonempty(start, end)
+            }
+        }
     }
 }
 final case class Nonempty(start: A, end: A) extends Interval[A]
@@ -96,9 +100,13 @@ sealed trait Interval[A] {
       i1 <- this.toOption
       i2 <- that.toOption
     } yield {
-      val start = order.max(i1.start, i2.start)
-      val end = order.min(i1.end, i2.end)
-      Nonempty(start, end)
+      if((e2 < s1) || (e1 < s2))
+        Empty
+      else {
+        val start = order.max(s1, s2)
+        val end = order.min(e1, e2)
+        Nonempty(start, end)
+      }
     }).fromOption
 }
 final case class Nonempty(start: A, end: A) extends Interval[A]
@@ -133,9 +141,13 @@ sealed trait Interval[A] {
   def intersect(that: Interval[A])(implicit order: Order[A]): Interval[A] =
     this.refine { i1 =>
       that.refine { i2 =>
-        val start = order.max(i1.start, i2.start)
-        val end = order.min(i1.end, i2.end)
-        Nonempty(start, end)
+        if((e2 < s1) || (e1 < s2))
+          Empty
+        else {
+          val start = order.max(s1, s2)
+          val end = order.min(e1, e2)
+          Nonempty(start, end)
+        }
       }(Empty())
     }(Empty())
 }
@@ -181,9 +193,13 @@ With `and` we can define a more compact version of `intersect`.
 sealed trait Interval[A] {
   def intersect(that: Interval[A])(implicit order: Order[A]): Interval[A] =
     (this and that){ (i1, i2) =>
-      val start = order.max(i1.start, i2.start)
-      val end = order.min(i1.end, i2.end)
-      Nonempty(start, end)
+      if((e2 < s1) || (e1 < s2))
+        Empty
+      else {
+        val start = order.max(s1, s2)
+        val end = order.min(e1, e2)
+        Nonempty(start, end)
+      }
     }{
       Empty()
     }
