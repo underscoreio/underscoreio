@@ -10,6 +10,8 @@ In this post I want to explore the design of a type class solving a problem that
 - set intersection is *annihilated* by the empty set, in that once the empty set is introduced the result is always the empty set; and
 - field dereferencing using the "null-safe" `?.` operator in [Kotlin][kotlin-null-safe] and [Coffeescript][coffeescript-operators] is *annihilated* by `null`, in that once a `null` is introduced the result is always `null`.
 
+<!-- break -->
+
 You can probably think of your own examples using boolean algebra, or floating point numbers, for example. I use the term *annihilated* as this is the same concept as an [annihilator from abstract algebra][annihilator], as I understand it. 
 
 There are two parts to an annihilator:
