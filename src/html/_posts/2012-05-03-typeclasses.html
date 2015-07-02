@@ -35,7 +35,9 @@ sourceUrl:  http://www.casualmiracles.com/2012/05/03/a-small-example-of-the-type
 trait Transformer[T, R] {
   def transform(t: T): R
 }
+{% endhighlight %}
 
+{% highlight scala %}
 /* This is a companion object for the typeclass giving default
  * implementations for the typeclass. These implementations
  * are found after local implicits, so you can still override the
