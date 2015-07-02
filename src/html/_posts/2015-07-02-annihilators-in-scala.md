@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Annihilators in Scala
+title: "Annihilators in Scala: An Example of Type Class Design"
 author: Noel Welsh
 ---
 
@@ -33,9 +33,9 @@ I've used the names `zero` and `product` by analogy to multiplication, probably 
 - *Annihilation:* `product(zero, a) = zero` and `product(a, zero) = zero`
 - *Associativity:* although not strictly implied by the description above it seems a good idea to mandate that `product(product(a, b), c) == product(a, product(b, c))`
  
-So far, so simple, but this is not really useful. Let me talk a bit about the example that motivated this blog post to illustrate why.
+So far, so simple, but this is not really useful as is. Let me talk a bit about the example that motivated this blog post to illustrate why, and guide our further exploration.
 
-In our case we were dealing with various types of intervals. When we take the intersection of two non-overlapping intervals we end up with an empty interval, which annihilates all further intersections. Note that the empty interval has no start or end, unlike all non-empty intervals, so it requires a different representation. An algebraic data type like the below is representative[^invariant].
+In our case we were dealing with various types of sets, particularly time intervals. When we take the intersection of two non-overlapping intervals we end up with an empty interval, which annihilates all further intersections. Note that the empty interval has no start or end, unlike all non-empty intervals, so it requires a different representation. An algebraic data type like the below is representative[^invariant].
 
 ~~~ scala
 sealed trait Interval[A]
@@ -68,7 +68,7 @@ final case class Nonempty(start: A, end: A) extends Interval[A]
 final case class Empty[A] extends Interval[A]
 ~~~
 
-The repeated nested pattern matching (aka structural recursion) gets fairly tedious, and got me looking for some way to eliminate it.
+The repeated nested pattern matching (aka structural recursion) gets fairly tedious, especially as there were many methods and numerous classes using this pattner. This got me looking for some way to eliminate it.
 
 The first realisation is a type with an annihilator is isomorphic to an `Option`. We can divide the domain `A` into two subsets,
 
@@ -210,7 +210,11 @@ final case class Empty[A]() extends Interval[A]
 
 The `and` method is equivalent to a "collapsed" applicative operation in the same way `refine` is a collapsed monad operation. In fact we can view `Annhilator` as an `Option` without the higher-kinded structure, with equivalent monadic and applicative operations that have been "lowered" from `F[_]` to `F`. I don't know of any other work that has studied these objects --- if you know of any please mention it in the comments.
 
-Our structure is closely related to [refinement types][refinement-types] (at least as I understand them). A refinement type is a type along with a logical predicate that narrows the domain of the type. The `refine` operation merges the predicate with doing something based on the predicate result. This merging is, I think, necessary to represent the actual type refinement in Scala's type system. The refinement operations could well be extracted from `Annihilator` and made into their own separate type class.
+## Discussion
+
+Our structure is closely related to [refinement types][refinement-types] (at least as I understand them). A refinement type is a type along with a logical predicate that narrows the domain of the type. The `refine` operation merges the predicate with doing something based on the predicate result. This merging is, I think, necessary to represent the actual type refinement in Scala's type system. 
+
+At this point I'm not convinced I have the right design for `Annihilator`, but it feels interesting enough to share. Note that `refine` is equivalent to `fold`, but the additional structure in an annihilator makes it possible to define `and` in terms of `refine`. It definitely does seem to me that this concept of a "lowered" `Option` is interesting.
 
 In the current design there is only a single `zero`. I briefly considered an alternate design that would allow multiple zeros, modelling them as a predicate `isZero`. This design is closer to refinement types, and is a better fit for, say, IEEE floating point numbers that have multiple representations of NaN, the natural zero on that type. It would be interesting to explore this design further.
 
