@@ -39,8 +39,8 @@ products:
       title: "Private Courses"
       buttonLabel: "Book now - {% currencies $3,000 £2,000 €2,250 %}"
 banner: |
-  <strong>Early bird promotion:</strong>
-  Use the code <strong>slick2</strong> on checkout for a 50% discount off the book!
+  <strong>Early bird promotion ends 14 July 2015:</strong>
+  Use the code <strong>slick2</strong> on checkout for a <strong>50% discount</strong> off the book!
 
 ---
 
@@ -52,7 +52,7 @@ Essential Slick is a guide to building a database application using the Slick li
 
 This book is an Early Access edition, and covers Slick 2.1.
 
-As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter.
+As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter. **Updates will include Slick 3.0**
 
 ## Prerequisites
 
