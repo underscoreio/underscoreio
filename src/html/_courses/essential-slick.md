@@ -38,9 +38,6 @@ products:
       type: private
       title: "Private Courses"
       buttonLabel: "Book now - {% currencies $3,000 £2,000 €2,250 %}"
-banner: |
-  <strong>Early bird promotion ends 14 July 2015:</strong>
-  Use the code <strong>slick2</strong> on checkout for a <strong>50% discount</strong> off the book!
 
 ---
 
