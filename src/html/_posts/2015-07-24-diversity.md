@@ -15,11 +15,11 @@ For us diversity just means:
 - new voices, sharing their experiences and views; or
 - under-represented groups.
 
-We can help anyone falling into those broad categories. The help is via mentoring, speaker training, and money. More on that in a moment.
+We can help anyone falling into those broad categories. The help is via mentoring, speaker training, and money. But more on that in a moment.
 
 ## Would you never consider presenting at a conference?
 
-...because you don't feel you fit it, think you have nothing to say, or because it costs too much?  
+...because you don't feel you fit in, think you have nothing to say, or because it costs too much?  
 
 [motivate, explain, talk about what you want to hear, learning, 15 minute lighting sessions, etc]
 
