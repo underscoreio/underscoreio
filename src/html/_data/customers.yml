@@ -40,11 +40,17 @@
   retina: false
   promo:  false
 
+- name:   Intel
+  logo:   "/images/customers/intel.jpg"
+  url:    "http://intel.com"
+  retina: true
+  promo:  true
+
 - name:   JHC Systems
   logo:   "/images/customers/jhc.jpg"
   url:    "http://www.jhc.co.uk"
   retina: true
-  promo:  true
+  promo:  false
 
 - name:   Maana
   logo:   "/images/customers/maana.jpg"
