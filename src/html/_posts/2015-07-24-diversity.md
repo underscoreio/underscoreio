@@ -20,9 +20,9 @@ For us diversity just means:
 
 We can help anyone falling into those broad categories. The help is via mentoring, speaker training, and money. But more on that in a moment.
 
-## Would you _never_ consider presenting?
+## You should talk (even if you're hesitant)
 
-...because you don't feel you fit in, think you have nothing to say, don't understand the speaking process, afraid of public speaking, not "the expert", or because it costs too much?
+But maybe you don't feel you fit in, think you have nothing to say, don't understand the speaking process, afraid of public speaking, not "the expert", or because it costs too much?
 
 None of those have to be barriers.
 
@@ -33,11 +33,11 @@ It's very easy to start, to test the water:
 
 And remember, as [Excuses, Excuses!][waaa] say: "giving a talk is a fantastic way to learn. Give the talk you want to hear."
 
-Twelve people are already taking part. Why not join them?
+<strong>Twelve people are already taking part. Why not join them?</strong>
 
-## Or: Are you already attending Scala conferences?
+## Encourage others to talk (especially if they're hesitant)
 
-In that case, look around you. Who do you think should be talking about the kinds of things you want to hear about? If not you, someone you work with?  
+Look around you. Who do you think should be talking about the kinds of things you want to hear about? If not you, someone you work with?  
 
 Perhaps they need encouragement or pointing at this post.  Talk to them, tell them what you like about what they do or how they look at the world.  We can help from there.  But they need to apply.
 
@@ -55,4 +55,4 @@ If it's not something you want to continue, you stop.
 
 We also have bursaries for new speakers who particularly need them. It's not an endless pot, and we can’t guarantee to fund everyone.  The money is to help fund travel and accommodation expenses.  Tell us, in your email, if you need this support.
 
-Ready? Steady? [Go][contact].
+Ready? Steady! [Go][contact]!
