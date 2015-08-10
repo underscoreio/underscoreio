@@ -20,7 +20,7 @@ We've developed a tiny library called [slickless] that enables use of [shapeless
 [Essential Slick]: http://underscore.io/training/courses/essential-slick/
 [existing-shape]: https://github.com/slick/slick/blob/e9ab33083bfa1ae642a93d4e52b4ac87b42dc917/slick/src/main/scala/slick/collection/heterogeneous/HList.scala#L130-L136
 [our-shape]: https://github.com/underscoreio/slickless/blob/master/src/main/scala/slickless/HListShape.scala#L8-L33
-[gitter]: https://gitter.im/underscoreio/scala
+[gitter]: https://gitter.im/underscoreio/slickless
 
 <!-- break -->
 
@@ -86,4 +86,4 @@ and the rest of the code compiles as normal. We can define default projectiong u
 
 As you can see, slickless provides dead-simple interop between Slick and shapeless. However, this is hopefully just the beginning. Now the groundwork has been laid, we should be able to use shapeless' range of generic programming tools to build boilerplate-free conversions and type-mappings that aren't possible with vanilla Slick. The next post will give you a taste of what we mean by that.
 
-We'd love to get some feedback on slickless. Get in touch via the comments, [Github][slickless], or our [Gitter channel][gitter], to let us know what you're doing with Slick, your thoughts on slickless, how shapeless support might be able to help, or how you might be able to contribute to take things further.
+We'd love to get some feedback on slickless. Get in touch via the comments or the [slickless Gitter][gitter], to let us know what you're doing with Slick, your thoughts on slickless, how shapeless support might be able to help, or how you might be able to contribute to take things further.
