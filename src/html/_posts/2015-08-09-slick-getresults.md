@@ -9,11 +9,9 @@ With [shapeless] `HList` support available for [Slick], we can make further use 
 [shapeless]:           https://github.com/milessabin/shapeless
 [Slickless]:           https://github.com/underscoreio/slickless
 [Slick]:               http://slick.typesafe.com/
-[slickless-announce]:  http://example.com/todo
+[slickless-announce]:  /blog/posts/2015/08/08/slickless.html
 [Generic]:             https://github.com/milessabin/shapeless/wiki/Feature-overview:-shapeless-2.0.0#generic-representation-of-sealed-families-of-case-classes
 [Sam Halliday]: https://twitter.com/fommil
-[github]: http://example.org/todo
-
 
 <!-- break -->
 
@@ -28,7 +26,7 @@ val action =
 
 Here we are using a shapeless `HList` to represent a row as a `Long :: String :: HNil`. We can do that via the [Slickless] library, which was introduced in a [recent post][slickless-announce].
 
-When we run this query we'll get back a `Seq[Long :: String :: HNil]`. But there's a catch: we need to provide Slick with an instance of `GetResult[Long :: String :: HNil]` so it knows how to map from our query columns ("id" and "email") into that HList structure.
+When we run this query we'll get back a `Seq[Long :: String :: HNil]`. But there's a catch: we need to provide Slick with an instance of `GetResult[Long :: String :: HNil]` so it knows how to map from our query columns ("id" and "email") into that `HList` structure.
 
 ## Generating `GetResult` for an `HList`
 
@@ -44,9 +42,9 @@ implicit val longStringGetResult =
   }
 ~~~
 
-The `PositionedResult` is a value Slick gives us at runtime to read column values.
-Using it is easy, but tedious. Thankfully shapeless can automate this for us.
-(This is not an original idea: I saw this suggested by [Sam Halliday]).  
+The `PositionedResult` is a value Slick gives us to read column values.
+Using it is easy, and there's a shorter `GetResult.apply` style, but it's still tedious. Thankfully shapeless can automate this for us.
+(This is not an original idea: I saw this first suggested by [Sam Halliday]).  
 
 To get that working we can make use of three facts:
 
@@ -54,11 +52,11 @@ To get that working we can make use of three facts:
 2. Rather than use `r.nextLong` and `r.nextString` we can use `r.<<[T]`, which Slick provides for the `T`s it can get the next value of; and
 3. We can recurse on the `HList` types, just as you would recurse on the head and tail of a regular list.
 
-Let's do it. We going to need to write a method like this:
+Let's do it. We're going to need a method like this:
 
 ~~~ scala
 // Incomplete: won't compile
-implicit def hlistConsGetResult[HLst] =
+implicit def hlistConsGetResult[HList] =
   new GetResult[HList] {
     def apply(r: PositionedResult) = ???
   }
@@ -101,7 +99,7 @@ implicit def hlistConsGetResult[H, T <: HList]
     }
 ~~~
 
-Notice how the `apply` method makes use of `r` to create a value, then recurses on the tail of the HList. We need a stopping condition for this, which is a `GetResult[HNil]`:
+Notice how the `apply` method makes use of `r` to create a value, then recurses on the tail of the `HList`. We need a stopping condition for this, which is a `GetResult[HNil]`:
 
 ~~~ scala
 implicit object hnilGetResult extends GetResult[HNil] {
@@ -109,11 +107,11 @@ implicit object hnilGetResult extends GetResult[HNil] {
 }
 ~~~
 
-Thiese two implicits will generate a `GetResult` for any `Hlist` without us having to write it by hand.
+These two implicits will generate a `GetResult` for any `Hlist` without us having to write it by hand.
 
 ## What about case classes?
 
-We have the same problem if we want to use plain SQL to get to a case class:
+We face the same problem if we want to use plain SQL to get to a case class:
 
 ~~~ scala
 case class Contact(id: Long, Email: String)
@@ -141,9 +139,16 @@ gen.from(1L :: "bob@example.org" :: HNil)
 // res1: Contact = Contact(1,bob@example.org)
 ~~~
 
-This gives us the ability to go from an `HList` to a case class value, using `gen.from`. We already have a way to create a `GetResult` for an `HList` from the first half of this post. We now need to combine the two to compile our `.as[Contact]` query.
+Generic gives us the ability to go from an `HList` to a case class value, using `gen.from`. That's one half of the puzzle.
 
-The combining, then, needs a `Generic[T]` (for a case class `T`), and also a `GetResult` for the `HList` encoding of `T`.  How do we get to that `HList` encoding?  Well, shapeless has a variant of `Generic[T]` for that: `Generic.Aux[T,R]`, where `R` is in this case the `HList` encoding.
+The second half we've already solved: we can already create a `GetResult` for an `HList` (from the first half of this post). So now we need to combine the two parts.
+
+This combination needs:
+
+- a `Generic[T]` (for a case class `T`); and
+- a `GetResult` for the `HList` encoding of `T`.  
+
+How do we get to that `HList` encoding?  Well, shapeless has a variant of `Generic[T]` for that: `Generic.Aux[T,R]`, where `R` is the `HList` encoding.
 
 Putting the pieces together we have:
 
@@ -158,10 +163,12 @@ implicit def caseClassGetResult[T,R]
     }
 ~~~
 
-The two implicits are our demand that the compiler can find a `Generic` for the case class, but also a `GetResult` for the `HList`.  If those are found, the implementation of `GetResult.apply` becomes simple: call the `GetResult`, and use `gen.from` to give a case class value.
+The two implicits are our demand that the compiler can find a `Generic` for the case class, and also a `GetResult` for the `HList` encoding of that case class.  If those are found, the implementation of `GetResult.apply` becomes simple: call the `GetResult`, and use `gen.from` to give a case class value.
+
+Doing this, we have `HList` and case class `GetResult` instances created for us.
 
 ## Conclusions
 
-By using a shapeless `HList` as a row representation, we can start to make of the other funky features in shapeless. An example is to create `GetResult` instances for case classes without having to implement them by hand.
+By using a shapeless `HList` as a row representation we can start to make use of the other funky features in shapeless. We've seen an example of creating `GetResult` instances without having to implement them by hand.
 
-If you want to try this out, there's an [example Github project][github]. We'll probably be shortly including `GetResult` support in a release of [Slickless].
+Once we've kicked the tires on this some more, we'll roll this into a release of [Slickless].
