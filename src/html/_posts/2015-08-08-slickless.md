@@ -84,6 +84,6 @@ and the rest of the code compiles as normal. We can define default projectiong u
 
 ## Conclusions
 
-As you can see, slickless provides dead-simple interop between Slick and shapeless. However, this is hopefully just the beginning. Now the groundwork has been laid, we should be able to use shapeless' range of generic programming tools to build boilerplate-free conversions and type-mappings that aren't possible with vanilla Slick.
+As you can see, slickless provides dead-simple interop between Slick and shapeless. However, this is hopefully just the beginning. Now the groundwork has been laid, we should be able to use shapeless' range of generic programming tools to build boilerplate-free conversions and type-mappings that aren't possible with vanilla Slick. The next post will give you a taste of what we mean by that.
 
 We'd love to get some feedback on slickless. Get in touch via the comments, [Github][slickless], or our [Gitter channel][gitter], to let us know what you're doing with Slick, your thoughts on slickless, how shapeless support might be able to help, or how you might be able to contribute to take things further.
