@@ -7,10 +7,10 @@ summary: |
   We’re SweetSpot, founded and located in downtown Portland. We’re a small and well-funded healthcare technology company focused on developing software to improve the lives of people living with diabetes. The team is smart, driven, and growing – we need great engineers to help us deliver on some fantastic opportunities. As a member of our team you’ll make a real difference in the lives of people with diabetes.
 location: Portland, USA
 remote: Partial
-email: sdelmore@sweetspotdiabetes.com
 admin: sdelmore@sweetspotdiabetes.com
+application_url: "https://career4.successfactors.com/career?career_ns=job_listing&company=Dexcom&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&career_job_req_id=5644&selected_lang=en_US&jobAlertController_jobAlertId=&jobAlertController_jobAlertName=&_s.crb=l2Wijy1TWZgVsUkDP0XKL2jaLxc"
 instructions: |
-  Use the button below to send us an email including your CV, the position you're applying for, and anything else you might want to say.
+  Apply online. Click "Apply Now" below to get started.
 ---
 
 <!-- break -->
