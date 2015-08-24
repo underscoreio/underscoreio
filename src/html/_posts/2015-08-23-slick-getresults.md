@@ -25,7 +25,7 @@ val action =
   sql""" SELECT "id", "email" FROM "users" """.as[Long :: String :: HNil]
 ~~~
 
-Here we are using a shapeless `HList` to represent a row as a `Long :: String :: HNil`. We can do that via the [slickless] library, which was introduced in a [recent post][slickless-announce].
+Here we are using a shapeless `HList` to represent a row as `Long :: String :: HNil`. We can do that via the [slickless] library, which was introduced in a [recent post][slickless-announce].
 
 When we run this query we'll get back a `Seq[Long :: String :: HNil]`. But there's a catch: we need to provide Slick with an instance of `GetResult[Long :: String :: HNil]`. This tells Slick how to map from our query columns ("id" and "email") into that `HList` structure.
 
