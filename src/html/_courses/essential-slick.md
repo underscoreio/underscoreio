@@ -53,7 +53,11 @@ This text gives an understanding of how to work with Slick by walking through th
 
 This book is an Early Access edition, and covers Slick 3.
 
-It is available in PDF, EPUB, and HTML formats. It is approximately 100 pages.
+Chapters 1, 2, and 6 are available.
+
+Formats: PDF, EPUB, and HTML.
+
+Estimated final size: 100 pages.
 
 As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter.
 
