@@ -45,15 +45,19 @@ products:
 
 Essential Slick is a guide to building a database application using the Slick library. It is aimed at Scala developers who need to become productive with Slick quickly.
 
-## Early Access
+We've seen that developers using Slick for the first time often need help getting started with the library.
+For example, there are unfamiliar concepts to learn and work with, such as _database actions_.
+This text gives an understanding of how to work with Slick by walking through the common tasks, explaining the methods and types you see, and providing exercises.
 
-This book is an Early Access edition, and covers Slick 2.1.
+## Early Access Book
 
-As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter. **Updates will include Slick 3.0**
+This book is an Early Access edition, and covers Slick 3.
 
-## Prerequisites
+It is available in PDF, EPUB, and HTML formats. It is approximately 100 pages.
 
-To benefit from this material you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
+As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter.
+
+Your purchase also includes a copy of Essential Slick for Slick 2.1 (completed in July 2015).
 
 ## Learning Outcomes
 
@@ -78,7 +82,7 @@ To benefit from this material you will need to know the fundamentals of the Scal
    - Filtering Results: The filter Method
    - The Query and TableQuery Types
    - Transforming Results: The map Method
-   - Query Invokers
+   - Running Queries
    - Column Expressions
    - Controlling Queries: Sort, Take, and Drop
    - Take Home Points
@@ -115,6 +119,7 @@ To benefit from this material you will need to know the fundamentals of the Scal
 6. Plain SQL
     - Selects
     - Updates
+    - Type Checked Plain SQL
     - Take Home Points
     - Exercises
 
@@ -122,9 +127,12 @@ Appendix A: Using Different Database Products
 
 Appendix B: Solutions to Exercises
 
-
 ## Sample Chapters
 
-Chapters 1 and 2 are available as a [free PDF preview download](/files/essential-slick-preview.pdf).
+Chapters 1 and 2 are available as a [free PDF preview download](/files/essential-slick-3-preview.pdf).
 
+
+## Prerequisites
+
+To benefit from this material you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
 

@@ -24,3 +24,7 @@ You'll also need command-line PHP 5 to run `composer` to install PHP dependencie
 # Static files
 
 If you want to upload anything for a customer, put it in _/srv/underscore.io/public/htdocs/files/_, which is mapped to _http://underscore.io/files_.
+
+For example:
+
+    $ scp essential-slick-3-preview.pdf  underscore.io:/srv/underscore.io/public/htdocs/files/essential-slick-3-preview.pdf
