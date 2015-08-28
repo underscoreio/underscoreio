@@ -111,8 +111,8 @@ Your purchase also includes a copy of Essential Slick for Slick 2.1 (completed i
     - Take Home Points
 
 5. Joins and Aggregates
-    - Implicit Joins
-    - Explicit Joins
+    - Applicative Joins
+    - Monadic Joins
     - Zip Joins
     - Joins Summary
     - Seen Any Scary Queries?
