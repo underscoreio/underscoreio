@@ -146,7 +146,7 @@ result.run.fold(
 // java.lang.String = It worked!
 {% endhighlight %}
 
-What about some utility functions to help with this? There are no such methods defined for all monad transformers, that I know of, but in the particular case of `OptionT` we can use the `flatMapF` method. For a type `Option[F[_], A]` the normal `flatMap` has type
+What about some utility functions to help with this? There are no such methods defined for all monad transformers, that I know of, but in the particular case of `OptionT` we can use the `flatMapF` method. For a type `OptionT[F[_], A]` the normal `flatMap` has type
 
 {% highlight scala %}
 flatMap[B](f: A => OptionT[F, B]): OptionT[F, B]
@@ -160,7 +160,7 @@ flatMapF[B](f: A => F[B]): OptionT[F, B]
 
 (Note I removed an implicit parameter from the method signatures above.)
 
-For our `Result[Int]` type this means the parameter `f` to `flatMap` should have type `Int => \/[String, B]`. Note that `B` is *not* wrapped in an `Option`; `flatMapF` will do this for us. We also don't have to wrap our result in `OptionT`.
+For our `Result[Int]` type this means the parameter `f` to `flatMapF` should have type `Int => \/[String, B]`. Note that `B` is *not* wrapped in an `Option`; `flatMapF` will do this for us. We also don't have to wrap our result in `OptionT`.
 
 Here is an example:
 
