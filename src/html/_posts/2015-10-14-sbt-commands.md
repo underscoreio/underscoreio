@@ -4,7 +4,7 @@ title: SBT Tricks
 author: Richard Dallaway
 ---
 
-We all pick up little SBT tricks. The settings, commands, or clues we wish we'd figured out earlier.
+We all pick up SBT tricks: the settings, commands, or clues we wish we'd figured out earlier.
 This post contains a section of some we use.
 What lesser-known tricks do you make use of?
 
