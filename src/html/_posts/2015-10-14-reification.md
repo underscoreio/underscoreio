@@ -54,7 +54,7 @@ to compose these stages we need to write
 
 ~~~scala
 val pipeline: A => F[D] =
-  (a: A) => stage(A) flatMap stageB flatMap stageC
+  (a: A) => stageA(a) flatMap stageB flatMap stageC
 ~~~
 
 It's not awful but it is certainly not as clean as the function composition we started with. The issue is we have an implicit concept of composition of `A => F[B]` functions (which is the type of function we pass to `flatMap`) but we have not reified that concept in our code. It turns but the reification already exists and is known as a [Kleisli][cats-kleisli]. By using a Kleisli in our code we can write
