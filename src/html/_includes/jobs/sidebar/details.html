@@ -1,3 +1,9 @@
+{% if include.job.tracking_id %}
+  {% assign tracking_id = include.job.tracking_id %}
+{% else %}
+  {% assign tracking_id = include.job.url | replace_regex:'^\/jobs\/','' | replace_regex:'\/$','' %}
+{% endif %}
+
 <aside class="job-sidebar">
   <div class="job-details panel panel-gray">
     <div class="panel-body">
@@ -14,7 +20,7 @@
         <dt>Level</dt>
         <dd class="job-level">{{ include.job.level }}</dd>
         {% endif %}
-        
+
         {% if include.job.commitment %}
         <dt>Commitment</dt>
         <dd class="job-commitment">{{ include.job.commitment }}</dd>
@@ -45,7 +51,8 @@
       <strong>How to Apply</strong>
       <div class="job-instructions">{{ include.job.instructions | markdownify }}</div>
       <p>
-        <a class="btn btn-block btn-info"
+        <a class="btn btn-block btn-info btn-job-apply"
+           data-tracking-id="{{ tracking_id }}"
            {% if include.job.email %}
            href="mailto:{{ include.job.email }}?subject={{ include.job.title | urlify }}{{ " (via Underscore) " | urlify }}"
            {% endif %}
@@ -53,10 +60,14 @@
            href="{{ include.job.application_url }}"
            {% endif %}
            >
-          Apply Now 
+          Apply Now
         </a>
       </p>
       {% endif %}
     </div>
   </div>
 </aside>
+
+<script>
+  uio.jobSidebar.init(".job-sidebar")
+</script>
