@@ -7,6 +7,7 @@ icon: scala
 color: "#e8515b"
 level: Beginner
 price: "$50"
+cover: "/images/books/essential-scala-cover.png"
 products:
   selfDirected:
     single:

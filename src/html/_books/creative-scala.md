@@ -36,7 +36,7 @@ No prior experience with Scala or functional programming is required.
 
 ## Learning Outcomes
 
-In just a few hours, this course give you the basic mental model
+In just a few hours, this book gives you the basic mental model
 required to become competent with Scala,
 However, by the time you finish you won't finish knowing
 *everything* you need to be self-sufficient.
@@ -86,5 +86,5 @@ to continue your journey learning Scala.
 
  - Appendix: Solutions to Exercises
 
-[essential-scala]: /training/courses/essential-scala
+[essential-scala]: /books/essential-scala
 [doodle]: https://github.com/underscoreio/doodle
