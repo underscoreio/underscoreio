@@ -14,7 +14,7 @@
   logo:   "/images/customers/ch.jpg"
   url:    "http://companieshouse.gov.uk"
   retina: true
-  promo:  false
+  promo:  true
 
 - name:   Gottex Brokers
   logo:   "/images/customers/gottex.jpg"
@@ -50,7 +50,7 @@
   logo:   "/images/customers/jhc.jpg"
   url:    "http://www.jhc.co.uk"
   retina: true
-  promo:  false
+  promo:  true
 
 - name:   Maana
   logo:   "/images/customers/maana.jpg"
@@ -62,7 +62,7 @@
   logo:   "/images/customers/mind-candy.jpg"
   url:    "http://mindcandy.com"
   retina: true
-  promo:  false
+  promo:  true
 
 - name:   Ness
   logo:   "/images/customers/ness.jpg"
