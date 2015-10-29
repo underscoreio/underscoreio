@@ -62,7 +62,7 @@
   logo:   "/images/customers/mind-candy.jpg"
   url:    "http://mindcandy.com"
   retina: true
-  promo:  true
+  promo:  false
 
 - name:   Ness
   logo:   "/images/customers/ness.jpg"
@@ -105,3 +105,9 @@
   url:    "http://tigertap.com"
   retina: false
   promo:  false
+
+- name:   SiteTour
+  logo:   "/images/customers/site-tour.png"
+  url:    "http://sitetour.co"
+  retina: false
+  promo:  true
