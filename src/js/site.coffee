@@ -31,6 +31,7 @@ window.uio = module.exports = {
   jobSidebar      : require './job-sidebar'
   jobListing      : require './job-listing'
   courseDirectory : require './training-course-directory'
+  bookDirectory   : require './book-directory'
   bookingForm     : require './booking-form'
   contactForm     : require './contact-form'
 }

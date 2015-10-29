@@ -1,0 +1,21 @@
+{% comment %}
+  class: string
+  product: {
+    type: "oreilly"
+    title: string
+    url: string
+  }
+{% endcomment %}
+
+<div class="{{ include.class || "col-sm-6" }}">
+  <h4>{{ include.product.title }}</h4>
+
+  <p>The text for this course is published by O'Reilly:</p>
+
+  <iframe class="oreilly"
+    src="{{ include.product.url }}"
+    frameborder="0"
+    scrolling="no"
+    height="200px"
+  ></iframe>
+</div>
