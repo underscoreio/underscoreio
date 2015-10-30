@@ -3,7 +3,6 @@ id: creative-scala
 title: Creative Scala
 layout: book
 navbar: books
-icon: scala
 color: "#21a9e1"
 level: Beginner
 price: FREE!
@@ -15,8 +14,9 @@ products:
       title: Get the Book
       url: "https://gum.co/creative-scala"
       buttonLabel: "Download now - free"
+      cover: "/images/books/creative-scala.png"
       description: |
-        Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
+        Download the textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
 ---

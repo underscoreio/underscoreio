@@ -7,6 +7,7 @@ icon: scala
 color: "#F58B40"
 level: Intermediate
 price: "$40"
+description: Get up and running with Slick 2.1 or 3.X.
 products:
   selfDirected:
     single:
@@ -14,11 +15,11 @@ products:
       title: Get the Book
       url: "https://gum.co/essential-slick"
       buttonLabel: "Buy now - $40"
+      cover: "/images/books/essential-slick.png"
       description: |
         Download the text complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-description: Get up and running with Slick 2.1 or 3.X.
 ---
 
 ## Overview

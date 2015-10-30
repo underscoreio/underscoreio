@@ -7,6 +7,7 @@ icon: play
 color: "#a0c556"
 level: Intermediate
 price: "$40"
+description: Use Play's *Twirl* templating language to populate web pages with dynamic content. Build HTML5 content using your choice of Javascript, Coffeescript, Less, and/or CSS. Integrate client and server with AJAX and JSON. Write functional tests using Fluentlenium.
 products:
   selfDirected:
     single:
@@ -14,11 +15,11 @@ products:
       title: Get the Book
       url: "https://gum.co/essential-play"
       buttonLabel: "Buy now - $40"
+      cover: "/images/books/essential-play.png"
       description: |
         Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-description: Use Play's *Twirl* templating language to populate web pages with dynamic content. Build HTML5 content using your choice of Javascript, Coffeescript, Less, and/or CSS. Integrate client and server with AJAX and JSON. Write functional tests using Fluentlenium.
 ---
 
 ## Overview

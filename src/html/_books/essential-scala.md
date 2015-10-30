@@ -3,11 +3,10 @@ id: essential-scala
 title: Essential Scala
 layout: book
 navbar: books
-icon: scala
 color: "#e8515b"
 level: Beginner
 price: "$50"
-cover: "/images/books/essential-scala-cover.png"
+description: The course teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy focus on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
 products:
   selfDirected:
     single:
@@ -15,12 +14,11 @@ products:
       title: Get the Book
       url: "https://gum.co/essential-scala"
       buttonLabel: "Buy now - $50"
+      cover: "/images/books/essential-scala.png"
       description: |
         Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-description: The course teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy focus on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
-
 ---
 
 ## Overview
@@ -42,67 +40,3 @@ Take away a working knowledge of object-oriented and functional programming in S
 Gain a comprehensive understanding of Scala's sophisticated pattern matching facilities and the programming styles they support.
 
 Learn how Scala's flexible syntax, by-name arguments and implicit conversions and arguments support the creation of fluent interfaces and sophisticated internal domain specific languages.
-
-## Table of Contents
-
- - Introduction
-   - Expressions, Types, and Values
-   - Interacting with Objects
-   - Literal Objects
-   - Object Literals
-   - Methods and Fields
-   - Compound Expressions
-
- - Objects and Classes
-   - Classes
-   - Objects as Functions
-   - Companion Objects
-   - Case Classes
-   - Pattern Matching
-
- - Modelling Data with Traits
-   - This or That and Nothing Else: Sealed Traits
-   - Modelling Data with Traits
-   - The Is-a Or Pattern
-   - Working With Data
-   - Recursive Data
-
- - Sequencing Computations
-   - Generics
-   - Functions
-   - Generic Folds for Generic Data
-   - Modelling Data with Generic Types
-   - Sequencing Computation
-   - Variance
-
- - Collections
-   - Sequences
-   - Working with Sequences
-   - For Comprehensions
-   - Options
-   - Options as Flow Control
-   - Monads
-   - Maps and Sets
-   - Ranges
-
- - Type Classes
-   - Type Class Foundations
-   - Implicit Parameters
-   - Implicit Values
-   - Type Classes
-   - Type Enrichment
-   - Combining Type Classes and Type Enrichment
-   - Using Type Classes
-   - Implicit Conversions
-
- - Pattern Matching
-   - Standard Patterns
-   - Custom Patterns
-
- - Growing the Language
-   - Operators
-   - Special Methods
-   - Operator Associativity
-   - Final Words
-   - Custom Control Structures
-   - Syntax Extensions

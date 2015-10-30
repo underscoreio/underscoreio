@@ -7,6 +7,7 @@ icon: scala
 color: "#d62a7c"
 level: Intermediate
 price: "$50"
+description: Advanced Scala with Scalaz is aimed at experienced Scala developers who want to take the next step in engineering robust and scalable systems. The book teaches five key abstractions of *monoids*, *functors*, *monads*, *monad transformers*, and *applicative functors*, using the implementations in the Scalaz library.
 products:
   selfDirected:
     single:
@@ -14,6 +15,7 @@ products:
       title: Get the Book
       url: "https://gum.co/advanced-scala-scalaz"
       buttonLabel: "Buy now - $50"
+      cover: "/images/books/advanced-scala.png"
       description: |
         Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
     team:
@@ -25,7 +27,6 @@ products:
         Download the course textbook, along with advanced material on building interpreters. Both texts come in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-description: Advanced Scala with Scalaz is aimed at experienced Scala developers who want to take the next step in engineering robust and scalable systems. The book teaches five key abstractions of *monoids*, *functors*, *monads*, *monad transformers*, and *applicative functors*, using the implementations in the Scalaz library.
 ---
 
 ## Overview

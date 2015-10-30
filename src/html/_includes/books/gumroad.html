@@ -4,20 +4,27 @@
     type: "gumroad"
     title: string
     url: string
+    cover: string
     description: string
     buttonLabel: optional(string)
     comingSoon: boolean
   }
 {% endcomment %}
 
-<div class="{{ include.class || "col-sm-6" }} course-product">
+<div class="{{ include.class || "col-sm-6" }} book-product">
   <h4>{{ include.product.title }}</h4>
-  <div class="course-product-description">
+    {% if product.cover %}
+      <img src="{{include.product.cover}}"
+        alt="book cover"
+        width="35%"
+        style="float:right;margin-bottom:30px">
+    {% endif %}
+  <div class="book-product-description">
     {{ include.product.description | markdownify }}
   </div>
-  <p class="course-product-purchase">
+  <p class="book-product-purchase" style="clear:right;">
     {% if include.product.comingSoon %}
-      <a class="btn btn-warning btn-block" href="/contact?subject={{ "Let me know when the " | urlencode }}{{ include.course.title | urlencode }}{{ " book is ready!" | urlencode }}">
+      <a class="btn btn-warning btn-block" href="/contact?subject={{ "Let me know when the " | urlencode }}{{ include.book.title | urlencode }}{{ " book is ready!" | urlencode }}">
         Coming soon
       </a>
     {% else %}

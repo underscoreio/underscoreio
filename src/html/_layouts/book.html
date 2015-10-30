@@ -35,16 +35,10 @@ layout: default
       <aside class="book-sidebar">
       {% if page.products.size > 0 %}
         <div class="row book-products">
-          {% if page.cover %}
-          <img src="{{page.cover}}" alt="book cover" width="50%" style="float: right;">
-          {% endif %}
           {% if page.products.selfDirected %}
-            <div class="{{ categoryClass }}" style="clear: right" >
+            <div class="{{ categoryClass }}" >
               <div class="panel">
                 <div class="panel-body">
-                  {% comment %}
-                  <h3>Self-Directed Learning</h3>
-                  {% endcomment %}
                   <div class="row">
                     {% for productPair in page.products.selfDirected %}
                       {% assign product = productPair[1] %}
