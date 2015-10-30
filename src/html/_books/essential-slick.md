@@ -7,7 +7,7 @@ icon: scala
 color: "#F58B40"
 level: Intermediate
 price: "$40"
-description: Get up and running with Slick 2.1 or 3.X.
+description: Essential Slick is a guide to building a database application using the Slick library. It is aimed at Scala developers who need to become productive with Slick quickly. Covers versions 2.1 and 3.X.
 products:
   selfDirected:
     single:
@@ -24,25 +24,15 @@ bookPage:
 
 ## Overview
 
-Essential Slick is a guide to building a database application using the Slick library. It is aimed at Scala developers who need to become productive with Slick quickly.
-
 We've seen that developers using Slick for the first time often need help getting started with the library.
 For example, there are unfamiliar concepts to learn and work with, such as _database actions_.
 This text gives an understanding of how to work with Slick by walking through the common tasks, explaining the methods and types you see, and providing exercises.
 
-## Early Access Book
+## Prerequisites
 
-This book is an Early Access edition, and covers Slick 3.
+To benefit from this material you will need to know the fundamentals of the Scala language.
+We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
 
-Chapters 1, 2, 3, 4 and 6 are available.
-
-Formats: PDF, EPUB, and HTML.
-
-Estimated final size: 120 pages.
-
-As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter.
-
-Your purchase also includes a copy of Essential Slick for Slick 2.1 (completed in July 2015).
 
 ## Learning Outcomes
 
@@ -53,72 +43,7 @@ Your purchase also includes a copy of Essential Slick for Slick 2.1 (completed i
 - Making use of the Scala type system with Slick
 - Working with lower-level Plain SQL for fine control over queries
 
-## Abbreviated Table of Contents
-
-1. Basics
-   - Orientation
-   - Running the Examples and Exercises
-   - Example: A Sequel Odyssey
-   - Take Home Points
-   - Exercise: Bring Your Own Data
-
-2. Selecting Data
-   - Select All The Rows!
-   - Filtering Results: The filter Method
-   - The Query and TableQuery Types
-   - Transforming Results: The map Method
-   - Running Queries
-   - Column Expressions
-   - Controlling Queries: Sort, Take, and Drop
-   - Take Home Points
-   - Exercises
-
-3. Creating and Modifying Data
-   - Inserting Data
-   - Updating Rows
-   - Action Combinators
-   - Deleting Rows
-   - Transactions
-   - Logging Queries and Results
-   - Take Home Points
-   - Exercises
-
-4. Data Modelling
-    - Application Structure
-    - Representations for Rows
-    - Table and Column Representation
-    - Custom Column Mappings
-    - Value Classes
-    - Sum Types
-    - Take Home Points
-
-5. Joins and Aggregates
-    - Applicative Joins
-    - Monadic Joins
-    - Zip Joins
-    - Joins Summary
-    - Seen Any Scary Queries?
-    - Aggregation
-    - Take Home Points
-    - Exercises
-
-6. Plain SQL
-    - Selects
-    - Updates
-    - Type Checked Plain SQL
-    - Take Home Points
-    - Exercises
-
-Appendix A: Using Different Database Products
-
-Appendix B: Solutions to Exercises
-
 ## Sample Chapters
 
 Chapters 1 and 2 are available as a [free PDF preview download](/files/essential-slick-3-preview.pdf).
-
-
-## Prerequisites
-
-To benefit from this material you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
 

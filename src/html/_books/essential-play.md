@@ -7,7 +7,7 @@ icon: play
 color: "#a0c556"
 level: Intermediate
 price: "$40"
-description: Use Play's *Twirl* templating language to populate web pages with dynamic content. Build HTML5 content using your choice of Javascript, Coffeescript, Less, and/or CSS. Integrate client and server with AJAX and JSON. Write functional tests using Fluentlenium.
+description: Essential Play is aimed at developers who need to get up and running with Play fast. We look at Play's templating language *Twirl*, asynchronous code using futures and more!
 products:
   selfDirected:
     single:
@@ -17,14 +17,14 @@ products:
       buttonLabel: "Buy now - $40"
       cover: "/images/books/essential-play.png"
       description: |
-        Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
+        Download the textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
 ---
 
 ## Overview
 
-This course covers a comprehensive set of topics required to create web sites and web services in Play.
+This text covers a comprehensive set of topics required to create web sites and web services in Play.
 
 Use Play's *Twirl* templating language to populate web pages with dynamic content. Build HTML5 content using your choice of Javascript, Coffeescript, Less, and/or CSS. Integrate client and server with AJAX and JSON. Write functional tests using Fluentlenium.
 
@@ -32,7 +32,7 @@ Write fast, non-blocking asynchronous code using futures and promises. Efficient
 
 ## Prerequisites
 
-To benefit from this course you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
+To benefit from this text you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this text.
 
 ## Learning Outcomes
 
@@ -41,29 +41,3 @@ To benefit from this course you will need to know the fundamentals of the Scala 
 - Deploy significant Javascript, Coffeescript, Less CSS, and CSS codebases using the Play build system
 - Use JSON AJAX to communicate between browser and server
 - Know how to write functional web tests using Fluentlenium
-
-## Table of Contents
-
-- The Basics
-  - Actions, Controllers, and Routes
-  - Routes in Depth
-  - Parsing Requests
-  - Constructing Results
-  - Handling Failure
-- HTML and Forms
-  - Twirl Templates
-  - Form Handling
-  - Generating Form HTML
-- Working with JSON
-  - Modelling JSON
-  - Writing JSON
-  - Reading JSON
-  - JSON Formats
-  - Custom Formats
-  - Handling Failure
-- Async and Concurrency
-  - Futures
-  - Thread Pools and ExecutionContexts
-  - Asynchronous Actions
-  - Calling Remote Web Services
-  - Handling Failure

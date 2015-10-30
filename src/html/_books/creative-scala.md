@@ -3,6 +3,7 @@ id: creative-scala
 title: Creative Scala
 layout: book
 navbar: books
+icon: scala
 color: "#21a9e1"
 level: Beginner
 price: FREE!
@@ -23,8 +24,6 @@ bookPage:
 
 ## Overview
 
-Creative Scala is aimed at developers who have no prior experience in Scala. It is designed to give you a fun introduction to functional programming. We assume you have some familiarity with another programming language but little or no experience with Scala or other functional languages.
-
 Our goal is to demonstrate the building blocks that Scala developers use to create programs in a clear, succinct, and declarative manner. Working through the exercises in the book should take a few hours, after which you will know the basics of programming in Scala and have a feel of how the functional programming mindset works.
 
 The exercises in Creative Scala are based on a functional graphics library called [Doodle][doodle]. Although Doodle is primarily designed to make programming fun and creative, it is based on universal concepts that apply to all well-designed software written in a functional style.
@@ -43,48 +42,6 @@ However, by the time you finish you won't finish knowing
 We recommend [Essential Scala][essential-scala]
 to continue your journey learning Scala.
 
-## Table of Contents
-
- - Foreword
-
- - Expressions, Values, and Types
-    - Simple Scala Expressions
-       - Literals
-       - Method Calls
-       - Constructor Calls
-       - Operators
-       - Conditionals
-       - Blocks and Side-Effects
-    - Working with Doodle
-       - Primitive Images
-       - Layout
-       - Colour
-    - Take Home Points
-       - Substitution
-       - Types in Scala
-
- - Declarations
-    - Value Declarations
-    - Method Declarations
-    - Extended Exercise: Colour Palettes
-    - Take Home Points
-
- - (Functional) Programming
-    - Recursive Algorithms
-    - Functions as Values
-    - Higher Order Methods and Functions
-    - Take Home Points
-
- - Collections
-    - Creating Lists
-    - Transforming Lists Using *map*
-    - Take Home Points
-
- - Summary
-
- - Appendix: Syntax Quick Reference
-
- - Appendix: Solutions to Exercises
 
 [essential-scala]: /books/essential-scala
 [doodle]: https://github.com/underscoreio/doodle
