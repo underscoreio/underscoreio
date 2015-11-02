@@ -5,7 +5,7 @@ navbar: jobs
 ---
 
 <article class="job-listing">
-    {% assign jobs = site.jobs | sort: 'junior' %}
+    {% assign jobs = site.jobs | sort: 'url' %}
     {% for job in jobs reversed %}
     {% include jobs/excerpt.html job=job %}
     {% endfor %}

@@ -41,10 +41,12 @@
         <dd class="job-remote">OK<dd>
         {% endif %}
 
+        {% comment %}
         {% if include.job.summary %}
         <dt>Summary</dt>
         <dd class="job-summary">{{ include.job.summary | markdownify }}</dd>
         {% endif %}
+        {% endcomment %}
       </dl>
 
       {% if include.job.instructions %}
