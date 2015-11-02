@@ -37,14 +37,12 @@ layout: default
         <div class="row book-products">
           {% if page.products.selfDirected %}
             <div class="{{ categoryClass }}" >
-              <div class="panel">
+              <div class="panel panel-gray">
                 <div class="panel-body">
-                  <div class="row">
-                    {% for productPair in page.products.selfDirected %}
-                      {% assign product = productPair[1] %}
-                      {% include books/product.html book=page product=product class=productClass %}
-                    {% endfor %}
-                  </div>
+                  {% for productPair in page.products.selfDirected %}
+                    {% assign product = productPair[1] %}
+                    {% include books/product.html book=page product=product class=productClass %}
+                  {% endfor %}
                 </div>
               </div>
             </div>
