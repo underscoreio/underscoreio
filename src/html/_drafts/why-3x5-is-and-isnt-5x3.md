@@ -12,16 +12,71 @@ It raises many interesting issues that we often talk about here. So why isn't 3x
 
 Background assumptions: programmers.
 
-What does it mean for 3x5 to *equal* 5x3. One answer is that we can substitute one expression for another with no observable change. That is, wherever we see 5x3 we can write down 3x5, and vice versa, and there is no change in meaning. This requires us to define what is "observable", or what an expression "means", and it's here that we begin to peel back the ... The usual model is to define meaning as the result that expressions evaluate to. The expressions 3x5, 5x3, and 15 are all equivalent because they evaluate to the same value, namely 15. But as programmers we know that this mathematical model does not capture all aspects of meaning. For a very concrete example let's briefly switch to sort algorithms.
+What does it mean for 3x5 to equal 5x3. One answer is that we can substitute one expression for another with no observable change. That is, wherever we see 5x3 we can write down 3x5, and vice versa, and there is no change in meaning. This requires us to define what is "observable", or what an expression "means", and it's here that we begin to peel back the ... The usual model is to define meaning as the result that expressions evaluate to. The expressions 3x5, 5x3, and 15 are all equivalent because they evaluate to the same value, namely 15. But as programmers we know that this mathematical model does not capture all aspects of meaning. For a very concrete example let's briefly switch to sort algorithms.
 
 You've probably studied sort algorithms at some point. There are many sort algorithms that if considered only in terms of their output are all equivalent---they all sort their input! But a basic part of studying them is learning that they are not equivalent along other dimensions. For example, bubble sort has $O(n^2)$ complexity in the average case, is stable, and can run in-place. Quick sort has average case complexity of $O(n log n)$, is in-place, but is not stable. Merge sort has average case complexity of $O(n log n)$, it is stable, but it is not in-place. These are a just few of the properties we can consider. We could also look at worst-case complexity (quick sort's is $O(n^2)$), ease of parallelisation, locality of reference, and many many more. 
 
 We can do the same with 3x5, 5x3, and 15. They are all equivalent under what we might call the standard interpretation. That is, the all evaluate to the same value. But there are other interpretations where they are not equivalent, such as the number of operations each expression requires. Let's write some code to illustrate this. 
 
-Representation as sequences of additions (as given in the question). They are not the same sequence. They have different runtime costs, measured in terms of operations. We can ask this (which is proportional to the length of the list), yielding a non-standard interpretation.
+Our first step is to decide on a representation for expressions. In the exercise the student is asked to represent multiplication as repeated addition, so 3x5 becomes 5+5+5, for example. We are only going to deal with addition and integers, so we can express everything of interest using just lists of integers. For example, 5+5+5 can be represented as `List(5,5,5)`, and 15 as `List(15)`.
 
-Hey look, this list is effectively an AST and we're creating interpreters on it. It's the same separation of representation and interpretation that we've talked about before.
+With this representation it is clear that 3x5 is not equal to 5x3.
 
-In fact the list is the free monoid. We are leveraging associativity to have this canoncial representation. [link]. What else can do? Well, we can leverage commutivity to transform one list into a shorter list (e.g. 5x3 to 3x5) with lower runtime cost. This is why we care about laws for our type classes. They tell us what transformations are legal.
+```scala
+val threeTimesFive = List(5,5,5)
+val fiveTimesThree = List(3,3,3,3,3)
+
+threeTimesFive == fiveTimesThree
+// res: Boolean = false
+```
+
+We can evaluate our expressions under the standard interpretation and show they do evaluate to the same value. Therefore substitution is maintained and the two expressions are equivalent *under this interpretation*.
+
+```scala
+// The short way
+threeTimesFive.sum == fiveTimesThree.sum
+// res: Boolean = true
+
+// The longer, more explicit, way
+threeTimesFive.foldLeft(0){ _ + _ } == fiveTimesThree.foldLeft(0){ _ + _ }
+// res: Boolean = true
+```
+
+Now we can ask other questions, using non-standard interpretations, showing other differences between these expressions. For example, lets ask how many operations each expression requires.
+
+```scala
+def numberOfOperations(expression: List[Int]): Int =
+  expression.length - 1
+
+numberOfOperations(threeTimesFive)
+// res: Int = 2
+
+numberOfOperations(fiveTimesThree)
+// res: Int = 4
+```
+
+Clearly they aren't equivalent under this interpretation. What else can we do? Well, perhaps when we wrote `5+5` we actually meant to use [Tropical numbers][tropical-geometry], where `+` means `min`. No problemo, we can implement this.
+
+```scala
+def tropicalEval(expression: List[Int]): Int =
+  expression.foldLeft(expression.head){ _ min _ }
+
+tropicalEval(threeTimesFive)
+// res: Int = 5
+
+tropicalEval(fiveTimesThree)
+// res: Int = 3
+```
+
+Once again we've seen a non-standard interpretation under which the two expressions are not equivalent.
+
+Regular readers of this blog will recognise that we're employing one of our favourite tricks: separating the description of the computation from the process that gives it meaning. (See [here][free-monads-simple] and [here][reification], for example.) Our list of integers is the abstract syntax tree, and the different interpretations are interpreters for that AST. 
+
+In fact the list is the [free monoid][free-monoid]. We are leveraging associativity to have this canoncial representation. [link]. What else can do? Well, we can leverage commutivity to transform one list into a shorter list (e.g. 5x3 to 3x5) with lower runtime cost. This is why we care about laws for our type classes. They tell us what transformations are legal.
 
 So the teacher is correct. 3x5 is not equal to 5x3, but under the standard interpretation they are equivalent. There is some deep stuff going on here. I'm not equipped to say if this is appropriate to teach children, but if it works it's awesome stuff. Maths is not about calculating but about manipulating structure, and if the students are being taught that structure it seems to me to be a good thing. And it's entirely possible that this example will have given some adults, including me, a deeper appreciation of the depth of structure in simple arithmetic expressions.
+
+[tropical-geometry]: https://en.wikipedia.org/wiki/Tropical_geometry
+[reification]: {% post_url 2015-10-15-reification %}
+[free-monads-simple]: {% post_url 2015-04-15-free-monads-are-simple %}
+[free-monoid]: {% post_url 2015-04-23-deriving-the-free-monad %}
