@@ -6,6 +6,8 @@ author: Noel Welsh
 
 In a recent training course I was asked if Scala supports static or dynamic polymorphism. These are not terms I had heard before, so I had some homework to do. A bit of research showed this terminology refers to the same thing as early and late binding, which I'm more familiar with. So, here we have a quick discussion of early binding (or static polymorphism) and late binding (or dynamic polymorphism), and how it relates to Scala's polymorphic methods and overloading.
 
+<!-- break -->
+
 ### Types and Tags
 
 For this discussion we'll need to be precise about our terminology surrounding types. We're going to use the term *type* in the way used in type theory. It refers to a constraint on a value known at *compile-time*. In this view types only exist at compile-time.
@@ -56,7 +58,7 @@ class Foo() {
   def doEet(foo: Foo): String =
     "FooFoo"
 
-def doEet(foo: Bar): String =
+  def doEet(foo: Bar): String =
     "FooBar"
 }
 
@@ -96,27 +98,32 @@ Multiple dispatch is mainly found in the Lisp family of languages. CLOS, the sta
 
 ### Goofiness
 
-It's possible to run into confusing situations using overloading. Take the following code for example. What does `new Foo().doEet(new Bar())` evaluate to?
-
+It's possible to run into confusing situations using overloading. Take the following code for example. 
 
 ~~~ scala
-class Foo() {
-  def doEet(foo: Foo): String =
-    "FooFoo"
+object Foo {
+  def add(numbers: List[Int]): Double =
+    numbers.foldLeft(0.0){ (elt, accum) => elt.toDouble + accum }
 
-def doEet(bar: Bar): String =
-    "FooBar"
-}
-
-class Bar() extends Foo() {
+  def add(numbers: List[Double]): Double =
+    numbers.foldLeft(0.0){ (elt, accum) => elt + accum }
 }
 ~~~ 
 
-The answer is `"FooFoo"`, not `"FooBar"` as we would expect. The difference from the code above that did evaluate to `"FooBar"` is very subtle: the two overloaded variants of `doEet` have different parameter names.
+It seems simple but it doesn't compile, failing with an error
 
-There is no doubt there is some crazy goofiness in Scala, a lot of which come from constraints imposed by the JVM. The [Scala Puzzlers][scala-puzzlers] website describes many other corner cases. 
+~~~ bash
+error: double definition:
+def add(numbers: List[Int]): Double at line 2 and
+def add(numbers: List[Double]): Double at line 5
+have same type after erasure: (numbers: List)Double
+  def add(numbers: List[Double]): Double =
+      ^
+~~~
 
-The good news is you never need to run into this goofiness. In our [training][essential-scala] we break Scala down into a few core patterns that make for simple, comprehendable code, and stay well away from the goof. These are the same patterns we use in our programming; they aren't just toys that don't fit real code. I would never run into the problem above with overloading, for example, because it doesn't fit any pattern I would ever use in Scala.
+This is due to a JVM limitation around the representation of generic types. (In fact there are good arguments in favour of type erasure, but it is beside the point here.) There is no doubt Scala has its fair share of goofiness, a lot of which comes from constraints imposed by the JVM. The [Scala Puzzlers][scala-puzzlers] website describes many other corner cases. 
+
+The good news is it's easy to stay away from the goofiness. What we [teach][essential-scala] and what we use in our coding are a few patterns that lead to simple and comprehendable code. In the above example I'd try to represent the common features of `Int` and `Double` using a type class. This has clear semantics, stays well away from issues with overloading, and is far more flexible to boot.
 
 [scala-puzzlers]: http://scalapuzzlers.com/
 [essential-scala]: /training/courses/essential-scala/
