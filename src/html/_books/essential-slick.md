@@ -29,7 +29,7 @@ bookPage:
     explaining the methods and types you see, and providing exercises.
   prerequisites: |
     To benefit from this material you will need to know the fundamentals of the Scala language.
-    We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
+    We recommend [Underscore's Essential Scala](../essential-scala) as the perfect complement to this course.
   outcomes: |
     - Practical knowledge of working with Slick applications
     - Understanding the core concepts required to work with Slick
