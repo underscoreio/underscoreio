@@ -40,3 +40,7 @@ We recommend [Essential Scala](essential-scala.html) as the perfect complement t
 - Handling requests and responses containing different data formats.
 - Working effectively with JSON.
 - Writing scalable services using non-blocking async actions.
+
+## Note
+
+This book covers Play 2.3. Most content is applicable for Play 2.4. An update for Play 2.4 is coming in the new year.
