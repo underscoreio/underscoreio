@@ -14,10 +14,9 @@
 <div class="{{ include.class || "col-sm-6" }} book-product">
   <h4>{{ include.product.title }}</h4>
     {% if product.cover %}
-      <img src="{{include.product.cover}}"
-        alt="book cover"
-        width="35%"
-        style="float:right;margin-bottom:30px">
+      <img class="book-cover"
+        src="{{include.product.cover}}"
+        alt="Cover of {{ include.product.title }}">
     {% endif %}
   <div class="book-product-description">
     {{ include.product.description | markdownify }}
@@ -38,5 +37,3 @@
     {% endif %}
   </p>
 </div>
-
-<script src="https://gumroad.com/js/gumroad.js"></script>

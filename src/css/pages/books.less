@@ -160,6 +160,17 @@
 .book-sidebar {
   padding-top: @line-height-computed;
 
+  .book-product + .book-product {
+    margin-top: @line-height-computed;
+  }
+
+  .book-cover {
+    float: right;
+    width: 35%;
+    margin-left: @padding-base-horizontal;
+    margin-bottom: @line-height-computed;
+  }
+
   dl.book-meta {
     .clearfix();
 
