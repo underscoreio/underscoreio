@@ -20,9 +20,17 @@ products:
         Download the text complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-  overview: We've seen that developers using Slick for the first  time often need help getting started with the library. For example, there are unfamiliar concepts to learn and work with, such as _database actions_. This text gives an understanding of how to work with Slick by walking through the common tasks, explaining the methods and types you see, and providing exercises.
-  prerequisites: To benefit from this material you will need to know the fundamentals of the Scala language.We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
-  outcomes: >
+  overview: |
+    We've seen that developers using Slick for the first time often
+    need help getting started with the library.
+
+    For example, there are unfamiliar concepts to learn and work with, such as
+    _database actions_. This text gives an understanding of how to work with Slick by walking through the common tasks,
+    explaining the methods and types you see, and providing exercises.
+  prerequisites: |
+    To benefit from this material you will need to know the fundamentals of the Scala language.
+    We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
+  outcomes: |
     - Practical knowledge of working with Slick applications
     - Understanding the core concepts required to work with Slick
     - Knowing how to use Slicks features for selecting and modifying data
