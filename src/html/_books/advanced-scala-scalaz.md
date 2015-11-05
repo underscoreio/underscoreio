@@ -23,8 +23,9 @@ products:
       title: "Get both Books"
       url: "https://gum.co/advanced-scala-scalaz-essential-interpreters"
       buttonLabel: "Buy now - $89"
+      cover: "/images/books/essential-interpreters.png"
       description: |
-        Download the textbook, along with advanced material on building interpreters. Both texts come in HTML, PDF, and ePub formats.
+        Download Advanced Scala along with additional material on building interpreters. Both texts come in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
 ---
