@@ -25,6 +25,7 @@ run
 
 ## Cheap and Cheerful Profiling
 
+This is another `javaOptions` example.
 Nothing like as good as Mission Control or JProfiler, but still...
 
 ~~~
@@ -49,6 +50,14 @@ triggeredMessage in ThisBuild := Watched.clearWhenTriggered
 
 You sometimes need `test:run` or `test:runMain` when that important application is in _src/test/scala_.
 
+# Stopping
+
+When you run an application from and CTRL-C it, it's annoying if that exits sbt.
+Prevent that with:
+
+~~~
+cancelable in Global := true
+~~~
 
 #  The Place for Everything
 
@@ -72,6 +81,7 @@ For example:
     resolvers += "Type" at "http://repo.typesafe.com/typesafe/maven-releases"
     net.virtualvoid.sbt.graph.Plugin.graphSettings
     triggeredMessage in ThisBuild := Watched.clearWhenTriggered
+    cancelable in Global := true
 
     $ cat ~/.sbtrc
     alias cd = project
@@ -86,6 +96,6 @@ So sometimes you want to make a setting the same for all projects in a build:
 scalaVersion in ThisBuild := "2.11.7"
 ~~~
 
-You should regularly re-read the [scoping rules](http://www.scala-sbt.org/release/tutorial/Scopes.html).
+Regularly re-reading the [scoping rules](http://www.scala-sbt.org/release/tutorial/Scopes.html) helps with this.
 
 
