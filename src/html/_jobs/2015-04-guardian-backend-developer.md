@@ -5,7 +5,7 @@ company: The Guardian
 level: Intermediate or Senior
 summary: |
    The Guardian's Membership team are developing new features to support the promotion of Guardian Events: events, discussions, debates exclusively for Guardian Members. We are developing in-house subscription solutions.
-    
+
    The work we are doing will support our business financially to allow us to continue our great work.  If you want to work in this exciting and fast paced environment, whilst supporting the Guardian values, this is the job for you.
 location: London, UK
 remote: No
@@ -27,7 +27,7 @@ Experience with these kinds of membership and subscription products would be a b
 
 Technically, you should have a good working knowledge of:
 
-* Scala 
+* Scala
 * the Play framework
 * Amazon Web Services
 
@@ -40,6 +40,6 @@ Our team is cross functional and fully autonomous, and has control of the whole 
 The team has an emphasis on collaboration both between developers and with the wider business. Strong communication skills and a collective approach towards problem solving are key in this role.
 The Guardian is renowned for its award winning, impartial journalism. The work we are undertaking in Subscriptions and Membership are aiming to support the business financially to allow us to continue our great work.
 
-You will be working in a development team that are leaders in the media industry and who are constantly pushing to improve our processes and technology to deliver impactful products quickly. 
+You will be working in a development team that are leaders in the media industry and who are constantly pushing to improve our processes and technology to deliver impactful products quickly.
 
 If you want to work in this exciting and fast paced environment, whilst supporting the Guardian values, this is the job for you.

@@ -28,6 +28,7 @@ window.uio = module.exports = {
   blogPager       : require './blog-pager'
   trainingFormats : require './training-formats'
   eventListing    : require './event-listing'
+  jobSidebar      : require './job-sidebar'
   jobListing      : require './job-listing'
   courseDirectory : require './training-course-directory'
   bookingForm     : require './booking-form'
