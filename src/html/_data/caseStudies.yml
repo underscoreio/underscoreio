@@ -1,0 +1,15 @@
+- name: Site Tour
+  sector: Media
+  title: A global marketplace for buying and selling targeted out-of-home media
+  description: |
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices venenatis nibh non vulputate. Maecenas at ultrices mi. Aliquam hendrerit nec tellus ac fermentum. Proin in viverra ligula. Praesent pharetra commodo quam. In faucibus, risus non dignissim vehicula, massa sem ullamcorper ipsum, vel sagittis eros tellus nec lectus.
+  logo:   "/images/customers/site-tour.png"
+  tech: Scala, Scalaz, Spray, Doobie, Akka
+- name: Queen Mary University of London
+  sector: Education
+  title: Clearing is the crunch day of the year at universities
+  description: |
+    You don't just need reliable technology, but a team to support you on the day
+    for any eventualities. ETC...things we did.
+  logo:   "/images/customers/qmul.jpg"
+  tech: Scala, Play, CoffeeScript, Postgres

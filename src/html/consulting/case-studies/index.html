@@ -1,0 +1,40 @@
+---
+layout: default
+title:  Case Studies - Engineering and Consulting
+navbar: consulting
+---
+
+{% include hero.html title="Engineering and Consulting Case Studies" %}
+
+<section class="container case-study-directory">
+  <article>
+
+  {% for study in site.data.caseStudies %}
+  <div class="row">
+    <div class="col-md-7">
+      <h3>{{ study.title }}</h3>
+      {{ study.description }}
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+      <img style="display: block; margin: 0 auto;" src={{ study.logo }}>
+      <dl>
+        <dt>Sector</dt>
+          <dd>{{ study.sector }}</dd>
+        <dt>Technology</dt>
+          <dd>{{ study.tech }}</dd>
+      </dl>
+    </div>
+  </div>
+
+  <hr>
+  {% endfor %}
+
+  </article>
+</section>
+
+<script>
+  uio.caseStudies.init(".case-study-directory")
+</script>
+
+
+{% include footer.html %}
