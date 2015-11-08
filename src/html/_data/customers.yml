@@ -14,18 +14,18 @@
   logo:   "/images/customers/ch.jpg"
   url:    "http://companieshouse.gov.uk"
   retina: true
-  promo:  false
-
-- name:   Government Digital Service
-  logo:   "/images/customers/gds.jpg"
-  url:    "http://gov.uk"
-  retina: true
   promo:  true
 
 - name:   Gottex Brokers
   logo:   "/images/customers/gottex.jpg"
   url:    "http://www.gottexbrokers.com"
   retina: false
+  promo:  true
+
+- name:   Government Digital Service
+  logo:   "/images/customers/gds.jpg"
+  url:    "http://gov.uk"
+  retina: true
   promo:  true
 
 - name:   Habla Computing
@@ -50,7 +50,7 @@
   logo:   "/images/customers/jhc.jpg"
   url:    "http://www.jhc.co.uk"
   retina: true
-  promo:  false
+  promo:  true
 
 - name:   Maana
   logo:   "/images/customers/maana.jpg"
@@ -100,8 +100,15 @@
   retina: true
   promo:  false
 
+- name:   SiteTour
+  logo:   "/images/customers/site-tour.png"
+  url:    "http://sitetour.co"
+  retina: false
+  promo:  true
+
 - name:   Tigertap
   logo:   "/images/customers/tigertap.jpg"
   url:    "http://tigertap.com"
   retina: false
   promo:  false
+
