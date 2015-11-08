@@ -1,15 +1,118 @@
 - name: Site Tour
   sector: Media
+  role: Software Development, Code Review
+  tech: Scala, Scalaz, Spray, Doobie, Akka
+  logo:   "/images/customers/site-tour.png"
   title: A global marketplace for buying and selling targeted out-of-home media
   description: |
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices venenatis nibh non vulputate. Maecenas at ultrices mi. Aliquam hendrerit nec tellus ac fermentum. Proin in viverra ligula. Praesent pharetra commodo quam. In faucibus, risus non dignissim vehicula, massa sem ullamcorper ipsum, vel sagittis eros tellus nec lectus.
-  logo:   "/images/customers/site-tour.png"
-  tech: Scala, Scalaz, Spray, Doobie, Akka
+
+- name: Net-A-Porter
+  sector: Retail
+  role: Embedded Team Development, Mentoring
+  tech: Scala, Spray, Slick
+  logo: "/images/customers/nap.jpg"
+  title: Premier online luxury fashion retailer
+  description: |
+    TODO
+
+- name: Ascendant Compliance Management
+  sector: Corporate
+  role: Software Development
+  tech: Scala, Lift, MongoDB
+  logo: "/images/customers/acm.svg"
+  title: Compliance and operational risk
+  description: |
+    TODO
+
+
+
 - name: Queen Mary University of London
   sector: Education
+  role: Complete Product Delivery
+  tech: Scala, Play, CoffeeScript, Postgres
+  logo:   "/images/customers/qmul.jpg"
   title: Clearing is the crunch day of the year at universities
   description: |
     You don't just need reliable technology, but a team to support you on the day
-    for any eventualities. ETC...things we did.
-  logo:   "/images/customers/qmul.jpg"
-  tech: Scala, Play, CoffeeScript, Postgres
+    for any eventualities. As Matthew Evans of QMUL describes it:
+
+    "We commissioned Underscore to develop a recruitment dashboard for data entry and reporting during our yearly admissions cycle.
+    The software they created was delivered on time, and is easy to use and fast, It gives us accurate intake predictions in real-time, hours ahead of the estimates delivered by UCAS.
+
+    What's more, Underscore's on-site support rescued us at a critical phase during Clearing, when a networking failure rendered our campus single-sign-on service inoperable.
+    Their support team quickly responded to the crisis, implementing a standalone login and saving us from a potential crisis.
+
+    We thoroughly recommend Underscore as a software development partner for mission critical application development."
+
+- name: TigerTap
+  sector: Media
+  role: Complete Product Delivery, AWS Hosting
+  tech: Scala, Lift, Postgres
+  logo: "/images/customers/tigertap.jpg"
+  title: Meaningful mobile interactions
+  description: |
+    TODO
+
+- name: Pure 360
+  sector: Marketing
+  role: Team Mentoring, API Consulting
+  tech: Scala, Play, MySQL
+  logo: "/images/customers/pure360.jpg"
+  title: A new platform for new demands
+  description: |
+    TODO
+
+- name: JHC Systems
+  sector: Finance
+  role: Scala Adoption, Embedded Team Development
+  tech: Scala, TODO
+  logo: "/images/customers/jhc.jpg"
+  title: Bringing a new team and product up to speed
+  description: |
+    TODO
+    What's with the Figaro logo?
+
+- name: Identive
+  sector: IoT
+  role: Complete Product Delivery, AWS Hosting
+  tech: Scala, MongoDB, AWS, Stripe
+  logo: "/images/customers/identive.jpg"
+  url: http://www.identiv.com/press-releases/press/identives-nfc-business-expands-with-new-nfc-tag-orders-and-commercial-deployments-of-tagtrail-services-delivery-platform/
+  title: Platform to deploy, manage and measure NFC tags
+  description: |
+    Identive Group is a global provider of identification-based technologies and services, spanning physical and logical access control, identity management and near field communications.
+    Identive's TagTrail product allows customers to deploy, manage and measure NFC tags, with fixed and dynamic content.
+
+    Underscore were commissioned to consult and implement the initial vision of TagTrail.
+    Two senior developers were assigned to work with the Identive team in France, Germany, the US, and the Netherlands.
+    Work and priorities were reviewed and agreed approximately every 7-10 days, and delivered and deployed to support an iterative MVP approach to product development.
+
+    The team was subsequently retained, and increased in size, for further development of the concept.
+
+- name: Myna
+  sector: IoT
+  role: Complete delivery of high performance product
+  tech: Scala, Redis, MongoDB
+  logo: TODO
+  url: http://mynaweb.com/
+  title: A new approach to A/B testing
+  description: |
+    Myna is a new approach to A/B testing.
+    A/B testing is a method for improving conversion rates of web sites.
+    Myna applies machine learning algorithms to dramatically improve on current industry best practice.
+    Myna is a startup venture by two Underscore partners.
+
+    The entire product, excluding a few pieces of artwork, has been developed in-house by two Underscore founders over a period of about six months.
+    Although it’s too early to tell if Myna will be commercial success, it has already proven phenomenally successful from a technical point of view.
+
+    The most technically demanding aspect of Myna is the API server.
+    Every web page displayed by a customer of Myna results to a call to the Myna API server.
+    Hence the API server must be very fast and stable to avoid causing problems on customers’ sites.
+
+    Currently the server is hosted on low specification VMs (1.5GB RAM, single core).
+    Average response time is steady at just over 2ms, with 99th percentile response time of about 5ms.
+    Average load is 1-2 hits per second, there are frequent spikes over 5 hits per second, and peak load to date was over 30 hits per second.
+    At no time has the API server shown difficulty handling this traffic.
+    There have been no timeouts, and in fact the response time barely changes when load increases.
+

@@ -1,3 +1,9 @@
+- name:   Ascendant Compliance Management
+  logo:   "/images/customers/acm.svg"
+  url:    "http://www.ascendantcompliance.com"
+  retina: false
+  promo:  false
+
 - name:   Adalysis
   logo:   "/images/customers/adalysis.jpg"
   url:    "http://adalysis.com"
@@ -70,10 +76,16 @@
   retina: true
   promo:  false
 
+- name:   NET-A-PORTER
+  logo:   "/images/customers/nap.jpg"
+  url:    "http://www.net-a-porter.com"
+  retina: true
+  promo:  false
+
 - name:   Pure 360
   logo:   "/images/customers/pure360.jpg"
   url:    "http://pure360.com"
-  retina: true
+  retina: false
   promo:  false
 
 - name:   Qatarlyst
