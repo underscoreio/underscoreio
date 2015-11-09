@@ -11,7 +11,11 @@
   <div class="panel-body">
     <dl class="book-meta">
       <dt>Level</dt>  <dd>{{ include.book.level}}</dd>
+      {% if include.book.price %}
       <dt>Price</dt> <dd>{{ include.book.price}}</dd>
+      {%   else   %}
+      <dt>&nbsp;</dt> <dd>&nbsp;</dd>
+      {% endif %}
       <dt>&nbsp;</dt> <dd>&nbsp;</dd>
     </dl>
     {% if include.book.description %}
