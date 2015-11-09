@@ -25,20 +25,20 @@ products:
       buttonLabel: "Buy now - $89"
       cover: "/images/books/essential-interpreters.png"
       description: |
-        Download Advanced Scala along with additional material on building interpreters. Both texts come in HTML, PDF, and ePub formats.
+        Download Advanced Scala along with additional material on building interpreters. Both books come in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
 ---
 
 ## Overview
 
-The main goal of this text is to teach system architecture and design using the techniques of modern functional programming. This means designing systems as small composable units, expressing constraints and interactions via the type system, and using composition to guide the construction of large systems in a way that maintains the original architectural vision.
+The main goal of this book is to teach system architecture and design using the techniques of modern functional programming. This means designing systems as small composable units, expressing constraints and interactions via the type system, and using composition to guide the construction of large systems in a way that maintains the original architectural vision.
 
-The text also serves as an introduction to the Scalaz library. We use abstractions from Scalaz, and we explain the structure of Scalaz so you can use it without fear in your own code base. The broad ideas are not specific to Scalaz, but Scalaz provides an excellent implementation that is beneficial to learn in its own right.
+The book also serves as an introduction to the Scalaz library. We use abstractions from Scalaz, and we explain the structure of Scalaz so you can use it without fear in your own code base. The broad ideas are not specific to Scalaz, but Scalaz provides an excellent implementation that is beneficial to learn in its own right.
 
 ## Prerequisites
 
-To benefit from this text you should have about a year's experience with Scala, or equivalent experience with a functional language such as Haskell, O'Caml, or Lisp.
+To benefit from this book you should have about a year's experience with Scala, or equivalent experience with a functional language such as Haskell, O'Caml, or Lisp.
 
 ## Learning Outcomes
 

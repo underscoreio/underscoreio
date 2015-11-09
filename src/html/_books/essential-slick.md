@@ -17,7 +17,7 @@ products:
       buttonLabel: "Buy now - $40"
       cover: "/images/books/essential-slick.png"
       description: |
-        Download the text complete with exercises and solutions, in HTML, PDF, and ePub formats.
+        Download the book complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
   overview: |
@@ -25,7 +25,7 @@ bookPage:
     need help getting started with the library.
 
     For example, there are unfamiliar concepts to learn and work with, such as
-    _database actions_. This text gives an understanding of how to work with Slick by walking through the common tasks,
+    _database actions_. This book gives an understanding of how to work with Slick by walking through the common tasks,
     explaining the methods and types you see, and providing exercises.
   prerequisites: |
     To benefit from this material you will need to know the fundamentals of the Scala language.

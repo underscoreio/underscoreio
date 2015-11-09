@@ -26,13 +26,13 @@ bookPage:
 
 Essential Scala is aimed at experienced developers who are encountering Scala for the first time. Put your existing skills to use mastering Scala's combination of object-oriented and functional programming.
 
-The text teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy focus on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing content with in-depth and exercises.
+The book teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy focus on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing content with in-depth and exercises.
 
-If you are an experienced developer taking your first steps in Scala and want to get up to speed quickly then this is the text for you.
+If you are an experienced developer taking your first steps in Scala and want to get up to speed quickly then this is the book for you.
 
 ## Prerequisites
 
-To benefit from this text you should have one to two years' experience with an object-oriented (e.g. Java, C#) or functional (e.g. Haskell, Lisp) programming language and a good general understanding of object-oriented or functional programming language concepts.
+To benefit from this book you should have one to two years' experience with an object-oriented (e.g. Java, C#) or functional (e.g. Haskell, Lisp) programming language and a good general understanding of object-oriented or functional programming language concepts.
 
 ## Learning Outcomes
 

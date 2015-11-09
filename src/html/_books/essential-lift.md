@@ -20,7 +20,7 @@ description: Lift is different from other web frameworks, and with the help of t
 
 ## Overview
 
-This book is aimed at Scala developers who want to understand how to build applications with the Lift web framework. Lift is different from other web frameworks, and with the help of this text you can save significant time getting up to speed.
+This book is aimed at Scala developers who want to understand how to build applications with the Lift web framework. Lift is different from other web frameworks, and with the help of this book you can save significant time getting up to speed.
 
 ## Prerequisites
 
