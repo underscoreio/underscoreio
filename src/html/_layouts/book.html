@@ -45,11 +45,8 @@ layout: default
       {% if page.bookPage.sample %}
         <h2 id="sample-chapters">Free Sample</h2>
         Chapters are available as a
-        <a data-tracking-id="{{ page.title }}"
+        <a data-tracking-id="Sample {{ page.title }}"
            href="{{page.bookPage.sample }}" | urlify
-           {% if include.job.application_url %}
-           href="{{ include.job.application_url }}"
-           {% endif %}
            >
           free PDF preview download
         </a>.

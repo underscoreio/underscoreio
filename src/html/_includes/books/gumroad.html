@@ -16,7 +16,7 @@
     {% if product.cover %}
       <img class="book-cover"
         src="{{include.product.cover}}"
-        alt="Cover of {{ include.product.title }}">
+        alt="Cover of {{ include.book.title }}">
     {% endif %}
   <div class="book-product-description">
     {{ include.product.description | markdownify }}
@@ -27,7 +27,9 @@
         Coming soon
       </a>
     {% else %}
-      <a class="btn btn-primary btn-block" href="{{ include.product.url }}">
+      <a class="btn btn-primary btn-block"
+         data-tracking-id="{{ include.book.title }} Gumroad"
+         href="{{ include.product.url }}" >
         {% if include.product.buttonLabel %}
           {{ include.product.buttonLabel }}
         {% else %}
