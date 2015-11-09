@@ -10,12 +10,12 @@ What lesser-known tricks do you make use of?
 
 <!-- break -->
 
-# Changing JVM Options
+## Changing JVM Options
 
 Mid-session you sometimes want to change JVM flags.
 The `javaOptions` setting is good for that. For example...
 
-## Trace Typesafe Config Files
+### Trace Typesafe Config Files
 
 ~~~ scala
 project foo
@@ -23,7 +23,7 @@ set javaOptions := Seq("-Dconfig.trace=loads")
 run
 ~~~
 
-## Cheap and Cheerful Profiling
+### Cheap and Cheerful Profiling
 
 Here is another `javaOptions` example.
 Nothing like as good as Mission Control or JProfiler, but still...
@@ -37,7 +37,7 @@ runMain code.MyMain
 
 ...and then look in _foo/java.hprof.txt_.
 
-# Triggered Execution
+## Triggered Execution
 
 Running `~test:compile` rather than `~compile` when writing code is often what you really need.
 Make sure *everything* in your codebase compiles as you go,
@@ -51,7 +51,7 @@ triggeredMessage in ThisBuild := Watched.clearWhenTriggered
 
 You sometimes need `test:run` or `test:runMain` when that important application is in _src/test/scala_.
 
-# Testing
+## Testing
 
 This is a better-known trick: `testOnly` allows you to run a single test suite quickly as you write code:
 
@@ -65,7 +65,7 @@ You can also use `*` (not `_`) as a wildcard to run a set of test suites:
 ~testOnly mypackage.*
 ~~~
 
-# Stopping
+## Stopping
 
 When you run an application from SBT and hit CTRL-C it, it normally quits to your OS. This is annoying and can be prevented with:
 
@@ -73,7 +73,7 @@ When you run an application from SBT and hit CTRL-C it, it normally quits to you
 cancelable in Global := true
 ~~~
 
-#  The Place for Everything
+##  The Place for Everything
 
 SBT allows you to configure global settings and plugins for use in all your projects.
 This content goes in several account-wide configuration files in `~/.sbt`:
@@ -120,7 +120,7 @@ def clearConsoleCommand = Command.command("clear") { state =>
 commands += clearConsoleCommand
 ~~~
 
-# Problem Solving
+## Problem Solving
 
 SBT-related problems are always something to do with scopes.
 
@@ -138,3 +138,17 @@ scalaVersion in ThisBuild := "2.11.7"
 ~~~
 
 Regularly re-reading the [scoping rules](http://www.scala-sbt.org/release/tutorial/Scopes.html) helps with debugging scopes.
+
+## Suggestions from the Community
+
+Via [twitter](https://twitter.com/mglvl/status/663784551966224384), Miguel Vilá suggests `test-quick`: run all tests that failed previously, tests that are new, or tests that are affected by changes in existing code.
+
+In the comments, Stefan Schwetschke suggests using the [Ammonite REPL][ammonite] as a replacement for the standard REPL (also known as the console). Ammonite features pretty printing, loading of dependencies directly from the REPL, multiline input and many more. Add to `global.sbt`
+
+~~~ scala
+libraryDependencies += "com.lihaoyi" % "ammonite-repl" % "0.4.8" % "test" cross CrossVersion.full
+
+initialCommands in (Test, console) := """ammonite.repl.Repl.run("")"""
+~~~
+
+[ammonite]: http://lihaoyi.github.io/Ammonite/
