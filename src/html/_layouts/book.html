@@ -27,31 +27,6 @@ layout: default
   <div class="row">
     <div class="col-sm-8{% if page.bookPage.showSidebar %}{% else %} col-sm-offset-2{% endif %}">
       <article class="book-content">
-      {% if page.bookPage.overview %}
-        <h2 id="overview">Overview</h2>
-        {{page.bookPage.overview | markdownify}}
-      {% endif %}
-
-      {% if page.bookPage.prerequisites %}
-        <h2 id="prerequisites">Prerequisites</h2>
-        {{page.bookPage.prerequisites | markdownify}}
-      {% endif %}
-
-      {% if page.bookPage.outcomes %}
-        <h2 id="learning-outcomes">Learning&nbsp;Outcomes</h2>
-        {{page.bookPage.outcomes | markdownify}}
-      {% endif %}
-
-      {% if page.bookPage.sample %}
-        <h2 id="sample-chapters">Free Sample</h2>
-        Chapters are available as a
-        <a data-tracking-id="Sample {{ page.title }}"
-           href="{{page.bookPage.sample }}" | urlify
-           >
-          free PDF preview download
-        </a>.
-      {% endif %}
-
       {{content}}
       </article>
     </div>

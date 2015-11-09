@@ -20,23 +20,27 @@ products:
         Download the book complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-  overview: |
-    We've seen that developers using Slick for the first time often
-    need help getting started with the library.
-
-    For example, there are unfamiliar concepts to learn and work with, such as
-    _database actions_. This book gives an understanding of how to work with Slick by walking through the common tasks,
-    explaining the methods and types you see, and providing exercises.
-  prerequisites: |
-    To benefit from this material you will need to know the fundamentals of the Scala language.
-    We recommend [Underscore's Essential Scala](../essential-scala) as the perfect complement to this course.
-  outcomes: |
-    - Practical knowledge of working with Slick applications
-    - Understanding the core concepts required to work with Slick
-    - Knowing how to use Slicks features for selecting and modifying data
-    - Modelling schemas in Slick
-    - Making use of the Scala type system with Slick
-    - Working with lower-level Plain SQL for fine control over queries
   sample: /files/essential-slick-3-preview.pdf
 ---
 
+## Overview
+
+We've seen that developers using Slick for the first time often
+need help getting started with the library.
+
+For example, there are unfamiliar concepts to learn and work with, such as
+_database actions_. This book gives an understanding of how to work with Slick by walking through the common tasks,
+explaining the methods and types you see, and providing exercises.
+
+## Prerequisites
+
+To benefit from this material you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](../essential-scala) as the perfect complement to this course.
+
+## Learning Outcomes
+
+- Practical knowledge of working with Slick applications
+- Understanding the core concepts required to work with Slick
+- Knowing how to use Slicks features for selecting and modifying data
+- Modelling schemas in Slick
+- Making use of the Scala type system with Slick
+- Working with lower-level Plain SQL for fine control over queries

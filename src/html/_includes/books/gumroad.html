@@ -21,15 +21,14 @@
   <div class="book-product-description">
     {{ include.product.description | markdownify }}
   </div>
-  <p class="book-product-purchase" style="clear:right;">
+  <p class="book-product-purchase">
     {% if include.product.comingSoon %}
       <a class="btn btn-warning btn-block" href="/contact?subject={{ "Let me know when the " | urlencode }}{{ include.book.title | urlencode }}{{ " book is ready!" | urlencode }}">
         Coming soon
       </a>
     {% else %}
       <a class="btn btn-primary btn-block"
-         data-tracking-id="{{ include.book.title }} Gumroad"
-         href="{{ include.product.url }}" >
+         href="{{ include.product.url }}">
         {% if include.product.buttonLabel %}
           {{ include.product.buttonLabel }}
         {% else %}
@@ -38,4 +37,15 @@
       </a>
     {% endif %}
   </p>
+  {% if include.book.bookPage.sample %}
+    <p class="book-sample-download">
+      <a class="btn btn-warning btn-block ga-link"
+         data-category="book"
+         data-action="sample-download"
+         data-label="{{ include.book.title }}"
+         href="{{ include.book.bookPage.sample }}">
+        Download free sample
+      </a>
+    </p>
+  {% endif %}
 </div>
