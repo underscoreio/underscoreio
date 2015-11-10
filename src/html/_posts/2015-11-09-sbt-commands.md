@@ -73,6 +73,18 @@ When you run an application from SBT and hit CTRL-C it, it normally quits to you
 cancelable in Global := true
 ~~~
 
+## Latest Dependencies
+
+Ivy dependencies allow you to select "latest.integration" as the revision number:
+
+~~~ scala
+addSbtPlugin("org.ensime" % "ensime-sbt" % "latest.integration")
+~~~
+
+This will give you the latest and greatest version.
+Use it for global plugins (see below) for you development environment.
+Avoid it for core build dependencies because you want a reproducible build at all times.
+
 ##  The Place for Everything
 
 SBT allows you to configure global settings and plugins for use in all your projects.
@@ -90,10 +102,10 @@ Here are some useful examples of what you might do in each file:
 
 ~~~ bash
 $ cat ~/.sbt/0.13/plugins/build.sbt
-addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.5")
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "latest.integration")
 addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
-addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.6.0")
-addSbtPlugin("org.ensime" % "ensime-sbt" % "0.1.7")
+addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "latest.integration")
+addSbtPlugin("com.orrsella" % "sbt-sublime" % "latest.integration")
 
 $ cat ~/.sbt/0.13/global.sbt
 net.virtualvoid.sbt.graph.Plugin.graphSettings
