@@ -96,7 +96,6 @@ addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.6.0")
 addSbtPlugin("org.ensime" % "ensime-sbt" % "0.1.7")
 
 $ cat ~/.sbt/0.13/global.sbt
-resolvers += "Type" at "http://repo.typesafe.com/typesafe/maven-releases"
 net.virtualvoid.sbt.graph.Plugin.graphSettings
 triggeredMessage in ThisBuild := Watched.clearWhenTriggered
 cancelable in Global := true
