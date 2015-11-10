@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+{% include navbar.html class="navbar-fixed" %}
+
+<div class="hero book-hero" style="background: {{ page.color }}">
+  <div class="overlay-gem-left-white"></div>
+  <div class="overlay-gem-right-white"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  {% include navbar.html class="navbar-inverse" %}
+
+  <header class="hero-text">
+    <div class="container">
+      <h1>
+        <a class="back-link" href="/books">
+          {{ page.title }}
+          <span class="icon-uio-back"></span>
+        </a>
+      </h1>
+    </div>
+  </header>
+</div>
+
+<section class="container">
+  <div class="row">
+    <div class="col-sm-8{% if page.bookPage.showSidebar %}{% else %} col-sm-offset-2{% endif %}">
+      <article class="book-content">
+      {{content}}
+      </article>
+    </div>
+    {% if page.bookPage.showSidebar %}
+    <div class="col-sm-4">
+      <aside class="book-sidebar">
+      {% if page.products.size > 0 %}
+        <div class="row book-products">
+          {% if page.products.selfDirected %}
+            <div class="{{ categoryClass }}" >
+              <div class="panel panel-gray">
+                <div class="panel-body">
+                  {% for productPair in page.products.selfDirected %}
+                    {% assign product = productPair[1] %}
+                    {% include books/product.html book=page product=product class=productClass %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+      </aside>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% include footer.html %}

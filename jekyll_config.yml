@@ -24,6 +24,10 @@ safe                  : false
 highlighter           : pygments
 
 collections:
+  books:
+    output: true
+    permalink: /books/:path/
+    layout: default
   courses:
     output: true
     permalink: /training/courses/:path/
