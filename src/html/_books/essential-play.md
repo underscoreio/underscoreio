@@ -23,6 +23,7 @@ products:
         Download the textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
+  sample: https://s3-us-west-2.amazonaws.com/book-sample/essential-play-preview.pdf
 ---
 
 ## Overview

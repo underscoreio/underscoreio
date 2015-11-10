@@ -20,7 +20,7 @@ products:
         Download the book complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-  sample: /files/essential-slick-3-preview.pdf
+  sample: https://s3-us-west-2.amazonaws.com/book-sample/essential-slick-3-preview.pdf
 ---
 
 ## Overview
