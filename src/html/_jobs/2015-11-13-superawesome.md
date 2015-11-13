@@ -10,7 +10,7 @@ remote: No
 admin: jan@mewe.com
 application_url: https://superawesome.workable.com/jobs/154770
 instructions: |
-  Use the button below to send us an email including your CV, the position you're applying for, and anything else you might want to say.
+  Apply online. Click "Apply Now" below to get started.
 ---
 
 <!-- break -->
