@@ -5,7 +5,7 @@ company: SuperAwesome
 location: London
 level: Intermediate, Senior
 summary: |
-  Want to work for a startup in London? SuperAwesome (www.superawesome.tv) are looking for someone to help in the development of a unique kid-safe marketing platform that is changing the way kids engage in the space both on the web & on mobile.
+  Want to work for a startup in London? [SuperAwesome](http://www.superawesome.tv) are looking for someone to help in the development of a unique kid-safe marketing platform that is changing the way kids engage in the space both on the web & on mobile.
 remote: No
 admin: jan@mewe.com
 application_url: https://superawesome.workable.com/jobs/154770
