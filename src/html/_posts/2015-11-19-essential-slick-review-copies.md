@@ -8,7 +8,7 @@ All the chapters for [Essential Slick] are complete for Slick 3.
 We are also making some copies available for review this month.
 
 [Essential Slick]: http://underscore.io/books/essential-slick/
-[sign up form]: http://example.org/---todo
+[sign up form]: http://goo.gl/forms/ThwvGjpl35
 
 <!-- break -->
 
