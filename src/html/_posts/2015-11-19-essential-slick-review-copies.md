@@ -12,7 +12,7 @@ We're now also making some copies available for review.
 
 <!-- break -->
 
-# What's new?
+# What's New?
 
 When we started writing Essential Slick, Slick 2.1 was out and work was progressing on Slick 2.2.
 The 2.2 version turned out to be a large change---so large that it became Slick 3.
@@ -22,6 +22,8 @@ The latest addition to the book has been to add a chapter on _action combinators
 These allow you to combine multiple queries into a single, runnable action,
 possibly making choices based in the results of other queries.
 This is an important part of Slick, and it deserved a chapter to itself.
+
+We're still marking the book as "Early Access" until we get rid of all the typos. But we're "feature complete".
 
 But even if you're still using Slick 2 (I've been working on a project that does), Essential Slick can help.
 We bundle a version of the book for Slick 2 with the Essential Slick downloads. So you get both.
