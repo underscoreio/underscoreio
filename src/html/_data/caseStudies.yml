@@ -90,29 +90,4 @@
 
     The team was subsequently retained, and increased in size, for further development of the concept.
 
-- name: Myna
-  sector: Marketing
-  role: Complete delivery of high performance product
-  tech: Scala, Redis, MongoDB
-  logo: TODO
-  url: http://mynaweb.com/
-  title: A new approach to A/B testing
-  description: |
-    Myna is a new approach to A/B testing.
-    A/B testing is a method for improving conversion rates of web sites.
-    Myna applies machine learning algorithms to dramatically improve on current industry best practice.
-    Myna is a startup venture by two Underscore partners.
-
-    The entire product, excluding a few pieces of artwork, has been developed in-house by two Underscore founders over a period of about six months.
-    Although it’s too early to tell if Myna will be commercial success, it has already proven phenomenally successful from a technical point of view.
-
-    The most technically demanding aspect of Myna is the API server.
-    Every web page displayed by a customer of Myna results to a call to the Myna API server.
-    Hence the API server must be very fast and stable to avoid causing problems on customers’ sites.
-
-    Currently the server is hosted on low specification VMs (1.5GB RAM, single core).
-    Average response time is steady at just over 2ms, with 99th percentile response time of about 5ms.
-    Average load is 1-2 hits per second, there are frequent spikes over 5 hits per second, and peak load to date was over 30 hits per second.
-    At no time has the API server shown difficulty handling this traffic.
-    There have been no timeouts, and in fact the response time barely changes when load increases.
 
