@@ -32,17 +32,6 @@ For example, there are unfamiliar concepts to learn and work with, such as
 _database actions_. This book gives an understanding of how to work with Slick by walking through the common tasks,
 explaining the methods and types you see, and providing exercises.
 
-## Early Access Book
-
-This book is an Early Access edition, and covers Slick 3.  All chapters are complete, but we may still make corrections.
-
-Formats: PDF, EPUB, and HTML.
-
-Estimated final size: 130 pages.
-
-As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter.
-
-Your purchase also includes a copy of Essential Slick for Slick 2.1 (completed in July 2015).
 
 ## Prerequisites
 
