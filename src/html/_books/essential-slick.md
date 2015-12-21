@@ -20,20 +20,38 @@ products:
         Download the book complete with exercises and solutions, in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-  sample: https://s3-us-west-2.amazonaws.com/book-sample/essential-slick-3-preview.pdf
+  sample: https://s3-us-west-2.amazonaws.com/book-sample/essential-slick-3-preview-with-full-toc.pdf
 ---
 
 ## Overview
+
+Essential Slick is a guide to building application using the Slick database library.
+It is aimed at Scala developers who need to become productive with Slick quickly.
+
+The book covers Slick 3 and purchases include a version for Slick 2.
+
+
+## Praise for Essential Slick
+
+> "I’ve found the book to be highly informative---and, if you’re using Slick, necessary, compared to the other Slick resources out there. Highly recommended."
+
+> "Having worked in Scala almost 2 years, but never used Slick, I recommend this book. It got me up and running quickly."
+
+> "This book is the missing Slick documentation. I like the style and clear content."
+
+Read full reviews from [Yann Simon](http://yanns.github.io/blog/2015/12/07/review-of-essential-slick/),
+[Joe Ottinger](http://enigmastation.com/2015/11/20/essential-slick-review/), and
+the recommendation from [Debasish Ghosh](https://twitter.com/debasishg/status/671038191969951745).
+
+## Prerequisites
 
 We've seen that developers using Slick for the first time often
 need help getting started with the library.
 
 For example, there are unfamiliar concepts to learn and work with, such as
-_database actions_. This book gives an understanding of how to work with Slick by walking through the common tasks,
+_database actions_.
+This book gives an understanding of how to work with Slick by walking through the common tasks,
 explaining the methods and types you see, and providing exercises.
-
-
-## Prerequisites
 
 To benefit from this material you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](../essential-scala) as the perfect complement to this book.
 
