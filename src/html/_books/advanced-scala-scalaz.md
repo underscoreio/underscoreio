@@ -28,6 +28,7 @@ products:
         Download Advanced Scala along with additional material on building interpreters. Both books come in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
+  sample: https://s3-us-west-2.amazonaws.com/book-sample/advanced-scala-preview-with-full-toc.pdf  
 ---
 
 ## Overview
