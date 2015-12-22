@@ -66,7 +66,7 @@ To benefit from this material you will need to know the fundamentals of the Scal
 
 ## Introductory Video
 
-Dave Gurnell ran a hands-on workshop at Scala Exchange 2015 based on the material in this book. Check out the video below for a broad, shallow introduction to the concepts discussed in the book:
+Dave Gurnell ran a hands-on workshop at Scala Exchange 2015 based on the material in this book. Check out the video below for broad, brief tour of the concepts discussed in depth in the book:
 
 <iframe src="https://player.vimeo.com/video/148074461?title=0&amp;byline=0&amp;portrait=0"
         width="500"

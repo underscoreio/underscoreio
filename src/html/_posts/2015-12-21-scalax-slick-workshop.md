@@ -4,7 +4,7 @@ title: "Video from the Slick Workshop at Scala Exchange 2015"
 author: "Dave Gurnell"
 ---
 
-My workshop at Scala Exchange was entitled "Essential Slick: Hands-On with Slick 3". In my experience, Slick is routinely difficult for new Scala developers to pick up. This workshop provides a light introduction to the main concepts in the library, with more in-depth information available in [Richard and Jonathan's book][book]. You can find a video of the talk and links to the content after the break:
+My workshop at Scala Exchange was entitled "Essential Slick: Hands-On with Slick 3". In my experience, Slick is routinely difficult for new Scala developers to pick up. This workshop provides a broad, brief introduction to the main concepts in the library, with more in-depth information available in [Richard and Jonathan's book][book]. You can find a video of the talk and links to the code samples after the break:
 
 <!-- break -->
 
