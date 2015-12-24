@@ -1,0 +1,30 @@
+---
+layout: default
+title:  Books
+navbar: books
+---
+
+{% include hero.html title="Books" %}
+
+<section class="container book-directory">
+  <article>
+    <div class="row">
+      {% for bookId in site.data.books %}
+        {% for book in site.books %}
+          {% if book.id == bookId %}
+            <div class="col-sm-6 col-md-4">
+              {% include books/excerpt.html book=book %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      {% assign lastRowWidth = site.data.books.size | modulo:3 | times:4 %}
+    </div>
+  </article>
+</section>
+
+<script>
+  uio.bookDirectory.init(".book-directory")
+</script>
+<!-- Add something here about what our books include, formats, lifetime updates. -->
+{% include footer.html %}

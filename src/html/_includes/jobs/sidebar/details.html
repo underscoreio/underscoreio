@@ -53,8 +53,10 @@
       <strong>How to Apply</strong>
       <div class="job-instructions">{{ include.job.instructions | markdownify }}</div>
       <p>
-        <a class="btn btn-block btn-info btn-job-apply"
-           data-tracking-id="{{ tracking_id }}"
+        <a class="btn btn-block btn-info ga-link"
+           data-category="job"
+           data-action="application-outbound"
+           data-label="{{ tracking_id }}"
            {% if include.job.email %}
            href="mailto:{{ include.job.email }}?subject={{ include.job.title | urlify }}{{ " (via Underscore) " | urlify }}"
            {% endif %}
@@ -69,7 +71,3 @@
     </div>
   </div>
 </aside>
-
-<script>
-  uio.jobSidebar.init(".job-sidebar")
-</script>

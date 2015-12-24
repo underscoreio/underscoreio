@@ -49,20 +49,6 @@ We've seen that developers using Slick for the first time often need help gettin
 For example, there are unfamiliar concepts to learn and work with, such as _database actions_.
 This text gives an understanding of how to work with Slick by walking through the common tasks, explaining the methods and types you see, and providing exercises.
 
-## Early Access Book
-
-This book is an Early Access edition, and covers Slick 3.
-
-Chapters 1, 2, 3, 4 and 6 are available.
-
-Formats: PDF, EPUB, and HTML.
-
-Estimated final size: 120 pages.
-
-As a early access customer you will receive a free copy of the final text when it is released, plus free lifetime updates thereafter.
-
-Your purchase also includes a copy of Essential Slick for Slick 2.1 (completed in July 2015).
-
 ## Learning Outcomes
 
 - Practical knowledge of working with Slick applications
@@ -72,72 +58,31 @@ Your purchase also includes a copy of Essential Slick for Slick 2.1 (completed i
 - Making use of the Scala type system with Slick
 - Working with lower-level Plain SQL for fine control over queries
 
-## Abbreviated Table of Contents
-
-1. Basics
-   - Orientation
-   - Running the Examples and Exercises
-   - Example: A Sequel Odyssey
-   - Take Home Points
-   - Exercise: Bring Your Own Data
-
-2. Selecting Data
-   - Select All The Rows!
-   - Filtering Results: The filter Method
-   - The Query and TableQuery Types
-   - Transforming Results: The map Method
-   - Running Queries
-   - Column Expressions
-   - Controlling Queries: Sort, Take, and Drop
-   - Take Home Points
-   - Exercises
-
-3. Creating and Modifying Data
-   - Inserting Data
-   - Updating Rows
-   - Action Combinators
-   - Deleting Rows
-   - Transactions
-   - Logging Queries and Results
-   - Take Home Points
-   - Exercises
-
-4. Data Modelling
-    - Application Structure
-    - Representations for Rows
-    - Table and Column Representation
-    - Custom Column Mappings
-    - Value Classes
-    - Sum Types
-    - Take Home Points
-
-5. Joins and Aggregates
-    - Applicative Joins
-    - Monadic Joins
-    - Zip Joins
-    - Joins Summary
-    - Seen Any Scary Queries?
-    - Aggregation
-    - Take Home Points
-    - Exercises
-
-6. Plain SQL
-    - Selects
-    - Updates
-    - Type Checked Plain SQL
-    - Take Home Points
-    - Exercises
-
-Appendix A: Using Different Database Products
-
-Appendix B: Solutions to Exercises
-
-## Sample Chapters
-
-Chapters 1 and 2 are available as a [free PDF preview download](/files/essential-slick-3-preview.pdf).
-
-
 ## Prerequisites
 
-To benefit from this material you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
+To benefit from this material you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](../essential-scala) as the perfect complement to this course.
 
+## Introductory Video
+
+Dave Gurnell ran a hands-on workshop at Scala Exchange 2015 based on the material in this course. Check out the video below for a broad, brief tour of the concepts discussed in depth in the course:
+
+<iframe src="https://player.vimeo.com/video/148074461?title=0&amp;byline=0&amp;portrait=0"
+        width="500"
+        height="313"
+        frameborder="0"
+        style="display: block; margin: 1em auto"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen></iframe>
+
+- 0:00 - *Introduction.* Housekeeping etc.
+- 3:30 - *Tables.* Mapping Scala data types onto the database.
+- 23:30 - *Queries.* Selecting data, query types, query combinators.
+- 46:30 - *Actions.* Inserting/updating/deleting, sequencing actions, transactions.
+- 1:17:30 - *Joins.* Selecting data from multiple tables.
+- 1:34:50 - *Profiles.* Selecting profiles,  writing database-generic code.
+
+The slides and sample code for the workshop can be found [on our Github account][github]. If you have trouble with any of the exercises or getting set up, feel free to ask questions [on our Gitter channel][gitter].
+
+[github]: https://github.com/underscoreio/scalax15-slick
+[gitter]: https://gitter.im/underscoreio/scalax15-slick
