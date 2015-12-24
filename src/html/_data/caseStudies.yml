@@ -5,7 +5,9 @@
   logo:   "/images/customers/site-tour.png"
   title: A global marketplace for buying and selling targeted out-of-home media
   description: |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultrices venenatis nibh non vulputate. Maecenas at ultrices mi. Aliquam hendrerit nec tellus ac fermentum. Proin in viverra ligula. Praesent pharetra commodo quam. In faucibus, risus non dignissim vehicula, massa sem ullamcorper ipsum, vel sagittis eros tellus nec lectus.
+    <p>
+      <strong>TODO</strong>
+    </p>
 
 - name: Net-A-Porter
   sector: Retail
@@ -14,7 +16,10 @@
   logo: "/images/customers/nap.jpg"
   title: Premier online luxury fashion retailer
   description: |
-    TODO
+    <p>
+      <strong>TODO</strong>
+    </p>
+
 
 - name: Ascendant Compliance Management
   sector: Corporate
@@ -23,8 +28,9 @@
   logo: "/images/customers/acm.svg"
   title: Compliance and operational risk
   description: |
-    TODO
-
+    <p>
+      <strong>TODO</strong>
+    </p>
 
 
 - name: Queen Mary University of London
@@ -34,25 +40,51 @@
   logo:   "/images/customers/qmul.jpg"
   title: Clearing is the crunch day of the year at universities
   description: |
+    <p>
     You don't just need reliable technology, but a team to support you on the day
     for any eventualities. As Matthew Evans of QMUL describes it:
+    </p>
 
+    <p>
     "We commissioned Underscore to develop a recruitment dashboard for data entry and reporting during our yearly admissions cycle.
-    The software they created was delivered on time, and is easy to use and fast, It gives us accurate intake predictions in real-time, hours ahead of the estimates delivered by UCAS.
+    The software they created was delivered on time, and is easy to use and fast, It gives us accurate intake predictions in real-time, hours ahead of the estimates delivered by UCAS."
+    </p>
 
-    What's more, Underscore's on-site support rescued us at a critical phase during Clearing, when a networking failure rendered our campus single-sign-on service inoperable.
+    <p>
+    "What's more, Underscore's on-site support rescued us at a critical phase during Clearing, when a networking failure rendered our campus single-sign-on service inoperable.
     Their support team quickly responded to the crisis, implementing a standalone login and saving us from a potential crisis.
+    </p>
 
-    We thoroughly recommend Underscore as a software development partner for mission critical application development."
+    <p>
+    "We thoroughly recommend Underscore as a software development partner for mission critical application development."
+    </p>
 
-- name: TigerTap
+- name: Tigertap
   sector: Media
   role: Complete Product Delivery, AWS Hosting
   tech: Scala, Lift, Postgres
   logo: "/images/customers/tigertap.jpg"
   title: Meaningful mobile interactions
   description: |
-    TODO
+    <p>
+    Tigertap is a platform for easily creating mobile marketing interactions.
+    Campaigns include simple information look up, through quizes and competitions, data capture, to coupons and loyalty cards.
+    These are rolled out at high profile events, such as sports events.
+    The service scales up for demand, and down to control cost.
+    </p>
+
+    <p>
+    Underscore provided all the software engineering and cloud delivery effort,
+    including performance testing and on-the-day event support.
+    The product consists of two main components:
+    a real-time administrative interface to control and monitor campaigns;
+    and a REST API for mobile clients to interact with.
+    </p>
+
+    <p>
+    A key aspect of the work was maintaining a coherent design in the face of changing requirements.
+    This enabled us to easily extend the platform as the product grew.
+    </p>
 
 - name: Pure 360
   sector: Marketing
@@ -61,7 +93,8 @@
   logo: "/images/customers/pure360.jpg"
   title: A new platform for new demands
   description: |
-    TODO
+    <p>
+    </p>
 
 - name: JHC Systems
   sector: Finance
@@ -70,8 +103,10 @@
   logo: "/images/customers/jhc.jpg"
   title: Bringing a new team and product up to speed
   description: |
-    TODO
+    <p>
+    <strong>TODO</strong>
     What's with the Figaro logo?
+    </p>
 
 - name: Identive
   sector: IoT
@@ -81,13 +116,17 @@
   url: http://www.identiv.com/press-releases/press/identives-nfc-business-expands-with-new-nfc-tag-orders-and-commercial-deployments-of-tagtrail-services-delivery-platform/
   title: Platform to deploy, manage and measure NFC tags
   description: |
+    <p>
     Identive Group is a global provider of identification-based technologies and services, spanning physical and logical access control, identity management and near field communications.
     Identive's TagTrail product allows customers to deploy, manage and measure NFC tags, with fixed and dynamic content.
+    </p>
 
+    <p>
     Underscore were commissioned to consult and implement the initial vision of TagTrail.
     Two senior developers were assigned to work with the Identive team in France, Germany, the US, and the Netherlands.
     Work and priorities were reviewed and agreed approximately every 7-10 days, and delivered and deployed to support an iterative MVP approach to product development.
+    </p>
 
+    <p>
     The team was subsequently retained, and increased in size, for further development of the concept.
-
-
+    </p>
