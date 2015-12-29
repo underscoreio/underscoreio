@@ -9,6 +9,33 @@
       <strong>TODO</strong>
     </p>
 
+- name: HSBC
+  sector: Finance
+  role: Complete Software Development, Agile Lead
+  tech: Scala, Akka, Lift
+  logo:   "/images/customers/hsbc.svg"
+  title: OTC trading platform
+  description: |
+    <p>
+    As a result of changes to legislation arising from the credit crisis,
+    HSBC now offers clients the ability to clear trades through clearing houses in various regions worldwide.
+    Underscore built HSBC's Clearing Connectivity Layer and OTC Cleared Trade Acceptance System,
+    starting with the London Clearing House, closely followed by the Chicago Mercantile Exchange,
+    the Intercontinental Exchange, and the Eurex Exchange.
+    </p>
+
+    <p>
+    Underscore's founding partners and associates built the entire system from scratch.
+    An initial deadline to meet LCH technical tests were met within 6 weeks and a complete system went live in 10 weeks.
+    The team continued to work on the platform for a further 18 months.
+    </p>
+
+    <p>
+    The solution included: connectivity for trade acceptance; trade affirmation platform and client reporting portal;
+    integration with back­office systems for trade booking; margin calculation engine;
+    automatic trade acceptance and straight through processing (STP)
+    </p>
+
 - name: Net-A-Porter
   sector: Retail
   role: Embedded Team Development, Mentoring
@@ -117,14 +144,18 @@
   title: Platform to deploy, manage and measure NFC tags
   description: |
     <p>
-    Identive Group is a global provider of identification-based technologies and services, spanning physical and logical access control, identity management and near field communications.
-    Identive's TagTrail product allows customers to deploy, manage and measure NFC tags, with fixed and dynamic content.
+    Identive Group is a global provider of identification-based technologies and services,
+    spanning physical and logical access control, identity management and near field communications.
+    Identive's TagTrail product allows customers to deploy, manage and measure NFC tags,
+    with fixed and dynamic content.
     </p>
 
     <p>
     Underscore were commissioned to consult and implement the initial vision of TagTrail.
-    Two senior developers were assigned to work with the Identive team in France, Germany, the US, and the Netherlands.
-    Work and priorities were reviewed and agreed approximately every 7-10 days, and delivered and deployed to support an iterative MVP approach to product development.
+    Two senior developers were assigned to work with the Identive team in France,
+    Germany, the US, and the Netherlands.
+    Work and priorities were reviewed and agreed approximately every 7-10 days,
+    and delivered and deployed to support an iterative MVP approach to product development.
     </p>
 
     <p>
