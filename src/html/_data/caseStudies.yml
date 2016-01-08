@@ -2,18 +2,28 @@
   sector: Media
   role: Software Development, Code Review
   tech: Scala, Scalaz, Spray, Doobie, Akka
-  logo:   "/images/customers/site-tour.png"
-  title: A global marketplace for buying and selling targeted out-of-home media
+  logo: "/images/customers/site-tour.png"
+  title: A global marketplace for targeted out-of-home media
   description: |
     <p>
-      <strong>TODO</strong>
+    If you want to run an advertising campaign on billboards, you might well turn to Sitetour to source the sites.
+    Their technology allows site selection based on a variety of factors, of which location is just one.
+    </p>
+    <p>
+    Underscore were asked to carry out a code review of the product.
+    This was to give assurance to Sitetour that there code was of the quality they demand.
+    </p>
+    <p>
+    When the London office opened, Underscore also supplemented their internal team with two senior developers.
+    This added expertise in the functional and type-rich style of coding the project had adopted.
+    In addition to technical contributions, we helped participated in the formation of working practices and team culture.
     </p>
 
 - name: HSBC
   sector: Finance
   role: Complete Software Development, Agile Lead
   tech: Scala, Akka, Lift
-  logo:   "/images/customers/hsbc.svg"
+  logo: "/images/customers/hsbc.svg"
   title: OTC trading platform
   description: |
     <p>
@@ -23,17 +33,15 @@
     starting with the London Clearing House, closely followed by the Chicago Mercantile Exchange,
     the Intercontinental Exchange, and the Eurex Exchange.
     </p>
-
     <p>
     Underscore's founding partners and associates built the entire system from scratch.
     An initial deadline to meet LCH technical tests were met within 6 weeks and a complete system went live in 10 weeks.
     The team continued to work on the platform for a further 18 months.
     </p>
-
     <p>
     The solution included: connectivity for trade acceptance; trade affirmation platform and client reporting portal;
-    integration with back­office systems for trade booking; margin calculation engine;
-    automatic trade acceptance and straight through processing (STP)
+    integration with backoffice systems for trade booking; margin calculation engine;
+    automatic trade acceptance and straight through processing (STP).
     </p>
 
 - name: Net-A-Porter
@@ -44,44 +52,60 @@
   title: Premier online luxury fashion retailer
   description: |
     <p>
-      <strong>TODO</strong>
+    Large organizations adopting Scala need to make their teams productive quickly.
+    And they need to do this repeatedly.
     </p>
-
+    <p>
+    Underscore helped them succeed with a combination of training and team support.
+    Our Embedded Team Mentoring service works by first training the team in the core skills they need.
+    Then, we spend a few days a week with the team as they implement a business feature.
+    We review progress, code commits, and give break-out sessions on topics that need further exploration.
+    </p>
+    <p>
+    This is how companies like Net-A-Porter can take a team and fast track them to delivering good quality working code.
+    </p>
 
 - name: Ascendant Compliance Management
   sector: Corporate
-  role: Software Development
+  role: Remote Software Development
   tech: Scala, Lift, MongoDB
   logo: "/images/customers/acm.svg"
   title: Compliance and operational risk
   description: |
     <p>
-      <strong>TODO</strong>
+    When you're the leader in the compliance and regulatory services industry,
+    you need to keep pushing your product forward.
+    And in that case, sometimes you need extra hands to add and improve features.
     </p>
-
+    <p>
+    Underscore was able to supply an expert in the technology in use,
+    and the individual is able to work remotely as part of the team.
+    Features are sketched out, delivered, and put into production.
+    </p>
+    <p>
+    Both Underscore and ACM have plenty of experience with remote work.
+    The trick is effective communication, and being a good fit into the team culture.
+    </p>
 
 - name: Queen Mary University of London
   sector: Education
   role: Complete Product Delivery
-  tech: Scala, Play, CoffeeScript, Postgres
-  logo:   "/images/customers/qmul.jpg"
+  tech: Scala, Play, Slick, Postgres
+  logo: "/images/customers/qmul.jpg"
   title: Clearing is the crunch day of the year at universities
   description: |
     <p>
     You don't just need reliable technology, but a team to support you on the day
     for any eventualities. As Matthew Evans of QMUL describes it:
     </p>
-
     <p>
     "We commissioned Underscore to develop a recruitment dashboard for data entry and reporting during our yearly admissions cycle.
     The software they created was delivered on time, and is easy to use and fast, It gives us accurate intake predictions in real-time, hours ahead of the estimates delivered by UCAS."
     </p>
-
     <p>
     "What's more, Underscore's on-site support rescued us at a critical phase during Clearing, when a networking failure rendered our campus single-sign-on service inoperable.
-    Their support team quickly responded to the crisis, implementing a standalone login and saving us from a potential crisis.
+    Their support team quickly responded to the crisis, implementing a stand-alone login and saving us from a potential crisis.
     </p>
-
     <p>
     "We thoroughly recommend Underscore as a software development partner for mission critical application development."
     </p>
@@ -95,11 +119,10 @@
   description: |
     <p>
     Tigertap is a platform for easily creating mobile marketing interactions.
-    Campaigns include simple information look up, through quizes and competitions, data capture, to coupons and loyalty cards.
+    Campaigns include simple information look up, through quizzes and competitions, data capture, to coupons and loyalty cards.
     These are rolled out at high profile events, such as sports events.
     The service scales up for demand, and down to control cost.
     </p>
-
     <p>
     Underscore provided all the software engineering and cloud delivery effort,
     including performance testing and on-the-day event support.
@@ -107,7 +130,6 @@
     a real-time administrative interface to control and monitor campaigns;
     and a REST API for mobile clients to interact with.
     </p>
-
     <p>
     A key aspect of the work was maintaining a coherent design in the face of changing requirements.
     This enabled us to easily extend the platform as the product grew.
@@ -115,24 +137,52 @@
 
 - name: Pure 360
   sector: Marketing
-  role: Team Mentoring, API Consulting
+  role: Team Mentoring, API Consulting, Code Review
   tech: Scala, Play, MySQL
   logo: "/images/customers/pure360.jpg"
   title: A new platform for new demands
   description: |
     <p>
+    You're building a great new team, but they have limited experience of Scala and the Scala ecosystem.
+    What do you do?
+    </p>
+    <p>
+    Underscore helped by training the team to put everyone on the same page,
+    and then continued that support with Q&A, code review, remote pair programming.
+    This kind of mentoring isn't just about specific technical questions.
+    It's also about helping individuals approach their work with a Scala mind set,
+    to make the most of the language and platform.
+    </p>
+    <p>
+    Scheduling this kind of developer support is not without issues,
+    but it does pay off when a developer reports that a sessions gives "as exactly what [they] needed help with".
     </p>
 
 - name: JHC Systems
   sector: Finance
   role: Scala Adoption, Embedded Team Development
-  tech: Scala, TODO
+  tech: Scala, JDBC, DB2
   logo: "/images/customers/jhc.jpg"
   title: Bringing a new team and product up to speed
   description: |
     <p>
-    <strong>TODO</strong>
-    What's with the Figaro logo?
+    JHC is an technology and consulting expert for financial markets.
+    As an IBM partner, their core systems run on IBM i for Power systems using DB2.
+    </p>
+    <p>
+    Underscore's initial involvement was to help assess Scala as a viable platform for building a new product.
+    Later, a partner was placed with the core team to help them import the experience they needed.
+    In particular, this was focused on a database framework to be rolled out to teams around the company,
+    dealing with features specific to DB2.
+    </p>
+    <p>
+    As Ian Haines, CTO, JHC Systems Limited put it:
+    Underscore "took a very active part in our project" and "became a key member of the team."
+    </p>
+    <p>
+    "We have ended up with some very clever and idiomatic Scala code
+    which aims to give the developers a comprehensible view of our application domain
+    while generating efficient JDBC queries to run over our database."
     </p>
 
 - name: Identive
@@ -149,7 +199,6 @@
     Identive's TagTrail product allows customers to deploy, manage and measure NFC tags,
     with fixed and dynamic content.
     </p>
-
     <p>
     Underscore were commissioned to consult and implement the initial vision of TagTrail.
     Two senior developers were assigned to work with the Identive team in France,
@@ -157,7 +206,6 @@
     Work and priorities were reviewed and agreed approximately every 7-10 days,
     and delivered and deployed to support an iterative MVP approach to product development.
     </p>
-
     <p>
     The team was subsequently retained, and increased in size, for further development of the concept.
     </p>
