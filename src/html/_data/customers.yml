@@ -1,5 +1,5 @@
 - name:   Ascendant Compliance Management
-  logo:   "/images/customers/acm.svg"
+  logo:   "/images/customers/acm.png"
   url:    "http://www.ascendantcompliance.com"
   retina: false
   promo:  false
@@ -26,7 +26,7 @@
   logo:   "/images/customers/gottex.jpg"
   url:    "http://www.gottexbrokers.com"
   retina: false
-  promo:  true
+  promo:  false
 
 - name:   Government Digital Service
   logo:   "/images/customers/gds.jpg"
@@ -39,6 +39,13 @@
   url:    "http://speechlang.org"
   retina: true
   promo:  false
+
+- name:   HSBC
+  logo:   "/images/customers/hsbc.png"
+  role:   Complete Software Development, Agile Lead
+  url:    "http://hsbc.co.uk"
+  retina: true
+  promo:  true
 
 - name:   Identive
   logo:   "/images/customers/identive.jpg"
@@ -76,12 +83,6 @@
   retina: true
   promo:  false
 
-- name:   NET-A-PORTER
-  logo:   "/images/customers/nap.jpg"
-  url:    "http://www.net-a-porter.com"
-  retina: true
-  promo:  false
-
 - name:   Pure 360
   logo:   "/images/customers/pure360.jpg"
   url:    "http://pure360.com"
@@ -116,11 +117,17 @@
   logo:   "/images/customers/site-tour.png"
   url:    "http://sitetour.co"
   retina: false
-  promo:  true
+  promo:  false
 
 - name:   Tigertap
   logo:   "/images/customers/tigertap.jpg"
   url:    "http://tigertap.com"
   retina: false
   promo:  false
+
+- name:   "Yoox Net-A-Porter Group"
+  logo:   "/images/customers/nap.png"
+  url:    "http://www.net-a-porter.com"
+  retina: true
+  promo:  true
 

@@ -23,7 +23,7 @@
   sector: Finance
   role: Complete Software Development, Agile Lead
   tech: Scala, Akka, Lift
-  logo: "/images/customers/hsbc.svg"
+  logo: "/images/customers/hsbc.png"
   title: OTC trading platform
   description: |
     <p>
@@ -44,11 +44,11 @@
     automatic trade acceptance and straight through processing (STP).
     </p>
 
-- name: Net-A-Porter
+- name: Yoox Net-A-Porter Group
   sector: Retail
   role: Embedded Team Development, Mentoring
   tech: Scala, Spray, Slick
-  logo: "/images/customers/nap.jpg"
+  logo: "/images/customers/nap.png"
   title: Premier online luxury fashion retailer
   description: |
     <p>
@@ -69,7 +69,7 @@
   sector: Corporate
   role: Remote Software Development
   tech: Scala, Lift, MongoDB
-  logo: "/images/customers/acm.svg"
+  logo: "/images/customers/acm.png"
   title: Compliance and operational risk
   description: |
     <p>

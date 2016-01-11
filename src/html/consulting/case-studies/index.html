@@ -10,21 +10,27 @@ navbar: consulting
   <article>
 
   {% for study in site.data.caseStudies %}
-  <div class="row">
+  <div class="row case-study">
     <div class="col-md-7">
       <h3>{{ study.title }}</h3>
       {{ study.description }}
     </div>
     <div class="col-md-4 col-md-offset-1">
-      <img style="display: block; margin: 0 auto;" src={{ study.logo }}>
-      <dl>
-        <dt>Sector</dt>
-          <dd>{{ study.sector }}</dd>
-        <dt>Role</dt>
-          <dd>{{ study.role }}</dd>
-        <dt>Technology</dt>
-          <dd>{{ study.tech }}</dd>
-      </dl>
+      <div class="panel panel-gray">
+        <div class="panel-body">
+          <img class="case-study-logo"
+                 src="{{ study.logo }}"
+                 alt="{{ study.title }}">
+          <dl>
+            <dt>Sector</dt>
+              <dd>{{ study.sector }}</dd>
+            <dt>Role</dt>
+              <dd>{{ study.role }}</dd>
+            <dt>Technology</dt>
+              <dd>{{ study.tech }}</dd>
+          </dl>
+        </div>
+      </div>
     </div>
   </div>
 
