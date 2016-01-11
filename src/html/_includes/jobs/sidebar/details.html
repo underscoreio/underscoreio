@@ -1,20 +1,34 @@
+{% if include.job.tracking_id %}
+  {% assign tracking_id = include.job.tracking_id %}
+{% else %}
+  {% assign tracking_id = include.job.url | replace_regex:'^\/jobs\/','' | replace_regex:'\/$','' %}
+{% endif %}
+
 <aside class="job-sidebar">
   <div class="job-details panel panel-gray">
     <div class="panel-body">
-      <h4>Job Details</h4>
+      <h4>Key Facts</h4>
 
       <dl class="dl-horizontal">
         <dt>Name</dt>
         <dd class="job-title">{{ include.job.title }}</dd>
 
+        <dt>Company</dt>
+        <dd class="job-title">{{ include.job.company }}</dd>
+
+        {% if include.job.level %}
+        <dt>Level</dt>
+        <dd class="job-level">{{ include.job.level }}</dd>
+        {% endif %}
+
         {% if include.job.commitment %}
         <dt>Commitment</dt>
-        <dd class="job-commitment">{{ include.job.commitment }}<dd>
+        <dd class="job-commitment">{{ include.job.commitment }}</dd>
         {% endif %}
 
         {% if include.job.salary %}
         <dt>Salary</dt>
-        <dd class="job-salary">{{ include.job.salary }}<dd>
+        <dd class="job-salary">{{ include.job.salary }}</dd>
         {% endif %}
 
         {% if include.job.location %}
@@ -27,19 +41,30 @@
         <dd class="job-remote">OK<dd>
         {% endif %}
 
+        {% comment %}
         {% if include.job.summary %}
         <dt>Summary</dt>
         <dd class="job-summary">{{ include.job.summary | markdownify }}</dd>
         {% endif %}
+        {% endcomment %}
       </dl>
 
-      {% if include.job.email %}
       {% if include.job.instructions %}
+      <strong>How to Apply</strong>
       <div class="job-instructions">{{ include.job.instructions | markdownify }}</div>
-      {% endif %}
       <p>
-        <a class="btn btn-block btn-info" href="mailto:{{ include.job.email }}">
-          Apply to {{ include.job.email }}
+        <a class="btn btn-block btn-info ga-link"
+           data-category="job"
+           data-action="application-outbound"
+           data-label="{{ tracking_id }}"
+           {% if include.job.email %}
+           href="mailto:{{ include.job.email }}?subject={{ include.job.title | urlify }}{{ " (via Underscore) " | urlify }}"
+           {% endif %}
+           {% if include.job.application_url %}
+           href="{{ include.job.application_url }}"
+           {% endif %}
+           >
+          Apply Now
         </a>
       </p>
       {% endif %}

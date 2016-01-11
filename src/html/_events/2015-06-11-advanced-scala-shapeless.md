@@ -11,7 +11,7 @@ navbar: events
 summary: |
   Miles Sabin leads a workshop into the design and use of *shapeless*.
 
-  This workshop takes place on the Friday following
+  This workshop takes place on the Thursday following
   [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015).
 bookingLinks:
   - text:  Sign up now - FREE<br>
@@ -21,6 +21,16 @@ bookingLinks:
            <small>(places awarded by lottery)</small>
     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
     class: "btn-warning"
+#   - text:  Sorry! Registration has closed.
+#     url:
+# banner: |
+#   <strong>Applications close at 11pm on Sunday 17th May (UK Time)!</strong><br>
+#   Unfortunately, due to high demand, this workshop is now over-subscribed.
+#   We will allocate places randomly until we reach capacity and
+#   contact all applicants on/before Tuesday 19th May.
+banner: |
+  Due to last minute cancellations, we have a few places left for this workshop.
+  <strong>Grab one while you can!</strong>
 ---
 
 ### What
@@ -37,8 +47,9 @@ The workshop will be led by shapeless author, Underscore partner, and Scala lumi
 ### Where and When
 
 The course will run from 9AM to 5PM on {{ page.date | date:'%a, %b %d, %Y' }}.
-The venue, a central location in Amsterdam near to the Scala Days conference venue,
-is to be announced.
+TomTom are kindly donating space for the workshop at their offices:
+
+> Oosterdoksstraat 114, 1011 DK Amsterdam
 
 ### What You Need
 

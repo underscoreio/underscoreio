@@ -35,7 +35,9 @@ sourceUrl:  http://www.casualmiracles.com/2012/05/03/a-small-example-of-the-type
 trait Transformer[T, R] {
   def transform(t: T): R
 }
+{% endhighlight %}
 
+{% highlight scala %}
 /* This is a companion object for the typeclass giving default
  * implementations for the typeclass. These implementations
  * are found after local implicits, so you can still override the
@@ -56,7 +58,11 @@ object Transformer {
         t.map(tToString.transform(_)).mkString(",")
     }
 }
+{% endhighlight %}
 
+Now to use the type class.
+
+{% highlight scala %}
 // This is something that makes use of the typeclass
 trait Transform {
   // The implicit Transformer, transformer, supplies an
@@ -65,7 +71,9 @@ trait Transform {
         implicit transformer: Transformer[T, R]): R =
     transformer.transform(t)
 }
+{% endhighlight %}
 
+{% highlight scala %}
 // These examples will drop back to the default implementations
 // in the Transformer's companion object
 object ExampleWithDefaults extends App with Transform {

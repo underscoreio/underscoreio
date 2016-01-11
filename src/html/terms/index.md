@@ -36,6 +36,14 @@ published on our [blog](http://underscore.io/blog), our [Github account](https:/
 and circulated over email or social media, are for educational and demonstration purposes only,
 and come with the following conditions:
 
+## Community Guidelines Commenting on Blog Posts {#comments}
+
+ - **Stay on topic** - This helps keep the thread focused on the discussion at hand. If you would like to discuss another topic, look for a relevant article or an &quot;open thread&quot;.
+ - **Be respectful of other commenters** - Meeting differences of opinion with civil discussion encourages multiple perspectives and a positive commenting environment.
+ - **Don't troll, and don't feed the trolls** - Carefully consider your response if you encounter a user who displays combative behaviors.
+ - **We reserve the right to remove comments** - Comments that we find to be abusive, spammy, off-topic, harassing, or inappropriate may be removed without notice.
+ - **[Contact us](/contact)** if you have questions or concerns.
+
 ### Copyright
 
 Underscore learning assets and program code are owned by or licenced by Underscore Consulting LLP.

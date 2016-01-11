@@ -7,7 +7,7 @@ icon: scala
 color: "#d62a7c"
 courseDirectory:
   level: Intermediate
-  length: 1 day
+  length: 2 days
   icons: [ book, public, private ]
 coursePage:
   showSidebar: true
@@ -29,16 +29,15 @@ products:
         Download the course textbook, along with advanced material on building interpreters. Both texts come in HTML, PDF, and ePub formats.
   instructorLed:
     public:
-      type: eventbrite
+      type: public
       title: "Public Courses"
       url: "http://underscore.io/events/"
       buttonLabel: "View upcoming events"
-      description: |
-        Courses are currently scheduled for San Francisco and Edinburgh in March.
+      comingSoon: true
     private:
       type: private
       title: "Private Courses"
-      buttonLabel: "Book now - {% currencies $3,000 £2,000 €2,800 %}"
+      buttonLabel: "Book now - {% currencies $7,500 £5,000 €7,000 %}"
 ---
 
 ## Overview

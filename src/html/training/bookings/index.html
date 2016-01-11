@@ -35,8 +35,14 @@ $courseOptions = Array(
   "course-custom" => "Custom (please specify below)"
 );
 
+$behalfOptions = Array(
+  "personal" => "On behalf of myself",
+  "company"  => "On behalf of my company"
+);
+
 $peopleOptions = Array(
-  "1-5-people"   => "1 to 5 people",
+  "1-person"     => "1 person",
+  "2-5-people"   => "2 to 5 people",
   "6-10-people"  => "6 to 10 people",
   "gt-10-people" => "More than 10 people"
 );
@@ -71,6 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'):
   $phone    = requestString('phone', 'Not specified');
   $location = requestString('location', 'Not specified');
   $notes    = requestString('notes', 'None specified');
+  $behalf   = requestLookup('behalf', $behalfOptions, 'Not specified');
   $people   = requestLookup('people', $peopleOptions, 'Not specified');
 
   $courses  = Array();
@@ -95,6 +102,7 @@ Phone: $phone
 Courses:
  - $allCourses
 
+On behalf of: $behalf
 People: $people
 Location: $location
 
@@ -187,6 +195,21 @@ endif;
               <label>
                 <input type="checkbox" name="<?= $courseId ?>">
                 <?= $courseLabel ?>
+              </label>
+            </div>
+        <?php endforeach; ?>
+        {% endraw %}
+          </div>
+
+          <div class="form-group">
+            <label>Are you booking on behalf of yourself or your company?</label>
+
+        {% raw %}
+        <?php foreach($behalfOptions as $behalfId => $behalfLabel): ?>
+            <div class="radio">
+              <label>
+                <input type="radio" name="behalf" value="<?= $behalfId ?>">
+                <?= $behalfLabel ?>
               </label>
             </div>
         <?php endforeach; ?>

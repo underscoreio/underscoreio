@@ -6,16 +6,19 @@ course: creative-scala
 location: Amsterdam
 date: 2015-06-08 09:00:00 CEST
 timezone: CEST
-duration: 8 hours
+duration: 6 hours
 cost: Free
 navbar: events
 summary: |
-  Dave Gurnell, Noel Welsh, and friends invite you to
-  warm up for with a fun, graphical, first look at Scala.
+  Dave Gurnell, Noel Welsh, and friends invite you to warm up for
+  [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015)
+  with a fun, graphical, first look at Scala.
 
-  This workshop takes place on the Monday prior to
-  [Scala Days](http://event.scaladays.org/scaladays-amsterdam-2015).
+  This workshop takes place on the Monday prior to Scala Days.
   We'll spend the day drawing and be finished in time for registration at 4pm!
+# bookingLinks:
+#   - text:  Sorry! Registration has closed.
+#     url:
 bookingLinks:
   - text:  Sign up as a student - FREE<br>
            <small>(places awarded by lottery)</small>
@@ -26,6 +29,11 @@ bookingLinks:
   - text:  Become a teaching assistant
     url:   https://docs.google.com/forms/d/1mDQUC_-9E6tENOVpt8fAFFaRRh-y_K9Gm-JL0_St4oY/viewform
     class: "btn-warning"
+# banner: |
+#   <strong>Sorry!</strong> Registration for this workshop has now closed.
+banner: |
+  Due to last minute cancellations, we have a few places left for this workshop.
+  <strong>Grab one while you can!</strong>
 ---
 
 ### What
@@ -82,8 +90,9 @@ with the assistance of members of the Scala community.
 ### Where and When
 
 The course will run from 9AM to 3.30PM on {{ page.date | date:'%a, %b %d, %Y' }}.
-The venue, a central location in Amsterdam near to the Scala Days conference venue,
-is to be announced.
+Treatwell are kindly donating space for the workshop at their offices:
+
+> Nieuwezijds Voorburgwal 120-126, 1012 SH Amsterdam
 
 ### What You Need
 

@@ -9,11 +9,9 @@ $.expr[':'].parents = (a,i,m) ->
 VALID_CURRENCIES = [ 'usd', 'gbp' ,'eur' ]
 
 get = ->
-  console.log('get')
   storage.get('Currency', 'usd')
 
 set = (id) ->
-  console.log('set', id)
   if _.contains(VALID_CURRENCIES, id)
     storage.set('Currency', id)
     $("body")

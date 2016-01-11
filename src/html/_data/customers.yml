@@ -1,3 +1,9 @@
+- name:   Ascendant Compliance Management
+  logo:   "/images/customers/acm.png"
+  url:    "http://www.ascendantcompliance.com"
+  retina: false
+  promo:  false
+
 - name:   Adalysis
   logo:   "/images/customers/adalysis.jpg"
   url:    "http://adalysis.com"
@@ -14,6 +20,12 @@
   logo:   "/images/customers/ch.jpg"
   url:    "http://companieshouse.gov.uk"
   retina: true
+  promo:  true
+
+- name:   Gottex Brokers
+  logo:   "/images/customers/gottex.jpg"
+  url:    "http://www.gottexbrokers.com"
+  retina: false
   promo:  false
 
 - name:   Government Digital Service
@@ -22,23 +34,30 @@
   retina: true
   promo:  true
 
-- name:   Gottex Brokers
-  logo:   "/images/customers/gottex.jpg"
-  url:    "http://www.gottexbrokers.com"
-  retina: false
-  promo:  true
-
 - name:   Habla Computing
   logo:   "/images/customers/habla.jpg"
   url:    "http://speechlang.org"
   retina: true
   promo:  false
 
+- name:   HSBC
+  logo:   "/images/customers/hsbc.png"
+  role:   Complete Software Development, Agile Lead
+  url:    "http://hsbc.co.uk"
+  retina: true
+  promo:  true
+
 - name:   Identive
   logo:   "/images/customers/identive.jpg"
   url:    "http://identive-infrastructure.com"
   retina: false
   promo:  false
+
+- name:   Intel
+  logo:   "/images/customers/intel.jpg"
+  url:    "http://intel.com"
+  retina: true
+  promo:  true
 
 - name:   JHC Systems
   logo:   "/images/customers/jhc.jpg"
@@ -67,7 +86,7 @@
 - name:   Pure 360
   logo:   "/images/customers/pure360.jpg"
   url:    "http://pure360.com"
-  retina: true
+  retina: false
   promo:  false
 
 - name:   Qatarlyst
@@ -94,8 +113,21 @@
   retina: true
   promo:  false
 
+- name:   Site Tour
+  logo:   "/images/customers/site-tour.png"
+  url:    "http://sitetour.co"
+  retina: false
+  promo:  false
+
 - name:   Tigertap
   logo:   "/images/customers/tigertap.jpg"
   url:    "http://tigertap.com"
   retina: false
   promo:  false
+
+- name:   "Yoox Net-A-Porter Group"
+  logo:   "/images/customers/nap.png"
+  url:    "http://www.net-a-porter.com"
+  retina: true
+  promo:  true
+
