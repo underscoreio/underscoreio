@@ -6,12 +6,12 @@
   title: A global marketplace for targeted out-of-home media
   description: |
     <p>
-    If you want to run an advertising campaign on billboards, you might well turn to Sitetour to source the sites.
+    If you want to run an advertising campaign on billboards, you might well turn to Site Tour to source the sites.
     Their technology allows site selection based on a variety of factors, of which location is just one.
     </p>
     <p>
-    Underscore were asked to carry out a code review of the product.
-    This was to give assurance to Sitetour that there code was of the quality they demand.
+    Underscore was first asked to carry out a code review, as Site Tour was a relatively new adopter of Scala.
+    This identified several issues with the code base.
     </p>
     <p>
     When the London office opened, Underscore also supplemented their internal team with two senior developers.
