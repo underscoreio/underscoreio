@@ -5,17 +5,17 @@
 
 @font-face {
     font-family:"uio";
-    src:url("/fonts/uio-df1e574a30170e6edcada31befe5d6f3.eot");
+    src:url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.eot");
     font-weight:normal;
     font-style:normal;
 }
 @font-face {
 	font-family:"uio";
-	src:url("/fonts/uio-df1e574a30170e6edcada31befe5d6f3.eot");
-	src:url("/fonts/uio-df1e574a30170e6edcada31befe5d6f3.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/uio-df1e574a30170e6edcada31befe5d6f3.woff") format("woff"),
-		url("/fonts/uio-df1e574a30170e6edcada31befe5d6f3.ttf") format("truetype"),
-		url("/fonts/uio-df1e574a30170e6edcada31befe5d6f3.svg?#uio") format("svg");
+	src:url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.eot");
+	src:url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.eot?#iefix") format("embedded-opentype"),
+		url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.woff") format("woff"),
+		url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.ttf") format("truetype"),
+		url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.svg?#uio") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -169,19 +169,25 @@
 
 
 
-.icon-uio-twitter:before {
+.icon-uio-trophy:before {
 	content:"\f116";
 }
 
 
 
-.icon-uio-underscore:before {
+.icon-uio-twitter:before {
 	content:"\f117";
 }
 
 
 
-.icon-uio-video:before {
+.icon-uio-underscore:before {
 	content:"\f118";
+}
+
+
+
+.icon-uio-video:before {
+	content:"\f119";
 }
 
