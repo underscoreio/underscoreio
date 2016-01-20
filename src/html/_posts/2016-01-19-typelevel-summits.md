@@ -10,10 +10,10 @@ What a start to the year: the Typelevel summits are coming! The call for papers 
 
 # What is Typelevel?
 
-Typelevel is an ecosystem of projects focusing on typeful functional programming in Scala.
-That includes foundation libraries for functional programming concepts, though numeric libraries, to database frameworks.
+Typelevel is an inclusive and welcoming ecosystem of projects focusing on typeful functional programming in Scala.
+The projects include foundation libraries for functional programming concepts, though numeric libraries, to database frameworks.
 
-It's [more than that][scalax], but that alone is a huge amount if useful and interesting free and open source software to get into.
+It's [more than that][scalax], but that alone is a huge amount of useful and interesting free and open source software to get into.
 
 # What are the Summits?
 
