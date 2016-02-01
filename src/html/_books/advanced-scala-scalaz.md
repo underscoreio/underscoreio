@@ -1,13 +1,13 @@
 ---
 id: advanced-scala-scalaz
-title: Advanced Scala with Scalaz
+title: Advanced Scala with Cats
 layout: book
 navbar: books
 icon: scala
 color: "#d62a7c"
 level: Intermediate
 price: "$50"
-description: Advanced Scala with Scalaz is aimed at experienced Scala developers who want to take the next step in engineering robust and scalable systems. The book teaches five key abstractions of *monoids*, *functors*, *monads*, *monad transformers*, and *applicative functors*, using the implementations in the Scalaz library.
+description: Advanced Scala with Cats is aimed at experienced Scala developers who want to take the next step in engineering robust and scalable systems. The book teaches five key abstractions of *monoids*, *functors*, *monads*, *monad transformers*, and *applicative functors*, using the implementations in the Cats library.
 products:
   selfDirected:
     single:
@@ -35,7 +35,7 @@ bookPage:
 
 The main goal of this book is to teach system architecture and design using the techniques of modern functional programming. This means designing systems as small composable units, expressing constraints and interactions via the type system, and using composition to guide the construction of large systems in a way that maintains the original architectural vision.
 
-The book also serves as an introduction to the Scalaz library. We use abstractions from Scalaz, and we explain the structure of Scalaz so you can use it without fear in your own code base. The broad ideas are not specific to Scalaz, but Scalaz provides an excellent implementation that is beneficial to learn in its own right.
+The book also serves as an introduction to the Cats library. We use abstractions from Cats, and we explain the structure of Cats so you can use it without fear in your own code base. The broad ideas are not specific to Cats, but Cats provides an excellent implementation that is beneficial to learn in its own right.
 
 ## Prerequisites
 
