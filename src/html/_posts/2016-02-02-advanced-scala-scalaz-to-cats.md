@@ -18,7 +18,7 @@ It is far to say our thinking has evolved more quickly than our writing has, but
 
 ## Why Cats?
 
-So, if Advanced Scala is not about the particular library why change from Scalaz to Cats? For a variety of reasons we prefer Cats. We like it has a focus on approachability that Scalaz famously lacks. We like that is putting effort into buildling a community, via [Typelevel][typelevel]. We think Scala needs this and we want to support it. Thus we're doing a small bit to help by targeting Cats in Advanced Scala.
+So, if Advanced Scala is not about the particular library why change from Scalaz to Cats? For a variety of reasons we prefer Cats. We like it has a focus on approachability. We like that is putting effort into buildling a community, via [Typelevel][typelevel]. We think Scala needs this and we want to support it. Thus we're doing a small bit to help by targeting Cats in Advanced Scala.
 
 ## But I Use Scalaz!
 
