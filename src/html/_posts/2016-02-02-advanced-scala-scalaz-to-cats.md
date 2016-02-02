@@ -4,7 +4,7 @@ title: "Advanced Scala Scalaz to Cats"
 author: "Noel Welsh"
 ---
 
-Yesterday we released a new version of [Advanced Scala][advanced-scala], which changes the library used for examples from [Scalaz][scalaz] to [Cats][cats]. This post explains that change.
+Yesterday we released a new version of [Advanced Scala][advanced-scala] that changes the library used for examples from [Scalaz][scalaz] to [Cats][cats]. This post explains that change.
 
 <!-- break -->
 
