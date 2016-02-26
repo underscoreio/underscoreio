@@ -21,4 +21,4 @@ There has been a huge amount of activity around the Typelevel family of projects
 
 This talk will be given by Miles Sabin at [Scala Days Berlin][scala-days-berlin] in Berlin on 17 June 2016.
 
-[scala-days-nyc]: http://event.scaladays.org/scaladays-berlin-2016
+[scala-days-berlin]: http://event.scaladays.org/scaladays-berlin-2016

@@ -34,4 +34,4 @@ This will be an entertaining and enlightening alternative take on the Scala adop
 
 This talk will be given by Sofia Cole and Dave Gurnell at [Scala Days Berlin][scala-days-berlin] in Berlin on 17 June 2016.
 
-[scala-days-nyc]: http://event.scaladays.org/scaladays-berlin-2016
+[scala-days-berlin]: http://event.scaladays.org/scaladays-berlin-2016

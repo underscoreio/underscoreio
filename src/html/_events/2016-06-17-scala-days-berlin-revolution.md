@@ -25,4 +25,4 @@ In this talk I'll describe the paradigm of the functional programmer: what is va
 
 This talk will be given by Noel Welsh at [Scala Days Berlin][scala-days-berlin] in Berlin on 17 June 2016.
 
-[scala-days-nyc]: http://event.scaladays.org/scaladays-berlin-2016
+[scala-days-berlin]: http://event.scaladays.org/scaladays-berlin-2016
