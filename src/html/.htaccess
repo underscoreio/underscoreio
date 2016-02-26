@@ -11,6 +11,8 @@ Redirect permanent /events/2015-03-28-essential-essential-scala.html   http://un
 
 # Redirects from Essential Scalaz and Advanced Scala with Scalaz to Advanced Scala with Cats:
 
+Redirect permanent /books/essential-scalaz                             http://underscore.io/books/advanced-scala
+Redirect permanent /books/advanced-scala-scalaz                        http://underscore.io/books/advanced-scala
 Redirect permanent /training/courses/essential-scalaz                  http://underscore.io/training/courses/advanced-scala
 Redirect permanent /training/courses/advanced-scala-scalaz             http://underscore.io/training/courses/advanced-scala
 
