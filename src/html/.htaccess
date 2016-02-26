@@ -9,9 +9,10 @@ Redirect permanent /blog/newsletter/                                   http://un
 Redirect permanent /events/2015-03-15-essential-essential-scala.html   http://underscore.io/events/2015-03-15-creative-scala.html
 Redirect permanent /events/2015-03-28-essential-essential-scala.html   http://underscore.io/events/2015-03-28-creative-scala.html
 
-# Redirects from Essential Scalaz to Advanced Scala:
+# Redirects from Essential Scalaz and Advanced Scala with Scalaz to Advanced Scala with Cats:
 
-Redirect permanent /training/courses/essential-scalaz                  http://underscore.io/training/courses/advanced-scala-scalaz
+Redirect permanent /training/courses/essential-scalaz                  http://underscore.io/training/courses/advanced-scala
+Redirect permanent /training/courses/advanced-scala-scalaz             http://underscore.io/training/courses/advanced-scala
 
 # Redirects from mis-dated blog posts:
 
@@ -22,7 +23,7 @@ Redirect permanent /blog/posts/2015/03/25/creative-scala-released.html http://un
 Redirect permanent /courses/essential-java8.html                       http://underscore.io/training
 Redirect permanent /courses/essential-shapeless.html                   http://underscore.io/training/courses/essential-shapeless
 Redirect permanent /courses/essential-play-sites.html                  http://underscore.io/training/courses/essential-play
-Redirect permanent /courses/essential-scalaz.html                      http://underscore.io/training/courses/advanced-scala-scalaz
+Redirect permanent /courses/essential-scalaz.html                      http://underscore.io/training/courses/advanced-scala
 Redirect permanent /courses/essential-scala.html                       http://underscore.io/training/courses/essential-scala
 Redirect permanent /courses/essential-macros.html                      http://underscore.io/training/courses/essential-macros
 Redirect permanent /courses/essential-distributed-systems.html         http://underscore.io/training/courses/essential-distributed-systems

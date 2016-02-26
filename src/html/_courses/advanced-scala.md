@@ -1,9 +1,9 @@
 ---
-id: advanced-scala-scalaz
+id: advanced-scala
 title: Advanced Scala with Cats
 layout: course
 navbar: training
-icon: scala
+icon: cats
 color: "#d62a7c"
 courseDirectory:
   level: Intermediate
@@ -16,14 +16,14 @@ products:
     single:
       type: gumroad
       title: Get the Book
-      url: "https://gum.co/advanced-scala-scalaz"
+      url: "https://gum.co/advanced-scala"
       buttonLabel: "Buy now - $50"
       description: |
         Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
     team:
       type: gumroad
       title: "Get both Books"
-      url: "https://gum.co/advanced-scala-scalaz-essential-interpreters"
+      url: "https://gum.co/advanced-scala-essential-interpreters"
       buttonLabel: "Buy now - $89"
       description: |
         Download the course textbook, along with advanced material on building interpreters. Both texts come in HTML, PDF, and ePub formats.

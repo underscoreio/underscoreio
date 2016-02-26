@@ -1,8 +1,8 @@
 ---
 layout: event
-title: Advanced Scala with Scalaz
+title: Advanced Scala with Cats
 type: course
-course: advanced-scala-scalaz
+course: advanced-scala
 location: Amsterdam
 date: 2015-06-12 09:00:00 CEST
 timezone: CEST
@@ -34,9 +34,9 @@ learning about core abstractions of monoids, monads, and applicative functors.
 In the afternoon we will undertake a case study
 applying our new knowledge to a practical example.
 
-The course materials include the book Advanced Scala with Scalaz,
+The course materials include the book Advanced Scala with Cats,
 along with supplementary material related to free monads.
-You will receive free updates to Advanced Scala with Scalaz for its lifetime.
+You will receive free updates to Advanced Scala with Cats for its lifetime.
 
 ### Who
 

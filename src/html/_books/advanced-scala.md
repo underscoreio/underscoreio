@@ -1,9 +1,9 @@
 ---
-id: advanced-scala-scalaz
+id: advanced-scala
 title: Advanced Scala with Cats
 layout: book
 navbar: books
-icon: scala
+icon: cats
 color: "#d62a7c"
 level: Intermediate
 price: "$50"
@@ -13,7 +13,7 @@ products:
     single:
       type: gumroad
       title: Get the Book
-      url: "https://gum.co/advanced-scala-scalaz"
+      url: "https://gum.co/advanced-scala"
       buttonLabel: "Buy now - $50"
       cover: "/images/books/advanced-scala.png"
       description: |
@@ -21,14 +21,14 @@ products:
     team:
       type: gumroad
       title: "Get both Books"
-      url: "https://gum.co/advanced-scala-scalaz-essential-interpreters"
+      url: "https://gum.co/advanced-scala-essential-interpreters"
       buttonLabel: "Buy now - $89"
       cover: "/images/books/essential-interpreters.png"
       description: |
         Download Advanced Scala along with additional material on building interpreters. Both books come in HTML, PDF, and ePub formats.
 bookPage:
   showSidebar: true
-  sample: https://s3-us-west-2.amazonaws.com/book-sample/advanced-scala-preview-with-full-toc.pdf  
+  sample: https://s3-us-west-2.amazonaws.com/book-sample/advanced-scala-preview-with-full-toc.pdf
 ---
 
 ## Overview
