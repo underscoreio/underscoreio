@@ -9,7 +9,7 @@ cost: See the Typelevel Summit website
 navbar: events
 summary: Noel's talk at the Typelevel Summit describes the main ideas behind probabilistic programming and how to implement it in Scala.
 bookingLinks:
-  - text: Register for the Typelevel Summit to attend
+  - text: Register for the Typelevel Summit
     url: https://www.eventbrite.co.uk/e/typelevel-summit-us-tickets-20778897241 
 ---
 
