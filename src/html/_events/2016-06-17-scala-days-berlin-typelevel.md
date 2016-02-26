@@ -1,6 +1,7 @@
 ---
 layout: event
 title: "Typelevel in 2016"
+color: "#25aae1"
 date: 2016-06-16 09:00
 timezone: CET
 location: Berlin, Bundesrepublik Deutschland

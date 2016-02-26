@@ -1,6 +1,7 @@
 ---
 layout: event
 title: "The Structure of Programming Revolutions"
+color: "#25aae1"
 date: 2016-06-16 09:00
 timezone: CET
 location: Berlin, Bundesrepublik Deutschland

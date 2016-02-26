@@ -1,6 +1,7 @@
 ---
 layout: event
 title: "The Structure of Programming Revolutions"
+color: "#25aae1"
 date: 2016-05-10 09:00
 timezone: EST
 location: New York, New York

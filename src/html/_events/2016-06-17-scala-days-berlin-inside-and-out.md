@@ -1,6 +1,7 @@
 ---
 layout: event
 title: "Buying into Scala from the Inside and Out"
+color: "#25aae1"
 date: 2016-06-16 09:00
 timezone: CET
 location: Berlin, Bundesrepublik Deutschland
@@ -21,7 +22,7 @@ Sofia Cole is a developer at YOOX NET-A-PORTER GROUP with eigtheen months' exper
 
 Topics covered will include:
 
-- How to sell Scala within your organization. 
+- How to sell Scala within your organization.
 - What benefits do managers and developers care about?
 - A step-by-step guide for navigating the sea of Scala and FP concepts, without losing yourself in a monadic storm
 - Shared joys and pains from different developers from disparate backgrounds, and how to reconcile them

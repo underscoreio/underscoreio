@@ -1,6 +1,7 @@
 ---
 layout: event
 title: "The Functional Web"
+color: "#25aae1"
 date: 2016-03-22 18:00
 timezone: GMT
 location: London, UK
