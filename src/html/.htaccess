@@ -40,3 +40,8 @@ Redirect permanent /contact.html                                       http://un
 
 Redirect permanent /training/booking.html                              http://underscore.io/training/bookings
 Redirect permanent /training/booknow                                   http://underscore.io/training/bookings
+
+# Course feedback:
+
+Redirect permanent /training/feedback                                  https://docs.google.com/forms/d/1Vu2EKG6YonpopRYh98Lubky0RKjKKtsCm8m8QwVwx6g/viewform
+
