@@ -8,7 +8,7 @@ At the [Typelevel Summit in Philadelphia][typelevel-philly] I gave a talk about 
 
 <!-- break -->
 
-## Probabilistic Models and Inferece
+## Probabilistic Models and Inference
 
 To understand probabilistic programming we need to first understand probabilistic models and inference. A probabilistic model describes how things we can observe are dependent on things we cannot observe. We usually assume this is not a deterministic relationship and hence the dependency between the observables and the unobservables is governed by some probability distribution. This type of model is sometimes called a generative model.
 
