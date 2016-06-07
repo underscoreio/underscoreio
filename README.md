@@ -21,6 +21,20 @@ You'll also need command-line PHP 5 to run `composer` to install PHP dependencie
 
     $ grunt deploy
 
+If deploy doesn't work, check you have given Noel or Dave your public key. If you use a key name other than `id_rsa`, you'll need to add the key to your agent using:
+
+```
+$ ssh-add
+```
+which will give something similar to:
+
+```
+Identity added: /Users/jonoabroad/.ssh/identity (/Users/jonoabroad/.ssh/identity)
+```
+
+As an FYI `grunt depoy` runs the following `rsync --progress -a --delete --exclude files -e "ssh -q" underscoreio/ admin@underscore.io:underscore.io/public/htdocs/`.
+
+
 # Static files
 
 If you want to upload anything for a customer, put it in _/srv/underscore.io/public/htdocs/files/_, which is mapped to _http://underscore.io/files_.
