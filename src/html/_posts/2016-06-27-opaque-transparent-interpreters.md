@@ -66,9 +66,11 @@ The `Random` monad allows us to separate describing how to generate random data 
 Randomness is an effect (a function that generates a random value breaks substitution, as it returns a different value each time it is called) and so we can use the `Random` monad to control this effect. 
 The `Random` monad is very simple to implement and make a good case study of different implementation techniques.
 
-Let's look at two different implementation strategies. The first strategy is to reify the methods to an algebraic data type.
+Let's look at two different implementation strategies. For bonus points I've implemented a [cats] monad instance for both, but this is entirely optional. The first strategy is to reify the methods to an algebraic data type.
 
 ```scala
+import cats.Monad
+
 sealed trait AlgebraicDataType[A] extends Product with Serializable {
   def run(rng: scala.util.Random = scala.util.Random): A =
     this match {
@@ -107,6 +109,8 @@ final case class Primitive[A](sample: scala.util.Random => A) extends AlgebraicD
 An alternative implementation strategy is to reify with functions.
 
 ```scala
+import cats.Monad
+
 final case class Lambda[A](get: scala.util.Random => A) {
   def run(rng: scala.util.Random = scala.util.Random): A =
     get(rng)
@@ -164,6 +168,8 @@ This is to use anonymous classes, as show belown in `AnonymousTrait`.
 This is still an opaque implementation, just one that is much more verbose than `Lambda` above.
 
 ```scala
+import cats.Monad
+
 sealed trait AnonymousTrait[A] { self =>
   def run(rng: scala.util.Random = scala.util.Random): A
 
