@@ -80,12 +80,10 @@ module.exports = (grunt) ->
       composer:
         cmd: "php composer.phar install"
         cwd: "src/php"
-      install:
-        cmd: "bundle install"
       jekyllLocal:
-        cmd: "bundle exec jekyll build --drafts --trace --config jekyll_config.yml"
+        cmd: "jekyll build --drafts --trace --config jekyll_config.yml"
       jekyllLive:
-        cmd: "bundle exec jekyll build --trace --config jekyll_config.yml"
+        cmd: "jekyll build --trace --config jekyll_config.yml"
       deploy:
         cmd: 'rsync --progress -a --delete --exclude files -e "ssh -q" underscoreio/ admin@underscore.io:underscore.io/public/htdocs/'
 
