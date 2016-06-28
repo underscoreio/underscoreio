@@ -4,11 +4,11 @@ title: "Opaque and Transparent Interpreters"
 author: "Noel Welsh"
 ---
 
-The interpreter is the uber pattern in functional programming.
+The interpreter is the über pattern of functional programming.
 Most large programs written in a functional style can be viewed as using this pattern. 
-Besides other reasons, interpreters allow us to handle effects and still keep desirable properties such as substitution.
+Amongst many reasons, interpreters allow us to handle effects and still keep desirable properties such as substitution.
 
-Given the importance of interpreters, it is not surprising there are many implementation strategies.
+Given the importance of interpreters it is not surprising there are many implementation strategies.
 In this blog post I want to discuss one of the main axes along which implementation strategies vary, which is how far we take reification of actions within the interpreter. 
 
 But first, a quick recap of the interpreter pattern, and the secret cheat code of functional programming, reification.
@@ -36,22 +36,22 @@ picture2.draw
 
 The result of `draw` is `Unit`, so we cannot use this result to construct more pictures.
 
-Like illustrates the essential features of the interpreter pattern: describing a picture is the "describing the computation" part, and calling `draw` is the "running the computation" part.
+This illustrates the essential features of the interpreter pattern: describing a picture is the "describing the computation" part, and calling `draw` is the "running the computation" part.
 
 
 ## Why Do We Use Interpreters?
 
-The main reason functional programmers so like the interpreter pattern is how it allows us to deal with effects.
-Effects are problematics, because they break [substitution][simple].
+One important reason for functional programmers liking the interpreter pattern is how it allows us to deal with effects.
+Effects are problematic, because they break [substitution][simple].
 Substitution allows easy reasoning about code, so functional programmers strive hard to maintain it.
 At some point you have to have effects---if not, the programm will not do anything useful.
 The secret to allowing effects is to delay them until some point in the program where we don't care about substitution anymore.
-For example, in a web service we can delay effects till we've constructed the program to create the response, and run that program, causing our database effects and so on to occur.
+For example, in a web service we can delay effects till we've constructed the program to create the response, and then run that program, causing our database effects and so on to occur. In Doodle we delay effects---drawing---until we've fully described the picture we want to draw. If you're familiar with computer graphics, Doodle is essentially constructing a [scene graph][scene-graph].
 
 
 ## Reification
 
-Reification is an integral part of the interpreter pattern.
+[Reification][reification] is an integral part of the interpreter pattern.
 Reification means to make the abstract concrete. 
 In the context of interpreters this means to turn an action into data.
 For example, in the context of Doodle when we call `Image.circle(100)` this turns into a `case class` rather than drawing something on the screen.
@@ -66,7 +66,9 @@ The `Random` monad allows us to separate describing how to generate random data 
 Randomness is an effect (a function that generates a random value breaks substitution, as it returns a different value each time it is called) and so we can use the `Random` monad to control this effect. 
 The `Random` monad is very simple to implement and make a good case study of different implementation techniques.
 
-Let's look at two different implementation strategies. For bonus points I've implemented a [cats] monad instance for both, but this is entirely optional. The first strategy is to reify the methods to an algebraic data type.
+Let's look at two different implementation strategies. For bonus points I've implemented a [cats] monad instance for both, but this has no bearing on the point I'm making. 
+
+The first strategy is to reify the methods to an algebraic data type.
 
 ```scala
 import cats.Monad
@@ -141,7 +143,7 @@ object Lambda {
 }
 ```
 
-I call the former strategy (`AlgebraicDataType`) a *transparent interpreter*, because we can programmatically inspect the `AlgebraicDataType` data structure, and the later strategy (`Lambda`) an *opaque interpreter*, because we can't look in the anonymous functions.
+I call the former strategy (`AlgebraicDataType`) a *transparent interpreter*, because we can programmatically inspect the `AlgebraicDataType` data structure, and the later strategy (`Lambda`) an *opaque interpreter*, because we can't look into the anonymous functions.
 
 There are two ways in which the opaque interpreter is superior to the transparent interpreter.
 
@@ -157,7 +159,7 @@ We can say the opaque representation is more transparent to the compiler.
 The transparent interpreter is more modular than the opaque one.
 With a transparent interpreter we can see the structure of the program we're interpreting in terms of its algebraic data type representation.
 This means we can choose to interpret it in different ways.
-For instance, we could print logging information during interpretation, or run in a distributed environment, or use a "stackless" implementation to avoid overflowing the stack in deeploy nested calls.
+For instance, we could print logging information during interpretation, or run in a distributed environment, or use a "stackless" implementation to avoid overflowing the stack in deeply nested calls.
 With the opaque representation we can't make these choices.
 
 In summary, transparent interpreters trade performance for flexibility. 
@@ -254,9 +256,13 @@ object RandomM {
 
 ## Conclusions
 
-The transparency tradeoff is a major design decision in creating an interpreter. Over time I feel like we're moving as a community towards more transparent representations, particularly as techinques like the free monad become more widely known. 
+The transparency tradeoff is a major design decision in creating an interpreter. Over time I feel that as a community we're moving towards more transparent representations, particularly as techniques like the free monad become more widely known. 
 
 Note that transparency is not a binary choice. Even in the transparent implementation above, we have opaque functions passed to `flatMap` and friends. The ultimate endpoint of a transparent implementation is implementing all language features---conditionals, binding constructs, and everything else---within the little language we're defining.
+
+The opaque interpreter reminds of [higher order abstract syntax][hoas] (HOAS), which a technique for representing variable binding in an interpreter by reusing the host language's implementation. HOAS has the same drawback as our opaque interpreters: since we can't inspect the structure of the bindings in HOAS we have to use the host language's semantics. There is [some work][boxes-bananas] on removing this restriction. I'm not familiar enough with this work to say if and how it applies to the discussion here.
+
+Finally, it feels like there is a connection to initial and final encoding, but again I'm not familiar enough to make the connection explicit. Comments are of course open!
 
 
 [doodle]: https://github.com/underscoreio/doodle
@@ -264,3 +270,7 @@ Note that transparency is not a binary choice. Even in the transparent implement
 [cats]: http://typelevel.org/cats
 [free]: {% post_url 2015-04-14-free-monads-are-simple %}
 [simple]: {% post_url 2015-06-25-keeping-scala-simple %}
+[scene-graph]: https://en.wikipedia.org/wiki/Scene_graph
+[reification]: {% post_url 2015-10-14-reification %}
+[hoas]: https://en.wikipedia.org/wiki/Higher-order_abstract_syntax
+[boxes-bananas]: http://repository.upenn.edu/cgi/viewcontent.cgi?article=1031&context=cis_reports
