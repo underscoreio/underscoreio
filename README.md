@@ -16,7 +16,21 @@ If that doesn't work for you, make sure you've done the one-time set up from thi
 
 # Deploying the site
 
+Deployment is a bit convoluted, because I don't know any way to get a Docker container and the host to share an `ssh-agent` (at least on OS X I could not get it to work.) Instead the container has `~/.ssh` mounted as `/ssh`. From there you can load your SSH keys into the container's `ssh-agent`.
+
+First, start `ssh-agent`
+
+    $ eval `ssh-agent -s`
+
+Then load your keys
+
+    $ ssh-add /ssh/id_rsa
+    
+Now deploy
+
     $ grunt deploy
+    
+Starting `ssh-agent` and loading keys only needs to be done once per terminal session.
 
 If deploy doesn't work, check you have given Noel or Dave your public key. If you use a key name other than `id_rsa`, you'll need to add the key to your agent using:
 
