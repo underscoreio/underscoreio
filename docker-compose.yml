@@ -4,5 +4,6 @@ services:
     image: underscoreio/web:latest
     volumes:
      - .:/source
+     - ~/.ssh:/ssh
     ports:
      - "4000:4000"
