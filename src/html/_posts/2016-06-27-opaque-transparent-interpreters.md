@@ -11,6 +11,8 @@ Amongst many reasons, interpreters allow us to handle effects and still keep des
 Given the importance of interpreters it is not surprising there are many implementation strategies.
 In this blog post I want to discuss one of the main axes along which implementation strategies vary, which is how far we take reification of actions within the interpreter. 
 
+<!-- break -->
+
 But first, a quick recap of the interpreter pattern, and the secret cheat code of functional programming, reification.
 
 ## What's An Interpreter?
