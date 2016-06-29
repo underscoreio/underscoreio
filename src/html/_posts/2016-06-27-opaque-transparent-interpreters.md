@@ -145,7 +145,7 @@ object Lambda {
 }
 ```
 
-I call the former strategy (`AlgebraicDataType`) a *transparent interpreter*, because we can programmatically inspect the `AlgebraicDataType` data structure, and the later strategy (`Lambda`) an *opaque interpreter*, because we can't look into the anonymous functions.
+I call the former strategy (`AlgebraicDataType`) a *transparent interpreter*, because we can programmatically inspect the `AlgebraicDataType` data structure, and the later strategy (`Lambda`) an *opaque interpreter*, because we can't look into the anonymous functions. *Update: in the literature you'll find the terms shallow and deep embedding are used for what I call opaque and transparent respectively. Thanks for Gabriel Claramunt for pointing this out.*
 
 There are two ways in which the opaque interpreter is superior to the transparent interpreter.
 
