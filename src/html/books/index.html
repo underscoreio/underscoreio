@@ -11,7 +11,12 @@ navbar: books
     <div class="row">
       {% for bookId in site.data.books %}
         {% for book in site.books %}
-          {% if book.id == bookId %}
+        <!-- 
+          book.id is /books/creative-scala (for example)
+          so we need to test bookId against that kind of string
+        -->
+          {% assign bookPath = bookId | prepend: "/books/" %}
+          {% if book.id == bookPath %}
             <div class="col-sm-6 col-md-4">
               {% include books/excerpt.html book=book %}
             </div>
