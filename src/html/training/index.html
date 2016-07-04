@@ -13,7 +13,8 @@ navbar: training
     <div class="row">
       {% for courseId in site.data.publishedCourses %}
         {% for course in site.courses %}
-          {% if course.id == courseId %}
+          {% assign coursePath = courseId | prepend: "/training/courses/" %}
+          {% if course.id == coursePath %}
             <div class="col-sm-6 col-md-4">
               {% include training/excerpt.html course=course %}
             </div>

@@ -13,7 +13,8 @@ navbar: books
         {% for book in site.books %}
         <!-- 
           book.id is /books/creative-scala (for example)
-          so we need to test bookId against that kind of string
+          bookId is creative-scala (for example)
+          So to compare we prepend /books/ to the bookId:
         -->
           {% assign bookPath = bookId | prepend: "/books/" %}
           {% if book.id == bookPath %}
