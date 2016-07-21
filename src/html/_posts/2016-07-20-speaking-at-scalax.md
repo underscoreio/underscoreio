@@ -38,5 +38,5 @@ _Danielle works at ???, doing ???. She can be contacted via ???. Her 2015 Scala 
 Read our post on [the new speaker programme for 2016], where you can also apply. The deadline is 7 August 2016.
 
 [watch]: https://skillsmatter.com/skillscasts/6846-inappropriate-applications-for-scala
-[apply]: richard-to-put-link-to-his-post-here
+[apply]: /blog/posts/2016/07/20/new-speakers-at-scala-exchange-2016.html
 

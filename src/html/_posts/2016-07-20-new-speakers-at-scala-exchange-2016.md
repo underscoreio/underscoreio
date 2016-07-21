@@ -67,7 +67,8 @@ The conference asks for talks across a wide range of things. Here's a list of id
 If you are a new speakers go ahead a [contact] us. Say hi, mention what you're interested in, and one of us will get in touch.
 If it's not for you, you're not committed to anything.
 
-_link here to Danielle's experiences?_
+To hear from new speakers, have a look at [Danielle Ashley's guest post][da].
+There are also [comments from new speakers in 2014][scalax2014]
 
 There will be additional help later in the year around writing a presentation and delivering it. But the first steps are having a talk proposal.
 
@@ -84,3 +85,7 @@ The sooner the better.
 
 [scalax]: http://scala.exchange
 [contact]: http://underscore.io/contact/?subject=Scala%20Exchange%20-%20Idea%20for%20Talk%20Submission
+[da]: /blog/posts/2016/07/20/speaking-at-scalax.html
+[scalax2014]: http://underscore.io/blog/posts/2015/01/14/new-speakers-at-scala-exchange.html
+
+
