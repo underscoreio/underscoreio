@@ -38,9 +38,9 @@ We can help by...
 
 This is no charge for any of this, in case you're wondering.
 
-In the end, your talk submission is read along-side all the other abstracts from potential speakers.
+In the end your talk submission is read along-side all the other abstracts from potential speakers.
 You're not getting to skip any steps in the process.
-Ultimately, there's a Scala eXchange programme committee that picks a set of talks for a rounded and interesting conference.
+Ultimately there's a Scala eXchange programme committee that picks a set of talks for a rounded and interesting conference.
 
 ## What can you talk about?
 
@@ -68,7 +68,7 @@ If you are a new speakers go ahead a [contact] us. Say hi, mention what you're i
 If it's not for you, you're not committed to anything.
 
 To hear from new speakers, have a look at [Danielle Ashley's guest post][da].
-There are also [comments from new speakers in 2014][scalax2014]
+There are also [comments from new speakers in 2014][scalax2014].
 
 There will be additional help later in the year around writing a presentation and delivering it. But the first steps are having a talk proposal.
 
