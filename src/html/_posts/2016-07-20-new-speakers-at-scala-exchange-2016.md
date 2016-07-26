@@ -36,7 +36,7 @@ We can help by...
 - reviewing your abstract ("CFP submission", "talk proposal") before you submit it; and
 - answering any questions you might have about talking at a conference.
 
-This is no charge for any of this, in case you're wondering.
+There is no charge for any of this, in case you're wondering.
 
 In the end your talk submission is read along-side all the other abstracts from potential speakers.
 You're not getting to skip any steps in the process.

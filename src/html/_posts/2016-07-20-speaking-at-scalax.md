@@ -35,7 +35,7 @@ Finally, if you are still unconvinced, think about the day when you will finally
 
 _Danielle's 2015 Scala eXchange talk, "Inappropriate Applications for Scala", is [available to watch online][watch]._
 
-Read our post on [the new speaker programme for 2016], where you can also apply. The deadline is 7 August 2016.
+Read our post on [the new speaker programme for 2016][apply], where you can also apply. The deadline is 7 August 2016.
 
 [watch]: https://skillsmatter.com/skillscasts/6846-inappropriate-applications-for-scala
 [apply]: /blog/posts/2016/07/20/new-speakers-at-scala-exchange-2016.html
