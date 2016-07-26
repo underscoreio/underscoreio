@@ -17,15 +17,15 @@ Many thoughts you had about your professional (or hobbyist!) life fall into a di
 
 ## Encouraged to talk
 
-But the truth is, the idea of speaking would never have come anywhere near my thoughts if it hadn't been for the encouragement of friends and colleagues who were aware of some projects I was working on and suggested that submit a proposal to talk about them.
+But the truth is, the idea of speaking would never have come anywhere near my thoughts if it hadn't been for the encouragement of friends and colleagues who were aware of some projects I was working on and suggested that I submit a proposal to talk about them.
 
-The greatest mental block is the assumption that nothing you can talk about can be interesting enough for 'the pros'. The fact is that 'the pros' themselves always appreciate a presentation that breaks the pattern of the familiar themes and topics. There's a fair chance that, if you've learnt or been excited by something recently, someone in the audience would love the benefit of your experience. Or, if you think you can re-explain in an easier manner a concept that on books was dry and impenetrable, I'd probably be the first to sign up to listen to it along with many others.
+The greatest mental block is the assumption that nothing you can talk about can be interesting enough for 'the pros'. The fact is that 'the pros' themselves always appreciate a presentation that breaks the pattern of the familiar themes and topics. There's a fair chance that, if you've learnt or been excited by something recently, someone in the audience would love the benefit of your experience. Or, if you think you can re-explain in an easier manner a concept that in books was dry and impenetrable, I'd probably be the first to sign up to listen to it along with many others.
 
 ## Talk content
 
-A talk doesn't always have to present cutting-edge research; nor does the speaker have to know everything inside and out.
-At the same time though, it's just normal that no talk will appeal to absolutely everyone, due to different interests and experience.
-Another 'secret', that it's so obvious as to be embarrassing, is that conference attendees are human beings and like to be entertained.
+A talk doesn't always have to present cutting-edge research, nor does the speaker have to know everything inside and out.
+At the same time it's just normal that no talk will appeal to absolutely everyone, due to different interests and experience.
+Another 'secret', that is so obvious as to be embarrassing, is that conference attendees are human beings and like to be entertained.
 
 It takes longer than it seems to prepare a talk done well. But every hour invested is worth it and will reflect in the final outcome in a very obvious way.
 
@@ -33,7 +33,7 @@ Finally, if you are still unconvinced, think about the day when you will finally
 
 # About the author
 
-_Danielle works at ???, doing ???. She can be contacted via ???. Her 2015 Scala eXchange talk, "Inappropriate Applications for Scala", is [available to watch online][watch]._
+_Danielle's 2015 Scala eXchange talk, "Inappropriate Applications for Scala", is [available to watch online][watch]._
 
 Read our post on [the new speaker programme for 2016], where you can also apply. The deadline is 7 August 2016.
 

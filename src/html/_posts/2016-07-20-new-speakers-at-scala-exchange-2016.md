@@ -27,7 +27,7 @@ The aim is to give you a fair chance when you submit an idea.
 
 "Call for Papers" is a terrible name for this.
 No-one is being asked to write a few thousand words as a "paper".
-It's really asking you to submit a title and an outline of a talk you might like to give.
+It's really asking you to submit a title and an summary of a talk you might like to give.
 It's three or four paragraphs.
 
 We can help by...
@@ -44,7 +44,7 @@ Ultimately there's a Scala eXchange programme committee that picks a set of talk
 
 ## What can you talk about?
 
-The conference asks for talks across a wide range of things. Here's a list of ideas from the call for papers:
+The conference asks for talks across a wide range of topics. Here's a list of ideas from the call for papers:
 
 - DevOps and Tooling (Deployment, Monitoring, etc)
 - Data Science/ Big Data (Spark, Machine Learning, etc)
