@@ -4,102 +4,12 @@ title: Contact Us
 navbar: company
 ---
 
-{% raw %}
-<?php
-
-/*
->
-<h1>This page contains PHP code.<br>It will not render correctly via Jekyll.</h1>
-<h2>Deploy the site to a staging environment to preview this page.</h2>
-*/
-
-// CONFIGURATION --------------------------------
-
-require '../vendor/autoload.php';
-use Mailgun\Mailgun;
-use ReCaptcha\ReCaptcha;
-
-$mgClient = new Mailgun('key-9a305971d33fb98f1a492bdbd0af0074');
-$mgDomain = 'mailgun.underscore.io';
-
-$contactEmail = 'Underscore General Enquiries <hello@underscore.io>';
-$noreplyEmail = 'Underscore Contact Form <noreply@underscore.io>';
-
-$recaptchaSecret  = '6LdmOwUTAAAAAO3rkPNBnKrWHyFpkvns4FS8fVru';
-$recaptchaSitekey = '6LdmOwUTAAAAAGSnMTvx3vitgktjYullXXaW1JZs';
-
-// ----------------------------------------------
-
-function requestString($key, $default) {
-  if(isset($_POST[$key]) && strlen(trim($_POST[$key])) > 0) {
-    return trim($_POST[$key]);
-  } else {
-    return $default;
-  }
-}
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'):
-  $name     = requestString('name', 'Not specified');
-  $email    = requestString('email', null);
-  $phone    = requestString('phone', 'Not specified');
-  $subject  = requestString('subject', 'No subject');
-  $message  = requestString('message', 'None specified');
-
-  $emailTo      = $contactEmail;
-  $emailSubject = "Contact on underscore.io: $subject";
-  $emailDate    = gmdate(DATE_RFC822);
-
-  $emailBody    = <<<ENDEMAIL
-Name: $name
-Email: $email
-Phone: $phone
-
-$message
-ENDEMAIL;
-
-  $emailFrom = $email ? "$name <$email>" : $noreplyEmail;
-  $formAlert = null;
-
-  $emailParams = array(
-    'to'      => $emailTo,
-    'from'    => $emailFrom,
-    'subject' => $emailSubject,
-    'text'    => $emailBody
-  );
-
-  $recaptcha     = new ReCaptcha($recaptchaSecret);
-  $recaptchaCode = requestString('g-recaptcha-response', null);
-  $recaptchaIp   = $_SERVER['REMOTE_ADDR'];
-  $recaptchaResp = $recaptcha->verify($recaptchaCode, $recaptchaIp);
-  $recaptchaOk   = $recaptchaResp->isSuccess();
-
-  if(!$recaptchaOk):
-    $formAlert = '<div class="alert alert-danger">Please confirm that you are a human.</div>';
-  elseif(!$email):
-    $formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
-  elseif($mgClient->sendMessage($mgDomain, $emailParams)):
-    $formAlert = '<div class="alert alert-success">Thank you for your message. We will be in touch shortly.</div>';
-  else:
-    $formAlert = '<div class="alert alert-danger">There was an error submitting your message. Please get in touch by phone or email.</div>';
-  endif;
-endif;
-
-// ----------------------------------------------
-
-?>
-{% endraw %}
-
 {% include hero.html title="Contact Us" %}
 
 <section class="container">
   <article>
     <div class="row">
       <div class="col-sm-8">
-        {% raw %}
-        <?php if($formAlert): ?>
-          <?= $formAlert ?>
-        <?php endif; ?>
-        {% endraw %}
 
         <form id="contact-form" method="post">
           <div class="form-group">
@@ -132,11 +42,17 @@ endif;
           <div class="form-group">
             <label>Just checking...</label>
 
-            <div class="g-recaptcha" data-sitekey="<?= $recaptchaSitekey ?>"></div>
+            <div class="g-recaptcha" data-sitekey="6LdmOwUTAAAAAGSnMTvx3vitgktjYullXXaW1JZs"></div>
             <script src='https://www.google.com/recaptcha/api.js'></script>
           </div>
 
-          <button type="submit" class="btn btn-primary">Send Message</button>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+
+          <div class="form-group">
+            <div id="feedback" class="alert"></div>
+          </div>
         </form>
       </div>
 
