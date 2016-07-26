@@ -1,6 +1,6 @@
 ---
 layout   : post
-title    : Giving a Fist Talk
+title    : Giving a First Talk
 author   : Danielle Ashley 
 hashtags : scalax
 ---
