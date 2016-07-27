@@ -7,16 +7,16 @@ init = (elem) ->
   endpoint = 'https://7a1z3bah1m.execute-api.eu-west-1.amazonaws.com/prod/contact'
 
   notice = (msg) ->
-    $('#feedback').removeClass('alert-danger').addClass('alert-info').text msg
+    $('#feedback').removeClass('label-danger').addClass('label-info').text msg
     return
 
   error = (msg) ->
-    $('#feedback').removeClass('alert-info').addClass('alert-danger').text msg
+    $('#feedback').removeClass('label-info').addClass('label-danger').text msg
     return
 
   done = ->
     msg = 'Thank you for submitting your message. We will be in touch shortly.'
-    $('#feedback').removeClass('alert-info').addClass('alert-success').text msg
+    $('#feedback').removeClass('label-info').addClass('label-success').text msg
     return
 
   formToJson = ->
@@ -69,12 +69,13 @@ init = (elem) ->
         return
 
       $.ajax
-        type: 'POST'
-        url: endpoint
-        dataType: 'json'
-        data: json
-        success: onResponse
-        error: onFatal
+        type        : 'POST'
+        url         : endpoint
+        dataType    : 'json'
+        contentType : 'application/json; charset=utf-8'
+        data        : JSON.stringify(json)
+        success     : onResponse
+        error       : onFatal
     false
 
   $(elem).each ->
