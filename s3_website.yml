@@ -13,9 +13,9 @@ index_document: index.html
 #   "assets/*": 6000
 #   "*": 300
 
-# gzip:
-#   - .html
-#   - .css
+gzip:
+  - .html
+  - .css
 #   - .md
 # gzip_zopfli: true
 
