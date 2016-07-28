@@ -47,7 +47,7 @@ navbar: training
           {% if course.id == coursePath %}
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" name="cource" value="{{course.title}}">
+                    <input type="checkbox" name="course" value="{{courseId}}">
                     {{ course.title }}
                   </label>
                 </div>
@@ -57,7 +57,7 @@ navbar: training
 
             <div class="checkbox">
               <label>
-                <input type="checkbox" name="cource" value="Custom">
+                <input type="checkbox" name="course" value="Custom">
                 Custom (please specify below)
               </label>
             </div>
@@ -130,6 +130,9 @@ navbar: training
 
           <button type="submit" class="btn btn-primary">Send Enquiry</button>
         </form>
+				<div class="form-group">
+					<div id="feedback" class="label"></div>
+				</div>
       </div>
     </div>
   </article>
