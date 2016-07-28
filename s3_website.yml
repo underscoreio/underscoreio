@@ -13,9 +13,13 @@ index_document: index.html
 #   "assets/*": 6000
 #   "*": 300
 
-gzip:
-  - .html
-  - .css
+
+# Cloudfront now supports GZIP natively, so enable it there
+# Feature requested: https://github.com/laurilehmijoki/s3_website/issues/205
+
+# gzip:
+#   - .html
+#   - .css
 #   - .md
 # gzip_zopfli: true
 
