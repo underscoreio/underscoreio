@@ -80,7 +80,7 @@ Please give them the encouragement to talk. Point them at this post, and we can 
 
 ## How to Apply
 
-You need to [send us an email][contact]. You need to do it before August 7th, to give us time to help before the Call for Papers closes.
+You need to [send us an email][contact]. You need to do it before August 14th.
 The sooner the better.
 
 [scalax]: http://scala.exchange
