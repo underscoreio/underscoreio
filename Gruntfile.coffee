@@ -68,23 +68,15 @@ module.exports = (grunt) ->
           src: ["**"]
           dest: "underscoreio/images/"
         }]
-      php:
-        files: [{
-          expand: true
-          cwd: "src/php"
-          src: ["**"]
-          dest: "underscoreio/"
-        }]
 
     exec:
-      composer:
-        cmd: "php composer.phar install"
-        cwd: "src/php"
       jekyllLocal:
-        cmd: "jekyll build --drafts --trace --config jekyll_config.yml"
+        cmd: "jekyll build --trace --config jekyll_config.yml"
       jekyllLive:
         cmd: "jekyll build --trace --config jekyll_config.yml"
       deploy:
+        cmd: 's3_website push'
+      deployssh:
         cmd: 'rsync --progress -a --delete --exclude files -e "ssh -q" underscoreio/ admin@underscore.io:underscore.io/public/htdocs/'
 
     watchImpl:
@@ -139,7 +131,6 @@ module.exports = (grunt) ->
     "webfont"
     "less"
     "browserify"
-    "exec:composer"
     "copy"
   ]
 

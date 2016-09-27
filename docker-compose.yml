@@ -1,9 +1,8 @@
 version: '2'
 services:
   website:
-    image: underscoreio/web:latest
+    image: underscoreio/web-s3:latest
     volumes:
      - .:/source
-     - ~/.ssh:/ssh
     ports:
      - "4000:4000"

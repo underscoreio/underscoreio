@@ -4,148 +4,6 @@ title: Book a Course
 navbar: training
 ---
 
-{% raw %}
-<?php
-
-/*
->
-<h1>This page contains PHP code.<br>It will not render correctly via Jekyll.</h1>
-<h2>Deploy the site to a staging environment to preview this page.</h2>
-*/
-
-// CONFIGURATION --------------------------------
-
-require '../../vendor/autoload.php';
-use Mailgun\Mailgun;
-use ReCaptcha\ReCaptcha;
-
-$mgClient = new Mailgun('key-9a305971d33fb98f1a492bdbd0af0074');
-$mgDomain = 'mailgun.underscore.io';
-
-$courseOptions = Array(
-{% endraw %}
-{% for courseId in site.data.publishedCourses %}
-  {% for course in site.courses %}
-    {% if course.id == courseId && course.products.instructorLed.private %}
-      "course-{{ course.id }}" => "{{ course.title }}",
-    {% endif %}
-  {% endfor %}
-{% endfor %}
-{% raw %}
-  "course-custom" => "Custom (please specify below)"
-);
-
-$behalfOptions = Array(
-  "personal" => "On behalf of myself",
-  "company"  => "On behalf of my company"
-);
-
-$peopleOptions = Array(
-  "1-person"     => "1 person",
-  "2-5-people"   => "2 to 5 people",
-  "6-10-people"  => "6 to 10 people",
-  "gt-10-people" => "More than 10 people"
-);
-
-$bookingEmail = 'Underscore Booking Enquiries <bookings@underscore.io>';
-$noreplyEmail = 'Underscore Booking Form <noreply@underscore.io>';
-
-$recaptchaSecret  = '6LdmOwUTAAAAAO3rkPNBnKrWHyFpkvns4FS8fVru';
-$recaptchaSitekey = '6LdmOwUTAAAAAGSnMTvx3vitgktjYullXXaW1JZs';
-
-// ----------------------------------------------
-
-function requestString($key, $default) {
-  if(isset($_POST[$key]) && strlen(trim($_POST[$key])) > 0) {
-    return trim($_POST[$key]);
-  } else {
-    return $default;
-  }
-}
-
-function requestLookup($key, $options, $default) {
-  if(isset($_POST[$key]) && isset($options[$_POST[$key]])) {
-    return $options[$_POST[$key]];
-  } else {
-    return $default;
-  }
-}
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'):
-  $name     = requestString('name',   'Not specified');
-  $email    = requestString('email',  null);
-  $phone    = requestString('phone', 'Not specified');
-  $location = requestString('location', 'Not specified');
-  $notes    = requestString('notes', 'None specified');
-  $behalf   = requestLookup('behalf', $behalfOptions, 'Not specified');
-  $people   = requestLookup('people', $peopleOptions, 'Not specified');
-
-  $courses  = Array();
-  foreach($courseOptions as $courseId => $courseName) {
-    if(isset($_POST[$courseId])) {
-      $courses []= $courseName;
-    }
-  }
-  $allCourses = count($courses) > 0 ? implode("\n - ", $courses) : 'None specified';
-
-  $emailTo      = $bookingEmail;
-  $emailSubject = "Booking request on underscore.io";
-  $emailDate    = gmdate(DATE_RFC822);
-
-  $emailBody    = <<<ENDEMAIL
-A booking request was submitted on underscore.io:
-
-Name: $name
-Email: $email
-Phone: $phone
-
-Courses:
- - $allCourses
-
-On behalf of: $behalf
-People: $people
-Location: $location
-
-Additional notes:
-$notes
-
---
-Underscore Bookings Robot
-http://underscore.io
-ENDEMAIL;
-
-  $emailFrom = $email ? "$name <$email>" : $noreplyEmail;
-  $formAlert = null;
-
-  $emailParams = array(
-    'to'      => $emailTo,
-    'from'    => $emailFrom,
-    'subject' => $emailSubject,
-    'text'    => $emailBody
-  );
-
-  $recaptcha     = new ReCaptcha($recaptchaSecret);
-  $recaptchaCode = requestString('g-recaptcha-response', null);
-  $recaptchaIp   = $_SERVER['REMOTE_ADDR'];
-  $recaptchaResp = $recaptcha->verify($recaptchaCode, $recaptchaIp);
-  $recaptchaOk   = $recaptchaResp->isSuccess();
-
-  if(!$recaptchaOk):
-    $formAlert = '<div class="alert alert-danger">Please confirm that you are a human.</div>';
-  elseif(!$email):
-    $formAlert = '<div class="alert alert-danger">Please specify a valid email address.</div>';
-  elseif($mgClient->sendMessage($mgDomain, $emailParams)):
-    $formAlert = '<div class="alert alert-success">Thank you for your enquiry. Our training coordinator will be in touch shortly.</div>';
-  else:
-    $formAlert = '<div class="alert alert-danger">There was an error submitting your booking enquiry. Please get in touch by phone or email.</div>';
-  endif;
-endif;
-
-// ----------------------------------------------
-
-?>
-{% endraw %}
-
 {% include hero.html title="Book a Course" %}
 
 <section class="container">
@@ -165,12 +23,6 @@ endif;
 
         <form id="booking-form" method="post">
 
-          {% raw %}
-          <?php if($formAlert): ?>
-            <?= $formAlert ?>
-          <?php endif; ?>
-          {% endraw %}
-
           <div class="form-group">
             <label>Your name</label>
             <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
@@ -189,46 +41,67 @@ endif;
           <div class="form-group">
             <label>Which course(s) are you interested in?</label>
 
-        {% raw %}
-        <?php foreach($courseOptions as $courseId => $courseLabel): ?>
+            {% for courseId in site.data.publishedCourses %}
+              {% assign coursePath = courseId | prepend: "/training/courses/" %}
+              {% for course in site.courses %}
+          {% if course.id == coursePath %}
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="course" value="{{courseId}}">
+                    {{ course.title }}
+                  </label>
+                </div>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+
             <div class="checkbox">
               <label>
-                <input type="checkbox" name="<?= $courseId ?>">
-                <?= $courseLabel ?>
+                <input type="checkbox" name="course" value="Custom">
+                Custom (please specify below)
               </label>
             </div>
-        <?php endforeach; ?>
-        {% endraw %}
+
           </div>
 
           <div class="form-group">
             <label>Are you booking on behalf of yourself or your company?</label>
 
-        {% raw %}
-        <?php foreach($behalfOptions as $behalfId => $behalfLabel): ?>
             <div class="radio">
               <label>
-                <input type="radio" name="behalf" value="<?= $behalfId ?>">
-                <?= $behalfLabel ?>
+                <input type="radio" name="behalf" value="On behalf of myself">
+                On behalf of myself
               </label>
             </div>
-        <?php endforeach; ?>
-        {% endraw %}
+
+            <div class="radio">
+              <label>
+                <input type="radio" name="behalf" value="On behalf of my company">
+               On behalf of my company
+              </label>
+            </div>
+
           </div>
 
           <div class="form-group">
             <label>How many people are on your team?</label>
 
-        {% raw %}
-        <?php foreach($peopleOptions as $peopleId => $peopleLabel): ?>
             <div class="radio">
-              <label>
-                <input type="radio" name="people" value="<?= $peopleId ?>">
-                <?= $peopleLabel ?>
-              </label>
+              <label><input type="radio" name="people" value="1 person">1 Person</label>
             </div>
-        <?php endforeach; ?>
-        {% endraw %}
+
+            <div class="radio">
+              <label><input type="radio" name="people" value="2 to 5 people">2 to 5 People</label>
+            </div>
+
+            <div class="radio">
+              <label><input type="radio" name="people" value="6 to 10 people">6 to 10 People</label>
+            </div>
+
+            <div class="radio">
+              <label><input type="radio" name="people" value="More than 10 people">More than 10 people</label>
+            </div>
+
           </div>
 
           <div class="form-group">
@@ -251,12 +124,15 @@ endif;
           <div class="form-group">
             <label>Just checking...</label>
 
-            <div class="g-recaptcha" data-sitekey="<?= $recaptchaSitekey ?>"></div>
+            <div class="g-recaptcha" data-sitekey="6LczFSYTAAAAAN2OtTwNqZu_Ch-9p0ZPSW2yC7s0"></div>
             <script src='https://www.google.com/recaptcha/api.js'></script>
           </div>
 
           <button type="submit" class="btn btn-primary">Send Enquiry</button>
         </form>
+				<div class="form-group">
+					<div id="feedback" class="label"></div>
+				</div>
       </div>
     </div>
   </article>
