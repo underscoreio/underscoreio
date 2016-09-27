@@ -1,6 +1,7 @@
 $           = require 'jquery'
 _           = require 'underscore'
 queryString = require './query-string'
+doNotTrack  = require './do-not-track'
 
 init = (elem) ->
 
@@ -89,7 +90,7 @@ init = (elem) ->
 
     form.find("button[type=submit]").on 'click', (evt) ->
       evt.preventDefault()
-      window.ga 'send', 'event', 'contact', 'submit', hitCallback: ->
+      doNotTrack.sendGaEvent 'contact', 'submit', undefined, ->
         onFormSubmission()
         return
       return
