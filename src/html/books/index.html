@@ -11,7 +11,7 @@ navbar: books
     <div class="row">
       {% for bookId in site.data.books %}
         {% for book in site.books %}
-        <!-- 
+        <!--
           book.id is /books/creative-scala (for example)
           bookId is creative-scala (for example)
           So to compare we prepend /books/ to the bookId:
