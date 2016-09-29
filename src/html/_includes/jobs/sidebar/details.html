@@ -36,6 +36,11 @@
         <dd class="job-location">{{ include.job.location }}</dd>
         {% endif %}
 
+        {% if include.job.citizenship %}
+        <dt>Requires</dt>
+        <dd class="job-citizenship">{{ include.job.citizenship | markdownify }}<dd>
+        {% endif %}
+
         {% if include.job.remote %}
         <dt>Remote</dt>
         <dd class="job-remote">OK<dd>
