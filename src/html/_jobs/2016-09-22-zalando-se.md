@@ -1,6 +1,6 @@
 ---
 layout: job
-title: Software Engineer, Backend
+title: Software Engineer (f/m), Backend
 company: |
   Zalando SE
 location: Berlin, Dortmund, Erfurt, Hamburg, Helsinki, Mönchengladbach
