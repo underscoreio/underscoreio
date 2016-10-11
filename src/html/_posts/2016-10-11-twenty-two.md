@@ -43,7 +43,7 @@ It was pretty easy to run into this limitation when modelling JSON using case cl
 Another situation would be when mapping large relational database tables into case classes.
 
 So it's great that the restriction was lifted.
-It was lifted for this some common cases, but not universally removed.
+It was lifted for some common cases, but not universally removed.
 
 ## What is a Case Class?
 
