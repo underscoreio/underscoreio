@@ -6,9 +6,9 @@ author: "Richard Dallaway"
 
 Back in 2014, when Scala 2.11 was released, an important limitation was removed:
 "Case classes with > 22 parameters are now allowed".
-This may lead you to think there's no 22 limits in Scala, but that's not the case.
+This may lead you to think there are no 22 limits in Scala, but that's not the case.
 The limit lives on in functions and tuples.
-This post explores the limit, with an example from Slick, and ideas for what you can do about it.
+This post explores the limit, looks at an example from Slick, and notes two ideas for what you can do about it.
 
 [SI-7296]: https://issues.scala-lang.org/browse/SI-7296
 [scala211]: https://www.lightbend.com/blog/scala-211-has-arrived
@@ -39,17 +39,15 @@ scala> case class Large(
 <console>:7: error: Implementation restriction: case classes cannot have more than 22 parameters.
 ```
 
-It was pretty easy to run into this limitation when modelling JSON using case classes.
-Another situation would be when mapping large relational database tables into case classes.
+It was pretty easy to run into this limitation when modelling JSON or mapping large database tables using case classes.
 
-So it's great that the restriction was lifted.
-It was lifted for some common cases, but not universally removed.
+So it's great that the restriction was relaxed in Scala 2.11.
+However, while the 22 limit was lifted for some common cases, it was not universally removed.
 
 ## What is a Case Class?
 
 To understand where the 22 limit still exists,
 we need to take a look at what a case class gives us.
-
 Let's start with a small case class:
 
 ```scala
@@ -62,9 +60,8 @@ We have field accessors, a constructor, equality, hash code, copy, and product m
 - `unapply` - from [Product2] (via `Tuple2`); and
 - `tupled` - from [Function2].
 
-These methods crop up frequently when using libraries such as Slick.
-
-These two are of particular interest here because they can be seen as taking or producing tuples.
+These two methods crop up frequently when using libraries such as Slick.
+They are used to take or produce tuples.
 And that's where we are going to run into problems.
 
 As a quick reminder, here's how the methods can be used:
@@ -171,12 +168,12 @@ final class MessageTable(tag: Tag)
 }
 ```
 
-We don't need to go into the details of what's happening here.
-What's important for us is the last line.
-This is the "default projection".
-It's saying that the tuple of columns `(sender, content, id)` can be turned into a `Message` case class via the `tupled` and `unapply` methods on the case class.
+We don't need to go into too much detail here.
+The `def *`, called the "default projection", is the important part.
+It says that the tuple of database columns `(sender, content, id)` can be turned into a `Message` via the `tupled` and `unapply` methods on the case class.
 
 From what we've discussed so far you know this is going to be a problem for tables with more than 22 columns.
+As soon as you have 23 columns or more, the code won't compile because `tupled` and `unappy` won't exist.
 
 ## Working around the Limit
 
@@ -202,7 +199,7 @@ and the Slick code generator will automatically use it when encountering tables 
 It looks something like this:
 
 ```scala
-final class MessageTable(tag: Tag)
+finae class MessageTable(tag: Tag)
     extends Table[Long :: String :: String :: HNil](tag, "message") {
 
   def id      = column[Long]("id", O.PrimaryKey, O.AutoInc)
@@ -215,7 +212,28 @@ final class MessageTable(tag: Tag)
 
 Slick knows how to map columns into HLists. You can work with values like `1L :: "Dave" :: "Hello!" :: HNil`.
 
-But if you want to make use of case classes, you may be better off using the shapeless HList implementation. We've created the [Slickless](https://github.com/underscoreio/slickless) library to make that easier. In particular [the recent `mappedWith` method](https://github.com/underscoreio/slickless/releases/tag/0.3.0) converts between shapeless HLists and case classes.
+But if you want to make use of case classes, you may be better off using the shapeless HList implementation. We've created the [Slickless](https://github.com/underscoreio/slickless) library to make that easier. In particular [the recent `mappedWith` method](https://github.com/underscoreio/slickless/releases/tag/0.3.0) converts between shapeless HLists and case classes. It looks like this:
+
+```scala
+import slick.driver.H2Driver.api._
+import shapeless._
+import slickless._
+
+class LargeTable(tag: Tag) extends Table[Large](tag, "large") {
+  def a = column[Int]("a")
+  def b = column[Int]("b")
+  def c = column[Int]("c")
+  /* etc */
+  def u = column[Int]("u")
+  def v = column[Int]("v")
+  def w = column[Int]("w")
+
+  def * = (a :: b :: c :: /* etc */ :: u :: v :: w :: HNil)
+    .mappedWith(Generic[Large])
+}
+```
+
+There's a full [example with 26 columns](https://github.com/underscoreio/slickless/blob/master/src/test/scala/userapp/LargeSpec.scala) in the Slickless code base.
 
 ## Summary
 
