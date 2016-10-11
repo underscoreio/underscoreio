@@ -124,7 +124,7 @@ scala>  val w = large match {
 w: String = w is 23
 ```
 
-But you won't find `large.tupled` or `large.unapply`. Those methods don't exist on `large`.
+But you won't find `Large.tupled` or `Large.unapply`. Those methods don't exist on `Large`.
 
 ## Tuples and Functions
 
