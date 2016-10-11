@@ -213,9 +213,9 @@ final class MessageTable(tag: Tag)
 }
 ```
 
-Slick's knows how to map columns into HLists. You can work with values like `1L :: "Dave" :: "Hello!" :: HNil`.
+Slick knows how to map columns into HLists. You can work with values like `1L :: "Dave" :: "Hello!" :: HNil`.
 
-But if you want to make use of case classes, you may be better off using the shapeless HList implementation. We've created the [Slickless](https://github.com/underscoreio/slickless) library to make that easier. In particular [the recent `mappedWith` method](https://github.com/underscoreio/slickless/releases/tag/0.3.0) converts between the shapeless HLists and case classes Slick.
+But if you want to make use of case classes, you may be better off using the shapeless HList implementation. We've created the [Slickless](https://github.com/underscoreio/slickless) library to make that easier. In particular [the recent `mappedWith` method](https://github.com/underscoreio/slickless/releases/tag/0.3.0) converts between shapeless HLists and case classes.
 
 ## Summary
 
