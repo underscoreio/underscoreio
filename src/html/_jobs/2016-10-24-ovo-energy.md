@@ -7,7 +7,7 @@ location: London
 level: Junior, Intermediate, Senior
 remote: No
 summary: |
-  We need to develop, test, and release software that scales, quickly and reliably. Over the last few years, we’ve built a highly skilled team of software engineers that is making a real impact to our business, and shaking up our industry. 
+  We need to develop, test, and release software that scales, quickly and reliably. Over the last few years, we’ve built a highly skilled team of software engineers that is making a real impact to our business, and shaking up our industry.
 admin: Hannah.manku@ovoenergy.com
 application_url: http://grnh.se/khc06t1
 instructions: |
@@ -19,7 +19,7 @@ citizenship: |
 
 <!-- break -->
 
-Tell me about OVO…
+### Tell me about OVO…
 
 Love programming? Want to build great software, using leading edge technologies, with smart, passionate people?
 
@@ -35,17 +35,19 @@ We need to develop, test, and release software that scales, quickly and reliably
 
 We care about code quality, test automation and continuous delivery. Our developers drive our technology choices and own the software they create from their laptop all the way through to production. We’re building a better energy company, and we’re doing it one Git commit at a time.
 
-See what we are up to @OVOTechTeam or visit our blog at tech.ovoenergy.com
+See what we are up to [@OVOTechTeam](https://twitter.com/OVOTechTeam) or visit our blog at [tech.ovoenergy.com](http://tech.ovoenergy.com/).
 
-That sounds great! What will I be doing?
+### That sounds great! What will I be doing?
 
-Take ownership of, architect, build and scale parts of our microservice platform.
-Drive both product and technical improvements
-Communicate your ideas, engage with different teams and encourage debate and collaboration.
-That sounds super exciting, but… Do I have what it takes?
+- Take ownership of, architect, build and scale parts of our microservice platform.
+- Drive both product and technical improvements
+- Communicate your ideas, engage with different teams and encourage debate and collaboration.
 
-Commercial experience building scalable, distributed web applications in Scala
-Comfortable with functional programming
-Experience with REST and asynchronous event driven programming.
-Experience with CI, and ideally CD
-Experience driving automation across build, test and release processes.
+### That sounds super exciting, but… Do I have what it takes?
+
+- Commercial experience building scalable, distributed web applications in Scala
+- Comfortable with functional programming
+- Experience with REST and asynchronous event driven programming.
+- Experience with CI, and ideally CD
+- Experience driving automation across build, test and release processes.
+
