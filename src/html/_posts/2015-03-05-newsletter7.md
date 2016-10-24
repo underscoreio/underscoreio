@@ -18,10 +18,10 @@ In our code reviews we often see ad-hoc approaches to error handling that rely t
 
 At the end of the second article we talk a little about union types. When that article was written we didn't know a really satisfactory way to represent them in Scala. The very next day [this blog post][union-types] was published, presenting a straight-forward approach to representing union types in Scala.
 
-These approaches have worked very well for us. Give them a try and let us know how they pan out in your code base. 
+These approaches have worked very well for us. Give them a try and let us know how they pan out in your code base.
 
 
-## Pre-release of Advanced Scala with Scalaz 
+## Pre-release of Advanced Scala with Scalaz
 
 This type of design knowledge is what we're trying to capture in our latest book, Advanced Scala with Scalaz (formerly known as Essential Scalaz), which we've literally just released as an [early access version][advanced-scala].
 
@@ -31,11 +31,11 @@ The book also serves as an introduction to Scalaz. We use abstractions from Scal
 
 Advanced Scala is also available bundled with Essential Interpreters, a short book we're writing on building interpreters, which is [considered by many][don-stewart-so] in the functional programming community to be *the* primal FP pattern. Essential Interpreters will cover the basics all the way up to free monads -- used to great effect in [Facebook's Haxl][haxl], [Twitter's Stich][stitch], and more.
 
-The [book page](http://underscore.io/training/courses/advanced-scala-scalaz/) has more information on the books, including the tables of contents.
+The [book page](http://underscore.io/books/advanced-scala) has more information on the books, including the tables of contents.
 
 ## Creative Scala
 
-Last week we released a short book called [Creative Scala][creative-scala]. It's designed for people with no previous Scala or functional programming experience who want a short and fun introduction to Scala. The exercises are all built around computer graphics using [Doodle][doodle]. 
+Last week we released a short book called [Creative Scala][creative-scala]. It's designed for people with no previous Scala or functional programming experience who want a short and fun introduction to Scala. The exercises are all built around computer graphics using [Doodle][doodle].
 
 Creative Scala is free and [open source][creative-scala-github], and already over 1'600 people have downloaded it.
 
@@ -64,11 +64,11 @@ Noel
 [union-types]: http://japgolly.blogspot.co.uk/2015/02/zero-overhead-recursive-adt-coproducts.html
 [creative-scala-ed]: http://underscore.io/events/2015-03-28-creative-scala.html
 [advanced-scala-ed]: http://underscore.io/events/2015-03-30-advanced-scala.html
-[creative-scala]: http://underscore.io/training/courses/creative-scala/ 
+[creative-scala]: http://underscore.io/training/courses/creative-scala/
 [doodle]: https://github.com/underscoreio/doodle
-[creative-scala-github]: https://github.com/underscoreio/creative-scala 
-[advanced-scala]: http://underscore.io/training/courses/advanced-scala-scalaz/
-[creative-scala-sf]: http://underscore.io/events/2015-03-15-creative-scala.html 
+[creative-scala-github]: https://github.com/underscoreio/creative-scala
+[advanced-scala]: http://underscore.io/training/courses/advanced-scala
+[creative-scala-sf]: http://underscore.io/events/2015-03-15-creative-scala.html
 [don-stewart-so]: http://stackoverflow.com/a/27860072
 [haxl]: https://github.com/facebook/Haxl
 [stitch]: https://www.youtube.com/watch?v=bmIxIslimVY

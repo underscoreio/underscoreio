@@ -2,7 +2,7 @@
 layout: event
 title: <strike>Essential Scalaz</strike> Advanced Scala with Scalaz
 type: course
-course: advanced-scala-scalaz
+course: advanced-scala
 location: San Francisco
 date: 2015-03-19 09:00:00
 timezone: PST

@@ -27,7 +27,7 @@ If you're using Scalaz you will still find Advanced Scala useful. Cats and Scala
 - Cats has a different structure to it's applicative implementation; and
 - A syntax import in Cats only imports syntax for the specific named typeclass, not for typeclasses the named typeclass extends. Concretely, `import scalaz.syntax.monoid._` will import syntax for `Semigroup` as well (`|+|`), while in Cats you must use `import cats.syntax.semigroup._` to have the same effect. This prevents collisions between imports that both import the same syntax, as can happen with, say, `import scalaz.syntax.traverse._` and `import scalaz.syntax.applicative._`, which both define `|@|`.
 
-[advanced-scala]: http://underscore.io/books/advanced-scala-scalaz/
+[advanced-scala]: http://underscore.io/books/advanced-scala/
 [typelevel]: http://typelevel.org/
 [cats]: http://typelevel.org/cats/
 [scalaz]: https://github.com/scalaz/scalaz

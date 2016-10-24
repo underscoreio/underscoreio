@@ -37,7 +37,7 @@ This book covers a comprehensive set of topics required to create web sites and 
 ## Prerequisites
 
 To benefit from this book you will need to know the fundamentals of the Scala language.
-We recommend [Essential Scala](essential-scala.html) as the perfect complement to this book.
+We recommend [Essential Scala](/training/courses/essential-scala) as the perfect complement to this book.
 
 ## Learning Outcomes
 

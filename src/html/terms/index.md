@@ -12,8 +12,8 @@ Please see the relevant section for terms and conditions related to the followin
 
 ## Terms and Conditions for Use of Underscore Web Sites {#websites}
 
-By using [underscore.io](http://underscore.io), [underscoreconsulting.com](http://underscoreconsulting.com),
-or any subdomain thereof, you are agreeing to the following terms of use. If you do not agree,
+By using [underscore.io](http://underscore.io) or any subdomain thereof,
+you are agreeing to the following terms of use. If you do not agree,
 do not use the web sites:
 
  - All information, design, layout, look, graphics and computer code (collectively the "content") of these web sites

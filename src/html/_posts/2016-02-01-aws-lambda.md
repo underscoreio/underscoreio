@@ -25,7 +25,7 @@ This post fills the gap and shows you how to use AWS Lambda with Scala and Slack
 [sbt-assembly]: https://github.com/sbt/sbt-assembly
 [tim-and-sean]: https://aws.amazon.com/blogs/compute/writing-aws-lambda-functions-in-scala/
 [playground]: https://github.com/d6y/aws-gateway-mapping-playground
-[cew]: (https://github.com/christianewillman/aws-api-gateway-bodyparser)
+[cew]: https://github.com/christianewillman/aws-api-gateway-bodyparser
 [velocity]: https://en.wikipedia.org/wiki/Apache_Velocity
 
 <!-- break -->
