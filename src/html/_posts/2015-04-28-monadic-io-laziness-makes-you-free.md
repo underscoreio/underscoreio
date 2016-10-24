@@ -63,7 +63,7 @@ is equivalent to
 () => Predef.println("Monads are the best!")
 ~~~
 
-We have an implementation that maintains substitution, which is a step forward. But to make this implementation useful we need two more things: 
+We have an implementation that maintains substitution, which is a step forward. But to make this implementation useful we need two more things:
 
 - we must somehow tie together our uses of `println`, so we don't just have thunks randomly littered throughout our code; and
 - at some point we must actually run these thunks to print stuff out.
@@ -104,13 +104,13 @@ object Pure {
         case Suspend(s) => s().run
       }
   }
-  final case class Return[A](a: () => A) extends IO[A] 
+  final case class Return[A](a: () => A) extends IO[A]
   final case class Suspend[A](s: () => IO[A]) extends IO[A]
 
   object IO {
     def point[A](a: => A): IO[A] =
       Return(() => a)
-  } 
+  }
 
   def println(msg: String): IO[Unit] =
     IO.point(Predef.println(msg))
@@ -130,7 +130,7 @@ We can't maintain substitution after we run our IO actions. The way Haskell hand
 
 The idea of representing actions as data is very general. I've explored this point in depth in the [prior post][free-monad-interpreter] introducing the free monad. We've seen another example here. We're also seeing the same implementation pattern come up again. So as a general point, if you find yourself implementing some monad variant and you don't want to use the free monad, you probably need an algebraic data type like the one we just saw.
 
-In some sense the representation of monads in terms of `map` and `join` (described [previously][free-monad-interpreter]) is more primitive than the one in terms of `flatMap`. With this representation we build nested structured like `IO[IO[IO[C]]]` through repeated application of `map`, and we then reduce these back to just, say, `IO[C]` using `join`. We can view `map` as sequencing actions to perform, and `join` as performing them. 
+In some sense the representation of monads in terms of `map` and `join` (described [previously][free-monad-interpreter]) is more primitive than the one in terms of `flatMap`. With this representation we build nested structured like `IO[IO[IO[C]]]` through repeated application of `map`, and we then reduce these back to just, say, `IO[C]` using `join`. We can view `map` as sequencing actions to perform, and `join` as performing them.
 
 Finally, we can derive a useful lesson about monad composition in the free monad. If you know about monad transformers, you'll know they are one approach to composing monads. It's fairly common to define a "monad stack" that is used consistently throughout an application. For example, an application I'm currently writing uses
 
@@ -142,5 +142,5 @@ The free monad offers another approach to monad composition, via the [a la carte
 
 [free-monad-interpreter]: {% post_url 2015-04-14-free-monads-are-simple %}
 [free-monad-deriving]: {% post_url 2015-04-23-deriving-the-free-monad %}
-[`Task`]: http://docs.typelevel.org/api/scalaz/nightly/#scalaz.concurrent.Task
+[`Task`]: https://oss.sonatype.org/service/local/repositories/releases/archive/org/scalaz/scalaz_2.11/7.2.0/scalaz_2.11-7.2.0-javadoc.jar/!/index.html#scalaz.concurrent.Task
 [a-la-carte]: http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf
