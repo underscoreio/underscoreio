@@ -39,8 +39,9 @@ collections:
     layout: default
   events:
     output: true
+    permalink: /events/:path.html
     layout: event
   jobs:
     output: true
-    layout: job
     permalink: /jobs/:path/
+    layout: job
