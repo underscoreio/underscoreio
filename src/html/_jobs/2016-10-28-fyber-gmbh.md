@@ -31,7 +31,7 @@ Our platform deals with huge amounts of data and billions of requests. Each engi
 ## Your Qualifications
 
 - University degree in Computer Science, Software Engineering or equivalent experience
-- 3+ years of experience in developing high-performance, large scale distributed, web or data intensive systems
+- Experience in developing high-performance, large scale distributed, web or data intensive systems
 - Exceptional coding skills in Scala. Java candidates transitioning to Scala are also welcome
 - Experience with Spark or Storm, NoSQL stores (HBase, Cassandra, Riak, Redis or Aerospike) is a plus
 - Experience in AdTech industry is a plus
