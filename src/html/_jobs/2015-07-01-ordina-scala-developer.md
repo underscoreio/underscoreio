@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Scala Developer
 company: Ordina
 level: Intermediate, Senior

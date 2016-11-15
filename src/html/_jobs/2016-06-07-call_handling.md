@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Senior Scala Developer
 company: Call Handling
 location:  London, UK

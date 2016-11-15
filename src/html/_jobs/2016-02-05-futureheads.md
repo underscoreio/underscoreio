@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Contract Scala Developer
 company: Futureheads
 location: London

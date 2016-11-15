@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Junior Scala Developer
 company: ITV
 location: London, UK
