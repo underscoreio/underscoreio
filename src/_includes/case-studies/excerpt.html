@@ -1,0 +1,24 @@
+<div class="panel panel-gray case-study">
+  <div class="panel-body">
+    <img src="{{ include.study.logo }}"
+         class="case-study-logo"
+         alt="{{ include.study.title }}">
+    <dl>
+      <dt>Sector</dt>
+        <dd>{{ include.study.sector }}</dd>
+      <dt>Role</dt>
+        <dd>{{ include.study.role }}</dd>
+      <dt>Technology</dt>
+        <dd>{{ include.study.tech }}</dd>
+    </dl>
+  </div>
+
+  <div class="panel-footer">
+    <p>
+      <a class="btn btn-primary btn-block" href="{{ include.study.url }}">
+        Read the case study
+        {% icon chevron-right %}
+      </a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,215 @@
+---
+layout: default
+title:  "Scala software development, consultancy, and training"
+navbar: home
+---
+
+{% include navbar.html class="navbar-default navbar-fixed-top" %}
+
+<div class="hero home-hero">
+  <div class="overlay-arrow-white-inverse"></div>
+
+  {% include navbar.html class="navbar-inverse" %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-md-6">
+        <header class="home-hero-text">
+          <div class="home-hero-text-inner">
+            <h1 class="home-hero-strapline1">
+              Building the next generation of Scala software
+            </h1>
+
+            <p class="home-hero-strapline2">
+              Underscore is a global software consultancy.
+            </p>
+
+            <p class="home-hero-strapline2">
+              Our world class team provides
+              project-focused development services,
+              built on a strong functional core.
+            </p>
+          </div>
+        </header>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="home-panel text-center-desktop">
+  <div class="container">
+    <h1 class="home-panel-title">
+      We build fast, scalable software using Scala
+    </h1>
+
+    <div class="row panel-row">
+      <div class="col-sm-4">
+        <h4>Data engineering</h4>
+
+        <p>
+          Putting data into the hands of
+          analysts and data scientists... fast!
+        </p>
+      </div>
+
+      <div class="col-sm-4">
+        <h4>Web and cloud <span class="hidden-sm">services</span></h4>
+
+        <p>
+          Scalable, secure web apps and services,
+          built using cloud infrastructure.
+        </p>
+      </div>
+
+      <div class="col-sm-4">
+        <h4>Distributed systems</h4>
+
+        <p>
+          Fast software taken to light speed
+          with distributed and parallel computing.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="
+        col-sm-6 col-sm-offset-3
+        col-md-4 col-md-offset-4
+      ">
+        <p>
+          <a class="btn btn-primary btn-block home-cta" href="/development">
+            Our development services
+            {% icon chevron-right %}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-panel text-center-desktop testimonial">
+  <div class="overlay-gem-left-white"></div>
+  <div class="overlay-gem-right-white"></div>
+  <div class="overlay-arrow-white"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <div class="container">
+    {% include testimonial.html
+               text="We have a team of very talented developers, but having Underscore coach and guide us has been invaluable. It gave us confidence that we were doing things the right way."
+               attribution="Ed Leatherbury, Boomtown" %}
+  </div>
+</section>
+
+<section class="home-panel text-center-desktop">
+  <div class="container">
+    <h1 class="home-panel-title">
+      We also do consultancy and training
+    </h1>
+
+    <div class="row panel-row">
+      <div class="col-sm-4 home-consulting-item">
+        <h4>Code review</h4>
+
+        <p>
+          Our <em>Review &amp; Improve</em> service
+          combines code review with practical advice.
+          It gives you assurance your team is on the right path
+          and highlights any areas of potential concern.
+        </p>
+      </div>
+
+      <div class="col-sm-4 home-consulting-item">
+        <h4>Training</h4>
+
+        <p>
+          Scala's unique blend of programming concepts
+          requires a unique teaching style.
+          Our range of <em>training courses</em> teaches your developers
+          how to think like functional programmers.
+        </p>
+      </div>
+
+      <div class="col-sm-4 home-consulting-item">
+        <h4>Mentoring</h4>
+
+        <p>
+          Help your team deliver faster by
+          giving them access to expert knowledge and experience.
+          <em>Mentoring</em>
+          pairs your developers with our experts
+          on an ongoing basis.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="
+        col-xs-6
+        col-sm-5 col-sm-offset-1
+        col-md-4 col-md-offset-2
+      ">
+        <p>
+          <a class="btn btn-primary btn-block home-cta" href="/consulting">
+            Our consulting products
+            {% icon chevron-right %}
+          </a>
+        </p>
+      </div>
+      <div class="
+        col-xs-6
+        col-sm-5
+        col-md-4
+      ">
+        <p>
+          <a class="btn btn-primary btn-block home-cta" href="/training">
+            Our training courses
+            {% icon chevron-right %}
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-panel home-blog text-center">
+  <div class="overlay-arrow-white"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <div class="container">
+    {% assign listedPosts  = site.posts  %}
+    {% assign listedEvents = site.events | where_future:'date' | sort_by:'date' %}
+
+    {% if listedEvents.size > 0 %}
+      <div class="row">
+        <div class="col-sm-6">
+          <h1 class="home-panel-title">Latest from the blog</h1>
+          {% include blog/list.html posts=listedPosts %}
+        </div>
+
+        <div class="col-sm-6">
+          <h1 class="home-panel-title">Upcoming events</h1>
+          {% include events/list.html events=listedEvents %}
+        </div>
+      </div>
+    {% else %}
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h1 class="home-panel-title">Latest from the blog</h1>
+          {% include blog/list.html posts=listedPosts %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="home-panel home-customers text-center-desktop">
+  <div class="container">
+    <h1 class="home-panel-title">
+      Some of our happy customers...
+    </h1>
+
+    {% include customer-logos.html ids=site.data.homecustomers %}
+  </div>
+</section>
+
+{% include footer.html %}

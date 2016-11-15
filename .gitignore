@@ -1,20 +1,17 @@
 .env
-_site/*
-_theme_packages/*
-
-Thumbs.db
+.asset-cache
+.jekyll-metadata
+.ruby-version
+.rbenv-version
 .DS_Store
+Thumbs.db
+
+*.sublime-project
+*.sublime-workspace
 
 !.gitkeep
 
-.rbenv-version
-.rvmrc
-/dist
-/core-scala
-/core-scala.zip
 /node_modules
-/underscoreio
-/src/php/vendor
-
-*.sublime-workspace
+/_site
+/_theme_packages
 

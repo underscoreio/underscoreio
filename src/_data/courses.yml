@@ -1,0 +1,11 @@
+# "Published" courses in the order we list them on the training and booking pages:
+- 'essential-scala'
+- 'advanced-scala'
+- 'advanced-shapeless'
+- 'essential-play'
+- 'essential-slick'
+- 'essential-lift'
+- 'creative-scala'
+# - 'essential-distributed-systems'
+# - 'essential-macros'
+# - 'essential-java8'

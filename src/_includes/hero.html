@@ -1,0 +1,28 @@
+{% include navbar.html class="navbar-default navbar-fixed-top" %}
+
+<div class="hero">
+  <div class="overlay-gem-left-black hero-overlay-soft"></div>
+  <div class="overlay-gem-right-black hero-overlay-soft"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  {% include navbar.html class="navbar-inverse" %}
+
+  <header class="hero-text">
+    <div class="container">
+      {% if include.backLink %}
+        <h1>
+          <a class="back-link" href="{{ include.backLink }}">
+            {{ include.title }}
+            {% icon back %}
+          </a>
+        </h1>
+      {% else %}
+        <h1>{{ include.title }}</h1>
+      {% endif %}
+
+      {% if include.lead %}
+        <p class="lead">{{ include.lead }}</p>
+      {% endif %}
+    </div>
+  </header>
+</div>

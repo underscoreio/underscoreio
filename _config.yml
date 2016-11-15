@@ -1,0 +1,74 @@
+# Jekyll Configuration
+# --------------------
+
+name                  : Underscore
+description           : "Underscore: Scala Software Development"
+url                   : "http://underscore.io"
+port                  : 4000
+host                  : 0.0.0.0
+
+permalink             : /blog/posts/:year/:month/:day/:title.html
+paginate              : 5
+paginate_path         : "blog/page:num/"
+excerpt_separator     : "<!-- break -->"
+
+safe                  : false
+future                : true # needed for events
+
+source                : ./src
+destination           : ./_site
+encoding              : utf-8
+
+gems:
+  - jekyll-paginate
+
+keep_files:
+  - css
+  - js
+  - images
+  - fonts
+  - vendor
+
+collections:
+  books:
+    output: true
+    permalink: /books/:path/
+    layout: default
+  courses:
+    output: true
+    permalink: /training/courses/:path/
+    layout: default
+  casestudies:
+    output: true
+    permalink: /case-studies/:path/
+    layout: default
+  events:
+    output: true
+    future: true
+    permalink: /events/:path/
+    layout: event
+  jobs:
+    output: true
+    permalink: /jobs/:path/
+    layout: job
+
+assets:
+  autowrite : true
+  prefix    : "/assets"
+  digest    : true
+  assets:
+    - "*.png"
+    - "*.gif"
+    - "*.jpg"
+    - "*.svg"
+    - "*.woff"
+    - "*.ttf"
+  sources:
+    - _assets/js
+    - _assets/css
+    - _assets/fonts
+  features:
+    liquid             : false
+    integrity          : false
+    automatic_img_size : false
+    automatic_img_alt  : true

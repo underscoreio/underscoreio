@@ -1,0 +1,9 @@
+<div class="row panel-row">
+  {% for studyId in include.ids %}
+    {% assign study = studyId | lookup_in:site.casestudies %}
+
+    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
+      {% include case-studies/excerpt.html study=study %}
+    </div>
+  {% endfor %}
+</div>

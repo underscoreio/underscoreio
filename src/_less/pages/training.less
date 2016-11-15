@@ -1,0 +1,105 @@
+.training-section {
+  h2, .lead {
+    text-align: center;
+  }
+}
+
+.training-directory {
+  .list-unstyled();
+
+  .panel {
+    text-align: left;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: @shadow-active;
+      .panel-body,
+      .panel-footer {
+        background: darken(@gray-lighter, 4%);
+      }
+    }
+  }
+
+  .title {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .icon {
+    float: right;
+  }
+
+  .summary {
+    min-height: 4*@line-height-computed + 2*@padding-base-vertical;
+  }
+
+  .panel-heading {
+    a {
+      display: block;
+    }
+  }
+}
+
+.training-custom-booking {
+  padding-top:    .5*@line-height-computed;
+  padding-bottom: .5*@line-height-computed;
+  margin-bottom: @line-height-computed;
+}
+
+.training-hero {
+  color: white;
+
+  h1 a.back-link {
+    color: white;
+  }
+
+  .training-hero-products {
+    position: relative;
+    z-index: 4;
+    color: @text-color;
+    margin-bottom: 0;
+
+    h3 { margin-top: 0; }
+
+    font-size: .9em;
+
+    .course-product-description {
+      @media (min-width: @screen-sm) { min-height: 3*@line-height-computed; }
+      @media (min-width: @screen-md) { min-height: 5*@line-height-computed; }
+    }
+
+    .panel-body {
+      min-height: 4*@line-height-computed + 2*@padding-base-vertical;
+    }
+  }
+
+  iframe.oreilly {
+    display: block;
+    width: 100% !important;
+    height: 6*@line-height-computed + 2*@padding-base-vertical + 4px;
+  }
+
+  div.parleys {
+    margin-bottom: @line-height-computed;
+  }
+}
+
+.training-content {
+  min-height: 480px;
+}
+
+.training-banner {
+  margin-top: @line-height-computed;
+}
+
+.training-sidebar {
+  padding-top: @line-height-computed;
+}
+
+.training-book-cover {
+  display: block;
+  margin: 0 auto @line-height-computed;
+  height: 300px;
+}

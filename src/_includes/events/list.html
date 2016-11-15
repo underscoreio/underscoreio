@@ -1,0 +1,9 @@
+<ul class="list-unstyled event-list">
+  {% for event in include.events limit:3 %}
+    <li>
+      <a class="event-title" href="{{ event.url }}">{{ event.title }}</a>
+      <span class="event-date">{{ event.date | date:'%d %b %Y' }}</span>,
+      <span class="event-location">{{ event.location }}</span>
+    </li>
+  {% endfor %}
+</ul>

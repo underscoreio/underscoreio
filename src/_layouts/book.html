@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+{% include navbar.html class="navbar-default navbar-fixed-top" %}
+
+<div class="hero book-hero" style="background: {{ page.color }}">
+  <div class="overlay-gem-left-white"></div>
+  <div class="overlay-gem-right-white"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  {% include navbar.html class="navbar-inverse" %}
+
+  <header class="hero-text">
+    <div class="container">
+      <h1>
+        <a class="back-link" href="/books">
+          {{ page.title }} Book
+          {% icon back %}
+        </a>
+      </h1>
+    </div>
+  </header>
+</div>
+
+<section class="container">
+  <div class="row">
+    <div class="col-sm-7 col-md-8">
+      <article class="training-content">
+        {{ content }}
+      </article>
+    </div>
+    <div class="col-sm-5 col-md-4">
+      <aside class="training-sidebar">
+        {% if page.book %}
+          {% include training/sidebar/book.html
+             id=page.id
+             title=page.title
+             cover=page.cover
+             book=page.book
+             mode="book" %}
+        {% endif %}
+        {% if page.teamBook %}
+          {% include training/sidebar/book.html
+             id=page.id
+             title=page.title
+             cover=page.cover
+             book=page.teamBook
+             mode="team" %}
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}

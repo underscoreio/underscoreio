@@ -1,0 +1,108 @@
+.panel {
+  box-shadow: @shadow-default;
+
+  .panel-heading {
+    h1,h2,h3,h4,h5,h6 {
+      margin: 0;
+    }
+  }
+}
+
+.panel.panel-gray {
+  background: @gray-lighter;
+
+  > .panel-heading {
+    background: darken(@gray-lighter, 20%);
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  > .panel-heading-primary { background: @btn-primary-bg; }
+  > .panel-heading-success { background: @btn-success-bg; }
+  > .panel-heading-info    { background: @btn-info-bg; }
+  > .panel-heading-warning { background: @btn-warning-bg; }
+  > .panel-heading-danger  { background: @btn-danger-bg; }
+
+  .panel-footer {
+    border-top: none;
+  }
+}
+
+.panel.panel-white {
+  box-shadow: none;
+
+  .panel-heading,
+  .panel-body,
+  .panel-footer {
+    padding-left: 0;
+    padding-right: 0;
+    background: transparent;
+    border: none;
+  }
+}
+
+.course-panel(@bg) {
+  .panel-heading {
+    background: @bg !important;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .panel-heading {
+      background: darken(@bg, 5%) !important;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+.panel.creative-scala { .course-panel(@creative-scala-color); }
+.panel.essential-scala { .course-panel(@essential-scala-color); }
+.panel.advanced-scala { .course-panel(@advanced-scala-color); }
+.panel.advanced-shapeless { .course-panel(@advanced-shapeless-color); }
+.panel.shapeless-guide { .course-panel(@shapeless-guide-color); }
+.panel.essential-play { .course-panel(@essential-play-color); }
+.panel.essential-slick { .course-panel(@essential-slick-color); }
+.panel.essential-lift { .course-panel(@essential-lift-color); }
+.panel.lift-cookbook { .course-panel(@lift-cookbook-color); }
+.panel.essential-distributed-systems { .course-panel(@essential-distributed-systems-color); }
+
+@media (min-width: @screen-sm) {
+  .panel-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    > div {
+      flex: 1;
+
+      display: flex;
+      flex-direction: column;
+
+      .panel {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+
+        .panel-heading {
+          flex: 0;
+          // Work around flexbox bug in Safari:
+          // https://philipwalton.com/articles/normalizing-cross-browser-flexbox-bugs/#minimum-content-sizing-of-flex-items
+          min-height: 50px;
+        }
+
+        .panel-body {
+          flex: 1;
+        }
+
+      }
+    }
+  }
+}

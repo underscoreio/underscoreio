@@ -1,0 +1,24 @@
+{% if include.course.onsite %}
+  <div class="panel panel-gray training-onsite">
+    <div class="panel-body">
+      <h4>Book an on-site course</h4>
+
+      {% if include.course.onsite.duration %}
+      <p>Duration: {{ include.course.onsite.duration }}</p>
+      {% endif %}
+
+      <p>
+        Don't go it alone!
+        Book a private course for your team,
+        taught on-site at your offices.
+      </p>
+    </div>
+
+    <div class="panel-footer">
+      <a class="btn btn-primary btn-block"
+         href="/training/bookings?course={{ include.course.id }}&location=onsite">
+        {{ include.course.onsite.buttonLabel | liquify }}
+      </a>
+    </div>
+  </div>
+{% endif %}

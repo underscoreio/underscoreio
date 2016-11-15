@@ -1,0 +1,74 @@
+---
+layout: default
+title:  Training Courses and Books
+navbar: training
+---
+
+{% include hero.html
+   title="Training courses and books" %}
+
+<section class="training-section">
+  <div class="container">
+    <h2>Training courses</h2>
+
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <p class="lead">
+          Our training courses place equal emphasis
+          on deep theory and practical advice.
+          All are available on-site
+          and online via live video conferencing.
+        </p>
+      </div>
+    </div>
+
+    <div class="row training-directory">
+      {% include training/directory.html ids=site.data.courses items=site.courses %}
+    </div>
+
+    <div class="row training-custom-booking">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p class="text-center">
+          Looking for bespoke training?
+        </p>
+
+        <p class="text-center">
+          <a class="btn btn-primary btn" href="/training/bookings?course=custom">
+            Book a custom course
+            {% icon chevron-right %}
+          </a>
+        </p>
+
+        <p class="text-center">
+          Tailored courses to fit your team.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="training-section">
+  <div class="container">
+    <h2>Books</h2>
+
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+      <p class="lead">
+        Prefer self-directed learning?
+        Grab one of our books for a focused
+        guide to your chosen subject.
+        Team and diversity discounts are available.
+      </p>
+    </div>
+
+    <div class="row training-directory">
+      {% include training/directory.html ids=site.data.books items=site.books %}
+    </div>
+  </div>
+</section>
+
+<script>
+  uio.trainingDirectory.init(".training-directory")
+</script>
+
+{% include footer.html %}

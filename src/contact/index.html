@@ -1,0 +1,85 @@
+---
+layout: default
+title: Contact Us
+navbar: company
+---
+
+{% include hero.html title="Contact Us" %}
+
+<section class="container">
+  <article>
+    <div class="row">
+      <div class="col-sm-8">
+
+        <form id="contact-form" method="post">
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
+          </div>
+
+          <div class="form-group">
+            <label>Your email address</label>
+            <input type="email" class="form-control" name="email" placeholder="leonardo@davinci.com">
+          </div>
+
+          <div class="form-group">
+            <label>Your phone number (optional)</label>
+            <input type="phone" class="form-control" name="phone" placeholder="+44 123 456 7890">
+          </div>
+
+          <div class="form-group">
+            <label>Subject line</label>
+
+            <input type="text" class="form-control" name="subject">
+          </div>
+
+          <div class="form-group">
+            <label>Your message</label>
+
+            <textarea class="form-control" name="message" rows="10"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Just checking...</label>
+            <div class="g-recaptcha" data-sitekey="6LczFSYTAAAAAN2OtTwNqZu_Ch-9p0ZPSW2yC7s0"></div>
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+
+          <div class="form-group">
+            <div id="feedback" class="label"></div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-sm-4">
+        <p style="margin-bottom: 2px">
+          <strong>Or phone or email us...</strong>
+        </p>
+
+        <p>
+          <a href="tel:+442030955332" class="btn btn-block btn-primary">
+            {% icon phone %}
+            +44 (0)20 309 55332
+          </a>
+        </p>
+
+        <p>
+          <a href="mailto:hello@underscore.io" class="btn btn-block btn-primary">
+            {% icon envelope %}
+            hello@underscore.io
+          </a>
+        </p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<script>
+  window.uio.contactForm.init("#contact-form")
+</script>
+
+{% include footer.html %}
