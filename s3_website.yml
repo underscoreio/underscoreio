@@ -1,5 +1,7 @@
 s3_bucket: underscore.io
 cloudfront_distribution_id: EZ3DZ8A1CPWTK
+s3_id: <%= ENV['AWS_KEY'] %>
+s3_secret: <%= ENV['AWS_SECRET'] %>
 
 # Below are examples of all the available configurations.
 # See https://github.com/laurilehmijoki/s3_website
