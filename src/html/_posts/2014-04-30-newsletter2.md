@@ -6,7 +6,7 @@ date: '2014-04-30 12:00:00'
 categories: [ newsletter ]
 ---
 
-It's been a busy month for Underscore. We've seen a lot of different clients but one constant is that everyone has difficulty hiring. Scala is hot right now and demand outstrips supply. So how do you find Scala developers? I've put some together some thoughts on [how to hire more effectively](http://underscoreconsulting.com/blog/posts/2014/05/02/hiring-scala-developers.html). Have some war stories or tips about hiring? Add them as comments to the post.
+It's been a busy month for Underscore. We've seen a lot of different clients but one constant is that everyone has difficulty hiring. Scala is hot right now and demand outstrips supply. So how do you find Scala developers? I've put some together some thoughts on [how to hire more effectively](http://underscore.io/blog/posts/2014/05/02/hiring-scala-developers.html). Have some war stories or tips about hiring? Add them as comments to the post.
 
 <!-- break -->
 
@@ -26,7 +26,7 @@ The Underscore flop-house has been booked, and [Scala Days](http://scaladays.org
 
 ## http4s
 
-[http4s](https://github.com/http4s/http4s) is one of the more interesting libraries I've seen of late. It's essentially an HTTP library for wrapping [scalaz-stream](https://github.com/scalaz/scalaz-stream/) libraries. [Regular readers](http://underscoreconsulting.com/newsletters/newsletter-1.html) will remember I'm interested in scalaz-stream as a tool for single machine concurrency, so having an option to easily wrap streams in an HTTP front-end is very interesting. The built-in support for WebSockets is something that not a lot of framework do a good job with.
+[http4s](https://github.com/http4s/http4s) is one of the more interesting libraries I've seen of late. It's essentially an HTTP library for wrapping [scalaz-stream](https://github.com/scalaz/scalaz-stream/) libraries. [Regular readers](http://underscore.io/blog/posts/2014/03/18/newsletter1.html) will remember I'm interested in scalaz-stream as a tool for single machine concurrency, so having an option to easily wrap streams in an HTTP front-end is very interesting. The built-in support for WebSockets is something that not a lot of framework do a good job with.
 
 ## RedEyes
 

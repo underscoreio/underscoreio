@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Scala Software Engineer
 company: McLaren Applied Technologies
 level: Intermediate

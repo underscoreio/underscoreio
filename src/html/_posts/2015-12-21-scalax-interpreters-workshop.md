@@ -24,4 +24,4 @@ If you'd like more detailed material, it's going into our book [Essential Interp
 [feature-gating]: http://engineering.instagram.com/posts/496049610561948/flexible-feature-control-at-instagram/
 [spark-catalyst]: http://people.csail.mit.edu/matei/papers/2015/sigmod_spark_sql.pdf
 [stitch]: https://engineering.twitter.com/university/videos/introducing-stitch
-[ei]: http://underscore.io/books/advanced-scala-scalaz/
+[ei]: http://underscore.io/books/advanced-scala/

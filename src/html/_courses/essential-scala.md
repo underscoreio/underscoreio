@@ -44,82 +44,81 @@ products:
 
 Essential Scala is a two day course aimed at experienced developers who are encountering Scala for the first time. Put your existing skills to use mastering Scala's combination of object-oriented and functional programming.
 
-The course teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy focus on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
+The course teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy emphasis on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
 
-If you are an experienced developer taking your first steps in Scala and want to get up to speed quickly then this is the course for you.
+If you are an experienced developer, taking your first steps in Scala and wanting to get up to speed quickly, then this is the course for you.
 
 ## Prerequisites
 
-To benefit from this course you should have one to two years' experience with an object-oriented (e.g. Java, C#) or functional (e.g. Haskell, Lisp) programming language and a good general understanding of object-oriented or functional programming language concepts.
+To benefit from this course you should have one or two years' experience with an object-oriented (e.g. Java, C#) or functional (e.g. Haskell, Lisp) programming language, and a good general understanding of object-oriented or functional programming language concepts.
 
 ## Learning Outcomes
 
 Take away a working knowledge of object-oriented and functional programming in Scala. Learn the common patterns needed to get the most out of Scala's extensive collections framework.
 
-Gain a comprehensive understanding of Scala's sophisticated pattern matching facilities and the programming styles they support.
+Develop a conceptual framework by which we can judge good Scala. Use equational reasoning to understand how to read and write simple, testable, scalable programs.
 
-Learn how Scala's flexible syntax, by-name arguments and implicit conversions and arguments support the creation of fluent interfaces and sophisticated internal domain specific languages.
+Understand key functional programming concepts and their encoding in Scala:
+
+- Model data using algebraic data types, encoded in Scala as families of sealed traits and case classes.
+
+- Use structural recursion and pattern matching to traverse and transform data.
+
+- Gain a deep understanding of `map`, `flatMap`, and `fold`, the three most important methods for sequencing computations in Scala.
+
+- Learn how to extend existing libraries using type classes---a simpler, more flexible alternative to object oriented inheritance.
+
+Learn how Scala's flexible syntax and laguage features support the creation of fluent interfaces and sophisticated domain specific languages.
 
 ## Table of Contents
 
  - Introduction
    - Expressions, Types, and Values
    - Interacting with Objects
-   - Literal Objects
-   - Object Literals
-   - Methods and Fields
-   - Compound Expressions
+   - Immutability and Equational Reasoning
 
- - Objects and Classes
-   - Classes
-   - Objects as Functions
-   - Companion Objects
-   - Case Classes
+ - Algebraic Data Types
+   - Case Classes and Sealed Traits
+   - Structural Recursion
    - Pattern Matching
 
- - Modelling Data with Traits
-   - This or That and Nothing Else: Sealed Traits
-   - Modelling Data with Traits
-   - The Is-a Or Pattern
-   - Working With Data
-   - Recursive Data
+ - Functions
+   - Function Literals
+   - Functions as Values
+   - Functions as Objects
+   - Higher Order Functions and Methods
 
- - Sequencing Computations
-   - Generics
-   - Functions
-   - Generic Folds for Generic Data
-   - Modelling Data with Generic Types
-   - Sequencing Computation
+ - Generics
+   - Generic Types and Methods
+   - Using Functions to Decouple Concepts
    - Variance
 
- - Collections
-   - Sequences
-   - Working with Sequences
+ - Sequencing Computations
+   - Map and FlatMap
+   - Iterating and Looping
+   - Folding
    - For Comprehensions
+   - Sequencing Computations
+
+ - Standard Library
+   - Packages and Companion Objects
    - Options
-   - Options as Flow Control
-   - Monads
+   - Tuples
+   - Lists, Ranges, and Sequences
    - Maps and Sets
-   - Ranges
 
  - Type Classes
-   - Type Class Foundations
+   - The Type Class Pattern
    - Implicit Parameters
    - Implicit Values
-   - Type Classes
    - Type Enrichment
    - Combining Type Classes and Type Enrichment
-   - Using Type Classes
-   - Implicit Conversions
 
- - Pattern Matching
-   - Standard Patterns
-   - Custom Patterns
-
+ {% comment %}
  - Growing the Language
    - Operators
    - Special Methods
    - Operator Associativity
-   - Final Words
    - Custom Control Structures
-   - Syntax Extensions
+   - Extractor Patterns
+ {% endcomment %}

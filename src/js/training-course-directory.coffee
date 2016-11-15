@@ -12,7 +12,7 @@ init = (sel) ->
     elem     = $(evt.currentTarget)
     courseId = $(elem).data("courseId")
     if courseId
-      window.location = "/training/courses/#{courseId}/"
+      window.location = "#{courseId}/"
     return
 
   return

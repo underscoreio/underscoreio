@@ -30,7 +30,7 @@ This one-day course is aimed at Scala developers who want to understand how to b
 
 ## Prerequisites
 
-To benefit from this course you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](essential-scala.html) as the perfect complement to this course.
+To benefit from this course you will need to know the fundamentals of the Scala language. We recommend [Underscore's Essential Scala](/training/courses/essential-scala) as the perfect complement to this course.
 
 ## Learning Outcomes
 

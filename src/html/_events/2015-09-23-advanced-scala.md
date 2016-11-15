@@ -2,7 +2,7 @@
 layout: event
 title: Advanced Scala with Scalaz
 type: course
-course: advanced-scala-scalaz
+course: advanced-scala
 location: Lake District, UK
 date: 2015-09-23 09:00:00
 timezone: BST
@@ -39,10 +39,10 @@ This course will be taught by Noel Welsh.
 
 The course will run for two days starting on {{ page.date | date:'%a, %b %d, %Y' }}. It will be held immediately following, and at the same [location](http://www.rheged.com/) as, [Scala World](http://scala.world/) :
 
-[The Rheged Centre  
-Redhills  
-Penrith  
-Cumbria  
+[The Rheged Centre
+Redhills
+Penrith
+Cumbria
 CA11 0DQ](https://www.google.co.uk/maps/place/The+Rheged+Centre/@54.6471647,-2.779321,18z/data=!3m1!4b1!4m2!3m1!1s0x487cfb4174aa3153:0x9ee5a4181d2ae4b9).
 
 ### What You Need

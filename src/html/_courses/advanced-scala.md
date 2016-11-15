@@ -1,9 +1,9 @@
 ---
-id: advanced-scala-scalaz
-title: Advanced Scala with Scalaz
+id: advanced-scala
+title: Advanced Scala with Cats
 layout: course
 navbar: training
-icon: scala
+icon: cats
 color: "#d62a7c"
 courseDirectory:
   level: Intermediate
@@ -16,14 +16,14 @@ products:
     single:
       type: gumroad
       title: Get the Book
-      url: "https://gum.co/advanced-scala-scalaz"
+      url: "https://gum.co/advanced-scala"
       buttonLabel: "Buy now - $50"
       description: |
         Download the course textbook, complete with exercises and solutions, in HTML, PDF, and ePub formats.
     team:
       type: gumroad
       title: "Get both Books"
-      url: "https://gum.co/advanced-scala-scalaz-essential-interpreters"
+      url: "https://gum.co/advanced-scala-essential-interpreters"
       buttonLabel: "Buy now - $89"
       description: |
         Download the course textbook, along with advanced material on building interpreters. Both texts come in HTML, PDF, and ePub formats.
@@ -42,11 +42,11 @@ products:
 
 ## Overview
 
-Advanced Scala with Scalaz is aimed at experienced Scala developers who want to take the next step in engineering robust and scalable systems. The course teaches five key abstractions of *monoids*, *functors*, *monads*, *monad transformers*, and *applicative functors*, using the implementations in the Scalaz library. Through a series of projects we show you how these abstractions can be used to engineer solutions to practical problems in data analysis, data validation, input parsing, error handling, and more.
+Advanced Scala with Cats is aimed at experienced Scala developers who want to take the next step in engineering robust and scalable systems. The course teaches five key abstractions of *monoids*, *functors*, *monads*, *monad transformers*, and *applicative functors*, using the implementations in the Cats library. Through a series of projects we show you how these abstractions can be used to engineer solutions to practical problems in data analysis, data validation, input parsing, error handling, and more.
 
 The main goal of this course is to teach system architecture and design using the techniques of modern functional programming. This means designing systems as small composable units, expressing constraints and interactions via the type system, and using composition to guide the construction of large systems in a way that maintains the original architectural vision.
 
-The course also serves as an introduction to the Scalaz library. We use abstractions from Scalaz, and we explain the structure of Scalaz so you can use it without fear in your own code base. The broad ideas are not specific to Scalaz, but Scalaz provides an excellent implementation that is beneficial to learn in its own right.
+The course also serves as an introduction to the Cats library. We use abstractions from Cats, and we explain the structure of Cats so you can use it without fear in your own code base. The broad ideas are not specific to Cats, but Cats provides an excellent implementation that is beneficial to learn in its own right.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Attendees of any Advanced Scala training course receive a complementary copy of 
   - Type classes as ad-hoc polymorphism
   - Type class implementation in Scala
 
-- Scalaz
+- Cats
   - Code organisation
   - Relationship to other libraries
 
@@ -104,7 +104,7 @@ Attendees of any Advanced Scala training course receive a complementary copy of 
 - Applicative
   - The definition of Applicative
   - Applicative validation
-  - Applicative builders in Scalaz
+  - Applicative builders in Cats
 
 - Case Study: MapReduce
 

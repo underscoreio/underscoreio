@@ -12,11 +12,11 @@ Noel here with the Underscore newsletter. Two main points this time: Scala Excha
 
 ## Scala Exchange
 
-In the [previous newsletter](http://underscoreconsulting.com/newsletters/newsletter-3.html) I talked about the [diversity program](http://underscoreconsulting.com/blog/posts/2014/06/30/underscores-new-speaker-program.html) we are running for [Scala Exchange](https://skillsmatter.com/conferences/1948-scala-exchange-2014). The summary is we are providing assistance for both attendees and speakers who have not been to a Scala conference before. Now the Scala Exchange speaker lineup has been announced we can evaluate how the new speaker portion of the program performed. We have a [blog post](http://underscoreconsulting.com/blog/posts/2014/10/17/new-speakers-at-scala-exchange.html) that details the process we followed and breaks down the numbers. The summary is that people who went via our program we just as likely to be selected as other speakers, and about twenty percent of the conference came via the program. We're very happy with this result.
+In the [previous newsletter](http://underscore.io/blog/posts/2014/08/07/newsletter3.html) I talked about the [diversity program](http://underscore.io/blog/posts/2014/06/30/underscores-new-speaker-program.html) we are running for [Scala Exchange](https://skillsmatter.com/conferences/1948-scala-exchange-2014). The summary is we are providing assistance for both attendees and speakers who have not been to a Scala conference before. Now the Scala Exchange speaker lineup has been announced we can evaluate how the new speaker portion of the program performed. We have a [blog post](http://underscore.io/blog/posts/2014/10/17/new-speakers-at-scala-exchange.html) that details the process we followed and breaks down the numbers. The summary is that people who went via our program we just as likely to be selected as other speakers, and about twenty percent of the conference came via the program. We're very happy with this result.
 
 We also have a number of Underscore people speaking at Scala Exchange. Miles will be talking about his latest adventures in type astronautics, Richard will discuss our experiences running code reviews for teams adopting Scala, Dave will describe how to model validation logic in Scala, and I will describe how we teach Scala to those new to the language.
 
-If you want to go to Scala Exchange, and haven't attended a Scala conference before, you are eligible for the support we're offering for new attendees. More details [here](http://underscoreconsulting.com/blog/posts/2014/06/30/underscores-new-speaker-program.html).
+If you want to go to Scala Exchange, and haven't attended a Scala conference before, you are eligible for the support we're offering for new attendees. More details [here](http://underscore.io/blog/posts/2014/06/30/underscores-new-speaker-program.html).
 
 ## Training Material
 
@@ -38,20 +38,20 @@ Miles' is running a [one day course](https://www.eventbrite.com/e/advanced-scala
 
 ## Functional Finance
 
-We recently helped start the [Functional Finance](http://underscoreconsulting.com/blog/posts/2014/10/01/intro-functional-finance.html) meetup to complement the [Functional Media](http://www.meetup.com/Functional-Media/) events we have been running for some time. We are always looking out for speakers and hosts for these events; if you are interested do get in touch.
+We recently helped start the [Functional Finance](http://underscore.io/blog/posts/2014/10/01/intro-functional-finance.html) meetup to complement the [Functional Media](http://www.meetup.com/Functional-Media/) events we have been running for some time. We are always looking out for speakers and hosts for these events; if you are interested do get in touch.
 
 
 ## On The Blog
 
 Some of the highlights on the blog include
 
-- [How I turned Shapeless knowledge into 1/3 of a new bike in a few hours](http://underscoreconsulting.com/blog/posts/2014/10/02/learn-shapeless-find-500-dollars.html).
+- [How I turned Shapeless knowledge into 1/3 of a new bike in a few hours](http://underscore.io/blog/posts/2014/10/02/learn-shapeless-find-500-dollars.html).
 
-- Richard's excellent discussion of [modelling enumerations in Scala](http://underscoreconsulting.com/blog/posts/2014/09/03/enumerations.html).
+- Richard's excellent discussion of [modelling enumerations in Scala](http://underscore.io/blog/posts/2014/09/03/enumerations.html).
 
-- Jonathon giving [the low-down on automated code quality tools](http://underscoreconsulting.com/blog/posts/2014/08/28/tools-to-guide-code-quality.html), something we're having some success with in our mentoring.
+- Jonathon giving [the low-down on automated code quality tools](http://underscore.io/blog/posts/2014/08/28/tools-to-guide-code-quality.html), something we're having some success with in our mentoring.
 
-- My feelings on [AngularJs vs React](http://underscoreconsulting.com/blog/posts/2014/08/17/angularjs-vs-react.html).
+- My feelings on [AngularJs vs React](http://underscore.io/blog/posts/2014/08/17/angularjs-vs-react.html).
 
 That's all for now. I can feel Essential Scala calling to me. Till next time.
 

@@ -32,7 +32,7 @@ If a consultant is not an option, you might have some luck if you allow remote w
 
 ## Finding People
 
-So you have an open position and now need to get it in front of people. Where do you find start? Local meetup groups, such [LSUG](http://lsug.org/) or [Functional Media](http://www.meetup.com/Functional-Media/) in London, are the first place I would look. These event regularly attract 60+ attendees. A significant number don't get to use Scala at their day job and would jump at the chance. Hosting an event or speaking at one will give you the opportunity to mention that you're hiring.
+So you have an open position and now need to get it in front of people. Where do you find start? Local meetup groups, such [LSUG](http://meetup.com/london-scala/) or [Functional Media](http://www.meetup.com/Functional-Media/) in London, are the first place I would look. These event regularly attract 60+ attendees. A significant number don't get to use Scala at their day job and would jump at the chance. Hosting an event or speaking at one will give you the opportunity to mention that you're hiring.
 
 My next step would be to advertise in places developers read (hint: not the newspapers). Post to the various Scala mailing lists (but only if the particular list allows job postings), or try placing an ad on [StackOverflow](http://stackoverflow.com) or the monthly "Who's Hiring" threads on Hacker News (for example, here is [April's thread](https://news.ycombinator.com/item?id=7507765)).
 

@@ -4,7 +4,7 @@ title: Keeping Scala Simple
 author: Noel Welsh
 ---
 
-You don't have to venture far to find people arguing that Scala is a complex language, or that Scala needs to be more opinionated. Luckily I have plenty of opinions, specifically about how to make Scala simpler, and this is something I've been espousing in my recent talks at Scala Days SF and Amsterdam ([slides here][slides]). 
+You don't have to venture far to find people arguing that Scala is a complex language, or that Scala needs to be more opinionated. Luckily I have plenty of opinions, specifically about how to make Scala simpler, and this is something I've been espousing in my recent talks at Scala Days SF and Amsterdam ([slides here][slides]).
 
 The problem with talking about simplicity is that it becomes one of those things like "good art" that's defined as "I know it when I see it." This provides no guidance. We need more precision. In this blog post I want to discuss complexity from three different angles and give concrete recommendations for creating simple Scala code.
 
@@ -94,4 +94,4 @@ Scala can be simple if you're prepared to be opinionated. In my opinion simplici
 
 [slides]: http://noelwelsh.com/assets/downloads/scala-days-amsterdam-2015.pdf
 [periodic-table]: http://www.flotsam.nl/dispatch-periodic-table.html
-[essential-scala]: http://underscore.io/training/courses/essential-scala/
+[essential-scala]: http://underscore.io/training/courses/essential-scala

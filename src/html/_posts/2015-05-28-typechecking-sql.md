@@ -25,7 +25,7 @@ To keep things simple, we're just going to look at one SQL statement:
 select "content" from "message"
 ~~~
 
-The type we want from executing this query will be some kind of `Seq[String]`.  
+The type we want from executing this query will be some kind of `Seq[String]`.
 
 The table for the query is:
 
@@ -43,9 +43,9 @@ Given that the SQL is, in effect, an arbitrary hunk of text, we'd like to know:
 
 And we want to know it sooner rather than later.
 
-Both Slick and doobie have an approach to this problem.  
+Both Slick and doobie have an approach to this problem.
 
-[Slick] is, I suspect, reasonably well known as the database library in Typesafe's stack. In version 3.0 it added support for type-checked queries.  Perhaps less well known is [doobie], which provides a "principled way to construct programs (and higher-level libraries) that use JDBC." We think of it as the database layer in a Typelevel stack.  
+[Slick] is, I suspect, reasonably well known as the database library in Typesafe's stack. In version 3.0 it added support for type-checked queries.  Perhaps less well known is [doobie], which provides a "principled way to construct programs (and higher-level libraries) that use JDBC." We think of it as the database layer in a Typelevel stack.
 
 Let's look in turn, and how they let us discover problems with our SQL.
 

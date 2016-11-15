@@ -5,17 +5,17 @@
 
 @font-face {
     font-family:"uio";
-    src:url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.eot");
+    src:url("/fonts/uio-425e396564fdd84a64954df8abd79c1c.eot");
     font-weight:normal;
     font-style:normal;
 }
 @font-face {
 	font-family:"uio";
-	src:url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.eot");
-	src:url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.eot?#iefix") format("embedded-opentype"),
-		url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.woff") format("woff"),
-		url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.ttf") format("truetype"),
-		url("/fonts/uio-806c75ddf4bc8b5f71f4607df1024553.svg?#uio") format("svg");
+	src:url("/fonts/uio-425e396564fdd84a64954df8abd79c1c.eot");
+	src:url("/fonts/uio-425e396564fdd84a64954df8abd79c1c.eot?#iefix") format("embedded-opentype"),
+		url("/fonts/uio-425e396564fdd84a64954df8abd79c1c.woff") format("woff"),
+		url("/fonts/uio-425e396564fdd84a64954df8abd79c1c.ttf") format("truetype"),
+		url("/fonts/uio-425e396564fdd84a64954df8abd79c1c.svg?#uio") format("svg");
 	font-weight:normal;
 	font-style:normal;
 }
@@ -55,139 +55,145 @@
 
 
 
-.icon-uio-chevron-down:before {
+.icon-uio-cats:before {
 	content:"\f103";
 }
 
 
 
-.icon-uio-chevron-left:before {
+.icon-uio-chevron-down:before {
 	content:"\f104";
 }
 
 
 
-.icon-uio-chevron-right:before {
+.icon-uio-chevron-left:before {
 	content:"\f105";
 }
 
 
 
-.icon-uio-chevron-up:before {
+.icon-uio-chevron-right:before {
 	content:"\f106";
 }
 
 
 
-.icon-uio-city:before {
+.icon-uio-chevron-up:before {
 	content:"\f107";
 }
 
 
 
-.icon-uio-envelope:before {
+.icon-uio-city:before {
 	content:"\f108";
 }
 
 
 
-.icon-uio-java:before {
+.icon-uio-envelope:before {
 	content:"\f109";
 }
 
 
 
-.icon-uio-lift:before {
+.icon-uio-java:before {
 	content:"\f10a";
 }
 
 
 
-.icon-uio-macro:before {
+.icon-uio-lift:before {
 	content:"\f10b";
 }
 
 
 
-.icon-uio-menu:before {
+.icon-uio-macro:before {
 	content:"\f10c";
 }
 
 
 
-.icon-uio-mortar:before {
+.icon-uio-menu:before {
 	content:"\f10d";
 }
 
 
 
-.icon-uio-network:before {
+.icon-uio-mortar:before {
 	content:"\f10e";
 }
 
 
 
-.icon-uio-phone:before {
+.icon-uio-network:before {
 	content:"\f10f";
 }
 
 
 
-.icon-uio-play:before {
+.icon-uio-phone:before {
 	content:"\f110";
 }
 
 
 
-.icon-uio-private:before {
+.icon-uio-play:before {
 	content:"\f111";
 }
 
 
 
-.icon-uio-public:before {
+.icon-uio-private:before {
 	content:"\f112";
 }
 
 
 
-.icon-uio-scala:before {
+.icon-uio-public:before {
 	content:"\f113";
 }
 
 
 
-.icon-uio-scalaz:before {
+.icon-uio-scala:before {
 	content:"\f114";
 }
 
 
 
-.icon-uio-shapeless:before {
+.icon-uio-scalaz:before {
 	content:"\f115";
 }
 
 
 
-.icon-uio-trophy:before {
+.icon-uio-shapeless:before {
 	content:"\f116";
 }
 
 
 
-.icon-uio-twitter:before {
+.icon-uio-trophy:before {
 	content:"\f117";
 }
 
 
 
-.icon-uio-underscore:before {
+.icon-uio-twitter:before {
 	content:"\f118";
 }
 
 
 
-.icon-uio-video:before {
+.icon-uio-underscore:before {
 	content:"\f119";
+}
+
+
+
+.icon-uio-video:before {
+	content:"\f11a";
 }
 

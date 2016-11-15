@@ -33,7 +33,7 @@ The good bit is we've worked out some material (animations!) that will be both f
 [Essential Play][essential-play] is our one book that doesn't need updating. The Play APIs haven't changed much in recent releases, and until Play makes some big changes Essential Play is essentially perfect.
 
 [creative-scala]: /training/courses/creative-scala
-[advanced-scala]: /training/courses/advanced-scala-scalaz/
+[advanced-scala]: /training/courses/advanced-scala
 [essential-scala]: /training/courses/essential-scala
 [essential-slick]: /training/courses/essential-slick
 [essential-play]: /training/courses/essential-play

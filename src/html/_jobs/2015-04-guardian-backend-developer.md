@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Software Developer
 company: The Guardian
 level: Intermediate or Senior
