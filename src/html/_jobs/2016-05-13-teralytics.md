@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Scala Developer (4 positions)
 company: Teralytics AG
 location: Zürich, Switzerland

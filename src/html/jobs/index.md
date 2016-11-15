@@ -15,9 +15,13 @@ navbar: jobs
 {% include jobs/links.html %}
 
 <article class="job-listing">
+  {% assign today = 'now' | date: '%s' %}
   {% assign jobs = site.jobs | sort: 'url' %}
   {% for job in jobs reversed %}
-  {% include jobs/excerpt.html job=job %}
+    {% assign expires = job.expire | date: '%s' %}
+      {% if expires > today %}
+        {% include jobs/excerpt.html job=job %}
+      {% endif %}
   {% endfor %}
 </article>
 

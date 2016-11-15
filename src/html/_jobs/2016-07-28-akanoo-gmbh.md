@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Software Engineer (Scala, Akka)
 company: |
   Akanoo GmbH

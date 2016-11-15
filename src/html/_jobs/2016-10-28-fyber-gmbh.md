@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-28
 title: Senior Scala Developer
 company: |
   Fyber GmbH
