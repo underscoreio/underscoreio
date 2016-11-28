@@ -106,7 +106,18 @@ r: scala.util.Either[Failed,Unit] = Right(())
 ```
 
 Note that this is happening because we've used `Unit` as our target type.
-Without this, the compiler would not trigger value discarding,
+If you look at the definition of `Either`...
+
+```scala
+// Much simplified
+sealed abstract class Either[+A, +B] {
+ def map[Y](f: B => Y): Either[A, Y] = ???
+}
+```
+
+...it's reasonably clear that `Y` has to be `Unit` because we know best and we've said the result is `Either[Failed, Unit]`.
+
+Without annotating the result the compiler would not trigger value discarding,
 and would infer the type we expect:
 
 ```scala
