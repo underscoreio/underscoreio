@@ -32,7 +32,7 @@ Or it worked and there's nothing more to say (`Unit`).
 
 We're now going to try this out and mess it up.
 
-Maybe we want to write a file, and then log that we done that.
+Maybe we want to write a file, and then log that we did so.
 (Or write a file, and write the meta data for the file in a database. Or...
 any two methods you like with this type signature).
 
@@ -70,7 +70,7 @@ Indeed, if you run that line of code in the REPL it is `Right(Left(Failed("durin
 
 What's perhaps surprising is that this result (`Either[Failed, Either[Failed,Unit]]`) does not match the `Either[Failed,Unit]` signature on `run`.
 It seems like this should be a compile error, or a warning, indicating our mistake.
-But code does compile without error or warning.
+But this code does compile without error or warning.
 
 The result of `run` is `Right(())`, signalling to us that all was well with the computation,
 even though we know the `log` failed.
