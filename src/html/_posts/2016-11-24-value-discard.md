@@ -10,6 +10,7 @@ In this post we'll look at an example, and describe ways to work safely with val
 
 [vd]: http://scala-lang.org/files/archive/spec/2.11/06-expressions.html#value-discarding
 [ff]: /blog/posts/2015/02/23/designing-fail-fast-error-handling.html
+[yf]: https://github.com/frosforever
 
 <!-- break -->
 
@@ -17,7 +18,7 @@ In this post we'll look at an example, and describe ways to work safely with val
 
 If you're working with side-effects that might fail,
 there are [various ways][ff] you can express that in Scala.
-One way is to use `Either` and `Unit`:
+One way is to use `Either` and `Unit` (thanks to [Yosef Fertel][yf] for sharing this example with me):
 
 ``` scala
 import scala.util.{Either, Right, Left}
