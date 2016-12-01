@@ -56,7 +56,7 @@ This code block compiles but is wrong:
 
 ```scala
 // Buggy
-def run(): Either[Failed, Unit] =
+def run(): Either[Failed, Unit] = {
  write().map(_ => log())
 }
 ```
