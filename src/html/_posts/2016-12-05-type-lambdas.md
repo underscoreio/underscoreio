@@ -12,6 +12,8 @@ why would we ever want to use one,
 and even better, how can we avoid having to write them?
 In this blog post we tackle these questions.
 
+<!-- break -->
+
 While the term 'type lambda' itself may be enough
 to give Scala developers an intuitive idea of the concept,
 it takes a bit longer to put it in a real context
