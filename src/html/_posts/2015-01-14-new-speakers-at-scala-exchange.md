@@ -6,7 +6,7 @@ date: '2015-01-14'
 hashtags : scalax
 ---
 
-Now that [Scala Exchange](https://skillsmatter.com/conferences/1948-scala-exchange-2014#program) over, it's a good time to look back and celebrate the achievements of the nine speakers that came to Scala Exchange via our [diversity programme](http://underscoreconsulting.com/blog/posts/2014/06/30/underscores-new-speaker-program.html). Below I have collected their talks, slides, and thoughts on the conference.
+Now that [Scala Exchange](https://skillsmatter.com/conferences/1948-scala-exchange-2014#program) over, it's a good time to look back and celebrate the achievements of the nine speakers that came to Scala Exchange via our [diversity programme](http://underscore.io/blog/posts/2014/06/30/underscores-new-speaker-program.html). Below I have collected their talks, slides, and thoughts on the conference.
 
 <!-- break -->
 
@@ -30,7 +30,7 @@ Andrew's slides are [here](http://www.slideshare.net/al94781/bootstrapping-a-sca
 
 ### David Brooks
 
-> I must say that the diversity programme really has lived up to its billing, and one of the things I enjoyed most about Scala eXchange was the diversity of people and content.  It highlights that Scala is in serious production use in many types of organisation. 
+> I must say that the diversity programme really has lived up to its billing, and one of the things I enjoyed most about Scala eXchange was the diversity of people and content.  It highlights that Scala is in serious production use in many types of organisation.
 
 David Brooks [talked](https://skillsmatter.com/skillscasts/5838-shopping-around-with-crdts-at-whisk) about the application of CRDTs to cross-device synchronisation at [Whisk](http://whisk.co.uk). I'm a big fan of CRDTs, having [talked about them before](http://underscore.io/blog/posts/2013/12/20/crdts-for-fun-and-eventual-profit.html), so I was very interested to see what he had to say. His talk didn't disappoint as he adopted quite a different implementation strategy to mine.
 

@@ -7,11 +7,11 @@ url                   : "http://underscore.io"
 
 source                : src/html
 posts                 : _posts
-layouts               : _layouts
+layouts_dir           : _layouts
 includes              : _includes
 
 destination           : underscoreio
-plugins               : jekyll_plugins
+plugins_dir           : jekyll_plugins
 
 keep_files            : [ 'css', 'js', 'images', 'fonts', 'vendor' ]
 
@@ -20,8 +20,9 @@ paginate              : 5
 paginate_path         : "blog/page:num/"
 excerpt_separator     : "<!-- break -->"
 
+gems                  : [jekyll-paginate]
+
 safe                  : false
-highlighter           : pygments
 
 collections:
   books:
@@ -38,8 +39,9 @@ collections:
     layout: default
   events:
     output: true
+    permalink: /events/:path.html
     layout: event
   jobs:
     output: true
-    layout: job
     permalink: /jobs/:path/
+    layout: job

@@ -29,8 +29,6 @@ Alternatively, get in touch via our [contact form][contact-form]
 if you would like us to run a free public workshop at a local community event.
 We already have two free events scheduled teaching this material, one in [San Francisco][eescala-sf] (as part of sequence of events that includes [training on Scalaz][essential-scalaz-sf] and [Shapeless][shapeless-sf]), and one in [Edinburgh][eescala-ed] (which is followed by [advanced Scala training][essential-scalaz-ed]).
 
-
-
 [creative-scala]: /training/courses/creative-scala
 [contact-form]: /contact
 [doodle]: https://github.com/underscoreio/doodle

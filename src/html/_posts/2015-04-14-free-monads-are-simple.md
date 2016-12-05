@@ -184,14 +184,14 @@ There are a lot of conveniences for using the free monad. The example showed the
 
 The core idea, separating the structure and interpretation of computer programs, is incredibly powerful (wizardly, even). Haxl and Stitch are just two prominent examples of this. In some sense *all* of functional programming is writing interpreters, a view echoed by many [experienced][don-stewart] [FPer][runar]
 
-If you are interested in learning more about these ideas, we are writing a book [Essential Interpreters][advanced-scala-scalaz] that covers the basics of interpreters up to the free monad.
+If you are interested in learning more about these ideas, we are writing a book [Essential Interpreters][advanced-scala] that covers the basics of interpreters up to the free monad.
 
 [^etsy]: Etsy, for example, faces the same problem but [their solution](https://codeascraft.com/2015/04/06/experimenting-with-hhvm-at-etsy/) is rather less elegant and performant.
 [^laws]: And the monad laws.
 [^two-parts]: Some very simple interpreters entwine these two parts, but they are conceptually if not literally separate.
 [^continuation-monad]: Related to this, the continuation monad can be used to [encode any other monad][continuation-monad]. What is a [continuation][continuation]? It's a universal control flow primitive. *Any* control flow can be expressed using continuations.
 
-[advanced-scala-scalaz]: /training/courses/advanced-scala-scalaz
+[advanced-scala]: /training/courses/advanced-scala
 [dual-numbers]: http://en.wikipedia.org/wiki/Dual_number
 [natural-transformation]: http://docs.typelevel.org/api/scalaz/nightly/#scalaz.NaturalTransformation
 [slides]: http://noelwelsh.com/assets/downloads/advanced-scala-2015-free-monads.pdf

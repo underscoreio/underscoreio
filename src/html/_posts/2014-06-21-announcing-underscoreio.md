@@ -4,7 +4,7 @@ title:  Announcing underscore.io
 author: Dave Gurnell
 ---
 
-We are thrilled to announce the launch of [underscore.io](http://underscore.io), our new web site for Scala training and mentoring. We are launching our new [mentoring programme](http://underscore.io#mentoring) <em>today</em> to provide ongoing support for teams after receiving training, and over the coming months we will be publishing [online versions](http://underscore.io#online) of our most popular face-to-face courses.
+We are thrilled to announce the launch of [underscore.io](http://underscore.io), our new web site for Scala training and mentoring. We are launching our new [mentoring programme](http://underscore.io/consulting/mentoring) <em>today</em> to provide ongoing support for teams after receiving training, and over the coming months we will be publishing online versions of our most popular face-to-face courses.
 
 <!-- break -->
 
@@ -24,5 +24,5 @@ While face-to-face training is the best way to provide lots of benefit to your t
 
 Our online courses are a great way of providing the same content in a format that can be consumed gradually over a longer period. Over the Summer we will be launching online versions of our most popular courses in video and book form.
 
-<a class="btn btn-sm btn-primary" href="http://underscore.io/courses/">Browse our courses</a>
-<a class="btn btn-sm btn-primary" href="http://underscore.io/contact?subject=Course%20suggestion">Suggest new courses</a>
+<a class="btn btn-sm btn-primary" href="http://underscore.io/training/courses/">Browse our courses</a>
+<a class="btn btn-sm btn-primary" href="http://underscore.io/contact/?subject=Course%20suggestion">Suggest new courses</a>

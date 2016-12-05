@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Content API Server-Side Engineer
 company: The Guardian
 level: Junior, Intermediate, Senior

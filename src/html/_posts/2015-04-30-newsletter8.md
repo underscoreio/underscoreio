@@ -8,7 +8,7 @@ Hi,
 
 There's just time to squeeze in April's newsletter before the month is over. In this edition we discuss the free monad and let you know about some free events running at Scala Days Amsterdam.
 
-Our mini-series on error handling [last newsletter][newsletter-7] had a great reception. We decided to repeat the idea, this time focusing on a more advanced topic: the free monad. 
+Our mini-series on error handling [last newsletter][newsletter-7] had a great reception. We decided to repeat the idea, this time focusing on a more advanced topic: the free monad.
 
 The free monad is one of those functional programming tools that from the outside seems both incredibly powerful (see [Facebook's Haxl][haxl] and [Twitter's Stich][stitch] for compelling applications) and incredibly unapproachable (if "left adjoint to a forgetful functor" means anything to you, I suggest you don't need a tutorial on the free monad).
 
@@ -58,7 +58,7 @@ Noel
 [haxl]: https://github.com/facebook/Haxl
 [stitch]: https://www.youtube.com/watch?v=bmIxIslimVY
 [free-monad-simple]: http://underscore.io/blog/posts/2015/04/14/free-monads-are-simple.html
-[free-monad-deriving]: http://underscore.io/blog/posts/2015/04/23/deriving-the-free-monad.html 
+[free-monad-deriving]: http://underscore.io/blog/posts/2015/04/23/deriving-the-free-monad.html
 [free-monad-io]: http://underscore.io/blog/posts/2015/04/28/monadic-io-laziness-makes-you-free.html
 [hn-comments]: https://news.ycombinator.com/item?id=9452379
 [hn-final]: https://news.ycombinator.com/item?id=9459006

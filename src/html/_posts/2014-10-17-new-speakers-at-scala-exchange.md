@@ -6,7 +6,7 @@ date: '2014-10-17 09:00:00'
 hashtags : scalax
 ---
 
-The [Scala Exchange program](https://skillsmatter.com/conferences/1948-scala-exchange-2014#program) is (mostly) up, meaning we can comment on the effectiveness of our [diversity programme](http://underscoreconsulting.com/blog/posts/2014/06/30/underscores-new-speaker-program.html) aimed at getting new speakers into the conference. (Note the program is also open to new attendees, so if you'd like assistance attending Scala Exchange just follow the link above and fill in the application form.)
+The [Scala Exchange program](https://skillsmatter.com/conferences/1948-scala-exchange-2014#program) is (mostly) up, meaning we can comment on the effectiveness of our [diversity programme](http://underscore.io/blog/posts/2014/06/30/underscores-new-speaker-program.html) aimed at getting new speakers into the conference. (Note the program is also open to new attendees, so if you'd like assistance attending Scala Exchange just follow the link above and fill in the application form.)
 
 All up we had 17 applications from people who wanted shepherding for a talk proposal. Of these 14 submitted a talk proposal, giving new speakers *approximately 20% of all proposals*. Of these 14 proposals, 9 have currently been selected to present (with a few more in a waitling list). This is a *64% success rate for new speakers* in being selected, compared to 70% for other speakers, with new speakers making up *18.75% of all speaking slots*.
 

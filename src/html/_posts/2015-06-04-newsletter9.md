@@ -30,7 +30,7 @@ The job board currently has open positions at the Guardian (including [one open 
 
 As usual we've run a little mini-series on the blog, this time on database access.
 
-The [first post][slick-enrichment] describes how to use implicit classes to make Slick queries easier to read and less error-prone 
+The [first post][slick-enrichment] describes how to use implicit classes to make Slick queries easier to read and less error-prone
 
 Slick is not the only game in town. The second post compares how Slick and [Doobie][doobie] perform type checking of SQL string literals.
 

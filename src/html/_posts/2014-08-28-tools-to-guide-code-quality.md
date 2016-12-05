@@ -10,7 +10,7 @@ In this post I am going to look at a couple of tools you can use to cover the me
 
 <!-- break -->
 
-Linters highlight lint in a code base. Lint is redundant or poorly structured code that is likely to lead to bugs. [FindBugs](findbugs.sourceforge.net/) is a popular example from the Java world.
+Linters highlight lint in a code base. Lint is redundant or poorly structured code that is likely to lead to bugs. [FindBugs](http://findbugs.sourceforge.net) is a popular example from the Java world.
 
 Linters help direct developers to good practices. By pointing out both bad practice and where Scala doesn't behave as expected. Examples of bad practice include calling functions that will generate exceptions. Such as `List.head` and `Try.get` rather than the safer alternatives `List.headOption` and `Try.getOrElse`. Examples of Scala misbehaving include implicit conversion to a String and inferring uninformative types such as `Any`, `Product` or `Serializable`.
 

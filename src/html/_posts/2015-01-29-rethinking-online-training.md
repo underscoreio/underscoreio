@@ -4,7 +4,7 @@ title: Rethinking Online Training
 author: Noel Welsh
 ---
 
-Since the beginning on the year we have been rebuilding the online version of [Essential Scala](training/courses/essential-scala/)
+Since the beginning on the year we have been rebuilding the online version of [Essential Scala](http://underscore.io/training/courses/essential-scala/)
 around studio style learning.
 We delivered Essential Scala online last year,
 but found the result unsatisfactory.
@@ -24,7 +24,7 @@ To this end, Essential Scala focuses on core patterns of algebraic data types, s
 
 Students often stumble when transferring the lessons from the classroom to their own code,
 reverting to their older, more familiar, coding patterns.
-To really internalise the patterns 
+To really internalise the patterns
 we know we need to work with larger examples.
 We know students need the time to make mistakes and explore dead-ends
 but time is something we don't have in an onsite course.
@@ -90,7 +90,7 @@ and our first intakes are listed on our [events calendar](/events).
 with a preference given to diversity candidates.
 Once we have experience with studio style learning via Essential Scala
 we will be adding studio learning components to our other online courses.
-Expect announcements on those in the coming months. 
+Expect announcements on those in the coming months.
 
 
 

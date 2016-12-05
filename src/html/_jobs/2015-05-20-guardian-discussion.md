@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Discussion Server-Side Engineer
 company: The Guardian
 location: London, UK

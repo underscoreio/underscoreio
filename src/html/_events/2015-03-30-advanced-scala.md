@@ -2,7 +2,7 @@
 layout: event
 title: Advanced Scala with Scalaz
 type: course
-course: advanced-scala-scalaz
+course: advanced-scala
 location: Edinburgh
 date: 2015-03-30 09:00:00
 timezone: BST

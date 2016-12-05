@@ -2,7 +2,7 @@
 layout: event
 title: Advanced Scala
 type: course
-course: advanced-scala-scalaz
+course: advanced-scala
 location: London, UK
 date: 2015-12-08 09:00:00
 timezone: BST
@@ -39,9 +39,9 @@ This course will be taught by Noel Welsh.
 
 The course will run for two days starting on {{ page.date | date:'%a, %b %d, %Y' }}. It will be held immediately before [Scala Exchange](http://scala.exchange/) at:
 
-[wallacespace st pancras  
-22 Dukes Road  
-London  
+[wallacespace st pancras
+22 Dukes Road
+London
 WC1H 9PN](https://www.google.co.uk/maps/place/Wallacespace/@51.5268519,-0.1292496,17z/data=!4m5!1m2!2m1!1swallacespace+st+pancras!3m1!1s0x487604cb540be729:0xcd332b8e9f06bdcf?hl=en).
 
 ### What You Need

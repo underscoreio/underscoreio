@@ -142,7 +142,7 @@ val program = for {
 
 ## Conclusions
 
-Enrichment provides a neat way to simplify repetitive, error-prone queries.  
+Enrichment provides a neat way to simplify repetitive, error-prone queries.
 
 The first time I saw this kind of trick in action was in [Christopher Vogt]'s 2013 [Patterns for Slick Database Applications] presentation. If you want to see different examples, do check out that video.
 

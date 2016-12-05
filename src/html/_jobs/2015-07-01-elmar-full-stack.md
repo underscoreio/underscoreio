@@ -1,5 +1,6 @@
 ---
 layout: job
+expire: 2016-11-01
 title: Full Stack Developer
 company: Elmar Reizen
 level: Intermediate, Senior
