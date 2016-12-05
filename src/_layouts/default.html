@@ -9,8 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/css/screen.css">
-    <link rel="stylesheet" href="/css/print.css" media="print">
+    {% css screen %}
+    {% css print media:"print" %}
 
     <link rel="shortcut icon" href="/images/favicon-64.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -18,7 +18,7 @@
 
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
-    <script src="/js/site.js"></script>
+    {% js site %}
   </head>
   <body>
     {{ content }}

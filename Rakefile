@@ -1,8 +1,8 @@
 require "rake/testtask"
 
-js_sources = Rake::FileList.new("src/_assets/js/_browserify/**/*")
+js_sources = Rake::FileList.new("src/_browserify/**/*")
 
-css_sources = Rake::FileList.new("src/_assets/css/_less/**/*")
+css_sources = Rake::FileList.new("src/_less/**/*")
 
 def browserify_command_line(source, target)
   """
@@ -41,17 +41,17 @@ task :'node-deps' do
 end
 
 file "screen.css" => [ :'node-deps' ] + css_sources do
-  sh lesscss_command_line("src/_less/screen.less", "src/css/screen.css")
+  sh lesscss_command_line("src/_less/screen.less", "src/_assets/css/screen.css")
 end
 
 file "print.css" => [ :'node-deps' ] + css_sources do
   sh "yarn"
-  sh lesscss_command_line("src/_less/print.less", "src/css/print.css")
+  sh lesscss_command_line("src/_less/print.less", "src/_assets/css/print.css")
 end
 
 file "site.js" => [ :'node-deps' ] + js_sources do
   sh "yarn"
-  sh browserify_command_line("src/_browserify/site.coffee", "src/js/site.js")
+  sh browserify_command_line("src/_browserify/site.coffee", "src/_assets/js/site.js")
 end
 
 task :'ruby-deps' do
