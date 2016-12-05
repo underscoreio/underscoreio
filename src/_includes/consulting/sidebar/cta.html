@@ -1,0 +1,23 @@
+{% if include.product.sidebars.cta %}
+{{ include.product.sidebars.cta | markdownify | liquify }}
+{% endif %}
+
+{% comment %}
+<p>
+  Or get in touch by phone or email:
+</p>
+
+<p>
+  <a href="tel:+442030955332" class="btn btn-block btn-plain">
+    {% icon phone %}
+    +44 (0)20 309 55332
+  </a>
+</p>
+
+<p>
+  <a href="mailto:hello@underscore.io" class="btn btn-block btn-plain">
+    {% icon envelope %}
+    hello@underscore.io
+  </a>
+</p>
+{% endcomment %}

@@ -1,0 +1,40 @@
+body {
+  font-weight: 300;
+  min-height: 100vh;
+}
+
+code,tt,pre {
+  font-size: @font-size-base * .8;
+}
+
+a.link-anchor {
+  display: block;
+  position: relative;
+  visibiliy: hidden;
+  top: -1.5*@line-height-computed;
+}
+
+a.back-link {
+  .icon-uio-back {
+    opacity: .2;
+  }
+
+  &:hover .icon-uio-back {
+    opacity: 1.0;
+  }
+}
+
+.lead {
+  @font-size-lead: floor(@font-size-base * 1.2);
+
+  font-size: @font-size-lead;
+  line-height: @font-size-lead * @line-height-base;
+}
+
+.text-center-desktop {
+  text-align: center;
+
+  @media (max-width: @screen-xs-max) {
+    text-align: left;
+  }
+}

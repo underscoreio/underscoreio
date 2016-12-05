@@ -1,0 +1,56 @@
+<div class="panel panel-gray event-details">
+  <div class="panel-heading">
+    <h4>Event details</h4>
+  </div>
+
+  <div class="panel-body">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd class="event-title">{{ include.event.title | strip_tag:'strike' }}</dd>
+
+      {% if include.event.location %}
+      <dt>Location</dt>
+      <dd class="event-location">{{ include.event.location }}</dd>
+      {% endif %}
+
+      <dt>Starts</dt>
+      <dd class="event-date">
+        {{ include.event.date | date: '%d %b %Y' }} at
+        {% if include.event.timezone %}
+          {{ include.event.date | date: '%H:%M' }}
+          {{ include.event.timezone }}
+        {% else %}
+          {{ include.event.date | date: '%H:%M %Z' }}
+        {% endif %}
+      </dd>
+
+      {% if include.event.duration %}
+      <dt>Length</dt>
+      <dd class="event-duration">{{ include.event.duration }}</dd>
+      {% endif %}
+
+      {% if include.event.cost %}
+      <dt>Cost</dt>
+      <dd class="event-cost">{{ include.event.cost }}</dd>
+      {% endif %}
+
+      {% if include.event.summary %}
+      <dt>Summary</dt>
+      <dd class="event-summary">{{ include.event.summary | markdownify }}</dd>
+      {% endif %}
+    </dl>
+  </div>
+
+  {% if include.event.bookingLinks.size > 0 %}
+  <div class="panel-footer">
+    {% for linkItem in include.event.bookingLinks %}
+      <p>
+        <a class="btn btn-block {{ linkItem.class | default:"btn-info" }}"
+            href="{{ linkItem.url }}">
+          {{ linkItem.text }}
+        </a>
+      </p>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>

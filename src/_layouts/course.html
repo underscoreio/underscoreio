@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+{% include navbar.html class="navbar-default navbar-fixed-top" %}
+
+<div class="hero training-hero" style="background: {{ page.color }}">
+  <div class="overlay-gem-left-white"></div>
+  <div class="overlay-gem-right-white"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  {% include navbar.html class="navbar-inverse" %}
+
+  <header class="hero-text">
+    <div class="container">
+      <h1>
+        <a class="back-link" href="/training">
+          {{ page.title }} Course
+          {% icon back %}
+        </a>
+      </h1>
+    </div>
+  </header>
+
+  <div class="row training-hero-products">
+    <div class="
+      col-sm-10 col-sm-offset-1
+      col-md-8  col-md-offset-2
+    ">
+      <div class="row panel-row">
+        <div class="col-sm-6">
+          {% include training/sidebar/onsite.html course=page %}
+        </div>
+        <div class="col-sm-6">
+          {% include training/sidebar/online.html course=page %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="container">
+  <div class="row">
+    <div class="col-sm-7 col-md-8">
+      <article class="training-content">
+        {{ content }}
+      </article>
+    </div>
+    <div class="col-sm-5 col-md-4">
+      <aside class="training-sidebar">
+        {% if page.book %}
+          {% assign events = page.id |
+                             baseid |
+                             lookup_all:site.events,'course' |
+                             where_future:'date' |
+                             sort_by:'date' %}
+          {% include training/sidebar/events.html
+             id=book.id
+             events=events %}
+
+          {% assign book = page.book | lookup_in:site.books %}
+          {% include training/sidebar/book.html
+             id=book.id
+             title=book.title
+             cover=book.cover
+             book=book.book
+             mode="course" %}
+          {% include training/sidebar/book.html
+             id=book.id
+             title=book.title
+             cover=book.cover
+             book=book.teamBook
+             mode="team" %}
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}

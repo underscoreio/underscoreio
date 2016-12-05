@@ -1,0 +1,141 @@
+---
+layout: default
+title: Book a Course
+navbar: training
+---
+
+{% include hero.html title="Book a Course" %}
+
+<section class="container">
+  <article>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <p>
+          Our courses can be combined and customised to suit your training needs.
+          Let us know your requirements using the form below and we will
+          work with you to build the perfect syllabus.
+        </p>
+
+        <p>
+          We believe learning should never stop, so all of our private training courses
+          are supported with free ongoing access to our online material.
+        </p>
+
+        <form id="booking-form" method="post">
+
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" class="form-control" name="name" placeholder="Leonardo da Vinci">
+          </div>
+
+          <div class="form-group">
+            <label>Your email address</label>
+            <input type="email" class="form-control" name="email" placeholder="leonardo@davinci.com">
+          </div>
+
+          <div class="form-group">
+            <label>Your phone number (optional)</label>
+            <input type="phone" class="form-control" name="phone" placeholder="+44 123 456 7890">
+          </div>
+
+          <div class="form-group">
+            <label>Which course(s) are you interested in?</label>
+
+            {% for courseId in site.data.courses %}
+              {% assign course = courseId | lookup_in:site.courses %}
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="course" value="{{courseId}}">
+                  {{ course.title }}
+                </label>
+              </div>
+            {% endfor %}
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="course" value="Custom">
+                Custom (please specify below)
+              </label>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label>Are you booking on behalf of yourself or your company?</label>
+
+            <div class="radio">
+              <label>
+                <input type="radio" name="behalf" value="On behalf of myself">
+                On behalf of myself
+              </label>
+            </div>
+
+            <div class="radio">
+              <label>
+                <input type="radio" name="behalf" value="On behalf of my company">
+               On behalf of my company
+              </label>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label>How many people are on your team?</label>
+
+            <div class="radio">
+              <label><input type="radio" name="people" value="1 person">1 Person</label>
+            </div>
+
+            <div class="radio">
+              <label><input type="radio" name="people" value="2 to 5 people">2 to 5 People</label>
+            </div>
+
+            <div class="radio">
+              <label><input type="radio" name="people" value="6 to 10 people">6 to 10 People</label>
+            </div>
+
+            <div class="radio">
+              <label><input type="radio" name="people" value="More than 10 people">More than 10 people</label>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label>Where are you located?</label>
+
+            <input type="text" class="form-control" name="location" placeholder="London, UK">
+
+            <p class="help-block">
+              We have trainers in multiple countries and deliver
+              on-site training internationally.
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Let us know your custom training or syllabus requirements</label>
+
+            <textarea class="form-control" name="notes" rows="5"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Just checking...</label>
+
+            <div class="g-recaptcha" data-sitekey="6LczFSYTAAAAAN2OtTwNqZu_Ch-9p0ZPSW2yC7s0"></div>
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+        </form>
+				<div class="form-group">
+					<div id="feedback" class="label"></div>
+				</div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<script>
+  window.uio.bookingForm.init("#booking-form")
+</script>
+
+{% include footer.html %}

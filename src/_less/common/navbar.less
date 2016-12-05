@@ -1,0 +1,50 @@
+.navbar {
+  border-width: 0 !important;
+
+  .icon-uio-underscore {
+    position: relative;
+    top: -0.1em;
+    font-size: 1.2em;
+  }
+
+  .navbar-toggle {
+    border: none;
+    border-radius: 0;
+  }
+
+  @media (min-width: @screen-sm) {
+    .navbar-collpase {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: @screen-xs-max) {
+    .navbar-collapse {
+      max-height: none;
+      overflow: hidden;
+
+      height: 1px;
+      &.in { height: 8*50px; } // 8 = number of items
+    }
+  }
+}
+
+.navbar.navbar-fixed-top {
+  transition: top 250ms linear;
+  background: #fff;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.08);
+
+  @media (min-width: @screen-sm) {
+    top: -60px;
+
+    &.navbar-visible {
+      top: 0;
+    }
+  }
+}
+
+.hero .navbar {
+  @media (max-width: @screen-xs-max) {
+    display: none;
+  }
+}

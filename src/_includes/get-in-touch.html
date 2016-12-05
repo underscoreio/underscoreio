@@ -1,0 +1,22 @@
+<h2>{{ include.title | default:"Tell us about your project" }}</h2>
+
+<p>
+  <a href="tel:+442030955332" class="btn btn-block btn-primary">
+    {% icon phone %}
+    +44 (0)20 309 55332
+  </a>
+</p>
+
+<p>
+  <a href="mailto:hello@underscore.io" class="btn btn-block btn-primary">
+    {% icon envelope %}
+    hello@underscore.io
+  </a>
+</p>
+
+<p>
+  <a href="{{ include.caseStudyLink | default:'#case-studies' }}" class="btn btn-block btn-warning">
+    {% icon trophy %}
+    Browse our case studies
+  </a>
+</p>

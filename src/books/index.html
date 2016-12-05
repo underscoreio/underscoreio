@@ -1,0 +1,26 @@
+---
+layout: default
+title:  Books
+navbar: training
+---
+
+{% include hero.html title="Books" lead="" %}
+
+<section>
+  <div class="container">
+    <p class="lead">
+      Team and diversity discounts are also available.
+    </p>
+
+    <div class="row training-directory">
+      {% include training/directory.html ids=site.data.books items=site.books %}
+    </div>
+  </div>
+</section>
+
+<script>
+  uio.trainingDirectory.init(".training-directory")
+</script>
+
+<!-- Add something here about what our books include, formats, lifetime updates. -->
+{% include footer.html %}

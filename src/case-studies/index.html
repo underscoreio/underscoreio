@@ -1,0 +1,13 @@
+---
+layout: default
+title:  Case Studies
+navbar: "case-studies"
+---
+
+{% include hero.html title="Case Studies" %}
+
+<section class="container">
+  {% include case-studies/directory.html ids=site.data.allcasestudies %}
+</section>
+
+{% include footer.html %}

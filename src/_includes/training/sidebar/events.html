@@ -1,0 +1,11 @@
+{% if include.events.size > 0 %}
+  <div class="panel panel-gray training-events {{ include.id }}">
+    <div class="panel-heading">
+      <h4>Upcoming events</h4>
+    </div>
+
+    <div class="panel-body">
+      {% include events/list.html events=include.events %}
+    </div>
+  </div>
+{% endif %}

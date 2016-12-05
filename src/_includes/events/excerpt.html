@@ -1,0 +1,81 @@
+{% comment %}
+  event: {
+    date: date
+    location: string
+    cost: string
+    title: string
+    summary: string
+    icon: or(string, null)
+    color: or(string, null)
+    course: or(string, null)
+  }
+{% endcomment %}
+
+{% comment %}
+-- CALCULATE THE ICON AND COLOR -----------------
+{% endcomment %}
+
+{% if include.event.color %}
+  {% assign excerptColor = include.event.color %}
+  {% assign excerptIcon  = include.event.icon %}
+{% elsif include.event.course %}
+  {% assign course        = include.event.course | lookup_in:site.courses %}
+  {% assign excerptColor  = course.color %}
+  {% assign excerptIcon   = course.icon %}
+{% endif %}
+
+<div class="event-excerpt panel panel-gray" data-event-url="{{ event.url }}">
+  <div class="panel-heading"{% if excerptColor %} style="background: {{ excerptColor }}"{% endif %}>
+    <h3>
+      <span class="pull-left">
+        <span class="event-date">
+          {{ include.event.date | date: '%d %b' }}
+        </span>
+        <span class="event-title">{{ event.title }}</span>
+      </span>
+      {% if include.event.location %}
+      <span class="pull-right">
+        <span class="event-location">
+        {{ include.event.location }}
+        </span>
+        {% if excerptIcon %}
+          <span class="event-icon icon-uio-{{ excerptIcon }}"></span>
+        {% endif %}
+      </span>
+      {% endif %}
+    </h3>
+  </div>
+
+  <div class="panel-body">
+    <dl class="event-meta">
+      <dt>Time</dt>
+      <dd class="event-time">
+        {% if include.event.timezone %}
+          {{ include.event.date | date: '%H:%M' }}
+          {{ include.event.timezone }}
+        {% else %}
+          {{ include.event.date | date: '%H:%M %Z' }}
+        {% endif %}
+      </dd>
+
+      {% if include.event.duration %}
+      <dt>Length</dt>
+      <dd class="event-duration">{{ include.event.duration }}</dd>
+      {% endif %}
+
+      {% if include.event.cost %}
+      <dt>Cost</dt>
+      <dd class="event-cost">{{ include.event.cost }}</dd>
+      {% endif %}
+    </dl>
+
+    <p class="event-summary">
+      {{ event.summary | markdownify }}
+    </p>
+
+    <a class="event-link" href="{{ event.url }}">
+      More information
+      {% icon chevron-right %}
+    </a>
+  </div>
+</div>

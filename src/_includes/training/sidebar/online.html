@@ -1,0 +1,24 @@
+{% if include.course.online %}
+  <div class="panel panel-gray training-online">
+    <div class="panel-body">
+      <h4>Book an online course</h4>
+
+      {% if include.course.online.duration %}
+      <p>Duration: {{ include.course.online.duration }}</p>
+      {% endif %}
+
+      <p>
+        Want a more in-depth approach?
+        Book an online course for your team,
+        taught via live video conferencing.
+      </p>
+    </div>
+
+    <div class="panel-footer">
+      <a class="btn btn-primary btn-block"
+         href="/training/bookings?course={{ include.course.id }}&location=online">
+        {{ include.course.online.buttonLabel | liquify }}
+      </a>
+    </div>
+  </div>
+{% endif %}

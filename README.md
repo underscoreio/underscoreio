@@ -1,19 +1,72 @@
-# Which Branch?
+# underscore.io
 
-We work in _develop_.
+The Underscore web site and blog.
 
-# Running the site
+## Which branch/domain?
 
-    $ ./go.sh
+We work in `develop`.
+Previews can be published to `beta.underscore.io` from here.
 
-From the prompt you see run:
+Releases to `underscore.io` must be made from `master`.
+We recommend using `git flow` to merge from `develop` onto `master`.
+Instructions below.
 
-    $ grunt serve
+## Building the Site
 
-# Deploying the site
+The site is built using a combination
+of Ruby, NodeJS, and Python libraries.
+Start by running `go.sh`,
+which runs everything in a Docker container:
 
-You will need to create a `.env` file containing the AWS credentials one-time.
-Run `cp dotenv.template .env` then edit `.env` and add the missing credentials, available from one of the partners.
+~~~bash
+./go.sh
+~~~
 
-    $ grunt deploy
+Now use Rake to build the site:
 
+~~~bash
+# Build the site and place in the _site directory
+# (will install/update Ruby/NodeJS dependencies on the fly):
+rake build
+
+# Build the site, run a web server on localhost, and watch for changes
+# (will install/update Ruby/NodeJS dependencies on the fly):
+rake serve
+~~~
+
+## Deploying the Site
+
+The site is deployed to Amazon S3
+using a Ruby tool called s3_website.
+Pushing to `develop` deploys to `beta.underscore.io`.
+Pushing to `master` deploys to `underscore.io`.
+
+Here's the complete deployment process
+Start by implementing and testing a change on `develop`:
+
+~~~bash
+git checkout develop
+# edit code here...
+git add .
+git commit -m 'New feature added'
+git push
+# site published automatically
+~~~
+
+When you're happy to release to production, merge onto master.
+Here's the sequence using `git-flow` to tag the release:
+
+~~~bash
+git checkout develop
+git tag --list # workout the next version number
+git flow release start VERSIONNUMBER # start a release
+git flow release finish VERSIONNUMBER # finish the release, write release note
+git push --tags ; git push --all
+# site published automatically
+~~~
+
+Remember to switch back to develop again when you're done:
+
+~~~bash
+git checkout develop
+~~~

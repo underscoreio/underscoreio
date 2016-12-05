@@ -1,11 +1,11 @@
-s3_bucket: underscore.io
-cloudfront_distribution_id: EZ3DZ8A1CPWTK
+s3_bucket: <%= ENV['S3_BUCKET'] %>
+cloudfront_distribution_id: <%= ENV['CLOUDFRONT_DISTRIBUTION_ID'] %>
 
 # Below are examples of all the available configurations.
 # See https://github.com/laurilehmijoki/s3_website
 
 # Folder where Jekyll writes the site:
-site: underscoreio
+# site: _site
 
 index_document: index.html
 # error_document: error.html
@@ -55,10 +55,50 @@ cloudfront_wildcard_invalidation: true
 
 # concurrency_level: 5
 
-# redirects:
-#   index.php: /
-#   about.php: about.html
-#   music-files/promo.mp4: http://www.youtube.com/watch?v=dQw4w9WgXcQ
+redirects:
+  "blog/newsletter"                                    : "/blog/newsletters/"
+
+  # Redirects from Essential Essential Scala to Creative Scala:
+
+  "events/2015-03-15-essential-essential-scala.html"   : "/events/2015-03-15-creative-scala.html"
+  "events/2015-03-28-essential-essential-scala.html"   : "/events/2015-03-28-creative-scala.html"
+
+  # Redirects from Essential Scalaz and Advanced Scala with Scalaz to Advanced Scala with Cats:
+
+  "books/essential-scalaz"                             : "/books/advanced-scala"
+  "books/advanced-scala-scalaz"                        : "/books/advanced-scala"
+  "training/courses/essential-scalaz"                  : "/training/courses/advanced-scala"
+  "training/courses/advanced-scala-scalaz"             : "/training/courses/advanced-scala"
+  "courses/essential-shapeless"                        : "/training/courses/advanced-shapeless"
+
+  # Redirects from mis-dated blog posts:
+
+  "blog/posts/2015/03/25/creative-scala-released.html" : "/blog/posts/2015/02/25/creative-scala-released.html"
+
+  # Redirects from underscore.io version 1:
+
+  "courses/essential-java8.html"                       : "/training"
+  "courses/essential-shapeless.html"                   : "/training/courses/advanced-shapeless"
+  "courses/essential-play-sites.html"                  : "/training/courses/essential-play"
+  "courses/essential-scalaz.html"                      : "/training/courses/advanced-scala"
+  "courses/essential-scala.html"                       : "/training/courses/essential-scala"
+  "courses/essential-macros.html"                      : "/training/courses"
+  "courses/essential-distributed-systems.html"         : "/training/courses/essential-distributed-systems"
+  "courses/essential-lift.html"                        : "/training/courses"
+  "courses/essential-play-services.html"               : "/training/courses/essential-play"
+  "courses"                                            : "/training"
+  "enquiries.html"                                     : "/training/bookings"
+  "newsletter.html"                                    : "/blog/newsletters"
+  "contact.html"                                       : "/contact"
+
+  # Redirects from preview versions of underscore.io version 2:
+
+  "training/booking.html"                              : "/training/bookings"
+  "training/booknow"                                   : "/training/bookings"
+
+  # Course feedback:
+
+  "training/feedback"                                  : "https://docs.google.com/forms/d/1Vu2EKG6YonpopRYh98Lubky0RKjKKtsCm8m8QwVwx6g/viewform"
 
 # routing_rules:
 #   - condition:

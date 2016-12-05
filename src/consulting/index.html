@@ -1,0 +1,148 @@
+---
+layout: default
+title:  Consulting, training, and mentoring
+navbar: consulting
+---
+
+{% include hero.html
+   title="Consulting, training, and mentoring" %}
+
+<section class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-7 col-lg-8">
+      <h2>Consulting and training to match your needs</h2>
+
+      <p>
+        We offer consulting services to
+        help existing teams be the best they can be.
+        Use us to add experience to your existing team,
+        supplement internal development,
+        or expand your knowledge with training.
+      </p>
+
+      <p>
+        We tailor consulting services
+        to match our customers' needs,
+        but we hate hidden costs and closed door deals.
+        Here are guideline structures and prices for
+        some of our most commonly requested services:
+      </p>
+    </div>
+
+    <div class="col-sm-6 col-md-5 col-lg-4">
+      {% include get-in-touch.html title="Tell us about your project" %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container text-center-desktop">
+    <h2>Our consulting services</h2>
+
+    <div class="row panel-row">
+      <div class="col-sm-4">
+        <div class="panel panel-white">
+          <div class="panel-heading">
+            <h4>Code review</h4>
+          </div>
+
+          <div class="panel-body">
+            <p>
+              Our <em>Review &amp; Improve</em> service
+              gives you assurance your team is on the right path
+              and highlights any areas of potential concern.
+              It comprises a comprehensive code review
+              leading to a <em>Review Report</em>,
+              and ongoing support to address any issues found.
+            </p>
+          </div>
+
+          <div class="panel-footer">
+            <a class="btn btn-primary btn-block" href="/consulting/review">
+              Find out more
+              <span class="icon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="panel panel-white">
+          <div class="panel-heading">
+            <h4>Training</h4>
+          </div>
+
+          <div class="panel-body">
+            <p>
+              Learning the syntax of a programming language
+              is only scratching the surface.
+              This is why we are one of the few training companies
+              that show your developers
+              <em>how to think functionally</em>,
+              as well as how to write Scala.
+            </p>
+          </div>
+
+          <div class="panel-footer">
+            <a class="btn btn-primary btn-block" href="/training">
+              Find out more
+              <span class="icon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="panel panel-white">
+          <div class="panel-heading">
+            <h4>Mentoring</h4>
+          </div>
+
+          <div class="panel-body">
+            <p>
+              Only a fraction of learning happens in the classroom.
+              Our mentoring service gives your team
+              direct access with our veteran developers,
+              showing them how to solve practical problems
+              quickly and effectively
+              without generating legacy code.
+            </p>
+          </div>
+
+          <div class="panel-footer">
+            <a class="btn btn-primary btn-block" href="/consulting/mentoring">
+              Find out more
+              <span class="icon-chevron-right"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="overlay-gem-left-white"></div>
+  <div class="overlay-gem-right-white"></div>
+  <div class="overlay-arrow-white"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <div class="container">
+    {% include testimonial.html
+               text="Our experience with Underscore has been excellent. The mentoring process, in particular, helped developers learn on the job. This got our teams productive within weeks of writing their first lines of Scala."
+               attribution="Damian Ward, Director of Technology, YOOX NET-A-PORTER GROUP" %}
+  </div>
+</section>
+
+<div class="container">
+  <a class="link-anchor" name="case-studies"></a>
+  <h1 class="case-studies-title">Case Studies</h1>
+</div>
+
+<section class="container case-study-directory">
+  <article>
+  {% include case-studies/directory.html ids=site.data.consultingcasestudies %}
+  </article>
+</section>
+
+{% include footer.html %}

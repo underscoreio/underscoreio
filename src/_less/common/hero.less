@@ -1,0 +1,35 @@
+.hero {
+  position: relative;
+  background: @underscore-spaaace;
+  color: #fff;
+
+  padding-bottom: @line-height-computed;
+  margin-bottom: @line-height-computed;
+
+  .hero-text {
+    position: relative;
+    margin: auto;
+
+    padding-top:    1.0*@line-height-computed;
+    padding-bottom: 0.5*@line-height-computed;
+
+    h1 {
+      margin-top:    0;
+      margin-bottom: @line-height-computed;
+
+      @media (max-width: @screen-xs-max) {
+        margin-top:    2.0*@line-height-computed;
+        margin-bottom: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.hero-overlay-soft {
+  opacity: .4;
+}

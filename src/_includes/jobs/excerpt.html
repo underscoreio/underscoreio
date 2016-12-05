@@ -1,0 +1,45 @@
+{% comment %}
+  job: {
+    location: string
+    title: string
+    junior: boolean
+    summary: string
+    remote: (string or null)
+  }
+{% endcomment %}
+
+<div class="job-excerpt panel panel-gray" data-job-url="{{ job.url }}">
+  <div class="panel-heading {% if job.junior %}junior{% endif %}">
+    <h3>
+      <span class="pull-left">
+        <span class="job-title">{{ job.title }} at {{ job.company }} {% if job.junior %}(Accepts Juniors){% endif %}</span>
+      </span>
+      <span class="pull-right">
+        {% if include.job.remote %}
+        <span class="job-remote">
+          Remote {{ include.job.remote }}
+        </span>
+        {% endif %}
+        {% if include.job.location %}
+        <span class="job-location">
+        {{ include.job.location }}
+        </span>
+        {% endif %}
+      </span>
+    </h3>
+  </div>
+
+  <div class="panel-body">
+    <dl class="job-meta">
+    </dl>
+
+    <p class="job-summary">
+      {{ job.summary }}
+    </p>
+
+    <a class="job-link" href="{{ job.url }}">
+      More information
+      {% icon chevron-right %}
+    </a>
+  </div>
+</div>

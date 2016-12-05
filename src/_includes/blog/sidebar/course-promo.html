@@ -1,0 +1,14 @@
+<div class="blog-sidebar-course-promo {{ include.course.id | baseid }}"
+     data-course-id="{{ include.course.id }}">
+  <a class="course-title" href="{{ course.id }}">
+    <span class="course-icon icon-uio-{{ include.course.icon }}"></span>
+    <span class="course-title-text">
+      {{ include.course.title }}
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      {% icon chevron-right %}
+    </span>
+  </a>
+</div>

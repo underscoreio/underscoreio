@@ -1,0 +1,8 @@
+<ul class="list-unstyled blog-posts-list">
+  {% for post in include.posts limit:3 %}
+    <li>
+      <a class="blog-post-title" href="{{ post.url }}">{{ post.title }}</a>
+      <span class="blog-post-author">{{ post.author }}</span>
+    </li>
+  {% endfor %}
+</ul>

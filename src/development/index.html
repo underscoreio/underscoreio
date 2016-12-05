@@ -1,0 +1,142 @@
+---
+layout: default
+title:  "Development services"
+navbar: development
+---
+
+{% include hero.html
+   title="Development services" %}
+
+<section class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-7 col-lg-8">
+      <h2>Custom-built software</h2>
+
+      <p>
+        We specialise in Scala and functional programming,
+        big data, information systems, web services,
+        and distributed and cloud computation.
+      </p>
+
+      <p>
+        In our experience, the best way to build software
+        is to get the right people in the right environment
+        with the right tools for the job.
+        We have spent years developing this process to help you
+        get your product to market, fast.
+      </p>
+    </div>
+
+    <div class="col-sm-6 col-md-5 col-lg-4">
+      {% include get-in-touch.html %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container text-center-desktop">
+    <h2>How we can help</h2>
+
+    <div class="row panel-row">
+      <div class="col-sm-4">
+        <h4>Bootstrap</h4>
+
+        <p>
+          Use our experienced team
+          to get your project started right.
+          We work with you to deliver the first iteration
+          and transfer knowledge to your team.
+        </p>
+      </div>
+
+      <div class="col-sm-4">
+        <h4>Complete product delivery</h4>
+
+        <p>
+          We can start a new project
+          or take on an existing one.
+          We will run and support it
+          over a longer period.
+        </p>
+      </div>
+
+      <div class="col-sm-4">
+        <h4>Troubleshoot</h4>
+
+        <p>
+          If you project has veered off course,
+          or is not at the velocity you expect,
+          we can diagnose and help get you back on track.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-panel testimonial">
+  <div class="overlay-gem-left-white"></div>
+  <div class="overlay-gem-right-white"></div>
+  <div class="overlay-arrow-white"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <div class="container">
+    {% include testimonial.html
+               text="The software Underscore created was delivered on time and is easy to use and fast. We thoroughly recommend them as a software development partner."
+               attribution="Matthew Evans, Queen Mary University of London" %}
+  </div>
+</section>
+
+<section class="home-panel">
+  <div class="container text-center-desktop">
+    <h2>How we work</h2>
+
+    <div class="row panel-row">
+      <div class="col-sm-4">
+        <h4>Experienced people</h4>
+
+        <p>
+          We have experience in a wide range of sectors,
+          including finance, media, education, and government.
+          Our technical skills span
+          functional programming, distributed systems,
+          machine learning, big data,
+          and web and mobile development.
+        </p>
+      </div>
+
+      <div class="col-sm-4">
+        <h4>Distributed team</h4>
+
+        <p>
+          We work with the best people from across the globe.
+          Our team is distributed
+          across the UK, US, and Australia,
+          covering all time zones and
+          allowing us to communicate around the clock.
+        </p>
+      </div>
+
+      <div class="col-sm-4">
+        <h4>Delivery-focused</h4>
+
+        <p>
+          We are delivery focused first and foremost.
+          We use agile development practices to
+          put software in your hands as soon as we start development,
+          collecting feedback immediately to help us iterate and improve.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case-study-directory">
+  <div class="container">
+    <a class="link-anchor" name="case-studies"></a>
+    <h1 class="case-studies-title">Case studies</h1>
+
+    {% include case-studies/directory.html ids=site.data.developmentcasestudies %}
+  </div>
+</section>
+
+{% include footer.html %}

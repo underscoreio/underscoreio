@@ -1,0 +1,33 @@
+<div class="panel panel-gray book-excerpt {{ include.book.id }}"
+     data-book-id="{{ include.book.id }}">
+  <div class="panel-heading">
+    <h4 class="book-title">
+      <span class="book-icon icon-uio-{{ include.book.icon }}"></span>
+      <span class="book-title-text">
+        {{ include.book.title }}
+      </span>
+    </h4>
+  </div>
+
+  <div class="panel-body">
+    <dl class="book-meta">
+      <dt>Level</dt>  <dd>{{ include.book.level}}</dd>
+      {% if include.book.price %}
+      <dt>Price</dt> <dd>{{ include.book.price}}</dd>
+      {%   else   %}
+      <dt>&nbsp;</dt> <dd>&nbsp;</dd>
+      {% endif %}
+      <dt>&nbsp;</dt> <dd>&nbsp;</dd>
+    </dl>
+    {% if include.book.description %}
+      <p>{{ include.book.description | markdownify  }}</p>
+    {% endif %}
+  </div>
+
+  <div class="panel-footer">
+    <a class="book-book" href="{{ include.book.id }}/">
+        Learn more
+      {% icon chevron-right %}
+    </a>
+  </div>
+</div>

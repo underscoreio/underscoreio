@@ -1,0 +1,29 @@
+section.testimonial {
+  position: relative;
+  padding: @line-height-computed*2 0;
+  background: @underscore-spaaace3;
+  color: #fff;
+  font-weight: 700;
+
+  blockquote {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+div.testimonial {
+  blockquote {
+    border: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    quotes: "\201C""\201D""\2018""\2019";
+
+    &:before { font-size: 1.2em; content: open-quote;  }
+    &:after  { font-size: 1.2em; content: close-quote; }
+  }
+
+  .attribution {
+    font-weight: 400;
+  }
+}

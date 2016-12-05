@@ -1,0 +1,24 @@
+{% assign lastRowSize = include.ids.size | modulo:3 %}
+{% for id in include.ids %}
+  {% assign item = id | lookup_in:include.items %}
+  {% capture cellClass %}{% if forloop.last and lastRowSize == 1 %}col-sm-6 col-md-4 col-md-offset-4{% else %}col-sm-6 col-md-4{% endif %}{% endcapture %}
+
+  <div class="{{ cellClass }}">
+    <div class="panel panel-gray {{ id }}" data-url="{{ item.id }}">
+      <div class="panel-heading">
+        <h4>
+          <a href="{{ item.id }}">
+            <span class="icon icon-uio-{{ item.icon }}"></span>
+            <span class="title">
+              {{ item.title }}
+            </span>
+          </a>
+        </h4>
+      </div>
+
+      <div class="panel-body summary">
+        {{ item.summary }}
+      </div>
+    </div>
+  </div>
+{% endfor %}
