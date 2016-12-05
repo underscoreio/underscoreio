@@ -74,7 +74,7 @@ end
 task :test => :build
 
 task :'deploy-production' => :build do |t, args|
-  if `git rev-parse --abbrev-ref HEAD` == "master"
+  if `git rev-parse --abbrev-ref HEAD` == "master\n"
     sh deploy_command_line("underscore.io", "EZ3DZ8A1CPWTK")
   else
     fail "deploy-production can only be run from master"
