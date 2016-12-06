@@ -3,10 +3,6 @@ machine:
     Europe/London
   node:
     version: "v5.7.0"
-  # ruby:
-  #   version: "2.2.4p230" # this is the default on CircleCI Ubuntu 14.04
-  # python:
-  #   version: "2.7.11"    # this is the default on CircleCI Ubuntu 14.04
 
 dependencies:
   override:
@@ -20,13 +16,13 @@ test:
     - bundle exec rake test
 
 deployment:
-  # production:
-  #   branch: master
-  #   owner: underscoreio
-  #   commands:
-  #     - bundle exec rake deploy-production
+  production:
+    branch: master
+    owner: underscoreio
+    commands:
+      - bundle exec rake deploy-production
   staging:
-    branch: [develop, feature/v4]
+    branch: develop
     owner: underscoreio
     commands:
       - bundle exec rake deploy-beta
