@@ -162,7 +162,7 @@ type AB[C] = ... // what should we put here?
 def foo[A[_,_], B](functor: Functor[AB])
 ~~~
 
-The answer is no, because at the time at which we define `T`,
+The answer is no, because at the time at which we define `AB`,
 we don't have `A` and `B` available.
 Attempts to 'pass them in' as parameters like this:
 
@@ -252,7 +252,7 @@ of curried or partially applied types in Dotty.
 
 While we wait for curried type constructors
 to become part of the language,
-we can find another solution can in
+we can find another solution in
 the [kind projector](https://github.com/non/kind-projector)
 compiler plugin.
 
