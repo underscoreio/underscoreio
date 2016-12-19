@@ -8,18 +8,13 @@ color: "#F58B40"
 level: Intermediate
 price: "$40"
 cover: "/images/books/essential-slick.png"
+sample: "https://s3-us-west-2.amazonaws.com/book-sample/essential-slick-3-preview-with-full-toc.pdf"
 summary: |
   Learn to use Lightbend's Slick to interact with relational databases.
   For new to intermediate Scala developers.
-book:
-  type: gumroad
+buyButtons:
+- label: "Buy the ebook - $40"
   url: "https://gum.co/essential-slick"
-  buttonLabel: "Buy now - $40"
-  sample: https://s3-us-west-2.amazonaws.com/book-sample/essential-slick-3-preview-with-full-toc.pdf
-teamBook:
-  type: gumroad
-  url: "https://gum.co/essential-slick-team"
-  buttonLabel: "Buy now - <strike>$400</strike> $320"
 ---
 
 ## Overview

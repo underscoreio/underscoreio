@@ -32,21 +32,13 @@ layout: default
     </div>
     <div class="col-sm-5 col-md-4">
       <aside class="training-sidebar">
-        {% if page.book %}
+        {% if page.buyButtons %}
           {% include training/sidebar/book.html
              id=page.id
              title=page.title
              cover=page.cover
-             book=page.book
-             mode="book" %}
-        {% endif %}
-        {% if page.teamBook %}
-          {% include training/sidebar/book.html
-             id=page.id
-             title=page.title
-             cover=page.cover
-             book=page.teamBook
-             mode="team" %}
+             sample=page.sample
+             buttons=page.buyButtons %}
         {% endif %}
       </aside>
     </div>

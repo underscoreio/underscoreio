@@ -10,10 +10,11 @@ cover: "/images/books/lift-cookbook.gif"
 summary: |
   Learn to use the Lift web framework to build web sites and services.
   For new to intermediate Scala developers.
-book:
-  type: oreilly
+buyButtons:
+- label: "View online"
+  url: "http://cookbook.liftweb.net"
+- label: "Buy now - $22"
   url: "http://shop.oreilly.com/product/0636920029151.do"
-  buttonLabel: "Buy now - $22"
 ---
 
 ## Overview
