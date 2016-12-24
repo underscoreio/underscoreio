@@ -5,7 +5,7 @@ author: "Channing Walton"
 ---
 
 We are excited and proud to announce that a project started with Underscore partners
-and associates have won the highest accolade in the Barclays Agility Conference:
+and associates has won the highest accolade in the Barclays Agility Conference:
 Barclays UK Team of the Year and the Overall Winner category.
 
 Two years ago, a small team of four Underscore partners and associates joined the
