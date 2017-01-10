@@ -82,7 +82,7 @@ task :'deploy-production' => :build do |t, args|
 end
 
 task :'deploy-beta' => :build do |t, args|
-  sh deploy_command_line("beta.underscore.io", "")
+  sh deploy_command_line("beta.underscore.io", "E3QREV6XBGQ7AP")
 end
 
 task default: :build

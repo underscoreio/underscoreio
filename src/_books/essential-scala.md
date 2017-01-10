@@ -8,20 +8,13 @@ color: "#e8515b"
 level: Beginner
 price: "$50"
 cover: "/images/books/essential-scala.png"
+sample: "https://s3-us-west-2.amazonaws.com/book-sample/essential-scala-preview-with-full-toc.pdf"
 summary: |
   Learn to write robust, performant, idiomatic Scala.
   A focused guide for established developers.
-book:
-  type: gumroad
-  title: Get the Book
+buyButtons:
+- label: "Buy the ebook - $50"
   url: "https://gum.co/essential-scala"
-  buttonLabel: "Buy now - $50"
-  sample: https://s3-us-west-2.amazonaws.com/book-sample/essential-scala-preview-with-full-toc.pdf
-teamBook:
-  type: gumroad
-  title: "20% Team Discount"
-  url: "https://gum.co/essential-scala-team"
-  buttonLabel: "Buy now - <strike>$500</strike> $400"
 ---
 
 ## Overview

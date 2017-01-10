@@ -8,20 +8,13 @@ color: "#d62a7c"
 level: Intermediate
 price: "$50"
 cover: "/images/books/advanced-scala.png"
+sample: "https://s3-us-west-2.amazonaws.com/book-sample/advanced-scala-preview-with-full-toc.pdf"
 summary: |
   Dive deep into functional patterns using Scala and Cats.
   For experienced Scala developers.
-book:
-  type: gumroad
-  title: Get the Book
+buyButtons:
+- label: "Buy the ebook - $50"
   url: "https://gum.co/advanced-scala"
-  buttonLabel: "Buy now - $50"
-  sample: https://s3-us-west-2.amazonaws.com/book-sample/advanced-scala-preview-with-full-toc.pdf
-teamBook:
-  type: gumroad
-  title: "20% Team Discount"
-  url: "https://gum.co/advanced-scala-team"
-  buttonLabel: "Buy now - <strike>$500</strike> $400"
 ---
 
 ## Overview

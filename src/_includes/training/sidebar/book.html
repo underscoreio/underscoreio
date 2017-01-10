@@ -1,40 +1,22 @@
-{% if include.book %}
-  <div class="panel panel-gray training-book {{ include.id }}">
-    <div class="panel-heading">
-      {% if include.mode=="book" %}
-        <h4>Available now</h4>
-      {% elsif include.mode=="course" %}
-        <h4>Get the book</h4>
-      {% elsif include.mode=="team" %}
-        <h4>Team book discount</h4>
-      {% endif %}
-    </div>
+<div class="panel panel-gray training-book {{ include.id }}">
+  <div class="panel-heading">
+    <h4>Get the Book</h4>
+  </div>
 
-    <div class="panel-body">
-      {% if include.mode=="course" %}
-        <p>
-          Prefer self-directed learning?
-          Grab the course textbook!
-        </p>
-      {% elsif include.mode=="team" %}
-        <p>
-          Buy 10 copies of the book
-          and get a 20% team discount!
-        </p>
-      {% endif %}
+  <div class="panel-body">
+    {% if include.cover %}
+      <img src="{{ include.cover }}"
+           class="training-book-cover"
+           alt="{{ include.title }}">
+    {% endif %}
 
-      {% if include.cover %}
-        <img src="{{ include.cover }}"
-             class="training-book-cover"
-             alt="{{ include.title }}">
-      {% endif %}
-
+    {% for button in include.buttons %}
       <p>
         <a class="btn btn-primary btn-block"
-            href="{{ include.book.url }}">
-          {{ include.book.buttonLabel | liquify }}
+            href="{{ button.url }}">
+          {{ button.label | liquify }}
         </a>
       </p>
-    </div>
+    {% endfor %}
   </div>
-{% endif %}
+</div>

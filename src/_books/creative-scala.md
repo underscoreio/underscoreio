@@ -11,11 +11,9 @@ cover: "/images/books/creative-scala.png"
 summary: |
   Learn functional programming with pictures!
   A fun and practical introduction for new developers.
-book:
-  type: gumroad
-  title: Get the Book
+buyButtons:
+- label: "Download the ebook - FREE"
   url: "https://gum.co/creative-scala"
-  buttonLabel: "Download now - FREE"
 ---
 
 ## Overview

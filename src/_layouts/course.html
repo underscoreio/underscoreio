@@ -58,19 +58,16 @@ layout: default
              id=book.id
              events=events %}
 
-          {% assign book = page.book | lookup_in:site.books %}
-          {% include training/sidebar/book.html
-             id=book.id
-             title=book.title
-             cover=book.cover
-             book=book.book
-             mode="course" %}
-          {% include training/sidebar/book.html
-             id=book.id
-             title=book.title
-             cover=book.cover
-             book=book.teamBook
-             mode="team" %}
+          {% assign bookPage = page.book | lookup_in:site.books %}
+
+          {% if bookPage.buyButtons %}
+            {% include training/sidebar/book.html
+               id=bookPage.id
+               title=bookPage.title
+               cover=bookPage.cover
+               sample=bookPage.sample
+               buttons=bookPage.buyButtons %}
+          {% endif %}
         {% endif %}
       </aside>
     </div>

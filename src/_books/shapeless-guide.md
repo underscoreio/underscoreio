@@ -11,11 +11,12 @@ cover: "/images/books/shapeless-guide.png"
 summary: |
   Scrap your boilerplate and derive type classes with shapeless.
   For experienced Scala developers.
-book:
-  type: gumroad
-  title: Get the Book
+buyButtons:
+- label: "Download the ebook - FREE"
   url: "https://gum.co/shapeless-guide"
-  buttonLabel: "Download for free"
+- label: "Buy in print - £15"
+  url: "http://www.lulu.com/shop/dave-gurnell/the-type-astronauts-guide-to-shapeless/paperback/product-22992219.html"
+
 ---
 
 ## Overview
