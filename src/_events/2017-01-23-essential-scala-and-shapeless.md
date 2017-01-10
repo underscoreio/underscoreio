@@ -42,9 +42,11 @@ Attendees should bring their own laptop, with Scala and the development environm
 
 ### When, Where, and How Much?
 
-The course will run from the 23rd to the 25th of January inclusive, at the LA offices of Nordstromrack.com: [700 S. Flower Street, Suite #1700 Los Angeles, CA, 90017][la-office].
+The course will run from the 23rd to the 25th of January inclusive, at the LA offices of Nordstromrack.com: [700 S. Flower Street, Suite #1600 Los Angeles, CA, 90017][la-office].
 
-Parking in the attached garage is $12 for arrivals before 10am and $32 if arriving after. There are cheaper lots nearby, and the Expo Line terminates directly across the street from the office.
+Parking in the attached garage is $12 for arrivals before 10am and $32 if arriving after. There are cheaper lots nearby. The office is located directly across the street from the 7th St./Metro Center metro stop, which is accessible not only by the Expo line but also the red/purple and blue lines.
+
+Please [read this][nordstromrack-event-parking] for instructions on getting into the building and for details of cheaper parking. Note the cheaper parking is cash only.
 
 Tickets are [on-sale now][eventbrite-essential-scala], starting at a discounted rate of $1499 per person.
 
@@ -70,7 +72,11 @@ This talk is aimed at intermediate Scala developers. You don't need to know what
 
 ### When, Where, and How Much?
 
-The evening of 24 Jan 2017, at the LA offices of Nordstromrack.com: [700 S. Flower Street, Suite #1700 Los Angeles, CA, 90017][la-office]. Doors open at 6:30pm, talk starts at 7pm.
+The evening of 24 Jan 2017, at the LA offices of Nordstromrack.com: [700 S. Flower Street, Suite #1600 Los Angeles, CA, 90017][la-office]. Doors open at 6:30pm, talk starts at 7pm.
+
+Parking in the attached garage is $12 for arrivals before 10am and $32 if arriving after. There are cheaper lots nearby. The office is located directly across the street from the 7th St./Metro Center metro stop, which is accessible not only by the Expo line but also the red/purple and blue lines.
+
+Please [read this][nordstromrack-event-parking] for instructions on getting into the building and for details of cheaper parking. Note the cheaper parking is cash only.
 
 It's completely free, but you must [sign up][shapeless-sign-up] before the event.
 
@@ -79,3 +85,4 @@ It's completely free, but you must [sign up][shapeless-sign-up] before the event
 [shapeless]: https://github.com/milessabin/shapeless
 [eventbrite-essential-scala]: https://www.eventbrite.com/e/essential-scala-tickets-31019172179
 [shapeless-sign-up]: https://www.eventbrite.com/e/establishing-orbit-with-shapeless-tickets-31068083474
+[nordstromrack-event-parking]: /files/nordstromrack-event-parking.pdf
