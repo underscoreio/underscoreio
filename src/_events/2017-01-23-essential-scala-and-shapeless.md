@@ -9,7 +9,7 @@ duration: 3 days
 navbar: events
 summary: |
   Essential Scala comes to LA,
-  along with a free evening Shapless workshop
+  along with a free evening Shapeless workshop
 bookingLinks:
   - text: Purchase a ticket for Essential Scala
     url: https://www.eventbrite.com/e/essential-scala-tickets-31019172179
@@ -70,7 +70,7 @@ This talk is aimed at intermediate Scala developers. You don't need to know what
 
 ### When, Where, and How Much?
 
-The evening of 24 Jan 2017, at the LA officess of Nordstromrack.com: [700 S. Flower Street, Suite #1700 Los Angeles, CA, 90017][la-office]. Doors open at 6:30pm, talk starts at 7pm.
+The evening of 24 Jan 2017, at the LA offices of Nordstromrack.com: [700 S. Flower Street, Suite #1700 Los Angeles, CA, 90017][la-office]. Doors open at 6:30pm, talk starts at 7pm.
 
 It's completely free, but you must [sign up][shapeless-sign-up] before the event.
 
