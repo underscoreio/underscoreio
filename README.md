@@ -36,6 +36,8 @@ rake serve
 
 ## Deploying the Site
 
+Pushing to master will trigger a build and deploy via CircleCI.com
+
 The site is deployed to Amazon S3
 using a Ruby tool called s3_website.
 Pushing to `develop` deploys to `beta.underscore.io`.
