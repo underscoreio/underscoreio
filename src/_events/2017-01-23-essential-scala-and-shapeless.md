@@ -1,7 +1,7 @@
 ---
 layout: event
 title: "Essential Scala and Shapeless in LA"
-course: none
+course: essential-scala
 date: 2017-01-23 09:00
 timezone: PST
 location: Los Angeles
