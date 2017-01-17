@@ -4,12 +4,11 @@ The Underscore web site and blog.
 
 ## Which branch/domain?
 
-We work in `develop`.
-Previews can be published to `beta.underscore.io` from here.
+We work in `master`.
 
 Releases to `underscore.io` must be made from `master`.
-We recommend using `git flow` to merge from `develop` onto `master`.
-Instructions below.
+
+Please issue PRs against changes.
 
 ## Building the Site
 
