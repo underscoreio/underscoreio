@@ -71,7 +71,11 @@ Our process is authentically agile, by which I mean it isn't a prescriptive
 Scrum, XP, or other commercial brand of Agile. Each team has evolved its process to
 enable it to reliably produce valuable software each iteration.
 
+## Conclusions
 
+A successful technology project requires the convergence of good tools, good
+people, and a good environment. We were able to achieve all three at Barclays
+reaulting in the delivery of an outstanding success.
 
 [wealth]: [https://wealth.barclays.com/]
 [ib]: [https://myapplication.international.barclays.com/ib/initialRegistration]
