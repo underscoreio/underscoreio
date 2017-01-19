@@ -62,7 +62,7 @@ Technically the team use the following technologies:
 - Linux servers
 
 We develop on Macs and Linux, use git and Teamcity,
-and develop with a range of IDEs from Intellij to Emacs to Vim.
+and develop with a range of IDEs from IntelliJ to Emacs to Vim.
 
 
 ## Agile
@@ -75,7 +75,7 @@ enable it to reliably produce valuable software each iteration.
 
 A successful technology project requires the convergence of good tools, good
 people, and a good environment. We were able to achieve all three at Barclays
-reaulting in the delivery of an outstanding success.
+resulting in the delivery of an outstanding success.
 
 [wealth]: [https://wealth.barclays.com/]
 [ib]: [https://myapplication.international.barclays.com/ib/initialRegistration]
