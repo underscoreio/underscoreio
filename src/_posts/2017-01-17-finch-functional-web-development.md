@@ -4,15 +4,15 @@ title: "Finch - Functional Web Development"
 author: Pere Villega
 ---
 
-A considerable amount of Scala developers are attracted by the promises of type safety and functional programming in Scala, as can be seen by the adoption of libraries like Cats and Shapeless. When building an HTTP API, the choices for a pure functional programming approach are limited. Finch is a good candidate to fill that space and provide a full-stack FP experience.
+A considerable number of Scala developers are attracted by the promises of type safety and functional programming in Scala, as can be seen by the adoption of libraries like Cats and Shapeless. When building an HTTP API, the choices for a pure functional programming approach are limited. Finch is a good candidate to fill that space and provide a full-stack FP experience.
 
 <!-- break -->
 
 My introduction to Finch happened when I was reviewing talks from the last [Scala eXchange 2016](https://skillsmatter.com/conferences/7432-scala-exchange-2016#program) and I stumbled upon [this good talk](https://skillsmatter.com/skillscasts/9093-scala-services-in-action) by [Sofia Cole](https://twitter.com/@sofiacole35) and [Kingsley Davies](https://twitter.com/kings13y). 
 
-From all the things they mentioned, and they covered a lot of ground in just 45 minutes, one fragment caught my attention: the moment [Kingsley](https://twitter.com/kings13y) was speaking about [Finch](https://github.com/finagle/finch/). Probably I noticed it because I've used the other frameworks before, either formally or in exploratory pet-projects, but I wasn't aware about the existence of [Finch](https://github.com/finagle/finch/) itself.
+They covered a lot of ground in just 45 minutes, but the thing that caught my attention was [Kingsley](https://twitter.com/kings13y) was speaking about [Finch](https://github.com/finagle/finch/). Probably I noticed it because I've used the other frameworks before, either formally or in exploratory pet-projects, but I wasn't aware of the existence of [Finch](https://github.com/finagle/finch/) itself.
 
-So, as it usually happens when facing a new technology, I tried to understand the so called 'angle of Finch'. Why should I care about it, when there are plenty of solid alternatives? Let's do a high-level overview of Finch to see if it is a library worth spending our time on.
+So, as usual when facing a new technology, I tried to understand the so called 'angle of Finch'. Why should I care about it, when there are plenty of solid alternatives? Let's do a high-level overview of Finch to see if it is a library worth spending our time on.
 
 ## Functional programming in the web
 
@@ -21,7 +21,7 @@ If we open [Finch](https://github.com/finagle/finch/)'s README file we see that 
 > Finch is a thin layer of purely functional basic blocks atop of Finagle for building composable HTTP APIs.
 > Its mission is to provide the developers simple and robust HTTP primitives being as close as possible to the bare metal Finagle API.
 
-It can't be stated more clearly: Finch is about using functional programming to build HTTP APIs. If you are not interested in functional programming you should stop reading, as you are in the wrong blog ;) 
+It can't be stated more clearly: Finch is about using functional programming to build HTTP APIs. If you are not interested in functional programming you should stop reading, as you are in the wrong blog.
 
 Finch promotes a healthy separation between HTTP operations and the implementation of your services. Finch's aim is to manage all the IO in HTTP via a very thin layer that you create, a set of request endpoints that will cover all the HTTP IO in your server. It being a simple and composable layer also means that it will be easy to modify as your API evolves or, if it comes to that, it will be easily replaced by another library or framework. 
 
@@ -81,11 +81,11 @@ val deleteTask: Endpoint[Task] =
   delete(taskEndpoint) { (todoId: Int, taskId: Int) => ??? }
 ```
 
-We have defined both a `get` and a `delete` endpoint, both reusing the previously defined `taskEndpoint` that matches our desired path. If down the road we need to alter our paths we only have to change one entry in our codebase, the modification will propagate to all the relevant entry points. You can obviously do much more with endpoint composition, but this example gives you a glimpse of what you can achieve with endpoint composition.
+We have defined both a `get` and a `delete` endpoint, both reusing the previously defined `taskEndpoint` that matches our desired path. If down the road we need to alter our paths we only have to change one entry in our codebase, the modification will propagate to all the relevant entry points. You can obviously do much more with endpoint composition, but this example gives you a glimpse of what you can achieve.
 
 ### Typesafe endpoints
 
-As one advantage of the composability of endpoints, we just mentioned that it reduces the amount of code to be modified. But that is not the only benefit of the endpoints. If you look again at the previously defined implementation:
+Reducing the amount of code to be modified is not the only advantage of composable endpoints. If you look again at the previously defined implementation:
 
 ```scala
 val taskEndpoint: Endpoint[Int :: Int :: HNil] = 
@@ -104,15 +104,15 @@ val taskEndpoint: Endpoint[Int :: Int :: Int :: HNil] =
 
 We can see that the type of the endpoint has changed from `Endpoint[Int :: Int :: HNil]` to `Endpoint[Int :: Int :: Int :: HNil]`, an additional `Int` in the `HList`. As a consequence, all the endpoints that compose over `taskEndpoints` will now fail to compile as they are currently not taking care of the new parameter. We will need to update them as required for the service to run.
 
-As you could expect this was a very simple example, but the core of the idea is the relevant part. Endpoints are strongly typed, and if you are reading this you probably understand the benefits of strong types and how many errors they prevent. In Finch this means that a change to an endpoint will be enforced by the compiler onto any composition that uses that endpoint, making any refactor safer and ensuring the coherence of the implementation.
+This is a very small example, but we already see great benefits. Endpoints are strongly typed, and if you are reading this you probably understand the benefits of strong types and how many errors they prevent. In Finch this means that a change to an endpoint will be enforced by the compiler onto any composition that uses that endpoint, making any refactor safer and ensuring the coherence of the implementation.
 
 ### Testable endpoints
 
-The previous section considered the type-safety of endpoints. Unfortunately this only covers the server side of our endpoints, we still need to make sure they are defined to what other services expect them to be.
+The previous section considered the type-safety of endpoints. Unfortunately this only covers the server side of our endpoints, we still need to make sure they are defined consistently with the expectations of clients.
 
 Typical ways to ensure this include defining a set of calls your service *must* process correctly and to process them as part of your CI/CD step. But running these tests can be both cumbersome to set up, due to the need to launch in-memory servers to execute the full service, as well as slow because you may need to launch the full stack of your application.
 
-Fortunately, Finch approach towards endpoints facilitates how you can verify if your service follows the agreed protocol. Endpoints are functions that receive an Http request and return a response. As such, you can call an individual endpoint with a customised request and ensure it returns the expected result.
+Fortunately, ‘Finch’s approach to endpoints provides the means to verify that your service follows the agreed protocol. Endpoints are functions that receive an Http request and return a response. As such, you can call an individual endpoint with a customised request and ensure it returns the expected result.
 
 Let's see an endpoint test taken from the [documentation](https://github.com/finagle/finch/blob/master/docs/user-guide.md#testing):
 
