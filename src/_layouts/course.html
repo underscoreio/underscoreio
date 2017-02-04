@@ -48,16 +48,16 @@ layout: default
     </div>
     <div class="col-sm-5 col-md-4">
       <aside class="training-sidebar">
-        {% if page.book %}
-          {% assign events = page.id |
-                             baseid |
-                             lookup_all:site.events,'course' |
-                             where_future:'date' |
-                             sort_by:'date' %}
-          {% include training/sidebar/events.html
-             id=book.id
-             events=events %}
+        {% assign events = page.id |
+                           baseid |
+                           lookup_all:site.events,'course' |
+                           where_future:'date' |
+                           sort_by:'date' %}
+        {% include training/sidebar/events.html
+           id=book.id
+           events=events %}
 
+        {% if page.book %}
           {% assign bookPage = page.book | lookup_in:site.books %}
 
           {% if bookPage.buyButtons %}
