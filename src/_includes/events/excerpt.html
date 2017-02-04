@@ -19,9 +19,12 @@
   {% assign excerptColor = include.event.color %}
   {% assign excerptIcon  = include.event.icon %}
 {% elsif include.event.course %}
-  {% assign course        = include.event.course | lookup_in:site.courses %}
-  {% assign excerptColor  = course.color %}
-  {% assign excerptIcon   = course.icon %}
+  {% assign course       = include.event.course | lookup_in:site.courses %}
+  {% assign excerptColor = course.color %}
+  {% assign excerptIcon  = course.icon %}
+{% else %}
+  {% assign excerptColor = "#21a9e1" %}
+  {% assign excerptIcon  = "scala"   %}
 {% endif %}
 
 <div class="event-excerpt panel panel-gray" data-event-url="{{ event.url }}">

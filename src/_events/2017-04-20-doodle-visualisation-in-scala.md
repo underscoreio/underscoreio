@@ -8,11 +8,16 @@ timezone: CT
 duration: 45 mins
 navbar: events
 summary: |
-  In this talk I'll introduce Doodle, a Scala library for data visualisation that renders in the browser, to files, and on the desktop.
+  Noel will talk about Doodle,
+  a Scala library for data visualisation that renders in the browser,
+  to files, and on the desktop.
 bookingLinks:
   - text: Sign up for the conference
     url: http://event.scaladays.org/scaladays-chicago-2017
 ---
+
+# Abstract
+
 In this talk I'll introduce Doodle, a Scala library for data visualisation that renders in the browser, to files, and on the desktop.
 
 Scala is an integral part of many data analysis workflows, but when it comes to visualising the results practitioners must often turn to Javascript libraries like d3 or Highcharts, or Python libraries such as matplotlib. These libraries have several disadvantages. For a start, they require switching environments. Furthermore, they often lack useful abstractions, being either easy to use or flexible, but not both. For example, matplotlib provides a rigid system of predefined graphs, while d3 provides many low-level building blocks but lacks tools to easily combine them for common graphs.
