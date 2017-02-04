@@ -3,8 +3,8 @@ layout: event
 title: "Macros vs Shapeless vs Code Generation"
 type: talk
 location: Scala Days Copenhagen
-date: 2017-06-01 14:30:00 CT
-timezone: CT
+date: 2017-06-01 14:30:00 CET
+timezone: CET
 duration: 45 mins
 navbar: events
 course: advanced-shapeless
