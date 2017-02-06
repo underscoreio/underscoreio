@@ -8,16 +8,35 @@ navbar: events
 
 <section class="container event-listing">
   <article>
-    {% assign futureEvents = site.events | where_future:'date' | sort_by:'date' %}
+    {% assign futureEvents  = site.events  | where_future:'date' | sort_by:'date' %}
+    {% assign futureCourses = futureEvents | where_exp:"item","item.type == 'course'" %}
+    {% assign futureOther   = futureEvents | where_exp:"item","item.type != 'course'" %}
 
-    {% if futureEvents.size > 0 %}
-      {% for event in futureEvents %}
+    {% if futureCourses.size > 0 and futureOther.size > 0 %}
+      <h2>Upcoming public courses</h2>
+    {% endif %}
+
+    {% if futureCourses.size > 0 %}
+      {% for event in futureCourses %}
         {% include events/excerpt.html event=event %}
       {% endfor %}
+    {% endif %}
 
+    {% if futureCourses.size > 0 and futureOther.size > 0 %}
+      <h2>Other upcoming events</h2>
+    {% endif %}
+
+    {% if futureOther.size > 0 %}
+      {% for event in futureOther %}
+        {% include events/excerpt.html event=event %}
+      {% endfor %}
+    {% endif %}
+
+    {% if futureCourses.size > 0 or futureOther.size > 0 %}
       {% include events/empty.html pastLink=true %}
     {% else %}
-      {% include events/empty.html pastLink=true title="Sorry, we have no events currently announced!" %}
+      {% include events/empty.html
+         pastLink=true title="Sorry, we have no events currently announced!" %}
     {% endif %}
   </article>
 </section>
