@@ -12,6 +12,30 @@
     {% css screen %}
     {% css print media:"print" %}
 
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@underscoreio">
+    {% if page.twitter.title %}
+      <meta name="twitter:title" content="{{ page.twitter.title | strip_html | escape_once }}">
+    {% else %}
+      <meta name="twitter:title" content="{{ page.title | strip_html | escape_once }}">
+    {% endif %}
+    {% if page.twitter.description %}
+      <meta name="twitter:description" content="{{ page.twitter.description | strip_html | escape_once }}">
+    {% elsif page.summary %}
+      <meta name="twitter:description" content="{{ page.summary | strip_html | escape_once }}">
+    {% elsif page.description %}
+      <meta name="twitter:description" content="{{ page.description | strip_html | escape_once }}">
+    {% elsif page.excerpt %}
+      <meta name="twitter:description" content="{{ page.excerpt | strip_html | escape_once }}">
+    {% else %}
+      <meta name="twitter:description" content="Global software development consultancy specialising in Scala and functional programming.">
+    {% endif %}
+    {% if page.twitter.image %}
+      <meta name="twitter:image" content="{{ page.twitter.image | strip_html | escape_once }}">
+    {% else %}
+      <meta name="twitter:image" content="http://underscore.io/images/twitter-card-icon.png">
+    {% endif %}
+
     <link rel="shortcut icon" href="/images/favicon-64.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">

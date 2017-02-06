@@ -1,0 +1,11 @@
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@underscoreio">
+<meta name="twitter:title" content="{{ include.title }}">
+{% if include.description %}
+  <meta name="twitter:description" content="{{ include.description }}">
+{% endif %}
+{% if include.image %}
+  <meta name="twitter:image" content="{{ include.image }}">
+{% else %}
+  <meta name="twitter:image" content="http://underscore.io/images/twitter-card-icon.png">
+{% endif %}

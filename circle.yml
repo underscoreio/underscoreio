@@ -22,7 +22,7 @@ deployment:
     commands:
       - bundle exec rake deploy-production
   staging:
-    branch: develop
+    branch: beta
     owner: underscoreio
     commands:
       - bundle exec rake deploy-beta

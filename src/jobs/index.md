@@ -2,6 +2,9 @@
 layout: page
 title: Jobs Board
 navbar: jobs
+twitter:
+  title: The Underscore Jobs Board
+  description: "International Scala job board. Recruiting is a problem for the entire community. We're doing something about it!"
 ---
 
 <div class="job-header">
