@@ -14,10 +14,10 @@ summary: |
   This course teaches you the tools you need
   to build large functional systems in Scala.
 bookingLinks:
-  - text:  Book now - <strike>£999</strike> £799<br>
+  - text:  Book now - <strike>£999+VAT</strike> £799+VAT<br>
            <small>(early bird discount ends 5th March)</small>
     url:   https://www.eventbrite.com/e/advanced-scala-with-cats-public-course-tickets-3794916698?aff=underscoreio
-  - text:  Diversity applications - £399<br>
+  - text:  Diversity applications - £399+VAT<br>
            <small>(limited places available)</small>
     url:   https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform
     class: "btn-warning"
@@ -104,7 +104,7 @@ You **must** have:
 
 ### How much does it cost?
 
-The two-day course is £999, or £799 for early bird tickets.
+The two-day course is £999+VAT, or £799+VAT for early bird tickets.
 
 As usual, for [diversity candidates]({% post_url 2015-01-29-diversity-in-training %})
 tickets are half price.
