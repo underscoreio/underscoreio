@@ -7,7 +7,7 @@ location: London, UK
 date: 2017-05-11 09:00:00
 timezone: BST
 duration: 2 days
-cost: £799/999
+cost: £799/999+VAT
 navbar: events
 summary: |
   Take your Scala skills to the next level.
