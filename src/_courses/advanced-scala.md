@@ -44,50 +44,177 @@ Attendees of any Advanced Scala training course receive a complementary copy of 
 
 ## Table of Contents - Advanced Scala
 
-- Type classes
-  - Type classes as ad-hoc polymorphism
-  - Type class implementation in Scala
-
-- Cats
-  - Code organisation
-  - Relationship to other libraries
-
-- Show and Equal
-
-- Monoid
-  - The definition of Monoid
-  - Basic examples
-  - Extended analytics example
-
-- Controlling type class selection
-  - Unboxed tags
-  - Value classes
-
-- Functor
-  - Functor definition
-  - Higher-kinded types
-  - Implementation in Scala
-
-- Monad
-  - The definition of Monad
-  - Monads for error handling
-  - Monads for concurrency
-  - "Reader, Writer, and more"
-
+- Introduction
+  - Anatomy of a Type Class
+    - The Type Class
+    - Type Class Instances
+    - Interfaces
+    - Exercise: Printable Library
+    - Take Home Points
+  - Meet Cats
+    - Importing Type Classes
+    - Importing Default Instances
+    - Importing Interface Syntax
+    - Defining Custom Instances
+    - Exercise: Cat Show
+    - Take Home Points
+  - Example: Eq
+    - Equality, Liberty, and Fraternity
+    - Comparing Ints
+    - Comparing Options
+    - Comparing Custom Types
+    - Exercise: Equality, Liberty, and Felinity
+    - Take Home Points
+  - Summary
+- Monoids and Semigroups
+  - Definition of a Monoid
+  - Definition of a Semigroup
+  - Exercise: The Truth About Monoids
+  - Exercise: All Set for Monoids
+  - Monoids in Cats
+    - The Monoid Type Class
+    - Obtaining Instances
+    - Default Instances
+    - Monoid Syntax
+    - Exercise: Adding All The Things
+  - Controlling Instance Selection
+    - Type Class Variance
+    - Identically Typed Instances
+  - Applications of Monoids
+    - Big Data
+    - Distributed Systems
+    - Monoids in the Small
+  - Summary
+- Functors
+  - Examples of Functors
+  - More Examples of Functors
+  - Definition of a Functor
+  - Aside: Higher Kinds and Type Constructors
+  - Functors in Cats
+    - The Functor Type Class
+    - Functor Syntax
+    - Instances for Custom Types
+    - Exercise: Branching out with Functors
+  - Contravariant and Invariant Functors
+    - Contravariant functors and the contramap method
+    - Invariant functors and the imap method
+    - What’s With the Name?
+  - Contravariant and Invariant in Cats
+    - Contravariant in Cats
+  - Summary
+- Monads
+  - What is a Monad?
+    - Monad Definition and Laws
+    - Exercise: Getting Func-y
+  - Monads in Cats
+    - The Monad Type Class
+    - Default Instances
+    - Monad Syntax
+  - The Identity Monad
+    - Exercise: Monadic Secret Identities
+  - Either and Xor
+    - Left and Right Bias
+    - Creating Xors
+    - Transforming Xors
+    - Fail-Fast Error Handling
+    - Representing Errors
+    - Swapping Control Flow
+    - Exercise: What is Best?
+  - The Eval Monad
+    - Eager, lazy, memoized, oh my!
+    - Eval’s models of evaluation
+    - Eval as a Monad
+    - Trampolining and Eval.defer
+    - Exercise: Safer Folding using Eval
+  - The Writer Monad
+    - Creating and Unpacking Writers
+    - Composing and Transforming Writers
+    - Exercise: Show Your Working
+  - The Reader Monad
+    - Creating and Unpacking Readers
+    - Composing Readers
+    - Exercise: Hacking on Readers
+    - When to Use Readers?
+  - The State Monad
+    - Creating and Unpacking State
+    - Composing and Transforming State
+    - Exercise: Post-Order Calculator
+  - Defining Custom Monads
+    - Exercise: Branching out Further with Monads
+  - Summary
 - Monad Transformers
-  - Squashing a stack of monads
-  - Constructing and deconstructing monad stacks
-  - Lifting into monad stacks
-
-- Applicative
-  - The definition of Applicative
-  - Applicative validation
-  - Applicative builders in Cats
-
-- Case Study: MapReduce
-
-- Case Study: Validation
-
+  - A Transformative Example
+  - Monad Transformers in Cats
+    - The Monad Transformer Classes
+    - Building Monad Stacks
+    - Constructing and Unpacking Instances
+    - Usage Patterns
+    - Default Instances
+  - Exercise: Monads: Transform and Roll Out
+  - Summary
+- Cartesians and Applicatives
+  - Cartesian
+    - Joining Two Contexts
+    - Joining Three or More Contexts
+  - Cartesian Builder Syntax
+    - Fancy Functors and Cartesian Builder Syntax
+  - Cartesian Applied to Different Types
+    - Cartesian Applied to Future
+    - Cartesian Applied to List
+    - Cartesian Applied to Xor
+    - Cartesian Applied to Monads
+  - Validated
+    - Creating Instances of Validated
+    - Combining Instances of Validated
+    - Methods of Validated
+    - Exercise: Form Validation
+  - Apply and Applicative
+    - The Hierarchy of Sequencing Type Classes
+  - Summary
+- Foldable and Traverse
+  - Foldable
+    - Folds and Folding
+    - Exercise: Reflecting on Folds
+    - Exercise: Scaf-fold-ing other methods
+    - Foldable in Cats
+  - Traverse
+    - Traversing with Futures
+    - Traversing with Applicatives
+    - Traverse in Cats
+    - Unapply, traverseU, and sequenceU
+  - Summary
+- Case Study: Pygmy Hadoop
+  - Parallelizing map and fold
+  - Implementing foldMap
+  - Parallelising foldMap
+    - Futures
+    - Partitioning Sequences
+    - Parallel foldMap
+  - Monadic foldMap
+    - Exercise: Everything is Monadic
+    - Exercise: Seeing is Believing
+  - Parallel Monadic foldMap
+  - foldMap in the Real World
+- Case Study: Data Validation
+  - Sketching the Library Structure
+  - The Check Datatype
+  - Basic Combinators
+  - Transforming Data
+    - Predicates
+    - Checks
+  - Kleislis
+  - Conclusions
+- Case Study: Commutative Replicated Data Types
+  - Eventual Consistency
+  - The GCounter
+    - Simple Counters
+    - GCounters
+    - Exercise: GCounter Implementation
+  - Generalisation
+    - Implementation
+    - Exercises
+  - Abstracting GCounter to a Type Class
+  - Summary
 - Case Study: Parser Combinators
 
 ## Table of Contents - Essential Interpreters
@@ -95,9 +222,7 @@ Attendees of any Advanced Scala training course receive a complementary copy of 
 - Untyped Interpreters
   - Abstract syntax trees
   - Folding over ASTs
-
 - Monadic Interpreters
-
 - The Free Monad
   - Natural Transformations
   - Composing Interpreters with Coproducts
