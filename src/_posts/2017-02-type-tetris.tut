@@ -1,0 +1,235 @@
+# Playing "Type Tetris"
+
+I'm going to try to explain a technique I've heard called "Type Tetris":
+
+![tetris!](https://upload.wikimedia.org/wikipedia/commons/c/c4/Tetris_basic_game.gif)
+
+How is programming with (only) types like Tetris?
+
+| Tetris  | Type Tetris |
+| ------------- | ------------- |
+| blocks | expressions |
+| block shapes *(L-shape vs. Z-shape)* | expressions have a type |
+| blocks fit together in space | we compose expressions into new expressions |
+| there are horizontal gaps we need to fill | the code doesn't typecheck |
+| horizontal lines of blocks disappear | code successfully typechecked by the compiler |
+
+* Main goal: we want horizontal lines of blocks to disappear (*we want the code to compile*)
+* Tetriminos (Tetris blocks) fit together in space. Sometimes they align in useful ways, other times they don't. (*Types combine by making new types. We're going to specifically talk about **function types**: types that have types for inputs, and an output type.*)
+* Blocks have already been dropped, accumulating at the bottom of the board. There are gaps we'd like to fill, to make them disappear, using new pieces that fall from above. (*figure out the missing type(s) to get the thing to compile*)
+
+This is a powerful, and fun, technique because we specifically *avoid* implementation details, and instead focus solely on creating the correct types and (function) type signatures.
+
+Let's use "Type Tetris" to start working on the following toy problem:
+
+> Create a service skeleton that reads a request and produces a response.
+>
+> The request needs to be authorized: pass some credentials and authorize them.
+> Do some work only if the request is authorized. The work should be completed asynchronously.
+
+Let's start with the barest skeleton of code to define our service. We're going to *only* create types and function signatures:
+
+```tut:book
+trait TypeTetris {
+  import scala.concurrent.Future
+
+  type Request
+  type Response
+
+  def service(request: Request): Future[Response] = ???
+}
+```
+
+What's that [`???`](http://www.scala-lang.org/api/2.11.4/index.html#scala.Predef$@???:Nothing)?
+
+```scala
+// defined in Prelude.scala
+def ??? : Nothing = throw new NotImplementedError
+```
+
+You put it anywhere where you need to return a value, but *haven't actually computed it* yet. It has type `Nothing`, which is a subtype of every type, so your methods will compile (but *not* run without an error).
+
+Hmm, what's authorization?
+
+```tut:book
+trait TypeTetris {
+  import scala.concurrent.Future
+
+  type Request
+  type Response
+
+  def service(request: Request): Future[Response] =
+    ((authorize _) andThen ???)(request)
+
+  def authorize(request: Request): Request = ???
+}
+```
+
+Something like that. Maybe we need different `Request` subtypes, one for unauthorized, one for authorized:
+
+```tut:fail:book
+trait TypeTetris {
+  import scala.concurrent.Future
+
+  sealed trait Request
+
+  object Request {
+    final case class Unauthorized() extends Request
+    final case class Authorized() extends Request
+  }
+
+  type Response
+
+  def service(request: Request): Future[Response] = {
+    val authoried = authorize(request)
+
+    ???
+  }
+
+  def authorize(request: Request.Unauthorized): Option[Request.Authorized] = ???
+}
+```
+
+Ahh, we split `Request` into two cases, so we need to start in the correct, unauthorized request state:
+
+```tut:book
+trait TypeTetris {
+  import scala.concurrent.Future
+
+  sealed trait Request
+
+  object Request {
+    final case class Unauthorized() extends Request
+    final case class Authorized() extends Request
+  }
+
+  type Response
+
+  def service(request: Request.Unauthorized): Future[Response] = {
+    val authorzied = authorize(request)
+
+    ???
+  }
+
+  def authorize(request: Request.Unauthorized): Option[Request.Authorized] = ???
+}
+```
+
+Ok, we've attempted to authorize an unauthorized request. Let's handle the two possibilities:
+
+```tut:book
+trait TypeTetris {
+  import scala.concurrent.Future
+
+  sealed trait Request
+
+  object Request {
+    case class Unauthorized() extends Request
+    case class Authorized() extends Request
+  }
+
+  type Response
+
+  def service(request: Request.Unauthorized): Future[Response] = {
+    val authorized = authorize(request)
+
+    authorized map (r => ???) getOrElse ???
+  }
+
+  def authorize(request: Request.Unauthorized): Option[Request.Authorized] = ???
+}
+```
+
+Let's handle unauthorized requests first. We need a `Response` that means "unauthorized":
+
+```tut:book
+trait TypeTetris {
+  import scala.concurrent.Future
+
+  sealed trait Request
+
+  object Request {
+    case class Unauthorized() extends Request
+    case class Authorized() extends Request
+  }
+
+  sealed trait Response
+
+  object Response {
+    case class Unauthorized() extends Response
+  }
+
+  def service(request: Request.Unauthorized): Future[Response] = {
+    val authorized = authorize(request)
+
+    authorized map (r => ???) getOrElse Future.successful(Response.Unauthorized())
+  }
+
+  def authorize(request: Request.Unauthorized): Option[Request.Authorized] = ???
+}
+```
+
+Now let's handle the case if our request is authorized:
+
+```tut:book
+trait TypeTetris {
+  import scala.concurrent.Future
+
+  sealed trait Request
+
+  object Request {
+    case class Unauthorized() extends Request
+    case class Authorized() extends Request
+  }
+
+  sealed trait Response
+
+  object Response {
+    case class Unauthorized() extends Response
+  }
+
+  def service(request: Request.Unauthorized): Future[Response] = {
+    val authorized = authorize(request)
+
+    authorized map doWork getOrElse Future.successful(Response.Unauthorized())
+  }
+
+  def authorize(request: Request.Unauthorized): Option[Request.Authorized] = ???
+
+  def doWork(request: Request.Authorized): Future[Response] = ???
+}
+```
+
+Finally we can fill in the implementation of `authorize`:
+
+
+```tut
+trait TypeTetris {
+  import scala.concurrent.Future
+
+  sealed trait Request
+
+  object Request {
+    case class Unauthorized(secret: String) extends Request
+    case class Authorized() extends Request
+  }
+
+  sealed trait Response
+
+  object Response {
+    case class Unauthorized() extends Response
+  }
+
+  def service(request: Request.Unauthorized): Future[Response] = {
+    val authorized = authorize(request)
+
+    authorized map doWork getOrElse Future.successful(Response.Unauthorized())
+  }
+
+  def authorize(request: Request.Unauthorized): Option[Request.Authorized] =
+    if (request.secret == "secret") Some(Request.Authorized())
+    else None
+
+  def doWork(request: Request.Authorized): Future[Response] = ???
+}
+```
