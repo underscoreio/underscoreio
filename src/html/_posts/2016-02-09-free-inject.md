@@ -1,6 +1,6 @@
 ###The Free Monad with Multiple Algebras
 
-The `Free` Monad has required me to read through several posts several time before it began to sink in at all. More than once I have abandoned my attempts before I fully grasped it. As a result it remained something mysterious in my mind.
+The `Free` Monad has required me to read through several posts several times before it began to sink in at all. More than once I have abandoned my attempts before I fully grasped it. As a result it remained something mysterious in my mind.
 (Incidentally, one of my mistakes was to try to read too much into the word "free", polluting my mind with preconceptions of what "freedom" was meant to look like!)
 
 There are several good posts about it, and Cats makes it easy to use it, but I concluded that I needed to look under the surface a little bit in order to really comprehend what was happening.
