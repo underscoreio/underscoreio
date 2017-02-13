@@ -9,7 +9,7 @@ duration: 45 mins
 navbar: events
 course: advanced-shapeless
 summary: |
-  Dave will talk about
+  Adam will talk about
   different approaches to meta-programming in Scala.
   Which techniques work, in which situations, and to what extent?
 bookingLinks:
