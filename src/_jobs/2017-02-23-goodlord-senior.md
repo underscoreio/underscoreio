@@ -13,7 +13,7 @@ summary  : |
   a majority of agents, tenants, and landlords
   will use in our modern tenancy industry.
 admin: jenna@goodlord.co
-email: jenna@goodlord.co
+email: iwanttowork@goodlord.co
 instructions: |
   Apply online. Click "Apply Now" below to get started.
 ---
