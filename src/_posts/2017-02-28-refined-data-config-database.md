@@ -4,7 +4,7 @@ title: "Refining your data from configuration to database"
 author: "Pere Villega"
 ---
 
-One of the promises of strongly typed languages is that the compiler will catch your errors instead of throwing unexpected exceptions at runtime. Of course, this requires extensive use of types across all your code. But, how far can you take this without hitting a 'diminishing returns' wall?
+One of the promises of strongly typed languages is that the compiler will catch your errors instead of throwing unexpected exceptions at runtime. In this post we will cover all stages of an application from model, user input, configuration, and database, seeing how far one can take this approach without hitting a 'diminishing returns' wall.
 
 <!-- more -->
 
