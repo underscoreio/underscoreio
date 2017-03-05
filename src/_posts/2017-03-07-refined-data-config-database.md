@@ -10,7 +10,7 @@ One of the promises of strongly typed languages is that the compiler will catch 
 
 # The prelude
 
-The road to true type safety is not hard, but requires some commitment. At the initial stage you hage chosen a typed language that enforces some restrictions at compile time, so you know that if you try the following:
+The road to true type safety is not hard, but requires some commitment. At the initial stage you have chosen a typed language that enforces some restrictions at compile time, so you know that if you try the following:
 
 ```scala
 def add(a: Int, b: Int): Int = a + b
