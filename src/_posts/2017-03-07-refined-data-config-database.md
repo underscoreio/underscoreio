@@ -26,7 +26,7 @@ add(getHttpQueryParam, 2)
           ^
 ``` 
 
-That is, the code above is warning you that when you obtained a query parameter from a request you got an String, which you are trying to use as an Integer, as that won't work. You are forced to convert that String to an Integer first, considering the cases where the String is not a valid Integer, and managing them.
+That is, the code above is warning you that when you obtained a query parameter from a request you got a String, which you are trying to use as an Integer, which won't work. You are forced to convert that String to an Integer first, considering the cases where the String is not a valid Integer, and managing them.
 
 This is nice and saves a lot of hassle, but probably we all have seen a class like follows:
 
