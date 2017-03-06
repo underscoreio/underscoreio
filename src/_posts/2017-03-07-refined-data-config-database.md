@@ -4,13 +4,13 @@ title: "Refining your data from configuration to database"
 author: "Pere Villega"
 ---
 
-One of the promises of strongly typed languages is that the compiler will catch your errors instead of throwing unexpected exceptions at runtime. Of course, this requires extensive use of types across all your code. But, how far can you take this without hitting a 'diminishing returns' wall?
+One of the promises of strongly typed languages is that the compiler will catch your errors instead of throwing unexpected exceptions at runtime. In this post we will cover all stages of an application from model, user input, configuration, and database, seeing how far one can take this approach without hitting a 'diminishing returns' wall.
 
 <!-- more -->
 
 # The prelude
 
-The road to true type safety is not hard, but requires some commitment. At the initial stage you hage chosen a typed language that enforces some restrictions at compile time, so you know that if you try the following:
+The road to true type safety is not hard, but requires some commitment. At the initial stage you have chosen a typed language that enforces some restrictions at compile time, so you know that if you try the following:
 
 ```scala
 def add(a: Int, b: Int): Int = a + b
@@ -26,7 +26,7 @@ add(getHttpQueryParam, 2)
           ^
 ``` 
 
-That is, the code above is warning you that when you obtained a query parameter from a request you got an String, which you are trying to use as an Integer, as that won't work. You are forced to convert that String to an Integer first, considering the cases where the String is not a valid Integer, and managing them.
+That is, the code above is warning you that when you obtained a query parameter from a request you got a String, which you are trying to use as an Integer, which won't work. You are forced to convert that String to an Integer first, considering the cases where the String is not a valid Integer, and managing them.
 
 This is nice and saves a lot of hassle, but probably we all have seen a class like follows:
 
