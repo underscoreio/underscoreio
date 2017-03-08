@@ -10,16 +10,22 @@ For an overview of `Free` in general, please see any of the good posts given as 
 The usual scenario with the `Free` monad is that of constructing DSLs, representing computations as immutable values and separating their execution into a separate structure known as an interpreter.
 
 It's not so uncommon in functional programming to find ourselves reifying the steps of a procedure or computation in order to represent them without actually executing them.
-We would normally represent these steps, or actions, as an algebraic data type (here chosen to be very simple):
+We would normally represent these steps, or actions, as an algebraic data type, without necessarily providing an implementation at the same time.
+Here is a very simple example of a set of operations represented in this way:
 ```scala
 sealed trait Action[A] // parameterised on return type
 case class ReadData(port: Int) extends Action[String]
 case class TransformData(data: String) extends Action[String]
 case class WriteData(port: Int, data: String) extends Action[Unit]
 ```
-As they are at the moment, we can't compose these without modification. If this 'instruction set' was a monad however, we could sequence instructions in a `for` comprehension, for example.
-It turns out that a practical way of achieving this is by wrapping these types into the `Free` monad.
-In Cats, we can 'lift' a type constructor into the `Free` monad with `Free.liftF`.
+Note how none of the types above have implementations, they are purely descriptive.
+So, what good is it?
+It starts to look more useful when we imagine being able to sequence these things and compose them into other actions, using them as building blocks of bigger abstract 'programs'. (The obvious example here would be sequencing `ReadData` and then `TransformData` and then `WriteData` into a combined action)
+As they are at the moment, though, we can't compose these directly; right now we have defined no mechanism to allow it. We could go and write some methods on `Action` for this purpose, but there is a more general way: if this 'instruction set' was a monad, we could sequence instructions in a `for` comprehension, for example.
+And there is no need to make `Action` a monad 'manually', either: a practical way of achieving the same is by wrapping these types into the `Free` monad.
+(For a more general discussion of `Free` please see any of the references to this post. For now, we'll just use it in a practical context to lead us to the next topic, multiple algebras.)
+
+In Cats, the `Free` monad is already defined for us, and we can 'lift' a type constructor into the it with `Free.liftF`.
 Let us write a little bit of boilerplate to help us do that:
 ```scala
 object ActionFree {
@@ -28,6 +34,7 @@ object ActionFree {
   def writeData(port: Int, data: String): Free[Action, Unit] = Free.liftF(WriteData(port, data))
 }
 ```
+The general pattern above is to turn an `F[A]` into a `Free[F, A]` so we have access to the monadic operations such as `flatMap` provided by `Free`.
 Now we can do this:
 ```scala
 import ActionFree._
@@ -46,16 +53,26 @@ We can then take `program` and in turn compose it with other structures with the
 
 The interesting part is yet to come.
 One of the main attractions of going down this avenue is the possibility of mixing 'instruction sets' and still getting them to compose.
-For example, imagine that in the example above we wanted to have some other actions, say `EncryptData` and `DecryptData`. We would need these new case classes to be a subtypes of `Action` for it to fit in. But this would mean modifying and recompiling the code, and this may not be an option (if the original `Action` is part of a library over which we have no control) or may not be a good idea (for code architecture/organisation reasons).
-There's no common supertype, either, that we can take advantage of. What can we do, then?
 
-Let's imagine having `EncryptData` and `DecryptData` in a completely separate ADT, with no ties to `Action`:
+Back to our example, we want to do more with data besides reading, writing and 'transforming' it. We want to add the following operations:
+
+```scala
+case class EncryptData(key: String)
+case class DecryptData(key: String)
+```
+
+But let's assume that we can't just make them subclasses of `Action`, because `Action` is a `sealed` trait in a library over which we have no control (or for other good conceptual or architecture reasons).
+Whatever the reason, imagine that this is how we end up writing them:
+
 ```scala
 trait AdvancedAction[A]
 case class EncryptData(key: String) extends AdvancedAction[String]
 case class DecryptData(key: String) extends AdvancedAction[String]
 ```
-We are not concerning ourselves at all about how any of these operations will be executed in practice. That will be the job for the _interpreter_ of our DSL. We simply want to _represent_ them.
+
+`Action` and `AdvancedAction` are separate data types. They have no meaningful common supertype. How can we group them so we can build programs from commands of each type?
+
+(Let's remind ourselves that we're not concerned with how any of these combined operations will be executed in practice. We simply want to find a suitable _representation_ for them. Executing will be the job of the _interpreter_ of our DSL.)
 
 If we wanted to make use of operations from both `Action[A]` and `AdvancedAction[A]`, Cats offers a `Coproduct` type we can use, which is roughly an `Either` but for higher kinded types. The idea is to use this to 'merge' the two algebras into a common type.
 
@@ -69,8 +86,7 @@ We would end up with `Free` instances of type `Free[ActionOrAdvanced, A]`.
 But how would it work in practice?
 
 If you've been reading other posts on this subject, this is the point where, usually, the word "inject" starts to appear, requiring an act of faith on the part of any readers who haven't encountered it before, and quite possibly at the same point their ability to follow what's going on may begin to waver.
-
-What follows here, then, is an exploration of the type-level workings of this solution, which are, in the blogger's opinion, very clever and interesting.
+So, let's look at `Coproduct` and `Inject` in more detail to find out how they work, as they rely on a very interesting type-level mechanism.
 
 ####Coproduct Basics
 
@@ -79,13 +95,15 @@ Let's take this example:
 ```scala
 type MyCoproduct[A] = Coproduct[List, Option, A]
 ```
+A reminder that the above is akin to saying `Either[List[A], Option[A]]` _for any `A`_.
+
 Now, assuming I have a `List`, how do I 'put it' inside a coproduct?
 Like this:
 ```scala
 val c1: MyCoproduct[Int] = Coproduct.leftc(List(1,2,3))
 // c1 = Coproduct(Left(List(1, 2, 3)))
 ```
-Similarly if I have an `Option` instead:
+Similarly if I have an `Option`:
 ```scala
 val c2: MyCoproduct[Int] = Coproduct.rightc(Some(5))
 // c2 = Coproduct(Right(Some(5)))
@@ -111,11 +129,10 @@ Note, though, that in so doing we are tied to the particular coproduct we are ch
 This in turn means that if we want to use another type of coproduct, i.e. another mix of DSLs (it's easy to imagine wanting to add more instructions later!), the code snippet above (and all of the convenience methods thus defined) will have to be scrapped and rewritten.
 Nobody likes doing that, so is there a more automatic solution?
 
-Let's envision a typeclass that, given a type and a coproduct, 'knows' how to correctly lift it to the coproduct level.
-
 ####Inject
 
-Let's introduce a typeclass, `Inject`, defined thusly:
+Let's envision a typeclass that, given a type and a coproduct, 'knows' how to correctly lift it to the coproduct level.
+Introducing `Inject`, defined thusly:
 
 ```scala
 trait Inject[F[_], G[_]] {
@@ -124,8 +141,12 @@ trait Inject[F[_], G[_]] {
 ```
 (N.B. The code above is a simplification of the actual library code available in `cats`.)
 
-If an `Inject` instance exists for `F` and `G`, then we have a way of transforming an `F[A]` into a `G[A]`.
-Stated this way, this seems overly general and in fact the concept seems to overlap with natural tranformations. But let's think of it in the more specific context of our need to 'put things inside coproducts'. If `F` was our DSL, such as `Action`, and `G` was `Coproduct[...,...,?]`, we can think of `Inject` as a way of injecting types into suitable coproducts. 
+`Inject` is a type class that allows us to embed one algebra within another.
+An instance of `Inject[Action, ActionOrAdvanced]`, for example, allows us to "lift" instances of `Action` to type `ActionOrAdvanced`.
+
+(As an aside, you may notice that `Inject` has the same type structure as a natural transformation. This is no coincidence: in a sense, an instance `Inject[F, G]` allows us to "interpret" instances of `F` as `G`. However, the similarity is effectively academic.
+In practice we use `Inject` to embed algebras in coproducts and `~>` to interpret them to meaningful results.)
+
 Is it possible to come up with a way to automatically derive an instance of `Inject` so that stuffing our `Coproduct` types happened by magic?
 
 #####Left Hand
@@ -141,7 +162,7 @@ implicit def injectCoproductLeft[F[_], X[_]]: Inject[F, Coproduct[F, X, ?]] =
 The above will work for any `X` and so the left-hand problem is solved.
 
 #####Right Hand
-At this point we could do the same with the right-hand side of the coproduct and end up with enough tools in our box to automatically (i.e. by implicit provision of `Inject` instances) handle simple two-way coproducts appropriately.
+We could do the same with the right-hand side of the coproduct and end up with enough tools in our box to automatically (i.e. by implicit provision of `Inject` instances) handle simple two-way coproducts appropriately.
 But we can do better.
 If we wanted 'three-way coproducts' or more, it is possible to define them by nesting them:
 ```scala
@@ -175,26 +196,24 @@ implicit def injectReflexive[F[_]]: Inject[F, F] =
 - And what if there is a Case 4, which is to say, `R` is something else entirely? Then the implicit resolution will fail, as is reasonable to expect, as we can't put something into a coproduct that doesn't have it as its options!
 
 With these three implicit instances of `Inject` (the left, right and reflexive) we are able to automatically derive mechanisms to inject any desired type into any coproduct that contains it.
-Don't worry though, this code is already in Cats and we won't actually have to write it ourselves.
+Don't worry though, all of these implicits are already in Cats and we won't actually have to write them ourselves.
 
 ####Finishing up
 
-Now, back to our multiple DSLs, then.
+Back to our multiple DSLs.
 We have seen how to lift a single type constructor to the `Free` monad:
 ```scala
 def readData(port: Int) = Free.liftF[Action, String](ReadData(port))
 ```
-What if instead we had a coproduct `Cop[A]`, which contains `Action` and possibly other algebras?
+What if instead we had a coproduct `Cop[A]`, which is a coproduct of `Action` and other algebras?
 We don't need to know the exact structure of `Cop`. We can simply call:
 ```scala
 def readData(port: Int): Free[Cop, String] = Free.inject[Action, Cop](ReadData(port))
 ```
-We haven't seen the method `Free.inject` before, but `Free.inject[F, Cop]` is simply shorthand for:
+`Free.inject[F, Cop]` is simply shorthand for:
 1. implicitly resolving an instance of `Inject[F, Cop]`,
 2. using it to inject `F[A]` into `Cop[A]`, and finally
 3. lifting `Cop[A]` into the `Free` monad.
-
-In fact, the `Inject` mechanism is more general and in theory doesn't seem to be limited to injecting into coproducts, but this has to be the original and main use.
 
 So, let's bring our mind back to those convenience methods we defined at the start, to lift those `Action`s into `Free`:
 ```scala
@@ -217,8 +236,7 @@ The `C` type parameter is the coproduct definition we use, and we can change it 
 We could swap the terms, from `Coproduct[Action, AdvancedAction, ?]` to `Coproduct[AdvancedAction, Action, ?]` or we could add more, like `Coproduct[Action, Coproduct[AdvancedAction, AdminAction, ?], ?]`, and the implicit resolution of `inject` would still find the correct `Inject` instance to deal with it.
 
 ####Conclusion
-I hope the post above is not seen as containing gratuitous detail. For me, looking at the underlying mechanism for injecting different algebras into the `Free` monad allowed me to understand it much better than if I hadn't done so.
-In addition, I feel that stopping and prying apart type tricks such as these adds to my repertoire and makes it easier to spot and recognise similar techniques in code I may encounter in the future.
+In this post we discussed the implementation of `Free` in Cats. We went into a lot of depth about the implementation of `Coproduct` and `Inject`, and their application to mixing free algebras. I found this detail useful when trying to understand `Free`. I hope you found it useful as well.
 
 ####References
 On `Free`:
@@ -228,4 +246,3 @@ On `Free`:
 
 On injector classes:
 - [Data types à la carte](http://www.staff.science.uu.nl/~swier004/publications/2008-jfp.pdf) by Wouter Swierstra
-
