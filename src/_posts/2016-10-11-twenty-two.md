@@ -148,6 +148,8 @@ scala> Large.apply _
 
 ## Hitting the Limit
 
+_Update: Slick 3.2 was released on 24 Feb 2017, and includes a `mapTo` macro that you can use to map to case classes without slickless._
+
 One place where this limit is visible is in Slick table definitions:
 
 ```scala
