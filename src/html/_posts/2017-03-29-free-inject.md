@@ -11,11 +11,14 @@ There are several good posts about it, and Cats makes it easy to use it, but I c
 
 For an overview of `Free` in general, please see any of the good posts given as references at the end. In this post in particular, I will have a look at the machinery that makes it possible to use `Free` with more than one algebra at once.
 
+<!-- break -->
+
 The usual scenario with the `Free` monad is that of constructing DSLs, representing computations as immutable values and separating their execution into a separate structure known as an interpreter.
 
 It's not so uncommon in functional programming to find ourselves reifying the steps of a procedure or computation in order to represent them without actually executing them.
 We would normally represent these steps, or actions, as an algebraic data type, without necessarily providing an implementation at the same time.
 Here is a very simple example of a set of operations represented in this way:
+
 ```scala
 sealed trait Action[A] // parameterised on return type
 case class ReadData(port: Int) extends Action[String]
@@ -53,7 +56,7 @@ We can then take `program` and in turn compose it with other structures with the
 
 (Note that in the convenience methods defined in `ActionFree`, we ensure that the resulting instances of `Free` are of type `Free[Action, A]` rather than allowing the compiler's type inference to narrow them excessively and end up with a too-specific `Free[ReadData, A]` which wouldn't compose with e.g. `Free[WriteData, A]`.)
 
-####Multiple DSLs
+#### Multiple DSLs
 
 The interesting part is yet to come.
 One of the main attractions of going down this avenue is the possibility of mixing 'instruction sets' and still getting them to compose.
@@ -92,7 +95,7 @@ But how would it work in practice?
 If you've been reading other posts on this subject, this is the point where, usually, the word "inject" starts to appear, requiring an act of faith on the part of any readers who haven't encountered it before, and quite possibly at the same point their ability to follow what's going on may begin to waver.
 So, let's look at `Coproduct` and `Inject` in more detail to find out how they work, as they rely on a very interesting type-level mechanism.
 
-####Coproduct Basics
+#### Coproduct Basics
 
 Before getting too far ahead, let's have a look at how `Coproduct` works, to get familiar with it.
 Let's take this example:
@@ -133,7 +136,7 @@ Note, though, that in so doing we are tied to the particular coproduct we are ch
 This in turn means that if we want to use another type of coproduct, i.e. another mix of DSLs (it's easy to imagine wanting to add more instructions later!), the code snippet above (and all of the convenience methods thus defined) will have to be scrapped and rewritten.
 Nobody likes doing that, so is there a more automatic solution?
 
-####Inject
+#### Inject
 
 Let's envision a typeclass that, given a type and a coproduct, 'knows' how to correctly lift it to the coproduct level.
 Introducing `Inject`, defined thusly:
@@ -153,7 +156,7 @@ In practice we use `Inject` to embed algebras in coproducts and `~>` to interpre
 
 Is it possible to come up with a way to automatically derive an instance of `Inject` so that stuffing our `Coproduct` types happened by magic?
 
-#####Left Hand
+##### Left Hand
 Let's start by examining the case where `F` is our DSL and `G` is a coproduct with our desired type `F` on the left-hand side. That is, `G[A]` is `Coproduct[F,X,A]`, that is to say, a coproduct with our desired type on the left hand side. Then, writing an instance for this case is as simple as calling `leftc` as we did in the examples earlier:
 
 ```scala
@@ -165,7 +168,7 @@ implicit def injectCoproductLeft[F[_], X[_]]: Inject[F, Coproduct[F, X, ?]] =
 
 The above will work for any `X` and so the left-hand problem is solved.
 
-#####Right Hand
+##### Right Hand
 We could do the same with the right-hand side of the coproduct and end up with enough tools in our box to automatically (i.e. by implicit provision of `Inject` instances) handle simple two-way coproducts appropriately.
 But we can do better.
 If we wanted 'three-way coproducts' or more, it is possible to define them by nesting them:
@@ -202,7 +205,7 @@ implicit def injectReflexive[F[_]]: Inject[F, F] =
 With these three implicit instances of `Inject` (the left, right and reflexive) we are able to automatically derive mechanisms to inject any desired type into any coproduct that contains it.
 Don't worry though, all of these implicits are already in Cats and we won't actually have to write them ourselves.
 
-####Finishing up
+#### Finishing up
 
 Back to our multiple DSLs.
 We have seen how to lift a single type constructor to the `Free` monad:
@@ -239,10 +242,10 @@ class ActionFree[C[_]](implicit inject: Inject[Action, C]) {
 The `C` type parameter is the coproduct definition we use, and we can change it easily if we need to.
 We could swap the terms, from `Coproduct[Action, AdvancedAction, ?]` to `Coproduct[AdvancedAction, Action, ?]` or we could add more, like `Coproduct[Action, Coproduct[AdvancedAction, AdminAction, ?], ?]`, and the implicit resolution of `inject` would still find the correct `Inject` instance to deal with it.
 
-####Conclusion
+#### Conclusion
 In this post we discussed the implementation of `Free` in Cats. We went into a lot of depth about the implementation of `Coproduct` and `Inject`, and their application to mixing free algebras. I found this detail useful when trying to understand `Free`. I hope you found it useful as well.
 
-####References
+#### References
 On `Free`:
 -  [Free Monads Are Simple](http://underscore.io/blog/posts/2015/04/14/free-monads-are-simple.html), by Noel Welsh
 -  [Understanding Free Monads](http://perevillega.com/understanding-free-monads) by Pere Villega
