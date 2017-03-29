@@ -4,12 +4,11 @@ title: "The Free Monad with Multiple Algebras"
 author: "Danielle Ashley"
 ---
 
-The `Free` Monad has required me to read through several posts several times before it began to sink in at all. More than once I have abandoned my attempts before I fully grasped it. As a result it remained something mysterious in my mind.
-(Incidentally, one of my mistakes was to try to read too much into the word "free", polluting my mind with preconceptions of what "freedom" was meant to look like!)
-
-There are several good posts about it, and Cats makes it easy to use it, but I concluded that I needed to look under the surface a little bit in order to really comprehend what was happening.
-
-For an overview of `Free` in general, please see any of the good posts given as references at the end. In this post in particular, I will have a look at the machinery that makes it possible to use `Free` with more than one algebra at once.
+In this post I will look at the machinery that makes it possible to use `Free` with more than one algebra at once: `Coproducts` and the `Inject` type class.
+This technique was first described in the paper [Data types à la carte][a-la-carte], and [Cats][cats] and other libraries provide implementations.
+However we're going to build our own implementation in this post, so we understand how it all works.
+I'm going to assume you understand `Free` at a basic level.
+If not, there are [several][free-simple] [good][understanding-free] [posts][overview-free-cats] that introduce the concept.
 
 <!-- break -->
 
@@ -247,9 +246,16 @@ In this post we discussed the implementation of `Free` in Cats. We went into a l
 
 #### References
 On `Free`:
--  [Free Monads Are Simple](http://underscore.io/blog/posts/2015/04/14/free-monads-are-simple.html), by Noel Welsh
--  [Understanding Free Monads](http://perevillega.com/understanding-free-monads) by Pere Villega
--  [Overview of free monad in cats](https://blog.scalac.io/2016/06/02/overview-of-free-monad-in-cats.html) by Krzysztof Wyczesany
+-  [Free Monads Are Simple][free-simple], by Noel Welsh
+-  [Understanding Free Monads][understanding-free] by Pere Villega
+-  [Overview of free monad in cats][overview-free] by Krzysztof Wyczesany
 
 On injector classes:
-- [Data types à la carte](http://www.staff.science.uu.nl/~swier004/publications/2008-jfp.pdf) by Wouter Swierstra
+- [Data types à la carte][a-la-carte] by Wouter Swierstra
+
+
+[a-la-carte]: http://www.staff.science.uu.nl/~swier004/publications/2008-jfp.pdf
+[cats]: http://typelevel.org/cats/
+[free-simple]: http://underscore.io/blog/posts/2015/04/14/free-monads-are-simple.html
+[understanding-free]: http://perevillega.com/understanding-free-monads
+[overview-free-cats]: https://blog.scalac.io/2016/06/02/overview-of-free-monad-in-cats.html 
