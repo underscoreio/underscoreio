@@ -11,11 +11,11 @@ summary: |
   Dive deep into functional patterns using Scala and Cats.
   For experienced Scala developers.
 onsite:
-  duration: "2 days"
-  buttonLabel: "Book now - {% currencies $7,500 £5,000 €7,000 %}"
+  duration: "3 days"
+  buttonLabel: "Book now - {% currencies $11,250 £7,500 €10,500 %}"
 online:
   duration: "6 weeks"
-  buttonLabel: "Book now - {% currencies $7,500 £5,000 €7,000 %}"
+  buttonLabel: "Book now - {% currencies $11,250 £7,500 €10,500 %}"
 ---
 
 ## Overview
@@ -24,7 +24,7 @@ Advanced Scala with Cats is aimed at experienced Scala developers who want to ta
 
 The main goal of this course is to teach system architecture and design using the techniques of modern functional programming. This means designing systems as small composable units, expressing constraints and interactions via the type system, and using composition to guide the construction of large systems in a way that maintains the original architectural vision.
 
-The course also serves as an introduction to the Cats library. We use abstractions from Cats, and we explain the structure of Cats so you can use it without fear in your own code base. The broad ideas are not specific to Cats, but Cats provides an excellent implementation that is beneficial to learn in its own right.
+The course also serves as an introduction to the [Cats][cats] library. We use abstractions from Cats, and we explain the structure of Cats so you can use it without fear in your own code base. The broad ideas are not specific to Cats, but Cats provides an excellent implementation that is beneficial to learn in its own right.
 
 ## Prerequisites
 
@@ -35,6 +35,32 @@ To benefit from this course you should have about a year's experience with Scala
 - Understand how to express abstractions using type classes
 - Learn the key type classes of: Functor, Monoid, Applicative, and Monad.
 - Understand how to apply type classes to solve practical problems across a variety of domains.
+
+## Timetable
+
+The course runs over three days, or six weeks if delivered online.
+
+Day one covers:
+
+ - background: algebraic data types and type classes;
+ - monoids;
+ - functors; and
+ - monads.
+
+Day two covers:
+
+ - applicative functors; and
+ - case studies.
+
+Day three continues the case studies.
+
+Case studies are chosen by discussion between the teacher and students.
+
+If time is short we can drop the third day, though the longer course is a much bettter experience.
+
+The online course follows a similar pattern but meets one per week for about two hours, and students have to complete homework outside the meeting.
+The extra time allows us to cover more material but this only works if the students have sufficient time to complete the homework.
+For the majority of people we recommend the onsite course, but if you're sure students can schedule four hours per week for coursework the online course is a good option.
 
 ## Written Material
 
@@ -226,3 +252,19 @@ Attendees of any Advanced Scala training course receive a complementary copy of 
 - The Free Monad
   - Natural Transformations
   - Composing Interpreters with Coproducts
+
+## Feedback from Students
+
+> "The concepts are powerful and elegant. Truly something every software engineer should have in their arsenal and which I am now pleased to add to my own. The instructors have a clear command of these foundational principles and are able to communicate them in an intelligible and digestible format, building on concepts from first primitives. My only concern after taking the course was, "when can I come back for more?"
+
+-- David, StumbleUpon
+
+> "The introduction was great and extremely valuable. The actual implementation of a use case –the map-reduce system– is crucial, as it reveals what aspects are more relevant in practical terms."
+
+-- Ignacio, Stanford
+
+> "There was a really good balance between theory and real-world examples. I feel the course will definitely help me to use some of the concepts we learned at work. The learning material is really helpful as well and will help me continue to learn about the most difficult concepts."
+
+-- Emmanuelle, The Guardian
+
+[cats]: http://typelevel.org/cats

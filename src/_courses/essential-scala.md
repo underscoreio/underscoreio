@@ -11,42 +11,67 @@ summary: |
   Learn to write robust, performant, idiomatic Scala.
   A focused guide for established developers.
 onsite:
-  duration: "2 days"
-  buttonLabel: "Book now - {% currencies $7,500 £5,000 €7,000 %}"
+  duration: "3 days"
+  buttonLabel: "Book now - {% currencies $11,250 £7,500 €10,500 %}"
 online:
   duration: "6 weeks"
-  buttonLabel: "Book now - {% currencies $7,500 £5,000 €7,000 %}"
+  buttonLabel: "Book now - {% currencies $11,250 £7,500 €10,500 %}"
 ---
 
 ## Overview
 
-Essential Scala is a two day course aimed at experienced developers who are encountering Scala for the first time. Put your existing skills to use mastering Scala's combination of object-oriented and functional programming.
+Essential Scala is a three day course aimed at experienced developers with little or no experience with Scala.
+Our goal is to get you writing Scala the right way as quickly as possible.
 
-The course teaches you Scala from the basics of its syntax to advanced problem solving techniques. We place a heavy emphasis on developing the functional programming mindset you need to get the most out of the language. Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
+The course teaches you Scala from the basics of its syntax to advanced problem solving techniques. 
+We place a heavy emphasis on developing the functional programming mindset you need to get the most out of the language. 
+Each section has a practical focus, mixing presentation with in-depth hands-on labs and exercises.
 
 If you are an experienced developer, taking your first steps in Scala and wanting to get up to speed quickly, then this is the course for you.
 
 ## Prerequisites
 
-To benefit from this course you should have one or two years' experience with an object-oriented (e.g. Java, C#) or functional (e.g. Haskell, Lisp) programming language, and a good general understanding of object-oriented or functional programming language concepts.
+To benefit from this course you should have at least one or two years' experience with an object-oriented (e.g. Java, C#) or functional (e.g. Haskell, Lisp) programming language.
 
 ## Learning Outcomes
-
-Take away a working knowledge of object-oriented and functional programming in Scala. Learn the common patterns needed to get the most out of Scala's extensive collections framework.
 
 Develop a conceptual framework by which we can judge good Scala. Use equational reasoning to understand how to read and write simple, testable, scalable programs.
 
 Understand key functional programming concepts and their encoding in Scala:
 
-- Model data using algebraic data types, encoded in Scala as families of sealed traits and case classes.
+- Model data using algebraic data types, represented in Scala as families of sealed traits and case classes.
 
 - Use structural recursion and pattern matching to traverse and transform data.
 
 - Gain a deep understanding of `map`, `flatMap`, and `fold`, the three most important methods for sequencing computations in Scala.
 
+- Learn the common patterns needed to get the most out of Scala's extensive collections framework.
+
 - Learn how to extend existing libraries using type classes---a simpler, more flexible alternative to object oriented inheritance.
 
-Learn how Scala's flexible syntax and laguage features support the creation of fluent interfaces and sophisticated domain specific languages.
+## Timetable
+
+The course runs over three days, or six weeks if delivered online.
+
+Day one covers:
+
+ - algebraic data types
+ - functions;
+ - generics; and
+ - sequencing computations
+
+Day two covers:
+
+ - standard library; and
+ - type classes.
+
+Day three brings the course material together in an extended case study, chosen between the teacher and the students.
+
+If time is short we can drop the third day, though the longer course is a much bettter experience.
+
+The online course follows a similar pattern but meets one per week for about two hours, and students have to complete homework outside the meeting.
+The extra time allows us to cover more material but this only works if the students have sufficient time to complete the homework.
+For the majority of people we recommend the onsite course, but if you're sure students can schedule four hours per week for coursework the online course is a good option.
 
 ## Table of Contents
 
@@ -100,3 +125,20 @@ Learn how Scala's flexible syntax and laguage features support the creation of f
    - Custom Control Structures
    - Extractor Patterns
  {% endcomment %}
+
+
+## Feedback from Students
+
+> "Course material was awesome and the Instructor was knowledgeable and helpful."
+
+-- An anonymous Comcast employee
+
+> "Fun course, very clear and interesting!"
+
+-- Maarten, AE
+
+> "The Essential Scala book is very clearly laid out, with lots of useful exercises and clear solutions.
+>
+> The content of the course and the case study is stretching and introduced some really useful concepts that have already started to improve my day-to-day programming."
+
+-- Teedah, Animal and Plant Health Agency
