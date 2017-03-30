@@ -69,7 +69,7 @@ Day three brings the course material together in an extended case study, chosen 
 
 If time is short we can drop the third day, though the longer course is a much bettter experience.
 
-The online course follows a similar pattern but meets one per week for about two hours, and students have to complete homework outside the meeting.
+The online course follows a similar pattern but meets one per week for two hours, and students have to complete homework outside the meeting.
 The extra time allows us to cover more material but this only works if the students have sufficient time to complete the homework.
 For the majority of people we recommend the onsite course, but if you're sure students can schedule four hours per week for coursework the online course is a good option.
 
