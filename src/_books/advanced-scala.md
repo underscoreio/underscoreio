@@ -13,7 +13,7 @@ summary: |
   Dive deep into functional patterns using Scala and Cats.
   For experienced Scala developers.
 buyButtons:
-- label: "Buy the ebook - $50"
+- label: "Buy the ebook - $30"
   url: "https://gum.co/advanced-scala"
 ---
 

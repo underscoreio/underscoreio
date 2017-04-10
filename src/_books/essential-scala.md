@@ -13,7 +13,7 @@ summary: |
   Learn to write robust, performant, idiomatic Scala.
   A focused guide for established developers.
 buyButtons:
-- label: "Buy the ebook - $50"
+- label: "Buy the ebook - $30"
   url: "https://gum.co/essential-scala"
 ---
 
