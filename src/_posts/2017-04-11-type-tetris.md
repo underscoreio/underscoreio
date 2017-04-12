@@ -1,3 +1,10 @@
+---
+layout: post
+title: |
+   Playing "Type Tetris"
+author: "Adam Rosien"
+---
+
 # Playing "Type Tetris"
 
 I'm going to try to explain a technique called type-driven development.
@@ -8,6 +15,8 @@ Along the way we'll see how we can use abstract types, the `???` method, and the
 
 Since type-driven development doesn't sound very fun, I like to call it "Type Tetris".
 How is programming with (only) types like Tetris?
+
+<!-- break -->
 
 * Main goal: we want horizontal lines of blocks to disappear (*We want the code to compile*)
 * Tetriminos (Tetris blocks) fit together in space. Sometimes they align in useful ways, other times they don't. (*Types combine by making new types, and expressions can successfully, or unsuccessfully typecheck.*)
