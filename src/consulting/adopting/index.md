@@ -6,7 +6,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    Adopting Scala costs {% currencies $5,000 £3,300 €4,500 %} (plus travel if required).
+    Adopting Scala costs {% currencies $5,000 £4,000 €4,500 %} (plus travel if required).
 
     <a href="/contact?subject=Adopting%20Scala" class="btn btn-block btn-primary">
       Enquire Now
