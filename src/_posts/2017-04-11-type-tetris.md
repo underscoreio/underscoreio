@@ -244,35 +244,35 @@ object TypeTetris {
 Finally we can fill in the implementation of `authorize`:
 
 ```scala
-scala> object TypeTetris {
-     |   import scala.concurrent.Future
-     | 
-     |   sealed trait Request
-     | 
-     |   object Request {
-     |     case class Unauthorized(secret: String) extends Request
-     |     case class Authorized() extends Request
-     |   }
-     | 
-     |   sealed trait Response
-     | 
-     |   object Response {
-     |     case class Unauthorized() extends Response
-     |   }
-     | 
-     |   def service(request: Request.Unauthorized): Future[Response] = {
-     |     val authorized = authorize(request)
-     | 
-     |     authorized map doWork getOrElse Future.successful(Response.Unauthorized())
-     |   }
-     | 
-     |   def authorize(request: Request.Unauthorized): Option[Request.Authorized] =
-     |     if (request.secret == "secret") Some(Request.Authorized())
-     |     else None
-     | 
-     |   def doWork(request: Request.Authorized): Future[Response] = ???
-     | }
-defined object TypeTetris
+object TypeTetris {
+  import scala.concurrent.Future
+
+  sealed trait Request
+
+  object Request {
+    case class Unauthorized(secret: String) extends Request
+    case class Authorized() extends Request
+  }
+
+  sealed trait Response
+
+  object Response {
+    case class Unauthorized() extends Response
+  }
+
+  def service(request: Request.Unauthorized): Future[Response] = {
+    val authorized = authorize(request)
+
+    authorized map doWork getOrElse Future.successful(Response.Unauthorized())
+  }
+
+  def authorize(request: Request.Unauthorized): Option[Request.Authorized] =
+    if (request.secret == "secret") Some(Request.Authorized())
+    else None
+
+  def doWork(request: Request.Authorized): Future[Response] = ???
+}
+// defined object TypeTetris
 ```
 
 Now somebody else can write `doWork`. :)
