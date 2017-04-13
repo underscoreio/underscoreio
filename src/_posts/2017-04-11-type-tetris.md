@@ -5,8 +5,6 @@ title: |
 author: "Adam Rosien"
 ---
 
-# Playing "Type Tetris"
-
 I'm going to try to explain a technique called type-driven development.
 It's where we write as much code as possible using *only* types, deferring
 any non-type details until later. We'll see how it helps us as we develop a small service
