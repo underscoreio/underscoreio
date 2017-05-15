@@ -26,31 +26,20 @@ Are you passionate about finance and want to make a real change? Join Kreditech 
 
 ## Your Role
 
-As a key part of our fun and passionate team, you will be responsible for performing advanced business analysis and forecasting on a wide range of problems, from debt collection performance to customer experience optimization.  
-
-This is the optimal opportunity for you to: 
-
-- Get involved in a great domain of applications for data mining techniques;  
-- Work with state-of-the art stack of data processing technologies;  
-- Experience a range of different problems and technologies from day 1;  
-- Get responsibility right from the first day and the unique chance to spearhead the way big data is used in one of the fastest growing financial sectors.  
+- You will be empowered to design and implement major new features in one of our product teams;
+- You will work closely with other departments, such as Product, Marketing and Data Science;
+- You will write and test code that survives at internet scale;
+- You will work hard to consistently make systems simpler.
 
 ## Your Strengths
 
-Essential:  
-
-- Bachelors or Masters with strong academic performance in a quantitative field (Computer Science, Statistics, Mathematics, Electrical Engineering, Business Informatics);  
-Expertise in Machine Learning;  
-- 1 or more years of work experience in a similar role;  
-- Ability to process data and build predictive models in R (R Studio);  
-- Experience in analyzing complex data and presenting your conclusions in a clear and concise manner to a wide range of audiences;  
-- You are familiar with SQL and NoSQL database technologies, and are capable of at least querying them for any data required;  
-- You speak English fluently-any other language or German are not required but an additional plus.  
-
-Preferred: 
-
-- PhD degree in a quantitative field;  
-- 2 or more years of experience as a data scientist;  
-- Absolutely fluent in R, you could call yourself an R-hacker;  
-- Familiarity with Python.
+- Expertise with Scala, Java or other JVM-based languages;  
+- Expertise with SQL, RDBMS design and optimization;  
+- Practical experience working with functional programming languages;  
+- Theoretical foundations as well as practical experience designing and implementing distributed systems;  
+- Solid theoretical background in Computer Science;  
+- Experience working in Agile development environments, preferably following Scrum methodology;  
+- Working knowledge of MongoDB or other NoSQL databases;  
+- Strong knowledge of HTTP and (REST) API design;  
+- Experience in JavaScript full stack development (e.g. ReactJS and Node.js) is a plus.
 
