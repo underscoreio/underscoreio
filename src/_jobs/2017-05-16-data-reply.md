@@ -40,9 +40,9 @@ We are looking for a seasoned Big Data developer available to work in London, st
 
 Requirements:
 
-1) Significant scala expertise in a Big Data environment (i.e. you have written and maintained *production* pipelines, processing large datasets).
-2) Commitment to test-driven development (TDD), evidenced by using it a lot professionally and being able to explain benefits from practical experience, not book theory.
-3) Good Spark experience (dataframes on 2.0)
+  1. Significant scala expertise in a Big Data environment (i.e. you have written and maintained *production* pipelines, processing large datasets).
+  2. Commitment to test-driven development (TDD), evidenced by using it a lot professionally and being able to explain benefits from practical experience, not book theory.
+  3. Good Spark experience (dataframes on 2.0)
 
 Other signals you are the right person:
 - Good SQL skills
