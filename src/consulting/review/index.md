@@ -15,7 +15,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    Review & Improve costs {% currencies $12,000 £8,000 €11,000 %}, including the Review Report and one month of support.
+    Review & Improve costs {% currencies $12,000 £9,500 €11,000 %}, including the Review Report and one month of support.
 
     <a href="/contact?subject=Review%20and%20Improve" class="btn btn-block btn-primary">
       Enquire Now

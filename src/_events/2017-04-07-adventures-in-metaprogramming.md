@@ -1,20 +1,19 @@
 ---
 layout: event
-title: "Macros vs Shapeless vs Code Generation"
+title: "Adventures in Meta-Programming"
 type: talk
-location: Scala Days Chicago
-date: 2017-04-20 11:35:00 CT
-timezone: CT
-duration: 45 mins
+location: Scalar Warsaw
+date: 2017-04-07 09:00:00 CET
+timezone: CET
+duration: 30 mins
 navbar: events
 course: advanced-shapeless
 summary: |
-  Adam will talk about
-  different approaches to meta-programming in Scala.
+  Dave will talk about fun things to do with meta-programming in Scala.
   Which techniques work, in which situations, and to what extent?
 bookingLinks:
   - text: Sign up for the conference
-    url: http://event.scaladays.org/scaladays-chicago-2017
+    url: http://scalar-conf.com
 ---
 
 # Abstract

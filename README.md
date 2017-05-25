@@ -10,6 +10,12 @@ Releases to `underscore.io` must be made from `master`.
 
 Please issue PRs against changes.
 
+## Daily Build
+
+A build and deploy of the master branch is triggered Mon-Fri at 8am.
+This is via an [AWS Lambda job](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/CURL?tab=triggers)
+called "CURL" using a Circle CI token called "LAMBDA_CRON_CURL".
+
 ## Building the Site
 
 The site is built using a combination
