@@ -14,9 +14,8 @@ and what is means for our books in the future
 
 ## Why Open Source?
 
-Open sourcing our books is something we've been considering for a while.
-For a while now we've had two free and open source books, 
-[Creative Scala][creative-scala] and [The Type Astronaut's Guide to Shapeless][shapeless].
+Open sourcing our books is something we've been considering for some time.
+For a while now we've had two free and open source books, [Creative Scala][creative-scala] and [The Type Astronaut's Guide to Shapeless][shapeless].
 These books have reached an order-of-magnitude more people than our paid books.
 On the other hand, we're not making money[^paper] from our free books, and it takes a long time to write a book.
 When we considered the tradeoffs we decided that the contribution to the Scala community 
@@ -39,18 +38,18 @@ In short, the decision to open source our books has no impact on our intention t
 ## How Can I Get Involved?
 
 The first thing you can do is [grab a copy][books] of any of our books in PDF, HTML, and ePUB format.
-We ask for your email address so we can keep you aware of any updates.
+We ask for your email address so we can keep you aware of updates.
 
 If you want to build the book yourself, or contribute to development, go to our [Github][github] repositories.
 All our books have a simple Docker based build process that should be straightforward to work with.
 However, if you encounter difficulties please open an issue and we'll sort it out.
 
 [books]: http://underscore.io/books/
-[github]: https://github.com/underscoreio/
+[github]: https://github.com/search?q=topic%3Abook+org%3Aunderscoreio&type=Repositories
 [creative-scala]: http://underscore.io/books/creative-scala/
 [advanced-scala]: http://underscore.io/books/advanced-scala/
 [shapeless]: http://underscore.io/books/shapeless-guide/
 
-[^paper]: We do make a some money from donations, 
+[^paper]: We do make some money from donations, 
 and from sales of paper copies of the Shapeless book, 
 but it isn't a significant amount.
