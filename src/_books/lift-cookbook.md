@@ -13,7 +13,7 @@ summary: |
 buyButtons:
 - label: "View online"
   url: "http://cookbook.liftweb.net"
-- label: "Buy now - $22"
+- label: "Buy from O'Reilly"
   url: "http://shop.oreilly.com/product/0636920029151.do"
 ---
 

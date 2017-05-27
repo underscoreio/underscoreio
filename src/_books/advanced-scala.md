@@ -6,14 +6,12 @@ navbar: training
 icon: cats
 color: "#d62a7c"
 level: Intermediate
-price: "$50"
 cover: "/images/books/advanced-scala.png"
-sample: "https://s3-us-west-2.amazonaws.com/book-sample/advanced-scala-preview-with-full-toc.pdf"
 summary: |
   Dive deep into functional patterns using Scala and Cats.
   For experienced Scala developers.
 buyButtons:
-- label: "Buy the ebook - $30"
+- label: "Download the ebook - FREE"
   url: "https://gum.co/advanced-scala"
 ---
 

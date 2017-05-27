@@ -6,14 +6,12 @@ navbar: training
 icon: scala
 color: "#e8515b"
 level: Beginner
-price: "$50"
 cover: "/images/books/essential-scala.png"
-sample: "https://s3-us-west-2.amazonaws.com/book-sample/essential-scala-preview-with-full-toc.pdf"
 summary: |
   Learn to write robust, performant, idiomatic Scala.
   A focused guide for established developers.
 buyButtons:
-- label: "Buy the ebook - $30"
+- label: "Download the ebook - FREE"
   url: "https://gum.co/essential-scala"
 ---
 
