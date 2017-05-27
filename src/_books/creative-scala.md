@@ -12,7 +12,7 @@ summary: |
   Learn functional programming with pictures!
   A fun and practical introduction for new developers.
 buyButtons:
-- label: "Download the ebook - FREE"
+- label: "Download the ebook&mdash;FREE"
   url: "https://gum.co/creative-scala"
 ---
 

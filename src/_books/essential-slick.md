@@ -11,7 +11,7 @@ summary: |
   Learn to use Lightbend's Slick to interact with relational databases.
   For new to intermediate Scala developers.
 buyButtons:
-- label: "Download the ebook - FREE"
+- label: "Download the ebook&mdash;FREE"
   url: "https://gum.co/essential-slick"
 ---
 

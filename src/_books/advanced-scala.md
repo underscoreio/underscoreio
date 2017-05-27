@@ -11,7 +11,7 @@ summary: |
   Dive deep into functional patterns using Scala and Cats.
   For experienced Scala developers.
 buyButtons:
-- label: "Download the ebook - FREE"
+- label: "Download the ebook&mdash;FREE"
   url: "https://gum.co/advanced-scala"
 ---
 

@@ -11,7 +11,7 @@ summary: |
   Learn to use the Play web framework to build web sites and services.
   For new to intermediate Scala developers.
 buyButtons:
-- label: "Download the ebook - FREE"
+- label: "Download the ebook&mdash;FREE"
   url: "https://gum.co/essential-play"
 
 ---

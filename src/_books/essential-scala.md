@@ -11,7 +11,7 @@ summary: |
   Learn to write robust, performant, idiomatic Scala.
   A focused guide for established developers.
 buyButtons:
-- label: "Download the ebook - FREE"
+- label: "Download the ebook&mdash;FREE"
   url: "https://gum.co/essential-scala"
 ---
 
