@@ -6,17 +6,13 @@ navbar: training
 icon: scala
 color: "#F58B40"
 level: Intermediate
-price: "$49"
 cover: "/images/books/essential-slick.png"
-sample: "https://book-sample.s3.amazonaws.com/essential-slick-3-preview-with-full-toc.pdf"
 summary: |
   Learn to use Lightbend's Slick to interact with relational databases.
   For new to intermediate Scala developers.
 buyButtons:
-- label: "Buy the ebook - $49"
+- label: "Download the ebook&mdash;FREE"
   url: "https://gum.co/essential-slick"
-- label: "Download the Sample"
-  url: "https://book-sample.s3.amazonaws.com/essential-slick-3-preview-with-full-toc.pdf"
 ---
 
 ## Overview

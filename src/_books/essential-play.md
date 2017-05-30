@@ -6,14 +6,12 @@ navbar: training
 icon: play
 color: "#a0c556"
 level: Intermediate
-price: "$20"
 cover: "/images/books/essential-play.png"
-sample: "https://s3-us-west-2.amazonaws.com/book-sample/essential-play-preview-with-full-toc.pdf"
 summary: |
   Learn to use the Play web framework to build web sites and services.
   For new to intermediate Scala developers.
 buyButtons:
-- label: "Buy the ebook - $20"
+- label: "Download the ebook&mdash;FREE"
   url: "https://gum.co/essential-play"
 
 ---
