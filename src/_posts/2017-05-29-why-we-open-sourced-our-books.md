@@ -50,5 +50,6 @@ However, if you encounter difficulties please open an issue and we'll sort it ou
 [creative-scala]: http://underscore.io/books/creative-scala/
 [advanced-scala]: http://underscore.io/books/advanced-scala/
 [shapeless]: http://underscore.io/books/shapeless-guide/
+[essential-interpreters]: https://github.com/underscoreio/essential-interpreters
 
 [^paper]: We do make some money from donations, and from sales of paper copies of the Shapeless book, but it isn't a significant amount.
