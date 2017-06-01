@@ -8,7 +8,7 @@ From today we're open-sourcing all of our [books][books].
 They can all be [downloaded for free][books],
 or you can checkout the source from their [Github][github] repositories.
 In this post I explain why we made this decision
-and what is means for our books in the future
+and what it means for our books in the future
 
 <!-- break -->
 
