@@ -4,8 +4,6 @@ title: "Uniting Church and State: FP and OO Together"
 author: Noel Welsh
 ---
 
-## Introduction
-
 This is a post about church and state, and how we can unite the two for a better world, while avoiding unfortunate side effects.
 
 Political metaphors aside, this really *is* a post about Church---[Alonzo Church](alonzo-church)---and how we can use his idea of Church encoding to unite pure FP and imperative OO to achieve, if not a better world, at least better code. 
