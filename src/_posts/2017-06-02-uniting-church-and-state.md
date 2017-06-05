@@ -98,10 +98,10 @@ If we want to pretty print, for example, we can easily implement that as a new f
 def prettyPrint(c: Calculation): String = 
   c match {
     case Literal(v)     => v
-    case Add(a, b)      => prettyPrint(a) + prettyPrint(b)
-    case Subtract(a, b) => prettyPrint(a) - prettyPrint(b)
-    case Multiply(a, b) => prettyPrint(a) * prettyPrint(b)
-    case Divide(a, b)   => prettyPrint(a) / prettyPrint(b)
+    case Add(a, b)      => s"${prettyPrint(a)} + ${prettyPrint(b)}"
+    case Subtract(a, b) => s"${prettyPrint(a)} - ${prettyPrint(b)}"
+    case Multiply(a, b) => s"${prettyPrint(a)} * ${prettyPrint(b)}"
+    case Divide(a, b)   => s"${prettyPrint(a)} / ${prettyPrint(b)}"
   }
 ```
 
