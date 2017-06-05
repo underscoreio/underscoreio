@@ -20,13 +20,13 @@ Although Scala provides both OO and FP language features this is not sufficient 
   
 The Church encoding provides such a unifying design principle.
 
-In this text I'm going to show that
+In what follows I'm going to show that
 
   - FP and OO code make different tradeoffs with respect to extensibility, static guarantees, and performance.
   - Church encoding gives us a way to transform FP designs into OO designs.
   - We can use the inverse of Church encoding, called reification, to transform OO designs to FP.
   - This means we can keep one coherent design or mental model and implement it in FP or OO style according to the tradeoffs we want to make, meaning we can truly unify FP and OO.
-  - This is useful by, as seen in a real commercial system Underscore developed that uses Church encoding to hit tight performance requirements.
+  - This is useful, as seen in a real commercial system Underscore developed that uses Church encoding for a big performance improvement.
   - Finally, the idea of Church encoding gives us a way to unify other FP techniques that are creating buzz in the Scala community: Free structures, and tagless final interpreters.
 
 ## FP vs OO
@@ -61,11 +61,11 @@ class TrigCalculator extends Calculator {
 
 We can't easily change the way we perform these operations. If we want to pretty-print expressions, returning a `String`, or compute with `BigDecimal` for exact results, we have to change all our existing code.
      
-In summary is easy to add new operations to our calculator (methods) but hard to add new actions (result types).
+In summary it is easy to add new operations to our calculator (methods) but hard to add new actions (result types).
 
 ### Classic FP
 
-Now let's see how we might be approach the same problem from a classic FP perspective. Again, we're going for a very basic approach like we might write in, say, ML.
+Now let's see how we might approach the same problem from a classic FP perspective. Again, we're going for a very basic approach like we might write in, say, ML.
 
 The first step is to implement an algebraic data type describing the computations we allow.
 
@@ -117,8 +117,8 @@ We've divided our calculator into two parts:
  - operations, which are the things we want to do (add, subtract, divide, etc.); and
  - actions, which are how we want to do them (using `Double`, pretty print, etc.)
 
-This corresponds to the FP mantra of separating describing what you want to do (operations) from how you do it (actions).
-Notably this is how we control effect in FP---they only happen when executing actions so while we're describing that program we can ignore them.
+This corresponds to the FP mantra of separating the description of what we want to do (operations) from how we do it (actions).
+Notably this is how we control effects in FP---they only happen when executing actions so while we're describing that program we can ignore them.
    
 We see that OO and FP allow easy extension in different directions:
 
@@ -170,7 +170,7 @@ This means we can keep one mental model and choose the representation that is be
 
 ## Case Study
 
-Let's see an example where where this transformation is useful. One aspect we haven't considered yet is performance. In the FP representation we allocate to create the data structure that represents the operation we want to perform. In the OO representation we don't have that allocation. This can be advantageous.
+Let's see an example where where this transformation is useful. One aspect we haven't considered yet is performance. In the FP representation we must allocate memory to hold the data structure that represents the operations we want to perform. In the OO representation we don't have that allocation. This can be advantageous.
 
 We were recently engaged to develop a time series analysis system for [Maana][maana], the Seattle enterprise knowledgement management startup. This system had some fairly stringent performance demands that justified implementing a custom system rather than using off-the-shelf software like Spark.
 
@@ -178,11 +178,11 @@ The nice thing about time series is they have a well defined order, and algorith
   
 There is a lot of prior work on the kind of API for this system. Spark, Monix, FS2, and Akka Streams all provide examples. We don't need the rich API of these system in our implementation, and we have some methods that are particular to time series, but it provides a good mental model for what we'll be talking about.
   
-In this kind of system we create a directed acyclic graph representing what we want to perform, and then run it when we've finished the description. This is the classic FP model of separating describing what you want to do from carrying it out. Nodes in our graph represent things like resampling the time series, or restricting it to a particular time range.
+In this kind of system we create a directed acyclic graph (DAG) representing what we want to perform, and then run it when we've finished the description. This is the classic FP model of separating describing what you want to do from carrying it out. Nodes in our graph represent things like resampling the time series, or restricting it to a particular time range.
 
-Our system has a pull based implementation model. Data flows from upstream to downstream. The most downstream node is the root, and the root pulls data through the system by requesting data from the nodes immediately upstream. They request data from nodes immediately upstream from them, and this happens recursively till leaf nodes are reached. Leaf nodes then send data downstream, and it gets transformed along the way until it reaches the root.
+Our system has a pull based implementation model. Data flows from upstream to downstream. The most downstream node is the root, and the root pulls data through the system by requesting data from the nodes immediately upstream. They in turn request data from nodes immediately upstream from them, and this happens recursively till leaf nodes are reached. Leaf nodes then send data downstream, which gets transformed along the way until it reaches the root.
   
-Now we don't just pass back data. We need to include some control information as well. We might have run out of data, we might be waiting for more (e.g. if we've filtering out certain time ranges), or we might have encountered an error. We can use this representation:
+We don't just pass back data; we need to include some control information as well. We might have run out of data, we might be waiting for more (e.g. if we've filtering out certain time ranges), or we might have encountered an error. We can use this representation:
 
 ```scala
 sealed trait Result[+A]
@@ -194,7 +194,7 @@ final case class Error(reason: ErrorType) extends Result[Nothing]
 
 The problem here is we allocate a lot. We allocate a `Result` for every node in the DAG and for every data element we process. Usually we process a lot more elements than we have nodes in the graph.
   
-We can use the Church encoding to reduce the allocation! Instead of returning a `Result` we can call an `Receiver` with the correct method, where `Receiver` is the Church-encoding of `Result`.
+We can use the Church encoding to reduce the allocation! Instead of returning a `Result` we can call a `Receiver` with the correct method, where `Receiver` is the Church-encoding of `Result`.
 
 ```scala
 trait Receiver[A] {
@@ -205,7 +205,7 @@ trait Receiver[A] {
 }
 ```
 
-Since what a node is constant, we can allocate one receiver per node in the graph and completely eliminate per-element allocation.
+The action performed by a given node is constant so we can allocate one receiver per node in the graph and completely eliminate per-element allocation.
 
 ## Benchmarks
 
@@ -240,7 +240,7 @@ Let's look at a typical type class. Here's how `Monad` might look in something l
 
 ```scala
 trait Monad[F[_]] {
-  def flatMap[A,B](fa: F[A])(f: (A) ⇒ F[B]): F[B]
+  def flatMap[A,B](fa: F[A])(f: (A) =. F[B]): F[B]
   def pure[A](x: A): F[A]
 }
 ```
@@ -309,28 +309,72 @@ If we do this we have basically implemented a *tagless final* interpreter (somet
 So we see that tagless final style is effectively a Church encoding of data types a la carte style, or vice versa.
 
 
-## Summary
+## Summary and Further Reading
 
 Let's run down what we've seen:
 
  - The Church encoding allows us to transform FP style to OO style
  - Reification allows us to transform OO style to FP style
  - We can choose a style due to the extensibility we want, or due to performance demands
- - Type classes are Church encodings. Free structures are the reification of type classes.
+ - Type classes are Church encodings of free structures. Free structures are the reification of type classes.
  - We can get extensibility in both directions using tagless final style or data types a la carte style. Tagless final is a Church encoding of data types a la carte.
  
-Hopefull you now agree that the Church encoding is a useful tool for unifying functional and object-oriented programming!
+Hopefully you now agree that the Church encoding is a useful tool for unifying functional and object-oriented programming!
 
-This post is based on a talk I gave at Scala Days Copenhagen. [My slides] are also available.
+This post is based on a talk I gave at Scala Days Copenhagen. [My slides][slides] are also available.
+They have more pictures and fewer words.
 
-## Further Reading
+I'd like to end with some more general thoughts.
+Firstly, I've presented the Church encoding in a fairly matter-of-fact style, but it's taken me quite a while to piece everything together.
+The pieces are all in the academic literature, and I want to present some of them below, along with some commentary, so others can follow this path.
+I hope this will make navigating the literature a bit easier for those who are interested, and also show that there are many great ideas to be found out there---though the presentation is often a bit hard to parse for the working programmer[^bananas].
+Although I've tried to make my survey reasonably complete I have no doubt missed some important works; I'm not an academic and this is a blog post, not a peer-reviewed publication.
 
- - [Folding Domain-Specific Languages: Deep and Shallow Embeddings](http://www.cs.ox.ac.uk/jeremy.gibbons/publications/embedding.pdf)
- - [Typed Tagless Final Interpreters] (http://okmij.org/ftp/tagless-final/course/lecture.pdf)
- - [From Object Algebras to Finally Tagless Interpreters](https://oleksandrmanzyuk.wordpress.com/2014/06/18/from-object-algebras-to-finally-tagless-interpreters-2/)
- - [Extensibility for the Masses: Practical Extensibility with Object Algebras](https://www.cs.utexas.edu/~wcook/Drafts/2012/ecoop2012.pdf)
+The idea of the two orthogonal axes of extensibility (which I called operations and actions) is something I first read in [Synthesizing Object-Oriented and Functional Design to Promote Re-Use][synthesizing]. The challenge of allowing extensibility along both axes is known as the [Expression Problem][expression].
 
+In this post I discussed two solutions to the expression problem: [tagless final interpreters][tagless-final] and [data types a la carte][a-la-carte]. 
+In the OO world tagless final interpreters are known as [object algebras][object-algebras]. 
+[This fantastic blog post][object-algebra-to-finally-tagless] shows the correspondence.
+Note that tagless final style is sometimes known as finally tagless.
 
+It's relatively rare for real programs to require a solution to the expresion problem, so I'm not advocated coverting all code to one of the two styles above, but it does come up in practice.
+For example, in [Doodle][doodle] I want to be able to render to different backends (adding actions) and support operations specific to a particular platform (adding operations).
+In Scala the tagless final stye is often easier to work with.
+There are a number of [type inference][9879] [bugs][5195] involving generalised algebraic data types (GADTs) in Scala that are needed when using FP style.
+Tagless final is also a bit more familiar to OO programmers, who make up most of the programmer population at this point in time.
+
+More on the relationship between data types a la carte style and tagless final style is given in [Folding Domain-Specific Languages: Deep and Shallow Embeddings][folding-dsl].
+(Reified or FP style is also known as a deep embedding, while Church encoded or OO style is a shallow embedding).
+I found this paper very interesting and quite easy to read.
+Note that this paper calls the relationship a Boehm-Berarducci encoding.
+While this is strictly correct---the Church encoding is between data and the untyped lambda calculus (which Alonzo Church invented)---I believe the essential idea is the same.
+If you want to know about the Boehm-Berarducci encoding there is [more here][beyond-church].
+Also note that this paper is a "Functional Pearl", a specific type of paper published at the International Conference on Functional Programming (ICFP).
+I find that the Functional Pearls are often the most useful papers at ICFP.
+For example, the [paper introducing Applicatives][idioms] (called Idioms at the time) is a Functional Pearl.
+
+It is very easy to explore the academic literature if you go to [scholar.google.com](https://scholar.google.com/) and enter the name of a paper that interests you.
+You can then chase citations forward and backward to time to get more context.
+
+Finally, although I've presented this as a unification of FP and OO, it is purely a unification of FP and OO *programming techniques*, not a unification of the FP and OO *programming paradigms*.
+I presented on the two paradigms at [Scala Days last year][structure].
+I'm still working solidly in the functional programming paradigm: avoiding mutable state, emphasising static reasoning, and so on.
+ 
 [alonzo-church]: https://en.wikipedia.org/wiki/Alonzo_Church
 [maana]: http://maana.io/
 [slides]: /files/noelwelsh-scala-days-copenhagen-church-and-state.pdf
+[expression]: http://homepages.inf.ed.ac.uk/wadler/papers/expression/expression.txt
+[synthesizing]: https://cs.brown.edu/~sk/Publications/Papers/Published/kff-synth-fp-oo/
+[tagless-final]: http://okmij.org/ftp/tagless-final/course/lecture.pdf
+[a-la-carte]: http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf
+[object-algebras]: https://www.cs.utexas.edu/~wcook/Drafts/2012/ecoop2012.pdf
+[object-algebra-to-finally-tagless]: https://oleksandrmanzyuk.wordpress.com/2014/06/18/from-object-algebras-to-finally-tagless-interpreters-2/
+[doodle]: https://github.com/underscoreio/doodle/
+[9879]: https://github.com/scala/bug/issues/9879
+[5195]: https://github.com/scala/bug/issues/5195
+[folding-dsl]: http://www.cs.ox.ac.uk/jeremy.gibbons/publications/embedding.pdf
+[beyond-church]: http://okmij.org/ftp/tagless-final/course/Boehm-Berarducci.html
+[structure]: https://www.youtube.com/watch?v=bL-CcjKW1lw
+[idioms]: http://strictlypositive.org/Idiom.pdf
+
+[^bananas]: All of this literature is reasonably readable, in my opinion. A paper that I consider both spectacularly unreadable but still important is [Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire ](http://doc.utwente.nl/56289/1/meijer91functional.pdf).
