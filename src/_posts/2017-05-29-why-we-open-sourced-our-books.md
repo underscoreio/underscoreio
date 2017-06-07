@@ -45,6 +45,15 @@ If you want to build the book yourself, or contribute to development, go to our 
 All our books have a simple Docker based build process that should be straightforward to work with.
 However, if you encounter difficulties please open an issue and we'll sort it out.
 
+
+## Update: 7th June 2017
+
+We originally published our books under a mixture of CC-BY-SA and CC-NC-SA licenses.
+We had some objections to the use of the term "open source"
+combined with the CC-NC-SA license (see the comments below).
+We have addressed this by updating all of the licenses to be CC-BY-SA.
+
+
 [books]: http://underscore.io/books/
 [github]: https://github.com/search?q=topic%3Abook+org%3Aunderscoreio&type=Repositories
 [creative-scala]: http://underscore.io/books/creative-scala/
