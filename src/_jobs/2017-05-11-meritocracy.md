@@ -6,7 +6,7 @@ company: |
   Meritocracy
 location: Hamburg, Germany
 level: Intermediate
-remote: Partial
+remote: No
 summary: |
   Kreditech is hiring a Software Engineer - Scala. Join Financial Revolution!
 admin: arianna@meritocracy.is
