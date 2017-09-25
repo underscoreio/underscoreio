@@ -1,7 +1,5 @@
-{% assign actionURL = '//' | append: include.host | append: '/subscribe/post?u=' | append: include.user | append: '&id=' | append: include.list %}
-
 <div id="mc_embed_signup">
-  <form action={{ actionURL }} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <form action="//{{include.host}}/subscribe/post?u={{include.user}}&id={{include.list}}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <fieldset>
       <div class="row">
         <div class="col-sm-12">
