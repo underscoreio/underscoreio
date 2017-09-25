@@ -7,8 +7,11 @@ icon: scala
 color: "#F58B40"
 level: Intermediate
 cover: "/images/books/essential-slick.png"
-signup: "mailchimp-slick.html"
-summary: |
+mailchimp:
+  host: underscore.us16.list-manage.com
+  user: 974a09ebc30fbb878c41436ec
+  list: d99e5ae861
+ummary: |
   Learn to use Lightbend's Slick to interact with relational databases.
   For new to intermediate Scala developers.
 buyButtons:

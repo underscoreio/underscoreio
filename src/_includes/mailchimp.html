@@ -1,11 +1,7 @@
+{% assign actionURL = '//' | append: include.host | append: '/subscribe/post?u=' | append: include.user | append: '&id=' | append: include.list %}
+
 <div id="mc_embed_signup">
-  <form method="post"
-        action="http://underscoreconsulting.us3.list-manage.com/subscribe/post?u=a62dbb8a9c32f6c994dfd1111&amp;id=e9817b5369"
-            id="mc-embedded-subscribe-form"
-          name="mc-embedded-subscribe-form"
-         class="validate"
-        target="_blank"
-    novalidate="">
+  <form action={{ actionURL }} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <fieldset>
       <div class="row">
         <div class="col-sm-12">
@@ -45,7 +41,7 @@
       </div>
 
       <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-      <div style="position: absolute; left: -5000px;"><input type="text" name="b_a62dbb8a9c32f6c994dfd1111_e9817b5369" value=""></div>
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_{{include.user}}_{{include.list}}" tabindex="-1" value=""></div>
     </fieldset>
   </form>
 </div>

@@ -22,18 +22,21 @@
 
 </div>
 
-{% if include.signup %}
+{% if include.mailchimp %}
   <div>
     <div>
       <h4>Book Updates</h4>
       <p>
-        Stay up-to-date with new editions of the book, 
+        Stay up to date with new editions of the book, 
         straight to your inbox.
       </p>
     </div>
     
     <div>
-      {% include {{ include.signup }} %}
+      {% include mailchimp.html 
+            host=include.mailchimp.host
+            user=include.mailchimp.user
+            list=include.mailchimp.list %}
     </div>
   </div>
 {% endif %}
