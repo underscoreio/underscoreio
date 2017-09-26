@@ -7,21 +7,28 @@ icon: scala
 color: "#F58B40"
 level: Intermediate
 cover: "/images/books/essential-slick.png"
-summary: |
+mailchimp:
+  host: underscore.us16.list-manage.com
+  user: 974a09ebc30fbb878c41436ec
+  list: d99e5ae861
+ummary: |
   Learn to use Lightbend's Slick to interact with relational databases.
   For new to intermediate Scala developers.
 buyButtons:
-- label: "Download the ebook&mdash;FREE"
-  url: "https://gum.co/essential-slick"
+- label: "Read the book"
+  url: "http://books.underscore.io/essential-slick/essential-slick-3.html"
+- label: "Download as PDF"
+  url: "http://books.underscore.io/essential-slick/essential-slick-3.pdf"
+- label: "Download as EPUB"
+  url: "http://books.underscore.io/essential-slick/essential-slick-3.epub"
 ---
 
 ## Overview
 
-Essential Slick is a guide to building application using the Slick database library.
+Essential Slick is a tutorial to building application using the Slick database library.
 It is aimed at Scala developers who need to become productive with Slick quickly.
 
-The book covers Slick 3 and purchases include a version for Slick 2.
-
+The book covers Slick 3.
 
 ## Praise for Essential Slick
 

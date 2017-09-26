@@ -19,4 +19,25 @@
       </p>
     {% endfor %}
   </div>
+
 </div>
+
+{% if include.mailchimp %}
+  <div>
+    <div>
+      <h4>Book Updates</h4>
+      <p>
+        Stay up to date with new editions of the book, 
+        straight to your inbox.
+      </p>
+    </div>
+    
+    <div>
+      {% include mailchimp.html 
+            host=include.mailchimp.host
+            user=include.mailchimp.user
+            list=include.mailchimp.list %}
+    </div>
+  </div>
+{% endif %}
+
