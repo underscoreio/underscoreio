@@ -59,6 +59,8 @@ Dave Gurnell ran a hands-on workshop at Scala Exchange 2015 based on the materia
 - 1:17:30 - *Joins.* Selecting data from multiple tables.
 - 1:34:50 - *Profiles.* Selecting profiles,  writing database-generic code.
 
+Due to a problem with the recording, the video is missing five minutes of audio around the 45 minutes mark.
+
 The slides and sample code for the workshop can be found [on our Github account][github]. If you have trouble with any of the exercises or getting set up, feel free to ask questions [on our Gitter channel][gitter].
 
 [github]: https://github.com/underscoreio/scalax15-slick
