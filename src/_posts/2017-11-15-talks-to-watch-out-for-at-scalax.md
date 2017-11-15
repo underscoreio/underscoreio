@@ -12,6 +12,8 @@ We have an amazing programme this year (admittedly I'm biased---I helped select 
 
 You can find the complete schedule on the [Scala Exchange web site][link-programme] where you can [grab tickets][link-scalax] if you haven't already done so. We'll also have some discounts available in our [December newsletter][link-newsletter], out next week.
 
+We're also running a [Cats training course][link-advanced-scala-event] on the 12th and 13th December right before the conference. [Book your place now][link-advanced-scala-eventbrite] on our Eventbrite page.
+
 ## Gabriele Petronella -- Move Fast and Fix Things (Beginner friendly)
 
 Scalafix has been getting a lot of attention recently. Initially intended as a tool to help migrate between Scala versions, it is now a fully fledged migration and refactoring tool that has been picked up by several open source libraries (most notably Cats) as a way to automate upgrades through breaking API changes. You can even use it for your own refactorings!
@@ -33,3 +35,5 @@ These are just four of the 40+ talks on [the programme][link-programme]. We're s
 [link-scalax]: http://scala-exchange.com
 [link-programme]: https://skillsmatter.com/conferences/8784-scala-exchange-2017#program
 [link-newsletter]: https://underscore.io/blog/newsletters/
+[link-advanced-scala-event]: /events/2017-12-12-advanced-scala/
+[link-advanced-scala-eventbrite]: https://www.eventbrite.com/e/advanced-scala-with-cats-public-course-tickets-37809147177
