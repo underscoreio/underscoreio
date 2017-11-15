@@ -22,7 +22,7 @@ I have a few criticisms of actors but chief among them is the lack of type safet
 
 ## Noel Markham -- Creating a Physics Simulation with Scala.js (Beginner friendly)
 
-I love graphics, physics, and front end development. The quick visual feedback loop is perfect for creative, fun programming. Scala.js provides a great way to to all of this goodness from a language that puts statically typed functional programming first. In this talk, Noel will be showing us the power of Scala.js by live coding a simple physics demo from scratch, right in front of our eyes. What's not to like?
+I love graphics, physics, and front end development. The quick visual feedback loop is perfect for creative, fun programming. Scala.js provides a great way to to all of this goodness from a language that puts statically typed functional programming first. At Scala Exchange, Noel will be showing us the power of Scala.js by live coding a simple physics demo from scratch, right in front of our eyes. What's not to like?
 
 ## Peter Hilton -- How to Name Things: The Hardest Problem in Programming (Beginner friendly)
 
