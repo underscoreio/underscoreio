@@ -12,7 +12,9 @@ We have an amazing programme this year (admittedly I'm biased---I helped select 
 
 You can find the complete schedule on the [Scala Exchange web site][link-programme] where you can [grab tickets][link-scalax] if you haven't already done so. We'll also have some discounts available in our [December newsletter][link-newsletter], out next week.
 
+<!--
 We're also running a [Cats training course][link-advanced-scala-event] on the 12th and 13th December right before the conference. [Book your place now][link-advanced-scala-eventbrite] on our Eventbrite page.
+-->
 
 ## Gabriele Petronella -- Move Fast and Fix Things
 
