@@ -1,0 +1,15 @@
+<div class="blog-sidebar-course-promos">
+  <h4>Books from Underscore</h4>
+
+  {% assign book = 'essential-scala' | lookup_in:site.books %}
+  {% include blog/sidebar/book-promo.html book=book %}
+
+  {% assign book = 'scala-with-cats' | lookup_in:site.books %}
+  {% include blog/sidebar/book-promo.html book=book %}
+
+  {% assign book = 'essential-slick' | lookup_in:site.books %}
+  {% include blog/sidebar/book-promo.html book=book %}
+
+  {% assign book = 'essential-play' | lookup_in:site.books %}
+  {% include blog/sidebar/book-promo.html book=book %}
+</div>

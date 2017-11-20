@@ -1,10 +1,8 @@
-@home-panel-padding: @line-height-computed;
+@home-panel-padding-top:    0.5*@line-height-computed;
+@home-panel-padding-bottom: 1.0*@line-height-computed;
 
 .home-hero {
-  background-color: @underscore-spaaace;
-  background-image: url("/images/home/spaaace.svg");
-  background-repeat: no-repeat;
-  background-position: center top;
+  background-color: @underscore-bgcolor;
   background-size: cover;
   // background-attachment: fixed;
 
@@ -12,21 +10,22 @@
   margin-bottom: 0 !important;
 
   .home-hero-text {
-    height: 75vh;
-    min-height: 320px;
-    max-height: 480px;
+    padding-top: 4em;
+    padding-bottom: 6em;
 
     .home-hero-text-inner {
-      position: absolute;
-      bottom: 2 * @line-height-computed;
-      left: @grid-gutter-width;
-      right: @grid-gutter-width;
+      // position: absolute;
+      // bottom: 2 * @line-height-computed;
+      // left: @grid-gutter-width;
+      // right: @grid-gutter-width;
     }
 
     .hero-font-sizes(@multiplier) {
       @font-size-modified: floor(@font-size-base * @multiplier);
       font-size: @font-size-modified;
       line-height: @font-size-modified * @line-height-base;
+      text-align: center;
+      font-weight: 400;
     }
 
     .home-hero-strapline1 { .hero-font-sizes(2.2); }
@@ -38,6 +37,8 @@
     }
 
     @media (max-width: @screen-xs-max) {
+      padding-top: 8em;
+
       .home-hero-text-inner {
         left: @padding-base-horizontal;
         bottom: 0;
@@ -51,7 +52,7 @@
 
 .home-panel {
   position: relative;
-  padding: 0 0 @home-panel-padding;
+  padding: @home-panel-padding-top 0 @home-panel-padding-bottom;
 
   .home-panel-title,
   .home-panel-cta {
@@ -65,8 +66,8 @@
 
 .home-blog {
   color: #fff;
-  background: @underscore-spaaace2;
-  padding-bottom: 2*@home-panel-padding !important;
+  background: @underscore-bgcolor2;
+  padding-bottom: 2*@home-panel-padding-bottom !important;
 
   a {
     color: lighten(@link-color, 15%);

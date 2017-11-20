@@ -1,18 +1,18 @@
 ---
-id: advanced-scala
-title: Advanced Scala with Cats
+id: scala-with-cats
+title: Scala with Cats
 layout: book
 navbar: training
 icon: cats
-color: "#d62a7c"
+color: "#1a8950"
 level: Intermediate
-cover: "/images/books/advanced-scala.png"
+cover: "/images/books/scala-with-cats.png"
 summary: |
   Dive deep into functional patterns using Scala and Cats.
   For experienced Scala developers.
 buyButtons:
 - label: "Download the ebook&mdash;FREE"
-  url: "https://gum.co/advanced-scala"
+  url: "https://gum.co/scala-with-cats"
 ---
 
 ## Overview
@@ -141,17 +141,17 @@ To benefit from this book you should have about a year's experience with Scala, 
     - Default Instances
   - Exercise: Monads: Transform and Roll Out
   - Summary
-- Cartesians and Applicatives
-  - Cartesian
+- Semigroupal and Applicative
+  - Semigroupal
     - Joining Two Contexts
     - Joining Three or More Contexts
-  - Cartesian Builder Syntax
-    - Fancy Functors and Cartesian Builder Syntax
-  - Cartesian Applied to Different Types
-    - Cartesian Applied to Future
-    - Cartesian Applied to List
-    - Cartesian Applied to Xor
-    - Cartesian Applied to Monads
+  - Semigroupal Builder Syntax
+    - Fancy Functors and Semigroupal Builder Syntax
+  - Semigroupal Applied to Different Types
+    - Semigroupal Applied to Future
+    - Semigroupal Applied to List
+    - Semigroupal Applied to Xor
+    - Semigroupal Applied to Monads
   - Validated
     - Creating Instances of Validated
     - Combining Instances of Validated
@@ -172,7 +172,8 @@ To benefit from this book you should have about a year's experience with Scala, 
     - Traverse in Cats
     - Unapply, traverseU, and sequenceU
   - Summary
-- Case Study: Pygmy Hadoop
+- Case Study: Testing Asynchronous Code
+- Case Study: Map-Reduce
   - Parallelizing map and fold
   - Implementing foldMap
   - Parallelising foldMap

@@ -7,10 +7,11 @@ Redirect permanent /blog/newsletter/                                   http://un
 Redirect permanent /events/2015-03-15-essential-essential-scala.html   http://underscore.io/events/2015-03-15-creative-scala.html
 Redirect permanent /events/2015-03-28-essential-essential-scala.html   http://underscore.io/events/2015-03-28-creative-scala.html
 
-# Redirects from Essential Scalaz and Advanced Scala with Scalaz to Advanced Scala with Cats:
+# Redirects from Essential Scalaz and Advanced Scala with Scalaz to Scala with Cats:
 
-Redirect permanent /books/essential-scalaz                             http://underscore.io/books/advanced-scala
-Redirect permanent /books/advanced-scala-scalaz                        http://underscore.io/books/advanced-scala
+Redirect permanent /books/essential-scalaz                             http://underscore.io/books/scala-with-cats
+Redirect permanent /books/advanced-scala-scalaz                        http://underscore.io/books/scala-with-cats
+Redirect permanent /books/advanced-scala                               http://underscore.io/books/scala-with-cats
 Redirect permanent /training/courses/essential-scalaz                  http://underscore.io/training/courses/advanced-scala
 Redirect permanent /training/courses/advanced-scala-scalaz             http://underscore.io/training/courses/advanced-scala
 Redirect permanent /courses/essential-shapeless                        http://underscore.io/training/courses/advanced-shapeless

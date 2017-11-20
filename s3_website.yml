@@ -63,10 +63,11 @@ redirects:
   "events/2015-03-15-essential-essential-scala.html"   : "/events/2015-03-15-creative-scala.html"
   "events/2015-03-28-essential-essential-scala.html"   : "/events/2015-03-28-creative-scala.html"
 
-  # Redirects from Essential Scalaz and Advanced Scala with Scalaz to Advanced Scala with Cats:
+  # Redirects from Essential Scalaz and Advanced Scala with Scalaz to Scala with Cats:
 
-  "books/essential-scalaz"                             : "/books/advanced-scala"
-  "books/advanced-scala-scalaz"                        : "/books/advanced-scala"
+  "books/essential-scalaz"                             : "/books/scala-with-cats"
+  "books/advanced-scala"                               : "/books/scala-with-cats"
+  "books/advanced-scala-scalaz"                        : "/books/scala-with-cats"
   "training/courses/essential-scalaz"                  : "/training/courses/advanced-scala"
   "training/courses/advanced-scala-scalaz"             : "/training/courses/advanced-scala"
   "courses/essential-shapeless"                        : "/training/courses/advanced-shapeless"

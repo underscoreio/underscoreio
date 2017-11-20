@@ -1,0 +1,14 @@
+<div class="blog-sidebar-book-promo {{ include.book.id | baseid }}"
+     data-book-id="{{ include.book.id }}">
+  <a class="book-title" href="{{ book.id }}">
+    <span class="book-icon icon-uio-{{ include.book.icon }}"></span>
+    <span class="book-title-text">
+      {{ include.book.title }}
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      {% icon chevron-right %}
+    </span>
+  </a>
+</div>
