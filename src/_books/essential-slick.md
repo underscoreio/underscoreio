@@ -19,7 +19,7 @@ buyButtons:
   url: "http://books.underscore.io/essential-slick/essential-slick-3.html"
 - label: "Download as PDF"
   url: "http://books.underscore.io/essential-slick/essential-slick-3.pdf"
-- label: "Download as EPUB"
+- label: "Download as ePub"
   url: "http://books.underscore.io/essential-slick/essential-slick-3.epub"
 ---
 

@@ -66,8 +66,11 @@ redirects:
   # Redirects from Essential Scalaz and Advanced Scala with Scalaz to Scala with Cats:
 
   "books/essential-scalaz"                             : "/books/scala-with-cats"
+  "books/essential-scalaz/index.html"                  : "/books/scala-with-cats"
   "books/advanced-scala"                               : "/books/scala-with-cats"
+  "books/advanced-scala/index.html"                    : "/books/scala-with-cats"
   "books/advanced-scala-scalaz"                        : "/books/scala-with-cats"
+  "books/advanced-scala-scalaz/index.html"             : "/books/scala-with-cats"
   "training/courses/essential-scalaz"                  : "/training/courses/advanced-scala"
   "training/courses/advanced-scala-scalaz"             : "/training/courses/advanced-scala"
   "courses/essential-shapeless"                        : "/training/courses/advanced-shapeless"
