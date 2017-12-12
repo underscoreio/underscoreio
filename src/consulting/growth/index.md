@@ -14,7 +14,7 @@ sidebars:
   cta: |
     ### How To Start
 
-    Growth Planning costs {% currencies $3,500 £2,500 €3,000 %}, including a written plan.
+    Growth Planning costs {% currencies $6,800 £5,000 €5,800 %}, including a written plan.
     Travel and accommodation costs are added if required.
 
     <a href="/contact?subject=Growth%20Planning" class="btn btn-block btn-primary">
