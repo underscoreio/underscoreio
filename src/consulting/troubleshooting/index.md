@@ -8,8 +8,7 @@ sidebars:
 
     A solutions-driven inspection of pressing concerns.
 
-    - Time-boxed
-    - Investigation
+    - Time-boxed investigation
     - Problem identification
     - Solution, or further recommendations
   cta: |
