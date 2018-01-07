@@ -63,9 +63,7 @@ For the majority of people we recommend the onsite course, but if you're sure st
 
 ## Written Material
 
-There are two books that accompany Advanced Scala: the Advanced Scala textbook which contains all the course material, exercises, and case studies. There is also a supplemental book called Essential Interpreters that covers the construction of interpreters in three styles: classic untyped interpreters, monadic interpreters, and composable interpreters using the free monad. Interpreters are *the* primal functional programming pattern. To quote Haskell luminary [Don Stewart](http://stackoverflow.com/questions/27852709/enterprise-patterns-with-functional-programming/27860072#27860072) "almost all designs fall into the 'compiler' or 'interpreter' pattern, using a model of the data and functions on that data".
-
-Attendees of any Advanced Scala training course receive a complementary copy of both books. The books are also available for purchase as standalone products.
+Attendees of any Advanced Scala training course receive a complementary copy of the book Scala with Cats, which contains complementary course material, exercises, and case studies.
 
 ## Table of Contents - Advanced Scala
 
@@ -242,16 +240,6 @@ Attendees of any Advanced Scala training course receive a complementary copy of 
   - Abstracting GCounter to a Type Class
   - Summary
 - Case Study: Parser Combinators
-
-## Table of Contents - Essential Interpreters
-
-- Untyped Interpreters
-  - Abstract syntax trees
-  - Folding over ASTs
-- Monadic Interpreters
-- The Free Monad
-  - Natural Transformations
-  - Composing Interpreters with Coproducts
 
 ## Feedback from Students
 

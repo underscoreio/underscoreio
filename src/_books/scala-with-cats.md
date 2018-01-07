@@ -207,11 +207,6 @@ To benefit from this book you should have about a year's experience with Scala, 
   - Summary
 - Case Study: Parser Combinators
 
-## Supplemental
-
-Essential Interpreters covers the construction of interpreters in three styles: classic untyped interpreters, monadic interpreters, and composable interpreters using the free monad. Interpreters are *the* primal functional programming pattern. To quote Haskell luminary [Don Stewart](http://stackoverflow.com/questions/27852709/enterprise-patterns-with-functional-programming/27860072#27860072) "almost all designs fall into the 'compiler' or 'interpreter' pattern, using a model of the data and functions on that data".
-
-
 ## Feedback from Readers
 
 > "[A] fantastic piece of technical literature"
