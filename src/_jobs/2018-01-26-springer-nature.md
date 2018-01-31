@@ -30,7 +30,8 @@ Springer Nature Digital are a diverse group working in self-managing cross-funct
 - Have knowledge of a variety of tools to help you in your work, such as automated testing, relational/NoSQL databases, and transport protocols
 - Have a strong problem-solving mind-set
 - Embrace an agile approach, XP techniques, and Continuous Delivery
-- Consider yourself a generalist and can pick the right tool for the job Enjoy working in Linux or macOS environments
+- Consider yourself a generalist and can pick the right tool for the job
+- Enjoy working in Linux or macOS environments
 - Believe in teams having both control over and responsibility for their applications
 - Are passionate in your work and love to share your ideas with your team
 - Keep up to date with technology trends and believe in life-long learning
