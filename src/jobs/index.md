@@ -4,7 +4,7 @@ title: Jobs Board
 navbar: jobs
 twitter:
   title: The Underscore Jobs Board
-  description: "International Scala job board. Recruiting is a problem for the entire community. We're doing something about it!"
+  description: "International functional programming job board specialising in Scala roles. Recruiting is a problem for the entire community. We're doing something about it!"
 ---
 
 <div class="job-header">
@@ -13,7 +13,7 @@ twitter:
   </p>
 
   <p class="text-center">
-    This is a service to the Scala community. <em>There's no charge.</em>
+    This is a service to the Scala and wider functional programming community. <em>There's no charge.</em>
   </p>
 
   {% include jobs/links.html %}
