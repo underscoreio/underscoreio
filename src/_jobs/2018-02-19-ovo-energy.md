@@ -1,6 +1,6 @@
 ---
 layout: job
-expire: 2018-03-22
+expire: 2018-03-31
 title: Scala Developer 
 company: |
   OVO Energy
