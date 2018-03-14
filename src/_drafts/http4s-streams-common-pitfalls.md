@@ -91,7 +91,7 @@ This program terminates, and emits exactly 4 values.
 This may not always be an issue, depending on how we interact with our streams. For example, an Http4s WebSocket will be consuming all the data and sending it to the client, as long as the connection is alive. But there's the chance we must run an infinite stream, in which case we must consider how to manage it.
 
 
-# Flatmap all the things... except Streams
+# Flatmap all the things... except some Streams
 
 Use of queues is one of the [recommended ways][7] to integrate data from the external data sources onto your streams. In particular the documentation example shows the following:
 
