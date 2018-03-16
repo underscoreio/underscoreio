@@ -1,18 +1,18 @@
 ---
 layout:     post
-title:      Beginner pitfalls when using FS2
+title:      Tips for working with FS2
 author:     Pere Villega
 date:       '2018-03-04 13:50:00'
 ---
 
-The new release of [fs2][3] (v0.10) has changed its API a lot. [Http4s][1] v0.18 has adopted this newest version, as well as [cats 1.0][2]. The direct consequence of these changes is that a user of Http4s must now become more familiar with fs2 to avoid some unexpected behaviour, more so if we try to do fancy stuff with WebSockets. In this blog post we will explore some pitfalls related to the use of [fs2][3] which I, as someone not very familiar with fs2 at the time, spent too much time figuring out.
+The streaming library [fs2][3] has had major improvements in their latest release (v0.10), and libraries like [Http4s][1] v0.18 have adopted this newest version. As you work more with fs2 and Http4s there are some things you should be aware of, as they will make the journey easier. Specifically, we will look at how to work with `flatMap` in Streams and at `Topics`, along some minor comments on fs2 `Streams`. Those are some hints which I, as someone not very familiar with fs2 at the time, wish I had known sooner.
 
 <!-- more -->
 Without further ado, let's talk about some 'gotchas' we may find when working with [fs2][3].
 
 # Everything is a Stream
 
-When you come from a non-FP world, Something slightly surprising when you start working with [fs2][3] is the fact everything is a `Stream`. By everything I mean *Everything*, even your `Queue`:
+When you come from a non-FP world, something slightly surprising when you start working with [fs2][3] is the fact everything is a `Stream`. By everything I mean *everything*, even your `Queue`:
 
 ```
 val queue: Stream[F, Queue[F, String]] = Stream.eval(async.circularBuffer[F, String](5))
@@ -26,7 +26,7 @@ val queue: F[Queue[F, String]] = async.circularBuffer[F, String](5)
 
 but given that working with `Stream` is easier than working with `F[_]`, we probably should stick to the first example.
 
-The fact a `Queue` is a stream means that interaction with the `Queue` itself happens inside a `flatMap` call, as in this example:
+The fact that a `Queue` is a stream means the interaction with the `Queue` itself happens inside a `flatMap` call, as in this example:
 
 ```
 import cats.effect.{ Effect, IO }
@@ -247,7 +247,7 @@ To get the code working, replace `withQueue` with:
 
 In this new snippet we call the support functions inside `flatMap` and return as result of the operation the concatenation of both streams. Please note that the last step is to run the resulting streams in parallel via `concurrently`. Without this last step the process won't work. 
 
-The reason is that at the end of the process we will call `compile.drain.unsafeRunSync` to execute our stream. Without `concurrently`, one of the streams won't be part of the stream we are executing, and as a consequence the operations associated to it won't happen: you won't enqueue or dequeue data. You can try this by just returning on of the streams.
+The reason is that at the end of the process we will call `compile.drain.unsafeRunSync` to execute our stream. Without `concurrently`, one of the streams won't be part of the stream we are executing, and as a consequence the operations associated to it won't happen: you won't enqueue or dequeue data. You can try this by just returning one of the streams.
 
 With this new snippet, both operations share the same queue and the result is printed as expected.
 
@@ -353,7 +353,7 @@ We have reviewed some possible pitfalls we may encounter when we start working w
 
 # Acknowledgements
 
-Thanks to [Danielle Ashley][9] and [Dave Gurnell][10] for their comments on the draft. Thanks to the [fs2 Gitter channel][8] and specially to [Fabio Labella][11] for their help understanding several fs2 concepts. And thanks to Underscore for allowing me to publish this here :)
+Thanks to Danielle Ashley, [Dave Gurnell][10] and [Richard Dallaway][12] for their comments on the draft. Thanks to the [fs2 Gitter channel][8] and specially to [Fabio Labella][11] for their help understanding several fs2 concepts. And thanks to Underscore for allowing me to publish this here :)
 
 [1]: http://http4s.org
 [2]: https://typelevel.org/cats/
@@ -363,7 +363,7 @@ Thanks to [Danielle Ashley][9] and [Dave Gurnell][10] for their comments on the 
 [6]: https://en.wikipedia.org/wiki/Publish–subscribe_pattern
 [7]: https://functional-streams-for-scala.github.io/fs2/guide.html#talking-to-the-external-world
 [8]: https://gitter.im/functional-streams-for-scala/fs2
-[9]: https://???/
 [10]: https://twitter.com/davegurnell
 [11]: https://www.linkedin.com/in/fabiolabella/
+[12]: https://twitter.com/d6y
 
