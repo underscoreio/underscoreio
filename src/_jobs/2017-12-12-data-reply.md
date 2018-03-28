@@ -1,6 +1,6 @@
 ---
 layout: job
-expire: 2018-01-12
+expire: 2018-04-28
 title: Scala Developers - Big Data Product - Junior to Senior
 company: |
   Data Reply
@@ -34,6 +34,8 @@ For those with several years of Scala experience, there is good scope to quickly
 
 In all cases, we are looking for people that are *passionate* about Scala and have a good understanding of it through building / extending data processing systems *in production*.
 
-We are focused on UK roles currently, typically London based, but there is potential for travel abroad for those interested (Europe, US, Australasia...).
+It's a technically interesting role, and someone who enjoys working with Scala/Spark, and wants to get their hands on big data, wants to learn, and likes to see the result of their development, will enjoy this role.
+
+To be eligible must be able to work full-time in London.
 
 If interested please apply, and please consider referring others in your network.
