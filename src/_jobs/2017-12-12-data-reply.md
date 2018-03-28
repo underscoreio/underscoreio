@@ -36,6 +36,6 @@ In all cases, we are looking for people that are *passionate* about Scala and ha
 
 It's a technically interesting role, and someone who enjoys working with Scala/Spark, and wants to get their hands on big data, wants to learn, and likes to see the result of their development, will enjoy this role.
 
-To be eligible must be able to work full-time in London.
+To be eligible for this role you must be able to work full-time in London.
 
 If interested please apply, and please consider referring others in your network.
