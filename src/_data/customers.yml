@@ -33,6 +33,11 @@
   logo:   "/images/customers/ch.jpg"
   url:    "http://companieshouse.gov.uk"
 
+- id:     "goodlord"
+  name:   "Goodlord"
+  logo:   "/images/customers/goodlord.jpg"
+  url:    "https://www.goodlord.co"
+
 - id:     "gottex"
   name:   "Gottex Brokers"
   logo:   "/images/customers/gottex.jpg"
