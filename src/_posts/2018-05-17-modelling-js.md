@@ -122,7 +122,7 @@ We can now register a function, so let's take another step and implement the Ale
 // This is JavaScript, using the Alexa v1 API
 
 // Load the Node module for Alexa SDK:
-const Alexa = require('alexa-sdk);
+const Alexa = require('alexa-sdk');
 
 exports.handler = function (event, context) {
   const alexa = Alexa.handler(event, context);
