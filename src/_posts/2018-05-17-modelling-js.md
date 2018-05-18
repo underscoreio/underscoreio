@@ -121,8 +121,8 @@ We can now register a function, so let's take another step and implement the Ale
 ```javascript
 // This is JavaScript, using the Alexa v1 API
 
-// Load the Node module for Alexa Skills Kit SDK:
-const Alexa = require('ask-sdk');
+// Load the Node module for Alexa SDK:
+const Alexa = require('alexa-sdk);
 
 exports.handler = function (event, context) {
   const alexa = Alexa.handler(event, context);
@@ -133,7 +133,7 @@ exports.handler = function (event, context) {
 
 This is boilerplate for getting `ourCodeHere` called.
 
-The hurdle for our Scala code is how to get access to the `ask-sdk` from Scala.js.
+The hurdle for our Scala code is how to get access to the `alexa-sdk` from Scala.js.
 The way I like to do that is to annotate the Scala facade with an import name.
 This is a second feature to help us model JavaScript in a Scala programme.
 
