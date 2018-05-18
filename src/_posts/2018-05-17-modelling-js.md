@@ -40,10 +40,9 @@ In practical terms this means:
 
 That's the basics. If you'd like a little bit more of an introduction, I've [written and spoken about this before][post] ([video][video]), as have many [others][presentations].
 
-That's only half of the story.
-It's true, we can use Scala to write JavaScript,
-but I think the best part is how Scala.js interfaces to the rest of the JavaScript ecosystem.
-In other words, how you can model JavaScript concepts in Scala.
+Using Scala to write JavaScript is only half the story.
+Scala.js also has wonderful features to interface to the rest of the JavaScript ecosystem.
+In other words, Scala.js lets you model JavaScript concepts in Scala.
 
 # An example application
 
@@ -61,7 +60,8 @@ That means importing a library and working with global JavaScript scope.
 
 The second thing to know is that we're writing a `Request => Response` function.
 The request will be an "intent" (such as "TellJoke") and the response will be the text to be spoken (such as a terrible Dad joke).
-However, we're going to have to turn that into a `() => Unit`. The side-effect is calling the Node APIs to read values and set the response.
+However, we're going to have to turn that into something that looks like a `() => Unit`.
+The side-effect in there is calling the Node APIs to read values and set the response.
 Not nice, but the point here is that Scala.js can represent the JavaScript API we've been handed.
 
 # Feature 1: JSGlobalScope -- representing global JavaScript values to Scala
