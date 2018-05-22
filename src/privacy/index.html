@@ -1,0 +1,40 @@
+---
+layout: default
+title:  Privacy Policy and Cookies
+navbar: company
+twitter:
+  title: Underscore Privacy Policy
+  description: "Privacy and Cookie Policy"
+---
+
+{% include hero.html title="Privacy and Cookie Policy" %}
+
+<section class="container">
+
+  <p>Updated 18 May 2018</p>
+
+  <!--
+
+    The _includes/privacy_policy_text.html was generated from the Docular document.
+    I.e., download as Word and:
+
+    $ pandoc -f docx+styles ~/Downloads/privacy-and-cookies-policy-2018-04-20-13-07-20.docx -t html | sed 's/data-custom-style=/class=/g'  | sed 's/\("[^ "]*\) \([^"]*"\)/\1_\2/g'
+
+    Pandoc converts the Word section headings into:
+
+      <div data-custom-style="Level 1 Heading">
+
+    The sed commands convert this to:
+
+      <div class="Level_1 Heading">
+
+    ...which we style.
+
+  -->
+
+  {% include privacy_policy_text.html %}
+
+</section>
+
+{% include footer.html %}
+</p>
