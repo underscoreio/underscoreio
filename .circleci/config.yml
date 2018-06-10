@@ -48,7 +48,7 @@ jobs:
     - store_artifacts:
         path: /tmp/circleci-test-results
 
-    - bin: bundle exec rake deploy-production
+    - run: bundle exec rake deploy-production
 
 workflows:
   version: 2
