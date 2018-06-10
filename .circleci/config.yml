@@ -30,6 +30,8 @@ jobs:
     - run: yarn
     - run: bundle install
     - run: sudo pip install awscli
+    - run: bundle exec rake test
+    - run: bundle exec rake deploy-production
 
     - save_cache:
         key: v1-dep-{{ .Branch }}-{{ epoch }}
@@ -38,16 +40,12 @@ jobs:
         - ~/.cache/bower
         - ./node_modules
 
-    - run: bundle exec rake test
-
     - store_test_results:
         path: /tmp/circleci-test-results
     - store_artifacts:
         path: /tmp/circleci-artifacts
     - store_artifacts:
         path: /tmp/circleci-test-results
-
-    - run: bundle exec rake deploy-production
 
 workflows:
   version: 2
