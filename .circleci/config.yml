@@ -16,8 +16,7 @@ jobs:
     - run:
         working_directory: ~/underscoreio/underscoreio
         command: 'echo ''Europe/London'' | sudo tee -a /etc/timezone; sudo dpkg-reconfigure
-          -f noninteractive tzdata; sudo service mysql restart; sudo service postgresql
-          restart; '
+          -f noninteractive tzdata;'
     - run:
         working_directory: ~/underscoreio/underscoreio
         command: nvm install v5.7.0 && nvm alias default v5.7.0
