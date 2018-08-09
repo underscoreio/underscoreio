@@ -1,6 +1,6 @@
 ---
 layout: job
-expire: 2018-08-27
+expire: 2018-09-10
 title: Scala Developer
 company: |
   Dreamlines
@@ -19,22 +19,25 @@ junior: true
 
 <!-- break -->
 
-Essential
+### Essential
 
-Demonstrated experience of at least two of these technologies: Scala, Java, NodeJS. 
-Experience with SQL Databases
-Experience with test-driven development and automated testing frameworks
-Familiar with Scrum/Agile development methodologies
-Experience with building APIs and services using REST and SOAP 
-Great if you have
+- Demonstrated experience of at least two of these technologies: Scala, Java, NodeJS. 
+- Experience with SQL Databases
+- Experience with test-driven development and automated testing frameworks
+- Familiar with Scrum/Agile development methodologies
+- Experience with building APIs and services using REST and SOAP 
 
-Experience with NoSQL technologies like MongoDB, ElasticSearch and Redis
-Experience with infrastructure automation technologies like Docker
-Experience with cloud technologies like Amazon Web Services
-Experience with monitoring technologies like Grafana, Prometheus and Logstash
-Our Offer
+### Great if you have
 
-An international and dynamic company culture in the city center of Hamburg, the Northern capital of Germany
-Responsibility from Day One in a motivated team
-Flexible working hours, grants for public transport, free drinks & fruits, cruise & shopping discounts, company sports, team & company events on a regular basis
+- Experience with NoSQL technologies like MongoDB, ElasticSearch and Redis
+- Experience with infrastructure automation technologies like Docker
+- Experience with cloud technologies like Amazon Web Services
+- Experience with monitoring technologies like Grafana, Prometheus and Logstash
+
+### Our Offer
+
+- An international and dynamic company culture in the city center of Hamburg, the Northern capital of Germany
+- Responsibility from Day One in a motivated team
+- Flexible working hours, grants for public transport, free drinks & fruits, cruise & shopping discounts, company sports, team & company events on a regular basis
+
 Position: Full-Time
