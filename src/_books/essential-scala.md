@@ -11,8 +11,13 @@ summary: |
   Learn to write robust, performant, idiomatic Scala.
   A focused guide for established developers.
 buyButtons:
-- label: "Download the ebook&mdash;FREE"
-  url: "https://gum.co/essential-scala"
+buyButtons:
+- label: "Read the book"
+  url: "https://books.underscore.io/essential-scala/essential-scala.html"
+- label: "Download as PDF"
+  url: "https://books.underscore.io/essential-scala/essential-scala.pdf"
+- label: "Download as ePub"
+  url: "https://books.underscore.io/essential-scala/essential-scala.epub"
 ---
 
 ## Overview
