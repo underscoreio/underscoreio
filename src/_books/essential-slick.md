@@ -16,11 +16,11 @@ summary: |
   For new to intermediate Scala developers.
 buyButtons:
 - label: "Read the book"
-  url: "http://books.underscore.io/essential-slick/essential-slick-3.html"
+  url: "https://books.underscore.io/essential-slick/essential-slick-3.html"
 - label: "Download as PDF"
-  url: "http://books.underscore.io/essential-slick/essential-slick-3.pdf"
+  url: "https://books.underscore.io/essential-slick/essential-slick-3.pdf"
 - label: "Download as ePub"
-  url: "http://books.underscore.io/essential-slick/essential-slick-3.epub"
+  url: "https://books.underscore.io/essential-slick/essential-slick-3.epub"
 ---
 
 ## Overview
