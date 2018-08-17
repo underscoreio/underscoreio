@@ -17,7 +17,7 @@ We propose [Bridges][1] as a solution for this issue. Bridges is in the early st
 
 # Introducing Bridges
 
-[Bridges][1] is, at its core, a simple library: it uses [Shapeless][6] to translate our ADTs into an intermediate language. Then we can use that language to generate valid representations of those ADTs in the front-end.
+[Bridges][1] is, at its core, a simple library: it uses [shapeless][6] to translate our ADTs into an intermediate language. Then we can use that language to generate valid representations of those ADTs in the front-end.
 
 The advantage of using an intermediate representation is that Bridges can generate output for multiple front-end languages. Currently there is support for [Typescript][7], [Flow][10], and [Elm][8], but that can be easily extended for other languages.
 
@@ -65,7 +65,7 @@ As you can see, Bridges tells us the `Color` is a structure with three numeric f
 ```scala
 import bridges.typescript._
 
-render[Typescript](decl)
+Typescript.render(decl)
 // res0: String = export type Color = { red: number, green: number, blue: number };
 ```
 
@@ -75,7 +75,7 @@ Or we can request the implementation for all our ADTs, as follows:
 import bridges.syntax._
 import bridges.typescript._
 
-render[Typescript](List(declaration[Color],
+Typescript.render(List(declaration[Color],
   declaration[Circle],
   declaration[Rectangle],
   declaration[Shape]
@@ -105,14 +105,16 @@ render[Typescript](List(declaration[Color],
 
 ```
 
-The output is a typical representation of an ADT in Typescript: a set of structural types and a tagged union based on a discriminator field called `type`.
+The output of `render()` is a typical representation of an ADT in Typescript: a set of structural types and a tagged union based on a discriminator field called `type`.
+
+# Bridging Scala and Elm
 
 Instead of `Typescript` we may want the `Elm` output, which we can obtain by replacing the language type parameter:
 
 ```scala
 import bridges.elm._
 
-render[Elm](List(declaration[Color],
+Elm.render(List(declaration[Color],
   declaration[Circle],
   declaration[Rectangle],
   declaration[Shape]
@@ -132,7 +134,7 @@ render[Elm](List(declaration[Color],
 
 Elm has direct language support for ADTs, which is represented in the definition of `Shape`.
 
-# Working with JSON
+## Generating JSON encoders and decoders
 
 Now that we can generate code from our ADTs we have reduced the impact of changing our back-end model. But we still need to adapt our decoders to match the new model, which is an error prone task. We can do better.
 
@@ -158,7 +160,7 @@ Let's see some examples, using the ADT we defined in the previous section. First
 import bridges.syntax._
 import bridges.elm._
 
-jsonDecoder[Elm](declaration[Color])
+Elm.jsonDecoder(declaration[Color])
 
 // res1: String =
 //   decoderColor : Decode.Decoder Color
@@ -171,7 +173,7 @@ jsonDecoder[Elm](declaration[Color])
 And let's build the encoder for the same type:
 
 ```scala
-jsonEncoder[Elm](declaration[Color])
+Elm.jsonEncoder(declaration[Color])
 
 // res1: String =
 //   encoderColor : Color -> Encode.Value
@@ -184,7 +186,7 @@ jsonEncoder[Elm](declaration[Color])
 For a more complex ADT like `Shape`, we get a more complex decoder that expects the `type` field as a discriminator:
 
 ```scala
-jsonDecoder[Elm](declaration[Shape])
+Elm.jsonDecoder(declaration[Shape])
 
 // res1: String =
 //   decoderShape : Decode.Decoder Shape
@@ -210,7 +212,7 @@ jsonDecoder[Elm](declaration[Shape])
 As well as the matching encoder:
 
 ```scala
-jsonEncoder[Elm](declaration[Shape])
+Elm.jsonEncoder(declaration[Shape])
 
 // res1: String =
 // encoderShape : Shape -> Encode.Value
@@ -231,15 +233,13 @@ jsonEncoder[Elm](declaration[Shape])
 //          ("type", Encode.string "ShapeGroup") ]
 ```
 
-The [Bridges][1] codebase includes several examples of different ADTs along with expected output for each. Check the tests, specifically `JsonDecoderSpec` and `JsonEncoderSpec`, for more information.
+The Bridges codebase includes several examples of different ADTs along with expected output for each. Check the tests, specifically `JsonDecoderSpec` and `JsonEncoderSpec`, for more information.
 
-# Creating complete module files
+## Creating complete Elm modules
 
-TODO: YOU ARE HERE
+To compile the Elm code we've produced so far, we need we to join the fragments and add the required imports. Bridges' Elm module provides another method to help with this:
 
-So far we have built fragments in `Elm` based on our `Scala` types. To compile this code we need we to join the fragments and add the required imports. Bridges' Elm module provides another method to help with this:
-
-* `buildFile[L](module: String, dec: Declaration)` returns a pair of `Strings`: a file name and the contents of the file.
+* `buildFile[L](module: String, decls: List[Declaration])` returns a pair of `Strings`: a file name and the contents of the file.
 
 `buildFile` uses the other methods discussed above to provide a convient, batteries-included way of generating Elm code. Let's see an example based on an ADT we have used on this post:
 
@@ -247,7 +247,7 @@ So far we have built fragments in `Elm` based on our `Scala` types. To compile t
 import bridges._
 import bridges.syntax._
 
-buildFile[Elm]("CustomModule", declaration[Color])
+Elm.buildFile("CustomModule", List(declaration[Color]))
 
 // res1: (String, String)
 // res1._1: String =
@@ -275,7 +275,7 @@ buildFile[Elm]("CustomModule", declaration[Color])
 //      ("blue", Encode.int obj.blue) ]
 ```
 
-# Integrating Bridges into a project
+## Integrating with SBT
 
 You can use the filename and content from `buildFile` to create an Elm source file at a relevant location. The easiest way to do this is to add a separate project to your SBT build definition:
 
@@ -301,8 +301,8 @@ object GenerateElmCode extends App {
 
   // generate Elm types for the following ADTs
   val map = Map(
-    buildFile[Elm](module, declaration[Color]),
-    buildFile[Elm](module, declaration[Shape])
+    Elm.buildFile(module, declaration[Color]),
+    Elm.buildFile(module, declaration[Shape])
   )
 
   // Write files to disk
@@ -411,7 +411,7 @@ We have presented [Bridges][1], a library to generate front-end code for our app
 
 # Acknowledgements
 
-Bridges is a collaboration between [Dave Gurnell][2] and myself. Thanks to [Miles Sabin][4] for his help solving Shapeless-related queries.
+Bridges is a collaboration between [Dave Gurnell][2] and myself inspired by work by [Stephen Kennedy][16]. Thanks to [Miles Sabin][4] for his help solving shapeless-related queries.
 
 [1]: https://github.com/davegurnell/bridges
 [2]: https://twitter.com/davegurnell
@@ -427,3 +427,4 @@ Bridges is a collaboration between [Dave Gurnell][2] and myself. Thanks to [Mile
 [13]: https://github.com/circe/circe/pull/429
 [14]: https://github.com/danyx23/elm-uuid
 [15]: https://github.com/fthomas/refined
+[16]: https://github.com/skennedy
