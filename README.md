@@ -12,9 +12,7 @@ Please issue PRs against changes.
 
 ## Daily Build
 
-A build and deploy of the master branch is triggered Mon-Fri at 8am.
-This is via an [AWS Lambda job](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions/CURL?tab=triggers)
-called "CURL" using a Circle CI token called "LAMBDA_CRON_CURL".
+A build and deploy of the master branch is triggered every day at 8am.
 
 ## Building the Site
 
