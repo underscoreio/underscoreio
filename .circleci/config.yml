@@ -1,5 +1,17 @@
 version: 2
 jobs:
+  deploy:
+    working_directory: ~/underscoreio/underscoreio
+    parallelism: 1
+    shell: /bin/bash --login
+    environment:
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    docker:
+    - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
+      command: /sbin/init
+    steps:
+        - run: bundle exec rake deploy-production
   build:
     working_directory: ~/underscoreio/underscoreio
     parallelism: 1
@@ -31,7 +43,6 @@ jobs:
     - run: bundle install
     - run: sudo pip install awscli
     - run: bundle exec rake test
-    - run: bundle exec rake deploy-production
 
     - save_cache:
         key: v1-dep-{{ .Branch }}-{{ epoch }}
@@ -52,5 +63,11 @@ workflows:
   build_and_deploy:
     jobs:
       - build
+      - deploy:
+          requires:
+           - build
+          filters:
+            branches:
+              only: master
 
 
