@@ -10,7 +10,7 @@ remote: No
 summary: |
   We are looking for a Scala Developer to join our backend engineering team. The ideal candidate is a hands-on technology enthusiast with significant experience in developing scalable data platforms. You should be a good team player with critical thinking, a keen eye for detail and strong problem solving skills.
 admin: arianna@meritocracy.is
-application_url: https://meritocracy.is/en/dreamlines/scala-developer-92581?utm_source=underscore.io&utm_medium=referral&utm_campaign=dreamlines_scala_developer
+application_url: https://meritocracy.is/en/dreamlines/scala-developer-14223?utm_source=underscore.io&utm_medium=referral&utm_campaign=dreamlines_scala_developer
 instructions: |
   Apply online. Click "Apply Now" below to get started.
 junior: true

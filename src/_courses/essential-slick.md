@@ -22,7 +22,7 @@ online:
 
 Essential Slick is a guide to building a database application using the Slick library. It is aimed at Scala developers who need to become productive with Slick quickly.
 
-We've seen that developers using Slick for the first time often need help getting started with the library.
+We've seen that developers using Slick for the first time need help getting started with the library.
 For example, there are unfamiliar concepts to learn and work with, such as _database actions_.
 This text gives an understanding of how to work with Slick by walking through the common tasks, explaining the methods and types you see, and providing exercises.
 
