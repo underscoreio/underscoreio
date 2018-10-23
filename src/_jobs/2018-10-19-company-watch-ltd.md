@@ -19,7 +19,7 @@ instructions: |
 
 <!-- break -->
 
-### Job Title: Scala Web Developer
+### Scala Web Developer
 #### London EC3N; Permanent; onsite
 ##### Competitive salary & benefits (private medical, critical illness, death-in-service, pension) 
 Company Watch provides risk analysis and data modelling tools to organisations around the world which rely on our ability to accurately predict their exposure to financial risk. Our H-Score® predicted 92% of quoted company insolvencies around the world over the last 4 years and our TextScore accuracy rate was 93%. 
@@ -60,7 +60,7 @@ As a small but expanding company we are looking to expand our software engineeri
 
 #### Application Process
 Company Watch’s standard application process is as follows:
-Interested candidates should send their CV and brief covering letter explaining why they think they would be suited to the role to [careers@companywatch.net](mailto:careers@companywatch.net).  Due to the number of applications expected for this role we may not be able to reply to all applicants individually.
+Interested candidates should send their CV and brief covering letter explaining why they think they would be suited to the role using the "Apply Now" button.  Due to the number of applications expected for this role we may not be able to reply to all applicants individually.
 
 Shortlisted candidates will be interviewed – there will be at least a two-stage interview process (the first interview may be via telephone/online). The interview process may also involve a subject matter test.
 Candidates who pass the first stage of interview will be required to complete a psychometric questionnaire.
