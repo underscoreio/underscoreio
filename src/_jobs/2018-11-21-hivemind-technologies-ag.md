@@ -9,8 +9,7 @@ level: Junior, Intermediate, Senior
 remote: Yes
 summary: |
   Hivemind Technologies specializes in the development of high-performance and scalable big data systems. We help our customers gain more from their data and advise them how to use state-of-the-art technology to process, store and analyze their data.
-
-We are a small team of skilled Scala developers which like to write pure functional and clean Scala code. We are working mostly fullstack with little frontend but quite a bit of DevOps.
+  We are a small team of skilled Scala developers which like to write pure functional and clean Scala code. We are working mostly fullstack with little frontend but quite a bit of DevOps.
 admin: valentin.willscher@hivemindtechnologies.com
 application_url: http://www.hivemindtechnologies.com/jobs/
 instructions: |
