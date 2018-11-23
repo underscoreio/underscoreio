@@ -26,4 +26,4 @@ We are a small team of skilled Scala developers which like to write pure functio
 
 We are nice work with, we have flexible working times and embrace remote work. We also sponsor visits to conferences and are offering free coffee and fruits in the office.
 
-Remote work is possible for all EU / EEA nationals or when having permission to work within ithe EU / EEA and live in one of these timezones: GMT, CET or EET. (No Visa sponsorship)
+Remote work is possible for all EU / EEA nationals or when having permission to work within the EU / EEA and live in one of these timezones: GMT, CET or EET. (No Visa sponsorship)
