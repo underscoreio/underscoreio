@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      Bridging Scala and Elm
+title:      Bridging Scala and the Front-End
 author:     Pere Villega
-date:       '2018-07-10 22:10:00'
+date:       '2018-12-12 20:01:00'
 ---
 
 In this blog post we will talk about [Bridges][1], a simple library that generates front-end code from your Scala ADTs and reduces the friction of changing your data model. We will present the project, show how to use it, and list some common traps to avoid when creating your ADTs. We will also showcase some advanced features for projects using Scala and [Elm][8].
@@ -23,19 +23,84 @@ The advantage of using an intermediate representation is that Bridges can genera
 
 The main difference with other tools like [Protocol Buffers][5] is that the intermediate model is automatically derived at compile time. We are writing code in Scala and obtaining the front-end representation automatically, so any change to our Scala ADT is automatically picked up by the type-checker for our front-end codebase.
 
-# Using Bridges
+# Bridges intermediate language
 
-To use Bridges in our application, we simply need to import the library using the latest version (currently `0.9.0`):
+Bridges intermediate language tries to directly represent a Scala ADT using another ADT. At the core we have two types:
+
+The type `DeclF[A]` represents a named declaration, that is the representation of a type along its name. This named declaration can be used as a top level element, or as a field when defining a Product or Sum for the representation of an ADT.
+
+The type `Type` maps elements found in a Scala ADT. We have a definition for `Prod` (Product) and `Sum`, as well as definitions for basic types in Scala. We also use the special type `Ref` to represent types defined by the user. 
+
+The definitions for both types follow:
 
 ```scala
-libraryDependencies += "com.davegurnell" %% "bridges" % "0.9.0"
+final case class DeclF[+A](name: String, tpe: A)
+
+sealed abstract class Type extends Product with Serializable
+final case class Prod(fields: List[Decl])      extends Type
+final case class Sum(products: List[ProdDecl]) extends Type
+final case class Ref(id: String)               extends Type
+final case object Str                          extends Type
+// and others...
 ```
 
-At its core, Bridges is based in two methods:
+With these definitions we can transform a given case class into a corresponding `Type` structure:
 
-* `declaration[A]` generates an intermediate language representation of one of our data types `A`;
+```scala
+case class Value(value: String) extends AnyVal
 
-* `render[L](declarations: List[Declaration])` generates a `String` of code in some front-end language `L` for all `declarations` provided.
+DeclF("Value", Str)
+
+// second example
+case class Pair(a: String, b: Int)
+
+DeclF("Pair", Prod(List(
+          DeclF("a", Str),
+          DeclF("b", Intr)
+        )))
+```
+
+
+# DeclF and multiple target languages
+
+Note that `DeclF` (defined in the previous section) is parameterised by `A`. By default `A` is `Type`, as In
+
+```scala
+type Decl = DeclF[Type]
+```
+
+but this representation allows us to swap the `Type` representation used by our intermediate language, if needed. This is a requirement that has been added as Bridges started targeting several languages with different capabilities.
+
+Currently Bridges is targeting 3 languages: `Elm`, `Typescript` and `Flow`. `Elm` has a Haskell-like syntax that matches perfectly the intermediate language we described in the previous section. But `Flow`, for example, differentiates between `union types`, `intersection types`, and `structs`. This doesn't map in a straightforward way to our ADT `Products` and `Sums`. 
+
+Solving this mismatch between the target languages was creating friction in the intermediate language, thus the solution to add `A` to `DeclF`: if your language may need to cover special cases, you can create your own intermediate language and use it, so your resulting code matches expectations.
+
+# From intermediate to final representation
+
+Once we have our `DeclF` representing the `Scala` code to translate, we need a way to obtain a `String` with the syntax for the target language. This is achieved via the `Renderer[A]` trait and its various implementations. `Renderer` is defined as:
+
+```scala
+trait Renderer[A] {
+  def render(decl: DeclF[A]): String
+}
+```
+
+and we implement one instance for each target language. For example, for `Elm` and `Flow` we have:
+
+```scala
+class ElmRenderer extends Renderer[Type] { ... }
+class FlowRenderer extends Renderer[FlowType] { ... }
+```
+Note that while `Elm` used the default `Type` describe before, the `FlowRenderer` class uses its own `FlowType` intermediate representation to be able to define `intersection types`.
+
+
+# Using Bridges with Typescript
+
+With the above, we have all the pieces we need to generate our final representations. To use Bridges in our application, we simply need to import the library using the latest version (currently `0.11.0`):
+
+```scala
+libraryDependencies += "com.davegurnell" %% "bridges" % "0.11.0"
+```
 
 Let's see it in action with some sample ADTs:
 
@@ -47,71 +112,77 @@ final case class Circle(radius: Double, color: Color) extends Shape
 final case class Rectangle(width: Double, height: Double, color: Color) extends Shape
 ```
 
-We'll start by generating the intermediate representation of `Color`:
+We'll start by generating the intermediate representation of `Color` for `Typescript`:
 
 ```scala
-import bridges.syntax._
+import bridges.typescript.syntax._
 
-val decl = declaration[Color]
-// decl: bridges.core.Declaration =
-//   Declaration(
-//     Color,
-//     Struct(List((red,Num), (green,Num), (blue,Num))))
-
+val declaration = decl[Color]
+// declaration: bridges.typescript.TsDecl = 
+//	  DeclF(Color,
+//			Struct(List(DeclF(red,Intr), DeclF(green,Intr), DeclF(blue,Intr))))
 ```
 
-As you can see, Bridges tells us the `Color` is a structure with three numeric fields. Now let's request the `Typescript` representation of this declaration:
+As you can see, Bridges tells us the `Color` is a structure tagged as `Color` that forms a `Struct` with three numeric fields, one per each field in our class. Note that `declaration` is of type `TsDecl` which is defined as `DeclF[TsType]` as `Typescript` requires its own intermediate language.
+
+Now let's request the `Typescript` representation of this declaration:
 
 ```scala
 import bridges.typescript._
 
-Typescript.render(decl)
+TsTypeRenderer.render(declaration)
 // res0: String = export type Color = { red: number, green: number, blue: number };
 ```
 
 Or we can request the implementation for all our ADTs, as follows:
 
 ```scala
-import bridges.syntax._
 import bridges.typescript._
+import bridges.typescript.syntax._
 
-Typescript.render(List(declaration[Color],
-  declaration[Circle],
-  declaration[Rectangle],
-  declaration[Shape]
+TsTypeRenderer.render(List(decl[Color],
+  decl[Circle],
+  decl[Rectangle],
+  decl[Shape]
 ))
 // res1: String =
-//   export type Color = {
-//     red: number,
-//     green: number,
-//     blue: number
-//   };
-//
-//   export type Circle = {
-//     radius: number,
-//     color: Color
-//   };
-//
-//   export type Rectangle = {
-//     width: number,
-//     height: number,
-//     color: Color
-//   };
-//
-//   export type Shape = (
-//     ({ type: "Circle" } & Circle) |
-//     ({ type: "Rectangle" } & Rectangle)
-//   );
-
+//		export type Color = { red: number, green: number, blue: number };
+//		export type Circle = { radius: number, color: Color };
+//		export type Rectangle = { width: number, height: number, color: Color };
+//		export type Shape = { type: "Circle", radius: number, color: Color } | { type: "Rectangle", width: number, height: number, color: Color };
 ```
 
-The output of `render()` is a typical representation of an ADT in Typescript: a set of structural types and a tagged union based on a discriminator field called `type`.
+The output of `render()` is a typical representation of an ADT in `Typescript`: a set of structural types and a tagged union based on a discriminator field called `type`.
+
+## Typescript and guards
+
+Having an intermediate language means that we can do more than just `render` our types in the syntax of the target language. For example, once we are running our `Typescript` code we will need to load `Json` and convert it to one of the types defined above. This is a repetitive task, as we can use Bridges to generate that code for us.
+
+By creating a new trait `TsGuardRenderer` that uses `DeclF[TsType]` as inout we can generate the following:
+
+```scala
+TsGuardRenderer.render(decl[Color])
+// res0: String =
+// export function isColor(v: any): boolean {
+//   return typeof v.red === "number" && typeof v.green === "number" && typeof v.blue === "number";
+// }
+//
+// export function asColor(v: any): ?Color {
+//   return isColor(v)
+//     ? v as Color
+//     : throw new Error("Expected Color, received " + JSON.stringify(v, null, 2));
+// }
+```
+
+The code we generated allows us to verify some `Json` is a valid `Color` by using `isColor` and, if it is, we can obtain a `Color` using `asColor`. 
+
 
 # Bridging Scala and Elm
 
 Instead of `Typescript` we may want the `Elm` output, which we can obtain by replacing the language type parameter:
 
 ```scala
+import bridges.core.syntax._
 import bridges.elm._
 
 Elm.render(List(declaration[Color],
@@ -132,13 +203,13 @@ Elm.render(List(declaration[Color],
 
 ```
 
-Elm has direct language support for ADTs, which is represented in the definition of `Shape`.
+Elm has direct language support for ADTs, which means we can use the default `Type` instead of having to create our own intermediate representation.
 
 ## Generating JSON encoders and decoders
 
-Now that we can generate code from our ADTs we have reduced the impact of changing our back-end model. But we still need to adapt our decoders to match the new model, which is an error prone task. We can do better.
+For projects that use `Elm` we can also generate JSON encoders and decoders (support for `Typescript` and `Flow` codebases is coming). This means we can use these encoders and decoders in our `Elm` code, ensuring we are working with a version that matches the `Json` sent by the back-end.
 
-For projects that use `Elm` we can also generate JSON encoders and decoders (support for Typescript and Flow codes is coming). This makes a few assumptions about our data model:
+For this functionality to work, we make a few assumptions about our data model:
 
 * All `Elm` types generated by `Bridges` will belong to the same module;
 
@@ -150,17 +221,17 @@ These assumptions mean that we can predict the shape of the decoder and generate
 
 Bridges provides two methods to generate Json encoders and decoders:
 
-* `jsonDecoder[L](dec: Declaration)` will generate the decoder for our ADT;
+* `decoder(dec: DeclF[Type])` will generate the decoder for our ADT;
 
-* `jsonEncoder[L](dec: Declaration)` will generate the encoder for our ADT.
+* `encoder(dec: DeclF[Type])` will generate the encoder for our ADT.
 
 Let's see some examples, using the ADT we defined in the previous section. First let's generate a decoder for `Color`:
 
 ```scala
-import bridges.syntax._
+import bridges.core.syntax._
 import bridges.elm._
 
-Elm.jsonDecoder(declaration[Color])
+Elm.decoder(decl[Color])
 
 // res1: String =
 //   decoderColor : Decode.Decoder Color
@@ -173,7 +244,10 @@ Elm.jsonDecoder(declaration[Color])
 And let's build the encoder for the same type:
 
 ```scala
-Elm.jsonEncoder(declaration[Color])
+import bridges.core.syntax._
+import bridges.elm._
+
+Elm.encoder(decl[Color])
 
 // res1: String =
 //   encoderColor : Color -> Encode.Value
@@ -186,7 +260,10 @@ Elm.jsonEncoder(declaration[Color])
 For a more complex ADT like `Shape`, we get a more complex decoder that expects the `type` field as a discriminator:
 
 ```scala
-Elm.jsonDecoder(declaration[Shape])
+import bridges.core.syntax._
+import bridges.elm._
+
+Elm.encoder(decl[Shape])
 
 // res1: String =
 //   decoderShape : Decode.Decoder Shape
@@ -212,7 +289,10 @@ Elm.jsonDecoder(declaration[Shape])
 As well as the matching encoder:
 
 ```scala
-Elm.jsonEncoder(declaration[Shape])
+import bridges.core.syntax._
+import bridges.elm._
+
+Elm.encoder(decl[Shape])
 
 // res1: String =
 // encoderShape : Shape -> Encode.Value
@@ -233,7 +313,7 @@ Elm.jsonEncoder(declaration[Shape])
 //          ("type", Encode.string "ShapeGroup") ]
 ```
 
-The Bridges codebase includes several examples of different ADTs along with expected output for each. Check the tests, specifically `JsonDecoderSpec` and `JsonEncoderSpec`, for more information.
+The Bridges codebase includes several examples of different ADTs along with expected output for each. Check the tests, specifically `ElmJsonDecoderSpec` and `ElmJsonEncoderSpec`, for more information.
 
 ## Creating complete Elm modules
 
@@ -241,13 +321,13 @@ To compile the Elm code we've produced so far, we need we to join the fragments 
 
 * `buildFile[L](module: String, decls: List[Declaration])` returns a pair of `Strings`: a file name and the contents of the file.
 
-`buildFile` uses the other methods discussed above to provide a convient, batteries-included way of generating Elm code. Let's see an example based on an ADT we have used on this post:
+`buildFile` uses the other methods discussed above to provide a convenient, batteries-included way of generating Elm code. Let's see an example based on an ADT we have used on this post:
 
 ```scala
-import bridges._
-import bridges.syntax._
+import bridges.core.syntax._
+import bridges.elm._
 
-Elm.buildFile("CustomModule", List(declaration[Color]))
+Elm.buildFile("CustomModule", decl[Color])
 
 // res1: (String, String)
 // res1._1: String =
@@ -275,48 +355,7 @@ Elm.buildFile("CustomModule", List(declaration[Color]))
 //      ("blue", Encode.int obj.blue) ]
 ```
 
-## Integrating with SBT
-
-You can use the filename and content from `buildFile` to create an Elm source file at a relevant location. The easiest way to do this is to add a separate project to your SBT build definition:
-
-```scala
-// Main application code:
-lazy val app = project.in(file("app"))
-
-// Bridges-based code generation:
-lazy val generate = project.in(file("generate"))
-  .dependsOn(app)
-  .settings(
-    libraryDependencies ++= "com.davegurnell" %% "bridges" % "0.9.0",
-    publish := {},
-    publishLocal := {},
-  )
-```
-
-The application code for the `generate` project can be quite simple:
-
-```scala
-object GenerateElmCode extends App {
-  val module = "Generated"
-
-  // generate Elm types for the following ADTs
-  val map = Map(
-    Elm.buildFile(module, declaration[Color]),
-    Elm.buildFile(module, declaration[Shape])
-  )
-
-  // Write files to disk
-  map.foreach {
-    case (fileName, content) ⇒
-      new PrintWriter(fileName) {
-        write(content)
-        close()
-      }
-  }
-}
-```
-
-We make sure to run this before any `Elm` build in our local and `ci` environments, to verify the code matches expectations.
+You can use the filename and content from `buildFile` to create an Elm source file at a relevant location as part of your build pipeline. 
 
 # Gotchas
 
@@ -325,8 +364,7 @@ Here are a few problems and workarounds you may encounter using Bridges:
 ## Overriding definitions for specific types
 
 Sometimes, a case class in the back-end may include a type that we don't want to derive in the front-end.
-For example, we may have a custom data type `Foo` on the back-end
-that we want to represent with a simple type like `Int` in the UI.
+For example, we may have a custom data type `Foo` on the back-end that we want to represent with a simple type like `Int` in the UI.
 
 We can modify the way values are translated to the intermediate language using implicits.
 For this example, we would add the following to our code generator:
@@ -338,76 +376,38 @@ implicit val fooEncoder: BasicEncoder[Foo] =
 
 This will convert any reference to `Foo` to a numeric value in our generated code.
 
-## Recursive types
-
-Bridges is not currently able to handle self-recursive data types:
-
-```scala
-final case class Bar(name: String, children: List[Bar])
-```
-
-We're working on this support. In the meantime if you try to generate declarations for similar structures,
-it will fail to compile (with a pretty spectacular error message).
-One possible solution is to break the offending data types into mutually recursive parts:
-
-```scala
-sealed trait Bar
-final case class BarOne(name: String, children: List[Bar]) extends Bar
-```
-
-Another is to create the declarations by hand using our handy DSL:
-
-```
-import bridges.core._
-import bridges.core.Type._
-import bridges.syntax._
-
-"Bar" := Struct("name" -> Str, "children" -> Array(Ref("Bar")))
-
-// res0: bridges.core.Declaration =
-//   Declaration(
-//     Bar,
-//     Struct(List(
-//       (name, Str),
-//       (children, Array(Ref(Bar))))))
-```
-
 ## Refined types
 
-[Refined][15] is a Scala library for refining types with type-level predicates that constrain the set of values described by some underlying type (for example, the set of positive integers, or the set of strings of a certain length). When using Bridges on Refined values, we need to provide some additional implicits:
+[Refined][15] is a Scala library for refining types with type-level predicates that constrain the set of values described by some underlying type (for example, the set of positive integers, or the set of strings of a certain length). When using Bridges on Refined values, it is very important that the following import from `refined-shapeless` is in scope, to avoid compilation errors:
 
 ```scala
-type ShortStringRefinementType = Size[ClosedOpen[W.`1`.T, W.`100`.T]]
+import eu.timepit.refined.shapeless.typeable._
+````
 
-type ShortString = String Refined ShortStringRefinementType
-
-final case class ClassWithRefinedType(name: ShortString)
-```
-
-In this example we need to provide the following implicits to generate a declaration for `ShortString`:
+For example, given the following refined type `RefinedString` we can generate our declaration as follows:
 
 ```scala
 import eu.timepit.refined._
+import eu.timepit.refined.api.Refined
+import eu.timepit.refined.collection.Size
+import eu.timepit.refined.numeric.Interval.ClosedOpen
+import eu.timepit.refined.shapeless.typeable._
 
-implicit val refinedTypeEncoder: BasicEncoder[ShortString] =
-  Encoder.pure(Str)
+type RefinedString = String Refined Size[ClosedOpen[W.`1`.T, W.`100`.T]]
 
-implicit val refinedTypeTypeable: Typeable[ShortString] =
-  new Typeable[ShortString] {
-      def cast(t: Any): Option[ShortString] = {
-         if (t != null && t.isInstanceOf[String])
-           refineV[ShortStringRefinementType](t.asInstanceOf[String]).toOption
-         else None
-      }
+final case class ClassWithRefinedType(name: RefinedString)
 
-      def describe: String =
-        "ShortString"
-  }
+decl[ClassWithRefinedType] 
+// res0: bridges.typescript.TsDecl = 
+// 		DeclF(ClassWithRefinedType,
+			Struct(List(DeclF(name,Str))))
 ```
+
+Note that the type for `RefinedString` is `Str` when using the intermediate language, we have removed the refinement and preserved the base type.
 
 # Conclusions
 
-We have presented [Bridges][1], a library to generate front-end code for our apps based on our back-end ADTs. We showed how we use this in to generate valid code for `Elm`, simplifying development and reducing the effort needed to keep both front-end and back-end in sync.
+We have presented [Bridges][1], a library to generate front-end code for our apps based on our back-end ADTs. We showed how we use this in to generate valid code for `TypeScript` and `Elm`, simplifying development and reducing the effort needed to keep both front-end and back-end in sync.
 
 # Acknowledgements
 
