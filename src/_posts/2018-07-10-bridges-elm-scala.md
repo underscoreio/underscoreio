@@ -63,7 +63,7 @@ DeclF("Pair", Prod(List(
 
 # DeclF and multiple target languages
 
-Note that `DeclF` (defined in the previous section) is parameterised by `A`. By default `A` is `Type`, as In
+Note that `DeclF` (defined in the previous section) is parameterised by `A`. By default `A` is `Type`, as in
 
 ```scala
 type Decl = DeclF[Type]
