@@ -2,7 +2,7 @@
 layout:     post
 title:      Bridging Scala and the Front-End
 author:     Pere Villega
-date:       '2018-12-12 20:01:00'
+date:       '2018-12-12 09:00:00'
 ---
 
 In this blog post we will talk about [Bridges][1], a simple library that generates front-end code from your Scala ADTs and reduces the friction of changing your data model. We will present the project, show how to use it, and list some common traps to avoid when creating your ADTs. We will also showcase some advanced features for projects using Scala and [Elm][8].
