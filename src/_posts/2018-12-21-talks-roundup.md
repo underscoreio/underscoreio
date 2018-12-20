@@ -7,7 +7,7 @@ date:       '2018-12-21 09:00:00'
 
 This posts collects together our talks from 2018.
 Inside you'll find a delicious selection of topics, including:
-algebras, interpreters, DLSs, compiler enhancements, avoiding string typing, and deep learning.
+algebras, interpreters, DSLs, compiler enhancements, entire custom languages,avoiding string typing, and deep learning.
 Enjoy, and come over and say hi to us if you're at a Scala conference in 2019.
 
 <!-- break -->
@@ -21,7 +21,6 @@ Enjoy, and come over and say hi to us if you're at a Scala conference in 2019.
 Doug and Martin described how they captured a customer's business processes in a DSL.
 A consequence is that the decision process was provably complete. I.e., no gaps in the complex decisions being made.
 It's also a nice example of a cycle of: delivering working software, learning more, refining the software.
-
 
 # Adding kind-polymorphism to the Scala programming language
 
@@ -51,7 +50,7 @@ In this talk Dave discussed "interpreters", an essential functional programming 
 It shows: how any problem in functional programming can be described using the interpreter pattern, and how modelling things this way naturally gives rise to abstractions like the free monad and encodings like finally tagless.
 
 
-# Why do Functional Programmers always talk about Algebra(s)?
+# Why do functional programmers always talk about algebra(s)?
 
 ### Adam Rosien, Fun(c)
 
@@ -61,7 +60,7 @@ Adam shows us what an algebra is, tells us why functional programmers talk about
 Algebras *are* structure, and he talks about their various forms: algebraic data types, F-algebras, object algebras, and more!
 
 
-# Strings are Evil: Methods to hide the use of primitive types
+# Strings are evil: Methods to hide the use of primitive types
 
 ### Adam Rosien and Noel Welsh, Scala Days Berlin
 
@@ -72,7 +71,7 @@ This is a huge source of bugs in our programs.
 
 This talk went go over the many ways we can reduce these kinds of errors in Scala, such as wrapper types, refined types, type restrictions, and more.
 
-# Differentiable Functional Programming
+# Differentiable functional programming
 
 ### Noel Welsh, Scala Days Berlin
 
@@ -85,6 +84,13 @@ He showed that underpinning it all are concepts familiar to functional programme
 
 He then implemented a toy deep learning system in Scala, and speculated a bit on the future of deep learning frameworks and the rise of "differentiable programming".
 
+# Atlas: A voyage of discovery on the high seas of scripting
 
+### Dave Gurnell, Scalar
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I6xaMkTeujw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Dave described the design, motivation, and implementation of Atlas, a scripting language written in Scala.
+He discussed the use of functional techniques to implement interesting details including parsing, sandboxing, monitoring, and interaction with the host environment.
+This is a lovely look at Scala for an interesting and slightly out-of-the-ordinary application. 
 
