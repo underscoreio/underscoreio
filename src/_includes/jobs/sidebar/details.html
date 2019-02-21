@@ -21,9 +21,9 @@
         <dd class="job-level">{{ include.job.level }}</dd>
         {% endif %}
 
-        {% if include.job.commitment %}
-        <dt>Commitment</dt>
-        <dd class="job-commitment">{{ include.job.commitment }}</dd>
+        {% if include.job.contract %}
+        <dt>Contract</dt>
+        <dd class="job-commitment">{{ include.job.contract }}</dd>
         {% endif %}
 
         {% if include.job.salary %}
@@ -40,6 +40,7 @@
         <dt>Requires</dt>
         <dd class="job-citizenship">{{ include.job.citizenship | markdownify }}<dd>
         {% endif %}
+
 
         {% if include.job.remote %}
         <dt>Remote</dt>
