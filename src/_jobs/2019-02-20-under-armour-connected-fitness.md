@@ -6,7 +6,6 @@ company: |
   Under Armour Connected Fitness
 location: San Francisco, CA, USA 
 level: Intermediate, Senior
-remote: Partial
 contract: Permanent employment
 summary: |
   Under Armour Connected Fitness is looking for engineers to join the MyFitnessPal Services team.  We're designing and building scalable microservices from the ground up and utilizing Scala.  Our community of over 200M users provides us with plenty of challenging problems.  We're continuously improving our set of services and strengthening the foundation for our mobile and internal applications.  We're focused on providing our users with amazing health and fitness experiences. 
