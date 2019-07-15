@@ -57,6 +57,11 @@
 
       {% if include.job.instructions %}
       <strong>How to Apply</strong>
+      {% assign today = 'now' | date: '%s' %}
+      {% assign expires = include.job.expire | date: '%s' %}
+      {% if expires < today %}
+      <p>This role is no longer available</p>
+      {% else if %}
       <div class="job-instructions">{{ include.job.instructions | markdownify }}</div>
       <p>
         <a class="btn btn-block btn-info ga-link"
@@ -73,6 +78,7 @@
           Apply Now
         </a>
       </p>
+      {% endif %}
       {% endif %}
     </div>
   </div>
