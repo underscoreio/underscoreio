@@ -36,11 +36,11 @@
         <dd class="job-location">{{ include.job.location }}</dd>
         {% endif %}
 
-        {% if include.job.citizenship %}
+        {% assign citizenship = include.job.citizenship | strip %}
+        {% if citizenship and citizenship != "No" %}
         <dt>Requires</dt>
         <dd class="job-citizenship">{{ include.job.citizenship | markdownify }}<dd>
         {% endif %}
-
 
         {% if include.job.remote %}
         <dt>Remote</dt>
@@ -61,7 +61,7 @@
       {% assign expires = include.job.expire | date: '%s' %}
       {% if expires < today %}
       <p>This role is no longer available</p>
-      {% else if %}
+      {% else %}
       <div class="job-instructions">{{ include.job.instructions | markdownify }}</div>
       <p>
         <a class="btn btn-block btn-info ga-link"
