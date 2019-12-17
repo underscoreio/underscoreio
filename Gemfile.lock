@@ -64,6 +64,7 @@ GEM
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.2.0)
     rack (1.6.11)
+    rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -97,6 +98,7 @@ DEPENDENCIES
   jekyll-paginate (= 1.1.0)
   kramdown (= 1.13.0)
   pygments.rb (= 0.6.3)
+  rake
   s3_website (= 2.16.0)
   typogruby (= 1.0.18)
 
