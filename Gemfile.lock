@@ -4,13 +4,13 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     aws-eventstream (1.0.3)
-    aws-sdk (2.11.417)
-      aws-sdk-resources (= 2.11.417)
-    aws-sdk-core (2.11.417)
+    aws-sdk (2.11.418)
+      aws-sdk-resources (= 2.11.418)
+    aws-sdk-core (2.11.418)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.417)
-      aws-sdk-core (= 2.11.417)
+    aws-sdk-resources (2.11.418)
+      aws-sdk-core (= 2.11.418)
     aws-sigv4 (1.1.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
     colorator (1.1.0)
@@ -103,4 +103,4 @@ DEPENDENCIES
   typogruby (= 1.0.18)
 
 BUNDLED WITH
-   2.1.0
+   1.13.6
