@@ -6,10 +6,13 @@ jobs:
     - image: underscoreio/web-s3:latest
     steps:
     - checkout
-    - run: gem install bundler -v 2.1.0
     - run: bundle install
-    - run: ls -l /usr/local/bin/
-    - run: bundle exec rake test
+
+    - run:
+        command: bundle exec rake test
+        filters:
+          branches:
+            ignore: master
 
     - run:
         command: bundle exec rake deploy-production
