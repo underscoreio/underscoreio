@@ -45,12 +45,10 @@ file "screen.css" => [ :'node-deps' ] + css_sources do
 end
 
 file "print.css" => [ :'node-deps' ] + css_sources do
-  sh "yarn"
   sh lesscss_command_line("src/_less/print.less", "src/_assets/css/print.css")
 end
 
 file "site.js" => [ :'node-deps' ] + js_sources do
-  sh "yarn"
   sh browserify_command_line("src/_browserify/site.coffee", "src/_assets/js/site.js")
 end
 
