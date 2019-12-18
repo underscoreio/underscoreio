@@ -18,6 +18,7 @@ jobs:
     - run: apt-get install -y --no-install-recommends default-jre
     - checkout
     - run: bundle install
+    - run: bundle exec npm install yarn
     - run: bundle exec rake deploy-production
 
 workflows:
