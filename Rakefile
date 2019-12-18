@@ -37,7 +37,7 @@ def deploy_command_line(bucket, cloudfront)
 end
 
 task :'node-deps' do
-  sh "yarn"
+  sh "yarn --verbose"
 end
 
 file "screen.css" => [ :'node-deps' ] + css_sources do
