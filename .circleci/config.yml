@@ -1,6 +1,15 @@
 version: 2
 jobs:
-  build-and-deploy-if-master:
+  test-build:
+    working_directory: ~/underscoreio/underscoreio
+    docker:
+    - image: underscoreio/web-s3:latest
+    steps:
+    - checkout
+    - run: bundle install
+    - run: bundle exec rake test
+
+  deploy:
     working_directory: ~/underscoreio/underscoreio
     docker:
     - image: underscoreio/web-s3:latest
@@ -9,24 +18,20 @@ jobs:
     - run: apt-get install -y --no-install-recommends default-jre
     - checkout
     - run: bundle install
-
-    - run:
-        command: bundle exec rake test
-        filters:
-          branches:
-            ignore: master
-
-    - run:
-        command: bundle exec rake deploy-production
-        filters:
-          branches:
-            only: master
+    - run: bundle exec rake deploy-production
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build-and-deploy-if-master
+      - deploy:
+          filters:
+            branches:
+              only: master
+      - test-build:
+          filters:
+              branches:
+                ignore: master
   daily:
    triggers:
      - schedule:
@@ -36,5 +41,5 @@ workflows:
              only:
                - master
    jobs:
-     - build-and-deploy-if-master
+     - deploy
 

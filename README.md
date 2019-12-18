@@ -48,11 +48,13 @@ Pushing to `master` deploys to `underscore.io`.
 
 ## CircleCi
 
-To test the Circle-ci config:
+To test the CircleCi config:
 
 ```
-$ circleci local execute --job build-and-deploy-if-master
+$ circleci local execute --job test-build
 ```
+
+...or any other job named in the config file.
 
 ## Software versions
 
