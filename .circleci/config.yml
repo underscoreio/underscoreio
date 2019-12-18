@@ -5,6 +5,8 @@ jobs:
     docker:
     - image: underscoreio/web-s3:latest
     steps:
+    - run: apt-get update
+    - run: apt-get install -y --no-install-recommends default-jre
     - checkout
     - run: bundle install
 
