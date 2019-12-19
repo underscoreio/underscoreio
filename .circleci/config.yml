@@ -6,6 +6,8 @@ jobs:
     - image: underscoreio/web-s3:latest
     steps:
     - checkout
+    - run: npm install yarn
+    - run: echo "export PATH=./node_modules/yarn/bin:$PATH" >> $BASH_ENV
     - run: bundle install
     - run: bundle exec rake test
 
