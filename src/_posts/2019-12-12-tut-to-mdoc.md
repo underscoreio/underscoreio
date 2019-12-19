@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "From tut to mdoc"
+title:      "Tips for moving from tut to mdoc"
 author:     "Richard Dallaway"
 ---
 
@@ -22,6 +22,7 @@ and collected them together in this post.
 [tut]: https://tpolecat.github.io/tut/
 [migration guide]: https://scalameta.org/mdoc/docs/tut.html
 [mbp]: https://scalameta.org/mdoc/blog/2019/12/30/introduction.html
+[Twitter]: https://twitter.com/underscoreio
 
 
 <!-- break -->
@@ -60,7 +61,7 @@ As the excellent [migration guide] tells you, there's one big difference between
 
 - Working with tut is like typing into the REPL.
 Working in a REPL means you can redefine thing as you go,
-but also you sometimes have to nest expressions in objects to work around the way the REPL works.
+but also you sometimes have to nest expressions in objects for the REPL.
 
 - On the other hand, mdoc is like writing a program and compiling it. 
 In other words, redefining a variable name is not permitted, 
@@ -162,8 +163,12 @@ It doesn't come up often, best if you don't need to do it, but great that you ca
 
 # Summary
 
-TODO
+We've converted a few hundred pages that used tut to now use mdoc.
+It's been reasonably straightforward,
+and tools like `reset`, `reset-object`, and `invisible`
+let you get the output you want.
 
-
-
+If you have any mdoc (or tut) tricks,
+do share them using our Gitter channel (see below)
+or via [Twitter].
 
