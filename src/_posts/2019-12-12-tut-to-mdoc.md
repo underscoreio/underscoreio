@@ -23,6 +23,7 @@ and collected them together in this post.
 [migration guide]: https://scalameta.org/mdoc/docs/tut.html
 [mbp]: https://scalameta.org/mdoc/blog/2019/12/30/introduction.html
 [Twitter]: https://twitter.com/underscoreio
+[nest modifier]: https://scalameta.org/mdoc/docs/modifiers.html#nest
 
 
 <!-- break -->
@@ -160,6 +161,9 @@ But under that block is an invisible section to validate it:
 
 This kind of hidden validation is another trick worth having to hand. 
 It doesn't come up often, best if you don't need to do it, but great that you can.
+
+_Update 27 Dec 2019: mdoc now has a [nest modifier] which is just perfect for this case._
+
 
 # Summary
 
