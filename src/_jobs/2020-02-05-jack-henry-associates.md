@@ -49,8 +49,8 @@ Minimum 6 years of experience with server-side programming languages in producti
 
 ## Preferred Qualifications
 
-Knowledge of or experience with microservice architecture.
-Experience with functional programming languages. 
-Experience with the Scala libraries cats, http4s, and doobie.
-Experience with event driven architecture using Kafka.
-Experience with Observability and Monitoring.
+- Knowledge of or experience with microservice architecture.
+- Experience with functional programming languages. 
+- Experience with the Scala libraries cats, http4s, and doobie.
+- Experience with event driven architecture using Kafka.
+- Experience with Observability and Monitoring.
