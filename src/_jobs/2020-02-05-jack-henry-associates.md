@@ -1,7 +1,7 @@
 ---
 admin: zach.mccoy@banno.com
 location: USA
-email: zach.mccoy@bano.com
+email: zach.mccoy@banno.com
 citizenship: US Citizens Only
 company: Jack Henry & Associates
 remote: 'Yes'
