@@ -46,32 +46,32 @@ using a Ruby tool called s3_website.
 Pushing to `develop` deploys to `beta.underscore.io`.
 Pushing to `master` deploys to `underscore.io`.
 
-Here's the complete deployment process
-Start by implementing and testing a change on `develop`:
+## CircleCi
 
-~~~bash
-git checkout develop
-# edit code here...
-git add .
-git commit -m 'New feature added'
-git push
-# site published automatically
-~~~
+To test the CircleCi config:
 
-When you're happy to release to production, merge onto master.
-Here's the sequence using `git-flow` to tag the release:
+```
+$ circleci local execute --job test-build
+```
 
-~~~bash
-git checkout develop
-git tag --list # workout the next version number
-git flow release start VERSIONNUMBER # start a release
-git flow release finish VERSIONNUMBER # finish the release, write release note
-git push --tags ; git push --all
-# site published automatically
-~~~
+...or any other job named in the config file.
 
-Remember to switch back to develop again when you're done:
+## Software versions
 
-~~~bash
-git checkout develop
-~~~
+As of December 2019, we're using:
+
+```
+source# /usr/local/bin/rake --version
+rake, version 10.4.2
+
+source# /usr/local/bin/ruby --version
+ruby 2.3.3p222 (2016-11-21 revision 56859) [x86_64-linux]
+
+source# /usr/local/bin/bundle --version
+Bundler version 1.13.6
+
+source# npm --version
+3.10.8
+```
+
+
