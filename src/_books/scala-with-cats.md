@@ -11,12 +11,8 @@ summary: |
   Dive deep into functional patterns using Scala and Cats.
   For experienced Scala developers.
 buyButtons:
-- label: "Read the book"
-  url: "https://books.underscore.io/scala-with-cats/scala-with-cats.html"
-- label: "Download as PDF"
-  url: "https://books.underscore.io/scala-with-cats/scala-with-cats.pdf"
-- label: "Download as ePub"
-  url: "https://books.underscore.io/scala-with-cats/scala-with-cats.epub"
+- label: "Visit the web site"
+  url: "https://scalawithcats.com/"
 ---
 
 ## Overview
