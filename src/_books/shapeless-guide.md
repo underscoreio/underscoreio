@@ -18,8 +18,8 @@ buyButtons:
   url: "https://books.underscore.io/shapeless-guide/shapeless-guide.pdf"
 - label: "Download as ePub"
   url: "https://books.underscore.io/shapeless-guide/shapeless-guide.epub"
-- label: "Buy in print&mdash;£15"
-  url: "http://www.lulu.com/shop/dave-gurnell/the-type-astronauts-guide-to-shapeless/paperback/product-22992219.html"
+# - label: "Buy in print&mdash;£15"
+#   url: "http://www.lulu.com/shop/dave-gurnell/the-type-astronauts-guide-to-shapeless/paperback/product-22992219.html"
 
 ---
 
