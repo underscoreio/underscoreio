@@ -54,17 +54,8 @@ and how it allows us to build complex songs from simple parts.
 
 ## Primitives: Notes, Rests, Pitch, and Duration
 
-The primitives in a musical score are *notes* and *rests*.
-Notes have a *pitch* and *duration* and rests simply have a *duration*:
-
-<div class="captioned">
-  <img src="/images/blog/2015-03-05-compositional-music-composition.jpg">
-  <div class="caption">
-    <a href="https://www.flickr.com/photos/jonnyentropy/8237873224">
-      Photograph by Tris Linnell, CC-BY-NC-SA.
-    </a>
-  </div>
-</div>
+The primitives in a musical score are _notes_ and _rests_.
+Notes have a _pitch_ and _duration_ and rests simply have a _duration_.
 
 Piano keys are a convenient represenation of pitch:
 `C4` is middle C, `D4` the next white note,

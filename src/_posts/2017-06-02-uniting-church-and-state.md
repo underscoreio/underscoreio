@@ -319,8 +319,7 @@ Let's run down what we've seen:
  
 Hopefully you now agree that the Church encoding is a useful tool for unifying functional and object-oriented programming!
 
-This post is based on a talk I gave at Scala Days Copenhagen. [My slides][slides] are also available.
-They have more pictures and fewer words.
+This post is based on a talk I gave at Scala Days Copenhagen.
 
 I'd like to end with some more general thoughts.
 Firstly, I've presented the Church encoding in a fairly matter-of-fact style, but it's taken me quite a while to piece everything together.
@@ -360,7 +359,6 @@ I'm still working solidly in the functional programming paradigm: avoiding mutab
  
 [alonzo-church]: https://en.wikipedia.org/wiki/Alonzo_Church
 [maana]: http://maana.io/
-[slides]: /files/noelwelsh-scala-days-copenhagen-church-and-state.pdf
 [expression]: http://homepages.inf.ed.ac.uk/wadler/papers/expression/expression.txt
 [synthesizing]: https://cs.brown.edu/~sk/Publications/Papers/Published/kff-synth-fp-oo/
 [tagless-final]: http://okmij.org/ftp/tagless-final/course/lecture.pdf

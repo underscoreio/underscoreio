@@ -46,8 +46,6 @@ The course will run from the 23rd to the 25th of January inclusive, at the LA of
 
 Parking in the attached garage is $12 for arrivals before 10am and $32 if arriving after. There are cheaper lots nearby. The office is located directly across the street from the 7th St./Metro Center metro stop, which is accessible not only by the Expo line but also the red/purple and blue lines.
 
-Please [read this][nordstromrack-event-parking] for instructions on getting into the building and for details of cheaper parking. Note the cheaper parking is cash only.
-
 Tickets are [on-sale now][eventbrite-essential-scala], starting at a discounted rate of $1499 per person.
 
 
@@ -76,8 +74,6 @@ The evening of 24 Jan 2017, at the LA offices of Nordstromrack.com: [700 S. Flow
 
 Parking in the attached garage is $12 for arrivals before 10am and $32 if arriving after. There are cheaper lots nearby. The office is located directly across the street from the 7th St./Metro Center metro stop, which is accessible not only by the Expo line but also the red/purple and blue lines.
 
-Please [read this][nordstromrack-event-parking] for instructions on getting into the building and for details of cheaper parking. Note the cheaper parking is cash only.
-
 It's completely free, but you must [sign up][shapeless-sign-up] before the event.
 
 [la-office]: https://www.google.com/maps/place/700+S+Flower+St+%231700,+Los+Angeles,+CA+90017,+USA/@34.0482805,-118.2611318,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c7b6aee44e37:0x1e19794512737662!8m2!3d34.0482805!4d-118.2589431 
@@ -85,4 +81,3 @@ It's completely free, but you must [sign up][shapeless-sign-up] before the event
 [shapeless]: https://github.com/milessabin/shapeless
 [eventbrite-essential-scala]: https://www.eventbrite.com/e/essential-scala-tickets-31019172179
 [shapeless-sign-up]: https://www.eventbrite.com/e/establishing-orbit-with-shapeless-tickets-31068083474
-[nordstromrack-event-parking]: /files/nordstromrack-event-parking.pdf
