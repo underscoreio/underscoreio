@@ -17,7 +17,7 @@ you are agreeing to the following terms of use. If you do not agree,
 do not use the web sites:
 
  - All information, design, layout, look, graphics and computer code (collectively the "content") of these web sites
-   is owned by or licenced by or to Underscore Consulting LLP ("we" or "us").
+   is owned by or licenced by or to the companies operating under the Underscore brand ("we" or "us").
  - You are not allowed to reproduce any part of the content of these web sites, except in accordance with the copyright notice.
  - The content of these web sites, including these terms of use, is subject to change without notice.
  - The content of these web sites may contain inaccuracies or errors for which we expressly exclude liability.
@@ -46,7 +46,8 @@ and come with the following conditions:
 
 ### Copyright
 
-Underscore learning assets and program code are owned by or licenced by Underscore Consulting LLP.
+Underscore learning assets and program code are owned by or licenced by the individual
+companies operating with permission under the Underscore brand.
 
 ### Disclaimer of Warranty
 
@@ -146,8 +147,8 @@ howsoever arising, even if it has been advised of such potential loss.
 
 ### Copyright
 
-The Training Course content, and materials remain the copyright of Underscore LLP
-and the corresponding partner. Unauthorised copying or redistribution of the
+The Training Course content, and materials remain the copyright of 
+the corresponding Underscore partner. Unauthorised copying or redistribution of the
 Training Course materials is prohibited unless agreed in advance in writing by
 Underscore.
 
@@ -299,8 +300,8 @@ howsoever arising, even if it has been advised of such potential loss.
 
 ### Copyright
 
-The Training Course content, and materials remain the copyright of Underscore LLP
-and the corresponding partner. Unauthorised copying or redistribution of the
+The Training Course content, and materials remain the copyright of 
+the corresponding partner. Unauthorised copying or redistribution of the
 Training Course materials is prohibited unless agreed in advance in writing by
 Underscore.
 
