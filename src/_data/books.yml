@@ -1,8 +1,8 @@
 #  Books in the order we list them on the books page:
-- 'essential-scala'
-- 'scala-with-cats'
-- 'shapeless-guide'
-- 'essential-play'
-- 'essential-slick'
-- 'lift-cookbook'
-- 'creative-scala'
+- "essential-scala"
+- "scala-with-cats"
+- "shapeless-guide"
+- "essential-play"
+- "essential-slick"
+# - "lift-cookbook"
+- "creative-scala"
