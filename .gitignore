@@ -1,4 +1,5 @@
 .env
+vendor
 .asset-cache
 .jekyll-metadata
 .ruby-version

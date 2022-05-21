@@ -19,7 +19,9 @@ source                : ./src
 destination           : ./_site
 encoding              : utf-8
 
-gems:
+# GitHub pages enables paginate (and others) automatically and cannot be turned off
+# https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins
+plugins:
   - jekyll-paginate
   - jekyll-assets
 

@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
-docker-compose run --service-ports website bash
+set -e
+docker-compose run --service-ports site jekyll serve --future
 
