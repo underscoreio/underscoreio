@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Underscore</title>
+    <description>Underscore: Scala Software Development</description>
+    <link>http://underscore.io</link>
+    <atom:link href="http://underscore.io/blog/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Scala with Cats 2</title>
+        <description>
+          
+          &lt;p&gt;&lt;a href=&quot;https://scalawithcats.com/&quot;&gt;Scala with Cats 2&lt;/a&gt; is underway, with a fancy new website. Go and join the mailing list linked from the &lt;a href=&quot;https://scalawithcats.com/&quot;&gt;site&lt;/a&gt; if you want to keep up with the latest developments.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2020/05/27/scala-with-cats-2.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Wed, 27 May 2020 00:00:00 -0500</pubDate>
+        <link>http://underscore.io/blog/posts/2020/05/27/scala-with-cats-2.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2020/05/27/scala-with-cats-2.html</guid>
+      </item>
+    
+      <item>
+        <title>Review Seq matching when porting to 2.13</title>
+        <description>
+          
+          &lt;p&gt;You know the routine for porting from Scala 2.12 to 2.13: you’ll get a bunch of compiler errors and warnings, and you can quickly enough hack your way through them.&lt;/p&gt;
+
+&lt;p&gt;There is, though, one runtime issue I’ve bumped into. When pattern matching on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seq&lt;/code&gt; from a library, you need to be careful about what kind of a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seq&lt;/code&gt; you’ve been handed.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2020/05/14/porting-and-seq.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Thu, 14 May 2020 00:00:00 -0500</pubDate>
+        <link>http://underscore.io/blog/posts/2020/05/14/porting-and-seq.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2020/05/14/porting-and-seq.html</guid>
+      </item>
+    
+      <item>
+        <title>Our Talks from 2019</title>
+        <description>
+          
+          &lt;p&gt;This post collects together our talks from 2019.
+Below you’ll find presentations covering
+mentoring and teaching, 
+ethics in tech and what you can do,
+plus
+type class derivation changes on their way in Scala 3.
+&lt;em&gt;Enjoy!&lt;/em&gt;&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2019/12/23/talks-roundup.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Mon, 23 Dec 2019 00:00:00 -0600</pubDate>
+        <link>http://underscore.io/blog/posts/2019/12/23/talks-roundup.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2019/12/23/talks-roundup.html</guid>
+      </item>
+    
+      <item>
+        <title>Tips for moving from tut to mdoc</title>
+        <description>
+          
+          &lt;p&gt;&lt;a href=&quot;https://underscore.io/training/courses/creative-scala/&quot;&gt;Creative Scala&lt;/a&gt; and &lt;a href=&quot;https://underscore.io/books/essential-slick/&quot;&gt;Essential Slick&lt;/a&gt; use &lt;a href=&quot;https://scalameta.org/mdoc/&quot;&gt;mdoc&lt;/a&gt;,
+as will &lt;a href=&quot;https://github.com/underscoreio/scala-with-cats/issues/170&quot;&gt;&lt;em&gt;Scala with Cats&lt;/em&gt; in the next edition&lt;/a&gt;.
+mdoc helps us be sure the code we describe works,
+no matter how often we update the text.
+It does this by typechecking and running the Scala source in our text.&lt;/p&gt;
+
+&lt;p&gt;Before mdoc we used the mighty &lt;a href=&quot;https://tpolecat.github.io/tut/&quot;&gt;tut&lt;/a&gt;.
+We’ve learnt a few tricks as we switched from one to the other, 
+and collected them together in this post.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2019/12/12/tut-to-mdoc.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Thu, 12 Dec 2019 00:00:00 -0600</pubDate>
+        <link>http://underscore.io/blog/posts/2019/12/12/tut-to-mdoc.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2019/12/12/tut-to-mdoc.html</guid>
+      </item>
+    
+      <item>
+        <title>Introducing Inner Product</title>
+        <description>
+          
+          &lt;p&gt;We’re very proud to introduce &lt;a href=&quot;https://inner-product.com/&quot;&gt;Inner Product&lt;/a&gt;, our sister consultancy serving the North American market. All of Underscore’s USA and Canadian work will gradually transition to Inner Product. For our customers this should mean no disruption in service, as many of the same people from Underscore also work with Inner Product. The only difference is Inner Product will be better able to serve our customers on the other side of the Atlantic.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2019/07/04/introducing-inner-product.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Thu, 04 Jul 2019 20:10:00 -0500</pubDate>
+        <link>http://underscore.io/blog/posts/2019/07/04/introducing-inner-product.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2019/07/04/introducing-inner-product.html</guid>
+      </item>
+    
+      <item>
+        <title>Our Talks from 2018</title>
+        <description>
+          
+          &lt;p&gt;This posts collects together our talks from 2018.
+Inside you’ll find a delicious selection of topics, including:
+algebras, interpreters, DSLs, compiler enhancements, entire custom languages,avoiding string typing, and deep learning.
+Enjoy, and come over and say hi to us if you’re at a Scala conference in 2019.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2018/12/21/talks-roundup.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Fri, 21 Dec 2018 09:00:00 -0600</pubDate>
+        <link>http://underscore.io/blog/posts/2018/12/21/talks-roundup.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2018/12/21/talks-roundup.html</guid>
+      </item>
+    
+      <item>
+        <title>Bridging Scala and the Front-End</title>
+        <description>
+          
+          &lt;p&gt;In this blog post we will talk about &lt;a href=&quot;https://github.com/davegurnell/bridges&quot;&gt;Bridges&lt;/a&gt;, a simple library that generates front-end code from your Scala ADTs and reduces the friction of changing your data model. We will present the project, show how to use it, and list some common traps to avoid when creating your ADTs. We will also showcase some advanced features for projects using Scala and &lt;a href=&quot;http://elm-lang.org&quot;&gt;Elm&lt;/a&gt;.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2018/12/12/bridges.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Wed, 12 Dec 2018 09:00:00 -0600</pubDate>
+        <link>http://underscore.io/blog/posts/2018/12/12/bridges.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2018/12/12/bridges.html</guid>
+      </item>
+    
+      <item>
+        <title>Modelling JavaScript in Scala with Scala.js</title>
+        <description>
+          
+          &lt;p&gt;Surely there’s something in JavaScript that &lt;a href=&quot;http://www.scala-js.org/&quot;&gt;Scala.js&lt;/a&gt; can’t handle?
+If there is, I’ve not found it yet.
+Each time I’ve faced some JavaScript obstacle I’ve been overjoyed to find an answer in Scala.js.&lt;/p&gt;
+
+&lt;p&gt;In this post I’ll highlight 3 features from Scala.js 1.x that I’ve recently used to dig myself out of a hole.
+The features are: representing JavaScript global scope values, importing Node modules,
+and working with JavaScript’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;this&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The common thread is that these features let you safely model JavaScript concepts in Scala.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2018/05/17/modelling-js.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Thu, 17 May 2018 00:00:00 -0500</pubDate>
+        <link>http://underscore.io/blog/posts/2018/05/17/modelling-js.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2018/05/17/modelling-js.html</guid>
+      </item>
+    
+      <item>
+        <title>Tips for working with FS2</title>
+        <description>
+          
+          &lt;p&gt;The streaming library &lt;a href=&quot;https://functional-streams-for-scala.github.io/fs2/&quot;&gt;fs2&lt;/a&gt; has had major improvements in their latest release (v0.10), and libraries like &lt;a href=&quot;http://http4s.org&quot;&gt;Http4s&lt;/a&gt; v0.18 have adopted this newest version. As you work more with fs2 and Http4s there are some things you should be aware of, as they will make the journey easier. Specifically, we will look at how to work with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flatMap&lt;/code&gt; in Streams and at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Topics&lt;/code&gt;, along some minor comments on fs2 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Streams&lt;/code&gt;. Those are some hints which I, as someone not very familiar with fs2 at the time, wish I had known sooner.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2018/03/20/fs2.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Tue, 20 Mar 2018 13:50:00 -0500</pubDate>
+        <link>http://underscore.io/blog/posts/2018/03/20/fs2.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2018/03/20/fs2.html</guid>
+      </item>
+    
+      <item>
+        <title>A look at Scorex: a Scala blockchain framework</title>
+        <description>
+          
+          &lt;p&gt;After slowly gaining visibility for the past few years, in 2017 cryptocurrencies and ‘the blockchain’ in general have suddenly gone from something ‘you may want to keep an eye on’ to something that you ignore at your peril, such is their claimed disruptive potential. Or maybe not—but the interest is certainly skyrocketing.&lt;/p&gt;
+
+&lt;p&gt;When I learned of &lt;a href=&quot;https://github.com/ScorexFoundation/Scorex&quot;&gt;Scorex&lt;/a&gt;, the self-described &lt;em&gt;modular blockchain framework&lt;/em&gt; written in Scala, my interest was piqued. Scorex’s mission statement is to enable easier blockchain experimentation and prototyping through abstraction. This is attempted by trying to modularise the various building blocks that make up a working blockchain system.&lt;/p&gt;
+
+
+          &lt;p&gt;&lt;a href=&quot;http://underscore.io/blog/posts/2017/12/14/scorex.html&quot;&gt;Continue reading...&lt;/a&gt;&lt;/p&gt;
+        </description>
+        <pubDate>Thu, 14 Dec 2017 00:00:00 -0600</pubDate>
+        <link>http://underscore.io/blog/posts/2017/12/14/scorex.html</link>
+        <guid isPermaLink="true">http://underscore.io/blog/posts/2017/12/14/scorex.html</guid>
+      </item>
+    
+  </channel>
+</rss>

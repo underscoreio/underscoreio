@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" id="/events/advanced-scala" class="events">
+  
+  
+  <head>
+    <title>Advanced Scala with Cats - Underscore</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="/assets/screen-9132d4f189ef656eb3d1e8defedf7c83e32e9240d9a3af3d804d36f850e43dd5.css">
+    <link type="text/css" rel="stylesheet" href="/assets/print-dd04f6182ddcf193d2ac9f59bdbdbb366e01738f8a32086ffb82c7be2f9e1eb8.css" media="print">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@underscoreio">
+    
+      <meta name="twitter:title" content="Advanced Scala with Cats">
+    
+    
+      <meta name="twitter:description" content="Take your Scala skills to the next level.
+This course teaches you the tools you need
+to build large functional systems in Scala.
+">
+    
+    
+      <meta name="twitter:image" content="http://underscore.io/images/twitter-card-icon.png">
+    
+
+    <link rel="shortcut icon" href="/images/favicon-64.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <link rel="canonical" href="http://underscore.io/events/2017-12-12-advanced-scala/">
+
+    <script type="text/javascript" src="/assets/site-5ab8e41df06f32ccfbf4c40fdf2d7fc81c360b991aa5c153ed01fd0714c019d4.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="hero">
+  <div class="overlay-gem-left-white hero-overlay-soft"></div>
+  <div class="overlay-gem-right-white hero-overlay-soft"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <header class="hero-text">
+    <div class="container">
+      
+        <h1>
+          <a class="back-link" href="/events">
+            Advanced Scala with Cats
+            <span class="icon-uio-back "></span>
+          </a>
+        </h1>
+      
+
+      
+    </div>
+  </header>
+</div>
+
+
+
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 id="about-the-course">About the course</h3>
+
+<p>Advanced Scala with Cats is aimed at experienced Scala developers
+who want to take the next step in engineering robust and scalable systems.
+The course teaches six key abstractions of:
+monoids, functors, monads, monad transformers,
+applicative functors, and traversals,
+using the implementations in the Cats library.
+Through a series of projects we show you
+how these abstractions can be used to engineer
+solutions to practical problems
+in data analysis, data validation,
+input parsing, error handling, and more.</p>
+
+<p>The main goal of this course is to teach system architecture and design
+using the techniques of modern functional programming.
+This means designing systems as small composable units,
+expressing constraints and interactions via the type system,
+and using composition to guide the construction of large systems
+in a way that maintains the original architectural vision.</p>
+
+<p>The course also serves as an introduction to the Cats library.
+We use abstractions from Cats,
+and we explain the structure of Cats
+so you can use it without fear in your own code base.
+The broad ideas are not specific to Cats,
+but Cats provides an excellent implementation
+that is beneficial to learn in its own right.</p>
+
+<p>The course materials include our book,
+<a href="/books/advanced-scala">Advanced Scala with Cats</a>,
+available from the books section of the web site.</p>
+
+<h3 id="course-structure">Course structure</h3>
+
+<p>Advanced Scala with Cats is split across two days:</p>
+
+<p>On Day 1 we cover the main theoretical patterns of the course:
+monoids, functors, monads, monad transformers,
+applicative functors, and traversals.
+We discuss the theoretical concepts themselves
+and their implementation in Cats.</p>
+
+<p>On Day 2 we put this knowledge to practice,
+working on extended case studies that apply the theory to practical problems.
+We tailor the case studies to the combined interests of the attendees.
+In previous courses we have implemented the following:</p>
+
+<ul>
+  <li>multi-core map-reduce;</li>
+  <li>probabilistic modelling;</li>
+  <li>applicative data validation;</li>
+  <li>distributed computations involving CRDTs;</li>
+  <li>parser combinator based DSLs.</li>
+</ul>
+
+<p>The full course content is available on
+<a href="/training/courses/advanced-scala">the course home page</a>.</p>
+
+<h3 id="whos-teaching-the-course">Who’s teaching the course?</h3>
+
+<p>This course will be taught by Noel Welsh.</p>
+
+<h3 id="where-and-when-is-it">Where and when is it?</h3>
+
+<p>The course will run for two days starting on
+Tue, Dec 12, 2017.
+It will be held at:</p>
+
+<p><a href="https://www.google.co.uk/maps/place/Wallacespace/@51.5268519,-0.1292496,17z/data=!4m5!1m2!2m1!1swallacespace+st+pancras!3m1!1s0x487604cb540be729:0xcd332b8e9f06bdcf?hl=en">Wallacespace St Pancras<br />
+22 Dukes Road<br />
+London<br />
+WC1H 9PN</a>.</p>
+
+<h3 id="what-will-you-need">What will you need?</h3>
+
+<p>You <strong>must</strong> have:</p>
+
+<ul>
+  <li>your own laptop with Scala installed; and</li>
+  <li>significant prior experience with Scala.</li>
+</ul>
+
+<h3 id="how-much-does-it-cost">How much does it cost?</h3>
+
+<p>The two-day course is £999+VAT,
+or £799+VAT for early bird tickets.</p>
+
+<p>As usual, tickets are half price
+for <a href="/blog/posts/2015/01/29/diversity-in-training.html">diversity candidates</a>.</p>
+
+<h3 id="accessibility">Accessibility</h3>
+
+<p>Please note that the training room is
+at the top of two relatively steep flights of stairs.</p>
+
+<p>If you are a wheelchair user or have restricted mobility,
+please <a href="/contact">get in touch</a> before booking your ticket!</p>
+
+<h3 id="register-now">Register now!</h3>
+
+<ul>
+  <li>Standard attendees: <a href="https://www.eventbrite.com/e/advanced-scala-with-cats-public-course-tickets-37809147177">purchase tickets</a>.</li>
+  <li>Diversity attendees: <a href="https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform">apply here</a>.</li>
+</ul>
+
+<h3 id="any-other-questions">Any other questions?</h3>
+
+<p><a href="/contact">Contact us!</a></p>
+
+    </div>
+
+    <div class="col-md-4">
+      <aside class="event-sidebar">
+        <div class="panel panel-gray event-details">
+  <div class="panel-heading">
+    <h4>Event details</h4>
+  </div>
+
+  <div class="panel-body">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd class="event-title">Advanced Scala with Cats</dd>
+
+      
+      <dt>Location</dt>
+      <dd class="event-location">London, UK</dd>
+      
+
+      <dt>Starts</dt>
+      <dd class="event-date">
+        12 Dec 2017 at
+        
+          03:00
+          BST
+        
+      </dd>
+
+      
+      <dt>Length</dt>
+      <dd class="event-duration">2 days</dd>
+      
+
+      
+      <dt>Cost</dt>
+      <dd class="event-cost">£799/999+VAT</dd>
+      
+
+      
+      <dt>Summary</dt>
+      <dd class="event-summary"><p>Take your Scala skills to the next level.
+This course teaches you the tools you need
+to build large functional systems in Scala.</p>
+</dd>
+      
+    </dl>
+  </div>
+
+  
+  <div class="panel-footer">
+    
+      <p>
+        <a class="btn btn-block btn-info"
+            href="https://www.eventbrite.com/e/advanced-scala-with-cats-public-course-tickets-37809147177">
+          Book now - <strike>£999+VAT</strike> £799+VAT<br> <small>(early bird discount ends 5th March)</small>
+        </a>
+      </p>
+    
+      <p>
+        <a class="btn btn-block btn-warning"
+            href="https://docs.google.com/a/underscoreconsulting.com/forms/d/1dyPrqPrhj0MIVsRR3rbxhl2ZrJc3yQ_0XIqJMoGo8iY/viewform">
+          Diversity applications - £399+VAT<br> <small>(limited places available)</small>
+        </a>
+      </p>
+    
+  </div>
+  
+</div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="text-center">
+      <img src="/images/common/footer-brand.png" class="footer-brand" alt="Underscore">
+    </div>
+
+    <div class="row sitemap">
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/">Underscore</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li><a href="/consulting">Our Services</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li class="currency-select">
+            Currency:
+            <a href="javascript:void(0)" class="currency-select-usd">USD</a>,
+            <a href="javascript:void(0)" class="currency-select-gbp">GBP</a>,
+            <a href="javascript:void(0)" class="currency-select-eur">EUR</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/training">Courses and Training</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/training/bookings">Book a Course</a></li>
+          <li><a href="/training">Course Directory</a></li>
+          <li><a href="/training/courses/essential-scala">Essential Scala</a></li>
+          <li><a href="/training/courses/advanced-scala">Advanced Scala with Cats</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/contact">Contact</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/contact">
+            <span class="icon-uio-envelope "></span>
+            hello@underscore.io
+          </a></li>
+          <li><a href="http://twitter.com/underscoreio">
+            <span class="icon-uio-twitter "></span>
+            @underscoreio
+          </a></li>
+          <li><a href="/blog/newsletters">
+            <span class="icon-uio-public "></span>
+            The Underscore Newsletter
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright text-center">
+      Copyright 2011&ndash;22.
+      <br class="visible-xs">
+      All rights reserved. <a href="/terms">Terms of use</a>
+    </p>
+  </div>
+</footer>
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29444727-2', 'underscore.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en" id="/blog/posts/2019/12/12/tut-to-mdoc" class="">
+  
+  
+  <head>
+    <title>Tips for moving from tut to mdoc - Underscore</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="/assets/screen-9132d4f189ef656eb3d1e8defedf7c83e32e9240d9a3af3d804d36f850e43dd5.css">
+    <link type="text/css" rel="stylesheet" href="/assets/print-dd04f6182ddcf193d2ac9f59bdbdbb366e01738f8a32086ffb82c7be2f9e1eb8.css" media="print">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@underscoreio">
+    
+      <meta name="twitter:title" content="Tips for moving from tut to mdoc">
+    
+    
+      <meta name="twitter:description" content="Creative Scala and Essential Slick use mdoc,
+as will Scala with Cats in the next edition.
+mdoc helps us be sure the code we describe works,
+no matter how often we update the text.
+It does this by typechecking and running the Scala source in our text.
+
+Before mdoc we used the mighty tut.
+We’ve learnt a few tricks as we switched from one to the other, 
+and collected them together in this post.
+
+">
+    
+    
+      <meta name="twitter:image" content="http://underscore.io/images/twitter-card-icon.png">
+    
+
+    <link rel="shortcut icon" href="/images/favicon-64.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <link rel="canonical" href="http://underscore.io/blog/posts/2019/12/12/tut-to-mdoc.html">
+
+    <script type="text/javascript" src="/assets/site-5ab8e41df06f32ccfbf4c40fdf2d7fc81c360b991aa5c153ed01fd0714c019d4.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="hero">
+  <div class="overlay-gem-left-white hero-overlay-soft"></div>
+  <div class="overlay-gem-right-white hero-overlay-soft"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <header class="hero-text">
+    <div class="container">
+      
+        <h1>
+          <a class="back-link" href="/blog">
+            Blog
+            <span class="icon-uio-back "></span>
+          </a>
+        </h1>
+      
+
+      
+    </div>
+  </header>
+</div>
+
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <section class="blog-post" data-post-url="/blog/posts/2019/12/12/tut-to-mdoc.html">
+        <h2 class="blog-post-title">Tips for moving from tut to mdoc</h2>
+
+        <dl class="blog-post-meta">
+  <dt class="blog-post-date">Posted</dt>
+  <dd class="blog-post-date">
+    <span class="day">12</span>
+    <span class="month">Dec</span>
+    <span class="year">2019</span>
+  </dd>
+  <dt class="blog-post-author">by</dt>
+  <dd class="blog-post-author">
+    Richard Dallaway
+  </dd>
+  
+</dl>
+
+
+        <article class="blog-post-content">
+          <p><a href="https://underscore.io/training/courses/creative-scala/">Creative Scala</a> and <a href="https://underscore.io/books/essential-slick/">Essential Slick</a> use <a href="https://scalameta.org/mdoc/">mdoc</a>,
+as will <a href="https://github.com/underscoreio/scala-with-cats/issues/170"><em>Scala with Cats</em> in the next edition</a>.
+mdoc helps us be sure the code we describe works,
+no matter how often we update the text.
+It does this by typechecking and running the Scala source in our text.</p>
+
+<p>Before mdoc we used the mighty <a href="https://tpolecat.github.io/tut/">tut</a>.
+We’ve learnt a few tricks as we switched from one to the other, 
+and collected them together in this post.</p>
+
+<!-- break -->
+
+<h1 id="overview">Overview</h1>
+
+<p>mdoc processes the Scala code inside named code fences:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```scala mdoc
+val x = 1
+```
+</code></pre></div></div>
+
+<p>The code is type-checked and executed, and the output inserted into a markdown file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```scala
+val x = 1
+// x: Int = 1
+```
+</code></pre></div></div>
+
+<p>Before mdoc, tut did the same job, but tut is now deprecated.
+Everyone should move to mdoc, and we have.</p>
+
+<p>In doing that, we learned a few key tricks:</p>
+
+<ol>
+  <li>
+    <p>Resetting digs you out of the semantic differences between tut and mdoc.</p>
+  </li>
+  <li>
+    <p>Understand how mdoc nests your code inside a class (or object).</p>
+  </li>
+  <li>
+    <p>Hidden validation is a useful tool to use.</p>
+  </li>
+</ol>
+
+<p>Let’s see some examples.</p>
+
+<h1 id="reset-and-semantic-differences">Reset and semantic differences</h1>
+
+<p>As the excellent <a href="https://scalameta.org/mdoc/docs/tut.html">migration guide</a> tells you, there’s one big difference between tut and mdoc:</p>
+
+<ul>
+  <li>
+    <p>Working with tut is like typing into the REPL.
+Working in a REPL means you can redefine thing as you go,
+but also you sometimes have to nest expressions in objects for the REPL.</p>
+  </li>
+  <li>
+    <p>On the other hand, mdoc is like writing a program and compiling it. 
+In other words, redefining a variable name is not permitted, 
+but you don’t have to worry about REPL-specific behaviour.</p>
+  </li>
+</ul>
+
+<p>For good or bad, using tut I often redefine values.
+For example, I’ll build up to a solution to give a foundation for how something works,
+but then redefine the solution to show a more compressed way most people use a feature.
+Or we’ll set an exercise, and then implement it (redefining placeholders with working code) in the solutions section.
+Reusing the same variable names for both is fine in tut, but not in mdoc.</p>
+
+<p>When porting to mdoc, you can introduce new names as you go.
+That works, but can be awkward or forced in some situations.
+Naming is, after all, one of the hard problems in computer science.</p>
+
+<p>The alternative in mdoc is to reset and start a new scope. 
+This means you can “redefine” a value again (as far as the reader is concerned).
+The downside is that you have to re-establish any context you rely on.</p>
+
+<p>For example, in <em>Essential Slick</em> a common sequence is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```scala mdoc:reset:invisible
+import slick.jdbc.H2Profile.api._
+```
+</code></pre></div></div>
+
+<p>That’s establishing a new context, and invisibly importing the API.
+Invisible means the code is run, but no output is included in the book.</p>
+
+<p>With this in place, I can redefine whatever I wanted to and carry on writing.
+It’s a sledgehammer, and perhaps a sign of a problem in the text if you have to do it a lot, but invaluable when:</p>
+
+<ul>
+  <li>
+    <p>working on a tutorial-style text with repeated definitions; and</p>
+  </li>
+  <li>
+    <p>presenting problems and solutions.</p>
+  </li>
+</ul>
+
+<p>A reset between major sections is probably a good practice.
+Writing shorter chapters would have the same effect.</p>
+
+<h1 id="reset-object">Reset object</h1>
+
+<p>Reset introduces a new scope by wrapping code in a class.
+That’s great until you define a value class and you see:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>value class may not be a member of another class
+class EmailAddress(val value: String) extends AnyVal
+      ^^^^^^^^^^^^
+</code></pre></div></div>
+
+<p>The trick to know here is to define value classes inside an object,
+which is what <code class="language-plaintext highlighter-rouge">reset-object</code> gives you:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```scala mdoc:reset-object
+class EmailAddress(val value: String) extends AnyVal
+```
+</code></pre></div></div>
+
+<p>That’ll work fine.</p>
+
+<p>There’s a useful <a href="https://scalameta.org/mdoc/blog/2019/12/30/introduction.html">mdoc blog post</a> giving an example of how a document is translated into code,
+if you want to see more on that.</p>
+
+<h1 id="hidden-validation">Hidden validation</h1>
+
+<p>In the last chapter of <em>Essential Slick</em> we give the concise way to define an instance
+of the <code class="language-plaintext highlighter-rouge">SetParameter</code> type class for a <code class="language-plaintext highlighter-rouge">DateTime</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```scala
+implicit val setDateTime = SetParameter[DateTime](
+  (dt, pp) =&gt; pp &gt;&gt; new Timestamp(dt.getMillis))
+```
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">&gt;&gt;</code> part looks a bit too much like line noise,
+but in the book we’ve built up to this and showed you the long way to do this already.</p>
+
+<p>Notice that the <code class="language-plaintext highlighter-rouge">setDateTime</code> value is <em>not</em> an mdoc expression.
+It’s a plain markdown Scala code block, so will not be run by <code class="language-plaintext highlighter-rouge">mdoc</code>.</p>
+
+<p>I did that because redefining an implicit would be a problem here:
+I’ve already defined an implicit instance earlier to work up to this,
+and you cannot have multiple instances in scope.
+Renaming won’t help here.</p>
+
+<p>Resetting away the whole scope was over-kill in this case,
+so I just literally showed what the code would be.
+But under that block is an invisible section to validate it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```scala mdoc:invisible
+// validate the above code without introducing a duplicate implicit:
+object Hidden1 {
+  implicit val setDateTime = SetParameter[DateTime](
+    (dt, pp) =&gt; pp &gt;&gt; new Timestamp(dt.getMillis))
+}
+```
+</code></pre></div></div>
+
+<p>This kind of hidden validation is another trick worth having to hand. 
+It doesn’t come up often, best if you don’t need to do it, but great that you can.</p>
+
+<p><em>Update 27 Dec 2019: mdoc now has a <a href="https://scalameta.org/mdoc/docs/modifiers.html#nest">nest modifier</a> which is just perfect for this case.</em></p>
+
+<h1 id="summary">Summary</h1>
+
+<p>We’ve converted a few hundred pages that used tut to now use mdoc.
+It’s been reasonably straightforward,
+and tools like <code class="language-plaintext highlighter-rouge">reset</code>, <code class="language-plaintext highlighter-rouge">reset-object</code>, and <code class="language-plaintext highlighter-rouge">invisible</code>
+let you get the output you want.</p>
+
+<p>If you have any mdoc (or tut) tricks,
+do share them using our Gitter channel (see below)
+or via <a href="https://twitter.com/underscoreio">Twitter</a>.</p>
+
+
+        </article>
+
+        <hr>
+
+        
+          <div class="row">
+  <div class="col-sm-4 col-sm-offset-2">
+    <h3 class="text-center">
+      Like what you're reading?
+    </h3>
+    <p class="text-center">
+      <a href="/blog/newsletters" class="btn btn-primary">
+        Join our newsletter
+        <span class="icon-uio-chevron-right "></span>
+      </a>
+    </p>
+  </div>
+</div>
+        
+
+        <hr>
+
+        <h2 class="comments">Comments</h2>
+
+<p>
+  We encourage discussion of our blog posts on our <a href="https://gitter.im/underscoreio/scala">Gitter channel</a>.
+  Please review our <a href="/terms#comments">Community Guidelines</a> before posting there.
+  We encourage discussion in good faith, but do not allow combative, exclusionary, or harassing behaviour. 
+  If you have any questions, <a href="/contact">contact us</a>!
+</p>
+
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <aside class="blog-sidebar">
+        <div id="mc_embed_signup" class="blog-sidebar-mailchimp panel panel-gray">
+  <div class="panel-body">
+    <h4>The Underscore Newsletter</h4>
+
+    <p>Keep up to date! Subscribe to our newsletter for the latest Scala news.</p>
+
+    <form method="post"
+          action="http://underscoreconsulting.us3.list-manage.com/subscribe/post?u=a62dbb8a9c32f6c994dfd1111&amp;id=e9817b5369"
+              id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+           class="validate"
+          target="_blank"
+      novalidate="">
+      <fieldset>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <button class="btn btn-primary" id="mc-embedded-subscribe" type="submit" data-goal="click">Keep me posted</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+    <p class="text-muted">
+      <small>No spam. Unsubscribe at any time. We do not share personal details with third parties.</small>
+    </p>
+
+    <p class="text-muted">
+      <small><a href="/blog/newsletters">Browse old newsletters to see what you'll get</a></small>
+    </p>
+  </div>
+</div>
+<div class="blog-sidebar-promos">
+  <h4>Books from Underscore</h4>
+
+  
+  <div class="blog-sidebar-promo essential-scala"
+     data-book-id="/books/essential-scala">
+  <a class="book-title" href="/books/essential-scala">
+    <span class="book-icon icon-uio-scala"></span>
+    <span class="book-title-text">
+      Essential Scala
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo scala-with-cats"
+     data-book-id="/books/scala-with-cats">
+  <a class="book-title" href="/books/scala-with-cats">
+    <span class="book-icon icon-uio-cats"></span>
+    <span class="book-title-text">
+      Scala with Cats
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo essential-slick"
+     data-book-id="/books/essential-slick">
+  <a class="book-title" href="/books/essential-slick">
+    <span class="book-icon icon-uio-scala"></span>
+    <span class="book-title-text">
+      Essential Slick
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo shapeless-guide"
+     data-book-id="/books/shapeless-guide">
+  <a class="book-title" href="/books/shapeless-guide">
+    <span class="book-icon icon-uio-shapeless"></span>
+    <span class="book-title-text">
+      The Type Astronaut's Guide to Shapeless
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+</div>
+
+<aside class="blog-sidebar-archives">
+  <h4>Archives</h4>
+
+  <ul class="list-unstyled">
+    
+      
+        <li class="heading">May 2020</li>
+      
+
+      <li><a href="/blog/posts/2020/05/27/scala-with-cats-2.html">Scala with Cats 2</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2020/05/14/porting-and-seq.html">Review Seq matching when porting to 2.13</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2019</li>
+        
+      
+
+      <li><a href="/blog/posts/2019/12/23/talks-roundup.html">Our Talks from 2019</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2019/12/12/tut-to-mdoc.html">Tips for moving from tut to mdoc</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2019</li>
+        
+      
+
+      <li><a href="/blog/posts/2019/07/04/introducing-inner-product.html">Introducing Inner Product</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/12/21/talks-roundup.html">Our Talks from 2018</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2018/12/12/bridges.html">Bridging Scala and the Front-End</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/05/17/modelling-js.html">Modelling JavaScript in Scala with Scala.js</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/03/20/fs2.html">Tips for working with FS2</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/12/14/scorex.html">A look at Scorex: a Scala blockchain framework</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/11/22/scala-with-cats.html">Announcing Scala with Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/20/newsletter17.html">Newsletter 17: Season for Giving Edition</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/20/talks-from-team-underscore-at-scalax.html">Talks from Team Underscore at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/15/talks-to-watch-out-for-at-scalax.html">Talks to Watch Out For at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/09/05/review.html">Getting Into Other People's Code</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/06/02/uniting-church-and-state.html">Uniting Church and State: FP and OO Together</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/05/31/newsletter16.html">Newsletter 16: It's Book Time!</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/05/29/why-we-open-sourced-our-books.html">Why We Open Sourced our Books</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/04/11/type-tetris.html">Playing "Type Tetris"
+</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/03/29/free-inject.html">The Free Monad with Multiple Algebras</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/03/07/refined-data-config-database.html">Refining your data from configuration to database</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/01/24/finch-functional-web-development.html">Finch: Functional Web Development</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/01/17/newsletter15.html">Newsletter 15: New Events in the New Year</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/01/17/agile-awards.html">Barclays Agile Awards 2016</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/12/16/newsletter14.html">Newsletter 14: Closing the Book on 2016</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/12/05/type-lambdas.html">Type lambdas and kind projector</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/11/24/value-discard.html">Value Discarding</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/10/11/twenty-two.html">Scala and 22</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/07/20/speaking-at-scalax.html">Giving a First Talk</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/07/20/new-speakers-at-scala-exchange-2016.html">How You Can Help Bring New Speakers and New Ideas to Scala eXchange 2016</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/06/27/opaque-transparent-interpreters.html">Opaque and Transparent Interpreters</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/04/21/probabilistic-programming.html">Probabilistic Programming in Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/03/21/serverless-scale-summit.html">Scala.js is Important for Cloud Services</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/03/08/qcon.html">Types Working For You, Not Against You</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Feb 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/02/02/advanced-scala-scalaz-to-cats.html">Advanced Scala Scalaz to Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/02/01/aws-lambda.html">Scala and AWS Lambda Blueprints</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/01/19/typelevel-summits.html">Typelevel Summits</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/12/22/newsletter13.html">Newsletter 13: Christmas Loot Edition</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/21/scalax-slick-workshop.html">Video from the Slick Workshop at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/21/scalax-interpreters-workshop.html">Slides and Code from the Interpreters Workshop at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/18/tut.html">tut</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/18/scala-exchange-highlights.html">Highlights from Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/01/newsletter12.html">Newsletter 12: Scala Exchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/11/19/essential-slick-review-copies.html">Essential Slick Feature Complete and Review Copies Available</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/17/why-3x5-is-and-isnt-5x3.html">Why 3&times;5 is and isn't 5&times;3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/09/sbt-commands.html">SBT Tricks</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/04/late-binding-and-overloading.html">Late Binding and Overloading in Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/03/atom.html">Using the Atom Editor with Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/10/14/reification.html">Reification, Kleislis, and Stream Libraries</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/10/01/newsletter11.html">Newsletter 11: Books and Boxes</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/09/16/book-update.html">Updates on the Underscore Books</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/08/28/essential-slick.html">Essential Slick Updates</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/08/23/slick-getresults.html">Using slickless with Plain SQL</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/08/08/slickless.html">Using shapeless HLists with Slick 3</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/07/24/diversity.html">You Can Increase Diversity at Scala eXchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/21/simple-isnt-easy.html">Simple Isn't Easy</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/14/upsert.html">Upsert in Slick 3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/03/newsletter10.html">Newsletter 10: Conferences, Cats, and Robots from the Future</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/02/annihilators-in-scala.html">Annihilators in Scala: An Example of Type Class Design</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/06/25/keeping-scala-simple.html">Keeping Scala Simple</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/10/scalajs-scaladays.html">Towards Browser and Server Utopia with Scala.js</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/10/an-introduction-to-cats.html">An Introduction to Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/05/new-speakers-at-scala-exchange-2015.html">New Speakers at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/04/newsletter9.html">Newsletter 9: Scala Jobs, Slick, Sealed Traits, Strata, and Scala Days</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/04/more-on-sealed.html">More on Sealed Traits in Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/02/everything-about-sealed.html">Everything You Ever Wanted to Know About Sealed Traits in Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/05/28/typechecking-sql.html">Typechecking SQL in Slick and doobie</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/15/slick-enrichment.html">Slick Query Enrichment</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/14/strata-hadoop-world.html">Strata + Hadoop World London 2015 In Review</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/06/essential-slick.html">Introducing Essential Slick</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/04/30/newsletter8.html">Newsletter 8: Free Monads and Free Courses</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/28/monadic-io-laziness-makes-you-free.html">Monadic IO: Laziness Makes You Free</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/24/distributed-teams.html">Practices for Distributed Scala Teams</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/23/deriving-the-free-monad.html">Deriving the Free Monad</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/14/free-monads-are-simple.html">Free Monads Are Simple</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/03/13/rxlift.html">RxLift: Reactive Web Components with LiftWeb and RxScala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/03/05/newsletter7.html">Newsletter 7: Error Handling and Two New Books</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/03/05/compositional-music-composition.html">Compositional Music Composition</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Feb 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/02/25/creative-scala-released.html">Creative Scala: A New Introduction to Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/23/designing-fail-fast-error-handling.html">Designing Fail-Fast Error Handling</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/13/error-handling-without-throwing-your-hands-up.html">Error Handling Without Throwing Your Hands Up</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/09/newsletter6.html">Newsletter 6: Training and Diversity Online and Worldwide</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/01/29/rethinking-online-training.html">Rethinking Online Training</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/29/diversity-in-training.html">Diversity in Training</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/16/lift-26-release.html">Highlights of the Lift Web Framework 2.6 Release</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/14/new-speakers-at-scala-exchange.html">Roundup of the New Speakers at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/05/codereview.html">Code Review at Scala eXchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/12/16/essential-scala-and-play-books-available-for-early-access.html">Essential Scala and Play Books Available for Early Access</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/12/05/newsletter5.html">Newsletter 5: Xmas Reading</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/10/20/newsletter4.html">Newsletter 4</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/20/essential-esential-scala-at-hack-the-tower.html">Essential Essential Scala at Hack the Tower</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/17/new-speakers-at-scala-exchange.html">New Speakers at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/02/learn-shapeless-find-500-dollars.html">Learn Shapeless, Find $500</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/01/intro-functional-finance.html">Introducing Functional Finance</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/09/16/response-to-the-typelevel-fork.html">Our Response to the Typelevel fork of Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/09/03/enumerations.html">Scala Enumerations</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/08/28/tools-to-guide-code-quality.html">Tools to guide code quality</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/17/angularjs-vs-react.html">AngularJs vs React</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/07/newsletter3.html">Newsletter 3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/07/scala-exchange-nsap-last-call.html">Scala Exchange New Speaker Programme Closing Soon</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/05/code-reviews-dont-produce-quality-code.html">Code Reviews Don't Produce Quality Code</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/07/27/readerwriterstate.html">A Small (Real) Example of the Reader and Writer Monads</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/06/30/underscores-new-speaker-program.html">Underscore's New Speaker Program for Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/24/scala-days-2014-the-lowdown.html">Scala Days 2014: The Low-down</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/21/announcing-underscoreio.html">Announcing underscore.io</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/05/lambda.html">Java 8 Crib Sheet for Scala Developers</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/05/02/hiring-scala-developers.html">Hiring Scala Developers</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/04/30/newsletter2.html">Newsletter 2</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/03/18/newsletter1.html">Newsletter 1</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/03/10/teaching-scala.html">Teaching Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/01/29/unboxed-tagged-angst.html">Unboxed Tagged Angst</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/01/06/crdt.html">Collaborative Text Editing</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/12/20/scalaz-monad-transformers.html">Scalaz Monad Transformers</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2013/12/20/crdts-for-fun-and-eventual-profit.html">CRDTs for fun and eventual profit</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/10/01/functional-media-roundup-quality-counts.html">Functional Media Roundup: Quality Counts</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/08/01/lift.html">Lift Cookbook</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/07/09/media-panel.html">Functional Programming in Media and Publishing</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2013/07/03/cloudbees.html">CloudBees Service Partner</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/03/13/streaming-algorithms-preregister.html">Pre-register for Streaming Algorithms Course</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/10/16/a-tribute-to-phil-bagwell.html">A Tribute to Phil Bagwell</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/08/01/developer-price.html">Misconceptions about Scala Developer Rates</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/07/09/another-typeclass.html">Another Small Example of the Type Class Pattern</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2012/07/06/icml-review.html">Review of COLT and ICML</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2012/07/02/kleisli-arrows.html">A Small Example of Kleisli Arrows</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/06/16/phantom-types.html">A Small Example of Phantom Types</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/05/03/typeclasses.html">A Small Example of the Typeclass Pattern</a></li>
+    
+  </ul>
+</aside>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="text-center">
+      <img src="/images/common/footer-brand.png" class="footer-brand" alt="Underscore">
+    </div>
+
+    <div class="row sitemap">
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/">Underscore</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li><a href="/consulting">Our Services</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li class="currency-select">
+            Currency:
+            <a href="javascript:void(0)" class="currency-select-usd">USD</a>,
+            <a href="javascript:void(0)" class="currency-select-gbp">GBP</a>,
+            <a href="javascript:void(0)" class="currency-select-eur">EUR</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/training">Courses and Training</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/training/bookings">Book a Course</a></li>
+          <li><a href="/training">Course Directory</a></li>
+          <li><a href="/training/courses/essential-scala">Essential Scala</a></li>
+          <li><a href="/training/courses/advanced-scala">Advanced Scala with Cats</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/contact">Contact</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/contact">
+            <span class="icon-uio-envelope "></span>
+            hello@underscore.io
+          </a></li>
+          <li><a href="http://twitter.com/underscoreio">
+            <span class="icon-uio-twitter "></span>
+            @underscoreio
+          </a></li>
+          <li><a href="/blog/newsletters">
+            <span class="icon-uio-public "></span>
+            The Underscore Newsletter
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright text-center">
+      Copyright 2011&ndash;22.
+      <br class="visible-xs">
+      All rights reserved. <a href="/terms">Terms of use</a>
+    </p>
+  </div>
+</footer>
+
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29444727-2', 'underscore.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
