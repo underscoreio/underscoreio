@@ -17,6 +17,7 @@ future                : true # needed for events
 
 source                : ./src
 destination           : ./docs
+exclude               : ['docs']
 encoding              : utf-8
 
 # GitHub pages enables paginate (and others) automatically and cannot be turned off

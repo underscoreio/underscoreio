@@ -10,6 +10,13 @@ The Underscore web site and blog.
 
 # Deploying the Site
 
-Pushing to master will publish the site at GitHub pages.
+Create the static content in `./docs` with:
+
+```bash
+./build.sh
+```
+
+then `git add` the docs folder, commit, and push.
+The site is hosted over at github pages
 
 
