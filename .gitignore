@@ -6,6 +6,7 @@ vendor
 .rbenv-version
 .DS_Store
 Thumbs.db
+docs/.nojekyll
 
 *.sublime-project
 *.sublime-workspace
