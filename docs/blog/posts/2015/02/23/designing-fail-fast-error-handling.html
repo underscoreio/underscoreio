@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en" id="/blog/posts/2015/02/23/designing-fail-fast-error-handling" class="">
+  
+  
+  <head>
+    <title>Designing Fail-Fast Error Handling - Underscore</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="/assets/screen-9132d4f189ef656eb3d1e8defedf7c83e32e9240d9a3af3d804d36f850e43dd5.css">
+    <link type="text/css" rel="stylesheet" href="/assets/print-dd04f6182ddcf193d2ac9f59bdbdbb366e01738f8a32086ffb82c7be2f9e1eb8.css" media="print">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@underscoreio">
+    
+      <meta name="twitter:title" content="Designing Fail-Fast Error Handling">
+    
+    
+      <meta name="twitter:description" content="In this post I want to explore the design space for error handling techniques in Scala. We previously posted about some basic techniques for error handling in Scala. That post generated quite a bit of discussion. Here I want to expand the concepts Jonathon introduced by showing how we can systematically design a mechanism for error handling, introduce some moderately advanced techniques, and discuss some of the tradeoffs.
+
+">
+    
+    
+      <meta name="twitter:image" content="http://underscore.io/images/twitter-card-icon.png">
+    
+
+    <link rel="shortcut icon" href="/images/favicon-64.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <link rel="canonical" href="http://underscore.io/blog/posts/2015/02/23/designing-fail-fast-error-handling.html">
+
+    <script type="text/javascript" src="/assets/site-5ab8e41df06f32ccfbf4c40fdf2d7fc81c360b991aa5c153ed01fd0714c019d4.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="hero">
+  <div class="overlay-gem-left-white hero-overlay-soft"></div>
+  <div class="overlay-gem-right-white hero-overlay-soft"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <header class="hero-text">
+    <div class="container">
+      
+        <h1>
+          <a class="back-link" href="/blog">
+            Blog
+            <span class="icon-uio-back "></span>
+          </a>
+        </h1>
+      
+
+      
+    </div>
+  </header>
+</div>
+
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <section class="blog-post" data-post-url="/blog/posts/2015/02/23/designing-fail-fast-error-handling.html">
+        <h2 class="blog-post-title">Designing Fail-Fast Error Handling</h2>
+
+        <dl class="blog-post-meta">
+  <dt class="blog-post-date">Posted</dt>
+  <dd class="blog-post-date">
+    <span class="day">23</span>
+    <span class="month">Feb</span>
+    <span class="year">2015</span>
+  </dd>
+  <dt class="blog-post-author">by</dt>
+  <dd class="blog-post-author">
+    Noel Welsh
+  </dd>
+  
+</dl>
+
+
+        <article class="blog-post-content">
+          <p>In this post I want to explore the design space for error handling techniques in Scala. We previously <a href="/blog/posts/2015/02/13/error-handling-without-throwing-your-hands-up.html">posted</a> about some basic techniques for error handling in Scala. That post generated quite a bit of discussion. Here I want to expand the concepts Jonathon introduced by showing how we can systematically design a mechanism for error handling, introduce some moderately advanced techniques, and discuss some of the tradeoffs.</p>
+
+<!-- break -->
+
+<h2 id="goals">Goals</h2>
+
+<p>Before we can design our system we must lay out the goals we hope to accomplish. There are two goals we are aiming for.</p>
+
+<p>Our first goal is to <strong>stop as soon as we encounter an error</strong>, or in other words, fail-fast. Sometimes we want to accumulate all errors – for example when validating user input – but this is a different problem and leads to a different solution.</p>
+
+<p>Our second goal is to <strong>guarantee we handle every error we intend to handle</strong>. As every programmer knows, if you want something to happen every time you get a computer to do it. In the context of Scala this means using the type system to guarantee that <strong>code that does not implement error handling will not compile</strong>.</p>
+
+<p>There are two corollaries of our second goal:</p>
+
+<ol>
+  <li>
+    <p>if there are errors we don’t care to handle, perhaps because they are so unlikely, or we cannot take any action other than crashing, don’t model them; and</p>
+  </li>
+  <li>
+    <p>if we add or remove an error type that we do want to handle, the compiler must force us to update the code.</p>
+  </li>
+</ol>
+
+<h2 id="design">Design</h2>
+
+<p>There are two elements to our design:</p>
+
+<ul>
+  <li>how we represent the act of encountering an error (to give us fail-fast behaviour); and</li>
+  <li>how we represent the information we store about an error.</li>
+</ul>
+
+<h2 id="failing-fast">Failing Fast</h2>
+
+<p>Our two tools for fail-fast behaviour are throwing exceptions and sequencing computations using monads.</p>
+
+<p>We can immediately discard using exceptions. Exceptions are unchecked in Scala, meaning the compiler will not force us to handle them. Hence they won’t meet our second goal.</p>
+
+<p>This leaves us with monads. The term may not be familiar to all Scala programmers, but most will be familiar with <code class="language-plaintext highlighter-rouge">Option</code> and <code class="language-plaintext highlighter-rouge">flatMap</code>. This is essentially the behaviour we are looking for. <code class="language-plaintext highlighter-rouge">Option</code> gives us fail-fast behaviour when we use <code class="language-plaintext highlighter-rouge">flatMap</code> to sequence computations<sup id="fnref:type-inference" role="doc-noteref"><a href="#fn:type-inference" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">scala</span><span class="o">&gt;</span> <span class="nc">Option</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="n">flatMap</span> <span class="o">{</span> <span class="n">x</span> <span class="k">=&gt;</span>
+  <span class="nf">println</span><span class="o">(</span><span class="s">"Got x"</span><span class="o">)</span>
+  <span class="nv">Option</span><span class="o">.</span><span class="py">empty</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="n">flatMap</span> <span class="o">{</span> <span class="n">y</span> <span class="k">=&gt;</span>  <span class="c1">// The computation fails here and later steps do not run</span>
+    <span class="nf">println</span><span class="o">(</span><span class="s">"Got y"</span><span class="o">)</span>
+    <span class="nc">Option</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="n">map</span> <span class="o">{</span> <span class="n">z</span> <span class="k">=&gt;</span>
+      <span class="nf">println</span><span class="o">(</span><span class="s">"Got z"</span><span class="o">)</span>
+      <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="nc">Got</span> <span class="n">x</span>
+<span class="n">res0</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">None</span>
+</code></pre></div></div>
+
+<p>It’s normally clearer to write this using a for-comprehension:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="o">{</span>
+  <span class="n">x</span> <span class="k">&lt;-</span> <span class="nc">Option</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+  <span class="n">y</span> <span class="k">&lt;-</span> <span class="nv">Option</span><span class="o">.</span><span class="py">empty</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+  <span class="n">z</span> <span class="k">&lt;-</span> <span class="nc">Option</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+<span class="o">}</span> <span class="nf">yield</span> <span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="o">)</span>
+<span class="n">res1</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">None</span>
+</code></pre></div></div>
+
+<p>There are a lot of data structures that implement variations of this idea. We might also use <code class="language-plaintext highlighter-rouge">Either</code> or <code class="language-plaintext highlighter-rouge">Try</code> from the standard library, or Scalaz’s disjuction, written <code class="language-plaintext highlighter-rouge">\/</code>.</p>
+
+<p>We want some information on errors for debugging. This means we can immediately drop <code class="language-plaintext highlighter-rouge">Option</code> from consideration, as when we encounter an error the result is simply <code class="language-plaintext highlighter-rouge">None</code>. We know that an error <em>has</em> happened, but we don’t know <em>what</em> error it is.</p>
+
+<p>We can also drop <code class="language-plaintext highlighter-rouge">Try</code> from consideration. <code class="language-plaintext highlighter-rouge">Try</code> always stores a <code class="language-plaintext highlighter-rouge">Throwable</code> to represent errors. What is a <code class="language-plaintext highlighter-rouge">Throwable</code>? It can be just about anything. In particular, it’s not a sealed trait so the compiler can’t help us to ensure we handle all the cases we intend to handle. Therefore we can’t meet goal two if we use <code class="language-plaintext highlighter-rouge">Try</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Either</code> allows us to store any type we want as the error case. Thus we could meet our goals with <code class="language-plaintext highlighter-rouge">Either</code>, but in practice I prefer not to use it. The reason being it is cumbersome to use. Whenever you <code class="language-plaintext highlighter-rouge">flatMap</code> on an <code class="language-plaintext highlighter-rouge">Either</code> you have to decide which of the left and right cases is considered that success case (the so-called left and right projections). This is tedious and, since the right case is always considered the succesful case, only serves to introduce bugs<sup id="fnref:bugs" role="doc-noteref"><a href="#fn:bugs" class="footnote" rel="footnote">2</a></sup>. Here’s an example of use, showing the continual need to specify the projection.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Given a method that returns `Either`:</span>
+<span class="k">def</span> <span class="nf">readInt</span><span class="k">:</span> <span class="kt">Either</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
+  <span class="k">try</span> <span class="o">{</span>
+    <span class="nc">Right</span><span class="o">(</span><span class="nv">readLine</span><span class="o">.</span><span class="py">toInt</span><span class="o">)</span>
+  <span class="o">}</span> <span class="k">catch</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">exn</span><span class="k">:</span> <span class="kt">NumberFormatException</span> <span class="o">=&gt;</span>
+      <span class="nc">Left</span><span class="o">(</span><span class="s">"Please enter a number"</span><span class="o">)</span>
+  <span class="o">}</span>
+
+<span class="c1">// We can call right-biased flatMap...</span>
+<span class="nv">readInt</span><span class="o">.</span><span class="py">right</span><span class="o">.</span><span class="py">flatMap</span> <span class="o">{</span> <span class="n">number</span> <span class="k">=&gt;</span>
+<span class="o">}</span>
+
+<span class="c1">/// ...or left-biased flatMap:</span>
+<span class="nv">readInt</span><span class="o">.</span><span class="py">left</span><span class="o">.</span><span class="py">flatMap</span> <span class="o">{</span> <span class="n">errorMessage</span> <span class="k">=&gt;</span>
+  <span class="c1">// flatMap is left-biased here</span>
+<span class="o">}</span>
+
+<span class="c1">// This makes for-comprehensions cumbersome:</span>
+<span class="k">for</span> <span class="o">{</span>
+  <span class="n">x</span> <span class="k">&lt;-</span> <span class="nv">readInt</span><span class="o">.</span><span class="py">right</span>
+  <span class="n">y</span> <span class="k">&lt;-</span> <span class="nv">readInt</span><span class="o">.</span><span class="py">right</span>
+  <span class="n">z</span> <span class="k">&lt;-</span> <span class="nv">readInt</span><span class="o">.</span><span class="py">right</span>
+<span class="o">}</span> <span class="nf">yield</span> <span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>My preferred choice is Scalaz’s <code class="language-plaintext highlighter-rouge">\/</code> type, which is <em>right-biased</em>. This means it always considers the right hand to be the successful case for <code class="language-plaintext highlighter-rouge">flatMap</code> and <code class="language-plaintext highlighter-rouge">map</code>. It’s much more convenient to use than <code class="language-plaintext highlighter-rouge">Either</code> and can be used as a mostly drop-in replacement for it. Herea’s an example of use.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nn">scalaz.</span><span class="o">\/</span>
+
+<span class="k">def</span> <span class="nf">readInt</span><span class="k">:</span> <span class="kt">\/</span><span class="err">[</span><span class="kt">String</span><span class="o">,</span> <span class="nc">Int</span><span class="err">]</span> <span class="k">=</span> <span class="c1">// String error or Int success</span>
+  <span class="k">try</span> <span class="o">{</span>
+    <span class="o">\/.</span><span class="py">right</span><span class="o">(</span><span class="nv">readLine</span><span class="o">.</span><span class="py">toInt</span><span class="o">)</span> <span class="c1">// Creates a right-hand (success) value</span>
+  <span class="o">}</span> <span class="k">catch</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="n">exn</span><span class="k">:</span> <span class="kt">NumberFormatException</span> <span class="o">=&gt;</span>
+      <span class="o">\/.</span><span class="py">left</span><span class="o">(</span><span class="s">"Please enter a number"</span><span class="o">)</span> <span class="c1">// Creates a left-hand (failure) value</span>
+  <span class="o">}</span>
+
+<span class="c1">// \/ is a monad, so it has a flatMap method and we can use it in for</span>
+<span class="c1">// comprehensions</span>
+<span class="k">for</span> <span class="o">{</span>
+  <span class="n">x</span> <span class="k">&lt;-</span> <span class="n">readInt</span>
+  <span class="n">y</span> <span class="k">&lt;-</span> <span class="n">readInt</span>
+  <span class="n">z</span> <span class="k">&lt;-</span> <span class="n">readInt</span>
+<span class="o">}</span> <span class="nf">yield</span> <span class="o">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">z</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h2 id="representing-errors">Representing Errors</h2>
+
+<p>Having decided to use the disjunction monad for fail-fast error handling, let’s turn to how we represent errors.</p>
+
+<p>Errors form a logical disjunction. For example, database access could fail because the record is not found <em>or</em> no connection could be made <em>or</em> we are not authenticated, and so on. As soon as we see this structure we should turn to an algebraic data type (a sum type in particular), which we implement in Scala with code like</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">DatabaseError</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">NotFound</span><span class="o">(...)</span> <span class="k">extends</span> <span class="nc">DatabaseError</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">CouldNotConnect</span><span class="o">(...)</span> <span class="k">extends</span> <span class="nc">DatabaseError</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">CouldNotAuthenticate</span><span class="o">(...)</span> <span class="k">extends</span> <span class="nc">DatabaseError</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<p>When we process a <code class="language-plaintext highlighter-rouge">DatabaseError</code> we will typically use a <code class="language-plaintext highlighter-rouge">match</code> expression, and because we have used a <code class="language-plaintext highlighter-rouge">sealed</code> trait the compiler will tell us if we have forgotten a case. This meets our second goal, of handling every error we intend to handle.</p>
+
+<p>I strongly recommend defining a separate error type for each logical subsystem. Defining a system wide error hierarchy quickly becomes unwieldy, and you often want to expose different information at different layers of the system. For example, it is useful to include authentication information if a login fails but making this information available in our HTTP service could lead to leaking confidential information if we make a programming error.</p>
+
+<p>A complete code example is in <a href="https://gist.github.com/noelwelsh/9cacc8683bf3231b9219">this Gist</a>.</p>
+
+<h2 id="unexpected-errors">Unexpected Errors</h2>
+
+<p>We have the basic structure in place – use <code class="language-plaintext highlighter-rouge">\/</code> for fail fast behaviour along with an algebraic data type to represent errors. However we still have a few issues to address to really polish our system. One is how we handle unexpected errors. This can either be legacy code throwing exceptions, or they can be errors that we just aren’t interested in dealing with. For example, running out of disk space may be possibility that we decide is so unlikely that we don’t care to devote error handling logic to it. To handle this case I like to add a case to our algebraic data types to store unexpected errors. This usually has a single field that stores a <code class="language-plaintext highlighter-rouge">Throwable</code>.</p>
+
+<h2 id="locating-error-messages">Locating Error Messages</h2>
+
+<p>It is very useful to know the location (file name and line number) of an error. Exceptions provide this through the stack trace, but if we roll our own error types we must add the location ourselves. We can use macros to extract location information, but it is probably simpler to created a sealed subtype of <code class="language-plaintext highlighter-rouge">Exception</code> as the root of our algebraic data types, and use <code class="language-plaintext highlighter-rouge">fillInStackTrace</code> to capture location information. Wrap this up behind a convenience constructor and we’ll always have location information for debugging.</p>
+
+<h2 id="union-types">Union types</h2>
+
+<p>Finally, we see that we often repeat error types as we move between layers. For example, both the database and service layers <a href="https://gist.github.com/noelwelsh/9cacc8683bf3231b9219">in the example</a> have <code class="language-plaintext highlighter-rouge">NotFound</code> errors that mean essentially the same thing. Inheritance restricts us to tree shaped subtyping relationships. We can’t “reach into” the <code class="language-plaintext highlighter-rouge">DatabaseError</code> type to pull out just the <code class="language-plaintext highlighter-rouge">NotFound</code> case for inclusion in <code class="language-plaintext highlighter-rouge">ServiceError</code>.</p>
+
+<p>If we used a logical extension of <code class="language-plaintext highlighter-rouge">Either</code> (or <code class="language-plaintext highlighter-rouge">\/</code>) that we can piece together types in an ad-hoc way. For example, we could use <code class="language-plaintext highlighter-rouge">\/[NotFound, BadPassword]</code> to represent our errors, and if we wanted to extend to more cases we could use <code class="language-plaintext highlighter-rouge">\/[NotFound, \/[BadPassword, NotFound]]</code> and so on, forming a list structure. The <a href="https://github.com/milessabin/shapeless">shapeless</a> <code class="language-plaintext highlighter-rouge">Coproduct</code> provides a generalisation of this idea.</p>
+
+<p>We can go one step further with <a href="http://www.chuusai.com/2011/06/09/scala-union-types-curry-howard/">unboxed union types</a> to achieve the same effect with less runtime cost. This might be a step too far for most teams, but do note that union types are <a href="http://www.scala-lang.org/news/roadmap-next">slated for inclusion in a future version of Scala</a>.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>We have seen how to construct an error handling framework that meets our two goals of failing fast and handling all the errors we intend to handle. As always, use techniques appropriate for the situation. For example, many people commented on <code class="language-plaintext highlighter-rouge">Try</code> in our <a href="/blog/posts/2015/02/13/error-handling-without-throwing-your-hands-up.html">previous post</a>. <code class="language-plaintext highlighter-rouge">Try</code> won’t help us ensure we handle all the errors we want to handle, our second design in this post. For this reason I don’t like using it. However, if you can accept losing the guarantees on error handling it imposes then it is worth considering. If you are writing a one off script maybe you don’t need error handling at all.</p>
+
+<p>We’ve also seen systematic application of Scala features. Whenever we have a structure that is <em>this</em> or <em>that</em> we should recognise it is a sum type and reach for a <code class="language-plaintext highlighter-rouge">sealed trait</code>. Whenever we find ourselves sequencing computation there is probably a monad involved. Understanding these patterns is the foundation for successful programming in Scala. If you are interested in learning more they are explained in more depth in our books and courses, particularly <a href="http://underscore.io/training/courses/advanced-scala">Essential Scalaz</a>. The next two Essential Scala courses are running in <a href="/events/2015-03-19-essential-scalaz.html">San Francisco</a> and <a href="/events/2015-03-30-advanced-scala.html">Edinburgh</a>.</p>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:type-inference" role="doc-endnote">
+      <p>I use <code class="language-plaintext highlighter-rouge">Option.empty[A]</code> to construct an instance of <code class="language-plaintext highlighter-rouge">None</code> with the type I want. If I instead used a plan <code class="language-plaintext highlighter-rouge">None</code> (which is a sub-type of <code class="language-plaintext highlighter-rouge">Option[Nothing]</code>) type inference in this case infers <code class="language-plaintext highlighter-rouge">Option[String]</code>. This is due to the overloading of <code class="language-plaintext highlighter-rouge">+</code> for string concatentation as well as numeric addition. <a href="#fnref:type-inference" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:bugs" role="doc-endnote">
+      <p>Admittedly this is not a common source of bugs. However, I sometimes get my right and left mixed up (I’m left-handed) and this <em>is</em> the kind of mistake I could make. <a href="#fnref:bugs" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        </article>
+
+        <hr>
+
+        
+          <div class="row">
+  <div class="col-sm-4 col-sm-offset-2">
+    <h3 class="text-center">
+      Like what you're reading?
+    </h3>
+    <p class="text-center">
+      <a href="/blog/newsletters" class="btn btn-primary">
+        Join our newsletter
+        <span class="icon-uio-chevron-right "></span>
+      </a>
+    </p>
+  </div>
+</div>
+        
+
+        <hr>
+
+        <h2 class="comments">Comments</h2>
+
+<p>
+  We encourage discussion of our blog posts on our <a href="https://gitter.im/underscoreio/scala">Gitter channel</a>.
+  Please review our <a href="/terms#comments">Community Guidelines</a> before posting there.
+  We encourage discussion in good faith, but do not allow combative, exclusionary, or harassing behaviour. 
+  If you have any questions, <a href="/contact">contact us</a>!
+</p>
+
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <aside class="blog-sidebar">
+        <div id="mc_embed_signup" class="blog-sidebar-mailchimp panel panel-gray">
+  <div class="panel-body">
+    <h4>The Underscore Newsletter</h4>
+
+    <p>Keep up to date! Subscribe to our newsletter for the latest Scala news.</p>
+
+    <form method="post"
+          action="http://underscoreconsulting.us3.list-manage.com/subscribe/post?u=a62dbb8a9c32f6c994dfd1111&amp;id=e9817b5369"
+              id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+           class="validate"
+          target="_blank"
+      novalidate="">
+      <fieldset>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <button class="btn btn-primary" id="mc-embedded-subscribe" type="submit" data-goal="click">Keep me posted</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+    <p class="text-muted">
+      <small>No spam. Unsubscribe at any time. We do not share personal details with third parties.</small>
+    </p>
+
+    <p class="text-muted">
+      <small><a href="/blog/newsletters">Browse old newsletters to see what you'll get</a></small>
+    </p>
+  </div>
+</div>
+<div class="blog-sidebar-promos">
+  <h4>Books from Underscore</h4>
+
+  
+  <div class="blog-sidebar-promo essential-scala"
+     data-book-id="/books/essential-scala">
+  <a class="book-title" href="/books/essential-scala">
+    <span class="book-icon icon-uio-scala"></span>
+    <span class="book-title-text">
+      Essential Scala
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo scala-with-cats"
+     data-book-id="/books/scala-with-cats">
+  <a class="book-title" href="/books/scala-with-cats">
+    <span class="book-icon icon-uio-cats"></span>
+    <span class="book-title-text">
+      Scala with Cats
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo essential-slick"
+     data-book-id="/books/essential-slick">
+  <a class="book-title" href="/books/essential-slick">
+    <span class="book-icon icon-uio-scala"></span>
+    <span class="book-title-text">
+      Essential Slick
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo shapeless-guide"
+     data-book-id="/books/shapeless-guide">
+  <a class="book-title" href="/books/shapeless-guide">
+    <span class="book-icon icon-uio-shapeless"></span>
+    <span class="book-title-text">
+      The Type Astronaut's Guide to Shapeless
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+</div>
+
+<aside class="blog-sidebar-archives">
+  <h4>Archives</h4>
+
+  <ul class="list-unstyled">
+    
+      
+        <li class="heading">May 2020</li>
+      
+
+      <li><a href="/blog/posts/2020/05/27/scala-with-cats-2.html">Scala with Cats 2</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2020/05/14/porting-and-seq.html">Review Seq matching when porting to 2.13</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2019</li>
+        
+      
+
+      <li><a href="/blog/posts/2019/12/23/talks-roundup.html">Our Talks from 2019</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2019/12/12/tut-to-mdoc.html">Tips for moving from tut to mdoc</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2019</li>
+        
+      
+
+      <li><a href="/blog/posts/2019/07/04/introducing-inner-product.html">Introducing Inner Product</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/12/21/talks-roundup.html">Our Talks from 2018</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2018/12/12/bridges.html">Bridging Scala and the Front-End</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/05/17/modelling-js.html">Modelling JavaScript in Scala with Scala.js</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/03/20/fs2.html">Tips for working with FS2</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/12/14/scorex.html">A look at Scorex: a Scala blockchain framework</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/11/22/scala-with-cats.html">Announcing Scala with Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/20/newsletter17.html">Newsletter 17: Season for Giving Edition</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/20/talks-from-team-underscore-at-scalax.html">Talks from Team Underscore at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/15/talks-to-watch-out-for-at-scalax.html">Talks to Watch Out For at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/09/05/review.html">Getting Into Other People's Code</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/06/02/uniting-church-and-state.html">Uniting Church and State: FP and OO Together</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/05/31/newsletter16.html">Newsletter 16: It's Book Time!</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/05/29/why-we-open-sourced-our-books.html">Why We Open Sourced our Books</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/04/11/type-tetris.html">Playing "Type Tetris"
+</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/03/29/free-inject.html">The Free Monad with Multiple Algebras</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/03/07/refined-data-config-database.html">Refining your data from configuration to database</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/01/24/finch-functional-web-development.html">Finch: Functional Web Development</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/01/17/newsletter15.html">Newsletter 15: New Events in the New Year</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/01/17/agile-awards.html">Barclays Agile Awards 2016</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/12/16/newsletter14.html">Newsletter 14: Closing the Book on 2016</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/12/05/type-lambdas.html">Type lambdas and kind projector</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/11/24/value-discard.html">Value Discarding</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/10/11/twenty-two.html">Scala and 22</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/07/20/speaking-at-scalax.html">Giving a First Talk</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/07/20/new-speakers-at-scala-exchange-2016.html">How You Can Help Bring New Speakers and New Ideas to Scala eXchange 2016</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/06/27/opaque-transparent-interpreters.html">Opaque and Transparent Interpreters</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/04/21/probabilistic-programming.html">Probabilistic Programming in Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/03/21/serverless-scale-summit.html">Scala.js is Important for Cloud Services</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/03/08/qcon.html">Types Working For You, Not Against You</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Feb 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/02/02/advanced-scala-scalaz-to-cats.html">Advanced Scala Scalaz to Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/02/01/aws-lambda.html">Scala and AWS Lambda Blueprints</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/01/19/typelevel-summits.html">Typelevel Summits</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/12/22/newsletter13.html">Newsletter 13: Christmas Loot Edition</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/21/scalax-slick-workshop.html">Video from the Slick Workshop at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/21/scalax-interpreters-workshop.html">Slides and Code from the Interpreters Workshop at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/18/tut.html">tut</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/18/scala-exchange-highlights.html">Highlights from Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/01/newsletter12.html">Newsletter 12: Scala Exchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/11/19/essential-slick-review-copies.html">Essential Slick Feature Complete and Review Copies Available</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/17/why-3x5-is-and-isnt-5x3.html">Why 3&times;5 is and isn't 5&times;3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/09/sbt-commands.html">SBT Tricks</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/04/late-binding-and-overloading.html">Late Binding and Overloading in Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/03/atom.html">Using the Atom Editor with Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/10/14/reification.html">Reification, Kleislis, and Stream Libraries</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/10/01/newsletter11.html">Newsletter 11: Books and Boxes</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/09/16/book-update.html">Updates on the Underscore Books</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/08/28/essential-slick.html">Essential Slick Updates</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/08/23/slick-getresults.html">Using slickless with Plain SQL</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/08/08/slickless.html">Using shapeless HLists with Slick 3</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/07/24/diversity.html">You Can Increase Diversity at Scala eXchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/21/simple-isnt-easy.html">Simple Isn't Easy</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/14/upsert.html">Upsert in Slick 3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/03/newsletter10.html">Newsletter 10: Conferences, Cats, and Robots from the Future</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/02/annihilators-in-scala.html">Annihilators in Scala: An Example of Type Class Design</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/06/25/keeping-scala-simple.html">Keeping Scala Simple</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/10/scalajs-scaladays.html">Towards Browser and Server Utopia with Scala.js</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/10/an-introduction-to-cats.html">An Introduction to Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/05/new-speakers-at-scala-exchange-2015.html">New Speakers at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/04/newsletter9.html">Newsletter 9: Scala Jobs, Slick, Sealed Traits, Strata, and Scala Days</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/04/more-on-sealed.html">More on Sealed Traits in Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/02/everything-about-sealed.html">Everything You Ever Wanted to Know About Sealed Traits in Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/05/28/typechecking-sql.html">Typechecking SQL in Slick and doobie</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/15/slick-enrichment.html">Slick Query Enrichment</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/14/strata-hadoop-world.html">Strata + Hadoop World London 2015 In Review</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/06/essential-slick.html">Introducing Essential Slick</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/04/30/newsletter8.html">Newsletter 8: Free Monads and Free Courses</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/28/monadic-io-laziness-makes-you-free.html">Monadic IO: Laziness Makes You Free</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/24/distributed-teams.html">Practices for Distributed Scala Teams</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/23/deriving-the-free-monad.html">Deriving the Free Monad</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/14/free-monads-are-simple.html">Free Monads Are Simple</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/03/13/rxlift.html">RxLift: Reactive Web Components with LiftWeb and RxScala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/03/05/newsletter7.html">Newsletter 7: Error Handling and Two New Books</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/03/05/compositional-music-composition.html">Compositional Music Composition</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Feb 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/02/25/creative-scala-released.html">Creative Scala: A New Introduction to Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/23/designing-fail-fast-error-handling.html">Designing Fail-Fast Error Handling</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/13/error-handling-without-throwing-your-hands-up.html">Error Handling Without Throwing Your Hands Up</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/09/newsletter6.html">Newsletter 6: Training and Diversity Online and Worldwide</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/01/29/rethinking-online-training.html">Rethinking Online Training</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/29/diversity-in-training.html">Diversity in Training</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/16/lift-26-release.html">Highlights of the Lift Web Framework 2.6 Release</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/14/new-speakers-at-scala-exchange.html">Roundup of the New Speakers at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/05/codereview.html">Code Review at Scala eXchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/12/16/essential-scala-and-play-books-available-for-early-access.html">Essential Scala and Play Books Available for Early Access</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/12/05/newsletter5.html">Newsletter 5: Xmas Reading</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/10/20/newsletter4.html">Newsletter 4</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/20/essential-esential-scala-at-hack-the-tower.html">Essential Essential Scala at Hack the Tower</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/17/new-speakers-at-scala-exchange.html">New Speakers at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/02/learn-shapeless-find-500-dollars.html">Learn Shapeless, Find $500</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/01/intro-functional-finance.html">Introducing Functional Finance</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/09/16/response-to-the-typelevel-fork.html">Our Response to the Typelevel fork of Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/09/03/enumerations.html">Scala Enumerations</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/08/28/tools-to-guide-code-quality.html">Tools to guide code quality</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/17/angularjs-vs-react.html">AngularJs vs React</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/07/newsletter3.html">Newsletter 3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/07/scala-exchange-nsap-last-call.html">Scala Exchange New Speaker Programme Closing Soon</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/05/code-reviews-dont-produce-quality-code.html">Code Reviews Don't Produce Quality Code</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/07/27/readerwriterstate.html">A Small (Real) Example of the Reader and Writer Monads</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/06/30/underscores-new-speaker-program.html">Underscore's New Speaker Program for Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/24/scala-days-2014-the-lowdown.html">Scala Days 2014: The Low-down</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/21/announcing-underscoreio.html">Announcing underscore.io</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/05/lambda.html">Java 8 Crib Sheet for Scala Developers</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/05/02/hiring-scala-developers.html">Hiring Scala Developers</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/04/30/newsletter2.html">Newsletter 2</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/03/18/newsletter1.html">Newsletter 1</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/03/10/teaching-scala.html">Teaching Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/01/29/unboxed-tagged-angst.html">Unboxed Tagged Angst</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/01/06/crdt.html">Collaborative Text Editing</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/12/20/scalaz-monad-transformers.html">Scalaz Monad Transformers</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2013/12/20/crdts-for-fun-and-eventual-profit.html">CRDTs for fun and eventual profit</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/10/01/functional-media-roundup-quality-counts.html">Functional Media Roundup: Quality Counts</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/08/01/lift.html">Lift Cookbook</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/07/09/media-panel.html">Functional Programming in Media and Publishing</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2013/07/03/cloudbees.html">CloudBees Service Partner</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/03/13/streaming-algorithms-preregister.html">Pre-register for Streaming Algorithms Course</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/10/16/a-tribute-to-phil-bagwell.html">A Tribute to Phil Bagwell</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/08/01/developer-price.html">Misconceptions about Scala Developer Rates</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/07/09/another-typeclass.html">Another Small Example of the Type Class Pattern</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2012/07/06/icml-review.html">Review of COLT and ICML</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2012/07/02/kleisli-arrows.html">A Small Example of Kleisli Arrows</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/06/16/phantom-types.html">A Small Example of Phantom Types</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/05/03/typeclasses.html">A Small Example of the Typeclass Pattern</a></li>
+    
+  </ul>
+</aside>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="text-center">
+      <img src="/images/common/footer-brand.png" class="footer-brand" alt="Underscore">
+    </div>
+
+    <div class="row sitemap">
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/">Underscore</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li><a href="/consulting">Our Services</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li class="currency-select">
+            Currency:
+            <a href="javascript:void(0)" class="currency-select-usd">USD</a>,
+            <a href="javascript:void(0)" class="currency-select-gbp">GBP</a>,
+            <a href="javascript:void(0)" class="currency-select-eur">EUR</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/training">Courses and Training</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/training/bookings">Book a Course</a></li>
+          <li><a href="/training">Course Directory</a></li>
+          <li><a href="/training/courses/essential-scala">Essential Scala</a></li>
+          <li><a href="/training/courses/advanced-scala">Advanced Scala with Cats</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/contact">Contact</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/contact">
+            <span class="icon-uio-envelope "></span>
+            hello@underscore.io
+          </a></li>
+          <li><a href="http://twitter.com/underscoreio">
+            <span class="icon-uio-twitter "></span>
+            @underscoreio
+          </a></li>
+          <li><a href="/blog/newsletters">
+            <span class="icon-uio-public "></span>
+            The Underscore Newsletter
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright text-center">
+      Copyright 2011&ndash;22.
+      <br class="visible-xs">
+      All rights reserved. <a href="/terms">Terms of use</a>
+    </p>
+  </div>
+</footer>
+
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29444727-2', 'underscore.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

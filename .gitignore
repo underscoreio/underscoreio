@@ -1,10 +1,12 @@
 .env
+vendor
 .asset-cache
 .jekyll-metadata
 .ruby-version
 .rbenv-version
 .DS_Store
 Thumbs.db
+docs/.nojekyll
 
 *.sublime-project
 *.sublime-workspace

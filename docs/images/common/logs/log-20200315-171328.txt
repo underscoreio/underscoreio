@@ -1,0 +1,51 @@
+*********************** Log Started 2020-03-15T17:13:25Z ***********************
+17:13:25:************************* Folding@home Client *************************
+17:13:25:    Website: https://foldingathome.org/
+17:13:25:  Copyright: (c) 2009-2018 foldingathome.org
+17:13:25:     Author: Joseph Coffland <joseph@cauldrondevelopment.com>
+17:13:25:       Args: --queue-info
+17:13:25:     Config: /Users/richard/Developer/sites/underscoreio/src/images/common/config.xml
+17:13:25:******************************** Build ********************************
+17:13:25:    Version: 7.5.1
+17:13:25:       Date: May 11 2018
+17:13:25:       Time: 12:57:01
+17:13:25: Repository: Git
+17:13:25:   Revision: 4705bf53c635f88b8fe85af7675557e15d491ff0
+17:13:25:     Branch: master
+17:13:25:   Compiler: GNU 4.2.1 Compatible Apple LLVM 7.3.0 (clang-703.0.31)
+17:13:25:    Options: -std=gnu++98 -O3 -funroll-loops -mmacosx-version-min=10.6
+17:13:25:             -Wno-unused-local-typedefs
+17:13:25:   Platform: darwin 15.6.0
+17:13:25:       Bits: 64
+17:13:25:       Mode: Release
+17:13:25:******************************* System ********************************
+17:13:25:        CPU: Intel(R) Core(TM) i7-6567U CPU @ 3.30GHz
+17:13:25:     CPU ID: GenuineIntel Family 6 Model 78 Stepping 3
+17:13:25:       CPUs: 4
+17:13:25:     Memory: 16.00GiB
+17:13:25:Free Memory: 3.60GiB
+17:13:25:    Threads: POSIX_THREADS
+17:13:25: OS Version: 10.15
+17:13:25:Has Battery: true
+17:13:25: On Battery: false
+17:13:25: UTC Offset: 0
+17:13:25:        PID: 21820
+17:13:25:        CWD: /Users/richard/Developer/sites/underscoreio/src/images/common
+17:13:25:         OS: Darwin 19.3.0 x86_64
+17:13:25:    OS Arch: AMD64
+17:13:25:       GPUs: 0
+17:13:25:       CUDA: Not detected: Failed to open dynamic library 'libcuda.dylib':
+17:13:25:             dlopen(libcuda.dylib, 1): image not found
+17:13:25:     OpenCL: Not detected: Failed to open dynamic library 'libOpenCL.dylib':
+17:13:25:             dlopen(libOpenCL.dylib, 1): image not found
+17:13:25:***********************************************************************
+17:13:25:<config>
+17:13:25:  <!-- Folding Slots -->
+17:13:25:  <slot id='0' type='CPU'/>
+17:13:25:</config>
+17:13:25:Trying to access database...
+17:13:25:Successfully acquired database lock
+17:13:25:Enabled folding slot 00: READY cpu:1
+[91m17:13:25:ERROR:Exception: Could not bind socket to 0.0.0.0:7396: Address already in use[0m
+[91m17:13:25:ERROR:Exception: Could not bind socket to 0.0.0.0:36330: Address already in use[0m
+17:13:25:Clean exit

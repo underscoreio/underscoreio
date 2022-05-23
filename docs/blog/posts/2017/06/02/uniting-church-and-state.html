@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en" id="/blog/posts/2017/06/02/uniting-church-and-state" class="">
+  
+  
+  <head>
+    <title>Uniting Church and State: FP and OO Together - Underscore</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="/assets/screen-9132d4f189ef656eb3d1e8defedf7c83e32e9240d9a3af3d804d36f850e43dd5.css">
+    <link type="text/css" rel="stylesheet" href="/assets/print-dd04f6182ddcf193d2ac9f59bdbdbb366e01738f8a32086ffb82c7be2f9e1eb8.css" media="print">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@underscoreio">
+    
+      <meta name="twitter:title" content="Uniting Church and State: FP and OO Together">
+    
+    
+      <meta name="twitter:description" content="This is a post about church and state, and how we can unite the two for a better world, while avoiding unfortunate side effects.
+
+Political metaphors aside, this really is a post about Church—Alonzo Church—and how we can use his idea of Church encoding to unite pure FP and imperative OO to achieve, if not a better world, at least better code.
+
+">
+    
+    
+      <meta name="twitter:image" content="http://underscore.io/images/twitter-card-icon.png">
+    
+
+    <link rel="shortcut icon" href="/images/favicon-64.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <link rel="canonical" href="http://underscore.io/blog/posts/2017/06/02/uniting-church-and-state.html">
+
+    <script type="text/javascript" src="/assets/site-5ab8e41df06f32ccfbf4c40fdf2d7fc81c360b991aa5c153ed01fd0714c019d4.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="hero">
+  <div class="overlay-gem-left-white hero-overlay-soft"></div>
+  <div class="overlay-gem-right-white hero-overlay-soft"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <header class="hero-text">
+    <div class="container">
+      
+        <h1>
+          <a class="back-link" href="/blog">
+            Blog
+            <span class="icon-uio-back "></span>
+          </a>
+        </h1>
+      
+
+      
+    </div>
+  </header>
+</div>
+
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <section class="blog-post" data-post-url="/blog/posts/2017/06/02/uniting-church-and-state.html">
+        <h2 class="blog-post-title">Uniting Church and State: FP and OO Together</h2>
+
+        <dl class="blog-post-meta">
+  <dt class="blog-post-date">Posted</dt>
+  <dd class="blog-post-date">
+    <span class="day">02</span>
+    <span class="month">Jun</span>
+    <span class="year">2017</span>
+  </dd>
+  <dt class="blog-post-author">by</dt>
+  <dd class="blog-post-author">
+    Noel Welsh
+  </dd>
+  
+</dl>
+
+
+        <article class="blog-post-content">
+          <p>This is a post about church and state, and how we can unite the two for a better world, while avoiding unfortunate side effects.</p>
+
+<p>Political metaphors aside, this really <em>is</em> a post about Church—<a href="alonzo-church">Alonzo Church</a>—and how we can use his idea of Church encoding to unite pure FP and imperative OO to achieve, if not a better world, at least better code.</p>
+
+<!-- break -->
+
+<p>But, you say, Scala already claims to be an object-functional hybrid, so why do we need to know about Church encodings?</p>
+
+<p>I’m glad you asked.</p>
+
+<p>Although Scala provides both OO and FP language features this is not sufficient to give coherent design principles encompassing both paradigms. Scala usage tends to fracture into FP or OO camps (I’m in the FP camp) as multi-paradigm design is hard.</p>
+
+<p>The Church encoding provides such a unifying design principle.</p>
+
+<p>In what follows I’m going to show that</p>
+
+<ul>
+  <li>FP and OO code make different tradeoffs with respect to extensibility, static guarantees, and performance.</li>
+  <li>Church encoding gives us a way to transform FP designs into OO designs.</li>
+  <li>We can use the inverse of Church encoding, called reification, to transform OO designs to FP.</li>
+  <li>This means we can keep one coherent design or mental model and implement it in FP or OO style according to the tradeoffs we want to make, meaning we can truly unify FP and OO.</li>
+  <li>This is useful, as seen in a real commercial system Underscore developed that uses Church encoding for a big performance improvement.</li>
+  <li>Finally, the idea of Church encoding gives us a way to unify other FP techniques that are creating buzz in the Scala community: Free structures, and tagless final interpreters.</li>
+</ul>
+
+<h2 id="fp-vs-oo">FP vs OO</h2>
+
+<p>We are going to start by reviewing classic FP and OO techniques, and see how the two techniques make different tradeoffs in terms of extensibility.</p>
+
+<p>Our example will be a very simple calculator. We’ll just have basic arithemetic operations: add, subtract, multiply and divide.</p>
+
+<h3 id="classic-oo">Classic OO</h3>
+
+<p>We can argue about what makes good OO design, but here’s some code that I think is reasonably typical and very straightforward:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Calculator</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="nf">literal</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">v</span>
+  <span class="k">def</span> <span class="nf">add</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+  <span class="k">def</span> <span class="nf">subtract</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+  <span class="k">def</span> <span class="nf">multiply</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+  <span class="k">def</span> <span class="nf">divide</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>In this design we can easily add new calculation operations, by creating a subclass. For example, if we want to add trigonometric functions like <code class="language-plaintext highlighter-rouge">cos</code>, <code class="language-plaintext highlighter-rouge">sin</code>, we can create a subclass <code class="language-plaintext highlighter-rouge">TrigCalculator</code> and add them there.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">TrigCalculator</span> <span class="k">extends</span> <span class="nc">Calculator</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="nf">sin</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="nv">Math</span><span class="o">.</span><span class="py">sin</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
+  <span class="k">def</span> <span class="nf">cos</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="nv">Math</span><span class="o">.</span><span class="py">cos</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We can’t easily change the way we perform these operations. If we want to pretty-print expressions, returning a <code class="language-plaintext highlighter-rouge">String</code>, or compute with <code class="language-plaintext highlighter-rouge">BigDecimal</code> for exact results, we have to change all our existing code.</p>
+
+<p>In summary it is easy to add new operations to our calculator (methods) but hard to add new actions (result types).</p>
+
+<h3 id="classic-fp">Classic FP</h3>
+
+<p>Now let’s see how we might approach the same problem from a classic FP perspective. Again, we’re going for a very basic approach like we might write in, say, ML.</p>
+
+<p>The first step is to implement an algebraic data type describing the computations we allow.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">Calculation</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Literal</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Calculation</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Add</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Calculation</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Subtract</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Calculation</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Multiply</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Calculation</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Divide</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Calculation</span>
+</code></pre></div></div>
+
+<p>Now we implement a method to evaluate these expressions:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">eval</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> 
+  <span class="n">c</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Literal</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>     <span class="k">=&gt;</span> <span class="n">v</span>
+    <span class="k">case</span> <span class="nc">Add</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>      <span class="k">=&gt;</span> <span class="nf">eval</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="o">+</span> <span class="nf">eval</span><span class="o">(</span><span class="n">b</span><span class="o">)</span>
+    <span class="k">case</span> <span class="nc">Subtract</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nf">eval</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="o">-</span> <span class="nf">eval</span><span class="o">(</span><span class="n">b</span><span class="o">)</span>
+    <span class="k">case</span> <span class="nc">Multiply</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nf">eval</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="o">*</span> <span class="nf">eval</span><span class="o">(</span><span class="n">b</span><span class="o">)</span>
+    <span class="k">case</span> <span class="nc">Divide</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>   <span class="k">=&gt;</span> <span class="nf">eval</span><span class="o">(</span><span class="n">a</span><span class="o">)</span> <span class="o">/</span> <span class="nf">eval</span><span class="o">(</span><span class="n">b</span><span class="o">)</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>With this design it’s easy to add new actions. 
+If we want to pretty print, for example, we can easily implement that as a new function with the same structure as <code class="language-plaintext highlighter-rouge">eval</code>.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">prettyPrint</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> 
+  <span class="n">c</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Literal</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>     <span class="k">=&gt;</span> <span class="n">v</span>
+    <span class="k">case</span> <span class="nc">Add</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>      <span class="k">=&gt;</span> <span class="n">s</span><span class="s">"${prettyPrint(a)} + ${prettyPrint(b)}"</span>
+    <span class="k">case</span> <span class="nc">Subtract</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">s</span><span class="s">"${prettyPrint(a)} - ${prettyPrint(b)}"</span>
+    <span class="k">case</span> <span class="nc">Multiply</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">s</span><span class="s">"${prettyPrint(a)} * ${prettyPrint(b)}"</span>
+    <span class="k">case</span> <span class="nc">Divide</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>   <span class="k">=&gt;</span> <span class="n">s</span><span class="s">"${prettyPrint(a)} / ${prettyPrint(b)}"</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>However it’s impossible to add new operations, like <code class="language-plaintext highlighter-rouge">sin</code> and <code class="language-plaintext highlighter-rouge">cos</code>, to this representation without code changes.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>We’ve divided our calculator into two parts:</p>
+
+<ul>
+  <li>operations, which are the things we want to do (add, subtract, divide, etc.); and</li>
+  <li>actions, which are how we want to do them (using <code class="language-plaintext highlighter-rouge">Double</code>, pretty print, etc.)</li>
+</ul>
+
+<p>This corresponds to the FP mantra of separating the description of what we want to do (operations) from how we do it (actions).
+Notably this is how we control effects in FP—they only happen when executing actions so while we’re describing that program we can ignore them.</p>
+
+<p>We see that OO and FP allow easy extension in different directions:</p>
+
+<ul>
+  <li>OO makes it easy to add new operations, but makes adding new actions hard; whereas</li>
+  <li>FP makes it easy to add new actions, but makes adding new operations hard.</li>
+</ul>
+
+<h2 id="church-encoding">Church Encoding</h2>
+
+<p>The Church encoding gives us a way to relate the OO and FP representation.</p>
+
+<p>Let’s look at <code class="language-plaintext highlighter-rouge">eval</code> from the FP implementation</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">eval</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Calculation</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> 
+  <span class="n">c</span> <span class="k">match</span> <span class="o">{</span>
+    <span class="k">case</span> <span class="nc">Literal</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>     <span class="k">=&gt;</span> <span class="n">v</span>
+    <span class="k">case</span> <span class="nc">Add</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>      <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">case</span> <span class="nc">Subtract</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+    <span class="k">case</span> <span class="nc">Multiply</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+    <span class="k">case</span> <span class="nc">Divide</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span>   <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>and compare it to the OO implementation</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Calculator</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="nf">literal</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">v</span>
+  <span class="k">def</span> <span class="nf">add</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+  <span class="k">def</span> <span class="nf">subtract</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+  <span class="k">def</span> <span class="nf">multiply</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+  <span class="k">def</span> <span class="nf">divide</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We can see they are very similar. The FP code inspects the <code class="language-plaintext highlighter-rouge">Calculation</code> element it is passes to choose the right action to take. The OO implementation breaks out the actions into their own method, and relies on the caller to make the choice for them.</p>
+
+<p>The relationship is this: each constructor in the FP implementation becomes a method in the OO implementation. This removes the need for the pattern matching. The transformation is known as <em>Church encoding</em>.</p>
+
+<p>We can go the opposite way as well: convert every method in the OO representation into a case class in a sealed trait (an algebraic data type), and then use a pattern match to chose the action to take (a structural recursion). This transformation is known as <em>reification</em>.</p>
+
+<h3 id="unification">Unification</h3>
+
+<p>We’ve seen that the OO and FP representations have different types of extensibility, and we can transform between the two representations using Church encoding or reification.</p>
+
+<p>This means we can keep one mental model and choose the representation that is best for the problem at hand. We can think of OO and FP not as entirely different programming paradigms but choices we make to encode a solution to the problem according to the tradeoffs we want to make.</p>
+
+<h2 id="case-study">Case Study</h2>
+
+<p>Let’s see an example where where this transformation is useful. One aspect we haven’t considered yet is performance. In the FP representation we must allocate memory to hold the data structure that represents the operations we want to perform. In the OO representation we don’t have that allocation. This can be advantageous.</p>
+
+<p>We were recently engaged to develop a time series analysis system for <a href="http://maana.io/">Maana</a>, the Seattle enterprise knowledgement management startup. This system had some fairly stringent performance demands that justified implementing a custom system rather than using off-the-shelf software like Spark.</p>
+
+<p>The nice thing about time series is they have a well defined order, and algorithms always respect that order. So we can implement the foundation of the system as a stream processing engine that works over the data from beginning to end, whether it is arriving in real-time or being streamed from disk.</p>
+
+<p>There is a lot of prior work on the kind of API for this system. Spark, Monix, FS2, and Akka Streams all provide examples. We don’t need the rich API of these system in our implementation, and we have some methods that are particular to time series, but it provides a good mental model for what we’ll be talking about.</p>
+
+<p>In this kind of system we create a directed acyclic graph (DAG) representing what we want to perform, and then run it when we’ve finished the description. This is the classic FP model of separating describing what you want to do from carrying it out. Nodes in our graph represent things like resampling the time series, or restricting it to a particular time range.</p>
+
+<p>Our system has a pull based implementation model. Data flows from upstream to downstream. The most downstream node is the root, and the root pulls data through the system by requesting data from the nodes immediately upstream. They in turn request data from nodes immediately upstream from them, and this happens recursively till leaf nodes are reached. Leaf nodes then send data downstream, which gets transformed along the way until it reaches the root.</p>
+
+<p>We don’t just pass back data; we need to include some control information as well. We might have run out of data, we might be waiting for more (e.g. if we’ve filtering out certain time ranges), or we might have encountered an error. We can use this representation:</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">Result</span><span class="o">[</span><span class="kt">+A</span><span class="o">]</span>
+<span class="nc">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Emit</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">get</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Result</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">object</span> <span class="nc">Waiting</span> <span class="k">extends</span> <span class="nc">Result</span><span class="o">[</span><span class="kt">Nothing</span><span class="o">]</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">object</span> <span class="nc">Complete</span> <span class="k">extends</span> <span class="nc">Result</span><span class="o">[</span><span class="kt">Nothing</span><span class="o">]</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Error</span><span class="o">(</span><span class="n">reason</span><span class="k">:</span> <span class="kt">ErrorType</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Result</span><span class="o">[</span><span class="kt">Nothing</span><span class="o">]</span>
+</code></pre></div></div>
+
+<p>The problem here is we allocate a lot. We allocate a <code class="language-plaintext highlighter-rouge">Result</code> for every node in the DAG and for every data element we process. Usually we process a lot more elements than we have nodes in the graph.</p>
+
+<p>We can use the Church encoding to reduce the allocation! Instead of returning a <code class="language-plaintext highlighter-rouge">Result</code> we can call a <code class="language-plaintext highlighter-rouge">Receiver</code> with the correct method, where <code class="language-plaintext highlighter-rouge">Receiver</code> is the Church-encoding of <code class="language-plaintext highlighter-rouge">Result</code>.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Receiver</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="nf">emit</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span>
+  <span class="k">def</span> <span class="nf">waiting</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span>
+  <span class="k">def</span> <span class="nf">complete</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span>
+  <span class="k">def</span> <span class="nf">error</span><span class="o">(</span><span class="n">reason</span><span class="k">:</span> <span class="kt">ErrorType</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The action performed by a given node is constant so we can allocate one receiver per node in the graph and completely eliminate per-element allocation.</p>
+
+<h2 id="benchmarks">Benchmarks</h2>
+
+<p>Sounds good in theory, but how does it work out in practice? On <a href="https://github.com/noelwelsh/church-and-state">Github</a> I have a simplified implementation that demonstrates the FP and the Church-encoding representations. 
+For a simple benchmark I get the following results</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>termination.StreamBenchmark.zipAndAdd avgt 200 532.190 ± 2.724 ms/op
+partial.StreamBenchmark.zipAndAdd     avgt 200 387.252 ± 2.165 ms/op 
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">termination</code> is the FP style, and <code class="language-plaintext highlighter-rouge">partial</code> is the Church-encoded representation.</p>
+
+<p>The Church encoded representation is 1.4x faster. This is a great improvement from a simple program transformation we can apply in a very systematic way.</p>
+
+<h3 id="continuation-passing-style">Continuation Passing Style</h3>
+
+<p>You may have noticed we have changed from <em>returning</em> a <code class="language-plaintext highlighter-rouge">Result</code> to <em>calling</em> a <code class="language-plaintext highlighter-rouge">Receiver</code>. Essentially we’ve inverted our control-flow. How does this effect our code? This is another program transformation, known as continuation-passing style (CPS). Writing code in continuation passing style is not especially hard—it’s a well defined transformation, just like Church encoding is well defined—and it’s something that people who use callback-heavy APIs, such as Node.js programmers, do all the time.</p>
+
+<h3 id="conclusions-1">Conclusions</h3>
+
+<p>In summary we Church-encoded our <code class="language-plaintext highlighter-rouge">Result</code> type, and then CPSed the code that used it. In fact we only partially did this. If you look in the Github repository you’ll see examples that are fully Church encoded as well. This is an important point: it’s not all or nothing with these techniques. You can apply them to a small part of your code or the entire system.</p>
+
+<p>The result for us was a big performance improvement by avoiding excessive allocation. This is important to achieve our performance goals. Usually optimisation means writing lots of nasty code. I wouldn’t say the code we ended up with is paritcularly beautiful but it is related to the clearer original code by two systematic transformations: Church encoding and continuation passing style. We can easily reverse these transformations, if only in our head, to get back to the code that is easier to work with though less performant.</p>
+
+<h2 id="type-classes-and-free-structures">Type classes and Free structures</h2>
+
+<p>I now want to expand a bit more on the idea of Church encoding being a unifying idea.</p>
+
+<p>Let’s look at a typical type class. Here’s how <code class="language-plaintext highlighter-rouge">Monad</code> might look in something like Cats (the actual implementation also has <code class="language-plaintext highlighter-rouge">tailRecM</code>, which I’ve removed for clarity.)</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Monad</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="nf">flatMap</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">](</span><span class="n">fa</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">])(</span><span class="n">f</span><span class="k">:</span> <span class="o">(</span><span class="kt">A</span><span class="o">)</span> <span class="o">=.</span> <span class="n">F</span><span class="o">[</span><span class="kt">B</span><span class="o">])</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span>
+  <span class="k">def</span> <span class="nf">pure</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This looks a lot like a Church encoding. It is! But what is it a Church encoding of? If we reify it (remember reification is the opposite of Church encoding) we get something like</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">sealed</span> <span class="k">trait</span> <span class="nc">Monad</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span>,<span class="kt">A</span><span class="o">]</span>
+<span class="nc">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">FlatMap</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span>,<span class="kt">A</span>,<span class="kt">B</span><span class="o">](</span><span class="n">fa</span><span class="k">:</span> <span class="kt">Monad</span><span class="o">[</span><span class="kt">F</span>,<span class="kt">A</span><span class="o">],</span> <span class="n">f</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=&gt;</span> <span class="nc">Monad</span><span class="o">[</span><span class="kt">F</span>,<span class="kt">B</span><span class="o">])</span> <span class="k">extends</span> <span class="nc">Monad</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span>,<span class="kt">B</span><span class="o">]</span>
+<span class="k">final</span> <span class="k">case</span> <span class="k">class</span> <span class="nc">Pure</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span>, <span class="kt">A</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Monad</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]</span>,<span class="kt">A</span><span class="o">]</span>
+</code></pre></div></div>
+
+<p>This is the free monad! (The usual encoding of the free monad is slightly different for reasons of efficiency but the concept is the same.)</p>
+
+<p>So type classes are Church encodings of free structures, or alternatively, free structures are reifications of type classes.</p>
+
+<h2 id="extensibility">Extensibility</h2>
+
+<p>Earlier I said OO style makes it easy to add new operations while FP makes it easy to add new actions. But with type classes we can do both. We can extend a type class with new operations (such as <code class="language-plaintext highlighter-rouge">Monad</code> being an extension of <code class="language-plaintext highlighter-rouge">Applicative</code>), which is OO style extension. We can also add a new implementation of a type class for a given type (think of the many <code class="language-plaintext highlighter-rouge">Monoid</code> instances for <code class="language-plaintext highlighter-rouge">Int</code>), which is FP style extension. Did I lie to you?</p>
+
+<p>Dear reader, I would never knowingly lie to you. What has happened here is we’ve snuck in an extra degree of abstraction over the basic OO code I showed earlier. It’s the type parameter <code class="language-plaintext highlighter-rouge">F</code> in the definition of <code class="language-plaintext highlighter-rouge">Monad</code> below.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Monad</span><span class="o">[</span><span class="kt">F</span><span class="o">[</span><span class="k">_</span><span class="o">]]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="nf">flatMap</span><span class="o">[</span><span class="kt">A</span>,<span class="kt">B</span><span class="o">](</span><span class="n">fa</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">])(</span><span class="n">f</span><span class="k">:</span> <span class="o">(</span><span class="kt">A</span><span class="o">)</span> <span class="k">⇒</span> <span class="kt">F</span><span class="o">[</span><span class="kt">B</span><span class="o">])</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">B</span><span class="o">]</span>
+  <span class="k">def</span> <span class="nf">pure</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">x</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">F</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>We can apply the same trick to <code class="language-plaintext highlighter-rouge">Calculator</code>. If we add a type parameter to represent the output type we can now implement different actions, such as pretty printing which returns a <code class="language-plaintext highlighter-rouge">String</code>.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">trait</span> <span class="nc">Calculator</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="nf">literal</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">A</span> 
+  <span class="k">def</span> <span class="nf">add</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">A</span> 
+  <span class="k">def</span> <span class="nf">subtract</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">A</span> 
+  <span class="k">def</span> <span class="nf">multiply</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">A</span> 
+  <span class="k">def</span> <span class="nf">divide</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">A</span><span class="o">)</span><span class="k">:</span> <span class="kt">A</span> 
+<span class="o">}</span>
+
+<span class="k">object</span> <span class="nc">PrettyPrinter</span> <span class="k">extends</span> <span class="nc">Calculator</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="nf">literal</span><span class="o">(</span><span class="n">v</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="nv">v</span><span class="o">.</span><span class="py">toString</span>
+  <span class="k">def</span> <span class="nf">add</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">s</span><span class="s">"($a + $b)"</span>
+  <span class="k">def</span> <span class="nf">subtract</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">s</span><span class="s">"($a - $b)"</span>
+  <span class="k">def</span> <span class="nf">multiply</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">s</span><span class="s">"($a * $b)"</span>
+  <span class="k">def</span> <span class="nf">divide</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">s</span><span class="s">"($a / $b)"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>When we use a <code class="language-plaintext highlighter-rouge">Calculator</code> we should delay the choice of concrete implementation so we can plug in different implementations depending on our needs. This is the separation between describing what we want to occur and carrying it out.</p>
+
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">expression</span><span class="o">[</span><span class="kt">A</span><span class="o">](</span><span class="n">c</span><span class="k">:</span> <span class="kt">Calculator</span><span class="o">[</span><span class="kt">A</span><span class="o">])</span><span class="k">:</span> <span class="kt">A</span> <span class="o">=</span> <span class="o">{</span>
+  <span class="k">import</span> <span class="nn">c._</span>
+
+  <span class="nf">add</span><span class="o">(</span><span class="nf">literal</span><span class="o">(</span><span class="mf">1.0</span><span class="o">),</span> <span class="nf">subtract</span><span class="o">(</span><span class="nf">literal</span><span class="o">(</span><span class="mf">3.0</span><span class="o">),</span> <span class="nf">literal</span><span class="o">(</span><span class="mf">2.0</span><span class="o">)))</span>
+<span class="o">}</span>
+
+<span class="nf">expresssion</span><span class="o">(</span><span class="nc">PrettyPrinter</span><span class="o">)</span>
+<span class="c1">// res: String = (1.0 + (3.0 - 2.0))</span>
+</code></pre></div></div>
+
+<p>If we do this we have basically implemented a <em>tagless final</em> interpreter (sometimes also known as a finally tagless interpreter, or an object algebra in the OO world). If we go the opposite direction, and reify to a free structure, we can use the <code class="language-plaintext highlighter-rouge">Inject</code> typeclass to regain the flexibility we’ve lost. This is known as <em>data types à la carte</em> style.</p>
+
+<p>So we see that tagless final style is effectively a Church encoding of data types a la carte style, or vice versa.</p>
+
+<h2 id="summary-and-further-reading">Summary and Further Reading</h2>
+
+<p>Let’s run down what we’ve seen:</p>
+
+<ul>
+  <li>The Church encoding allows us to transform FP style to OO style</li>
+  <li>Reification allows us to transform OO style to FP style</li>
+  <li>We can choose a style due to the extensibility we want, or due to performance demands</li>
+  <li>Type classes are Church encodings of free structures. Free structures are the reification of type classes.</li>
+  <li>We can get extensibility in both directions using tagless final style or data types a la carte style. Tagless final is a Church encoding of data types a la carte.</li>
+</ul>
+
+<p>Hopefully you now agree that the Church encoding is a useful tool for unifying functional and object-oriented programming!</p>
+
+<p>This post is based on a talk I gave at Scala Days Copenhagen.</p>
+
+<p>I’d like to end with some more general thoughts.
+Firstly, I’ve presented the Church encoding in a fairly matter-of-fact style, but it’s taken me quite a while to piece everything together.
+The pieces are all in the academic literature, and I want to present some of them below, along with some commentary, so others can follow this path.
+I hope this will make navigating the literature a bit easier for those who are interested, and also show that there are many great ideas to be found out there—though the presentation is often a bit hard to parse for the working programmer<sup id="fnref:bananas" role="doc-noteref"><a href="#fn:bananas" class="footnote" rel="footnote">1</a></sup>.
+Although I’ve tried to make my survey reasonably complete I have no doubt missed some important works; I’m not an academic and this is a blog post, not a peer-reviewed publication.</p>
+
+<p>The idea of the two orthogonal axes of extensibility (which I called operations and actions) is something I first read in <a href="https://cs.brown.edu/~sk/Publications/Papers/Published/kff-synth-fp-oo/">Synthesizing Object-Oriented and Functional Design to Promote Re-Use</a>. The challenge of allowing extensibility along both axes is known as the <a href="http://homepages.inf.ed.ac.uk/wadler/papers/expression/expression.txt">Expression Problem</a>.</p>
+
+<p>In this post I discussed two solutions to the expression problem: <a href="http://okmij.org/ftp/tagless-final/course/lecture.pdf">tagless final interpreters</a> and <a href="http://www.cs.ru.nl/~W.Swierstra/Publications/DataTypesALaCarte.pdf">data types a la carte</a>. 
+In the OO world tagless final interpreters are known as <a href="https://www.cs.utexas.edu/~wcook/Drafts/2012/ecoop2012.pdf">object algebras</a>. 
+<a href="https://oleksandrmanzyuk.wordpress.com/2014/06/18/from-object-algebras-to-finally-tagless-interpreters-2/">This fantastic blog post</a> shows the correspondence.
+Note that tagless final style is sometimes known as finally tagless.</p>
+
+<p>It’s relatively rare for real programs to require a solution to the expresion problem, so I’m not advocated coverting all code to one of the two styles above, but it does come up in practice.
+For example, in <a href="https://github.com/underscoreio/doodle/">Doodle</a> I want to be able to render to different backends (adding actions) and support operations specific to a particular platform (adding operations).
+In Scala the tagless final stye is often easier to work with.
+There are a number of <a href="https://github.com/scala/bug/issues/9879">type inference</a> <a href="https://github.com/scala/bug/issues/5195">bugs</a> involving generalised algebraic data types (GADTs) in Scala that are needed when using FP style.
+Tagless final is also a bit more familiar to OO programmers, who make up most of the programmer population at this point in time.</p>
+
+<p>More on the relationship between data types a la carte style and tagless final style is given in <a href="http://www.cs.ox.ac.uk/jeremy.gibbons/publications/embedding.pdf">Folding Domain-Specific Languages: Deep and Shallow Embeddings</a>.
+(Reified or FP style is also known as a deep embedding, while Church encoded or OO style is a shallow embedding).
+I found this paper very interesting and quite easy to read.
+Note that this paper calls the relationship a Boehm-Berarducci encoding.
+While this is strictly correct—the Church encoding is between data and the untyped lambda calculus (which Alonzo Church invented)—I believe the essential idea is the same.
+If you want to know about the Boehm-Berarducci encoding there is <a href="http://okmij.org/ftp/tagless-final/course/Boehm-Berarducci.html">more here</a>.
+Also note that this paper is a “Functional Pearl”, a specific type of paper published at the International Conference on Functional Programming (ICFP).
+I find that the Functional Pearls are often the most useful papers at ICFP.
+For example, the <a href="http://strictlypositive.org/Idiom.pdf">paper introducing Applicatives</a> (called Idioms at the time) is a Functional Pearl.</p>
+
+<p>It is very easy to explore the academic literature if you go to <a href="https://scholar.google.com/">scholar.google.com</a> and enter the name of a paper that interests you.
+You can then chase citations forward and backward to time to get more context.</p>
+
+<p>Finally, although I’ve presented this as a unification of FP and OO, it is purely a unification of FP and OO <em>programming techniques</em>, not a unification of the FP and OO <em>programming paradigms</em>.
+I presented on the two paradigms at <a href="https://www.youtube.com/watch?v=bL-CcjKW1lw">Scala Days last year</a>.
+I’m still working solidly in the functional programming paradigm: avoiding mutable state, emphasising static reasoning, and so on.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:bananas" role="doc-endnote">
+      <p>All of this literature is reasonably readable, in my opinion. A paper that I consider both spectacularly unreadable but still important is <a href="http://doc.utwente.nl/56289/1/meijer91functional.pdf">Functional Programming with Bananas, Lenses, Envelopes and Barbed Wire </a>. <a href="#fnref:bananas" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        </article>
+
+        <hr>
+
+        
+          <div class="row">
+  <div class="col-sm-4 col-sm-offset-2">
+    <h3 class="text-center">
+      Like what you're reading?
+    </h3>
+    <p class="text-center">
+      <a href="/blog/newsletters" class="btn btn-primary">
+        Join our newsletter
+        <span class="icon-uio-chevron-right "></span>
+      </a>
+    </p>
+  </div>
+</div>
+        
+
+        <hr>
+
+        <h2 class="comments">Comments</h2>
+
+<p>
+  We encourage discussion of our blog posts on our <a href="https://gitter.im/underscoreio/scala">Gitter channel</a>.
+  Please review our <a href="/terms#comments">Community Guidelines</a> before posting there.
+  We encourage discussion in good faith, but do not allow combative, exclusionary, or harassing behaviour. 
+  If you have any questions, <a href="/contact">contact us</a>!
+</p>
+
+      </section>
+    </div>
+
+    <div class="col-md-4">
+      <aside class="blog-sidebar">
+        <div id="mc_embed_signup" class="blog-sidebar-mailchimp panel panel-gray">
+  <div class="panel-body">
+    <h4>The Underscore Newsletter</h4>
+
+    <p>Keep up to date! Subscribe to our newsletter for the latest Scala news.</p>
+
+    <form method="post"
+          action="http://underscoreconsulting.us3.list-manage.com/subscribe/post?u=a62dbb8a9c32f6c994dfd1111&amp;id=e9817b5369"
+              id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+           class="validate"
+          target="_blank"
+      novalidate="">
+      <fieldset>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="form-group">
+              <button class="btn btn-primary" id="mc-embedded-subscribe" type="submit" data-goal="click">Keep me posted</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+    <p class="text-muted">
+      <small>No spam. Unsubscribe at any time. We do not share personal details with third parties.</small>
+    </p>
+
+    <p class="text-muted">
+      <small><a href="/blog/newsletters">Browse old newsletters to see what you'll get</a></small>
+    </p>
+  </div>
+</div>
+<div class="blog-sidebar-promos">
+  <h4>Books from Underscore</h4>
+
+  
+  <div class="blog-sidebar-promo essential-scala"
+     data-book-id="/books/essential-scala">
+  <a class="book-title" href="/books/essential-scala">
+    <span class="book-icon icon-uio-scala"></span>
+    <span class="book-title-text">
+      Essential Scala
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo scala-with-cats"
+     data-book-id="/books/scala-with-cats">
+  <a class="book-title" href="/books/scala-with-cats">
+    <span class="book-icon icon-uio-cats"></span>
+    <span class="book-title-text">
+      Scala with Cats
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo essential-slick"
+     data-book-id="/books/essential-slick">
+  <a class="book-title" href="/books/essential-slick">
+    <span class="book-icon icon-uio-scala"></span>
+    <span class="book-title-text">
+      Essential Slick
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+
+  
+  <div class="blog-sidebar-promo shapeless-guide"
+     data-book-id="/books/shapeless-guide">
+  <a class="book-title" href="/books/shapeless-guide">
+    <span class="book-icon icon-uio-shapeless"></span>
+    <span class="book-title-text">
+      The Type Astronaut's Guide to Shapeless
+    </span>
+
+    <span class="pull-right">
+      <span class="hidden-md">Read more</span>
+      <span class="icon-uio-chevron-right "></span>
+    </span>
+  </a>
+</div>
+
+</div>
+
+<aside class="blog-sidebar-archives">
+  <h4>Archives</h4>
+
+  <ul class="list-unstyled">
+    
+      
+        <li class="heading">May 2020</li>
+      
+
+      <li><a href="/blog/posts/2020/05/27/scala-with-cats-2.html">Scala with Cats 2</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2020/05/14/porting-and-seq.html">Review Seq matching when porting to 2.13</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2019</li>
+        
+      
+
+      <li><a href="/blog/posts/2019/12/23/talks-roundup.html">Our Talks from 2019</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2019/12/12/tut-to-mdoc.html">Tips for moving from tut to mdoc</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2019</li>
+        
+      
+
+      <li><a href="/blog/posts/2019/07/04/introducing-inner-product.html">Introducing Inner Product</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/12/21/talks-roundup.html">Our Talks from 2018</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2018/12/12/bridges.html">Bridging Scala and the Front-End</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/05/17/modelling-js.html">Modelling JavaScript in Scala with Scala.js</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2018</li>
+        
+      
+
+      <li><a href="/blog/posts/2018/03/20/fs2.html">Tips for working with FS2</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/12/14/scorex.html">A look at Scorex: a Scala blockchain framework</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/11/22/scala-with-cats.html">Announcing Scala with Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/20/newsletter17.html">Newsletter 17: Season for Giving Edition</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/20/talks-from-team-underscore-at-scalax.html">Talks from Team Underscore at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/11/15/talks-to-watch-out-for-at-scalax.html">Talks to Watch Out For at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/09/05/review.html">Getting Into Other People's Code</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/06/02/uniting-church-and-state.html">Uniting Church and State: FP and OO Together</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/05/31/newsletter16.html">Newsletter 16: It's Book Time!</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/05/29/why-we-open-sourced-our-books.html">Why We Open Sourced our Books</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/04/11/type-tetris.html">Playing "Type Tetris"
+</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/03/29/free-inject.html">The Free Monad with Multiple Algebras</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/03/07/refined-data-config-database.html">Refining your data from configuration to database</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2017</li>
+        
+      
+
+      <li><a href="/blog/posts/2017/01/24/finch-functional-web-development.html">Finch: Functional Web Development</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/01/17/newsletter15.html">Newsletter 15: New Events in the New Year</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2017/01/17/agile-awards.html">Barclays Agile Awards 2016</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/12/16/newsletter14.html">Newsletter 14: Closing the Book on 2016</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/12/05/type-lambdas.html">Type lambdas and kind projector</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/11/24/value-discard.html">Value Discarding</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/10/11/twenty-two.html">Scala and 22</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/07/20/speaking-at-scalax.html">Giving a First Talk</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/07/20/new-speakers-at-scala-exchange-2016.html">How You Can Help Bring New Speakers and New Ideas to Scala eXchange 2016</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/06/27/opaque-transparent-interpreters.html">Opaque and Transparent Interpreters</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/04/21/probabilistic-programming.html">Probabilistic Programming in Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/03/21/serverless-scale-summit.html">Scala.js is Important for Cloud Services</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/03/08/qcon.html">Types Working For You, Not Against You</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Feb 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/02/02/advanced-scala-scalaz-to-cats.html">Advanced Scala Scalaz to Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2016/02/01/aws-lambda.html">Scala and AWS Lambda Blueprints</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2016</li>
+        
+      
+
+      <li><a href="/blog/posts/2016/01/19/typelevel-summits.html">Typelevel Summits</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/12/22/newsletter13.html">Newsletter 13: Christmas Loot Edition</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/21/scalax-slick-workshop.html">Video from the Slick Workshop at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/21/scalax-interpreters-workshop.html">Slides and Code from the Interpreters Workshop at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/18/tut.html">tut</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/18/scala-exchange-highlights.html">Highlights from Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/12/01/newsletter12.html">Newsletter 12: Scala Exchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Nov 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/11/19/essential-slick-review-copies.html">Essential Slick Feature Complete and Review Copies Available</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/17/why-3x5-is-and-isnt-5x3.html">Why 3&times;5 is and isn't 5&times;3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/09/sbt-commands.html">SBT Tricks</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/04/late-binding-and-overloading.html">Late Binding and Overloading in Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/11/03/atom.html">Using the Atom Editor with Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/10/14/reification.html">Reification, Kleislis, and Stream Libraries</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/10/01/newsletter11.html">Newsletter 11: Books and Boxes</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/09/16/book-update.html">Updates on the Underscore Books</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/08/28/essential-slick.html">Essential Slick Updates</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/08/23/slick-getresults.html">Using slickless with Plain SQL</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/08/08/slickless.html">Using shapeless HLists with Slick 3</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/07/24/diversity.html">You Can Increase Diversity at Scala eXchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/21/simple-isnt-easy.html">Simple Isn't Easy</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/14/upsert.html">Upsert in Slick 3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/03/newsletter10.html">Newsletter 10: Conferences, Cats, and Robots from the Future</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/07/02/annihilators-in-scala.html">Annihilators in Scala: An Example of Type Class Design</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/06/25/keeping-scala-simple.html">Keeping Scala Simple</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/10/scalajs-scaladays.html">Towards Browser and Server Utopia with Scala.js</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/10/an-introduction-to-cats.html">An Introduction to Cats</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/05/new-speakers-at-scala-exchange-2015.html">New Speakers at Scala Exchange 2015</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/04/newsletter9.html">Newsletter 9: Scala Jobs, Slick, Sealed Traits, Strata, and Scala Days</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/04/more-on-sealed.html">More on Sealed Traits in Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/06/02/everything-about-sealed.html">Everything You Ever Wanted to Know About Sealed Traits in Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/05/28/typechecking-sql.html">Typechecking SQL in Slick and doobie</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/15/slick-enrichment.html">Slick Query Enrichment</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/14/strata-hadoop-world.html">Strata + Hadoop World London 2015 In Review</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/05/06/essential-slick.html">Introducing Essential Slick</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/04/30/newsletter8.html">Newsletter 8: Free Monads and Free Courses</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/28/monadic-io-laziness-makes-you-free.html">Monadic IO: Laziness Makes You Free</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/24/distributed-teams.html">Practices for Distributed Scala Teams</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/23/deriving-the-free-monad.html">Deriving the Free Monad</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/04/14/free-monads-are-simple.html">Free Monads Are Simple</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/03/13/rxlift.html">RxLift: Reactive Web Components with LiftWeb and RxScala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/03/05/newsletter7.html">Newsletter 7: Error Handling and Two New Books</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/03/05/compositional-music-composition.html">Compositional Music Composition</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Feb 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/02/25/creative-scala-released.html">Creative Scala: A New Introduction to Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/23/designing-fail-fast-error-handling.html">Designing Fail-Fast Error Handling</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/13/error-handling-without-throwing-your-hands-up.html">Error Handling Without Throwing Your Hands Up</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/02/09/newsletter6.html">Newsletter 6: Training and Diversity Online and Worldwide</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2015</li>
+        
+      
+
+      <li><a href="/blog/posts/2015/01/29/rethinking-online-training.html">Rethinking Online Training</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/29/diversity-in-training.html">Diversity in Training</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/16/lift-26-release.html">Highlights of the Lift Web Framework 2.6 Release</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/14/new-speakers-at-scala-exchange.html">Roundup of the New Speakers at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2015/01/05/codereview.html">Code Review at Scala eXchange</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/12/16/essential-scala-and-play-books-available-for-early-access.html">Essential Scala and Play Books Available for Early Access</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/12/05/newsletter5.html">Newsletter 5: Xmas Reading</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/10/20/newsletter4.html">Newsletter 4</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/20/essential-esential-scala-at-hack-the-tower.html">Essential Essential Scala at Hack the Tower</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/17/new-speakers-at-scala-exchange.html">New Speakers at Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/02/learn-shapeless-find-500-dollars.html">Learn Shapeless, Find $500</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/10/01/intro-functional-finance.html">Introducing Functional Finance</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Sep 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/09/16/response-to-the-typelevel-fork.html">Our Response to the Typelevel fork of Scala</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/09/03/enumerations.html">Scala Enumerations</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/08/28/tools-to-guide-code-quality.html">Tools to guide code quality</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/17/angularjs-vs-react.html">AngularJs vs React</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/07/newsletter3.html">Newsletter 3</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/07/scala-exchange-nsap-last-call.html">Scala Exchange New Speaker Programme Closing Soon</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/08/05/code-reviews-dont-produce-quality-code.html">Code Reviews Don't Produce Quality Code</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/07/27/readerwriterstate.html">A Small (Real) Example of the Reader and Writer Monads</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/06/30/underscores-new-speaker-program.html">Underscore's New Speaker Program for Scala Exchange</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/24/scala-days-2014-the-lowdown.html">Scala Days 2014: The Low-down</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/21/announcing-underscoreio.html">Announcing underscore.io</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/06/05/lambda.html">Java 8 Crib Sheet for Scala Developers</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/05/02/hiring-scala-developers.html">Hiring Scala Developers</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Apr 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/04/30/newsletter2.html">Newsletter 2</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/03/18/newsletter1.html">Newsletter 1</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/03/10/teaching-scala.html">Teaching Scala</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jan 2014</li>
+        
+      
+
+      <li><a href="/blog/posts/2014/01/29/unboxed-tagged-angst.html">Unboxed Tagged Angst</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2014/01/06/crdt.html">Collaborative Text Editing</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Dec 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/12/20/scalaz-monad-transformers.html">Scalaz Monad Transformers</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2013/12/20/crdts-for-fun-and-eventual-profit.html">CRDTs for fun and eventual profit</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/10/01/functional-media-roundup-quality-counts.html">Functional Media Roundup: Quality Counts</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/08/01/lift.html">Lift Cookbook</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/07/09/media-panel.html">Functional Programming in Media and Publishing</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2013/07/03/cloudbees.html">CloudBees Service Partner</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Mar 2013</li>
+        
+      
+
+      <li><a href="/blog/posts/2013/03/13/streaming-algorithms-preregister.html">Pre-register for Streaming Algorithms Course</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Oct 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/10/16/a-tribute-to-phil-bagwell.html">A Tribute to Phil Bagwell</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Aug 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/08/01/developer-price.html">Misconceptions about Scala Developer Rates</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jul 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/07/09/another-typeclass.html">Another Small Example of the Type Class Pattern</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2012/07/06/icml-review.html">Review of COLT and ICML</a></li>
+    
+      
+        
+        
+        
+      
+
+      <li><a href="/blog/posts/2012/07/02/kleisli-arrows.html">A Small Example of Kleisli Arrows</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">Jun 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/06/16/phantom-types.html">A Small Example of Phantom Types</a></li>
+    
+      
+        
+        
+        
+          <li class="heading">May 2012</li>
+        
+      
+
+      <li><a href="/blog/posts/2012/05/03/typeclasses.html">A Small Example of the Typeclass Pattern</a></li>
+    
+  </ul>
+</aside>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="text-center">
+      <img src="/images/common/footer-brand.png" class="footer-brand" alt="Underscore">
+    </div>
+
+    <div class="row sitemap">
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/">Underscore</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li><a href="/consulting">Our Services</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li class="currency-select">
+            Currency:
+            <a href="javascript:void(0)" class="currency-select-usd">USD</a>,
+            <a href="javascript:void(0)" class="currency-select-gbp">GBP</a>,
+            <a href="javascript:void(0)" class="currency-select-eur">EUR</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/training">Courses and Training</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/training/bookings">Book a Course</a></li>
+          <li><a href="/training">Course Directory</a></li>
+          <li><a href="/training/courses/essential-scala">Essential Scala</a></li>
+          <li><a href="/training/courses/advanced-scala">Advanced Scala with Cats</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/contact">Contact</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/contact">
+            <span class="icon-uio-envelope "></span>
+            hello@underscore.io
+          </a></li>
+          <li><a href="http://twitter.com/underscoreio">
+            <span class="icon-uio-twitter "></span>
+            @underscoreio
+          </a></li>
+          <li><a href="/blog/newsletters">
+            <span class="icon-uio-public "></span>
+            The Underscore Newsletter
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright text-center">
+      Copyright 2011&ndash;22.
+      <br class="visible-xs">
+      All rights reserved. <a href="/terms">Terms of use</a>
+    </p>
+  </div>
+</footer>
+
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29444727-2', 'underscore.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

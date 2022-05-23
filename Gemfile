@@ -1,12 +1,10 @@
 source "https://rubygems.org"
 
-gem 'jekyll',          '= 3.3.1'
-gem 'jekyll-paginate', '= 1.1.0'
-gem 'kramdown',        '= 1.13.0'
-gem 'pygments.rb',     '= 0.6.3'
-gem 'typogruby',       '= 1.0.18'
-gem 's3_website',      '= 2.16.0'
-gem 'rake'
 
-# Added at 2016-12-05 20:50:26 +0000 by dave:
+# See: https://pages.github.com/versions/
+gem 'jekyll',          '= 3.9.2'
+gem 'jekyll-paginate', '= 1.1.0'
+
+gem 'typogruby',       '= 1.0.18'
 gem 'jekyll-assets', '= 2.2.8'
+gem 'kramdown-parser-gfm'

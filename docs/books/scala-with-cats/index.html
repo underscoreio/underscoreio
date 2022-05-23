@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" id="/books/scala-with-cats" class="training">
+  
+  
+  <head>
+    <title>Scala with Cats - Underscore</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="/assets/screen-9132d4f189ef656eb3d1e8defedf7c83e32e9240d9a3af3d804d36f850e43dd5.css">
+    <link type="text/css" rel="stylesheet" href="/assets/print-dd04f6182ddcf193d2ac9f59bdbdbb366e01738f8a32086ffb82c7be2f9e1eb8.css" media="print">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@underscoreio">
+    
+      <meta name="twitter:title" content="Scala with Cats">
+    
+    
+      <meta name="twitter:description" content="Dive deep into functional patterns using Scala and Cats.
+For experienced Scala developers.
+">
+    
+    
+      <meta name="twitter:image" content="http://underscore.io/images/twitter-card-icon.png">
+    
+
+    <link rel="shortcut icon" href="/images/favicon-64.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <link rel="canonical" href="http://underscore.io/books/scala-with-cats/">
+
+    <script type="text/javascript" src="/assets/site-5ab8e41df06f32ccfbf4c40fdf2d7fc81c360b991aa5c153ed01fd0714c019d4.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class="active"><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="hero book-hero" style="background: #1a8950">
+  <div class="overlay-gem-left-white"></div>
+  <div class="overlay-gem-right-white"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class="active"><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <header class="hero-text">
+    <div class="container">
+      <h1>
+        <a class="back-link" href="/books">
+          Scala with Cats Book
+          <span class="icon-uio-back "></span>
+        </a>
+      </h1>
+    </div>
+  </header>
+</div>
+
+<section class="container">
+  <div class="row">
+    <div class="col-sm-7 col-md-8">
+      <article class="training-content">
+        <h2 id="overview">Overview</h2>
+
+<p>The main goal of this book is to teach system architecture and design using the techniques of modern functional programming. This means designing systems as small composable units, expressing constraints and interactions via the type system, and using composition to guide the construction of large systems in a way that maintains the original architectural vision.</p>
+
+<p>The book also serves as an introduction to the Cats library. We use abstractions from Cats, and we explain the structure of Cats so you can use it without fear in your own code base. The broad ideas are not specific to Cats, but Cats provides an excellent implementation that is beneficial to learn in its own right.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>To benefit from this book you should have about a year’s experience with Scala, or equivalent experience with a functional language such as Haskell, O’Caml, or Lisp.</p>
+
+<h2 id="learning-outcomes">Learning Outcomes</h2>
+
+<ul>
+  <li>Understand how to express abstractions using type classes</li>
+  <li>Learn the key type classes of: Functor, Monoid, Applicative, and Monad.</li>
+  <li>Understand how to apply type classes to solve practical problems across a variety of domains.</li>
+</ul>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li>Introduction
+    <ul>
+      <li>Anatomy of a Type Class
+        <ul>
+          <li>The Type Class</li>
+          <li>Type Class Instances</li>
+          <li>Interfaces</li>
+          <li>Exercise: Printable Library</li>
+          <li>Take Home Points</li>
+        </ul>
+      </li>
+      <li>Meet Cats
+        <ul>
+          <li>Importing Type Classes</li>
+          <li>Importing Default Instances</li>
+          <li>Importing Interface Syntax</li>
+          <li>Defining Custom Instances</li>
+          <li>Exercise: Cat Show</li>
+          <li>Take Home Points</li>
+        </ul>
+      </li>
+      <li>Example: Eq
+        <ul>
+          <li>Equality, Liberty, and Fraternity</li>
+          <li>Comparing Ints</li>
+          <li>Comparing Options</li>
+          <li>Comparing Custom Types</li>
+          <li>Exercise: Equality, Liberty, and Felinity</li>
+          <li>Take Home Points</li>
+        </ul>
+      </li>
+      <li>Summary</li>
+    </ul>
+  </li>
+  <li>Monoids and Semigroups
+    <ul>
+      <li>Definition of a Monoid</li>
+      <li>Definition of a Semigroup</li>
+      <li>Exercise: The Truth About Monoids</li>
+      <li>Exercise: All Set for Monoids</li>
+      <li>Monoids in Cats
+        <ul>
+          <li>The Monoid Type Class</li>
+          <li>Obtaining Instances</li>
+          <li>Default Instances</li>
+          <li>Monoid Syntax</li>
+          <li>Exercise: Adding All The Things</li>
+        </ul>
+      </li>
+      <li>Controlling Instance Selection
+        <ul>
+          <li>Type Class Variance</li>
+          <li>Identically Typed Instances</li>
+        </ul>
+      </li>
+      <li>Applications of Monoids
+        <ul>
+          <li>Big Data</li>
+          <li>Distributed Systems</li>
+          <li>Monoids in the Small</li>
+        </ul>
+      </li>
+      <li>Summary</li>
+    </ul>
+  </li>
+  <li>Functors
+    <ul>
+      <li>Examples of Functors</li>
+      <li>More Examples of Functors</li>
+      <li>Definition of a Functor</li>
+      <li>Aside: Higher Kinds and Type Constructors</li>
+      <li>Functors in Cats
+        <ul>
+          <li>The Functor Type Class</li>
+          <li>Functor Syntax</li>
+          <li>Instances for Custom Types</li>
+          <li>Exercise: Branching out with Functors</li>
+        </ul>
+      </li>
+      <li>Contravariant and Invariant Functors
+        <ul>
+          <li>Contravariant functors and the contramap method</li>
+          <li>Invariant functors and the imap method</li>
+          <li>What’s With the Name?</li>
+        </ul>
+      </li>
+      <li>Contravariant and Invariant in Cats
+        <ul>
+          <li>Contravariant in Cats</li>
+        </ul>
+      </li>
+      <li>Summary</li>
+    </ul>
+  </li>
+  <li>Monads
+    <ul>
+      <li>What is a Monad?
+        <ul>
+          <li>Monad Definition and Laws</li>
+          <li>Exercise: Getting Func-y</li>
+        </ul>
+      </li>
+      <li>Monads in Cats
+        <ul>
+          <li>The Monad Type Class</li>
+          <li>Default Instances</li>
+          <li>Monad Syntax</li>
+        </ul>
+      </li>
+      <li>The Identity Monad
+        <ul>
+          <li>Exercise: Monadic Secret Identities</li>
+        </ul>
+      </li>
+      <li>Either and Xor
+        <ul>
+          <li>Left and Right Bias</li>
+          <li>Creating Xors</li>
+          <li>Transforming Xors</li>
+          <li>Fail-Fast Error Handling</li>
+          <li>Representing Errors</li>
+          <li>Swapping Control Flow</li>
+          <li>Exercise: What is Best?</li>
+        </ul>
+      </li>
+      <li>The Eval Monad
+        <ul>
+          <li>Eager, lazy, memoized, oh my!</li>
+          <li>Eval’s models of evaluation</li>
+          <li>Eval as a Monad</li>
+          <li>Trampolining and Eval.defer</li>
+          <li>Exercise: Safer Folding using Eval</li>
+        </ul>
+      </li>
+      <li>The Writer Monad
+        <ul>
+          <li>Creating and Unpacking Writers</li>
+          <li>Composing and Transforming Writers</li>
+          <li>Exercise: Show Your Working</li>
+        </ul>
+      </li>
+      <li>The Reader Monad
+        <ul>
+          <li>Creating and Unpacking Readers</li>
+          <li>Composing Readers</li>
+          <li>Exercise: Hacking on Readers</li>
+          <li>When to Use Readers?</li>
+        </ul>
+      </li>
+      <li>The State Monad
+        <ul>
+          <li>Creating and Unpacking State</li>
+          <li>Composing and Transforming State</li>
+          <li>Exercise: Post-Order Calculator</li>
+        </ul>
+      </li>
+      <li>Defining Custom Monads
+        <ul>
+          <li>Exercise: Branching out Further with Monads</li>
+        </ul>
+      </li>
+      <li>Summary</li>
+    </ul>
+  </li>
+  <li>Monad Transformers
+    <ul>
+      <li>A Transformative Example</li>
+      <li>Monad Transformers in Cats
+        <ul>
+          <li>The Monad Transformer Classes</li>
+          <li>Building Monad Stacks</li>
+          <li>Constructing and Unpacking Instances</li>
+          <li>Usage Patterns</li>
+          <li>Default Instances</li>
+        </ul>
+      </li>
+      <li>Exercise: Monads: Transform and Roll Out</li>
+      <li>Summary</li>
+    </ul>
+  </li>
+  <li>Semigroupal and Applicative
+    <ul>
+      <li>Semigroupal
+        <ul>
+          <li>Joining Two Contexts</li>
+          <li>Joining Three or More Contexts</li>
+        </ul>
+      </li>
+      <li>Semigroupal Builder Syntax
+        <ul>
+          <li>Fancy Functors and Semigroupal Builder Syntax</li>
+        </ul>
+      </li>
+      <li>Semigroupal Applied to Different Types
+        <ul>
+          <li>Semigroupal Applied to Future</li>
+          <li>Semigroupal Applied to List</li>
+          <li>Semigroupal Applied to Xor</li>
+          <li>Semigroupal Applied to Monads</li>
+        </ul>
+      </li>
+      <li>Validated
+        <ul>
+          <li>Creating Instances of Validated</li>
+          <li>Combining Instances of Validated</li>
+          <li>Methods of Validated</li>
+          <li>Exercise: Form Validation</li>
+        </ul>
+      </li>
+      <li>Apply and Applicative
+        <ul>
+          <li>The Hierarchy of Sequencing Type Classes</li>
+        </ul>
+      </li>
+      <li>Summary</li>
+    </ul>
+  </li>
+  <li>Foldable and Traverse
+    <ul>
+      <li>Foldable
+        <ul>
+          <li>Folds and Folding</li>
+          <li>Exercise: Reflecting on Folds</li>
+          <li>Exercise: Scaf-fold-ing other methods</li>
+          <li>Foldable in Cats</li>
+        </ul>
+      </li>
+      <li>Traverse
+        <ul>
+          <li>Traversing with Futures</li>
+          <li>Traversing with Applicatives</li>
+          <li>Traverse in Cats</li>
+          <li>Unapply, traverseU, and sequenceU</li>
+        </ul>
+      </li>
+      <li>Summary</li>
+    </ul>
+  </li>
+  <li>Case Study: Testing Asynchronous Code</li>
+  <li>Case Study: Map-Reduce
+    <ul>
+      <li>Parallelizing map and fold</li>
+      <li>Implementing foldMap</li>
+      <li>Parallelising foldMap
+        <ul>
+          <li>Futures</li>
+          <li>Partitioning Sequences</li>
+          <li>Parallel foldMap</li>
+        </ul>
+      </li>
+      <li>Monadic foldMap
+        <ul>
+          <li>Exercise: Everything is Monadic</li>
+          <li>Exercise: Seeing is Believing</li>
+        </ul>
+      </li>
+      <li>Parallel Monadic foldMap</li>
+      <li>foldMap in the Real World</li>
+    </ul>
+  </li>
+  <li>Case Study: Data Validation
+    <ul>
+      <li>Sketching the Library Structure</li>
+      <li>The Check Datatype</li>
+      <li>Basic Combinators</li>
+      <li>Transforming Data
+        <ul>
+          <li>Predicates</li>
+          <li>Checks</li>
+        </ul>
+      </li>
+      <li>Kleislis</li>
+      <li>Conclusions</li>
+    </ul>
+  </li>
+  <li>Case Study: Commutative Replicated Data Types
+    <ul>
+      <li>Eventual Consistency</li>
+      <li>The GCounter
+        <ul>
+          <li>Simple Counters</li>
+          <li>GCounters</li>
+          <li>Exercise: GCounter Implementation</li>
+        </ul>
+      </li>
+      <li>Generalisation
+        <ul>
+          <li>Implementation</li>
+          <li>Exercises</li>
+        </ul>
+      </li>
+      <li>Abstracting GCounter to a Type Class</li>
+      <li>Summary</li>
+    </ul>
+  </li>
+  <li>Case Study: Parser Combinators</li>
+</ul>
+
+<h2 id="feedback-from-readers">Feedback from Readers</h2>
+
+<blockquote>
+  <p>“[A] fantastic piece of technical literature”</p>
+</blockquote>
+
+<p>– Pablo Francisco Pérez Hidalgo</p>
+
+      </article>
+    </div>
+    <div class="col-sm-5 col-md-4">
+      <aside class="training-sidebar">
+        
+          <div class="panel panel-gray training-book /books/scala-with-cats">
+  <div class="panel-heading">
+    <h4>Get the Book</h4>
+  </div>
+
+  <div class="panel-body">
+    
+      <img src="/images/books/scala-with-cats.png"
+           class="training-book-cover"
+           alt="Scala with Cats">
+    
+
+    
+      <p>
+        <a class="btn btn-primary btn-block"
+            href="https://scalawithcats.com/">
+          Visit the web site
+        </a>
+      </p>
+    
+  </div>
+
+</div>
+
+<!--
+  Mailchimp embedded forms do not work with GDPR fields.
+  We have GDPR fields, so removing this until they do....
+
+-->
+
+        
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="text-center">
+      <img src="/images/common/footer-brand.png" class="footer-brand" alt="Underscore">
+    </div>
+
+    <div class="row sitemap">
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/">Underscore</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li><a href="/consulting">Our Services</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li class="currency-select">
+            Currency:
+            <a href="javascript:void(0)" class="currency-select-usd">USD</a>,
+            <a href="javascript:void(0)" class="currency-select-gbp">GBP</a>,
+            <a href="javascript:void(0)" class="currency-select-eur">EUR</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/training">Courses and Training</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/training/bookings">Book a Course</a></li>
+          <li><a href="/training">Course Directory</a></li>
+          <li><a href="/training/courses/essential-scala">Essential Scala</a></li>
+          <li><a href="/training/courses/advanced-scala">Advanced Scala with Cats</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/contact">Contact</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/contact">
+            <span class="icon-uio-envelope "></span>
+            hello@underscore.io
+          </a></li>
+          <li><a href="http://twitter.com/underscoreio">
+            <span class="icon-uio-twitter "></span>
+            @underscoreio
+          </a></li>
+          <li><a href="/blog/newsletters">
+            <span class="icon-uio-public "></span>
+            The Underscore Newsletter
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright text-center">
+      Copyright 2011&ndash;22.
+      <br class="visible-xs">
+      All rights reserved. <a href="/terms">Terms of use</a>
+    </p>
+  </div>
+</footer>
+
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29444727-2', 'underscore.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

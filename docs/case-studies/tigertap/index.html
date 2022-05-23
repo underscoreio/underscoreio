@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" id="/case-studies/tigertap" class="">
+  
+  
+  <head>
+    <title>Tigertap - Underscore</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="/assets/screen-9132d4f189ef656eb3d1e8defedf7c83e32e9240d9a3af3d804d36f850e43dd5.css">
+    <link type="text/css" rel="stylesheet" href="/assets/print-dd04f6182ddcf193d2ac9f59bdbdbb366e01738f8a32086ffb82c7be2f9e1eb8.css" media="print">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@underscoreio">
+    
+      <meta name="twitter:title" content="Tigertap">
+    
+    
+      <meta name="twitter:description" content="Mobile interactions at scale
+
+Tigertap is a platform
+for easily creating mobile marketing interactions.
+Campaigns include simple information look up,
+quizzes and competitions, data capture,
+and coupons and loyalty cards.
+Consumers tap NFC tags to interact with a service.
+
+Campaigns are rolled out at high profile events,
+such as conferences and sports events.
+
+
+  
+
+
+Challenges of the services
+
+These events are, by their nature,
+unpredictable and extremely spiky.
+Before a sport event there could be low levels of traffic,
+then a peak during a game, especially during intervals,
+tailing off over a small number of days or hours.
+Consequently the service needs to scales up for demand,
+and down to control cost.
+
+Challenges in the market
+
+As Tigertap’s mobile interactions
+are used by customers,
+new use cases become apparent.
+It is vital to add and extend services when needed.
+These changing requirements
+need to interact well with existing services.
+
+
+  
+
+
+Underscore’s role
+
+Underscore provided all the
+remote software engineering
+and cloud delivery effort,
+including performance testing
+and on-the-day event support.
+
+Typically a new feature would be discussed over Skype,
+and then Underscore would sketch out a solution
+in terms of the user experience and the service logic.
+This process would flush out consequences,
+and may lead to simplification or generalisation of the service.
+Implementation, testing, and production deployment would then follow.
+
+
+  
+    Calm purposeful approach to the problems and proposing solutions
+  
+
+  
+    &mdash;Mathew Smith, Founder
+  
+
+
+Scala
+
+The product consists of two main components:
+a real-time administrative interface to control and monitor campaigns;
+and a REST API for mobile clients to interact with.
+
+Scala and functional principles were used throughout.
+A key aspect of the work was
+maintaining a coherent design in the face of changing requirements.
+This enabled us to easily extend the platform as the product grew.
+Using functional programming approaches helped achieve this
+and allowed the team to “say yes” to change within a budget more often.
+
+Amazon Web Services
+
+The services was deployed to AWS Beanstalk,
+backed by RDS datastore,
+and AWS SNS messaging.
+This provides manual and auto-scaling capabilities to handle the spikes in traffic.
+
+Analytics
+
+In addition to the standard reports provided by the platform,
+the Tigertap team carried out their own custom reporting for clients.
+Underscore supported the team,
+helping design queries or discussing the data model behind the tap stream.
+
+The result
+
+Tigertap’s client feedback indicates the success of the platform:
+
+
+  Tigertap has been such a pleasure to work with.
+We have used them for some of our highest profile events,
+and they have delivered NFC services flawlessly every time.
+
+  When we talk about deploying millions
+or 100’s of millions of smart advertisements,
+most of the companies we talk to clam up.
+Tigertap built their system from day one with this sort of scale in mind.
+If you have large scale NFC projects, these are the guys.
+
+">
+    
+    
+      <meta name="twitter:image" content="http://underscore.io/images/twitter-card-icon.png">
+    
+
+    <link rel="shortcut icon" href="/images/favicon-64.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml">
+
+    <link rel="canonical" href="http://underscore.io/case-studies/tigertap/">
+
+    <script type="text/javascript" src="/assets/site-5ab8e41df06f32ccfbf4c40fdf2d7fc81c360b991aa5c153ed01fd0714c019d4.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="hero">
+  <div class="overlay-gem-left-white hero-overlay-soft"></div>
+  <div class="overlay-gem-right-white hero-overlay-soft"></div>
+  <div class="overlay-arrow-white-inverse"></div>
+
+  <nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="icon-uio-underscore "></span></a>
+    </div>
+
+    <div class="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right visible-md visible-lg">
+        <li class="divider"></li>
+        <li class="social"><a href="http://twitter.com/underscoreio"><span class="icon-uio-twitter "></span><span class="sr-only">Twitter</span></a></li>
+        <li class="social"><a href="/contact"><span class="icon-uio-envelope "></span><span class="sr-only">Email</span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="visible-xs "><a href="/">Home</a></li>
+        <li class=""><a href="/development">Development</a></li>
+        <li class=""><a href="/consulting">Consulting</a></li>
+        <li class=""><a href="/training">Training</a></li>
+        <!-- li class=""><a href="/books">Books</a></li -->
+        <li class=""><a href="/company">Company</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <header class="hero-text">
+    <div class="container">
+      
+        <h1>Tigertap</h1>
+      
+
+      
+        <p class="lead">Meaningful mobile interactions</p>
+      
+    </div>
+  </header>
+</div>
+
+
+<div class="container">
+  <h2 id="mobile-interactions-at-scale">Mobile interactions at scale</h2>
+
+<p>Tigertap is a platform
+for easily creating mobile marketing interactions.
+Campaigns include simple information look up,
+quizzes and competitions, data capture,
+and coupons and loyalty cards.
+Consumers tap NFC tags to interact with a service.</p>
+
+<p>Campaigns are rolled out at high profile events,
+such as conferences and sports events.</p>
+
+<p class="text-center">
+  <img src="/images/case-studies/tigertap/tigertap.png" alt="Tigertap" height="300" />
+</p>
+
+<h2 id="challenges-of-the-services">Challenges of the services</h2>
+
+<p>These events are, by their nature,
+unpredictable and extremely spiky.
+Before a sport event there could be low levels of traffic,
+then a peak during a game, especially during intervals,
+tailing off over a small number of days or hours.
+Consequently the service needs to scales up for demand,
+and down to control cost.</p>
+
+<h2 id="challenges-in-the-market">Challenges in the market</h2>
+
+<p>As Tigertap’s mobile interactions
+are used by customers,
+new use cases become apparent.
+It is vital to add and extend services when needed.
+These changing requirements
+need to interact well with existing services.</p>
+
+<p class="text-center">
+  <img src="/images/case-studies/tigertap/screenshot.png" alt="Tigertap screenshot" />
+</p>
+
+<h2 id="underscores-role">Underscore’s role</h2>
+
+<p>Underscore provided all the
+remote software engineering
+and cloud delivery effort,
+including performance testing
+and on-the-day event support.</p>
+
+<p>Typically a new feature would be discussed over Skype,
+and then Underscore would sketch out a solution
+in terms of the user experience and the service logic.
+This process would flush out consequences,
+and may lead to simplification or generalisation of the service.
+Implementation, testing, and production deployment would then follow.</p>
+
+<div class="testimonial">
+  <blockquote>
+    Calm purposeful approach to the problems and proposing solutions
+  </blockquote>
+
+  <p class="attribution">
+    &mdash;Mathew Smith, Founder
+  </p>
+</div>
+
+<h2 id="scala">Scala</h2>
+
+<p>The product consists of two main components:
+a real-time administrative interface to control and monitor campaigns;
+and a REST API for mobile clients to interact with.</p>
+
+<p>Scala and functional principles were used throughout.
+A key aspect of the work was
+maintaining a coherent design in the face of changing requirements.
+This enabled us to easily extend the platform as the product grew.
+Using functional programming approaches helped achieve this
+and allowed the team to “say yes” to change within a budget more often.</p>
+
+<h2 id="amazon-web-services">Amazon Web Services</h2>
+
+<p>The services was deployed to AWS Beanstalk,
+backed by RDS datastore,
+and AWS SNS messaging.
+This provides manual and auto-scaling capabilities to handle the spikes in traffic.</p>
+
+<h2 id="analytics">Analytics</h2>
+
+<p>In addition to the standard reports provided by the platform,
+the Tigertap team carried out their own custom reporting for clients.
+Underscore supported the team,
+helping design queries or discussing the data model behind the tap stream.</p>
+
+<h2 id="the-result">The result</h2>
+
+<p>Tigertap’s client feedback indicates the success of the platform:</p>
+
+<blockquote>
+  <p>Tigertap has been such a pleasure to work with.
+We have used them for some of our highest profile events,
+and they have delivered NFC services flawlessly every time.</p>
+
+  <p>When we talk about deploying millions
+or 100’s of millions of smart advertisements,
+most of the companies we talk to clam up.
+Tigertap built their system from day one with this sort of scale in mind.
+If you have large scale NFC projects, these are the guys.</p>
+</blockquote>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="text-center">
+      <img src="/images/common/footer-brand.png" class="footer-brand" alt="Underscore">
+    </div>
+
+    <div class="row sitemap">
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/">Underscore</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li><a href="/consulting">Our Services</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li class="currency-select">
+            Currency:
+            <a href="javascript:void(0)" class="currency-select-usd">USD</a>,
+            <a href="javascript:void(0)" class="currency-select-gbp">GBP</a>,
+            <a href="javascript:void(0)" class="currency-select-eur">EUR</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/training">Courses and Training</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/training/bookings">Book a Course</a></li>
+          <li><a href="/training">Course Directory</a></li>
+          <li><a href="/training/courses/essential-scala">Essential Scala</a></li>
+          <li><a href="/training/courses/advanced-scala">Advanced Scala with Cats</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <h5><a href="/contact">Contact</a></h5>
+        <ul class="list-unstyled">
+          <li><a href="/contact">
+            <span class="icon-uio-envelope "></span>
+            hello@underscore.io
+          </a></li>
+          <li><a href="http://twitter.com/underscoreio">
+            <span class="icon-uio-twitter "></span>
+            @underscoreio
+          </a></li>
+          <li><a href="/blog/newsletters">
+            <span class="icon-uio-public "></span>
+            The Underscore Newsletter
+          </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright text-center">
+      Copyright 2011&ndash;22.
+      <br class="visible-xs">
+      All rights reserved. <a href="/terms">Terms of use</a>
+    </p>
+  </div>
+</footer>
+
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29444727-2', 'underscore.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
